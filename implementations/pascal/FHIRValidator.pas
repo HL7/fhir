@@ -32,17 +32,29 @@ POSSIBILITY OF SUCH DAMAGE.
 interface
 
 Uses
-  SysUtils, Classes,
+  SysUtils, Classes, System.Character, RegExpr,
   IdSoapMsXml, MsXmlParser,
+  StringSupport, MathSupport,
   AdvObjects, AdvGenerics, AdvJSON, AdvObjectLists,
   FHIRBase, FHIRResources, FHIRTypes;
 
 Type
-  TContext = class
-    function fetchResource<T : TFHIRResource, constructor>(url : String) : T; //virtual; abstract;
+  TValidationResult = class (TAdvObject)
+  private
+    FSeverity : TFhirIssueSeverity;
+    FMessage  : String;
+  public
+    Property Severity : TFhirIssueSeverity read FSeverity write FSeverity;
+    Property Message : String read FMessage write FMessage;
+    function isOk : boolean;
   end;
-  
-  TValidationMessage = class (TAdvObject);
+
+  TContext = {abstract} class
+    function fetchResource(t : TFhirResourceType; url : String) : TFhirResource; virtual; abstract;
+    function expand(vs : TFhirValueSet) : TFHIRValueSet; virtual; abstract;
+    function supportsSystem(system : string) : boolean; virtual; abstract;
+    function validateCode(system, code, display : String) : TValidationResult; virtual; abstract;
+  end;
 
   TWrapperElement = class (TAdvObject)
   private
@@ -102,6 +114,11 @@ Type
 
   TChildIterator = class (TAdvObject)
   private
+    parent : TWrapperElement;
+    basePath : String;
+    lastCount : integer;
+    child : TWrapperElement;
+
   public
     constructor Create(path : String; element : TWrapperElement);
     function next : boolean;
@@ -123,30 +140,77 @@ Type
     FSuppressLoincSnomedMessages : boolean;
     FRequireResourceId : boolean;
     FIsAnyExtensionsAllowed : boolean;
+    FExtensionDomains : TStringlist;
 
-    function rule(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; line, col : integer; path : String; thePass : boolean; msg : String) : boolean; overload;
-    function rule(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; path : String; thePass : boolean; msg : String) : boolean; overload;
-    function warning(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; line, col : integer; path : String; thePass : boolean; msg : String) : boolean;
-    function hint(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; line, col : integer; path : String; thePass : boolean; msg : String) : boolean;
-    procedure bpCheck(errors : TAdvList<TValidationMessage>; t : TFhirIssueType; line, col : integer; literalPath : String; test : boolean; message : String);
+    function rule(errors : TAdvList<TFhirOperationOutcomeIssue>; t : TFhirIssueType; line, col : integer; path : String; thePass : boolean; msg : String) : boolean; overload;
+    function rule(errors : TAdvList<TFhirOperationOutcomeIssue>; t : TFhirIssueType; path : String; thePass : boolean; msg : String) : boolean; overload;
+    function warning(errors : TAdvList<TFhirOperationOutcomeIssue>; t : TFhirIssueType; line, col : integer; path : String; thePass : boolean; msg : String) : boolean;
+    function hint(errors : TAdvList<TFhirOperationOutcomeIssue>; t : TFhirIssueType; line, col : integer; path : String; thePass : boolean; msg : String) : boolean;
+    procedure bpCheck(errors : TAdvList<TFhirOperationOutcomeIssue>; t : TFhirIssueType; line, col : integer; literalPath : String; test : boolean; message : String);
 
+    function isKnownType(code : String) : boolean;
+    function genFullUrl(bundleBase, entryBase, ty, id : String) : String;
     function empty(element : TWrapperElement) : boolean;
     Function resolveInBundle(entries : TAdvList<TWrapperElement>; ref, fullUrl, type_, id : String) : TWrapperElement;
     function getProfileForType(type_ : String) : TFHIRStructureDefinition;
-    function nameMatches(name, tail : String) : boolean;
     function sliceMatches(element : TWrapperElement; path : String; slice, ed: TFHIRElementDefinition; profile : TFHIRStructureDefinition) : boolean;
+    function resolveType(t : String) : TFHIRElementDefinition;
+	  function getCriteriaForDiscriminator(path : String; ed : TFHIRElementDefinition; discriminator : String; profile : TFHIRStructureDefinition) : TFHIRElementDefinition;
+  	function getValueForDiscriminator(element : TWrapperElement; discriminator : String; criteria : TFHIRElementDefinition) : TFhirElement;
+    function valueMatchesCriteria(value : TFHIRElement ; criteria : TFHIRElementDefinition) : boolean;
+    function resolve(ref : String ; stack : TNodeStack) : TWrapperElement;
+    function tryParse(ref : String) : String;
+    function checkResourceType(ty : String) : String;
+    function getBaseType(profile : TFHIRStructureDefinition; pr : String) : String;
+    function getFromBundle(bundle : TWrapperElement; ref : String) : TWrapperElement;
+    function getContainedById(container : TWrapperElement; id : String) : TWrapperElement;
+    function resolveProfile(profile : TFHIRStructureDefinition; pr : String): TFHIRStructureDefinition;
+    function checkExtensionContext(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; definition : TFHIRStructureDefinition; stack : TNodeStack; extensionParent : String) : boolean;
+    function getElementByPath(definition : TFHIRStructureDefinition; path : String) : TFHIRElementDefinition;
+    function findElement(profile : TFHIRStructureDefinition; name : String) : TFHIRElementDefinition;
+    function getDefinitionByTailNameChoice(children : TFHIRElementDefinitionList; name : String) : TFHIRElementDefinition;
+    function resolveBindingReference(reference : TFHIRType) : TFHIRValueSet;
+    function getExtensionByUrl(extensions : TAdvList<TWrapperElement>; url : String) : TWrapperElement;
 
-    procedure validateSections(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
-    procedure validateBundleReference(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
-    procedure validateDocument(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; composition : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
-    procedure validateElement(errors : TAdvList<TValidationMessage>; profile : TFHIRStructureDefinition; definition : TFHIRElementDefinition; cprofile : TFHIRStructureDefinition;
+    procedure checkQuantityValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRQuantity);
+    procedure checkAddressValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRAddress);
+    procedure checkContactPointValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRContactPoint);
+    procedure checkAttachmentValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRAttachment);
+    procedure checkIdentifierValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRIdentifier);
+    procedure checkCodingValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRCoding);
+    procedure checkHumanNameValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRHumanName);
+    procedure checkCodeableConceptValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRCodeableConcept);
+    procedure checkTimingValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRTiming);
+    procedure checkPeriodValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRPeriod);
+    procedure checkRangeValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRRange);
+    procedure checkRatioValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRRatio);
+    procedure checkSampledDataValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRSampledData);
+
+    procedure checkFixedValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRElement; propName : String);
+
+    function checkCode(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; path : String; code, system, display : String) : boolean;
+    procedure checkQuantity(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; context : TFHIRElementDefinition; b : boolean);
+    procedure checkPrimitiveBinding(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; ty : String;context : TFHIRElementDefinition; element : TWrapperElement);
+    procedure checkPrimitive(errors : TAdvList<TFhirOperationOutcomeIssue>; path, ty : String; context : TFHIRElementDefinition; e : TWrapperElement);
+    procedure checkIdentifier(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; context : TFHIRElementDefinition);
+    procedure checkCoding(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; profile : TFHIRStructureDefinition; context : TFHIRElementDefinition);
+    procedure checkCodeableConcept(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; profile : TFHIRStructureDefinition; context : TFHIRElementDefinition);
+    procedure checkReference(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; profile : TFHIRStructureDefinition; container : TFHIRElementDefinition; parentType : String; stack : TNodeStack);
+    function checkExtension(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; def : TFHIRElementDefinition; profile : TFHIRStructureDefinition; stack : TNodeStack) : TFHIRStructureDefinition;
+    procedure validateContains(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; child : TFHIRElementDefinition; context : TFHIRElementDefinition; element : TWrapperElement; stack : TNodeStack; needsId : boolean);
+    function allowUnknownExtension(url : String) : boolean;
+
+    procedure validateSections(errors : TAdvList<TFhirOperationOutcomeIssue>; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
+    procedure validateBundleReference(errors : TAdvList<TFhirOperationOutcomeIssue>; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
+    procedure validateDocument(errors : TAdvList<TFhirOperationOutcomeIssue>; entries : TAdvList<TWrapperElement>; composition : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
+    procedure validateElement(errors : TAdvList<TFhirOperationOutcomeIssue>; profile : TFHIRStructureDefinition; definition : TFHIRElementDefinition; cprofile : TFHIRStructureDefinition;
                   context : TFHIRElementDefinition; element : TWrapperElement; actualType : String; stack : TNodeStack);
-    procedure validateMessage(errors : TAdvList<TValidationMessage>; bundle : TWrapperElement);
-    procedure validateBundle(errors : TAdvList<TValidationMessage>; bundle : TWrapperElement; stack : TNodeStack);
-    procedure validateObservation(errors : TAdvList<TValidationMessage>; element : TWrapperElement; stack : TNodeStack);
-    procedure checkDeclaredProfiles(errors : TAdvList<TValidationMessage>; element : TWrapperElement; stack : TNodeStack);
-    procedure start(errors : TAdvList<TValidationMessage>; element : TWrapperElement; profile : TFHIRStructureDefinition; stack : TNodeStack);
-    procedure validateResource(errors : TAdvList<TValidationMessage>; element : TWrapperElement; profile : TFHIRStructureDefinition; needsId :  boolean; stack : TNodeStack);
+    procedure validateMessage(errors : TAdvList<TFhirOperationOutcomeIssue>; bundle : TWrapperElement);
+    procedure validateBundle(errors : TAdvList<TFhirOperationOutcomeIssue>; bundle : TWrapperElement; stack : TNodeStack);
+    procedure validateObservation(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; stack : TNodeStack);
+    procedure checkDeclaredProfiles(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; stack : TNodeStack);
+    procedure start(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; profile : TFHIRStructureDefinition; stack : TNodeStack);
+    procedure validateResource(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; profile : TFHIRStructureDefinition; needsId :  boolean; stack : TNodeStack);
   public
     Constructor create(context : TContext);
     Destructor Destroy; Override;
@@ -156,22 +220,31 @@ Type
     Property RequireResourceId : boolean read FRequireResourceId write FRequireResourceId;
     Property IsAnyExtensionsAllowed : boolean read FIsAnyExtensionsAllowed write FIsAnyExtensionsAllowed;
 
-    procedure validate(errors : TAdvList<TValidationMessage>; element : IXmlDomElement); overload;
-    procedure validate(errors : TAdvList<TValidationMessage>; obj : TJsonObject); overload;
-    procedure validate(errors : TAdvList<TValidationMessage>; element : IXmlDomElement; profile : String); overload;
-    procedure validate(errors : TAdvList<TValidationMessage>; element : IXmlDomElement; profile : TFHIRStructureDefinition); overload;
-    procedure validate(errors : TAdvList<TValidationMessage>; obj : TJsonObject; profile : TFHIRStructureDefinition); overload;
-    procedure validate(errors : TAdvList<TValidationMessage>; obj : TJsonObject; profile : String); overload;
-    procedure validate(errors : TAdvList<TValidationMessage>; document : IXmlDomDocument2); overload;
-    procedure validate(errors : TAdvList<TValidationMessage>; document : IXmlDomDocument2; profile : String); overload;
-    procedure validate(errors : TAdvList<TValidationMessage>; document : IXmlDomDocument2; profile : TFHIRStructureDefinition); overload;
+    procedure validate(errors : TAdvList<TFhirOperationOutcomeIssue>; element : IXmlDomElement); overload;
+    procedure validate(errors : TAdvList<TFhirOperationOutcomeIssue>; obj : TJsonObject); overload;
+    procedure validate(errors : TAdvList<TFhirOperationOutcomeIssue>; element : IXmlDomElement; profile : String); overload;
+    procedure validate(errors : TAdvList<TFhirOperationOutcomeIssue>; element : IXmlDomElement; profile : TFHIRStructureDefinition); overload;
+    procedure validate(errors : TAdvList<TFhirOperationOutcomeIssue>; obj : TJsonObject; profile : TFHIRStructureDefinition); overload;
+    procedure validate(errors : TAdvList<TFhirOperationOutcomeIssue>; obj : TJsonObject; profile : String); overload;
+    procedure validate(errors : TAdvList<TFhirOperationOutcomeIssue>; document : IXmlDomDocument2); overload;
+    procedure validate(errors : TAdvList<TFhirOperationOutcomeIssue>; document : IXmlDomDocument2; profile : String); overload;
+    procedure validate(errors : TAdvList<TFhirOperationOutcomeIssue>; document : IXmlDomDocument2; profile : TFHIRStructureDefinition); overload;
   end;
 
 implementation
 
 uses
   FHIRParserBase, FHIRUtilities;
-  
+
+function nameMatches(name, tail : String) : boolean;
+begin
+  if (tail.endsWith('[x]')) then
+    result := name.startsWith(tail.substring(0,  tail.length-3))
+  else
+    result := (name = tail);
+end;
+
+
 { TElementInfo }
 
 Constructor TElementInfo.create(name : String; element : TWrapperElement; path : String; count : integer);
@@ -191,6 +264,46 @@ end;
 function TElementInfo.col : integer;
 begin
   result := element.col;
+end;
+
+function codeInExpansion(cnt : TFhirValueSetExpansionContains; system, code : String) : boolean; overload;
+var
+  c : TFhirValueSetExpansionContains;
+begin
+  for c in cnt.containsList do
+  begin
+    if (code = c.Code) and ((system = '') or (system = c.System)) then
+    begin
+      result := true;
+      exit;
+    end;
+    if (codeinExpansion(c, system, code)) then
+    begin
+      result := true;
+      exit;
+    end;
+  end;
+  result := false;
+end;
+
+function codeInExpansion(vs : TFHIRValueSet; system, code : String) : boolean; overload;
+var
+  c : TFhirValueSetExpansionContains;
+begin
+  for c in vs.Expansion.containsList do
+  begin
+    if (code = c.Code) and ((system = '') or (system = c.System)) then
+    begin
+      result := true;
+      exit;
+    end;
+    if (codeinExpansion(c, system, code)) then
+    begin
+      result := true;
+      exit;
+    end;
+  end;
+  result := false;
 end;
 
 { TWrapperElement }
@@ -732,7 +845,7 @@ begin
     if (count > -1) then
       result.literalPath := result.literalPath + '['+Integer.toString(count)+']';
   end 
-  else 
+  else
   begin
     if (element.getName() = '') then
       result.literalPath := ''
@@ -781,7 +894,7 @@ begin
           b.append('[');
           b.append(p.substring(1));
           b.append(']');
-        end 
+        end
         else 
         begin
           b.append('/f:');
@@ -789,7 +902,7 @@ begin
         end
       end
     end
-    else 
+    else
     begin
       for p in path do
       begin
@@ -810,17 +923,6 @@ begin
   end;
 end;
 
-{ TContext }
-
-function TContext.fetchResource<T>(url: String): T;
-var
-  tc : TFhirResourceClass;
-begin
-  tc := t;
-//  if tc = TFhirStructureDefinition then
-  result := nil;
-end;
-
 { TFHIRInstanceValidator }
 
 constructor TFHIRInstanceValidator.create(context: TContext);
@@ -836,62 +938,86 @@ begin
 end;
 
 
-procedure TFHIRInstanceValidator.validate(errors : TAdvList<TValidationMessage>; element : IXmlDomElement);
+function TFHIRInstanceValidator.empty(element: TWrapperElement): boolean;
+var
+  child : TWrapperElement;
+begin
+  if (element.hasAttribute('value')) then
+    result := false
+  else if (element.hasAttribute('id')) then
+    result := false
+  else
+  begin
+    child := element.getFirstChild();
+    while (child <> nil) do
+    begin
+      if (not child.isXml()) or (FHIR_NS = child.getNamespace()) then
+      begin
+        result := false;
+        exit;
+      end;
+      child := child.getNextSibling();
+    end;
+    result := true;
+  end;
+end;
+
+procedure TFHIRInstanceValidator.validate(errors : TAdvList<TFhirOperationOutcomeIssue>; element : IXmlDomElement);
 begin
   validate(errors, element, nil);
 end;
 
-procedure TFHIRInstanceValidator.validate(errors : TAdvList<TValidationMessage>; obj : TJsonObject);
+procedure TFHIRInstanceValidator.validate(errors : TAdvList<TFhirOperationOutcomeIssue>; obj : TJsonObject);
 begin
   validate(errors, obj, nil);
 end;
 
-procedure TFHIRInstanceValidator.validate(errors : TAdvList<TValidationMessage>; element : IXmlDomElement; profile : String);
+procedure TFHIRInstanceValidator.validate(errors : TAdvList<TFhirOperationOutcomeIssue>; element : IXmlDomElement; profile : String);
 var
   p : TFHIRStructureDefinition;
 begin
-  p := FContext.fetchResource<TFHIRStructureDefinition>(profile);
+  p := TFHIRStructureDefinition(FContext.fetchResource(frtStructureDefinition, profile));
   if (p = nil) then
     raise Exception.create('StructureDefinition "'+profile+'" not found');
   validate(errors, element, p);
 end;
 
-procedure TFHIRInstanceValidator.validate(errors : TAdvList<TValidationMessage>; element : IXmlDomElement; profile : TFHIRStructureDefinition);
+procedure TFHIRInstanceValidator.validate(errors : TAdvList<TFhirOperationOutcomeIssue>; element : IXmlDomElement; profile : TFHIRStructureDefinition);
 begin
   validateResource(errors, TDOMWrapperElement.Create(element), profile, FRequireResourceId, nil);
 end;
 
-procedure TFHIRInstanceValidator.validate(errors : TAdvList<TValidationMessage>; obj : TJsonObject; profile : TFHIRStructureDefinition);
+procedure TFHIRInstanceValidator.validate(errors : TAdvList<TFhirOperationOutcomeIssue>; obj : TJsonObject; profile : TFHIRStructureDefinition);
 begin
   validateResource(errors, TJsonWrapperElement.Create(obj), profile, FRequireResourceId, nil);
 end;
 
-procedure TFHIRInstanceValidator.validate(errors : TAdvList<TValidationMessage>; obj : TJsonObject; profile : String);
+procedure TFHIRInstanceValidator.validate(errors : TAdvList<TFhirOperationOutcomeIssue>; obj : TJsonObject; profile : String);
 var
   p : TFHIRStructureDefinition;
 begin
-  p := FContext.fetchResource<TFHIRStructureDefinition>(profile);
+  p := TFHIRStructureDefinition(FContext.fetchResource(frtStructureDefinition, profile));
   if (p = nil) then
     raise Exception.create('StructureDefinition "'+profile+'" not found');
   validate(errors, obj, p);
 end;
 
-procedure TFHIRInstanceValidator.validate(errors : TAdvList<TValidationMessage>; document : IXmlDomDocument2);
+procedure TFHIRInstanceValidator.validate(errors : TAdvList<TFhirOperationOutcomeIssue>; document : IXmlDomDocument2);
 begin
   validate(errors, document, nil);
 end;
 
-procedure TFHIRInstanceValidator.validate(errors : TAdvList<TValidationMessage>; document : IXmlDomDocument2; profile : String);
+procedure TFHIRInstanceValidator.validate(errors : TAdvList<TFhirOperationOutcomeIssue>; document : IXmlDomDocument2; profile : String);
 var
   p : TFHIRStructureDefinition;
 begin
-  p := FContext.fetchResource<TFHIRStructureDefinition>(profile);
+  p := TFHIRStructureDefinition(FContext.fetchResource(frtStructureDefinition, profile));
   if (p = nil) then
     raise Exception.create('StructureDefinition "'+profile+'" not found');
   validate(errors, document, p);
 end;
 
-procedure TFHIRInstanceValidator.validate(errors : TAdvList<TValidationMessage>; document : IXmlDomDocument2; profile : TFHIRStructureDefinition);
+procedure TFHIRInstanceValidator.validate(errors : TAdvList<TFhirOperationOutcomeIssue>; document : IXmlDomDocument2; profile : TFHIRStructureDefinition);
 begin
   validateResource(errors, TDOMWrapperElement.Create(document.documentElement), profile, FRequireResourceId, nil);
 end;
@@ -899,7 +1025,7 @@ end;
 {
 * The actual base entry point
 }
-procedure TFHIRInstanceValidator.validateResource(errors : TAdvList<TValidationMessage>; element : TWrapperElement; profile : TFHIRStructureDefinition; needsId : boolean; stack : TNodeStack);
+procedure TFHIRInstanceValidator.validateResource(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; profile : TFHIRStructureDefinition; needsId : boolean; stack : TNodeStack);
 var
   ok : boolean;
   resourceName : String;
@@ -917,7 +1043,7 @@ begin
      resourceName := element.getResourceType();
      if (profile = nil) then
      begin
-      profile := Fcontext.fetchResource<TFHIRStructureDefinition>('http://hl7.org/fhir/StructureDefinition/'+resourceName);
+      profile := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, 'http://hl7.org/fhir/StructureDefinition/'+resourceName));
       ok := rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile <> nil, 'No profile found for resource type "'+resourceName+'"');
      end
      else
@@ -943,7 +1069,7 @@ end;
 // the instance at root is valid against the schema and schematron
 // the instance validator had no issues against the base resource profile
 // profile is valid, and matches the resource name
-procedure TFHIRInstanceValidator.start(errors : TAdvList<TValidationMessage>; element : TWrapperElement; profile : TFHIRStructureDefinition; stack : TNodeStack);
+procedure TFHIRInstanceValidator.start(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; profile : TFHIRStructureDefinition; stack : TNodeStack);
 begin
   if (rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, profile.Snapshot <> nil, 'StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided')) then
   begin
@@ -958,7 +1084,7 @@ begin
   end;
 end;
 
-procedure TFHIRInstanceValidator.checkDeclaredProfiles(errors : TAdvList<TValidationMessage>; element : TWrapperElement; stack : TNodeStack);
+procedure TFHIRInstanceValidator.checkDeclaredProfiles(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; stack : TNodeStack);
 var
   meta : TWrapperElement;
   profiles : TAdvList<TWrapperElement>;
@@ -979,7 +1105,7 @@ begin
       p := stack.addToLiteralPath(['meta', 'profile', ':'+inttostr(i)]);
       if (rule(errors, IssueTypeINVALID, element.line(), element.col(), p, ref <> '', 'StructureDefinition reference invalid')) then
       begin
-        pr := Fcontext.fetchResource<TFHIRStructureDefinition>(ref);
+        pr := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, ref));
           if (warning(errors, IssueTypeINVALID, element.line(), element.col(), p, pr <> nil, 'StructureDefinition reference could not be resolved')) then
           begin
             if (rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), p, pr.Snapshot <> nil, 'StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided')) then
@@ -993,7 +1119,7 @@ begin
     end;
   end;
 
-procedure TFHIRInstanceValidator.validateBundle(errors : TAdvList<TValidationMessage>; bundle : TWrapperElement; stack : TNodeStack);
+procedure TFHIRInstanceValidator.validateBundle(errors : TAdvList<TFhirOperationOutcomeIssue>; bundle : TWrapperElement; stack : TNodeStack);
 var
   entries : TAdvList<TWrapperElement>;
   type_, id : String;
@@ -1035,12 +1161,12 @@ begin
   end;
 end;
 
-procedure TFHIRInstanceValidator.validateMessage(errors : TAdvList<TValidationMessage>; bundle : TWrapperElement);
+procedure TFHIRInstanceValidator.validateMessage(errors : TAdvList<TFhirOperationOutcomeIssue>; bundle : TWrapperElement);
 begin
 end;
 
 
-procedure TFHIRInstanceValidator.validateDocument(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; composition : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
+procedure TFHIRInstanceValidator.validateDocument(errors : TAdvList<TFhirOperationOutcomeIssue>; entries : TAdvList<TWrapperElement>; composition : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
 begin
   // first entry must be a composition
   if (rule(errors, IssueTypeINVALID, composition.line(), composition.col(), stack.literalPath, composition.getResourceType() = 'Composition', 'The first entry in a document must be a composition')) then
@@ -1056,7 +1182,7 @@ end;
 //String firstBase := nil;
 //firstBase := ebase = nil ? base : ebase;
 
-procedure TFHIRInstanceValidator.validateSections(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
+procedure TFHIRInstanceValidator.validateSections(errors : TAdvList<TFhirOperationOutcomeIssue>; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
 var
   sections : TAdvList<TWrapperElement>;
   section : TWrapperElement;
@@ -1075,7 +1201,7 @@ begin
   end;
 end;
 
-procedure TFHIRInstanceValidator.validateBundleReference(errors : TAdvList<TValidationMessage>; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
+procedure TFHIRInstanceValidator.validateBundleReference(errors : TAdvList<TFhirOperationOutcomeIssue>; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
 var
   target : TWrapperElement;
 begin
@@ -1147,10 +1273,10 @@ end;
 
 function TFHIRInstanceValidator.getProfileForType(type_ : String) : TFHIRStructureDefinition;
 begin
-  result := Fcontext.fetchResource<TFHIRStructureDefinition>('http://hl7.org/fhir/StructureDefinition/'+type_);
+  result := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, 'http://hl7.org/fhir/StructureDefinition/'+type_));
 end;
 
-procedure TFHIRInstanceValidator.validateObservation(errors : TAdvList<TValidationMessage>; element : TWrapperElement; stack : TNodeStack);
+procedure TFHIRInstanceValidator.validateObservation(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; stack : TNodeStack);
 begin
   // all observations should have a subject, a performer, and a time
   bpCheck(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, element.getNamedChild('subject') <> nil, 'All observations should have a subject');
@@ -1158,8 +1284,8 @@ begin
   bpCheck(errors, IssueTypeINVALID, element.line(), element.col(), stack.literalPath, (element.getNamedChild('effectiveDateTime') <> nil) or (element.getNamedChild('effectivePeriod') <> nil), 'All observations should have an effectiveDateTime or an effectivePeriod');
 end;
 
-procedure TFHIRInstanceValidator.bpCheck(errors : TAdvList<TValidationMessage>; t: TFHIRIssueType; line, col : integer; literalPath : String; test : boolean; message : String);
- begin
+procedure TFHIRInstanceValidator.bpCheck(errors : TAdvList<TFhirOperationOutcomeIssue>; t: TFHIRIssueType; line, col : integer; literalPath : String; test : boolean; message : String);
+begin
   case bpWarnings of
     bpwlHint: hint(errors, t, line, col, literalPath, test, message);
     bpwlWarning: warning(errors, t, line, col, literalPath, test, message);
@@ -1168,15 +1294,134 @@ procedure TFHIRInstanceValidator.bpCheck(errors : TAdvList<TValidationMessage>; 
   end;
 end;
 
-procedure TFHIRInstanceValidator.validateElement(errors : TAdvList<TValidationMessage>; profile : TFHIRStructureDefinition; definition : TFHIRElementDefinition; cprofile : TFHIRStructureDefinition;
+function isPrimitiveType(t : String) : boolean;
+begin
+  result :=
+    SameText(t, 'boolean') or SameText(t, 'integer') or SameText(t, 'string') or SameText(t, 'decimal') or
+    SameText(t, 'uri') or SameText(t, 'base64Binary') or SameText(t, 'instant') or SameText(t, 'date') or
+    SameText(t, 'uuid') or SameText(t, 'id') or SameText(t, 'xhtml') or SameText(t, 'markdown') or
+    SameText(t, 'dateTime') or SameText(t, 'time') or SameText(t, 'code') or SameText(t, 'oid') or SameText(t, 'id');
+end;
+
+function uncapitalize(s : String) : string;
+begin
+  result := Lowercase(s[1])+s.Substring(1);
+end;
+
+function capitalize(s : String) : string;
+begin
+  result := UpperCase(s[1])+s.Substring(1);
+end;
+
+function describeTypes(types : TFhirElementDefinitionTypeList) : String;
+var
+  tc : TFhirElementDefinitionType;
+begin
+  result := '';
+  for tc in types do
+    CommaAdd(result, tc.code);
+end;
+
+function resolveNameReference(snapshot : TFhirStructureDefinitionSnapshot; name : String) : TFHIRElementDefinition;
+var
+  ed : TFHIRElementDefinition;
+begin
+  result := nil;
+	for ed in snapshot.elementList do
+		if (name = ed.Name) then
+    begin
+  		result := ed;
+      exit;
+    end;
+ end;
+
+function findElement(profile : TFHIRStructureDefinition; name : String) : TFHIRElementDefinition;
+var
+  c : TFHIRElementDefinition;
+begin
+  result := nil;
+  for c in profile.SnapShot.elementList do
+  begin
+    if (c.Path = name) then
+    begin
+  		result := c;
+      exit;
+    end;
+  end;
+end;
+
+function TFHIRInstanceValidator.resolveType(t : String) : TFHIRElementDefinition;
+var
+  url : String;
+  sd : TFhirStructureDefinition;
+begin
+  url := 'http://hl7.org/fhir/StructureDefinition/'+t;
+  sd := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, url));
+  if (sd = nil) or (sd.Snapshot = nil) then
+      result := nil
+    else
+      result := sd.Snapshot.ElementList[0];
+  end;
+
+function TFHIRInstanceValidator.rule(errors: TAdvList<TFhirOperationOutcomeIssue>; t: TFhirIssueType; path: String; thePass: boolean; msg: String): boolean;
+var
+  vm : TFhirOperationOutcomeIssue;
+begin
+  if not thePass then
+  begin
+    vm := TFhirOperationOutcomeIssue.Create;
+    errors.Add(vm);
+    vm.severity := IssueSeverityError;
+    vm.locationList.Append.value := path;
+    vm.code := t;
+    vm.details := TFhirCodeableConcept.Create;
+    vm.details.text := msg;
+  end;
+  result := thePass;
+end;
+
+function TFHIRInstanceValidator.rule(errors: TAdvList<TFhirOperationOutcomeIssue>; t: TFhirIssueType; line, col: integer; path: String; thePass: boolean; msg: String): boolean;
+var
+  vm : TFhirOperationOutcomeIssue;
+begin
+  if not thePass then
+  begin
+    vm := TFhirOperationOutcomeIssue.Create;
+    errors.Add(vm);
+    vm.severity := IssueSeverityError;
+    vm.locationList.Append.value := path+' (@ line '+inttostr(line)+'/ col '+inttostr(col)+')';
+    vm.code := t;
+    vm.details := TFhirCodeableConcept.Create;
+    vm.details.text := msg;
+  end;
+  result := thePass;
+end;
+
+function isBundleEntry(path : String) : boolean;
+var
+  parts : TArray<String>;
+begin
+  parts := path.split(['/']);
+  if (path.startsWith('/f:')) then
+    result := (length(parts) > 2) and (parts[length(parts)-1].startsWith('f:resource')) and ((parts[length(parts)-2] = 'f:entry') ) or ( parts[length(parts)-2].startsWith('f:entry['))
+  else
+    result := (length(parts) > 2) and (parts[length(parts)-1] = 'resource') and (((length(parts) > 2 ) and (parts[length(parts)-3] = 'entry'))) or (parts[length(parts)-2] = 'entry');
+end;
+
+procedure TFHIRInstanceValidator.validateElement(errors : TAdvList<TFhirOperationOutcomeIssue>; profile : TFHIRStructureDefinition; definition : TFHIRElementDefinition; cprofile : TFHIRStructureDefinition;
                   context : TFHIRElementDefinition; element : TWrapperElement; actualType : String; stack : TNodeStack);
 var
-  childDefinitions : TAdvList<TFHIRElementDefinition>;
+  childDefinitions : TFHIRElementDefinitionList;
   children : TAdvList<TElementInfo>;
   iter : TChildIterator;
-  slice, ed: TFHIRElementDefinition;
+  slice, ed, td: TFHIRElementDefinition;
   process, match : boolean;
   ei : TElementInfo;
+  count : integer;
+  t, prefix : String;
+  tc, trc : TFhirElementDefinitionType;
+  p : TFhirStructureDefinition;
+  localStack : TNodeStack;
 begin
   // irrespective of what element it is, it cannot be empty
 	if (element.isXml()) then
@@ -1235,107 +1480,120 @@ begin
     	  end;
       end;
   	end;
-    !
-    for (ElementInfo ei : children)
-      if (ei.path.endsWith('.extension'))
-        rule(errors, IssueTypeINVALID, ei.line(), ei.col(), ei.path, ei.definition <> nil, 'Element is unknown or does not match any slice (url:=\''+ei.element.getAttribute('url')+'\')');
+
+    for ei in children do
+      if (ei.path.endsWith('.extension')) then
+        rule(errors, IssueTypeINVALID, ei.line(), ei.col(), ei.path, ei.definition <> nil, 'Element is unknown or does not match any slice (url:="'+ei.element.getAttribute('url')+'")')
       else
-        rule(errors, IssueTypeINVALID, ei.line(), ei.col(), ei.path, (ei.definition <> nil) ) or ( (!ei.element.isXml() ) and ( ei.element.getName() = 'fhir_comments')), 'Element is unknown or does not match any slice');
+        rule(errors, IssueTypeINVALID, ei.line(), ei.col(), ei.path, (ei.definition <> nil) or ( not ei.element.isXml() and ( ei.element.getName() = 'fhir_comments')), 'Element is unknown or does not match any slice');
 
     // 3. report any definitions that have a cardinality problem
-    for (ElementDefinition ed : childDefinitions) begin
-    	if (ed.getRepresentation().isEmpty()) begin // ignore xml attributes
-    	int count := 0;
-      for (ElementInfo ei : children)
-      	if (ei.definition = ed)
-      		count++;
-  		if (ed.getMin() > 0) begin
-  			rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, count >:= ed.getMin(), 'Element "'+stack.literalPath+'.'+tail(ed.getPath())+'": minimum required := '+inttostr(ed.getMin())+', but only found '+inttostr(count));
-    		end;
-  		if (ed.hasMax() ) and ( !ed.getMax() = '*')) begin
-  			rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, count <:= Integer.parseInt(ed.getMax()), 'Element '+tail(ed.getPath())+' @ '+stack.literalPath+': max allowed := '+inttostr(ed.getMin())+', but found '+inttostr(count));
-    		end;
-      
+    for ed in childDefinitions do
+    begin
+    	if (ed.representation = []) then
+      begin // ignore xml attributes
+       	count := 0;
+        for ei in children do
+        	if (ei.definition = ed) then
+        		inc(count);
+    		if (ed.Min <> '0') then
+  			  rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, count >= StrToInt(ed.Min), 'Element "'+stack.literalPath+'.'+tail(ed.Path)+'": minimum required := '+ed.Min+', but only found '+inttostr(count));
+    		if (ed.Max <> '*') then
+    			rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, count <= StrToInt(ed.Max), 'Element '+tail(ed.Path)+' @ '+stack.literalPath+': max allowed := '+ed.Max+', but found '+inttostr(count));
+
     	end;
     end;
     // 4. check order if any slices are orderd. (todo)
 
     // 5. inspect each child for validity
-    for (ElementInfo ei : children) begin
-    	if (ei.definition <> nil) begin
-      String type := nil;
-      ElementDefinition typeDefn := nil;
-    		if (ei.definition.getType().Count = 1 ) and ( !ei.definition.getType()[0).getCode() = '*') ) and ( !ei.definition.getType()[0).getCode() = 'Element') ) and ( !ei.definition.getType()[0).getCode() = 'BackboneElement') )
-    			type := ei.definition.getType()[0).getCode();
-    		else if (ei.definition.getType().Count = 1 ) and ( ei.definition.getType()[0).getCode() = '*')) begin
-          String prefix := tail(ei.definition.getPath());
-          assert prefix.endsWith('[x]');
-          type := ei.name.substring(prefix.length()-3);
-          if (isPrimitiveType(type))
-            type := Utilities.uncapitalize(type);
-    		end; else if (ei.definition.getType().Count > 1) begin
-
-            String prefix := tail(ei.definition.getPath());
-            assert prefix.endsWith('[x]');
-            prefix := prefix.substring(0, prefix.length()-3);
-            for (TypeRefComponent t : ei.definition.getType())
-              if ((prefix+Utilities.capitalize(t.getCode())) = ei.name))
-                type := t.getCode();
-            if (type = nil) begin
-        			TypeRefComponent trc := ei.definition.getType()[0);
-        			if(trc.getCode() = 'Reference'))
-        				type := 'Reference';
-              else 
-              	rule(errors, IssueTypeSTRUCTURE, ei.line(), ei.col(), stack.literalPath, false, 'The element '+ei.name+' is illegal. Valid types at this point are '+describeTypes(ei.definition.getType()));
+    for ei in children do
+    begin
+    	if (ei.definition <> nil) then
+      begin
+      t := '';
+      td := nil;
+    		if (ei.definition.Type_List.Count = 1) and (ei.definition.Type_List[0].Code <> '*') and (ei.definition.Type_List[0].Code <> 'Element') and (ei.definition.Type_List[0].Code <> 'BackboneElement') then
+    			t := ei.definition.Type_List[0].Code
+    		else if (ei.definition.Type_List.Count = 1) and (ei.definition.Type_List[0].Code = '*') then
+        begin
+          prefix := tail(ei.definition.Path);
+          assert(prefix.endsWith('[x]'));
+          t := ei.name.substring(prefix.length-3);
+          if (isPrimitiveType(t)) then
+            t := uncapitalize(t);
+    		end
+        else if (ei.definition.Type_List.Count > 1) then
+        begin
+          prefix := tail(ei.definition.Path);
+          assert(prefix.endsWith('[x]'));
+          prefix := prefix.substring(0, prefix.length-3);
+          for tc in ei.definition.Type_List do
+            if ((prefix+capitalize(tc.Code)) = ei.name) then
+              t := tc.Code;
+            if (t <> '') then
+            begin
+        			trc := ei.definition.Type_List[0];
+        			if(trc.Code = 'Reference') then
+        				t := 'Reference'
+              else
+              	rule(errors, IssueTypeSTRUCTURE, ei.line(), ei.col(), stack.literalPath, false, 'The element '+ei.name+' is illegal. Valid types at this point are '+describeTypes(ei.definition.Type_List));
           end;
-    		end; else if (ei.definition.getNameReference() <> nil) begin
-    			typeDefn := resolveNameReference(profile.getSnapshot(), ei.definition.getNameReference());
-        end;
+    		end
+        else if (ei.definition.NameReference <> '') then
+    			td := resolveNameReference(profile.Snapshot, ei.definition.NameReference);
 
-
-        if (type <> nil) begin
-          if (type.startsWith('@')) begin
-    				ei.definition := findElement(profile, type.substring(1));
-            type := nil;
+        if (t <> '') then
+        begin
+          if (t.startsWith('@')) then
+          begin
+    				ei.definition := findElement(profile, t.substring(1));
+            t := '';
           end;
         end;
-    		TNodeStack localStack := stack.push(ei.element, ei.count, ei.definition, type = nil ? typeDefn : resolveType(type));
-    		assert(ei.path = localStack.literalPath));
+        if (t = '') then
+          localStack := stack.push(ei.element, ei.count, ei.definition, td)
+        else
+      		localStack := stack.push(ei.element, ei.count, ei.definition, resolveType(t));
+    		assert(ei.path = localStack.literalPath);
 
-      if (type <> nil) begin
-        if (typeIsPrimitive(type)) 
-    				checkPrimitive(errors, ei.path, type, ei.definition, ei.element);
-        else begin
-          if (type = 'Identifier'))
-    					checkIdentifier(errors, ei.path, ei.element, ei.definition);
-          else if (type = 'Coding'))
-    					checkCoding(errors, ei.path, ei.element, profile, ei.definition);
-          else if (type = 'CodeableConcept'))
-    					checkCodeableConcept(errors, ei.path, ei.element, profile, ei.definition);
-          else if (type = 'Reference'))
-    					checkReference(errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
+        if (t <> '') then
+        begin
+          if (isPrimitiveType(t)) then
+            checkPrimitive(errors, ei.path, t, ei.definition, ei.element)
+          else
+          begin
+            if (t = 'Identifier') then
+              checkIdentifier(errors, ei.path, ei.element, ei.definition)
+            else if (t = 'Coding') then
+              checkCoding(errors, ei.path, ei.element, profile, ei.definition)
+            else if (t = 'CodeableConcept') then
+              checkCodeableConcept(errors, ei.path, ei.element, profile, ei.definition)
+            else if (t = 'Reference') then
+              checkReference(errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
 
-          if (type = 'Extension'))
-            checkExtension(errors, ei.path, ei.element, ei.definition, profile, localStack);          
-          else if (type = 'Resource'))
-    					validateContains(errors, ei.path, ei.definition, definition, ei.element, localStack, !isBundleEntry(ei.path)); //    if (str.matches('.*([.,/])work\\1$'))
-          else begin
-            StructureDefinition p := getProfileForType(type);
-            if (rule(errors, IssueTypeSTRUCTURE, ei.line(), ei.col(), ei.path, p <> nil, 'Unknown type '+type)) begin
-    						validateElement(errors, p, p.Snapshot.ElementList[0), profile, ei.definition, ei.element, type, localStack);
+            if (t = 'Extension') then
+              checkExtension(errors, ei.path, ei.element, ei.definition, profile, localStack)
+            else if (t = 'Resource') then
+              validateContains(errors, ei.path, ei.definition, definition, ei.element, localStack, not isBundleEntry(ei.path))
+            else
+            begin
+              p := getProfileForType(t);
+              if (rule(errors, IssueTypeSTRUCTURE, ei.line(), ei.col(), ei.path, p <> nil, 'Unknown type '+t)) then
+                validateElement(errors, p, p.Snapshot.ElementList[0], profile, ei.definition, ei.element, t, localStack);
             end;
           end;
+        end
+        else
+        begin
+          if (rule(errors, IssueTypeSTRUCTURE, ei.line(), ei.col(), stack.literalPath, ei.definition <> nil, 'Unrecognised Content '+ei.name)) then
+            validateElement(errors, profile, ei.definition, nil, nil, ei.element, t, localStack);
         end;
-      end; else begin
-    			if (rule(errors, IssueTypeSTRUCTURE, ei.line(), ei.col(), stack.literalPath, ei.definition <> nil, 'Unrecognised Content '+ei.name))
-    				validateElement(errors, profile, ei.definition, nil, nil, ei.element, type, localStack);
-    		end;
       end;
     end;
-  end;
-    
+ end;
+
   {*
-   * 
+   *
    * @param element - the candidate that might be in the slice
    * @param path - for reporting any errors. the XPath for the element
    * @param slice - the definition of how slicing is determined
@@ -1343,98 +1601,137 @@ begin
    * @return
    * @;
    }
-  private boolean sliceMatches(element : TWrapperElement, String path, ElementDefinition slice, ElementDefinition ed, profile : TFHIRStructureDefinition) ; begin
-  	if (!slice.getSlicing().hasDiscriminator())
-  		return false; // cannot validate in this case
-	  for (StringType s : slice.getSlicing().getDiscriminator()) begin
-	  	String discriminator := s.getValue();
-	  	ElementDefinition criteria := getCriteriaForDiscriminator(path, ed, discriminator, profile);
-	  	if (discriminator = 'url') ) and ( criteria.getPath() = 'Extension.url')) begin
-	  		if (!element.getAttribute('url') = ((UriType) criteria.getFixed()).asStringValue()))
-	  			return false;
-	  	end; else begin
-	  		Element value := getValueForDiscriminator(element, discriminator, criteria);
-	  		if (!valueMatchesCriteria(value, criteria))
-	  			return false;
+function TFHIRInstanceValidator.sliceMatches(element : TWrapperElement; path : String; slice, ed: TFHIRElementDefinition; profile : TFHIRStructureDefinition) : boolean;
+var
+  s : TFhirString;
+  discriminator : String;
+  criteria : TFHIRElementDefinition;
+  value : TFHIRElement;
+begin
+  result := true;
+  if (slice.Slicing.DiscriminatorList.Count = 0) then
+    result := false // cannot validate in this case
+  else
+	  for s in slice.Slicing.discriminatorList do
+    begin
+	  	discriminator := s.Value;
+	  	criteria := getCriteriaForDiscriminator(path, ed, discriminator, profile);
+	  	if (discriminator = 'url') and (criteria.Path = 'Extension.url') then
+      begin
+	  		if (element.getAttribute('url') <> TFHIRUri(criteria.Fixed).value) then
+        begin
+	  			result := false;
+          exit;
+        end;
+	  	end
+      else
+      begin
+	  		value := getValueForDiscriminator(element, discriminator, criteria);
+	  		if (not valueMatchesCriteria(value, criteria)) then
+        begin
+	  			result := false;
+          exit;
+        end;
 	  	end;
 	  end;
-	  return true;
   end;
-  
-	private boolean valueMatchesCriteria(Element value, ElementDefinition criteria) begin
-		throw new Error('validation of slices not done yet');
-  end;
-	
-	private Element getValueForDiscriminator(element : TWrapperElement, String discriminator, ElementDefinition criteria) begin
-		throw new Error('validation of slices not done yet');
-  end;
-	
-	private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition ed, String discriminator, profile : TFHIRStructureDefinition) ; begin
-    List<ElementDefinition> childDefinitions := ProfileUtilities.getChildMap(profile, ed);
-    List<ElementDefinition> snapshot := nil;
-    if (childDefinitions.isEmpty()) begin
-    	// going to look at the type
-    	if (ed.getType().Count = 0)
-    		raise Exception.create('Error in profile for '+path+' no children, no type');
-    	if (ed.getType().Count > 1)
-    		raise Exception.create('Error in profile for '+path+' multiple types defined in slice discriminator');
-    	StructureDefinition type;
-    	if (ed.getType()[0).hasProfile())
-    		type := context.fetchResource(StructureDefinition.class, ed.getType()[0).getProfile()[0).getValue());
-    	else
-    		type := context.fetchResource(StructureDefinition.class, 'http://hl7.org/fhir/StructureDefinition/'+ed.getType()[0).getCode());
-    	snapshot := type.getSnapshot().getElement();
-    	ed := snapshot[0);
-    end; else begin
-      snapshot := profile.getSnapshot().getElement();
-    end;
-		String originalPath := ed.getPath();
-		String goal := originalPath+'.'+discriminator;
 
-		int index := snapshot.indexOf(ed);
-		assert (index > -1);
-		index++;
-		while (index < snapshot.Count ) and ( !snapshot[index).getPath() = originalPath)) begin
-			if (snapshot[index).getPath() = goal))
-				return snapshot[index);
-			index++;
-		end;
-		throw new Error('Unable to find discriminator definition for '+goal+' in '+discriminator+' at '+path);
+function TFHIRInstanceValidator.valueMatchesCriteria(value : TFHIRElement ; criteria : TFHIRElementDefinition) : boolean;
+begin
+  raise Exception.create('validation of slices not done yet');
+end;
+
+function TFHIRInstanceValidator.warning(errors: TAdvList<TFhirOperationOutcomeIssue>; t: TFhirIssueType; line, col: integer; path: String; thePass: boolean; msg: String): boolean;
+var
+  vm : TFhirOperationOutcomeIssue;
+begin
+  if not thePass then
+  begin
+    vm := TFhirOperationOutcomeIssue.Create;
+    errors.Add(vm);
+    vm.severity := IssueSeverityWarning;
+    vm.locationList.Append.value := path+' (@ line '+inttostr(line)+'/ col '+inttostr(col)+')';
+    vm.code := t;
+    vm.details := TFhirCodeableConcept.Create;
+    vm.details.text := msg;
   end;
-	
-  private boolean isPrimitiveType(String type) begin
-    return
-        type.equalsIgnoreCase('boolean') ) or ( type.equalsIgnoreCase('integer') ) or ( type.equalsIgnoreCase('string') ) or ( type.equalsIgnoreCase('decimal') ) or (
-        type.equalsIgnoreCase('uri') ) or ( type.equalsIgnoreCase('base64Binary') ) or ( type.equalsIgnoreCase('instant') ) or ( type.equalsIgnoreCase('date') ) or (
-        type.equalsIgnoreCase('dateTime') ) or ( type.equalsIgnoreCase('time') ) or ( type.equalsIgnoreCase('code') ) or ( type.equalsIgnoreCase('oid') ) or ( type.equalsIgnoreCase('id');
+  result := thePass;
+end;
+
+function TFHIRInstanceValidator.getValueForDiscriminator(element : TWrapperElement; discriminator : String; criteria : TFHIRElementDefinition) : TFhirElement;
+begin
+  raise Exception.create('validation of slices not done yet');
+end;
+
+
+function TFHIRInstanceValidator.hint(errors: TAdvList<TFhirOperationOutcomeIssue>; t: TFhirIssueType; line, col: integer; path: String; thePass: boolean; msg: String): boolean;
+var
+  vm : TFhirOperationOutcomeIssue;
+begin
+  if not thePass then
+  begin
+    vm := TFhirOperationOutcomeIssue.Create;
+    errors.Add(vm);
+    vm.severity := IssueSeverityInformation;
+    vm.locationList.Append.value := path+' (@ line '+inttostr(line)+'/ col '+inttostr(col)+')';
+    vm.code := t;
+    vm.details := TFhirCodeableConcept.Create;
+    vm.details.text := msg;
   end;
-  
-  private boolean nameMatches(String name, String tail) begin
-	  if (tail.endsWith('[x]'))
-	    return name.startsWith(tail.substring(0,  tail.length()-3)); 
-	  else
-	    return (name = tail));
-  end;
-  
-  private ElementDefinition resolveNameReference(StructureDefinitionSnapshotComponent snapshot, String name) begin
-  	for (ElementDefinition ed : snapshot.getElement())
-  		if (name = ed.getName()))
-  			return ed;
-	  return nil;
-  end;
-  
-  private ElementDefinition resolveType(String type) throws EOperationOutcome, Exception begin
-    String url := 'http://hl7.org/fhir/StructureDefinition/'+type;
-    StructureDefinition sd := context.fetchResource(StructureDefinition.class, url);
-    if (sd = nil ) or ( !sd.hasSnapshot())
-      return nil;
+  result := thePass;
+end;
+
+function TFHIRInstanceValidator.getCriteriaForDiscriminator(path : String; ed : TFHIRElementDefinition; discriminator : String; profile : TFHIRStructureDefinition) : TFHIRElementDefinition;
+var
+  childDefinitions, snapshot : TFHIRElementDefinitionList;
+  t : TFHIRStructureDefinition;
+  originalPath, goal : String;
+  ty : TFHIRStructureDefinition;
+  index : integer;
+begin
+  result := nil;
+  childDefinitions := getChildMap(profile, ed.Name, ed.Path, '');
+
+  snapshot := nil;
+  if (childDefinitions.Count = 0) then
+  begin
+  	// going to look at the type
+  	if (ed.Type_List.Count = 0) then
+   		raise Exception.create('Error in profile for '+path+' no children, no type');
+    if (ed.Type_List.Count > 1) then
+      raise Exception.create('Error in profile for '+path+' multiple types defined in slice discriminator');
+    if (ed.Type_List[0].profileList.count > 0) then
+      ty := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, ed.Type_List[0].ProfileList[0].value))
     else
-      return sd.Snapshot.ElementList[0);
+      ty := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, 'http://hl7.org/fhir/StructureDefinition/'+ed.Type_List[0].Code));
+    snapshot := ty.SnapShot.elementList;
+    ed := snapshot[0];
+  end
+  else
+  begin
+    snapshot := profile.SnapShot.elementList;
   end;
-  
+  originalPath := ed.Path;
+  goal := originalPath+'.'+discriminator;
+
+  index := snapshot.indexOf(ed);
+  assert(index > -1);
+  inc(index);
+  while (index < snapshot.Count ) and (snapshot[index].Path <> originalPath) do
+  begin
+    if (snapshot[index].Path = goal) then
+    begin
+      result := snapshot[index];
+      exit;
+    end;
+    inc(index);
+  end;
+  raise Exception.create('Unable to find discriminator definition for '+goal+' in '+discriminator+' at '+path);
+end;
+
 //  private String mergePath(String path1, String path2) begin
 //    // path1 is xpath path
-//    // path2 is dotted path 
+//    // path2 is dotted path
 //    TArray<String> parts := path2.split('\\.');
 //    StringBuilder b := new StringBuilder(path1);
 //    for (int i := 1; i < parts.length -1; i++)
@@ -1442,265 +1739,361 @@ begin
 //    return b.toString();
 //  end;
 
-  private boolean isBundleEntry(String path) begin
-    TArray<String> parts := path.split('\\/');
-    if (path.startsWith('/f:'))
-      return parts.length > 2 ) and ( parts[parts.length-1].startsWith('f:resource') ) and ( (parts[parts.length-2] = 'f:entry') ) or ( parts[parts.length-2].startsWith('f:entry['));
+function TFHIRInstanceValidator.checkResourceType(ty : String) : String;
+begin
+  if (TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, 'http://hl7.org/fhir/StructureDefinition/'+ty)) <> nil) then
+    result := ty
+  else
+    result := '';
+  end;
+
+function TFHIRInstanceValidator.tryParse(ref : String) : String;
+var
+  parts : TArray<String>;
+begin
+  parts := ref.split(['/']);
+  case (length(parts)) of
+    1: result := '';
+    2: result := checkResourceType(parts[0]);
+  else
+    if (parts[length(parts)-2] = '_history') then
+      result := checkResourceType(parts[length(parts)-4])
     else
-      return parts.length > 2 ) and ( parts[parts.length-1] = 'resource') ) and ( ((parts.length > 2 ) and ( parts[parts.length-3] = 'entry')) ) or ( parts[parts.length-2] = 'entry'));
+      result := checkResourceType(parts[length(parts)-2]);
   end;
-  
-  private String describeTypes(List<TypeRefComponent> types) begin
-    CommaSeparatedStringBuilder b := new CommaSeparatedStringBuilder();
-    for (TypeRefComponent t : types) begin
-      b.append(t.getCode());
-    end;
-    return b.toString();
+end;
+
+
+procedure TFHIRInstanceValidator.checkReference(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; profile : TFHIRStructureDefinition; container : TFHIRElementDefinition; parentType : String; stack : TNodeStack);
+var
+  ref : String;
+  we : TWrapperElement;
+  ft, pr, bt : String;
+  ok : boolean;
+  b : String;
+  ty : TFhirElementDefinitionType;
+begin
+  ref := element.getNamedChildValue('reference');
+  if (ref = '') then
+  begin
+    // todo - what should we do in this case?
+    hint(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, element.getNamedChildValue('display') <> '', 'A Reference without an actual reference should have a display');
+    exit;
   end;
 
-  procedure TFHIRInstanceValidator.checkReference(errors : TAdvList<TValidationMessage>, String path, element : TWrapperElement, profile : TFHIRStructureDefinition, ElementDefinition container, String parentType, stack : TNodeStack) ; begin
-    String ref := element.getNamedChildValue('reference');
-    if (Utilities.noString(ref)) begin
-      // todo - what should we do in this case?
-      hint(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, !Utilities.noString(element.getNamedChildValue('display')), 'A Reference without an actual reference should have a display');
-      return; 
+  we := resolve(ref, stack);
+  if (we <> nil) then
+    ft := we.getResourceType()
+  else
+    ft := tryParse(ref);
+  if (hint(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, ft <> '', 'Unable to determine type of target resource')) then
+  begin
+    ok := false;
+    b := '';
+    for ty in container.Type_List do
+    begin
+      if (not ok) and (ty.Code = 'Reference') then
+      begin
+        // we validate as much as we can. First, can we infer a type from the profile?
+        if (ty.ProfileList.Count = 0) or (ty.profileList[0].value = 'http://hl7.org/fhir/StructureDefinition/Resource') then
+          ok := true
+        else
+        begin
+          pr := ty.profileList[0].Value;
+          bt := getBaseType(profile, pr);
+          if (rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, bt <> '', 'Unable to resolve the profile reference "'+pr+'"')) then
+          begin
+            if (b <> '')  then b := b + ', ';
+            b := b + bt;
+            ok := bt = ft;
+          end
+          else
+            ok := true; // suppress following check
+        end;
+      end;
+      if (not ok) and (ty.Code = '*') then
+      begin
+        ok := true; // can refer to anything
+      end;
     end;
-    
-    TWrapperElement we := resolve(ref, stack);
-    String ft;
-    if (we <> nil)
-      ft := we.getResourceType();
+    rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, ok, 'Invalid Resource target type. Found '+ft+', but expected one of ('+b+')');
+  end;
+end;
+
+function TFHIRInstanceValidator.resolve(ref : String ; stack : TNodeStack) : TWrapperElement;
+var
+  res : TWrapperElement;
+begin
+  if (ref.startsWith('#')) then
+  begin
+    // work back through the contained list.
+    // really, there should only be one level for this (contained resources cannot contain
+    // contained resources), but we"ll leave that to some other code to worry about
+    while (stack <> nil) and (stack.Element <> nil) do
+    begin
+      res := getContainedById(stack.Element, ref.substring(1));
+      if (res <> nil) then
+      begin
+        result := res;
+        exit;
+      end;
+      stack := stack.parent;
+    end;
+    result := nil;
+  end
+  else
+  begin
+    // work back through the contained list - if any of them are bundles, try to resolve
+    // the resource in the bundle
+    while (stack <> nil) and (stack.Element <> nil) do
+    begin
+      if ('Bundle' = stack.Element.getResourceType()) then
+      begin
+        res := getFromBundle(stack.Element, ref.substring(1));
+        if (res <> nil) then
+        begin
+          result := res;
+          exit;
+        end;
+      end;
+      stack := stack.parent;
+    end;
+    // todo: consult the external host for resolution
+    result := nil;
+  end;
+end;
+
+function TFHIRInstanceValidator.getFromBundle(bundle : TWrapperElement; ref : String) : TWrapperElement;
+var
+  entries : TAdvList<TWrapperElement>;
+  we, res : TWrapperElement;
+  url : String;
+begin
+  entries := TAdvList<TWrapperElement>.create();
+  bundle.getNamedChildren('entry', entries);
+  for we in entries do
+  begin
+    res := we.getNamedChild('resource').getFirstChild();
+    if (res <> nil) then
+    begin
+      url := genFullUrl(bundle.getNamedChildValue('base'), we.getNamedChildValue('base'), res.getName(), res.getNamedChildValue('id'));
+      if (url.endsWith(ref)) then
+      begin
+        result := res;
+        exit;
+      end;
+    end;
+  end;
+  result := nil;
+end;
+
+
+function TFHIRInstanceValidator.genFullUrl(bundleBase, entryBase, ty, id : String) : String;
+var
+  base : String;
+begin
+  if entryBase = '' then
+    base := bundleBase
+  else
+    base := entryBase;
+  if (base = '') then
+    result := ty+'/'+id
+  else if ('urn:uuid' = base) or ('urn:oid' = base) then
+    result := base+id
+  else
+    result := base+'/'+ty+'/'+id;
+end;
+
+function TFHIRInstanceValidator.getContainedById(container : TWrapperElement; id : String) : TWrapperElement;
+var
+  contained : TAdvList<TWrapperElement>;
+  we, res : TWrapperElement;
+begin
+  contained := TAdvList<TWrapperElement>.create();
+  container.getNamedChildren('contained', contained);
+  for we in contained do
+  begin
+    if we.isXml() then
+      res :=  we.getFirstChild()
     else
-      ft := tryParse(ref);
-    if (hint(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, ft <> nil, 'Unable to determine type of target resource')) begin
-      boolean ok := false;
-      CommaSeparatedStringBuilder b := new CommaSeparatedStringBuilder();
-      for (TypeRefComponent type : container.getType()) begin
-        if (!ok ) and ( type.getCode() = 'Reference')) begin
-          // we validate as much as we can. First, can we infer a type from the profile? 
-          if (!type.hasProfile() ) or ( type.getProfile()[0).getValue() = 'http://hl7.org/fhir/StructureDefinition/Resource'))
-            ok := true;
-          else begin
-            String pr := type.getProfile()[0).getValue();
+      res := we;
+    if (id = res.getNamedChildValue('id')) then
+    begin
+      result := res;
+      exit;
+    end;
+  end;
+  result := nil;
+end;
 
-            String bt := getBaseType(profile, pr);
-            if (rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, bt <> nil, 'Unable to resolve the profile reference "'+pr+'"')) begin
-              b.append(bt);
-              ok := bt = ft);
-            end; else
-              ok := true; // suppress following check
-          end;
-        end;
-        if (!ok ) and ( type.getCode() = '*')) begin
-          ok := true; // can refer to anything
-        end;
-      end;
-      rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, ok, 'Invalid Resource target type. Found '+ft+', but expected one of ('+b.toString()+')');
-    end;
-  end;
-  
-  private TWrapperElement resolve(String ref, stack : TNodeStack) begin
-    if (ref.startsWith('#')) begin
-      // work back through the contained list.
-      // really, there should only be one level for this (contained resources cannot contain 
-      // contained resources), but we"ll leave that to some other code to worry about
-      while (stack <> nil ) and ( stack.getElement() <> nil) begin
-        TWrapperElement res := getContainedById(stack.getElement(), ref.substring(1));
-        if (res <> nil)
-          return res;
-        stack := stack.parent;
-      end;
-      return nil;
-    end; else begin
-      // work back through the contained list - if any of them are bundles, try to resolve 
-      // the resource in the bundle
-      while (stack <> nil ) and ( stack.getElement() <> nil) begin
-        if ('Bundle' = stack.getElement().getResourceType())) begin
-          TWrapperElement res := getFromBundle(stack.getElement(), ref.substring(1));
-          if (res <> nil)
-            return res;
-        end;
-        stack := stack.parent;
-      end;
-      
-      // todo: consult the external host for resolution 
-      return nil;
-
-    end;
-  end;
-  
-  private TWrapperElement getFromBundle(TWrapperElement bundle, String ref) begin
-    entries : TAdvList<TWrapperElement> := TAdvList<TWrapperElement>.create();
-    bundle.getNamedChildren('entry', entries);
-    for (TWrapperElement we : entries) begin
-      TWrapperElement res := we.getNamedChild('resource').getFirstChild();
-      if (res <> nil) begin
-        String url := genFullUrl(bundle.getNamedChildValue('base'), we.getNamedChildValue('base'), res.getName(), res.getNamedChildValue('id'));
-        if (url.endsWith(ref))
-          return res;
-      end;
-    end;
-    return nil;
-  end;
-
-  private String genFullUrl(String bundleBase, String entryBase, String type, String id) begin
-    String base := Utilities.noString(entryBase) ? bundleBase : entryBase;
-    if (Utilities.noString(base)) begin
-      return type+'/'+id;
-    end; else if ('urn:uuid' = base) ) or ( 'urn:oid' = base))
-      return base+id;
-    else 
-      return Utilities.appendSlash(base)+type+'/'+id;
-  end;
-  
-  private TWrapperElement getContainedById(TWrapperElement container, String id) begin
-    TAdvList<TWrapperElement> contained := TAdvList<TWrapperElement>.create();
-    container.getNamedChildren('contained', contained);
-    for (TWrapperElement we : contained) begin
-    	TWrapperElement res := we.isXml() ? we.getFirstChild() : we;
-      if (id = res.getNamedChildValue('id')))
-        return res;
-    end;
-    return nil;
-  end;
-
-  private String tryParse(String ref) throws EOperationOutcome, Exception begin
-    TArray<String> parts := ref.split('\\/');
-    switch (parts.length) begin
-    case 1:
-      return nil;
-    case 2:
-      return checkResourceType(parts[0]);
-    default:
-      if (parts[parts.length-2] = '_history'))
-        return checkResourceType(parts[parts.length-4]);
-      else
-        return checkResourceType(parts[parts.length-2]);
-    end;
-  end;
-  
-  private String checkResourceType(String type) throws EOperationOutcome, Exception begin
-    if (context.fetchResource(StructureDefinition.class, 'http://hl7.org/fhir/StructureDefinition/'+type) <> nil)
-      return type;
-    else
-      return nil;
-  end;
-  private String getBaseType(profile : TFHIRStructureDefinition, String pr) throws EOperationOutcome, Exception begin
+function TFHIRInstanceValidator.getBaseType(profile : TFHIRStructureDefinition; pr : String) : String;
+var
+  p : TFHIRStructureDefinition;
+begin
 //    if (pr.startsWith('http://hl7.org/fhir/StructureDefinition/')) begin
 //      // this just has to be a base type
 //      return pr.substring(40);
 //    end; else begin
-      StructureDefinition p := resolveProfile(profile, pr);
-      if (p = nil)
-        return nil;
-      else if (p.getKind() = StructureDefinitionKind.RESOURCE)
-        return p.Snapshot.ElementList[0).getPath();
-      else
-        return p.Snapshot.ElementList[0).getType()[0).getCode();
+  p := resolveProfile(profile, pr);
+  if (p = nil) then
+    result := ''
+  else if (p.Kind = StructureDefinitionKindRESOURCE) then
+    result := p.Snapshot.ElementList[0].Path
+  else
+    result := p.Snapshot.ElementList[0].Type_List[0].Code;
 //    end;
-  end;
-  
-  private StructureDefinition resolveProfile(profile : TFHIRStructureDefinition, String pr) throws EOperationOutcome, Exception begin
-    if (pr.startsWith('#')) begin
-      for (Resource r : profile.getContained()) begin
-        if (r.getId() = pr.substring(1)) ) and ( r instanceof StructureDefinition)
-          return (StructureDefinition) r;
+end;
+
+function TFHIRInstanceValidator.resolveProfile(profile : TFHIRStructureDefinition; pr : String): TFHIRStructureDefinition;
+var
+  r : TFHIRResource;
+begin
+  if (pr.startsWith('#')) then
+  begin
+    for r in profile.containedList do
+    begin
+      if (r.Id = pr.substring(1)) and (r is TFHIRStructureDefinition) then
+      begin
+        result := r as TFHIRStructureDefinition;
       end;
-      return nil;
     end;
-    else
-      return context.fetchResource(StructureDefinition.class, pr);
-  end;
-  
-  private StructureDefinition checkExtension(errors : TAdvList<TValidationMessage>, String path, element : TWrapperElement, ElementDefinition def, profile : TFHIRStructureDefinition, stack : TNodeStack) ; begin
-    String url := element.getAttribute('url');
-    boolean isModifier := element.getName() = 'modifierExtension');
-    
-    StructureDefinition ex := context.fetchResource(StructureDefinition.class, url);
-    if (ex = nil) begin
-      if (!rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, allowUnknownExtension(url), 'The extension '+url+' is unknown, and not allowed here'))
+    result := nil;
+  end
+  else
+    result := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, pr));
+end;
+
+function TFHIRInstanceValidator.checkExtension(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; def : TFHIRElementDefinition; profile : TFHIRStructureDefinition; stack : TNodeStack) : TFHIRStructureDefinition;
+var
+  url : String;
+  isModifier : boolean;
+  ex : TFHIRStructureDefinition;
+begin
+  url := element.getAttribute('url');
+  isModifier := element.getName() = 'modifierExtension';
+
+  ex := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, url));
+  if (ex = nil) then
+  begin
+    if (not rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, allowUnknownExtension(url), 'The extension '+url+' is unknown, and not allowed here')) then
         warning(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path, allowUnknownExtension(url), 'Unknown extension '+url);
-    end; else begin
-      if (def.getIsModifier()) 
-        rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path+'[url:="'+url+'"]', ex.Snapshot.ElementList[0).getIsModifier(), 'Extension modifier mismatch: the extension element is labelled as a modifier, but the underlying extension is not');
-      else
-        rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path+'[url:="'+url+'"]', !ex.Snapshot.ElementList[0).getIsModifier(), 'Extension modifier mismatch: the extension element is not labelled as a modifier, but the underlying extension is');
+  end
+  else
+  begin
+    if (def.IsModifier) then
+      rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path+'[url:="'+url+'"]', ex.Snapshot.ElementList[0].IsModifier, 'Extension modifier mismatch: the extension element is labelled as a modifier, but the underlying extension is not')
+    else
+      rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path+'[url:="'+url+'"]', not ex.Snapshot.ElementList[0].IsModifier, 'Extension modifier mismatch: the extension element is not labelled as a modifier, but the underlying extension is');
 
-      // two questions 
-      // 1. can this extension be used here?
-      checkExtensionContext(errors, element, {path+'[url:="'+url+'"]',} ex, stack, ex.getUrl());
-    
-      if (isModifier)
-        rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path+'[url:="'+url+'"]', ex.Snapshot.ElementList[0).getIsModifier(), 'The Extension "'+url+'" must be used as a modifierExtension');
-      else
-        rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path+'[url:="'+url+'"]', !ex.Snapshot.ElementList[0).getIsModifier(), 'The Extension "'+url+'" must not be used as an extension (it"s a modifierExtension)');
-      
-      // 2. is the content of the extension valid?
+    // two questions
+    // 1. can this extension be used here?
+    checkExtensionContext(errors, element, {path+'[url:="'+url+'"]',} ex, stack, ex.Url);
 
+    if (isModifier) then
+      rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path+'[url:="'+url+'"]', ex.Snapshot.ElementList[0].isModifier, 'The Extension "'+url+'" must be used as a modifierExtension')
+    else
+      rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), path+'[url:="'+url+'"]', not ex.Snapshot.ElementList[0].IsModifier, 'The Extension "'+url+'" must not be used as an extension (it"s a modifierExtension)');
+
+    // 2. is the content of the extension valid?
+
+  end;
+  result := ex;
+end;
+
+function TFHIRInstanceValidator.allowUnknownExtension(url : String) : boolean;
+var
+  s : String;
+begin
+  result := FIsAnyExtensionsAllowed;
+  if (url.contains('example.org')) or (url.contains('acme.com')) or (url.contains('nema.org')) then
+    result := true
+  else
+    for s in FExtensionDomains do
+      if (url.startsWith(s)) then
+        result := true;
+end;
+
+function TFHIRInstanceValidator.isKnownType(code : String) : boolean;
+begin
+  result := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, code.toLower)) <> nil;
+end;
+
+function TFHIRInstanceValidator.getElementByPath(definition : TFHIRStructureDefinition; path : String) : TFHIRElementDefinition;
+var
+  e : TFHIRElementDefinition;
+begin
+  for e in definition.SnapShot.ElementList do
+   begin
+    if (e.Path = path) then
+    begin
+      result := e;
+      exit;
     end;
-    return ex;
   end;
+  result := nil;
+end;
 
-  private boolean allowUnknownExtension(String url) begin
-    if (url.contains('example.org') ) or ( url.contains('acme.com') ) or ( url.contains('nema.org'))
-    	return true;
-    for (String s : extensionDomains)
-    	if (url.startsWith(s))
-    		return true;
-    return anyExtensionsAllowed;
+function TFHIRInstanceValidator.checkExtensionContext(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; definition : TFHIRStructureDefinition; stack : TNodeStack; extensionParent : String) : boolean;
+var
+  extUrl : String;
+  b, c, p, lp : String;
+  ct : TFhirString;
+  ok : boolean;
+begin
+  extUrl := definition.Url;
+  p := '';
+  for lp in stack.LogicalPaths do
+  begin
+    if p <> '' then p := p + ', ';
+    p := p + lp;
   end;
-  
-  private boolean isKnownType(String code) throws EOperationOutcome, Exception begin
-    return context.fetchResource(StructureDefinition.class, code.toLowerCase()) <> nil;
-  end;
-
-  private ElementDefinition getElementByPath(StructureDefinition definition, String path) begin
-    for (ElementDefinition e : definition.getSnapshot().getElement()) begin
-      if (e.getPath() = path))
-        return e;
+  if (definition.ContextType = ExtensionContextDATATYPE) then
+  begin
+    ok := false;
+    b := '';
+    for ct in definition.contextList do
+    begin
+      if b <> '' then b := b + ', ';
+      b := b + ct.Value;
+      if (ct.Value = '*') or (stack.LogicalPaths.IndexOf(ct.Value+'.extension') = -1) then
+        ok := true;
     end;
-    return nil;
-  end;
-
-  private boolean checkExtensionContext(errors : TAdvList<TValidationMessage>, element : TWrapperElement, StructureDefinition definition, stack : TNodeStack, String extensionParent) begin
-    String extUrl := definition.getUrl();
-    CommaSeparatedStringBuilder p := new CommaSeparatedStringBuilder();
-    for (String lp : stack.getLogicalPaths())
-      p.append(lp);
-	  if (definition.getContextType() = ExtensionContext.DATATYPE) begin
-	    boolean ok := false;
-	    CommaSeparatedStringBuilder b := new CommaSeparatedStringBuilder();
-	    for (StringType ct : definition.getContext()) begin
-	      b.append(ct.getValue());
-	      if (ct.getValue() = '*') ) or ( stack.getLogicalPaths().contains(ct.getValue()+'.extension'))
-	        ok := true;
-	    end;
-	    return rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, ok, 'The extension '+extUrl+' is not allowed to be used on the logical path set ['+p.toString()+'] (allowed: datatype:='+b.toString()+')');
-	  end; else if (definition.getContextType() = ExtensionContext.EXTENSION) begin
-      boolean ok := false;
-      for (StringType ct : definition.getContext()) 
-        if (ct.getValue() = '*') ) or ( ct.getValue() = extensionParent))
-            ok := true;
-      return rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, ok, 'The extension '+extUrl+' is not allowed to be used with the extension "'+extensionParent+'"');
-	  end; else if (definition.getContextType() = ExtensionContext.MAPPING) begin
-  		throw new Error('Not handled yet (extensionContext)');
-	  end; else if (definition.getContextType() = ExtensionContext.RESOURCE) begin
-      boolean ok := false;
-//      String simplePath := container.getPath();
+    result := rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, ok, 'The extension '+extUrl+' is not allowed to be used on the logical path set ['+p+'] (allowed: datatype:='+b+')');
+  end
+  else if (definition.ContextType = ExtensionContextEXTENSION) then
+  begin
+    ok := false;
+    for ct in definition.contextList do
+      if (ct.Value = '*') or (ct.Value = extensionParent) then
+        ok := true;
+    result := rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, ok, 'The extension '+extUrl+' is not allowed to be used with the extension "'+extensionParent+'"');
+  end
+  else if (definition.ContextType = ExtensionContextMAPPING) then
+  begin
+    raise Exception.create('Not handled yet (extensionContext)');
+  end
+  else if (definition.ContextType = ExtensionContextRESOURCE) then
+  begin
+    ok := false;
+//      String simplePath := container.Path;
 //      System.out.println(simplePath);
 //      if (effetive.endsWith('.extension') ) or ( simplePath.endsWith('.modifierExtension'))
 //        simplePath := simplePath.substring(0, simplePath.lastIndexOf("."));
-      CommaSeparatedStringBuilder b := new CommaSeparatedStringBuilder();
-      for (StringType ct : definition.getContext()) begin
-        String c := ct.getValue();
-        b.append(c);
-        if (c = '*') ) or ( stack.getLogicalPaths().contains(c+'.extension') ) or ( (c.startsWith('@') ) and ( stack.getLogicalPaths().contains(c.substring(1)+'.extension')));
-            ok := true;
-      end;
-      return rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, ok, 'The extension '+extUrl+' is not allowed to be used on the logical path set '+p.toString()+' (allowed: resource:='+b.toString()+')');
-	  end; else
-  		throw new Error('Unknown context type');
-  end;
+    b := '';
+    for ct in definition.contextList do
+    begin
+      if b <> '' then b := b + ', ';
+      b := b + ct.Value;
+      c := ct.Value;
+      if (c = '*') or (stack.LogicalPaths.indexof(c+'.extension') >= 0) or (c.startsWith('@') and (stack.LogicalPaths.indexof(c.substring(1)+'.extension') >= 0)) then
+          ok := true;
+    end;
+    result := rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, ok, 'The extension '+extUrl+' is not allowed to be used on the logical path set '+p+' (allowed: resource:='+b+')');
+  end
+  else
+    raise Exception.create('Unknown context type');
+end;
+
 //
 //  private String simplifyPath(String path) begin
 //    String s := path.replace('/f:', '.');
@@ -1710,14 +2103,14 @@ begin
 //    int i := 0;
 //    while (i < parts.length ) and ( !context.getProfiles().containsKey(parts[i].toLowerCase()))
 //      i++;
-//    if (i >:= parts.length)
-//      throw new Error('Unable to process part '+path);
+//    if (i >= parts.length)
+//      raise Exception.create('Unable to process part '+path);
 //    int j := parts.length - 1;
 //    while (j > 0 ) and ( (parts[j] = 'extension') ) or ( parts[j] = 'modifierExtension')))
 //        j--;
 //    StringBuilder b := new StringBuilder();
 //    boolean first := true;
-//    for (int k := i; k <:= j; k++) begin
+//    for (int k := i; k <= j; k++) begin
 //      if (k = j ) or ( !parts[k] = parts[k+1])) begin
 //        if (first)
 //          first := false;
@@ -1730,574 +2123,658 @@ begin
 //  end;
 //
 
-  private boolean empty(element : TWrapperElement) begin
-    if (element.hasAttribute('value'))
-      return false;
-    if (element.hasAttribute('xml:id'))
-      return false;
-    TWrapperElement child := element.getFirstChild();
-    while (child <> nil) begin
-      if (!child.isXml() ) or ( FormatUtilities.FHIR_NS = child.getNamespace())) begin
-        return false;
+function empty(element : TWrapperElement) : boolean;
+var
+  child : TWrapperElement;
+begin
+  if (element.hasAttribute('value')) then
+    result := false
+  else if (element.hasAttribute('xml:id')) then
+    result := false
+  else
+  begin
+    child := element.getFirstChild();
+    while (child <> nil) do
+    begin
+      if (not child.isXml()) or (FHIR_NS = child.getNamespace())then
+      begin
+        result := false;
+        exit;
       end;
       child := child.getNextSibling();
     end;
-    return true;
+    result := true;
   end;
+end;
 
-  private ElementDefinition findElement(profile : TFHIRStructureDefinition, String name) begin
-    for (ElementDefinition c : profile.getSnapshot().getElement()) begin
-      if (c.getPath() = name)) begin
-        return c;
-      end;
+function TFHIRInstanceValidator.findElement(profile : TFHIRStructureDefinition; name : String) : TFHIRElementDefinition;
+var
+  c : TFHIRElementDefinition;
+begin
+  result := nil;
+  for c in profile.SnapShot.elementList do
+  begin
+    if (c.Path = name) then
+    begin
+      result := c;
+      exit;
     end;
-    return nil;
   end;
+end;
 
-  private ElementDefinition getDefinitionByTailNameChoice(List<ElementDefinition> children, String name) begin
-    for (ElementDefinition ed : children) begin
-    	String n := tail(ed.getPath());
-      if (n.endsWith('[x]') ) and ( name.startsWith(n.substring(0, n.length()-3))) begin
-        return ed;
-      end;
+function TFHIRInstanceValidator.getDefinitionByTailNameChoice(children : TFHIRElementDefinitionList; name : String) : TFHIRElementDefinition;
+var
+  ed : TFHIRElementDefinition;
+  n : string;
+begin
+  result := nil;
+  for ed in children do
+  begin
+    n := tail(ed.Path);
+    if (n.endsWith('[x]') ) and ( name.startsWith(n.substring(0, n.length-3))) then
+    begin
+      result := ed;
+      exit;
     end;
-    return nil;
   end;
+end;
 
-  private String tail(String path) begin
-    return path.substring(path.lastIndexOf('.')+1);
-  end;
 
-  procedure TFHIRInstanceValidator.validateContains(errors : TAdvList<TValidationMessage>, String path, ElementDefinition child, ElementDefinition context, element : TWrapperElement, stack : TNodeStack, needsId : boolean) ; begin
-  	TWrapperElement e := element.isXml() ? element.getFirstChild() : element;
-  	String resourceName := e.getResourceType();
-    profile : TFHIRStructureDefinition := this.context.fetchResource(StructureDefinition.class, 'http://hl7.org/fhir/StructureDefinition/'+resourceName);
-    if (rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile <> nil, 'No profile found for contained resource of type "'+resourceName+'"'))
-      validateResource(errors, e, profile, needsId, stack);    
-  end;
+procedure TFHIRInstanceValidator.validateContains(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; child : TFHIRElementDefinition; context : TFHIRElementDefinition; element : TWrapperElement; stack : TNodeStack; needsId : boolean);
+var
+  e : TWrapperElement;
+  resourceName : String;
+  profile : TFHIRStructureDefinition;
+begin
+  if element.isXml() then
+    e := element.getFirstChild()
+  else
+    e := element;
+  resourceName := e.getResourceType();
+  profile := TFHIRStructureDefinition(Fcontext.fetchResource(frtStructureDefinition, 'http://hl7.org/fhir/StructureDefinition/'+resourceName));
+  if (rule(errors, IssueTypeINVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile <> nil, 'No profile found for contained resource of type "'+resourceName+'"')) then
+    validateResource(errors, e, profile, needsId, stack);
+end;
 
-  private boolean typeIsPrimitive(String t) begin
-    if ('boolean'.equalsIgnoreCase(t)) return true;
-    if ('integer'.equalsIgnoreCase(t)) return true;
-    if ('decimal'.equalsIgnoreCase(t)) return true;
-    if ('base64Binary'.equalsIgnoreCase(t)) return true;
-    if ('instant'.equalsIgnoreCase(t)) return true;
-    if ('string'.equalsIgnoreCase(t)) return true;
-    if ('uri'.equalsIgnoreCase(t)) return true;
-    if ('date'.equalsIgnoreCase(t)) return true;
-    if ('dateTime'.equalsIgnoreCase(t)) return true;
-    if ('date'.equalsIgnoreCase(t)) return true;
-    if ('oid'.equalsIgnoreCase(t)) return true;
-    if ('uuid'.equalsIgnoreCase(t)) return true;
-    if ('code'.equalsIgnoreCase(t)) return true;
-    if ('id'.equalsIgnoreCase(t)) return true;
-    if ('xhtml'.equalsIgnoreCase(t)) return true;
-    return false;
-  end;
 
-  procedure TFHIRInstanceValidator.checkPrimitive(errors : TAdvList<TValidationMessage>, String path, String type, ElementDefinition context, TWrapperElement e) ; begin
-    if (type = 'uri')) begin
-      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, !e.getAttribute('value').startsWith('oid:'), 'URI values cannot start with oid:');
-      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, !e.getAttribute('value').startsWith('uuid:'), 'URI values cannot start with uuid:');
-      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, e.getAttribute('value') = e.getAttribute('value').trim()), 'URI values cannot have leading or trailing whitespace');
-    end;
-    if (!type.equalsIgnoreCase('string') ) and ( e.hasAttribute('value')) begin
-      if (rule(errors, IssueTypeINVALID, e.line(), e.col(), path, e.getAttribute('value').length() > 0, '@value cannot be empty')) begin
-        warning(errors, IssueTypeINVALID, e.line(), e.col(), path, e.getAttribute('value').trim() = e.getAttribute('value')), 'value should not start or finish with whitespace');
-      end;
-    end;
-    if (type = 'dateTime')) begin
-      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, yearIsValid(e.getAttribute('value')), 'The value "'+e.getAttribute('value')+'" does not have a valid year');
-      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, e.getAttribute('value').matches('-?[0-9]begin4end;(-(0[1-9]"1[0-2])(-(0[0-9]"[1-2][0-9]"3[0-1])(T([01][0-9]"2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z"(\\+"-)((0[0-9]"1[0-3]):[0-5][0-9]"14:00))?)?)?)?'), 'Not a valid date time');
-      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, !hasTime(e.getAttribute('value')) ) or ( hasTimeZone(e.getAttribute('value')), 'if a date has a time, it must have a timezone');
-      
-    end;
-    if (type = 'instant')) begin
-      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, e.getAttribute('value').matches('-?[0-9]begin4end;-(0[1-9]"1[0-2])-(0[0-9]"[1-2][0-9]"3[0-1])T([01][0-9]"2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z"(\\+"-)((0[0-9]"1[0-3]):[0-5][0-9]"14:00))'), 'The instant "'+e.getAttribute('value')+'" is not valid (by regex)');
-      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, yearIsValid(e.getAttribute('value')), 'The value "'+e.getAttribute('value')+'" does not have a valid year');
-    end;
-    
-    if (type = 'code')) begin
-      // Technically, a code is restricted to string which has at least one character and no leading or trailing whitespace, and where there is no whitespace other than single spaces in the contents 
-      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, passesCodeWhitespaceRules(e.getAttribute('value')), 'The code "'+e.getAttribute('value')+'" is not valid (whitespace rules)');
-    end;
-
-    if (context.hasBinding()) begin
-      checkPrimitiveBinding(errors, path, type, context, e);
-    end;
-    // for nothing to check    
-  end;
-
-  private boolean passesCodeWhitespaceRules(String v) begin
-    if (!v.trim() = v))
-      return false;
-    boolean lastWasSpace := true;
-    for (char c : v.toCharArray()) begin
-      if (c = " ") begin
-        if (lastWasSpace)
-          return false;
-        else
-          lastWasSpace := true;
-      end; else if (Character.isWhitespace(c))
-        return false;
+function passesCodeWhitespaceRules(v : String) : boolean;
+var
+  lastWasSpace : boolean;
+  c : char;
+begin
+  if (v.trim() <> v) then
+    result := false
+  else
+  begin
+    lastWasSpace := true;
+    for c in v do
+    begin
+     if (c = ' ') then
+     begin
+      if (lastWasSpace) then
+      begin
+        result := false;
+        exit;
+      end
       else
-        lastWasSpace := false;
+        lastWasSpace := true;
+    end
+    else if (isWhitespace(c)) then
+    begin
+      result := false;
+      exit;
+    end
+    else
+      lastWasSpace := false;
     end;
-    return true;
   end;
-  
-  // note that we don"t check the type here; it could be string, uri or code.
-  procedure TFHIRInstanceValidator.checkPrimitiveBinding(errors : TAdvList<TValidationMessage>, String path, String type, ElementDefinition context, element : TWrapperElement) ; begin
-    if (!element.hasAttribute('value'))
-      return;
-    
-    String value := element.getAttribute('value');
+  result := true;
+end;
+
+function yearIsValid(v : String) : boolean;
+var
+  i : integer;
+begin
+  if (v = '') then
+    result := false
+  else
+  begin
+    i := StrToIntDef(v.substring(0, Integermin(4, v.length)), 0);
+    result := (i >= 1800) and ( i <= 2100);
+  end;
+end;
+
+function hasTimeZone(fmt : String) : boolean;
+begin
+  result := (fmt.length > 10) and (fmt.substring(10).contains('-') or fmt.substring(10).contains('+') or fmt.substring(10).contains('Z'));
+end;
+
+function hasTime(fmt : String) : boolean;
+begin
+  result := fmt.contains('T');
+end;
+
+
+procedure TFHIRInstanceValidator.checkPrimitive(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; ty : String; context : TFHIRElementDefinition; e : TWrapperElement);
+var
+  regex : TRegExpr;
+begin
+  if (ty = 'uri') then
+  begin
+    rule(errors, IssueTypeINVALID, e.line(), e.col(), path, not e.getAttribute('value').startsWith('oid:'), 'URI values cannot start with oid:');
+    rule(errors, IssueTypeINVALID, e.line(), e.col(), path, not e.getAttribute('value').startsWith('uuid:'), 'URI values cannot start with uuid:');
+    rule(errors, IssueTypeINVALID, e.line(), e.col(), path, e.getAttribute('value') = e.getAttribute('value').trim(), 'URI values cannot have leading or trailing whitespace');
+  end;
+  if (not SameText(ty, 'string') ) and (e.hasAttribute('value')) then
+  begin
+    if (rule(errors, IssueTypeINVALID, e.line(), e.col(), path, e.getAttribute('value').length > 0, '@value cannot be empty')) then
+      warning(errors, IssueTypeINVALID, e.line(), e.col(), path, e.getAttribute('value').trim() = e.getAttribute('value'), 'value should not start or finish with whitespace');
+  end;
+  if (ty = 'dateTime') then
+  begin
+    rule(errors, IssueTypeINVALID, e.line(), e.col(), path, yearIsValid(e.getAttribute('value')), 'The value "'+e.getAttribute('value')+'" does not have a valid year');
+    regex := TRegExpr.Create;
+    try
+      regex.Expression := '-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?';
+      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, regex.Exec(e.getAttribute('value')), 'Not a valid date time');
+    finally
+      regex.Free;
+    end;
+    rule(errors, IssueTypeINVALID, e.line(), e.col(), path, not hasTime(e.getAttribute('value')) or hasTimeZone(e.getAttribute('value')), 'if a date has a time, it must have a timezone');
+  end;
+  if (ty = 'instant') then
+  begin
+    regex := TRegExpr.Create;
+    try
+      regex.Expression := '-?[0-9]{4}-(0[1-9]|1[0-2])-(0[0-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))';
+      rule(errors, IssueTypeINVALID, e.line(), e.col(), path, regex.exec(e.getAttribute('value')), 'The instant "'+e.getAttribute('value')+'" is not valid (by regex)');
+    finally
+      regex.Free;
+    end;
+    rule(errors, IssueTypeINVALID, e.line(), e.col(), path, yearIsValid(e.getAttribute('value')), 'The value "'+e.getAttribute('value')+'" does not have a valid year');
+  end;
+
+  if (ty = 'code') then
+  begin
+    // Technically, a code is restricted to string which has at least one character and no leading or trailing whitespace, and where there is no whitespace other than single spaces in the contents
+    rule(errors, IssueTypeINVALID, e.line(), e.col(), path, passesCodeWhitespaceRules(e.getAttribute('value')), 'The code "'+e.getAttribute('value')+'" is not valid (whitespace rules)');
+  end;
+
+  if (context.Binding <> nil) then
+  begin
+    checkPrimitiveBinding(errors, path, ty, context, e);
+  end;
+  // for nothing to check
+end;
+
+function describeReference(reference : TFhirType) : String;
+begin
+  if (reference = nil) then
+    result := 'nil'
+  else if (reference is TFHIRUri) then
+    result := TFHIRUri(reference).Value
+  else if (reference is TFHIRReference) then
+    result := TFhirReference(reference).Reference
+  else
+    result := '??';
+end;
+
+
+
+// note that we don"t check the type here; it could be string, uri or code.
+procedure TFHIRInstanceValidator.checkPrimitiveBinding(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; ty : String;context : TFHIRElementDefinition; element : TWrapperElement) ;
+var
+  value : String;
+  binding : TFhirElementDefinitionBinding;
+  vs : TFHIRValueSet;
+  ok : boolean;
+begin
+  if (not element.hasAttribute('value')) then
+    exit;
+  value := element.getAttribute('value');
 
 //    System.out.println('check '+value+' in '+path);
-    
-    // firstly, resolve the value set
-    ElementDefinitionBindingComponent binding := context.getBinding();
-    if (binding.hasValueSet() ) and ( binding.getValueSet() instanceof Reference) begin
-      ValueSet vs := resolveBindingReference(binding.getValueSet());
-      if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'ValueSet '+describeReference(binding.getValueSet())+' not found')) begin
-        try begin
-          vs := cache.getExpander().expand(vs).getValueset();
-          if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unable to expand value set for '+describeReference(binding.getValueSet()))) begin
-            boolean ok := codeInExpansion(vs, nil, value);
-            if (binding.getStrength() = BindingStrength.REQUIRED)
-              rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, ok, 'Coded value '+value+' is not in value set '+describeReference(binding.getValueSet())+' ('+vs.getUrl()+')');
-            else if (binding.getStrength() = BindingStrength.EXTENSIBLE)
-              warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, ok, 'Coded value '+value+' is not in value set '+describeReference(binding.getValueSet())+' ('+vs.getUrl()+')');
-            else
-              hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, ok, 'Coded value '+value+' is not in value set '+describeReference(binding.getValueSet())+' ('+vs.getUrl()+')');
-          end;
-        end; catch (ETooCostly e) begin
-          if (e.getMessage() = nil)
-            warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.getUrl()+' for '+describeReference(binding.getValueSet())+': --nil--');
+
+  // firstly, resolve the value set
+  binding  := context.Binding;
+  if (binding.ValueSet <> nil ) and ( binding.ValueSet is TFHIRReference) then
+  begin
+    vs := resolveBindingReference(binding.ValueSet);
+    if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'ValueSet '+describeReference(binding.ValueSet)+' not found')) then
+    begin
+      try
+        vs := FContext.expand(vs);
+        if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unable to expand value set for '+describeReference(binding.ValueSet))) then
+        begin
+          ok := codeInExpansion(vs, '', value);
+          if (binding.Strength = BindingStrengthREQUIRED) then
+            rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, ok, 'Coded value '+value+' is not in value set '+describeReference(binding.ValueSet)+' ('+vs.Url+')')
+          else if (binding.Strength = BindingStrengthEXTENSIBLE) then
+            warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, ok, 'Coded value '+value+' is not in value set '+describeReference(binding.ValueSet)+' ('+vs.Url+')')
           else
-            warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.getUrl()+' for '+describeReference(binding.getValueSet())+': '+e.getMessage());
+            hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, ok, 'Coded value '+value+' is not in value set '+describeReference(binding.ValueSet)+' ('+vs.Url+')');
         end;
+      except on e: ETooCostly do
+        if (e.Message = '') then
+          warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.Url+' for '+describeReference(binding.ValueSet)+': --nil--')
+        else
+          warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.Url+' for '+describeReference(binding.ValueSet)+': '+e.Message);
       end;
-    end; else
-      hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding has no source, so can"t be checked');
-  end;
-  
-  private boolean yearIsValid(String v) begin
-    if (v = nil) begin
-        return false;
     end;
-    try begin
-       int i := Integer.parseInt(v.substring(0, Math.min(4, v.length())));
-       return i >:= 1800 ) and ( i <:= 2100;
-    end; catch (NumberFormatException e) begin
-       return false;
-    end;
-  end;
-    
-  private boolean hasTimeZone(String fmt) begin
-    return fmt.length() > 10 ) and ( (fmt.substring(10).contains('-') ) or ( fmt.substring(10).contains('-') ) or ( fmt.substring(10).contains('+') ) or ( fmt.substring(10).contains('Z'));
-  end;
-  
-  private boolean hasTime(String fmt) begin
-    return fmt.contains('T');
-  end;
-  
-  procedure TFHIRInstanceValidator.checkIdentifier(errors : TAdvList<TValidationMessage>, String path, element : TWrapperElement, ElementDefinition context) begin
-    String system := element.getNamedChildValue('system');
-    rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, isAbsolute(system), 'Identifier.system must be an absolute reference, not a local reference');
-  end;
+  end
+  else
+    hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding has no source, so can''t be checked');
+end;
 
-  private boolean isAbsolute(String uri) begin
-    return Utilities.noString(uri) ) or ( uri.startsWith('http:') ) or ( uri.startsWith('https:') ) or ( uri.startsWith('urn:uuid:') ) or ( uri.startsWith('urn:oid:') ) or (
-        uri.startsWith('urn:ietf:') ) or ( uri.startsWith('urn:iso:');
-  end;
-  
-  procedure TFHIRInstanceValidator.checkIdentifier(String path, Element element, ElementDefinition context) begin
+function isAbsolute(uri : String) : boolean;
+begin
+  result := (uri = '') or uri.startsWith('http:') or uri.startsWith('https:') or uri.startsWith('urn:uuid:') or uri.startsWith('urn:oid:') or uri.startsWith('urn:ietf:') or uri.startsWith('urn:iso:');
+end;
 
-  end;
-
-  procedure TFHIRInstanceValidator.checkQuantity(errors : TAdvList<TValidationMessage>, String path, element : TWrapperElement, ElementDefinition context, boolean b) ; begin
-    String code := element.getNamedChildValue('code');
-    String system := element.getNamedChildValue('system');
-    String units := element.getNamedChildValue('units');
-
-    if (system <> nil ) and ( code <> nil) begin
-      checkCode(errors, element, path, code, system, units);
-    end;
-  end;
+procedure TFHIRInstanceValidator.checkIdentifier(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; context : TFHIRElementDefinition);
+var
+  system : String;
+begin
+  system := element.getNamedChildValue('system');
+  rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, isAbsolute(system), 'Identifier.system must be an absolute reference, not a local reference');
+end;
 
 
-  procedure TFHIRInstanceValidator.checkCoding(errors : TAdvList<TValidationMessage>, String path, element : TWrapperElement, profile : TFHIRStructureDefinition, ElementDefinition context) throws EOperationOutcome, Exception begin
-    String code := element.getNamedChildValue('code');
-    String system := element.getNamedChildValue('system');
-    String display := element.getNamedChildValue('display');
-    rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, isAbsolute(system), 'Coding.system must be an absolute reference, not a local reference');
-    
-    if (system <> nil ) and ( code <> nil) begin
-      if (checkCode(errors, element, path, code, system, display)) 
-        if (context <> nil ) and ( context.getBinding() <> nil) begin
-          ElementDefinitionBindingComponent binding := context.getBinding();
-          if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, binding <> nil, 'Binding for '+path+' missing')) begin
-            if (binding.hasValueSet() ) and ( binding.getValueSet() instanceof Reference) begin
-              ValueSet vs := resolveBindingReference(binding.getValueSet());
-              if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'ValueSet '+describeReference(binding.getValueSet())+' not found')) begin
-                try begin
-                  vs := cache.getExpander().expand(vs).getValueset();
-                  if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unable to expand value set for '+describeReference(binding.getValueSet()))) begin
-                    if (binding.getStrength() = BindingStrength.REQUIRED)
-                      rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, codeInExpansion(vs, system, code), 'Code begin'+system+'end;'+code+' is not in value set '+describeReference(binding.getValueSet())+' ('+vs.getUrl()+')');
-                    else if (binding.getStrength() = BindingStrength.EXTENSIBLE)
-                      warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, codeInExpansion(vs, system, code), 'Code begin'+system+'end;'+code+' is not in value set '+describeReference(binding.getValueSet())+' ('+vs.getUrl()+')');
-                    else
-                      hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, codeInExpansion(vs, system, code), 'Code begin'+system+'end;'+code+' is not in value set '+describeReference(binding.getValueSet())+' ('+vs.getUrl()+')');
-                  end;
-                end; catch (Exception e) begin
-                  if (e.getMessage() = nil)
-                    warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.getUrl()+' for '+describeReference(binding.getValueSet())+': --nil--');
+procedure TFHIRInstanceValidator.checkQuantity(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; context : TFHIRElementDefinition; b : boolean);
+var
+  code : String;
+  system : String;
+  units : String;
+begin
+  code := element.getNamedChildValue('code');
+  system := element.getNamedChildValue('system');
+  units := element.getNamedChildValue('units');
+
+  if (system <> '') and (code <> '') then
+    checkCode(errors, element, path, code, system, units);
+end;
+
+
+procedure TFHIRInstanceValidator.checkCoding(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; profile : TFHIRStructureDefinition; context : TFHIRElementDefinition);
+var
+  code : String;
+  system : String;
+  display : String;
+  binding : TFhirElementDefinitionBinding;
+  vs : TFHIRValueSet;
+begin
+  code := element.getNamedChildValue('code');
+  system := element.getNamedChildValue('system');
+  display := element.getNamedChildValue('display');
+
+  rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, isAbsolute(system), 'Coding.system must be an absolute reference, not a local reference');
+
+  if (system <> '') and (code <> '') then
+  begin
+    if (checkCode(errors, element, path, code, system, display)) then
+      if (context <> nil ) and ( context.Binding <> nil) then
+      begin
+        binding := context.Binding;
+        if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, binding <> nil, 'Binding for '+path+' missing')) then
+        begin
+          if (binding.ValueSet <> nil ) and ( binding.ValueSet is TFHIRReference) then
+          begin
+            vs := resolveBindingReference(binding.ValueSet);
+            if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'ValueSet '+describeReference(binding.ValueSet)+' not found')) then
+            begin
+              try
+                vs := FContext.expand(vs);
+                if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unable to expand value set for '+describeReference(binding.ValueSet))) then
+                begin
+                  if (binding.Strength = BindingStrengthREQUIRED) then
+                    rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, codeInExpansion(vs, system, code), 'Code begin'+system+'end;'+code+' is not in value set '+describeReference(binding.ValueSet)+' ('+vs.Url+')')
+                  else if (binding.Strength = BindingStrengthEXTENSIBLE) then
+                    warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, codeInExpansion(vs, system, code), 'Code begin'+system+'end;'+code+' is not in value set '+describeReference(binding.ValueSet)+' ('+vs.Url+')')
                   else
-                    warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.getUrl()+' for '+describeReference(binding.getValueSet())+': '+e.getMessage());
+                    hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, codeInExpansion(vs, system, code), 'Code begin'+system+'end;'+code+' is not in value set '+describeReference(binding.ValueSet)+' ('+vs.Url+')');
                 end;
+              except on e : Exception do
+                if (e.Message = '') then
+                  warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.Url+' for '+describeReference(binding.ValueSet)+': --nil--')
+                else
+                  warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.Url+' for '+describeReference(binding.ValueSet)+': '+e.Message);
               end;
-            end; else if (binding.hasValueSet())
-              hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding by URI reference cannot be checked');
-            else 
-              hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding has no source, so can"t be checked');
-          end;
-        end;
-    end;
-  end;
-
-
-  private ValueSet resolveBindingReference(Type reference) throws EOperationOutcome, Exception begin
-    if (reference instanceof UriType)
-      return context.fetchResource(ValueSet.class, ((UriType) reference).getValue().toString());
-    else if (reference instanceof Reference)
-      return context.fetchResource(ValueSet.class, ((Reference) reference).getReference());
-    else
-      return nil;
-  end;
-
-  private boolean codeInExpansion(ValueSet vs, String system, String code) begin
-    for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) begin
-      if (code = c.getCode()) ) and ( (system = nil ) or ( system = c.getSystem())))
-        return true;
-      if (codeinExpansion(c, system, code)) 
-        return true;
-    end;
-    return false;
-  end;
-
-  private boolean codeinExpansion(ValueSetExpansionContainsComponent cnt, String system, String code) begin
-    for (ValueSetExpansionContainsComponent c : cnt.getContains()) begin
-      if (code = c.getCode()) ) and ( system = c.getSystem().toString()))
-        return true;
-      if (codeinExpansion(c, system, code)) 
-        return true;
-    end;
-    return false;
-  end;
-
-  procedure TFHIRInstanceValidator.checkCodeableConcept(errors : TAdvList<TValidationMessage>, String path, element : TWrapperElement, profile : TFHIRStructureDefinition, ElementDefinition context) throws EOperationOutcome, Exception begin
-    if (context <> nil ) and ( context.hasBinding()) begin
-      ElementDefinitionBindingComponent binding := context.getBinding();
-      if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, binding <> nil, 'Binding for '+path+' missing (cc)')) begin
-        if (binding.hasValueSet() ) and ( binding.getValueSet() instanceof Reference) begin
-          ValueSet vs := resolveBindingReference(binding.getValueSet());
-          if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'ValueSet '+describeReference(binding.getValueSet())+' not found')) begin
-            try begin
-              ValueSetExpansionOutcome exp := cache.getExpander().expand(vs);
-              vs := exp.getValueset();
-              if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unable to expand value set for '+describeReference(binding.getValueSet()))) begin
-                boolean found := false;
-                boolean any := false;
-                TWrapperElement c := element.getFirstChild();
-                while (c <> nil) begin
-                  if (c.getName() = 'coding')) begin
-                    any := true;
-                    String system := c.getNamedChildValue('system');
-                    String code := c.getNamedChildValue('code');
-                    if (system <> nil ) and ( code <> nil)
-                      found := found ) or ( codeInExpansion(vs, system, code);
-                  end;
-                  c := c.getNextSibling();
-                end;
-                if (!any ) and ( binding.getStrength() = BindingStrength.REQUIRED)
-                  warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, found, 'No code provided, and value set '+describeReference(binding.getValueSet())+' ('+vs.getUrl()+') is required');
-                if (any)
-                  if (binding.getStrength() = BindingStrength.PREFERRED)
-                    hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, found, 'None of the codes are in the example value set '+describeReference(binding.getValueSet())+' ('+vs.getUrl()+')');
-                  else if (binding.getStrength() = BindingStrength.EXTENSIBLE)
-                    warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, found, 'None of the codes are in the expected value set '+describeReference(binding.getValueSet())+' ('+vs.getUrl()+')');
-              end;
-            end; catch (Exception e) begin
-              if (e.getMessage() = nil) begin
-                warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.getUrl()+' for '+describeReference(binding.getValueSet())+': --nil--');
-//              end; else if (!e.getMessage().contains('unable to find value set http://snomed.info/sct')) begin
-//                hint(errors, IssueTypeCODEINVALID, path, suppressLoincSnomedMessages, 'Snomed value set - not validated');
-//              end; else if (!e.getMessage().contains('unable to find value set http://loinc.org')) begin
-//                hint(errors, IssueTypeCODEINVALID, path, suppressLoincSnomedMessages, 'Loinc value set - not validated');
-              end; else
-                warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.getUrl()+' for '+describeReference(binding.getValueSet())+': '+e.getMessage());
             end;
-          end;
-        end; else if (binding.hasValueSet())
-          hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding by URI reference cannot be checked');
-        else 
-          hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding has no source, so can"t be checked');
+          end
+          else if (binding.ValueSet <> nil) then
+            hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding by URI TFHIRReference cannot be checked')
+          else
+            hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding has no source, so can''t be checked');
+        end;
       end;
-    end;
   end;
-
-  private String describeReference(Type reference) begin
-    if (reference = nil)
-      return 'nil';
-    if (reference instanceof UriType)
-      return ((UriType)reference).getValue();
-    if (reference instanceof Reference)
-      return ((Reference)reference).getReference();
-    return '??';
-  end;
+end;
 
 
-  private boolean checkCode(errors : TAdvList<TValidationMessage>, element : TWrapperElement, String path, String code, String system, String display) ; begin
-    if (context.supportsSystem(system)) begin
-      ValidationResult s := context.validateCode(system, code, display);
-      if (s = nil ) or ( s.isOk())
-        return true;
-      if (s.getSeverity() = IssueSeverity.INFORMATION)
-        hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, s = nil, s.getMessage());
-      else if (s.getSeverity() = IssueSeverity.WARNING)
-        warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, s = nil, s.getMessage());
+function TFHIRInstanceValidator.resolveBindingReference(reference : TFHIRType) : TFHIRValueSet;
+begin
+  if (reference is TFHIRUri) then
+    result := TFHIRValueSet(Fcontext.fetchResource(frtValueSet, TFHIRUri(reference).Value))
+  else if (reference is TFHIRReference) then
+    result := TFHIRValueSet(Fcontext.fetchResource(frtValueSet, TFHIRReference(reference).Reference))
+  else
+    result := nil;
+end;
+
+procedure TFHIRInstanceValidator.checkCodeableConcept(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; element : TWrapperElement; profile : TFHIRStructureDefinition; context : TFHIRElementDefinition);
+var
+  binding : TFhirElementDefinitionBinding;
+  vs : TFHIRValueSet;
+  found, any : boolean;
+  c : TWrapperElement;
+  code, system : string;
+begin
+  if (context <> nil ) and ( context.Binding <> nil) then
+  begin
+    binding := context.Binding;
+    if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, binding <> nil, 'Binding for '+path+' missing (cc)')) then
+    begin
+      if (binding.ValueSet <> nil ) and ( binding.ValueSet is TFHIRReference) then
+      begin
+        vs := resolveBindingReference(binding.ValueSet);
+        if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'ValueSet '+describeReference(binding.ValueSet)+' not found')) then
+        begin
+          try
+            vs := FContext.expand(vs);
+            if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unable to expand value set for '+describeReference(binding.ValueSet))) then
+            begin
+              found := false;
+              any := false;
+              c := element.getFirstChild();
+              while (c <> nil) do
+              begin
+                if (c.getName = 'coding') then
+                begin
+                  any := true;
+                  system := c.getNamedChildValue('system');
+                  code := c.getNamedChildValue('code');
+                  if (system <> '') and (code <> '') then
+                    found := found or (codeInExpansion(vs, system, code));
+                end;
+                c := c.getNextSibling();
+              end;
+              if (not any ) and ( binding.Strength = BindingStrengthREQUIRED) then
+                warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, found, 'No code provided, and value set '+describeReference(binding.ValueSet)+' ('+vs.Url+') is required');
+              if (any) then
+              begin
+                if (binding.Strength = BindingStrengthPREFERRED) then
+                  hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, found, 'None of the codes are in the example value set '+describeReference(binding.ValueSet)+' ('+vs.Url+')')
+                else if (binding.Strength = BindingStrengthEXTENSIBLE) then
+                  warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, found, 'None of the codes are in the expected value set '+describeReference(binding.ValueSet)+' ('+vs.Url+')');
+              end;
+            end;
+          except on e : Exception do
+            if (e.Message = '') then
+            begin
+              warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.Url+' for '+describeReference(binding.ValueSet)+': --nil--');
+//              end; else if (not e.Message.contains('unable to find value set http://snomed.info/sct')) begin
+//                hint(errors, IssueTypeCODEINVALID, path, suppressLoincSnomedMessages, 'Snomed value set - not validated');
+//              end; else if (not e.Message.contains('unable to find value set http://loinc.org')) begin
+//                hint(errors, IssueTypeCODEINVALID, path, suppressLoincSnomedMessages, 'Loinc value set - not validated');
+            end
+            else
+              warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Exception opening value set '+vs.Url+' for '+describeReference(binding.ValueSet)+': '+e.Message);
+          end;
+        end;
+      end
+      else if (binding.ValueSet <> nil) then
+        hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding by URI TFHIRReference cannot be checked')
       else
-        return rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, s = nil, s.getMessage());
-      return true;
-    end; else if (system.startsWith('http://hl7.org/fhir')) begin
-      if (system = 'http://hl7.org/fhir/sid/icd-10'))
-        return true; // else don"t check ICD-10 (for now)
-      else begin
-        ValueSet vs := getValueSet(system);
-        if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unknown Code System '+system)) begin
-          ConceptDefinitionComponent def := getCodeDefinition(vs, code);
-          if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, def <> nil, 'Unknown Code ('+system+'#'+code+')'))
-            return warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, display = nil ) or ( display = def.getDisplay()), 'Display should be "'+def.getDisplay()+'"');
-        end;
-        return false;
-      end;
-    end; else if (system.startsWith('http://loinc.org')) begin
-      return true;
-    end; else if (system.startsWith('http://unitsofmeasure.org')) begin
-      return true;
+        hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, false, 'Binding has no source, so can''t be checked');
     end;
-    else 
-      return true;
   end;
-
-  private ConceptDefinitionComponent getCodeDefinition(ConceptDefinitionComponent c, String code) begin
-    if (code = c.getCode()))
-      return c;
-    for (ConceptDefinitionComponent g : c.getConcept()) begin
-      ConceptDefinitionComponent r := getCodeDefinition(g, code);
-      if (r <> nil)
-        return r;
-    end;
-    return nil;
-  end;
-
-  private ConceptDefinitionComponent getCodeDefinition(ValueSet vs, String code) begin
-    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) begin
-      ConceptDefinitionComponent r := getCodeDefinition(c, code);
-      if (r <> nil)
-        return r;
-    end;
-    return nil;
-  end;
-
-  private ValueSet getValueSet(String system) ; begin
-    return context.fetchCodeSystem(system);
-  end;
+end;
 
 
-  public class ProfileStructureIterator begin
+function TFHIRInstanceValidator.checkCode(errors : TAdvList<TFhirOperationOutcomeIssue>; element : TWrapperElement; path : String; code, system, display : String) : boolean;
+var
+  s : TValidationResult;
+  vs : TFHIRValueSet;
+begin
+  result := true;
+  if (Fcontext.supportsSystem(system)) then
+  begin
+    s := Fcontext.validateCode(system, code, display);
+    if (s = nil ) or (s.isOk()) then
+      result := true
+    else if (s.Severity = IssueSeverityINFORMATION) then
+      hint(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, s = nil, s.Message)
+    else if (s.Severity = IssueSeverityWARNING) then
+      warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, s = nil, s.Message)
+    else
+      result := rule(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, s = nil, s.Message);
+  end
+//  else if (system.startsWith('http://hl7.org/fhir')) then
+//  begin
+//    if (system = 'http://hl7.org/fhir/sid/icd-10') then
+//      result := true // else don"t check ICD-10 (for now)
+//    else
+//    begin
+//      vs := FContext.fetchCodeSystem(system);
+//      if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unknown Code System '+system)) begin
+//        ConceptDefinitionComponent def := getCodeDefinition(vs, code);
+//        if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, def <> nil, 'Unknown Code ('+system+'#'+code+')'))
+//          return warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, display = nil ) or ( display = def.getDisplay()), 'Display should be "'+def.getDisplay()+'"');
+//      end;
+//      return false;
+//    end;
+//  end; else if (system.startsWith('http://loinc.org')) begin
+//    return true;
+//  end; else if (system.startsWith('http://unitsofmeasure.org')) begin
+//    return true;
+//  end;
+  else
+    result := true;
+end;
 
-    private profile : TFHIRStructureDefinition;
-    private ElementDefinition elementDefn;
-    private List<String> names := new ArrayList<String>();
-    private Map<String, List<ElementDefinition>> children := new HashMap<String, List<ElementDefinition>>();
-    private int cursor;
+//function getCodeDefinition(c TFHIRConceptDefinition; code : String ) : TFHIRConceptDefinition;
+//begin
+//  if (code = c.Code))
+//    return c;
+//  for (ConceptDefinitionComponent g : c.getConcept()) begin
+//    ConceptDefinitionComponent r := getCodeDefinition(g, code);
+//    if (r <> nil)
+//      return r;
+//  end;
+//  return nil;
+//end;
+//
+//private ConceptDefinitionComponent getCodeDefinition(vs : TFHIRValueSet, String code) begin
+//  for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) begin
+//    ConceptDefinitionComponent r := getCodeDefinition(c, code);
+//    if (r <> nil)
+//      return r;
+//  end;
+//  return nil;
+//end;
 
-    public ProfileStructureIterator(profile : TFHIRStructureDefinition, ElementDefinition elementDefn) begin
-      this.profile := profile;
-      this.elementDefn := elementDefn;
-      loadMap();
-      cursor := -1;
-    end;
 
-    procedure TFHIRInstanceValidator.loadMap() begin
-      int i := profile.getSnapshot().getElement().indexOf(elementDefn) + 1;
-      String lead := elementDefn.getPath();
-      while (i < profile.getSnapshot().getElement().Count) begin
-        String name := profile.Snapshot.ElementList[i).getPath();
-        if (name.length() <:= lead.length())
-          return; // cause we"ve got to the end of the possible matches
-        String tail := name.substring(lead.length()+1);
-        if (Utilities.isToken(tail) ) and ( name.substring(0, lead.length()) = lead)) begin
-          List<ElementDefinition> list := children[tail);
-          if (list = nil) begin
-            list := new ArrayList<ElementDefinition>();
-            names.add(tail);
-            children.put(tail, list);
-          end;
-          list.add(profile.Snapshot.ElementList[i));
-        end;
-        i++;
-      end;
-    end;
 
-    public boolean more() begin
-      cursor++;
-      return cursor < names.Count;
-    end;
+//public class ProfileStructureIterator begin
+//
+//  private profile : TFHIRStructureDefinition;
+//  private TFHIRElementDefinition elementDefn;
+//  private List<String> names := new ArrayList<String>();
+//  private Map<String, List<TFHIRElementDefinition>> children := new HashMap<String, List<TFHIRElementDefinition>>();
+//  private int cursor;
+//
+//  public ProfileStructureIterator(profile : TFHIRStructureDefinition, TFHIRElementDefinition elementDefn) begin
+//    this.profile := profile;
+//    this.elementDefn := elementDefn;
+//    loadMap();
+//    cursor := -1;
+//  end;
+//
+//  procedure TFHIRInstanceValidator.loadMap() begin
+//    int i := profile.SnapShot.getElement().indexOf(elementDefn) + 1;
+//    String lead := elementDefn.Path;
+//    while (i < profile.SnapShot.getElement().Count) begin
+//      String name := profile.Snapshot.ElementList[i).Path;
+//      if (name.length() <= lead.length())
+//        return; // cause we"ve got to the end of the possible matches
+//      String tail := name.substring(lead.length()+1);
+//      if (Utilities.isToken(tail) ) and ( name.substring(0, lead.length()) = lead)) begin
+//        List<TFHIRElementDefinition> list := children[tail);
+//        if (list = nil) begin
+//          list := new ArrayList<TFHIRElementDefinition>();
+//          names.add(tail);
+//          children.put(tail, list);
+//        end;
+//        list.add(profile.Snapshot.ElementList[i));
+//      end;
+//      i++;
+//    end;
+//  end;
+//
+//  public boolean more() begin
+//    cursor++;
+//    return cursor < names.Count;
+//  end;
+//
+//  public List<TFHIRElementDefinition> current() begin
+//    return children[name());
+//  end;
+//
+//  public String name() begin
+//    return names[cursor);
+//  end;
+//
+//end;
+//
+//procedure TFHIRInstanceValidator.checkByProfile(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement, profile : TFHIRStructureDefinition, TFHIRElementDefinition elementDefn) ; begin
+//  // we have an element, and the structure that describes it.
+//  // we know that"s it"s valid against the underlying spec - is it valid against this one?
+//  // in the instance validator above, we assume that schema or schmeatron has taken care of cardinalities, but here, we have no such reliance.
+//  // so the walking algorithm is different: we"re going to walk the definitions
+//  String type;
+//  if (elementDefn.Path.endsWith('[x]')) begin
+//    String tail := elementDefn.Path.substring(elementDefn.Path.lastIndexOf('.')+1, elementDefn.Path.length()-3);
+//    type := focus.getName().substring(tail.length());
+//    rule(errors, IssueTypeSTRUCTURE, focus.line(), focus.col(), path, typeAllowed(type, elementDefn.Type_List), 'The type "'+type+'" is not allowed at this point (must be one of "'+typeSummary(elementDefn)+')');
+//  end; else begin
+//    if (elementDefn.Type_List.Count = 1) begin
+//      type := elementDefn.Type_List.Count = 0 ? nil : elementDefn.Type_List[0].Code;
+//    end; else
+//      type := nil;
+//  end;
+//  // constraints:
+//  for (ElementDefinitionConstraintComponent c : elementDefn.getConstraint())
+//    checkConstraint(errors, path, focus, c);
+//  if (elementDefn.Binding <> nil ) and ( type <> nil)
+//    checkBinding(errors, path, focus, profile, elementDefn, type);
+//
+//  // type specific checking:
+//  if (type <> nil ) and ( typeIsPrimitive(type)) begin
+//    checkPrimitiveByProfile(errors, path, focus, elementDefn);
+//  end; else begin
+//    if (elementDefn.hasFixed())
+//      checkFixedValue(errors, path, focus, elementDefn.getFixed(), '');
+//
+//    ProfileStructureIterator walker := new ProfileStructureIterator(profile, elementDefn);
+//    while (walker.more()) begin
+//      // collect all the slices for the path
+//      List<TFHIRElementDefinition> childset := walker.current();
+//      // collect all the elements that match it by name
+//      TAdvList<TWrapperElement> children := TAdvList<TWrapperElement>.create();
+//      focus.getNamedChildrenWithWildcard(walker.name(), children);
+//
+//      if (children.Count = 0) begin
+//        // well, there"s no children - should there be?
+//        for (TFHIRElementDefinition defn : childset) begin
+//          if (not rule(errors, IssueTypeREQUIRED, focus.line(), focus.col(), path, defn.getMin() = 0, 'Required Element "'+walker.name()+'" missing'))
+//            break; // no point complaining about missing ones after the first one
+//        end;
+//      end; else if (childset.Count = 1) begin
+//        // simple case: one possible definition, and one or more children.
+//        rule(errors, IssueTypeSTRUCTURE, focus.line(), focus.col(), path, childset[0).Max = '*') ) or ( StrToInt(childset[0).Max) >= children.Count,
+//            'Too many elements for "'+walker.name()+'"'); // todo: sort out structure
+//        for (TWrapperElement child : children) begin
+//          checkByProfile(errors, childset[0).Path, child, profile, childset[0));
+//        end;
+//      end; else begin
+//        // ok, this is the full case - we have a list of definitions, and a list of candidates for meeting those definitions.
+//        // we need to decide *if* that match a given definition
+//      end;
+//    end;
+//  end;
+//end;
+//procedure TFHIRInstanceValidator.checkBinding(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement, profile : TFHIRStructureDefinition, TFHIRElementDefinition elementDefn, String type) throws EOperationOutcome, Exception begin
+//  ElementDefinitionBindingComponent bc := elementDefn.Binding;
+//
+//  if (bc <> nil ) and ( bc.ValueSet() <> nil ) and ( bc.ValueSet is TFHIRReference) begin
+//    String url := ((TFHIRReference) bc.ValueSet).getReference();
+//    vs : TFHIRValueSet := resolveValueSetReference(profile, (TFHIRReference) bc.ValueSet);
+//    if (vs = nil) begin
+//      rule(errors, IssueTypeSTRUCTURE, focus.line(), focus.col(), path, false, 'Cannot check binding on type "'+type+'" as the value set "'+url+'" could not be located');
+//    end; else if (ty = 'code'))
+//      checkBindingCode(errors, path, focus, vs);
+//    else if (ty = 'Coding'))
+//      checkBindingCoding(errors, path, focus, vs);
+//    else if (ty = 'CodeableConcept'))
+//      checkBindingCodeableConcept(errors, path, focus, vs);
+//    else
+//      rule(errors, IssueTypeSTRUCTURE, focus.line(), focus.col(), path, false, 'Cannot check binding on type "'+type+'"');
+//  end;
+//end;
+//
+//private ValueSet resolveValueSetReference(profile : TFHIRStructureDefinition, TFHIRReference TFHIRReference) throws EOperationOutcome, Exception begin
+//  if (TFHIRReference.getReference().startsWith('#')) begin
+//    for (Resource r : profile.getContained()) begin
+//      if (r is ValueSet ) and ( r.getId() = TFHIRReference.getReference().substring(1)))
+//        return (ValueSet) r;
+//    end;
+//    return nil;
+//  end; else
+//    return resolveBindingReference(TFHIRReference);
+//
+//end;
 
-    public List<ElementDefinition> current() begin
-      return children[name());
-    end;
+//procedure TFHIRInstanceValidator.checkBindingCode(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement, vs : TFHIRValueSet) begin
+//  // rule(errors, 'exception', path, false, 'checkBindingCode not done yet');
+//end;
+//
+//procedure TFHIRInstanceValidator.checkBindingCoding(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement, vs : TFHIRValueSet) begin
+//  // rule(errors, 'exception', path, false, 'checkBindingCoding not done yet');
+//end;
+//
+//procedure TFHIRInstanceValidator.checkBindingCodeableConcept(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement, vs : TFHIRValueSet) begin
+//  // rule(errors, 'exception', path, false, 'checkBindingCodeableConcept not done yet');
+//end;
+//
+//private String typeSummary(TFHIRElementDefinition elementDefn) begin
+//  StringBuilder b := new StringBuilder();
+//  for (TypeRefComponent t : elementDefn.Type_List) begin
+//    b.append('"'+t.Code);
+//  end;
+//  return b.toString().substring(1);
+//end;
+//
+//private boolean typeAllowed(String t, List<TypeRefComponent> types) begin
+//  for (TypeRefComponent type : types) begin
+//    if (t = Utilities.capitalize(ty.Code)))
+//      return true;
+//    if (t = 'Resource') ) and ( Utilities.capitalize(ty.Code) = 'TFHIRReference'))
+//      return true;
+//  end;
+//  return false;
+//end;
+//
+//procedure TFHIRInstanceValidator.checkConstraint(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement, ElementDefinitionConstraintComponent c) ; begin
 
-    public String name() begin
-      return names[cursor);
-    end;
-
-  end;
-
-  procedure TFHIRInstanceValidator.checkByProfile(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, profile : TFHIRStructureDefinition, ElementDefinition elementDefn) ; begin
-    // we have an element, and the structure that describes it. 
-    // we know that"s it"s valid against the underlying spec - is it valid against this one?
-    // in the instance validator above, we assume that schema or schmeatron has taken care of cardinalities, but here, we have no such reliance. 
-    // so the walking algorithm is different: we"re going to walk the definitions
-    String type;
-  	if (elementDefn.getPath().endsWith('[x]')) begin
-  		String tail := elementDefn.getPath().substring(elementDefn.getPath().lastIndexOf('.')+1, elementDefn.getPath().length()-3);
-  		type := focus.getName().substring(tail.length());
-  		rule(errors, IssueTypeSTRUCTURE, focus.line(), focus.col(), path, typeAllowed(type, elementDefn.getType()), 'The type "'+type+'" is not allowed at this point (must be one of "'+typeSummary(elementDefn)+')');
-  	end; else begin
-  		if (elementDefn.getType().Count = 1) begin
-  			type := elementDefn.getType().Count = 0 ? nil : elementDefn.getType()[0).getCode();
-  		end; else
-  			type := nil;
-  	end;
-  	// constraints:
-  	for (ElementDefinitionConstraintComponent c : elementDefn.getConstraint()) 
-  		checkConstraint(errors, path, focus, c);
-  	if (elementDefn.hasBinding() ) and ( type <> nil)
-  		checkBinding(errors, path, focus, profile, elementDefn, type);
-  	
-  	// type specific checking:
-  	if (type <> nil ) and ( typeIsPrimitive(type)) begin
-  		checkPrimitiveByProfile(errors, path, focus, elementDefn);
-  	end; else begin
-  		if (elementDefn.hasFixed())
-  			checkFixedValue(errors, path, focus, elementDefn.getFixed(), '');
-  			 
-  		ProfileStructureIterator walker := new ProfileStructureIterator(profile, elementDefn);
-  		while (walker.more()) begin
-  			// collect all the slices for the path
-  			List<ElementDefinition> childset := walker.current();
-  			// collect all the elements that match it by name
-  			TAdvList<TWrapperElement> children := TAdvList<TWrapperElement>.create();
-  			focus.getNamedChildrenWithWildcard(walker.name(), children);
-
-  			if (children.Count = 0) begin
-  				// well, there"s no children - should there be?
-  				for (ElementDefinition defn : childset) begin
-  					if (!rule(errors, IssueTypeREQUIRED, focus.line(), focus.col(), path, defn.getMin() = 0, 'Required Element "'+walker.name()+'" missing'))
-  						break; // no point complaining about missing ones after the first one
-  				end;
-  			end; else if (childset.Count = 1) begin
-  				// simple case: one possible definition, and one or more children. 
-  				rule(errors, IssueTypeSTRUCTURE, focus.line(), focus.col(), path, childset[0).getMax() = '*') ) or ( Integer.parseInt(childset[0).getMax()) >:= children.Count,
-  						'Too many elements for "'+walker.name()+'"'); // todo: sort out structure
-  				for (TWrapperElement child : children) begin
-  					checkByProfile(errors, childset[0).getPath(), child, profile, childset[0));
-  				end;
-  			end; else begin
-  				// ok, this is the full case - we have a list of definitions, and a list of candidates for meeting those definitions. 
-  				// we need to decide *if* that match a given definition
-  			end;
-  		end;
-  	end;
-  end;
-
-	procedure TFHIRInstanceValidator.checkBinding(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, profile : TFHIRStructureDefinition, ElementDefinition elementDefn, String type) throws EOperationOutcome, Exception begin
-	  ElementDefinitionBindingComponent bc := elementDefn.getBinding();
-
-	  if (bc <> nil ) and ( bc.hasValueSet() ) and ( bc.getValueSet() instanceof Reference) begin
-      String url := ((Reference) bc.getValueSet()).getReference();
-	  	ValueSet vs := resolveValueSetReference(profile, (Reference) bc.getValueSet());
-	  	if (vs = nil) begin
-	      rule(errors, IssueTypeSTRUCTURE, focus.line(), focus.col(), path, false, 'Cannot check binding on type "'+type+'" as the value set "'+url+'" could not be located');
-      end; else if (type = 'code'))
-	  		checkBindingCode(errors, path, focus, vs);
-	  	else if (type = 'Coding'))
-	  		checkBindingCoding(errors, path, focus, vs);
-	  	else if (type = 'CodeableConcept'))
-	  		checkBindingCodeableConcept(errors, path, focus, vs);
-	  	else 
-	  		rule(errors, IssueTypeSTRUCTURE, focus.line(), focus.col(), path, false, 'Cannot check binding on type "'+type+'"');
-	  end;
-  end;
-
-	private ValueSet resolveValueSetReference(profile : TFHIRStructureDefinition, Reference reference) throws EOperationOutcome, Exception begin
-	  if (reference.getReference().startsWith('#')) begin
-	  	for (Resource r : profile.getContained()) begin
-	  		if (r instanceof ValueSet ) and ( r.getId() = reference.getReference().substring(1)))
-	  			return (ValueSet) r;
-	  	end;
-	  	return nil;
-	  end; else
-	  	return resolveBindingReference(reference);
-	   
-  end;
-
-	procedure TFHIRInstanceValidator.checkBindingCode(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, ValueSet vs) begin
-	  // rule(errors, 'exception', path, false, 'checkBindingCode not done yet');
-  end;
-
-	procedure TFHIRInstanceValidator.checkBindingCoding(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, ValueSet vs) begin
-	  // rule(errors, 'exception', path, false, 'checkBindingCoding not done yet');
-  end;
-
-	procedure TFHIRInstanceValidator.checkBindingCodeableConcept(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, ValueSet vs) begin
-	  // rule(errors, 'exception', path, false, 'checkBindingCodeableConcept not done yet');
-  end;
-
-	private String typeSummary(ElementDefinition elementDefn) begin
-	  StringBuilder b := new StringBuilder();
-	  for (TypeRefComponent t : elementDefn.getType()) begin
-	  	b.append('"'+t.getCode());
-	  end;
-	  return b.toString().substring(1);
-  end;
-
-	private boolean typeAllowed(String t, List<TypeRefComponent> types) begin
-	  for (TypeRefComponent type : types) begin
-	  	if (t = Utilities.capitalize(type.getCode())))
-	  		return true;
-	  	if (t = 'Resource') ) and ( Utilities.capitalize(type.getCode()) = 'Reference'))
-	  	  return true;
-	  end;
-	  return false;
-  end;
-
-	procedure TFHIRInstanceValidator.checkConstraint(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, ElementDefinitionConstraintComponent c) ; begin
-	  
 //		try
 //   	begin
 //			XPathFactory xpf := new net.sf.saxon.xpath.XPathFactoryImpl();
 //      NamespaceContext context := new NamespaceContextMap('f', 'http://hl7.org/fhir', 'h', 'http://www.w3.org/1999/xhtml');
-//			
+//
 //			XPath xpath := xpf.newXPath();
 //      xpath.setNamespaceContext(context);
-//   		Boolean ok := (Boolean) xpath.evaluate(c.getXpath(), focus, XPathConstants.BOOLEAN);
-//   		if (ok = nil ) or ( !ok) begin
+//   		ok : boolean := (Boolean) xpath.evaluate(c.getXpath(), focus, XPathConstants.BOOLEAN);
+//   		if (ok = nil ) or ( not ok) begin
 //   			if (c.getSeverity() = ConstraintSeverity.warning)
 //   				warning(errors, 'invariant', path, false, c.getHuman());
 //   			else
@@ -2305,248 +2782,369 @@ begin
 //   		end;
 //		end;
 //		catch (XPathExpressionException e) begin
-//		  rule(errors, 'invariant', path, false, 'error executing invariant: '+e.getMessage());
+//		  rule(errors, 'invariant', path, false, 'error executing invariant: '+e.Message);
 //		end;
+//end;
+//
+//procedure TFHIRInstanceValidator.checkPrimitiveByProfile(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement, TFHIRElementDefinition elementDefn) begin
+//  // two things to check - length, and fixed value
+//  String value := focus.getAttribute('value');
+//  if (elementDefn.hasMaxLengthElement()) begin
+//    rule(errors, IssueTypeTOOLONG, focus.line(), focus.col(), path, value.length() <= elementDefn.getMaxLength(), 'The value "'+value+'" exceeds the allow length limit of '+inttostr(elementDefn.getMaxLength()));
+//  end;
+//  if (elementDefn.hasFixed()) begin
+//    checkFixedValue(errors, path, focus, elementDefn.getFixed(), '');
+//  end;
+//end;
+//
+
+
+procedure TFHIRInstanceValidator.checkFixedValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRElement; propName : String);
+var
+  value : String;
+  extensions : TAdvList<TWrapperElement>;
+  e : TFhirExtension;
+  ex : TWrapperElement;
+begin
+  if (fixed = nil ) and ( focus = nil) then
+    exit; // this is all good
+
+  if (fixed = nil) and (focus <> nil) then
+    rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, false, 'Unexpected element '+focus.getName())
+  else if (fixed <> nil ) and ( focus = nil) then
+    rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, false, 'Mising element '+propName)
+  else
+  begin
+    value := focus.getAttribute('value');
+    if (fixed is TFHIRBoolean) then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRBoolean(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRBoolean(fixed).StringValue+'"')
+    else if (fixed is TFHIRInteger)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRInteger(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRInteger(fixed).StringValue+'"')
+    else if (fixed is TFHIRDecimal)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRDecimal(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRDecimal(fixed).StringValue+'"')
+    else if (fixed is TFHIRBase64Binary)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRBase64Binary(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRBase64Binary(fixed).StringValue+'"')
+    else if (fixed is TFHIRInstant)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRInstant(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRInstant(fixed).StringValue+'"')
+    else if (fixed is TFHIRString)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRString(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRString(fixed).StringValue+'"')
+    else if (fixed is TFhirUri)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFhirUri(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFhirUri(fixed).StringValue+'"')
+    else if (fixed is TFHIRDate)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRDate(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRDate(fixed).StringValue+'"')
+    else if (fixed is TFHIRDateTime)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRDateTime(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRDateTime(fixed).StringValue+'"')
+    else if (fixed is TFHIROid)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIROid(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIROid(fixed).StringValue+'"')
+    else if (fixed is TFHIRUuid)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRUuid(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRUuid(fixed).StringValue+'"')
+    else if (fixed is TFHIRCode)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRCode(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRCode(fixed).StringValue+'"')
+    else if (fixed is TFHIRId)  then
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, TFHIRId(fixed).StringValue = value, 'Value is "'+value+'" but must be "'+TFHIRId(fixed).StringValue+'"')
+    else if (fixed is TFhirQuantity)  then
+      checkQuantityValue(errors, path, focus, TFHIRQuantity(fixed))
+    else if (fixed is TFhirAddress)  then
+      checkAddressValue(errors, path, focus, TFHIRAddress(fixed))
+    else if (fixed is TFhirContactPoint)  then
+      checkContactPointValue(errors, path, focus, TFHIRContactPoint(fixed))
+    else if (fixed is TFhirAttachment)  then
+      checkAttachmentValue(errors, path, focus, TFHIRAttachment(fixed))
+    else if (fixed is TFhirIdentifier)  then
+      checkIdentifierValue(errors, path, focus, TFHIRIdentifier(fixed))
+    else if (fixed is TFhirCoding)  then
+      checkCodingValue(errors, path, focus, TFHIRCoding(fixed))
+    else if (fixed is TFhirHumanName)  then
+      checkHumanNameValue(errors, path, focus, TFHIRHumanName(fixed))
+    else if (fixed is TFhirCodeableConcept)  then
+      checkCodeableConceptValue(errors, path, focus, TFHIRCodeableConcept(fixed))
+    else if (fixed is TFhirTiming)  then
+      checkTimingValue(errors, path, focus, TFHIRTiming(fixed))
+    else if (fixed is TFhirPeriod)  then
+      checkPeriodValue(errors, path, focus, TFHIRPeriod(fixed))
+    else if (fixed is TFhirRange)  then
+      checkRangeValue(errors, path, focus, TFHIRRange(fixed))
+    else if (fixed is TFhirRatio)  then
+      checkRatioValue(errors, path, focus, TFHIRRatio(fixed))
+    else if (fixed is TFhirSampledData)  then
+      checkSampledDataValue(errors, path, focus, TFHIRSampledData(fixed))
+    else
+       rule(errors, IssueTypeException, focus.line(), focus.col(), path, false, 'Unhandled fixed value type '+fixed.ClassName);
+    extensions := TAdvList<TWrapperElement>.create();
+    focus.getNamedChildren('extension', extensions);
+    if (fixed.extensionList.Count = 0) then
+    begin
+      rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, extensions.Count = 0, 'No extensions allowed');
+    end
+    else if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, extensions.Count = fixed.extensionList.Count, 'Extensions count mismatch: expected '+inttostr(fixed.extensionList.Count)+' but found '+inttostr(extensions.Count))) then
+    begin
+      for e in fixed.extensionList do
+      begin
+        ex := getExtensionByUrl(extensions, e.Url);
+        if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, ex <> nil, 'Extension count mismatch: unable to find extension: '+e.Url)) then
+          checkFixedValue(errors, path, ex.getFirstChild().getNextSibling(), e.Value, 'extension.value');
+      end;
+    end;
   end;
+end;
 
-	procedure TFHIRInstanceValidator.checkPrimitiveByProfile(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, ElementDefinition elementDefn) begin
-		// two things to check - length, and fixed value
-		String value := focus.getAttribute('value');
-		if (elementDefn.hasMaxLengthElement()) begin
-			rule(errors, IssueTypeTOOLONG, focus.line(), focus.col(), path, value.length() <:= elementDefn.getMaxLength(), 'The value "'+value+'" exceeds the allow length limit of '+inttostr(elementDefn.getMaxLength()));
-		end;
-		if (elementDefn.hasFixed()) begin
-			checkFixedValue(errors, path, focus, elementDefn.getFixed(), '');
-		end;
+procedure TFHIRInstanceValidator.checkAddressValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRAddress);
+var
+  lines : TAdvList<TWrapperElement>;
+  i : integer;
+begin
+  checkFixedValue(errors, path+'.use', focus.getNamedChild('use'), fixed.UseElement, 'use');
+  checkFixedValue(errors, path+'.text', focus.getNamedChild('text'), fixed.TextElement, 'text');
+  checkFixedValue(errors, path+'.city', focus.getNamedChild('city'), fixed.CityElement, 'city');
+  checkFixedValue(errors, path+'.state', focus.getNamedChild('state'), fixed.StateElement, 'state');
+  checkFixedValue(errors, path+'.country', focus.getNamedChild('country'), fixed.CountryElement, 'country');
+  checkFixedValue(errors, path+'.zip', focus.getNamedChild('zip'), fixed.PostalCodeElement, 'postalCode');
+
+  lines := TAdvList<TWrapperElement>.create();
+  focus.getNamedChildren( 'line', lines);
+  if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, lines.Count = fixed.lineList.Count, 'Expected '+inttostr(fixed.lineList.Count)+' but found '+inttostr(lines.Count)+' line elements')) then
+  begin
+    for i := 0 to lines.Count - 1 do
+      checkFixedValue(errors, path+'.coding', lines[i], fixed.LineList[i], 'coding');
   end;
+end;
 
-	procedure TFHIRInstanceValidator.checkFixedValue(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, org.hl7.fhir.instance.model.Element fixed, String propName) begin
-		if (fixed = nil ) and ( focus = nil)
-			; // this is all good
-		else if (fixed = nil ) and ( focus <> nil)
-	  	rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, false, 'Unexpected element '+focus.getName());
-		else if (fixed <> nil ) and ( focus = nil)
-	  	rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, false, 'Mising element '+propName);
-		else begin
-			String value := focus.getAttribute('value');
-			if (fixed instanceof org.hl7.fhir.instance.model.BooleanType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.BooleanType) fixed).asStringValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.BooleanType) fixed).asStringValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.IntegerType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.IntegerType) fixed).asStringValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.IntegerType) fixed).asStringValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.DecimalType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.DecimalType) fixed).asStringValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.DecimalType) fixed).asStringValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.Base64BinaryType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.Base64BinaryType) fixed).asStringValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.Base64BinaryType) fixed).asStringValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.InstantType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.InstantType) fixed).getValue().toString(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.InstantType) fixed).asStringValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.StringType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.StringType) fixed).getValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.StringType) fixed).getValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.UriType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.UriType) fixed).getValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.UriType) fixed).getValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.DateType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.DateType) fixed).getValue().toString(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.DateType) fixed).getValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.DateTimeType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.DateTimeType) fixed).getValue().toString(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.DateTimeType) fixed).getValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.OidType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.OidType) fixed).getValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.OidType) fixed).getValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.UuidType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.UuidType) fixed).getValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.UuidType) fixed).getValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.CodeType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.CodeType) fixed).getValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.CodeType) fixed).getValue()+'"');
-			else if (fixed instanceof org.hl7.fhir.instance.model.IdType)
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, check(((org.hl7.fhir.instance.model.IdType) fixed).getValue(), value), 'Value is "'+value+'" but must be "'+((org.hl7.fhir.instance.model.IdType) fixed).getValue()+'"');
-			else if (fixed instanceof Quantity)
-				checkQuantity(errors, path, focus, (Quantity) fixed);
-			else if (fixed instanceof Address)
-				checkAddress(errors, path, focus, (Address) fixed);
-			else if (fixed instanceof ContactPoint)
-				checkContactPoint(errors, path, focus, (ContactPoint) fixed);
-			else if (fixed instanceof Attachment)
-				checkAttachment(errors, path, focus, (Attachment) fixed);
-			else if (fixed instanceof Identifier)
-				checkIdentifier(errors, path, focus, (Identifier) fixed);
-			else if (fixed instanceof Coding)
-				checkCoding(errors, path, focus, (Coding) fixed);
-			else if (fixed instanceof HumanName)
-				checkHumanName(errors, path, focus, (HumanName) fixed);
-			else if (fixed instanceof CodeableConcept)
-				checkCodeableConcept(errors, path, focus, (CodeableConcept) fixed);
-			else if (fixed instanceof Timing)
-				checkTiming(errors, path, focus, (Timing) fixed);
-			else if (fixed instanceof Period)
-				checkPeriod(errors, path, focus, (Period) fixed);
-			else if (fixed instanceof Range)
-				checkRange(errors, path, focus, (Range) fixed);
-			else if (fixed instanceof Ratio)
-				checkRatio(errors, path, focus, (Ratio) fixed);
-			else if (fixed instanceof SampledData)
-				checkSampledData(errors, path, focus, (SampledData) fixed);
-	
-			else
-				 rule(errors, IssueTypeEXCEPTION, focus.line(), focus.col(), path, false, 'Unhandled fixed value type '+fixed.getClass().getName());
-			TAdvList<TWrapperElement> extensions := TAdvList<TWrapperElement>.create();
-			focus.getNamedChildren('extension', extensions);
-			if (fixed.getExtension().Count = 0) begin
-				rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, extensions.Count = 0, 'No extensions allowed');
-			end; else if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, extensions.Count = fixed.getExtension().Count, 'Extensions count mismatch: expected '+inttostr(fixed.getExtension().Count)+' but found '+inttostr(extensions.Count))) begin
-				for (Extension e : fixed.getExtension()) begin
-				  TWrapperElement ex := getExtensionByUrl(extensions, e.getUrl());
-					if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, ex <> nil, 'Extension count mismatch: unable to find extension: '+e.getUrl())) begin
-						checkFixedValue(errors, path, ex.getFirstChild().getNextSibling(), e.getValue(), 'extension.value');
-					end;
-				end;
-			end;
-		end;
+procedure TFHIRInstanceValidator.checkContactPointValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRContactPoint);
+begin
+  checkFixedValue(errors, path+'.system', focus.getNamedChild('system'), fixed.SystemElement, 'system');
+  checkFixedValue(errors, path+'.value', focus.getNamedChild('value'), fixed.ValueElement, 'value');
+  checkFixedValue(errors, path+'.use', focus.getNamedChild('use'), fixed.UseElement, 'use');
+  checkFixedValue(errors, path+'.period', focus.getNamedChild('period'), fixed.Period, 'period');
+end;
+
+procedure TFHIRInstanceValidator.checkAttachmentValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRAttachment);
+begin
+  checkFixedValue(errors, path+'.contentType', focus.getNamedChild('contentType'), fixed.ContentTypeElement, 'contentType');
+  checkFixedValue(errors, path+'.language', focus.getNamedChild('language'), fixed.LanguageElement, 'language');
+  checkFixedValue(errors, path+'.data', focus.getNamedChild('data'), fixed.DataElement, 'data');
+  checkFixedValue(errors, path+'.url', focus.getNamedChild('url'), fixed.UrlElement, 'url');
+  checkFixedValue(errors, path+'.size', focus.getNamedChild('size'), fixed.SizeElement, 'size');
+  checkFixedValue(errors, path+'.hash', focus.getNamedChild('hash'), fixed.HashElement, 'hash');
+  checkFixedValue(errors, path+'.title', focus.getNamedChild('title'), fixed.TitleElement, 'title');
+end;
+
+procedure TFHIRInstanceValidator.checkIdentifierValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRIdentifier);
+begin
+  checkFixedValue(errors, path+'.use', focus.getNamedChild('use'), fixed.UseElement, 'use');
+  checkFixedValue(errors, path+'.label', focus.getNamedChild('type'), fixed.type_, 'type');
+  checkFixedValue(errors, path+'.system', focus.getNamedChild('system'), fixed.SystemElement, 'system');
+  checkFixedValue(errors, path+'.value', focus.getNamedChild('value'), fixed.ValueElement, 'value');
+  checkFixedValue(errors, path+'.period', focus.getNamedChild('period'), fixed.Period, 'period');
+  checkFixedValue(errors, path+'.assigner', focus.getNamedChild('assigner'), fixed.Assigner, 'assigner');
+end;
+
+procedure TFHIRInstanceValidator.checkCodingValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRCoding);
+begin
+  checkFixedValue(errors, path+'.system', focus.getNamedChild('system'), fixed.SystemElement, 'system');
+  checkFixedValue(errors, path+'.code', focus.getNamedChild('code'), fixed.CodeElement, 'code');
+  checkFixedValue(errors, path+'.display', focus.getNamedChild('display'), fixed.DisplayElement, 'display');
+  checkFixedValue(errors, path+'.userSelected', focus.getNamedChild('userSelected'), fixed.UserSelectedElement, 'userSelected');
+end;
+
+procedure TFHIRInstanceValidator.checkHumanNameValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRHumanName);
+var
+  parts : TAdvList<TWrapperElement>;
+  i : integer;
+begin
+  checkFixedValue(errors, path+'.use', focus.getNamedChild('use'), fixed.UseElement, 'use');
+  checkFixedValue(errors, path+'.text', focus.getNamedChild('text'), fixed.TextElement, 'text');
+  checkFixedValue(errors, path+'.period', focus.getNamedChild('period'), fixed.Period, 'period');
+
+  parts := TAdvList<TWrapperElement>.create();
+  focus.getNamedChildren( 'family', parts);
+  if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, parts.Count = fixed.familyList.Count, 'Expected '+inttostr(fixed.familyList.Count)+' but found '+inttostr(parts.Count)+' family elements')) then
+  begin
+    for i := 0 to parts.Count - 1 do
+      checkFixedValue(errors, path+'.family', parts[i], fixed.familyList[i], 'family');
   end;
-
-	procedure TFHIRInstanceValidator.checkAddress(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, Address fixed) begin
-	  checkFixedValue(errors, path+'.use', focus.getNamedChild('use'), fixed.getUseElement(), 'use');
-	  checkFixedValue(errors, path+'.text', focus.getNamedChild('text'), fixed.getTextElement(), 'text');
-	  checkFixedValue(errors, path+'.city', focus.getNamedChild('city'), fixed.getCityElement(), 'city');
-	  checkFixedValue(errors, path+'.state', focus.getNamedChild('state'), fixed.getStateElement(), 'state');
-	  checkFixedValue(errors, path+'.country', focus.getNamedChild('country'), fixed.getCountryElement(), 'country');
-	  checkFixedValue(errors, path+'.zip', focus.getNamedChild('zip'), fixed.getPostalCodeElement(), 'postalCode');
-	  
-		TAdvList<TWrapperElement> lines := TAdvList<TWrapperElement>.create();
-		focus.getNamedChildren( 'line', lines);
-		if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, lines.Count = fixed.getLine().Count, 'Expected '+inttostr(fixed.getLine().Count)+' but found '+inttostr(lines.Count)+' line elements')) begin
-			for (int i := 0; i < lines.Count; i++)
-				checkFixedValue(errors, path+'.coding', lines[i), fixed.getLine()[i), 'coding');
-		end;
+  focus.getNamedChildren( 'given', parts);
+  if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, parts.Count = fixed.GivenList.Count, 'Expected '+inttostr(fixed.GivenList.Count)+' but found '+inttostr(parts.Count)+' given elements')) then
+  begin
+    for i := 0 to parts.Count - 1 do
+      checkFixedValue(errors, path+'.given', parts[i], fixed.GivenList[i], 'given');
   end;
-
-	procedure TFHIRInstanceValidator.checkContactPoint(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, ContactPoint fixed) begin
-	  checkFixedValue(errors, path+'.system', focus.getNamedChild('system'), fixed.getSystemElement(), 'system');
-	  checkFixedValue(errors, path+'.value', focus.getNamedChild('value'), fixed.getValueElement(), 'value');
-	  checkFixedValue(errors, path+'.use', focus.getNamedChild('use'), fixed.getUseElement(), 'use');
-	  checkFixedValue(errors, path+'.period', focus.getNamedChild('period'), fixed.getPeriod(), 'period');
-	  
+  focus.getNamedChildren( 'prefix', parts);
+  if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, parts.Count = fixed.prefixList.Count, 'Expected '+inttostr(fixed.prefixList.Count)+' but found '+inttostr(parts.Count)+' prefix elements')) then
+  begin
+    for i := 0 to parts.Count - 1 do
+      checkFixedValue(errors, path+'.prefix', parts[i], fixed.prefixList[i], 'prefix');
   end;
-
-	procedure TFHIRInstanceValidator.checkAttachment(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, Attachment fixed) begin
-	  checkFixedValue(errors, path+'.contentType', focus.getNamedChild('contentType'), fixed.getContentTypeElement(), 'contentType');
-	  checkFixedValue(errors, path+'.language', focus.getNamedChild('language'), fixed.getLanguageElement(), 'language');
-	  checkFixedValue(errors, path+'.data', focus.getNamedChild('data'), fixed.getDataElement(), 'data');
-	  checkFixedValue(errors, path+'.url', focus.getNamedChild('url'), fixed.getUrlElement(), 'url');
-	  checkFixedValue(errors, path+'.size', focus.getNamedChild('size'), fixed.getSizeElement(), 'size');
-	  checkFixedValue(errors, path+'.hash', focus.getNamedChild('hash'), fixed.getHashElement(), 'hash');
-	  checkFixedValue(errors, path+'.title', focus.getNamedChild('title'), fixed.getTitleElement(), 'title');
+  focus.getNamedChildren( 'suffix', parts);
+  if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, parts.Count = fixed.suffixList.Count, 'Expected '+inttostr(fixed.suffixList.Count)+' but found '+inttostr(parts.Count)+' suffix elements')) then
+  begin
+    for i := 0 to parts.Count - 1 do
+      checkFixedValue(errors, path+'.suffix', parts[i], fixed.suffixList[i], 'suffix');
   end;
+end;
 
-	procedure TFHIRInstanceValidator.checkIdentifier(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, Identifier fixed) begin
-	  checkFixedValue(errors, path+'.use', focus.getNamedChild('use'), fixed.getUseElement(), 'use');
-	  checkFixedValue(errors, path+'.label', focus.getNamedChild('type'), fixed.getType(), 'type');
-	  checkFixedValue(errors, path+'.system', focus.getNamedChild('system'), fixed.getSystemElement(), 'system');
-	  checkFixedValue(errors, path+'.value', focus.getNamedChild('value'), fixed.getValueElement(), 'value');
-	  checkFixedValue(errors, path+'.period', focus.getNamedChild('period'), fixed.getPeriod(), 'period');
-	  checkFixedValue(errors, path+'.assigner', focus.getNamedChild('assigner'), fixed.getAssigner(), 'assigner');
+procedure TFHIRInstanceValidator.checkCodeableConceptValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRCodeableConcept);
+var
+  codings : TAdvList<TWrapperElement>;
+  i : integer;
+begin
+  checkFixedValue(errors, path+'.text', focus.getNamedChild('text'), fixed.TextElement, 'text');
+  codings := TAdvList<TWrapperElement>.create();
+  focus.getNamedChildren( 'coding', codings);
+  if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, codings.Count = fixed.codingList.Count, 'Expected '+inttostr(fixed.codingList.Count)+' but found '+inttostr(codings.Count)+' coding elements')) then
+  begin
+    for i := 0 to codings.Count - 1 do
+      checkFixedValue(errors, path+'.coding', codings[i], fixed.codingList[i], 'coding');
   end;
+end;
 
-	procedure TFHIRInstanceValidator.checkCoding(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, Coding fixed) begin
-	  checkFixedValue(errors, path+'.system', focus.getNamedChild('system'), fixed.getSystemElement(), 'system');
-	  checkFixedValue(errors, path+'.code', focus.getNamedChild('code'), fixed.getCodeElement(), 'code');
-	  checkFixedValue(errors, path+'.display', focus.getNamedChild('display'), fixed.getDisplayElement(), 'display');
-	  checkFixedValue(errors, path+'.userSelected', focus.getNamedChild('userSelected'), fixed.getUserSelectedElement(), 'userSelected');
+procedure TFHIRInstanceValidator.checkTimingValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRTiming);
+var
+  events : TAdvList<TWrapperElement>;
+  i : integer;
+begin
+  checkFixedValue(errors, path+'.repeat', focus.getNamedChild('repeat'), fixed.repeat_, 'value');
+
+  events := TAdvList<TWrapperElement>.create();
+  focus.getNamedChildren( 'event', events);
+  if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, events.Count = fixed.eventList.Count, 'Expected '+inttostr(fixed.eventList.Count)+' but found '+inttostr(events.Count)+' event elements')) then
+  begin
+    for i := 0 to events.Count - 1 do
+      checkFixedValue(errors, path+'.event', events[i], fixed.EventList[i], 'event');
   end;
+end;
 
-	procedure TFHIRInstanceValidator.checkHumanName(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, HumanName fixed) begin
-	  checkFixedValue(errors, path+'.use', focus.getNamedChild('use'), fixed.getUseElement(), 'use');
-	  checkFixedValue(errors, path+'.text', focus.getNamedChild('text'), fixed.getTextElement(), 'text');
-	  checkFixedValue(errors, path+'.period', focus.getNamedChild('period'), fixed.getPeriod(), 'period');
-	  
-		TAdvList<TWrapperElement> parts := TAdvList<TWrapperElement>.create();
-		focus.getNamedChildren( 'family', parts);
-		if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, parts.Count = fixed.getFamily().Count, 'Expected '+inttostr(fixed.getFamily().Count)+' but found '+inttostr(parts.Count)+' family elements')) begin
-			for (int i := 0; i < parts.Count; i++)
-				checkFixedValue(errors, path+'.family', parts[i), fixed.getFamily()[i), 'family');
-		end;
-		focus.getNamedChildren( 'given', parts);
-		if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, parts.Count = fixed.getFamily().Count, 'Expected '+inttostr(fixed.getFamily().Count)+' but found '+inttostr(parts.Count)+' given elements')) begin
-			for (int i := 0; i < parts.Count; i++)
-				checkFixedValue(errors, path+'.given', parts[i), fixed.getFamily()[i), 'given');
-		end;
-		focus.getNamedChildren( 'prefix', parts);
-		if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, parts.Count = fixed.getFamily().Count, 'Expected '+inttostr(fixed.getFamily().Count)+' but found '+inttostr(parts.Count)+' prefix elements')) begin
-			for (int i := 0; i < parts.Count; i++)
-				checkFixedValue(errors, path+'.prefix', parts[i), fixed.getFamily()[i), 'prefix');
-		end;
-		focus.getNamedChildren( 'suffix', parts);
-		if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, parts.Count = fixed.getFamily().Count, 'Expected '+inttostr(fixed.getFamily().Count)+' but found '+inttostr(parts.Count)+' suffix elements')) begin
-			for (int i := 0; i < parts.Count; i++)
-				checkFixedValue(errors, path+'.suffix', parts[i), fixed.getFamily()[i), 'suffix');
-		end;
+procedure TFHIRInstanceValidator.checkPeriodValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRPeriod);
+begin
+  checkFixedValue(errors, path+'.start', focus.getNamedChild('start'), fixed.StartElement, 'start');
+  checkFixedValue(errors, path+'.end', focus.getNamedChild('end'), fixed.End_Element, 'end');
+end;
+
+procedure TFHIRInstanceValidator.checkRangeValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRRange);
+begin
+  checkFixedValue(errors, path+'.low', focus.getNamedChild('low'), fixed.Low, 'low');
+  checkFixedValue(errors, path+'.high', focus.getNamedChild('high'), fixed.High, 'high');
+end;
+
+procedure TFHIRInstanceValidator.checkRatioValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRRatio);
+begin
+  checkFixedValue(errors, path+'.numerator', focus.getNamedChild('numerator'), fixed.Numerator, 'numerator');
+  checkFixedValue(errors, path+'.denominator', focus.getNamedChild('denominator'), fixed.Denominator, 'denominator');
+end;
+
+procedure TFHIRInstanceValidator.checkSampledDataValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRSampledData);
+begin
+  checkFixedValue(errors, path+'.origin', focus.getNamedChild('origin'), fixed.Origin, 'origin');
+  checkFixedValue(errors, path+'.period', focus.getNamedChild('period'), fixed.PeriodElement, 'period');
+  checkFixedValue(errors, path+'.factor', focus.getNamedChild('factor'), fixed.FactorElement, 'factor');
+  checkFixedValue(errors, path+'.lowerLimit', focus.getNamedChild('lowerLimit'), fixed.LowerLimitElement, 'lowerLimit');
+  checkFixedValue(errors, path+'.upperLimit', focus.getNamedChild('upperLimit'), fixed.UpperLimitElement, 'upperLimit');
+  checkFixedValue(errors, path+'.dimensions', focus.getNamedChild('dimensions'), fixed.DimensionsElement, 'dimensions');
+  checkFixedValue(errors, path+'.data', focus.getNamedChild('data'), fixed.DataElement, 'data');
+end;
+
+procedure TFHIRInstanceValidator.checkQuantityValue(errors : TAdvList<TFhirOperationOutcomeIssue>; path : String; focus : TWrapperElement; fixed : TFHIRQuantity);
+begin
+  checkFixedValue(errors, path+'.value', focus.getNamedChild('value'), fixed.ValueElement, 'value');
+  checkFixedValue(errors, path+'.comparator', focus.getNamedChild('comparator'), fixed.ComparatorElement, 'comparator');
+  checkFixedValue(errors, path+'.units', focus.getNamedChild('unit'), fixed.Unit_Element, 'units');
+  checkFixedValue(errors, path+'.system', focus.getNamedChild('system'), fixed.SystemElement, 'system');
+  checkFixedValue(errors, path+'.code', focus.getNamedChild('code'), fixed.CodeElement, 'code');
+end;
+
+
+function TFHIRInstanceValidator.getExtensionByUrl(extensions : TAdvList<TWrapperElement>; url : String) : TWrapperElement;
+var
+  e : TWrapperElement;
+begin
+  result := nil;
+  for e in extensions do
+  begin
+    if (url = e.getNamedChildValue('url')) then
+    begin
+      result := e;
+    end;
   end;
+end;
 
-	procedure TFHIRInstanceValidator.checkCodeableConcept(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, CodeableConcept fixed) begin
-		checkFixedValue(errors, path+'.text', focus.getNamedChild('text'), fixed.getTextElement(), 'text');
-		TAdvList<TWrapperElement> codings := TAdvList<TWrapperElement>.create();
-		focus.getNamedChildren( 'coding', codings);
-		if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, codings.Count = fixed.getCoding().Count, 'Expected '+inttostr(fixed.getCoding().Count)+' but found '+inttostr(codings.Count)+' coding elements')) begin
-			for (int i := 0; i < codings.Count; i++)
-				checkFixedValue(errors, path+'.coding', codings[i), fixed.getCoding()[i), 'coding');
-		end;
+{ TValidationResult }
+
+function TValidationResult.isOk: boolean;
+begin
+  result := message = '';
+end;
+
+{ TChildIterator }
+
+constructor TChildIterator.Create(path: String; element: TWrapperElement);
+begin
+  inherited Create;
+  parent := element;
+  basePath := path;
+end;
+
+function TChildIterator.count: integer;
+var
+  n : TWrapperElement;
+begin
+  n := child.getNextSibling();
+  if (n <> nil) and (n.getName() = child.getName()) then
+    result := lastCount+1
+  else
+    result := -1;
+end;
+
+function TChildIterator.element: TWrapperElement;
+begin
+  result := child;
+end;
+
+function TChildIterator.name: String;
+begin
+  result := child.getName();
+end;
+
+function TChildIterator.next: boolean;
+var
+  lastName : String;
+begin
+  if (child = nil) then
+  begin
+    child := parent.getFirstChild();
+    lastCount := 0;
+  end
+  else
+  begin
+    lastName := child.getName();
+    child := child.getNextSibling();
+    if (child <> nil) and (child.getName() = lastName) then
+      inc(lastCount)
+    else
+      lastCount := 0;
   end;
+  result := child <> nil;
+end;
 
-	procedure TFHIRInstanceValidator.checkTiming(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, Timing fixed) begin
-	  checkFixedValue(errors, path+'.repeat', focus.getNamedChild('repeat'), fixed.getRepeat(), 'value');
-
-		TAdvList<TWrapperElement> events := TAdvList<TWrapperElement>.create();
-		focus.getNamedChildren( 'event', events);
-		if (rule(errors, IssueTypeVALUE, focus.line(), focus.col(), path, events.Count = fixed.getEvent().Count, 'Expected '+inttostr(fixed.getEvent().Count)+' but found '+inttostr(events.Count)+' event elements')) begin
-			for (int i := 0; i < events.Count; i++)
-				checkFixedValue(errors, path+'.event', events[i), fixed.getEvent()[i), 'event');
-		end;
+function TChildIterator.path: String;
+var
+  n : TWrapperElement;
+  sfx : String;
+begin
+  n := child.getNextSibling();
+  if (parent.isXml()) then
+  begin
+    sfx := '';
+    if (n <> nil) and (n.getName() = child.getName()) then
+      sfx := '['+inttostr(lastCount+1)+']';
+    result := basePath+'/f:'+name()+sfx;
+  end
+  else
+  begin
+    sfx := '';
+    if (n <> nil) and (n.getName() = child.getName()) then
+      sfx := '/'+Integer.toString(lastCount+1);
+    result := basePath+'/'+name()+sfx;
   end;
-
-	procedure TFHIRInstanceValidator.checkPeriod(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, Period fixed) begin
-	  checkFixedValue(errors, path+'.start', focus.getNamedChild('start'), fixed.getStartElement(), 'start');
-	  checkFixedValue(errors, path+'.end', focus.getNamedChild('end'), fixed.getEndElement(), 'end');
-  end;
-
-	procedure TFHIRInstanceValidator.checkRange(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, Range fixed) begin
-	  checkFixedValue(errors, path+'.low', focus.getNamedChild('low'), fixed.getLow(), 'low');
-	  checkFixedValue(errors, path+'.high', focus.getNamedChild('high'), fixed.getHigh(), 'high');
-	  
-  end;
-
-	procedure TFHIRInstanceValidator.checkRatio(errors : TAdvList<TValidationMessage>, String path,  focus : TWrapperElement, Ratio fixed) begin
-	  checkFixedValue(errors, path+'.numerator', focus.getNamedChild('numerator'), fixed.getNumerator(), 'numerator');
-	  checkFixedValue(errors, path+'.denominator', focus.getNamedChild('denominator'), fixed.getDenominator(), 'denominator');
-  end;
-
-	procedure TFHIRInstanceValidator.checkSampledData(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, SampledData fixed) begin
-	  checkFixedValue(errors, path+'.origin', focus.getNamedChild('origin'), fixed.getOrigin(), 'origin');
-	  checkFixedValue(errors, path+'.period', focus.getNamedChild('period'), fixed.getPeriodElement(), 'period');
-	  checkFixedValue(errors, path+'.factor', focus.getNamedChild('factor'), fixed.getFactorElement(), 'factor');
-	  checkFixedValue(errors, path+'.lowerLimit', focus.getNamedChild('lowerLimit'), fixed.getLowerLimitElement(), 'lowerLimit');
-	  checkFixedValue(errors, path+'.upperLimit', focus.getNamedChild('upperLimit'), fixed.getUpperLimitElement(), 'upperLimit');
-	  checkFixedValue(errors, path+'.dimensions', focus.getNamedChild('dimensions'), fixed.getDimensionsElement(), 'dimensions');
-	  checkFixedValue(errors, path+'.data', focus.getNamedChild('data'), fixed.getDataElement(), 'data');
-  end;
-
-	procedure TFHIRInstanceValidator.checkQuantity(errors : TAdvList<TValidationMessage>, String path, focus : TWrapperElement, Quantity fixed) begin
-	  checkFixedValue(errors, path+'.value', focus.getNamedChild('value'), fixed.getValueElement(), 'value');
-	  checkFixedValue(errors, path+'.comparator', focus.getNamedChild('comparator'), fixed.getComparatorElement(), 'comparator');
-	  checkFixedValue(errors, path+'.units', focus.getNamedChild('unit'), fixed.getUnitElement(), 'units');
-	  checkFixedValue(errors, path+'.system', focus.getNamedChild('system'), fixed.getSystemElement(), 'system');
-	  checkFixedValue(errors, path+'.code', focus.getNamedChild('code'), fixed.getCodeElement(), 'code');
-  end;
-
-	private boolean check(String v1, String v2) begin
-	  return v1 = nil ? Utilities.noString(v1) : v1 = v2);
-  end;
-
-	private TWrapperElement getExtensionByUrl(TAdvList<TWrapperElement> extensions, String urlSimple) begin
-	  for (TWrapperElement e : extensions) begin
-	  	if (urlSimple = e.getNamedChildValue('url')))
-	  		return e;
-	  end;
-		return nil;
-  end;
-	
-
-
-*)
+end;
 
 end.
 

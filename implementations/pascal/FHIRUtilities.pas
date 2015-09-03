@@ -80,7 +80,7 @@ function LoadDTFromParam(value : String; lang, name : String; type_ : TFHIRTypeC
 function BuildOperationOutcome(lang : String; e : exception) : TFhirOperationOutcome; overload;
 Function BuildOperationOutcome(lang, message : String) : TFhirOperationOutcome; overload;
 
-function getChildMap(profile : TFHIRStructureDefinition; name, path, nameReference : String) : TAdvList<TFHIRElementDefinition>;
+function getChildMap(profile : TFHIRStructureDefinition; name, path, nameReference : String) : TFHIRElementDefinitionList;
 
 function asUTCMin(value : TFhirInstant) : TDateTime; overload;
 function asUTCMax(value : TFhirInstant) : TDateTime; overload;
@@ -2212,13 +2212,13 @@ end;
  * @return A Map containing the name of the element child (not the path) and the child itself (an Element)
  * @throws Exception
  *}
-function getChildMap(profile : TFHIRStructureDefinition; name, path, nameReference : String) : TAdvList<TFHIRElementDefinition>;
+function getChildMap(profile : TFHIRStructureDefinition; name, path, nameReference : String) : TFHIRElementDefinitionList;
 var
    found : boolean;
    e : TFhirElementDefinition;
    p, tail : String;
 begin
-  result := TAdvList<TFHIRElementDefinition>.create();
+  result := TFHIRElementDefinitionList.create();
   // if we have a name reference, we have to find it, and iterate it's children
   if (nameReference <> '') then
   begin
