@@ -2,7 +2,7 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QICorePrecoordinatedBodySite
+  Binding Name = !QICorePrecoordinatedBodySite
   Binding = value set
   Reference = valueset-bodysite-precoordinated
   Definition = Precoordinated body sites such as \'left ear\'

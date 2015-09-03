@@ -124,6 +124,7 @@
  -- Row 13 -----------------------------------
   Element = DiagnosticOrder.reason
   Binding = QICoreProblemCode
+  QDM Mapping = reason
 
  -- Row 14 -----------------------------------
   Element = DiagnosticOrder.supportingInformation
@@ -146,7 +147,7 @@
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}  | Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device}
 
  -- Row 19 -----------------------------------
-  Element = DiagnosticOrder.event.description
+  Element = !DiagnosticOrder.event.description
 
  -- Row 20 -----------------------------------
   Element = DiagnosticOrder.event.dateTime
