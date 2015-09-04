@@ -15,6 +15,7 @@ public class ToolResourceUtilities {
   public static final String RES_ACTUAL_RESOURCE = "spec.ig.res";
   public static final String NAME_PAGE_INDEX = "spec.page.ndx";
   public static final String NAME_RES_EXAMPLE = "spec.ig.example";
+  public static final String NAME_VS_USE_MARKER = "spec.vs.enum";
 
   public static void updateUsage(Resource res, String usage) {
     if (Utilities.noString(usage))

@@ -73,6 +73,7 @@ import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.poi.ss.formula.WorkbookEvaluator;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
@@ -192,6 +193,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.terminologies.LoincToDEConvertor;
+import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileComparer;
@@ -2136,6 +2138,33 @@ public class Publisher implements URIResolver, SectionNumberer {
       s = new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json");
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
       s.close();
+
+      Bundle expansionFeed = new Bundle();
+      expansionFeed.setId("valueset-expansions");
+      expansionFeed.setType(BundleType.COLLECTION);
+      expansionFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+      expansionFeed.getFormatCommentsPre().add(
+          "This collection contains expansions for all the value sets that are used on an element of type \r\n"
+          + "'code', to help with code generation (saves the code generator having to figure out how to \r\n"
+          + "do the expansions or find a terminology server that supports the same version of the value sets");
+      for (ValueSet vs : page.getValueSets().values()) {
+        if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
+          ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs);
+          if (vse.getValueset() != null) {
+            ValueSet vsc = vs.copy();
+            vsc.setText(null);
+            vsc.setExpansion(vse.getValueset().getExpansion());
+            expansionFeed.addEntry().setFullUrl(vsc.getUrl()).setResource(vsc);
+          }
+        }
+      }
+      s = new FileOutputStream(page.getFolders().dstDir + "expansions.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, expansionFeed);
+      s.close();
+      s = new FileOutputStream(page.getFolders().dstDir + "expansions.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, expansionFeed);
+      s.close();
+
 
       produceComparisons();
 

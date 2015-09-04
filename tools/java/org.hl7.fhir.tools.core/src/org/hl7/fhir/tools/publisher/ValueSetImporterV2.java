@@ -319,6 +319,7 @@ public class ValueSetImporterV2 {
     // we use the latest description of the table
     Element c = XMLUtil.getFirstChild(e);
     Map<String, String> codes = new HashMap<String, String>();
+    Map<String, String> comments = new HashMap<String, String>();
     while (c != null) {
       String ver = c.getAttribute("version");
       if (!ver.contains(" ")) {
@@ -329,6 +330,8 @@ public class ValueSetImporterV2 {
         Element g = XMLUtil.getFirstChild(c);
         while (g != null) {
           codes.put(g.getAttribute("code"), g.getAttribute("desc"));
+          if (!Utilities.noString(g.getAttribute("comments")))
+            comments.put(g.getAttribute("code"), g.getAttribute("comments"));
           g = XMLUtil.getNextSibling(g);
         }
       }
@@ -336,7 +339,7 @@ public class ValueSetImporterV2 {
     }
     s.append("<p>").append(Utilities.escapeXml(desc)).append("</p>\r\n");
     s.append("<table class=\"grid\">");
-    s.append("<tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>");
+    s.append("<tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Comment</b></td><td><b>Version</b></td></tr>");
     List<String> cs = new ArrayList<String>();
     cs.addAll(codes.keySet());
     Collections.sort(cs);
@@ -363,15 +366,22 @@ public class ValueSetImporterV2 {
       ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
       concept.setCode(cd);
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
+      String comment = "";
+      if (comments.containsKey(cd)) {
+        comment = comments.get(cd);
+        ToolingExtensions.addComment(concept, comment);
+      }
       // be display name, not
       // definition. Open for
       // consideration
-      if (!("2.7".equals(max)))
+      if (!("2.7".equals(max)) || comment.equalsIgnoreCase("deprecated"))
         ToolingExtensions.markDeprecated(concept);
+      if (ToolingExtensions.hasDeprecated(concept) && Utilities.noString(comment))
+        comment = "deprecated";
       def.getConcept().add(concept);
       String nm = Utilities.nmtokenize(cd);
       s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>" + Utilities.escapeXml(codes.get(cd))
-          + "</td><td>" + ver + "</td></tr>");
+         + "</td><td>" + Utilities.escapeXml(comment) + "</td><td>" + ver + "</td></tr>");
     }
     s.append("</table>\r\n");
     vs.setText(new Narrative());
@@ -413,6 +423,7 @@ public class ValueSetImporterV2 {
     // we use the latest description of the table
     Element c = XMLUtil.getFirstChild(e);
     Map<String, String> codes = new HashMap<String, String>();
+    Map<String, String> comments = new HashMap<String, String>();
     boolean started = false;
     while (c != null) {
       String ver = c.getAttribute("version");
@@ -427,6 +438,8 @@ public class ValueSetImporterV2 {
           Element g = XMLUtil.getFirstChild(c);
           while (g != null) {
             codes.put(g.getAttribute("code"), g.getAttribute("desc"));
+            if (!Utilities.noString(g.getAttribute("comments")))
+              comments.put(g.getAttribute("code"), g.getAttribute("comments"));
             g = XMLUtil.getNextSibling(g);
           }
         } else if (started)
@@ -470,6 +483,9 @@ public class ValueSetImporterV2 {
       ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
       concept.setCode(cd);
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
+      if (comments.containsKey(cd))
+        ToolingExtensions.addComment(concept, comments.get(cd));
+      
       // be display name, not
       // definition. Open for
       // consideration

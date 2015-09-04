@@ -368,9 +368,11 @@ public class BindingSpecification {
   }
 
   public List<DefinedCode> getAllCodes(Map<String, ValueSet> codeSystems, Map<String, ValueSet> valueSets, boolean wantComplete) throws Exception {
-    if (allCodes == null || allCodes.size() == 0) {
+    if (allCodes == null || allCodes.size() == 0 || wantComplete) {
       allCodes = new ArrayList<DefinedCode>();
       if (valueSet != null) {
+        if (wantComplete)
+          valueSet.setUserData(ToolResourceUtilities.NAME_VS_USE_MARKER, true);
         getAllCodesForValueSet(codeSystems, valueSets, wantComplete, valueSet);
       }   
     }
