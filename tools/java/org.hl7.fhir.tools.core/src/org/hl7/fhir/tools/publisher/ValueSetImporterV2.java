@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +45,9 @@ import org.w3c.dom.Element;
 
 public class ValueSetImporterV2 {
 
+  private static final String HTTP_separator = "/";
+  private static final String MAX_VER = "2.8.2";
+
   public class TableRegistration {
     private List<String> versionPoints = new ArrayList<String>(); 
   }
@@ -76,12 +80,12 @@ public class ValueSetImporterV2 {
     }
     
   }
-  private static final String HTTP_separator = "/";
   private List<ValidationMessage> errors; 
   private PageProcessor page;
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private Map<String, OIDEntry> oids = new HashMap<String, OIDEntry>();
   private Map<String, TableRegistration> tables = new HashMap<String, TableRegistration>();
+  private String date;
   
   public ValueSetImporterV2(PageProcessor page, List<ValidationMessage> errors) {
     super();
@@ -94,6 +98,7 @@ public class ValueSetImporterV2 {
     executeMaster();
     // now, load additional language sources
     IniFile ini = new IniFile(Utilities.path(page.getFolders().srcDir, "v2", "v2.ini"));
+    date = ini.getStringProperty("v2", "date");
     int count = ini.getIntegerProperty("v2", "langcount");
     for (int  i = 1; i <= count; i++) {
       loadLanguagePack(ini.getStringProperty("v2", "lang"+Integer.toString(i)));
@@ -301,11 +306,11 @@ public class ValueSetImporterV2 {
     vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName("v2 table " + id);
     vs.setPublisher("HL7, Inc");
-    vs.setVersion("2.7");
+    vs.setVersion(MAX_VER);
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     vs.setExperimental(true);
-    vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
+    vs.setDateElement(new DateTimeType(date)); 
     ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
     vs.setCodeSystem(def);
     OIDEntry oe = oids.get(id);
@@ -362,7 +367,7 @@ public class ValueSetImporterV2 {
         }
         c = XMLUtil.getNextSibling(c);
       }
-      String ver = ("2.1".equals(min) ? "from v2.1" : "added v" + min) + ("2.8.2".equals(max) ? "" : ", removed after v" + max);
+      String ver = ("2.1".equals(min) ? "from v2.1" : "added v" + min) + (MAX_VER.equals(max) ? "" : ", removed after v" + max);
       ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
       concept.setCode(cd);
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
@@ -374,7 +379,7 @@ public class ValueSetImporterV2 {
       // be display name, not
       // definition. Open for
       // consideration
-      if (!("2.7".equals(max)) || comment.equalsIgnoreCase("deprecated"))
+      if (!(MAX_VER.equals(max)) || comment.equalsIgnoreCase("deprecated"))
         ToolingExtensions.markDeprecated(concept);
       if (ToolingExtensions.hasDeprecated(concept) && Utilities.noString(comment))
         comment = "deprecated";
@@ -407,7 +412,7 @@ public class ValueSetImporterV2 {
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     vs.setExperimental(false);
     vs.setVersion(id);
-    vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
+    vs.setDateElement(new DateTimeType(date)); 
     ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
     OIDEntry oe = oids.get(id+"-"+version);
     if (oe != null)
