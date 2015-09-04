@@ -16,7 +16,7 @@ The following are example usage scenarios for the DAFResults profile:
 	<li>Query for lab results belonging to a Patient</li>
 	<li>Query for all patients who have had a specific lab test result available</li>
 	<li>Query for lab results based on type of lab test </li>
-	<li>Query for all patients with a lab test (e.g hba1c) beyond the acceptable reference range  </li>
+	<li>Query for all patients with a lab test (e.g HbA1c) beyond the acceptable reference range  </li>
 </ul>
 
 	<a name="profiles_specific_implementation_guidance"> </a>
