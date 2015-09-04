@@ -194,7 +194,7 @@ public class ImplementationGuideDefn {
   }
 
   public String makeList(String pagename, String type, String genlevel, String crumbTitle) {
-    String n = pagename;
+    String n = pagename.replace("/", "\\");
     if (n.startsWith(code+File.separator))
       n = n.substring(code.length()+1);
     if (!n.endsWith(".html")) // todo: do we need this? 
@@ -301,7 +301,7 @@ public class ImplementationGuideDefn {
 
   
   public String getIndexPrefixForFile(String page, String logicalName) {
-    if (page.startsWith(code+"\\"))
+    if (page.startsWith(code+"\\") || page.startsWith(code+"/") )
       page = page.substring(code.length()+1);
     ImplementationGuidePageComponent p = getPage(page, ig.getPage());
     if (p == null)
