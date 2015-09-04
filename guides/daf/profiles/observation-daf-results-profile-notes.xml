@@ -26,8 +26,7 @@ The following are example usage scenarios for the DAFResults profile:
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<p><b>Using Right DAF Result profile:</b> Implementers are advised to use the right DAFResult profile based on the value to be represented. 
-	For example, in case the value element is a codeableConcept implementers should use DAFResultObservationCode profile. Similarly for representing Quantity, Ratio and Other types of results the appropriate DAFResult profile listed above should be used.</p>
+	<p><b>Accessing Results:</b> Typically results are grouped by a <a href="daf-diagnosticreport.html">DAF-DiagnosticReport</a> and access to observatations SHOULD be through the a DiagnosticReport. Access directly to observations is appropriate when a DiagnosticReport is not maintained.</p>
 	
 	<p><b>Representing No Known Lab Results:</b> No Known Lab Results will be represented using the <a href="daf-resultlist.html">DAFResultList</a> profile with no entries.</p>
 	
