@@ -168,7 +168,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.REQUIRED,  rd.getName(), rd.getWg() != null, "A resource must have a designated owner"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     rule(errors, IssueType.REQUIRED,  rd.getName(), !Utilities.noString(rd.getRoot().getW5()), "A resource must have a W5 category"); 
     
-    if (warning(errors, IssueType.REQUIRED, rd.getName(), hasW5Mappings(rd) || rd.getName().equals("Binary") || rd.getName().equals("OperationOutcome"), "A resource must have w5 mappings")) {
+    if (suppressedwarning(errors, IssueType.REQUIRED, rd.getName(), hasW5Mappings(rd) || rd.getName().equals("Binary") || rd.getName().equals("OperationOutcome"), "A resource must have w5 mappings")) {
       String w5Order = listW5Elements(rd);
       String w5CorrectOrder = listW5Correct(rd);
       if (!w5Order.equals(w5CorrectOrder)) {
@@ -197,8 +197,8 @@ public class ResourceValidator extends BaseValidator {
     hint(errors, IssueType.REQUIRED, rd.getName(), !Utilities.noString(s), "RIM Mapping is required");
 
     for (Operation op : rd.getOperations()) {
-      warning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), false), "Operation must have an example request");
-      warning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), true), "Operation must have an example response");
+      suppressedwarning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), false), "Operation must have an example request");
+      suppressedwarning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), true), "Operation must have an example response");
     }
     List<String> vsWarns = new ArrayList<String>();
     int vsWarnings = checkElement(errors, rd.getName(), rd.getRoot(), rd, null, s == null || !s.equalsIgnoreCase("n/a"), false, hasSummary(rd.getRoot()), vsWarns);
@@ -206,7 +206,7 @@ public class ResourceValidator extends BaseValidator {
     if (!resourceIsTechnical(name)) { // these are exempt because identification is tightly managed
       ElementDefn id = rd.getRoot().getElementByName("identifier");
       if (id == null) 
-        warning(errors, IssueType.STRUCTURE, rd.getName(), false, "All resources should have an identifier");
+        suppressedwarning(errors, IssueType.STRUCTURE, rd.getName(), false, "All resources should have an identifier");
       else 
         rule(errors, IssueType.STRUCTURE, rd.getName(), id.typeCode().equals("Identifier"), "If a resource has an element named identifier, it must have a type 'Identifier'");
     }
@@ -472,7 +472,7 @@ public class ResourceValidator extends BaseValidator {
     
 		hint(errors, IssueType.STRUCTURE, path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
     checkDefinitions(errors, path, e);
-    warning(errors, IssueType.STRUCTURE, path, !path.contains(".") || !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
+    suppressedwarning(errors, IssueType.STRUCTURE, path, !path.contains(".") || !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
     rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("id"), "Element named \"id\" not allowed");
     hint(errors, IssueType.STRUCTURE, path, !e.getName().equals("comments"), "Element named \"comments\" not allowed - use 'comment'");
     hint(errors, IssueType.STRUCTURE, path, !e.getName().equals("notes"), "Element named \"notes\" not allowed - use 'note'");
@@ -497,12 +497,12 @@ public class ResourceValidator extends BaseValidator {
       }
     }
     if (e.getName().equals("subject"))
-      warning(errors, IssueType.STRUCTURE, path, !e.typeCode().equals("Reference(Patient)"), "Elements with name 'subject' cannot be a reference to just a patient"); // make this an error...
+      suppressedwarning(errors, IssueType.STRUCTURE, path, !e.typeCode().equals("Reference(Patient)"), "Elements with name 'subject' cannot be a reference to just a patient"); // make this an error...
     if (e.getName().equals("patient"))
       rule(errors, IssueType.STRUCTURE, path, e.typeCode().equals("Reference(Patient)"), "Elements with name 'patient' must be a reference to just a patient");
     
 //    if (needsRimMapping)
-//      warning(errors, IssueType.REQUIRED, path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
+//      suppressedwarning(errors, IssueType.REQUIRED, path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
 
     if (e.getName().equals("comment")) {
       hint(errors, IssueType.STRUCTURE, path, false, "MnM must have confirmed this should not be an Annotation");
@@ -633,8 +633,8 @@ public class ResourceValidator extends BaseValidator {
     if (!e.hasShortDefn()) 
       return;
     
-    warning(errors, IssueType.STRUCTURE, path, !e.getShortDefn().equals(e.getDefinition()), "Element needs a definition of its own");
-    warning(errors, IssueType.STRUCTURE, path, !e.getShortDefn().equals(e.getName()), "Short description can't be the same as the name");
+    suppressedwarning(errors, IssueType.STRUCTURE, path, !e.getShortDefn().equals(e.getDefinition()), "Element needs a definition of its own");
+    suppressedwarning(errors, IssueType.STRUCTURE, path, !e.getShortDefn().equals(e.getName()), "Short description can't be the same as the name");
     Set<String> defn = new HashSet<String>();
     for (String w : splitByCamelCase(e.getName()).toLowerCase().split(" ")) 
       defn.add(Utilities.pluralizeMe(w));
@@ -650,7 +650,7 @@ public class ResourceValidator extends BaseValidator {
     for (String s : provided)
       if (!defn.contains(s))
         ok = true;
-    warning(errors, IssueType.STRUCTURE, path, ok, "Short description doesn't add any new content: '"+e.getShortDefn()+"'");
+    suppressedwarning(errors, IssueType.STRUCTURE, path, ok, "Short description doesn't add any new content: '"+e.getShortDefn()+"'");
   }
 
   private boolean nameOverlaps(String name, String parentName) {
@@ -755,8 +755,8 @@ public class ResourceValidator extends BaseValidator {
         d = c.getDisplay();
       
       if (Utilities.noString(c.getSystem()))
-        warning(errors, IssueType.STRUCTURE, "Binding @ "+path, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
-      warning(errors, IssueType.STRUCTURE, "Binding @ "+path, !(Utilities.noString(c.getId()) && Utilities.noString(c.getSystem())) , "Code "+d+" must have a id or a system");
+        suppressedwarning(errors, IssueType.STRUCTURE, "Binding @ "+path, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
+      rule(errors, IssueType.STRUCTURE, "Binding @ "+path, !(Utilities.noString(c.getId()) && Utilities.noString(c.getSystem())) , "Code "+d+" must have a id or a system");
     }
     
     // trigger processing into a Heirachical set if necessary

@@ -4,7 +4,7 @@
 2	Marital Status	2.16.840.1.133883.18.179	maritalStatus	
 3	Event type	2.16.840.1.133883.18.4	eventType	
 4	Patient Class	2.16.840.1.133883.18.5	patientClass	
-5	ETHNIC GROUP	2.16.840.1.133883.18.6	ethnicGroup	
+// 5	ETHNIC GROUP	2.16.840.1.133883.18.6	ethnicGroup	
 6	RELIGION	2.16.840.1.133883.18.7	religionV1	2.1
 6	Religion	2.16.840.1.133883.18.8	religion	2.4
 7	Admission type	2.16.840.1.133883.18.9	admissionType	
@@ -60,6 +60,7 @@
 131	Contact Role	2.16.840.1.133883.18.58	contactRole2  2.5
 133	Procedure Practitioner Identifier Code Type	2.16.840.1.133883.18.59	procedurePractitionerIdentifierCodeType	
 135	Assignment of Benefits	2.16.840.1.133883.18.60	assignmentOfBenefits	
+136	Yes/No Table	n/a	assignmentOfBenefits	
 137	Mail Claim Party	2.16.840.1.133883.18.61	mailClaimParty	
 140	Military Service	2.16.840.1.133883.18.62	militaryService	
 141	Military Rank/Grade	2.16.840.1.133883.18.63	militaryRank/grade	
@@ -211,7 +212,7 @@
 344	Patient's Relationship to Insured	2.16.840.1.133883.18.210	patientsRelationshipToInsured	
 350	Occurrence code	2.16.840.1.133883.18.211	occurrenceCode	
 351	Occurrence span	2.16.840.1.133883.18.212	occurrenceSpan	
-353	CWE statuses	2.16.840.1.133883.18.213	cweStatuses	
+//353	CWE statuses	2.16.840.1.133883.18.213	cweStatuses	
 354	Message Structure	2.16.840.1.133883.18.214	messageStructure	
 355	Primary Key Value Type	2.16.840.1.133883.18.215	primaryKeyValueType	
 356	Alternate character set handling scheme	2.16.840.1.133883.18.216	alternateCharacterSetHandlingScheme	
@@ -345,7 +346,7 @@
 528	Event Related Period	2.16.840.1.133883.18.344	eventRelatedPeriod	
 529	Precision	2.16.840.1.133883.18.345	precision	
 530	"Organization, Agency, Department"	2.16.840.1.133883.18.346	organization-Agency-Department	
-532	Expanded Yes/no Indicator	2.16.840.1.133883.18.347	expandedYes/noIndicator	
+//532	Expanded Yes/no Indicator	2.16.840.1.133883.18.347	expandedYes/noIndicator	
 534	Notify Clergy Code	2.16.840.1.133883.18.348	notifyClergyCode	
 535	Signature Code	2.16.840.1.133883.18.349	signatureCode	
 536	Certificate Status	2.16.840.1.133883.18.350	certificateStatus	

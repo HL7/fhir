@@ -1386,7 +1386,7 @@
     <Cell><Comment ss:Author="Eric Haas"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <B>         <Font
          html:Face="Tahoma" x:Family="Swiss" html:Size="9" html:Color="#000000">Eric Haas:</Font>        </B>        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="9" html:Color="#000000"> invarient for limting units to cm, iin,ft, mm?</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="9" html:Color="#000000"> invariant for limiting units to cm, iin,ft, mm?</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">SimpleQuantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

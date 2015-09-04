@@ -38,7 +38,7 @@
  -- Row 1 -----------------------------------
   Id = 3
   Context = Quantity
-  English = If a code for the units is present, the system SHALL also be present
+  English = If a code for the unit is present, the system SHALL also be present
   XPath = not(exists(f:code)) or exists(f:system)
 
 === Sheet Data Elements =====================================
@@ -83,8 +83,8 @@
   Card. = 0..1
   Type = string
   Short Label = Unit representation
-  Definition = A human-readable form of the units
-  Requirements = There are many representations for units and in many contexts, particular representations are fixed and required. I.e. mcg for micrograms
+  Definition = A human-readable form of the unit
+  Requirements = There are many representations for units of measure and in many contexts, particular representations are fixed and required. I.e. mcg for micrograms
   v2 Mapping = (see OBX.6 etc) / CQ.2
   RIM Mapping = PQ.unit
 
@@ -104,8 +104,8 @@
   Card. = 0..1
   Type = code
   Short Label = Coded form of the unit
-  Definition = A computer processable form of the units in some unit representation system
-  Requirements = Need a computable form of the units that is fixed across all forms. UCUM provides this for quantities, but SNOMED CT provides many units of interest
+  Definition = A computer processable form of the unit in some unit representation system
+  Requirements = Need a computable form of the unit that is fixed across all forms. UCUM provides this for quantities, but SNOMED CT provides many units of interest
   Comments = The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system
   v2 Mapping = (see OBX.6 etc) / CQ.2
   RIM Mapping = PQ.code, MO.currency, PQ.translation.code

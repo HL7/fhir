@@ -288,6 +288,13 @@ public class BaseValidator {
     return thePass;
   }
 
+  protected boolean suppressedwarning(List<ValidationMessage> errors, IssueType type, String path, boolean thePass, String msg) {
+    if (!thePass) {
+      errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.INFORMATION));
+    }
+    return thePass;
+  }
+
   /**
    * Test a rule and add a {@link IssueSeverity#WARNING} validation message if the validation fails
    * 
@@ -298,6 +305,13 @@ public class BaseValidator {
   protected boolean warning(List<ValidationMessage> errors, IssueType type, String path, boolean thePass, String msg, String html) {
     if (!thePass) {
       errors.add(new ValidationMessage(source, type, -1, -1, path, msg, html, IssueSeverity.WARNING));
+    }
+    return thePass;
+  }
+
+  protected boolean suppressedwarning(List<ValidationMessage> errors, IssueType type, String path, boolean thePass, String msg, String html) {
+    if (!thePass) {
+      errors.add(new ValidationMessage(source, type, -1, -1, path, msg, html, IssueSeverity.INFORMATION));
     }
     return thePass;
   }

@@ -1806,6 +1806,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String genV2Table(String name) throws Exception {
     ValueSet vs = codeSystems.get("http://hl7.org/fhir/v2/"+name);
+    if (vs == null)
+      vs = valueSets.get("http://hl7.org/fhir/ValueSet/v2-"+name);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml"), vs);
     new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".canonical.xml"), vs);
     cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v2:tbl"+name, "V2 Table", null);

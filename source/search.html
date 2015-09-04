@@ -642,8 +642,8 @@ The prefix optional, and is as described <a href="#prefix">above</a>, both regar
 
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
- <tr><td><pre> GET [base]/Observation?value=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is understood as a UCUM unit (system/code)</td></tr>
- <tr><td><pre> GET [base]/Observation?value=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the units - either the code  or the stated human units (units) are "mg"</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is understood as a UCUM unit (<code>system</code>/<code>code</code>)</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the unit - either the code or the stated human unit (<code>unit</code>) are "mg"</td></tr>
  <tr><td><pre> GET [base]/Observation?value=le5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg where mg is understood as a UCUM unit</td></tr>
  <tr><td><pre> GET [base]/Observation?value=ap5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit</td></tr>
 </table>
@@ -808,7 +808,7 @@ Examples of using composite parameters:
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
  <tr><td><pre> GET [base]/DiagnosticReport?result.code-value-quantity=http://loinc.org|2823-3$gt5.5|http://unitsofmeasure.org|mmol/L</pre></td><td>Search for all diagnostic reports that contain on observation with a potassium value of >5.4 mmol/L (UCUM)</td></tr>
- <tr><td><pre> GET [base]/Observation?component-code-value-quantity=http://loinc.org|8480-6$lt60</pre></td><td>Search for all the observations with a systolic blood pressure &lt; 60. Note that in this case, the units are assumed (eveyone uses mmHg)</td></tr>
+ <tr><td><pre> GET [base]/Observation?component-code-value-quantity=http://loinc.org|8480-6$lt60</pre></td><td>Search for all the observations with a systolic blood pressure &lt; 60. Note that in this case, the unit is assumed (eveyone uses mmHg)</td></tr>
  <tr><td><pre> GET [base]/Group?characteristic-value=gender$mixed</pre></td>Search for all groups that have a characteristic 'gender' with a text value of 'mixed'<td></td></tr>
 </table>
 

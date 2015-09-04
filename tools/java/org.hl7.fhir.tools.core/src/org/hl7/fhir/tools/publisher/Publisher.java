@@ -998,8 +998,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     buildFeedsAndMaps();
 
     page.log(" ...vocab #1", LogMessageType.Process);
-    new ValueSetImporterV2(page, page.getValidationErrors()).execute();
     analyseV3();
+    new ValueSetImporterV2(page, page.getValidationErrors()).execute();
     generateValueSetsPart1();
     for (BindingSpecification cd : page.getDefinitions().getUnresolvedBindings()) {
       String ref = cd.getReference();
@@ -2828,15 +2828,14 @@ public class Publisher implements URIResolver, SectionNumberer {
         r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "documentation"), "definition"), "text");
         ci.definition = r == null ? null : nodeToString(r);
         ci.textDefinition = r == null ? null : nodeToText(r).trim();
-        ci.deprecated = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "appInfo"), "deprecationInfo") != null;
+        ci.deprecated = (XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "appInfo"), "deprecationInfo") != null) || "retired".equals(XMLUtil.getNamedChild(c, "code").getAttribute("status"));
         List<Element> pl = new ArrayList<Element>();
         XMLUtil.getNamedChildren(c, "conceptRelationship", pl);
         for (Element p : pl) {
           if (p.getAttribute("relationshipName").equals("Specializes"))
             ci.parents.add(XMLUtil.getFirstChild(p).getAttribute("code"));
         }
-        if (!"retired".equals(XMLUtil.getNamedChild(c, "code").getAttribute("status")))
-          codes.add(ci);
+        codes.add(ci);
       }
       c = XMLUtil.getNextSibling(c);
     }

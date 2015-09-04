@@ -1168,7 +1168,7 @@ This extension can be used on any structure definition that is a constraint on t
 For Observation:
 * Observation.code must be associated with a matching Data Element by DataElement.code. 
 * The structure definition should bind Observation.code to a value set that has the same codes as the collection of data elements (though it can be narrower)
-* the units and the quantity value should conform to the rules laid down in the matching Data Element
+* the unit and the quantity value should conform to the rules laid down in the matching Data Element
 
 For Questionnaire:
 * todo</Data>
