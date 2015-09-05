@@ -24,12 +24,7 @@
                   <li><a href="uslabphreport-guide.html#keytechdecisions">Key Technical Decisions</a>- List of key technical decisions in creating this guide</li>
                   <li><a href="uslabphreport-guide.html#addlguidance">Additional Guidance</a> Additional Guidance and Glossary of laboratory terms defined for this implementation</li>
                </ul>
-
-         <h3>Draft for Comment Ballot</h3>
-         <p>
-            This guide will be balloted together with the FHIR specification itself as part of the
-            second FHIR DSTU as part of the December-January ballot cycle.  This will provide an opportunity to provide feedback on all aspects of the FHIR specification.
-         </p>
+<!--
           <p><b>  Questions for Balloters:</b></p>
 		             <ol>
 		             <li>Should this implementation support all ways to exchange resources which include REST (current focus), Documents, Messaging, and Services?</li>
@@ -39,7 +34,7 @@
 		             <li>What are reasonable conformance expectations including the concept of must support for profiles ( see conformance section below)?</li>
 		            <li> Comments regarding organization and design of the implementation?</li>
            </ol>
-
+-->
          <h3>Specification</h3>
          <p>
             The <i>USLabPHReport</i> is built on top of the <a href="[%fhir-path%]index.html">HL7 FHIR</a> standard.
@@ -85,7 +80,7 @@ In addition to defining the the <i>USLabPHReport</i> bundle this implementation 
 
 <ul>
             <li>
-            <b>Operations</b> -<!--a href="#todo">Some USLabPHReport Operation</a--> Question for balloters are there any operations that <i>USLabPHReport</i> should consider?
+            <b>Operations</b> - None<!--a href="#todo">Some USLabPHReport Operation</a>Question for balloters are there any operations that <i>USLabPHReport</i> should consider?-->
            </li>
            <li>
 
@@ -101,35 +96,38 @@ In addition to defining the the <i>USLabPHReport</i> bundle this implementation 
                </ul>
             </li>
            <li>
-               <b>Value Sets</b> - <!-- <a href="list-uslab-valuesets.html">USLab Value Sets</a> --> todo: link to be provided -  lists the additional Value Set bindings created for the USLabOrder, USLabReport, and USLabPHReport Implementations.
+      <b>Value Sets</b> - <a href = "registry.html">USLab Value Sets</a>
 
             </li>
                             <li>
-               <b>Mappings</b> - <!--a href="conceptmap-elr-uslabphreport.html">ELR to USLabPHReport Concept Codes Cross-mapping</a--> are translation of  the concept codes for ELR to <i>USLabPHReport</i> - Note to balloters this is a stub entry for future work.
+               <b>Mappings</b> - <!--a href="conceptmap-elr-uslabphreport.html">ELR to USLabPHReport Concept Codes Cross-mapping</a--> are translation of  the concept codes for ELR to <i>USLabPHReport</i> - Note this is a stub entry for future work.
                </li>
 
                          <li>
-			                <b>Examples</b> - Example instances of <i>USLabPHReport</i> Resources:  Note to balloters these have not yet been validated by generated schema and are provided as informational only:
+			               <b>Examples</b> - Example instances of <i>USLabReport</i> Resources:  Note these have not yet been validated by profile specific schema and schematrons and are provided as informational only:
 
-			                <ul>
-			 				<li><a href="do-uslab-example1.html">USLab DiagnosticOrder Example</a></li>
-			 				<li><a href="dr-uslab-example1.html">USLab DiagnosticReport Example</a></li>
-			 				<li><a href="patient-uslab-example2.html">USLab PHPatient Example</a></li>
-
-			 				<li><a href="pract-uslab-example2.html">USLab PHPractitioner Example</a></li>
-
-			 				<li><a href="org-uslab-example1.html">USLab Ordering Organization Example</a></li>
-
-			 				<li><a href="org-uslab-example3.html">USLab Performing Lab Example</a></li>
-			 				<li><a href="obs-uslab-example1.html">USLab Quantitative Observation Example</a></li>
-			 				<li><a href="obs-uslab-example2.html">USLab Coded Observation Example</a></li>
-			 				<li><a href="obs-uslab-example3.html">USLab Other (string) Observation Example</a></li>
-			 				<li><a href="obs-uslab-example4.html">USLab Ratio Observation Example</a></li>
-			 				<li><a href="obs-uslab-example5.html">USLab Quantitative Observation Example</a></li>
-			 				<li><a href="cond-uslab-example1.html">USLab Condition Example</a></li>
-			 				<li><a href="spec-uslab-example1.html">USLab Specimen Example</a></li>
-			                </ul>
-
+			               <ul>
+							<li><a href="do-uslab-example1.html">USLab DiagnosticOrder Example</a></li>
+							<li><a href="dr-uslab-example1.html">USLab DiagnosticReport Example</a></li>
+							<li><a href="patient-uslab-example1.html">USLab Patient Example</a></li>
+							<li><a href="patient-uslab-example2.html">USLab PHPatient Example</a></li>
+							<li><a href="pract-uslab-example1.html">USLab Practitioner Example</a></li>
+							<li><a href="pract-uslab-example2.html">USLab PHPractitioner Example</a></li>
+							<li><a href="pract-uslab-example3.html">USLab Practitioner Example</a></li>
+							<li><a href="org-uslab-example1.html">USLab Ordering Organization Example</a></li>
+							<li><a href="org-uslab-example2.html">USLab Copy to Organization Example</a></li>
+							<li><a href="org-uslab-example3.html">USLab Performing Lab Example</a></li>
+							<li><a href="obs-uslab-example1.html">USLab Quantitative Observation Example</a></li>
+							<li><a href="obs-uslab-example2.html">USLab Coded Observation Example</a></li>
+							<li><a href="obs-uslab-example3.html">USLab Other (string) Observation Example</a></li>
+							<li><a href="obs-uslab-example4.html">USLab Ratio Observation Example</a></li>
+							<li><a href="obs-uslab-example5.html">USLab Quantitative Observation Profile Example: Blood Lead</a></li>			
+							<li><a href="obs-uslab-example6.html">USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel</a></li>
+							<li><a href="obs-uslab-example7.html">USLab Coded Observation Profile Example: C trachomatis PCR</a></li>							
+							<li><a href="obs-uslab-example8.html">USLab Range Observation Profile  Example: WBCs in Urine</a></li>
+							<li><a href="cond-uslab-example1.html">USLab Condition Example</a></li>
+							<li><a href="spec-uslab-example1.html">USLab Specimen Example</a></li>
+			               </ul>
             </li>
          </ul>
       </div>

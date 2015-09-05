@@ -2,17 +2,17 @@
 	<div>
 		<p>Published by:  HL7 Orders and Observations Workgroup</p>
 		<p>Primary Author:  Eric M Haas, Health eData Inc.</p>
-
-
 		<h2>Scope and Usage</h2>
 
-		<p>         This Condition Profile is part of the The USLabOrder and USLabReport Implementation Guides. Its scope is US Realm ambulatory care and is based upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for ordering clinical laboratory results. The content has been modeled after the joint HL7 and The Standards and Interoperability (S and I) Framework Laboratory Orders and Results Interface Initiatives and the HL7 Lab Order Conceptual Specification and V3 Lab Normative Standard. However, much of the content is likely to be useable outside the ambulatory space and in other jurisdictions. </p>
+		<p>         This Patient Profile is part of the The USLabOrder and USLabReport Implementation Guides. Its scope is US Realm ambulatory care and is based upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for ordering clinical laboratory results. The content has been modeled after the joint HL7 and The Standards and Interoperability (S and I) Framework Laboratory Orders and Results Interface Initiatives and the HL7 Lab Order Conceptual Specification and V3 Lab Normative Standard. However, much of the content is likely to be usable outside the ambulatory space and in other jurisdictions. </p>
 
-		<p>Two Condition Profiles are defined:</p><ul>
-			<li>USlabCond - Used to supply additional clinical information in the USLabOrder DiagnosticOrder profile</li>
-			<li>USLabReasonForStudy - Used to supply ICD-9CM/ICD-10CM diagnosis codes to support medical necessity of ordering.</li>
+		<p>There are two Patient profiles covering the use cases between Laboratory Order/Results Sender and Laboratory Order/Results Receiver and the use case between Laboratory Results Sender and Public Health Agency Receiver:</p>
+		<ul>
+		<li>UsLabPatient is used when additional patient demographic data is not needed.</li>
+		<li>USlabPHPatient is used when additional patient demographic and contact data is needed such as for public health reporting.</li>
 		</ul>
-		<p>  Although  not specified in this implementation, they may be used in other resources as well.</p>
+
+		<p>  Although  not specified in this implementation, it may be used in other resources as well.</p>
 
 		<p>         For the purposes of this profile, all elements listed in the differential profile view are <i>Supported</i> which means that the Laboratory Order/Results Sender  SHALL be capable of supplying these elements and or extensions to the Laboratory Order/Results Receiver if the data is available.          For the Laboratory Order/Results Receiver <i>Supported</i> means they SHALL save/print/archive/etc. the supplied the elements and or extensions sent by the Laboratory Order/Results Sender.  Both the Laboratory Receiver and Laboratory Sender MAY use the information to control their display of the information.      </p>
 

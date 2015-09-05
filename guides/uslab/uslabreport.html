@@ -16,7 +16,7 @@
             statements it defines.  This implementation has been prepared as a U.S. Realm Specification on behalf of the HL7 Orders and Observation Workgroup.
          </p>
 
-    <b>Laboratory Test Reporting in the US Realm ambulatory care setting (USLab Report) -</b> This use case is based upon upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for reporting clinical laboratory results to ordering providers.  The content has been modeled after the joint HL7 and <a href="http://wiki.siframework.org/Lab+Results+Interface+(LRI)+Initiative">The Standards and Interoperability (S&amp;I) Framework Laboratory Results Interface (LRI) Initiative</a> and the<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=59"> HL7 V3 Lab Normative Standard </a>.  However, much of the content is likely to be useable outside the ambulatory space and in other jurisdictions.
+    <b>Laboratory Test Reporting in the US Realm ambulatory care setting (USLab Report) -</b> This use case is based upon upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for reporting clinical laboratory results to ordering providers.  The content has been modeled after the joint HL7 and <a href="http://wiki.siframework.org/Lab+Results+Interface+(LRI)+Initiative">The Standards and Interoperability (S&amp;I) Framework Laboratory Results Interface (LRI) Initiative</a> and the<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=59"> HL7 V3 Lab Normative Standard </a>.  However, much of the content is likely to be usable outside the ambulatory space and in other jurisdictions.
                <h4><a href="uslabreport-guide.html">USLabReport Documentation</a></h4>
                <ul>
             <li><a href="uslabreport-guide.html#purpose">Purpose</a>- How this project came to be and what it is trying to achieve</li>
@@ -24,13 +24,8 @@
             <li><a href="uslabreport-guide.html#keytechdecisions">Key Technical Decisions</a>- List of key technical decisions in creating this guide</li>
             <li><a href="uslabreport-guide.html#addlguidance">Additional Guidance</a>-Information on Add-on and Reflex testing ( Including Culture and Sensitivities),  CLIA, and Glossary of laboratory terms defined for this implementation</li>
             </ul>
-
-         <h3>Draft for Comment Ballot</h3>
-         <p>
-            This guide will be balloted together with the FHIR specification itself as part of the
-            second FHIR DSTU as part of the December-January ballot cycle.  This will provide an opportunity to provide feedback on all aspects of the FHIR specification.
-         </p>
-          <p><b>  Questions for Balloters:</b></p>
+            <!--
+                      <p><b>  Questions for Balloters:</b></p>
 		             <ol>
 		             <li>Should this implementation support all ways to exchange resources which include REST (current focus), Documents, Messaging, and Services?</li>
 		             <li>Considering the scope and use case are there any important omissions from this implementation?</li>
@@ -39,7 +34,7 @@
 		             <li>What are reasonable conformance expectations including the concept of must support for profiles ( see conformance section below)?</li>
 		            <li> Comments regarding organization and design of the implementation?</li>
 		            </ol>
-
+-->
 
          <h3>Specification</h3>
          <p>
@@ -77,7 +72,7 @@ In addition to defining the the <i>USLabReport</i> bundle this implementation co
          <ul>
 
             <li>
-            <b>Operations</b> -<!--a href="#todo">Some USLabReport Operation</a--> Question for balloters are there any operations that <i>USLabReport</i> should consider?
+            <b>Operations</b> - None<!--a href="#todo">Some USLabReport Operation</aQuestion for balloters are there any operations that <i>USLabReport</i> should consider?-->
            </li>
            <li>
 
@@ -93,15 +88,15 @@ In addition to defining the the <i>USLabReport</i> bundle this implementation co
                </ul>
             </li>
             <li>
-               <b>Value Sets</b> - <!-- <a href="list-uslab-valuesets.html">USLab Value Sets</a> --> todo: link to be provided -  lists the additional Value Set bindings created for the USLabOrder and <i>USLabReport</i> Implementations.
+               <b>Value Sets</b> - <a href = "registry.html">USLab Value Sets</a>
 
             </li>
                         <li>
-               <b>Mappings</b> - <!--a href="conceptmap-lri-uslabreport.html">LRI to USLabReport Concept Codes Cross-mapping</a--> are translation of  the concept codes for LRI to <i>USLabReport</i> - Note to balloters this is a stub entry for future work.
+               <b>Mappings</b> - <!--a href="conceptmap-lri-uslabreport.html">LRI to USLabReport Concept Codes Cross-mapping</a--> are translation of  the concept codes for LRI to <i>USLabReport</i> -Note this is a stub entry for future work.
                </li>
 
             <li>
-			               <b>Examples</b> - Example instances of <i>USLabReport</i> Resources:  Note to balloters these have not yet been validated by generated schema and are provided as informational only:
+			               <b>Examples</b> - Example instances of <i>USLabReport</i> Resources:  Note these have not yet been validated by profile specific schema and schematrons and are provided as informational only:
 
 			               <ul>
 							<li><a href="do-uslab-example1.html">USLab DiagnosticOrder Example</a></li>
@@ -118,7 +113,10 @@ In addition to defining the the <i>USLabReport</i> bundle this implementation co
 							<li><a href="obs-uslab-example2.html">USLab Coded Observation Example</a></li>
 							<li><a href="obs-uslab-example3.html">USLab Other (string) Observation Example</a></li>
 							<li><a href="obs-uslab-example4.html">USLab Ratio Observation Example</a></li>
-							<li><a href="obs-uslab-example5.html">USLab Quantitative Observation Example</a></li>
+							<li><a href="obs-uslab-example5.html">USLab Quantitative Observation Profile Example: Blood Lead</a></li>			
+							<li><a href="obs-uslab-example6.html">USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel</a></li>
+							<li><a href="obs-uslab-example7.html">USLab Coded Observation Profile Example: C trachomatis PCR</a></li>							
+							<li><a href="obs-uslab-example8.html">USLab Range Observation Profile  Example: WBCs in Urine</a></li>
 							<li><a href="cond-uslab-example1.html">USLab Condition Example</a></li>
 							<li><a href="spec-uslab-example1.html">USLab Specimen Example</a></li>
 			               </ul>
