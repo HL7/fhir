@@ -26,7 +26,7 @@ for example:
 		<li>
 			<a href="http://www.openehr.org/">Open EHR's</a> reference model</li>
 		<li>the <a href="http://bridg.com">BRIDG</a> logical model</li>
-		<li>terminologies such as <a href="http://loinc.org">LOINC</a> or <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED</a>
+		<li>terminologies such as <a href="http://loinc.org">LOINC</a> or <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED CT</a>
 		</li>
 	</ul>
 	<p>
@@ -54,7 +54,7 @@ One of the purposes of data elements is to define variables, observations, or qu
 collect a variable's value--including information about data types and guidance about the use of about answer lists and/or units of measure.
 This function is typically done by code systems such as <a href="http://loinc.org">LOINC</a> and
 <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED CT</a>.  (Note that LOINC provides considerable detail about allowed answers, while most other code 
-systems such as SNOMED only allow identifying the question.)  It would be possible to treat a registry of data elements using a common
+systems such as SNOMED CT only allow identifying the question.)  It would be possible to treat a registry of data elements using a common
 identifier system/namespace as a code system.  Similarly, data elements can be mapped to each other (and to codes) in the same manner as 
 codes can be mapped by making use of the <a href="conceptmap.html">ConceptMap</a> resource.
 </p>
@@ -174,7 +174,7 @@ this can occur:
 </p>
 <ul>
 <li><code>DataElement.element.code</code> allows a data element to be linked as "semantically equivalent" to the specified code.</li>
-<li><code>DataElement.element.mapping</code> allows a data element to be linked to a particular data structure such as a FHIR resource, a CDA template, an OpenEHR archetype, etc.</li>
+<li><code>DataElement.element.mapping</code> allows a data element to be linked to a particular data structure such as a FHIR resource, a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> template, an OpenEHR archetype, etc.</li>
 <li>The <a href="questionnaire.html">Questionnaire</a> extension <a href="extension-questionnaire-dereference.html">deReference</a> allows a
 particular question in a questionnaire to be linked to a data element deemed to correspond to that question.  This mechanism supports
 population of questionnaire instances on the basis of known data elements. The intent is that a server will populate anything 

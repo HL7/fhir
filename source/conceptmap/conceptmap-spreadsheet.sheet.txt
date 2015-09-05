@@ -408,7 +408,7 @@
  -- Row 2 -----------------------------------
   Name = Speciment Type
   Identity = 102
-  Description = Specimen Type v2 -> SNOMED-CT Mapping
+  Description = Specimen Type v2 -> SNOMED CT Mapping
   Filename = conceptmap-example-specimen-type.xml
 
 === Sheet Examples =====================================

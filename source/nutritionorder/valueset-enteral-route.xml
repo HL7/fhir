@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="EnteralRouteOfAdministration: Codes specifying the route of administration of enteral formula.  This value set is composed of HL7 V3 codes and is provided as a suggestive example "/>
+  <description value="EnteralRouteOfAdministration: Codes specifying the route of administration of enteral formula.  This value set is composed of HL7 v3 codes and is provided as a suggestive example "/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>

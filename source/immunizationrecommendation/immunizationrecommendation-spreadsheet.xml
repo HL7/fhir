@@ -1568,7 +1568,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=&quot;immunization&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">? No clear way to associate in V2.x or IG</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">? No clear way to associate in HL7 v2 or IG</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>

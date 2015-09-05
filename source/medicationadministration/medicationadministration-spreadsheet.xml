@@ -1054,7 +1054,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">RXA-25-Administered Barcode Identifier? (V2 def'n of RXA-25 refers to the 'give' occurrence; appears not to discuss 'administer' cardinality which would seem to be 0..*)  </Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">RXA-25-Administered Barcode Identifier? (HL7 v2 def'n of RXA-25 refers to the 'give' occurrence; appears not to discuss 'administer' cardinality which would seem to be 0..*)  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>

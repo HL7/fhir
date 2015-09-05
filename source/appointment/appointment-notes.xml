@@ -386,7 +386,7 @@
 <a name="notes"> </a>
 	<h2>Notes:</h2>
 	<ul>
-		<li>Placer/Filler (HL7 v2)</li>
+		<li>Placer/Filler (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>)</li>
 		<p>
 			The appointment information is effectively the same between the filler and placer, and given the nature of the
 			fhir resource, there is only a single resource for both purposes. The Placer is the actor that performs the

@@ -188,7 +188,7 @@
   Type = Reference(Immunization)
   Short Label = Past immunizations supporting recommendation
   Definition = Immunization event history that supports the status and recommendation
-  v2 Mapping = ? No clear way to associate in V2.x or IG
+  v2 Mapping = ? No clear way to associate in HL7 v2 or IG
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=\"immunization\"]
 
  -- Row 18 -----------------------------------

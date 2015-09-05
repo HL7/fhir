@@ -57,7 +57,7 @@ In addition, implementers should be familiar with the <a href="operations.html">
 framework</a>. Further useful information may be found in:
 </p>
 <ul>
- <li>Underlying Principles: <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">V3 Core Principles</a></li>
+ <li>Underlying Principles: <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a></li>
  <li>SNOMED CT <a href="http://ihtsdo.org/fileadmin/user_upload/doc/">technical documentation</a>. Note: "namespace" is used differently here from the way it is used by IHTSDO (see <a href="terminologies.html">discussion here</a>)</li>
 </ul>
 
@@ -67,7 +67,7 @@ In order to be used with a value set, code systems must be defined somewhere. Th
 an <a href="valueset.html#codeSystem">inline code system definition</a>, or they can be defined elsewhere,
 and then used in a value set by quoting the correct namespace. The FHIR specification defines a <a href="terminologies-systems.html">set of
 namespaces</a> for commonly encountered code systems, and defines how some work with FHIR (e.g.
-<a href="snomedct.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>).
+<a href="snomedct.html">SNOMED CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>).
 These code systems are often large, and have many internally defined properties that are part of their
 formal definitions. Inline code systems in Value Set resources are not an appropriate way to define
 these code systems; FHIR does not provide a formal representation at all. Instead, these terminologies
@@ -110,7 +110,7 @@ logical information for a terminology:
 </ul>
 <p>
 The FHIR specification itself defines these things for common terminologies (including
-<a href="snomedct.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>),
+<a href="snomedct.html">SNOMED CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>),
 and provides the Value Set infrastructure for supporting typical relatively simple small code systems.
 </p>
 <p>
@@ -460,7 +460,7 @@ codes subsumed by a code.
 <div class="example">
 <p><b>Examples</b></p>
 <p>
-Test whether a Snomed Concept 399211009 (History of myocardial infarction) is subsumed by 22298006 (Myocardial infarction):
+Test whether a SNOMED CT Concept 399211009 (History of myocardial infarction) is subsumed by 22298006 (Myocardial infarction):
 </p>
 <pre class="http">
 GET [base]/ValueSet/$validate-code?system=http://snomed.info/sct&amp;code=399211009&amp;identifier=http://snomed.info/sct?fhir_vs%3Disa/22298006
@@ -495,7 +495,7 @@ interaction.
 <div class="example">
 <p><b>Example</b></p>
 <p>
-A request to validate 2 concepts from a CDA document, with OIDs for value set identifiers:
+A request to validate 2 concepts from a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> document, with OIDs for value set identifiers:
 </p>
 <pre class="http">
 POST [base]
@@ -567,8 +567,8 @@ HTTP/1.1 200 OK
 <h3>Translations</h3>
 <p>
 A client can ask a server to translate a concept from one value set to another. Typically, this
-is used to translate between code systems (e.g. from LOINC to SNOMED CT, or from a v3 code to
-a v2 code). The client calls <a href="conceptmap-operations.html#translate">the translate operation</a> and passes the following parameters:
+is used to translate between code systems (e.g. from LOINC to SNOMED CT, or from a <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> code to
+a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> code). The client calls <a href="conceptmap-operations.html#translate">the translate operation</a> and passes the following parameters:
 </p>
 <ul>
   <li>A code+system, Coding, or CodeableConcept</li>
@@ -590,7 +590,7 @@ server returns an error. Some servers may require a concept map to use for the t
 <div class="example">
 <p><b>Example</b></p>
 <p>
-Translate from FHIR Composition status to V3 Act Status (based on
+Translate from FHIR Composition status to <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> Act Status (based on
 <a href="composition-status-map-v3.html">this defined concept map</a>:
 </p>
 <pre class="http">
@@ -636,7 +636,7 @@ interaction.
 <div class="example">
 <p><b>Example</b></p>
 <p>
-A request to translate 2 concepts from a CDA document, with OIDs for value set identifiers:
+A request to translate 2 concepts from a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> document, with OIDs for value set identifiers:
 </p>
 <pre class="http">
 POST [base]

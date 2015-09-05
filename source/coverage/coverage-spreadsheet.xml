@@ -1364,7 +1364,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String"> - No exact V2.x equivalent concept seems to exist; instance relationship can be inferred if ( ( PID-3-patient ID list ??? IN1-49-insured's ID number ) &amp; ( ?? IN2-72-patient's relationship to insured ) )</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String"> - No exact HL7 v2 equivalent concept seems to exist; instance relationship can be inferred if ( ( PID-3-patient ID list ??? IN1-49-insured's ID number ) &amp; ( ?? IN2-72-patient's relationship to insured ) )</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">C17</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1400,7 +1400,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">No V2.x equivalent concept seems to exist</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">No HL7 v2 equivalent concept seems to exist</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">D11</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -118,7 +118,7 @@
   Short Label = The dependent number
   Definition = A unique identifier for a dependent under the coverage.
   Requirements = For some coverage a single identifier is issued to the PolicyHolder and dependent number issues to each to each of their dependents to track and manage the plan.
-  v2 Mapping = - No exact V2.x equivalent concept seems to exist; instance relationship can be inferred if ( ( PID-3-patient ID list ??? IN1-49-insured\'s ID number ) & ( ?? IN2-72-patient\'s relationship to insured ) )
+  v2 Mapping = - No exact HL7 v2 equivalent concept seems to exist; instance relationship can be inferred if ( ( PID-3-patient ID list ??? IN1-49-insured\'s ID number ) & ( ?? IN2-72-patient\'s relationship to insured ) )
   CDAnet v4 Mapping = C17
 
  -- Row 12 -----------------------------------
@@ -129,7 +129,7 @@
   Short Label = The plan instance or sequence counter
   Definition = An optional counter for a particular instance of the identified coverage which increments upon each renewal.
   Requirements = Some coverage, for example social plans, may be offered in short time increments, for example for a week or a month at a time, so while the rest of the plan details and identifiers may remain constant over time, the instance is incremented with each renewal and provided to the covered party on their \'card\'.
-  v2 Mapping = No V2.x equivalent concept seems to exist
+  v2 Mapping = No HL7 v2 equivalent concept seems to exist
   CDAnet v4 Mapping = D11
 
  -- Row 13 -----------------------------------

@@ -14,7 +14,7 @@
 		</div>
 	</text>
 	<url value="http://hl7.org/fhir/ValueSet/medication-codes"/>
-	<name value="Snomed Medication Codes"/>
+	<name value="SNOMED CT Medication Codes"/>
 	<status value="draft"/>
 	<publisher value="FHIR Project team"/>
 	<contact>
@@ -23,7 +23,7 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<description value="This value set includes all Medication codes from Snomed - provided as an exemplar"/>
+	<description value="This value set includes all Medication codes from SNOMED CT - provided as an exemplar"/>
 	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
 	<compose>
 		<include>

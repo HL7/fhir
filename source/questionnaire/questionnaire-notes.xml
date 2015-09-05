@@ -12,7 +12,7 @@ to be associated with their corresponding group or question.</li>
 <li>Questionnaire allows for flexible naming and structuring of its contents to reflect the flexible and varying nature of forms and questionnaires. 
 It explicitly does not try to standardize or streamline exchange of its contents outside its context of use, although exchanging partners may further
 constrain its structure and flexibility using profiles to define standardized, reusable forms.</li>
-<li>Because of the lack of explicit support for Questionnaires in HL7v3, HL7 CDA Documents frequently used named sections with
+<li>Because of the lack of explicit support for Questionnaires in <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> Documents frequently used named sections with
 Observations to model Questionnaires. Such use cases should now utilize the Questionnaire Resource instead.</li>
 <li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.</li>
 </ul>

@@ -1557,7 +1557,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">The Supply Order from the V3 DMIM was discussed and decided outside 80%, permit via extensions where required</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">The Supply Order from the HL7 v3 DMIM was discussed and decided outside 80%, permit via extensions where required</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1762,7 +1762,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">PA discussed, concerms that this was part of V2 and v3, but not sure that is should be in 80%</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">PA discussed, concerms that this was part of HL7 v2 and v3, but not sure that is should be in 80%</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>

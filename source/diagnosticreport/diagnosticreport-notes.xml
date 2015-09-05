@@ -13,7 +13,7 @@ Notes:
 If the diagnostic procedure was performed on the patient directly, <i>diagnostic[x]</i> is a dateTime, the time it was performed.
 If specimens were taken, the diagnostically relevant time can be derived from the specimen collection times, but
 since detailed specimen information is not always available, and nor is the diagnostically relevant time always exactly the specimen collection time (e.g. complex timed tests), the
-reports SHALL always include a <i>diagnostic[x]</i> element. Note that v2 messages often carry a diagnostically relevant time without carrying any specimen information.
+reports SHALL always include a <i>diagnostic[x]</i> element. Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> messages often carry a diagnostically relevant time without carrying any specimen information.
 </li>
 		<li>
 A report always contains the name of the report itself. The report can also contain a set of observations, which can themselves be simple observations (e.g. atomic results) or can themselves be groups/panels of other observations.

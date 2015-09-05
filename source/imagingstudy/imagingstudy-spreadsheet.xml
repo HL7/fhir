@@ -2126,7 +2126,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Body part examined</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -161,7 +161,7 @@ Notes:
 </p>
 <ul>
  <li>For all the types, the XML and JSON representations are the same except for different escaping in XML and JSON</li>
- <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use</li>
+ <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use</li>
  <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is needed</li>
  <li>The precision of the decimal value has signficance:<a name="precision"> </a>
     <ul> 
@@ -544,15 +544,15 @@ The <code>value</code> contains the numerical value of the quantity, including a
 If no comparator is specified, the value is a point value (i.e. '='). The <code>comparator</code> element can never be ignored.
 </p>
 <p>
-The <code>units</code> element contains a displayable unit that defines what is measured. 
-The units may additionally be coded in some formal way using the <code>code</code> and the <code>system</code> 
+The <code>unit</code> element contains a displayable unit that defines what is measured. 
+The unit may additionally be coded in some formal way using the <code>code</code> and the <code>system</code> 
 (see <a href="#Coding">Coding</a> for further information about how to use the <code>system</code> element). 
 </p>
 <p>
-If the units are able to be coded in UCUM and a code is provided, it SHOULD be a UCUM code. 
+If the unit is able to be coded in UCUM and a code is provided, it SHOULD be a UCUM code. 
 If a UCUM unit is provided in the <code>code</code> then a canonical value can be generated for 
-purposes of comparison between quantities. Note that the <code>units</code> element will often 
-contain text that is actually a valid UCUM unit, but it cannot be assumed that the units element actually contains a valid UCUM unit. 
+purposes of comparison between quantities. Note that the <code>unit</code> element will often 
+contain text that is actually a valid UCUM unit, but it cannot be assumed that the unit actually contains a valid UCUM unit. 
 </p>
 
 <div class="use">
@@ -560,7 +560,7 @@ contain text that is actually a valid UCUM unit, but it cannot be assumed that t
 [%dt.constraints Quantity%]
 <p>
 The context of use may frequently define what kind of measured quantity
-this is and therefore what kind of units can be used. The context 
+this is and therefore what kind of unit can be used. The context 
 of use may additionally require a <code>code</code> from a particular <code>system</code>.
 The context of use may also restrict the values for the <code>value</code> or <code>range</code>.
 </p>
@@ -594,7 +594,7 @@ Ranges are typically used in instructions.
 </p>
 [%dt Range 5%]
 <p>
-The <code>units</code> and <code>code</code>/<code>system</code> elements of the <code>low</code> or <code>high</code> elements SHALL match. 
+The <code>unit</code> and <code>code</code>/<code>system</code> elements of the <code>low</code> or <code>high</code> elements SHALL match. 
 If the <code>low</code> or <code>high</code> elements are missing, the meaning
 is that the low or high boundaries are not known and therefore neither is the complete range.
 </p>
@@ -946,7 +946,7 @@ the specified duration or in relation to some real world event. If no end condit
 the schedule will terminate on some criteria that are expressed elsewhere. 
 </p>
 <p>
-If <code>duration</code> is provided as a <a href="#Range">Range</a>, the units in the Range
+If <code>duration</code> is provided as a <a href="#Range">Range</a>, the unit in the Range
 SHALL be a <a href="valueset-units-of-time.html">UCUM unit of time</a>.
 </p>
 <p>

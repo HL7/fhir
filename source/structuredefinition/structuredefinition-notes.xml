@@ -172,7 +172,7 @@ mapping:
   <tr><td>http://loinc.org</td><td>LOINC code for the element</td></tr>
   <tr><td>http://snomed.info</td><td>SNOMED CT code for the element</td></tr>
   <tr><td>http://hl7.org/v3</td><td>RIM mapping</td></tr>
-  <tr><td>http://hl7.org/v2</td><td>v2 mapping</td></tr>
+  <tr><td>http://hl7.org/v2</td><td><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> mapping</td></tr>
   <tr><td>http://nema.org/dicom</td><td>DICOM tag mapping</td></tr>
   <tr><td>http://w3.org/vcard</td><td>vCard equivalent field</td></tr>
   <tr><td>http://ihe.net/xds</td><td>XDS metadata equivalent</td></tr>

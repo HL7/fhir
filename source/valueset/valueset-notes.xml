@@ -4,7 +4,7 @@
 <h2>Identifier and Version</h2>
 <p>
 The <i>identifier</i> and <i>version</i> elements may be used to reference this value set in a design, a profile, a 
-CDA template or V3 message (valueSet and valueSetVersion). These different contexts may make additional restrictions 
+<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> template or <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> message (valueSet and valueSetVersion). These different contexts may make additional restrictions 
 on the possible values of these elements.  These elements are generally not needed when using value sets with FHIR
 implementations as they can make use of the innate identifier and versioning mechanism associated with the resource
 </p>
@@ -163,7 +163,7 @@ How filters are used with various code systems:
    <th>Example</th>
  </tr>
  <tr>
-   <td>V3 Code systems</td> 
+   <td><a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> Code systems</td> 
    <td>concept</td>
    <td>is-a</td>       
    <td>[code]</td>    
@@ -171,7 +171,7 @@ How filters are used with various code systems:
    <td><a href="valueset-relatedperson-relationshiptype.html">Relationship Type</a></td>
  </tr>
  <tr>
-   <td>V2 Tables</td> 
+   <td><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> Tables</td> 
    <td></td>
    <td></td>       
    <td></td>    

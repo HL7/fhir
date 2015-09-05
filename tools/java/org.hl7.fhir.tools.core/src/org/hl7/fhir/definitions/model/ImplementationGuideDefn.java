@@ -229,7 +229,7 @@ public class ImplementationGuideDefn {
       res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
       if (!n.equals(ig.getPage().getSource())) {
         if (!findPage(n, res, ig.getPage().getPage())) {
-          issues.add(new ValidationMessage(Source.Publisher, IssueType.PROCESSING, code+"/"+n, "The page "+n+" is not assigned a bread crumb yet", IssueSeverity.WARNING));
+          issues.add(new ValidationMessage(Source.Publisher, IssueType.PROCESSING, code+"/"+n, "The page "+n+" is not assigned a bread crumb yet", IssueSeverity.INFORMATION/*WARNING*/));
           res.add(new LinkTriple(null, "unsorted", "Work in Progress yet"));
         }
       }

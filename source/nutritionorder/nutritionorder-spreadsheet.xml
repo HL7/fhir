@@ -958,7 +958,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">E.g. RIMClass[classCode=foo,moodCode=bar].someAssociation[typeCode=code].attribute</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">v2 Mapping</Data><Comment
+    <Cell ss:StyleID="s75"><Data ss:Type="String">HL7 v2 Mapping</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">E.g. SEG.1.2.3</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1122,7 +1122,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ORC-2/ORC-3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">v2 - ORM/ORR or OMD - Dietary Order (Event O03); ORC</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">HL7 v2 - ORM/ORR or OMD - Dietary Order (Event O03); ORC</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1378,7 +1378,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">down</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">use either HL7 Supply code that represents Nutrition Order Item or SNOMED/LOINC (i.e. parent concept for the diet regimes/therapies - figure out what to use for supplements and tube feedings).  reasons we may need a type - query for specific part of the order Per WGM Mon Q3 - remove this and move attributes to each instance 2/4/2015 EH: [#3996] deprecate</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">use either HL7 Supply code that represents Nutrition Order Item or SNOMED CT/LOINC (i.e. parent concept for the diet regimes/therapies - figure out what to use for supplements and tube feedings).  reasons we may need a type - query for specific part of the order Per WGM Mon Q3 - remove this and move attributes to each instance 2/4/2015 EH: [#3996] deprecate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1408,7 +1408,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ODS-2</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">HL7 v2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1477,7 +1477,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ODS-1 Value = &quot;D&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">HL7 v2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">down</Data><NamedCell
@@ -1514,7 +1514,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ODS-3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">HL7 v2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1792,7 +1792,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">.code  (Not differentiated from dietTextureModificationType in V3)</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">.code  (Not differentiated from dietTextureModificationType in HL7 v3)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ODS-4</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1832,7 +1832,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ODS-4</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">HL7 v2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1867,7 +1867,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ODS-1 Value = &quot;P&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">HL7 v2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">down</Data><NamedCell
@@ -2046,7 +2046,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ODS-4</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">V2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">HL7 v2 ODS-3 Diet, Supplement or Prference Code CWE (repeating segment)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2082,7 +2082,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ODS-1 Value coded for enteral</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">V2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">HL7 v2 - ODS-2  Service Period (service periods mapped locally to meal service periods or day parts, e.g. breakfast, lunch, bedtime snack, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">right</Data><NamedCell
@@ -2186,7 +2186,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">N/A (not differentiated from NutritionalFormulaType in V3)</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">N/A (not differentiated from NutritionalFormulaType in HL7 v3)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ODS-3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6765,7 +6765,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Copyright information associated with the code list.  If not specified, Public Domain assumed</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
+    <Cell ss:StyleID="s106"><Data ss:Type="String">HL7 v2</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">uri of v2 value set mapped to</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7296,7 +7296,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
+    <Cell ss:StyleID="s106"><Data ss:Type="String">HL7 v2</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7880,7 +7880,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
+    <Cell ss:StyleID="s106"><Data ss:Type="String">HL7 v2</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

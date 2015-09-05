@@ -1017,7 +1017,7 @@
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Patient contact is defined as a person in role. Hence RelatedPerson should also be a person in role. Struggling with V3 mappings here.</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Patient contact is defined as a person in role. Hence RelatedPerson should also be a person in role. Struggling with HL7 v3 mappings here.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
@@ -1090,7 +1090,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">This rather complicated V3 mapping traverses the same path that the Patient resource has for contact but in opposite direction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">This rather complicated HL7 v3 mapping traverses the same path that the Patient resource has for contact but in opposite direction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">

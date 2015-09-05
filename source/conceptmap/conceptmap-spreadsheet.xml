@@ -6087,7 +6087,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s143"><Data ss:Type="String">Speciment Type</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Specimen Type v2 -&gt; SNOMED-CT Mapping</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Specimen Type v2 -&gt; SNOMED CT Mapping</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="Number">102</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">conceptmap-example-specimen-type.xml</Data></Cell>
     <Cell ss:StyleID="s133"/>

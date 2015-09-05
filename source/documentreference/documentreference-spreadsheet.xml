@@ -1076,7 +1076,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">PID-3-Patient ID List (No standard way to define a Practitioner or Group subject in V2 MDM message)</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">PID-3-Patient ID List (No standard way to define a Practitioner or Group subject in HL7 v2 MDM message)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">DocumentEntry.patientId </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1223,7 +1223,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">TXA-9-Originator Code/Name (No standard way to indicate a Device in V2 MDM message)</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">TXA-9-Originator Code/Name (No standard way to indicate a Device in HL7 v2 MDM message)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">DocumentEntry.author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1943,7 +1943,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">This is an important piece of metadata that providers often rely upon to quickly sort and/or filter out to find specific content.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The value set for this content has an example binding because it is a value set decided by community policy. Other examples exist for consideration: * HITSP created the table HITSP/C80 Table 2-148 Clinical Specialty Value Set (a value set based upon SNOMED-CT which is referenced by Direct (XDR and XDM for Direct Messaging Specification, Version 1), as well as Nationwide Health Information Network (NHIN).  Query for Documents, Web Service Interface Specification, V 3.0, 07/27/2011 * ELGA (Austria) (ELGA CDA Implementie-rungsleitfäden Registrierung von CDA Dokumenten für ELGA mit IHE Cross-Enterprise Document Sharing: XDS Metadaten (XDSDocumentEntry), [1.2.40.0.34.7.6.3] * XDS Connect-a-thon practiceSettingCode</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The value set for this content has an example binding because it is a value set decided by community policy. Other examples exist for consideration: * HITSP created the table HITSP/C80 Table 2-148 Clinical Specialty Value Set (a value set based upon SNOMED CT which is referenced by Direct (XDR and XDM for Direct Messaging Specification, Version 1), as well as Nationwide Health Information Network (NHIN).  Query for Documents, Web Service Interface Specification, V 3.0, 07/27/2011 * ELGA (Austria) (ELGA CDA Implementie-rungsleitfäden Registrierung von CDA Dokumenten für ELGA mit IHE Cross-Enterprise Document Sharing: XDS Metadaten (XDSDocumentEntry), [1.2.40.0.34.7.6.3] * XDS Connect-a-thon practiceSettingCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.participation[typeCode=&quot;LOC&quot;].role[classCode=&quot;DSDLOC&quot;].code</Data><NamedCell

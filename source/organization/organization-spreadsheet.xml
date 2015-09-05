@@ -1086,7 +1086,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">No equivalent in V2.x</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">No equivalent in HL7 v2</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">./Status (however this concept in ServD more covers why the organization is active or not, could be delisted, deregistered, not operational yet) this could alternatively be derived from ./StartDate and ./EndDate and given a context date.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1204,7 +1204,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.telecom</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">No authoritative equivalent in V2.x</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">No authoritative equivalent in HL7 v2</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">./ContactPoints</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1242,7 +1242,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.address</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">No authoritative equivalent in V2.x; some V2.x segments such as OBX might provide a serialized instance value</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">No authoritative equivalent in HL7 v2; some HL7 v2 segments such as OBX might provide a serialized instance value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">./PrimaryAddress and ./OtherAddresses</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1278,7 +1278,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.plays[Role](classCode='QUAL')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Roughly analogous to person-specific CER segment in V2.x</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Roughly analogous to person-specific CER segment in HL7 v2</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Could be mapped via ./Attrbutes or ./Affiliations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1454,7 +1454,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.playedBy[classCode=Part].scoper</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">No equivalent in V2.x</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">No equivalent in HL7 v2</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

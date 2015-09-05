@@ -77,7 +77,7 @@
 	<component>
 		<!--
            Observations are often coded in multiple code systems.
-           - Loinc provides a very specific code (though not usefully more specific in this particular case)
+           - LOINC provides a very specific code (though not usefully more specific in this particular case)
            - snomed provides a clinically relevant code that is usually less granular than LOINC
            - the source system provides its own code, which may be less or more granular than LOINC
 	 this instance shows the concept. The other codes only have a LOINC code -->

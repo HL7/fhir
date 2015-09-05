@@ -152,7 +152,7 @@
   Binding = DiagnosticReportCodes
   Short Label = Name/Code for this diagnostic report
   Definition = A code or name that describes this diagnostic report
-  v2 Mapping = OBR-4-Universal Service ID (V2 doesn\'t provide an easy way to indicate both the ordered test and the performed panel)
+  v2 Mapping = OBR-4-Universal Service ID (HL7 v2 doesn\'t provide an easy way to indicate both the ordered test and the performed panel)
   RIM Mapping = code
   Committee Notes = #5961
   w5 = what
@@ -166,7 +166,7 @@
   Short Label = The subject of the report, usually, but not always, the patient
   Definition = The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
   Requirements = SHALL know the subject context
-  v2 Mapping = PID-3-Patient ID List (no V2 mapping for Group or Device)
+  v2 Mapping = PID-3-Patient ID List (no HL7 v2 mapping for Group or Device)
   RIM Mapping = participation[typeCode=SBJ]
   w5 = who.focus
 

@@ -305,7 +305,7 @@
   Binding = AllergyIntoleranceSubstance
   Short Label = Substance, (or class) considered to be responsible for risk
   Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk
-  Comments = It is strongly recommended that Substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, Snomed CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
+  Comments = It is strongly recommended that Substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
   w5 = what
 
  -- Row 9 -----------------------------------
@@ -410,7 +410,7 @@
   Binding = Manifestation
   Short Label = Clinical symptoms/signs associated with the Event
   Definition = Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event
-  Comments = Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that Manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED-CT or ICD10.
+  Comments = Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that Manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10.
 
  -- Row 19 -----------------------------------
   Element = AllergyIntolerance.reaction.description

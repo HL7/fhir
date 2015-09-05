@@ -807,11 +807,11 @@ public class FhirTurtleGenerator extends TurtleGenerator {
   protected void chckSubjects() {
     for (String s : sorted(predicateSet)) {
       if (s.startsWith("fhir:") && !subjectSet.contains(s))
-        issues.add(new ValidationMessage(Source.Ontology, IssueType.INVALID, -1, -1, "turtle", "Undefined predicate "+s, IssueSeverity.WARNING));
+        issues.add(new ValidationMessage(Source.Ontology, IssueType.INVALID, -1, -1, "turtle", "Undefined predicate "+s, IssueSeverity.INFORMATION/*WARNING*/));
     }
     for (String s : sorted(objectSet)) {
       if (s.startsWith("fhir:") && !subjectSet.contains(s))
-        issues.add(new ValidationMessage(Source.Ontology, IssueType.INVALID, -1, -1, "turtle", "Undefined object "+s, IssueSeverity.WARNING));
+        issues.add(new ValidationMessage(Source.Ontology, IssueType.INVALID, -1, -1, "turtle", "Undefined object "+s, IssueSeverity.INFORMATION/*WARNING*/));
     }
   }
 

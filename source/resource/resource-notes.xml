@@ -46,8 +46,8 @@ logical id may change.
 </p>
 <p>
 However all copies of the resource refer to the same underlying concept,
-and this concept may also be represented in other formats (variously, v2,
-CDA, XDS, and many more). Each representation carries the same identifier
+and this concept may also be represented in other formats (variously, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>,
+<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, XDS, and many more). Each representation carries the same identifier
 that identifies it consistently across all contexts of use. This is known
 as the business identifier, and is found in the <i>identifier</i> element. 
 In a few resources, there is a <i>url</i> element that serves a similar
@@ -56,7 +56,7 @@ purpose, but is constrained to be a literal URL for implementation reasons.
 <p>
 All resources that have an <code>identifier</code> element support searching
 by the identifier, so that records can located by that method. So if 
-an HL7 v2 message has the following OBR:
+an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message has the following OBR:
 </p>
 <pre>
 OBR|1|845439^GHH OE|1045813^GHH LAB|1554-5^GLUCOSE^LN|||200202150730|...
@@ -274,7 +274,7 @@ of resources that need review.
 <p>
 In a general tag, the <a href="datatypes.html#coding">coded concept</a> may be a reference to a 
 healthcare vocabulary, including ones defined in this specification, or vocabularies such 
-as those defined by HL7 for other purposes (e.g. v2 and v3/CDA), LOINC, or SNOMED CT. 
+as those defined by HL7 for other purposes (e.g. <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>/<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>), LOINC, or SNOMED CT. 
 Alternatively, the concept may be one defined by the implementation in the local context. 
 </p>
 <p>

@@ -1100,7 +1100,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">(Not clear whether or how V2 provides for a snapshot of dispense status)</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">(Not clear whether or how HL7 v2 provides for a snapshot of dispense status)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">CombinedMedicationDispense.SupplyEvent.statusCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1454,7 +1454,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.participation[typeCode=DST].role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">RXD-13-Dispense-to Location; RXD-30-Dispense to Pharmacy; RXD-31-Dispense to Pharmacy Address (V2 (in definition of RXD-13, RXD-30 and RXD-31) directs use of the PRT segment but there doesn't appear to be a standard code in Table 0912 suitable for PRT-4-Participation)</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">RXD-13-Dispense-to Location; RXD-30-Dispense to Pharmacy; RXD-31-Dispense to Pharmacy Address (HL7 v2 (in definition of RXD-13, RXD-30 and RXD-31) directs use of the PRT segment but there doesn't appear to be a standard code in Table 0912 suitable for PRT-4-Participation)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">CombinedMedicationDispense.SupplyEvent.destination</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

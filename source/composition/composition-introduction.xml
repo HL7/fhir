@@ -128,7 +128,7 @@ differences between CDA and the composition resource:
   safely be extracted from the Composition.</li>
 </ul>
 <p>
-In addition, note that both the code lists (e.g. <a href="valueset-composition-status.html">Composition status</a>) and the composition resource are <a href="composition-mappings.html">mapped</a> to v3 and/or CDA.
+In addition, note that both the code lists (e.g. <a href="valueset-composition-status.html">Composition status</a>) and the composition resource are <a href="composition-mappings.html">mapped</a> to <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> and/or CDA.
 </p>
 </div>
 

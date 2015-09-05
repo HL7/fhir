@@ -24,11 +24,11 @@
     </telecom>
   </contact>
   <date value="2012-06-13"/>
-  <description value="A mapping between the FHIR and V3 AddressUse Code systems"/>
+  <description value="A mapping between the FHIR and HL7 v3 AddressUse Code systems"/>
   <useContext>
     <text value="for CDA Usage"/>
   </useContext>
-  <requirements value="To help implementers map from v3/CDA to FHIR"/>
+  <requirements value="To help implementers map from HL7 v3/CDA to FHIR"/>
   <copyright value="Creative Commons 0"/>
   <sourceReference>
     <reference value="http://hl7.org/fhir/address-use"/>
@@ -79,7 +79,7 @@
       <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="BAD"/>
       <equivalence value="disjoint"/>
-      <comments value="In the V3 AD, old is handled by the usablePeriod element, but you have to provide a time, there&#39;s no simple equivalent of flagging an address as old"/>
+      <comments value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there&#39;s no simple equivalent of flagging an address as old"/>
     </target>
   </element>
 </ConceptMap>

@@ -374,7 +374,7 @@
   Type = Coding
   Binding = BodySite
   Short Label = Body part examined
-  Definition = Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed
+  Definition = Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT
   DICOM Mapping = (0018,0015)
   RIM Mapping = .targetSiteCode
 

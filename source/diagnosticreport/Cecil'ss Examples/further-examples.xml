@@ -244,7 +244,7 @@ DSC|C01
 
 Comments-   OBR 24 populated 
 OBX3- test to be LOINC�d is not spelled out in first result but is in the addendum result 
-OBX5- SNOMED result 
+OBX5- SNOMED CT result 
 
 
 
@@ -326,7 +326,7 @@ OBX|1|FT|ARDC^Blood Culture|1|^
 
 Comments-   OBR 24 populated 
 OBX3- test to be LOINC�d 
-  OBX5- is FT result, can�t code to SNOMED as is. Full text blob will be sent.
+  OBX5- is FT result, can�t code to SNOMED CT as is. Full text blob will be sent.
 
 
 

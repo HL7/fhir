@@ -115,7 +115,7 @@
   Type = Identifier
   Short Label = External identifier
   Definition = External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
-  v2 Mapping = RXA-25-Administered Barcode Identifier? (V2 def\'n of RXA-25 refers to the \'give\' occurrence; appears not to discuss \'administer\' cardinality which would seem to be 0..*)
+  v2 Mapping = RXA-25-Administered Barcode Identifier? (HL7 v2 def\'n of RXA-25 refers to the \'give\' occurrence; appears not to discuss \'administer\' cardinality which would seem to be 0..*)
   RIM Mapping = id
   w5 = id
 

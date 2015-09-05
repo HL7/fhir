@@ -216,7 +216,7 @@
     </telecom>
   </contact>
   <date value="2010-01-29"/>
-  <description value="This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the V3 Purpose of use Code system"/>
+  <description value="This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system"/>
   <codeSystem>
     <system value="http://healthit.gov/nhin/purposeofuse"/>
     <version value="2.0"/>

@@ -122,7 +122,7 @@
   Short Label = If required by policy
   Definition = A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection
   Comments = Reference will be constrained when suitable targets exist
-  v2 Mapping = Defined in FHIR as \'if required by policy\'; unclear how this would map to V2 except ORC-19.9-action by.assigning authority or ORC-30-enterer authorization mode, neither of which exactly scales to a resource
+  v2 Mapping = Defined in FHIR as \'if required by policy\'; unclear how this would map to HL7 v2 except ORC-19.9-action by.assigning authority or ORC-30-enterer authorization mode, neither of which exactly scales to a resource
   RIM Mapping = .outboundRelationships[typeCode=COVBY].target[classCode=POLICY, moodCode=EVN].code  or  .outboundRelationships[typeCode=COVBY].target[classCode=POLICY, moodCode=EVN]
   Committee Notes = #5895
 

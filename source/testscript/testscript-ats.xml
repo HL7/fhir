@@ -435,7 +435,7 @@
             <value value="grahame@healthintersections.com.au"/>
           </telecom>
         </contact>
-        <description value="A mixed enumeration of codes from FHIR, and from V3 role code"/>
+        <description value="A mixed enumeration of codes from FHIR, and from HL7 v3 role code"/>
         <status value="draft"/>
         <experimental value="true"/>
         <compose>
@@ -526,7 +526,7 @@
         <id value="intensional-case-2"/>
         <text>
           <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">All Snomed codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)</div>
+          <div xmlns="http://www.w3.org/1999/xhtml">All SNOMED CT codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)</div>
         </text>
         <identifier>
           <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2" />
@@ -539,7 +539,7 @@
             <value value="grahame@healthintersections.com.au"/>
           </telecom>
         </contact>
-        <description value="All Snomed codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)"/>
+        <description value="All SNOMED CT codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)"/>
         <status value="draft"/>
         <experimental value="true"/>
         <compose>
@@ -561,7 +561,7 @@
         <id value="intensional-case-3"/>
         <text>
           <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">All Snomed codes that are subsumed by 404684003 (Clinical Finding)</div>
+          <div xmlns="http://www.w3.org/1999/xhtml">All SNOMED CT codes that are subsumed by 404684003 (Clinical Finding)</div>
         </text>
         <identifier>
           <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-3" />
@@ -574,7 +574,7 @@
             <value value="grahame@healthintersections.com.au"/>
           </telecom>
         </contact>
-        <description value="All Snomed codes that are subsumed by 404684003 (Clinical Finding)"/>
+        <description value="All SNOMED CT codes that are subsumed by 404684003 (Clinical Finding)"/>
         <status value="draft"/>
         <experimental value="true"/>
         <compose>

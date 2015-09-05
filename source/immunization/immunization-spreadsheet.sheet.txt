@@ -329,7 +329,7 @@
   Type = dateTime
   Short Label = When did reaction start?
   Definition = Date of reaction to the immunization
-  v2 Mapping = OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the V2.x VXU message - most likely would appear in OBX segments if at all )
+  v2 Mapping = OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 v2 VXU message - most likely would appear in OBX segments if at all )
   RIM Mapping = .effectiveTime
 
  -- Row 25 -----------------------------------
@@ -347,7 +347,7 @@
   Type = boolean
   Short Label = Was reaction self-reported?
   Definition = Self-reported indicator
-  v2 Mapping = (no such concept seems to exist for allergy/adverse reaction in V2.x)
+  v2 Mapping = (no such concept seems to exist for allergy/adverse reaction in HL7 v2)
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported=true)
 
  -- Row 27 -----------------------------------
@@ -356,7 +356,7 @@
   UML = 410;90
   Short Label = What protocol was followed
   Definition = Contains information about the protocol(s) under which the vaccine was administered
-  v2 Mapping = (V2.x doesn\'t seem to provide for this)
+  v2 Mapping = (HL7 v2 doesn\'t seem to provide for this)
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM]
 
  -- Row 28 -----------------------------------

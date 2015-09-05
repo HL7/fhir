@@ -1552,7 +1552,7 @@ public class Publisher implements URIResolver, SectionNumberer {
               errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, path,
                   "Unable to resolve example reference to " + ref.describe() + " in " + e.getTitle() + " (Possible Ids: " + listTargetIds(ref.getType())+")",
                   "Unable to resolve example reference to " + ref.describe() + " in <a href=\""+e.getTitle() + ".html"+"\">" + e.getTitle() + "</a> (Possible Ids: " + listTargetIds(ref.getType())+")",
-                  IssueSeverity.WARNING));
+                  IssueSeverity.INFORMATION/*WARNING*/));
             }
           }
         }
@@ -5124,7 +5124,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           //              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")",
           //              LogMessageType.Warning);
           page.getValidationErrors().add(
-              new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, rn + "." + sp.getCode(), "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")", IssueSeverity.WARNING));
+              new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, rn + "." + sp.getCode(), "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")", IssueSeverity.INFORMATION/*WARNING*/));
         }
       }
     }
@@ -5200,7 +5200,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void produceCoverageWarning(String path, ElementDefn e) {
 
     if (!e.isCoveredByExample() && !Utilities.noString(path) && !e.typeCode().startsWith("@")) {
-      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.WARNING));
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.INFORMATION/*WARNING*/));
     }
     for (ElementDefn c : e.getElements()) {
       produceCoverageWarning(path + e.getName() + "/", c);

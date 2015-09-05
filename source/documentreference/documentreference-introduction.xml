@@ -14,7 +14,7 @@ Typically, Document Reference Resources are used in document indexing systems, s
 and are used to refer to:
 </p>
 <ul>
- <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA documents</a> in FHIR systems</li>
+ <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> documents in FHIR systems</li>
  <li><a href="documents.html">FHIR documents</a> stored elsewhere (i.e. registry/repository following the XDS model)</li>
  <li><a href="http://en.wikipedia.org/wiki/Portable_Document_Format">PDF documents</a>, and even digital records of faxes where sufficient information is available</li>
  <li>Other kinds of documents, such as records of prescriptions.</li> 
@@ -33,7 +33,7 @@ that are authored and assembled in FHIR. This resource is mainly intended for ge
 The document that is a target of the reference can be a reference to a FHIR document served by another server, or 
 the target can be stored in the special <a href="http.html#binary">FHIR Binary Resource</a>, or the target can be 
 stored on some other server system. The document reference is also able to address documents that are retrieved 
-by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or a v2 message query, though 
+by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message query, though 
 the way each of these service calls works must be specified in some external standard or other documentation.
 </p>
 <p>

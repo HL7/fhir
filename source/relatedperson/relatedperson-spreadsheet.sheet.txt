@@ -19,7 +19,7 @@
   Definition = Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process
   Requirements = Need to track persons related to the patient or the healthcare process.
   RIM Mapping = role
-  Committee Notes = Patient contact is defined as a person in role. Hence RelatedPerson should also be a person in role. Struggling with V3 mappings here.
+  Committee Notes = Patient contact is defined as a person in role. Hence RelatedPerson should also be a person in role. Struggling with HL7 v3 mappings here.
   w5 = administrative.individual
 
  -- Row 2 -----------------------------------
@@ -45,7 +45,7 @@
   Requirements = We need to know which Patient this RelatedPerson is related to.
   v2 Mapping = PID-3
   RIM Mapping = scoper[classCode=PSN|ANM and determinerCode=\'INSTANCE\']/playedRole[classCode=\'PAT\']/id
-  Committee Notes = This rather complicated V3 mapping traverses the same path that the Patient resource has for contact but in opposite direction
+  Committee Notes = This rather complicated HL7 v3 mapping traverses the same path that the Patient resource has for contact but in opposite direction
 
  -- Row 4 -----------------------------------
   Element = RelatedPerson.relationship
