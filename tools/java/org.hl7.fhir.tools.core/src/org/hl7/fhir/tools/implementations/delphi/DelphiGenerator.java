@@ -983,12 +983,13 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     Set<String> codes = new HashSet<String>();
     List<DefinedCode> deletes = new ArrayList<DefinedCode>();
     for (DefinedCode dc : ac) {
-      if (codes.contains(dc.getCode().toLowerCase()))
+      if (codes.contains(dc.getCode()))
         deletes.add(dc);
       else
-        codes.add(dc.getCode().toLowerCase());
+        codes.add(dc.getCode());
     }
     ac.removeAll(deletes);
+    codes.clear();
     
     enumSizes.put(tn, ac.size());
 
@@ -1021,10 +1022,17 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           cc = Utilities.camelCase(cc);
           cc = cc.replace(">=", "greaterOrEquals").replace("<=", "lessOrEquals").replace("<", "lessThan").replace(">", "greaterThan").replace("=", "equal");
         }
-
-        cc = prefix + getTitle(cc);
-        if (GeneratorUtils.isDelphiReservedWord(cc))
+        if (GeneratorUtils.isDelphiReservedWord(prefix + cc))
           cc = cc + "_";
+        if (codes.contains(cc)) {
+          int ci = 1;
+          while (codes.contains(cc+Integer.toString(ci)))
+            ci++;
+          cc = cc+Integer.toString(ci);
+        }
+        codes.add(cc);
+        
+        cc = prefix + getTitle(cc);
         if (i == l) {
           def.append("    "+cc+"); {@enum.value "+cc+" "+makeDocoSafe(c.getDefinition())+" }\r\n");
           con.append("'"+c.getCode()+"');");

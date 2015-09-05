@@ -714,7 +714,7 @@ public class SourceParser {
   private void genTypeProfile(org.hl7.fhir.definitions.model.TypeDefn t) throws Exception {
     StructureDefinition profile;
     try {
-      profile = new ProfileGenerator(definitions, context, page, genDate, null).generate(t);
+      profile = new ProfileGenerator(definitions, context, page, genDate, version, null).generate(t);
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(dstDir, page, t.getName(), true);
       t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));

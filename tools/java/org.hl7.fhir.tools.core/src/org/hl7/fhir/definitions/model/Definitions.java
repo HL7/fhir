@@ -710,4 +710,26 @@ public class Definitions {
   public void clearRedirectList() {
     redirectList = null;
   }
+
+  public boolean hasConcreteResource(String name) {
+    for (ResourceDefn rd : baseResources.values())
+      if (!rd.isAbstract() && rd.getName().equals(name))
+        return true;
+    return resources.containsKey(name);
+  }
+
+  public boolean hasBaseType(String name) {
+    for (DefinedCode dc : primitives.values()) {
+      if (/* dc instanceof PrimitiveType && */ dc.getCode().equals(name))
+        return true;
+    }
+    return name.equals("xhtml") || types.containsKey(name) || structures.containsKey(name) || infrastructure.containsKey(name);
+  }
+
+  public boolean hasAbstractResource(String name) {
+    for (ResourceDefn rd : baseResources.values())
+      if (rd.isAbstract() && rd.getName().equals(name))
+        return true;
+    return false;
+  }
 }

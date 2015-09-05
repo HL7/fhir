@@ -1897,6 +1897,8 @@ public class SpreadsheetParser {
     ex.setConstrainedType("Extension");
     ex.setBase("http://hl7.org/fhir/StructureDefinition/Extension");
     ex.setAbstract(false);
+    ex.setVersion(version);
+
     ToolResourceUtilities.updateUsage(ex, ap.getCategory());
 	  String name = sheet.getColumn(row, "Code");
 	  String context = null;
@@ -1984,7 +1986,7 @@ public class SpreadsheetParser {
       row++;
     }
 	  
-    new ProfileGenerator(definitions, null, pkp, null, null).convertElements(exe, ex, null);
+    new ProfileGenerator(definitions, null, pkp, null, null, null).convertElements(exe, ex, null);
     StructureDefinition base = definitions != null ? definitions.getSnapShotForType("Extension") : this.context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();
     new ProfileUtilities(this.context).sortDifferential(base, ex, "extension "+ex.getUrl(), pkp, errors);

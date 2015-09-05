@@ -116,6 +116,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
+import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.SourceParser;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
@@ -149,6 +150,7 @@ import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.Conformance.UnknownContentCode;
 import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DomainResource;
@@ -182,6 +184,7 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
@@ -352,9 +355,10 @@ public class Publisher implements URIResolver, SectionNumberer {
   private boolean noArchive;
   private boolean web;
   private String diffProgram;
-  private Bundle profileFeed;
-  private Bundle profileOthersFeed;
-  private Bundle typeFeed;
+  
+  private Bundle typeBundle;
+  private Bundle resourceBundle;
+  private Bundle profileBundle;
   private Bundle valueSetsFeed;
   private Bundle conceptMapsFeed;
   private Bundle v2Valuesets;
@@ -535,12 +539,12 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       prsr.parse(page.getGenDate(), page.getValidationErrors());
 
-      if (isGenerate && web && buildFlags.get("all")) {
+      if (web || (isGenerate && buildFlags.get("all"))) {
         page.log("Clear Directory", LogMessageType.Process);
+        Utilities.clearDirectory(page.getFolders().dstDir);
+        Utilities.createDirectory(page.getFolders().dstDir + "html");
+        Utilities.createDirectory(page.getFolders().dstDir + "examples");
       }
-      Utilities.clearDirectory(page.getFolders().dstDir);
-      Utilities.createDirectory(page.getFolders().dstDir + "html");
-      Utilities.createDirectory(page.getFolders().dstDir + "examples");
       for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs())
         if (!ig.isCore())
           Utilities.createDirectory(page.getFolders().dstDir + ig.getCode());
@@ -706,7 +710,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
         r.setConformancePack(makeConformancePack(r));
-        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(r.getConformancePack(), r, "core"));
+        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).generate(r.getConformancePack(), r, "core"));
         if (page.getProfiles().containsKey(r.getProfile().getUrl()))
           throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
         page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
@@ -717,7 +721,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (ResourceDefn r : page.getDefinitions().getResources().values()) {
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(r.getConformancePack(), r, "core"));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).generate(r.getConformancePack(), r, "core"));
       if (page.getProfiles().containsKey(r.getProfile().getUrl()))
         throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
@@ -798,7 +802,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(pt, page.getValidationErrors());
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).generate(pt, page.getValidationErrors());
     if (page.getProfiles().containsKey(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
@@ -809,7 +813,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(t);
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).generate(t);
     if (page.getProfiles().containsKey(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
@@ -824,7 +828,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(t);
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).generate(t);
     if (page.getProfiles().containsKey(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
@@ -840,7 +844,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void genTypeProfile(TypeDefn t) throws Exception {
     StructureDefinition profile;
     try {
-      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(t);
+      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).generate(t);
       page.getProfiles().put(profile.getUrl(), profile);
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
@@ -858,7 +862,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     // what we're going to do:
     //  create StructureDefinition structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
-      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
+      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
       p.setUserData("pack", ap);
       profile.setResource(p);
       if (profile.getResourceInfo() != null) {
@@ -1144,20 +1148,20 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void buildFeedsAndMaps() {
-    profileFeed = new Bundle();
-    profileFeed.setId("resources");
-    profileFeed.setType(BundleType.COLLECTION);
-    profileFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+    resourceBundle = new Bundle();
+    resourceBundle.setId("resources");
+    resourceBundle.setType(BundleType.COLLECTION);
+    resourceBundle.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
 
-    profileOthersFeed = new Bundle();
-    profileOthersFeed.setId("profiles-others");
-    profileOthersFeed.setType(BundleType.COLLECTION);
-    profileOthersFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+    profileBundle = new Bundle();
+    profileBundle.setId("profiles-others");
+    profileBundle.setType(BundleType.COLLECTION);
+    profileBundle.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
 
-    typeFeed = new Bundle();
-    typeFeed.setId("types");
-    typeFeed.setType(BundleType.COLLECTION);
-    typeFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+    typeBundle = new Bundle();
+    typeBundle.setId("types");
+    typeBundle.setType(BundleType.COLLECTION);
+    typeBundle.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
 
     valueSetsFeed = new Bundle();
     valueSetsFeed.setId("valuesets");
@@ -1291,8 +1295,8 @@ public class Publisher implements URIResolver, SectionNumberer {
           + "conformance-" + name + ".xml"));
     }
     if (buildFlags.get("all")) {
-      deletefromFeed(ResourceType.Conformance, name, profileFeed);
-      addToResourceFeed(conf, profileFeed);
+      deletefromFeed(ResourceType.Conformance, name, resourceBundle);
+      addToResourceFeed(conf, resourceBundle);
     }
   }
 
@@ -2013,25 +2017,27 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       page.log(" ...collections ", LogMessageType.Process);
 
-      checkBundleURLs(profileFeed);
+      checkBundleURLs(resourceBundle);
+      checkStructureDefinitions(resourceBundle);
       FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml");
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileFeed);
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, resourceBundle);
       s.close();
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileFeed);
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, resourceBundle);
       s.close();
-      checkBundleURLs(typeFeed);
+      checkBundleURLs(typeBundle);
+      checkStructureDefinitions(typeBundle);
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml");
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, typeFeed);
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, typeBundle);
       s.close();
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-types.json");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, typeFeed);
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, typeBundle);
       s.close();
 
       Bundle extensionsFeed = new Bundle();
       extensionsFeed.setId("extensions");
       extensionsFeed.setType(BundleType.COLLECTION);
-      extensionsFeed.setMeta(new Meta().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
+      extensionsFeed.setMeta(new Meta().setLastUpdated(resourceBundle.getMeta().getLastUpdated()));
       Set<String> urls = new HashSet<String>();
       for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions().values()) {
         if (!urls.contains(ed.getUrl())) {
@@ -2040,6 +2046,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
       }
       checkBundleURLs(extensionsFeed);
+      checkStructureDefinitions(extensionsFeed);
       s = new FileOutputStream(page.getFolders().dstDir + "extension-definitions.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, extensionsFeed);
       s.close();
@@ -2051,7 +2058,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       Bundle searchParamsFeed = new Bundle();
       searchParamsFeed.setId("searchParams");
       searchParamsFeed.setType(BundleType.COLLECTION);
-      searchParamsFeed.setMeta(new Meta().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
+      searchParamsFeed.setMeta(new Meta().setLastUpdated(resourceBundle.getMeta().getLastUpdated()));
       for (ResourceDefn rd : page.getDefinitions().getBaseResources().values())
         addSearchParams(searchParamsFeed, rd);
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
@@ -2069,16 +2076,17 @@ public class Publisher implements URIResolver, SectionNumberer {
       Utilities.copyFile(page.getFolders().dstDir + "search-parameters.xml", page.getFolders().dstDir + "examples" + File.separator + "search-parameters.xml");
 
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
-        addOtherProfiles(profileOthersFeed, rd);
+        addOtherProfiles(profileBundle, rd);
       for (Profile cp : page.getDefinitions().getPackList()) {
-        addOtherProfiles(profileOthersFeed, cp);
+        addOtherProfiles(profileBundle, cp);
       }
-      checkBundleURLs(profileOthersFeed);
+      checkBundleURLs(profileBundle);
+      checkStructureDefinitions(profileBundle);
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-others.xml");
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileOthersFeed);
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileBundle);
       s.close();
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-others.json");
-      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileOthersFeed);
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, profileBundle);
       s.close();
       Utilities.copyFile(page.getFolders().dstDir + "profiles-others.xml", page.getFolders().dstDir + "examples" + File.separator + "profiles-others.xml");
             // todo-bundle - should this be checked?
@@ -2244,6 +2252,104 @@ public class Publisher implements URIResolver, SectionNumberer {
       checkAllOk();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
+  }
+
+  private void checkStructureDefinitions(Bundle bnd) {
+    for (BundleEntryComponent e : bnd.getEntry()) {
+      if (e.getResource() instanceof StructureDefinition) {
+        StructureDefinition sd = (StructureDefinition) e.getResource();
+        checkMetaData(sd);
+        for (ElementDefinition ed : sd.getDifferential().getElement())
+          checkElement(sd, ed, true);
+        for (ElementDefinition ed : sd.getSnapshot().getElement())
+          checkElement(sd, ed, false);
+      }
+    }
+    
+  }
+
+  private void checkElement(StructureDefinition sd, ElementDefinition ed, boolean inDiff) {
+    check(ed.hasPath(), sd, "Element has no path");
+    for (TypeRefComponent tr : ed.getType()) {
+      if (!inDiff || tr.hasCode())
+        if (ed.getPath().contains("."))
+          check(page.getDefinitions().hasBaseType(tr.getCode()) || tr.getCode().equals("Resource"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid");
+        else if (sd.hasConstrainedType())
+          check(page.getDefinitions().hasConcreteResource(tr.getCode()) || page.getDefinitions().hasBaseType(tr.getCode()) , sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid");
+        else
+          check(page.getDefinitions().hasAbstractResource(tr.getCode()) || tr.getCode().equals("Element"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid");
+      for (UriType pt : tr.getProfile()) {
+        if (pt.asStringValue().contains("#")) {
+          String[] parts = pt.asStringValue().split("\\#");
+          StructureDefinition exd = page.getWorkerContext().getExtensionDefinitions().get(parts[0]);
+          if (exd == null)
+            check(false, sd, ed.getPath()+": profile '"+pt.asStringValue()+"' is not valid (definition not found)");
+          else {
+            ElementDefinition ex = null;
+            for (ElementDefinition et : exd.getSnapshot().getElement())
+              if (et.hasFixed() && et.getFixed() instanceof UriType && ((UriType)et.getFixed()).asStringValue().equals(parts[1]))
+                  ex = et;
+              check(ex != null, sd, ed.getPath()+": profile '"+pt.asStringValue()+"' is not valid (inner path not found)");
+          }
+        } else
+          check((page.getWorkerContext().getProfiles().containsKey(pt.asStringValue()) || page.getWorkerContext().getExtensionDefinitions().containsKey(pt.asStringValue()))
+          && isStringPattern(tail(pt.asStringValue())), sd, ed.getPath()+": profile '"+pt.asStringValue()+"' is not valid");
+      }
+    }
+  }
+
+  private boolean isStringPattern(String name) {
+    return !page.getDefinitions().getPrimitives().containsKey(name) || !(page.getDefinitions().getPrimitives().get(name) instanceof DefinedStringPattern);
+  }
+
+  private boolean checkMetaData(StructureDefinition sd) {
+    check(tail(sd.getUrl()).equals(sd.getId()), sd, "id must equal tail of URL");
+    check(page.getVersion().equals(sd.getFhirVersion()), sd, "FHIRVersion is wrong");
+    switch (sd.getKind()) {
+    case DATATYPE: return checkDataType(sd);
+    case RESOURCE: return checkResource(sd);
+    case LOGICAL: return checkLogical(sd);
+    default:
+      check(false, sd, "Unknown kind");
+      return false;    
+    }
+  }
+
+  private boolean checkLogical(StructureDefinition sd) {
+    return false;
+  }
+
+  private boolean checkResource(StructureDefinition sd) {
+    check(!sd.getAbstract() || sd.getName().equals("Resource") || sd.getName().equals("DomainResource"), sd, "Only Resource/DomainResource can be abstract");
+    check(!sd.hasContext(), sd, "Only extensions can have context");
+    if (sd.hasConstrainedType()) {
+      check(page.getDefinitions().hasConcreteResource(sd.getConstrainedType()), sd, "Unknown constrained type "+sd.getConstrainedType());
+      check(!page.getDefinitions().hasResource(sd.getId()), sd, "Duplicate resource name "+sd.getConstrainedType());
+    } else {
+      check(page.getDefinitions().getResources().containsKey(sd.getId()) || page.getDefinitions().getBaseResources().containsKey(sd.getId()) , sd, "Unknown base type "+sd.getId());
+    }
+    return false;
+  }
+
+  private boolean checkDataType(StructureDefinition sd) {
+    check(!sd.getAbstract() || sd.getName().equals("Element"), sd, "Only Element can be abstract");
+    check(!sd.hasContext() || "Extension".equals(sd.getConstrainedType()), sd, "Only extensions can have context");
+    if (sd.hasConstrainedType()) {
+      check(page.getDefinitions().hasBaseType(sd.getConstrainedType()), sd, "Unknown constrained type "+sd.getConstrainedType());
+      check(page.getDefinitions().hasPrimitiveType(sd.getId()) || !page.getDefinitions().hasBaseType(sd.getId()), sd, "Duplicate type name "+sd.getConstrainedType());
+    } else {
+      check(page.getDefinitions().hasBaseType(sd.getId()), sd, "Unknown base type "+sd.getConstrainedType());
+    }
+    return false;
+  }
+
+  private void check(boolean pass, StructureDefinition sd, String msg) {
+    if (!pass)
+      System.out.println("Error in StructureDefinition "+sd.getId()+": "+msg);    
+  }
+
+  private String tail(String url) {
+    return url.substring(url.lastIndexOf("/")+1);
   }
 
   private void produceIgOperations(ImplementationGuideDefn ig, Profile p) throws Exception {
@@ -2506,12 +2612,13 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (rd.getConformancePack() == null) {
       for (SearchParameterDefn spd : rd.getSearchParams().values()) {
         StructureDefinition p = new StructureDefinition();
+        p.setFhirVersion(page.getVersion());
         p.setKind(StructureDefinitionKind.RESOURCE);
         p.setAbstract(true);
         p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
         p.setName(rd.getName());
         p.addContact().addTelecom().setSystem(ContactPointSystem.OTHER).setValue("http://hl7.org/fhir");
-        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
+        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
         bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
       }
     } else
@@ -2654,7 +2761,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.setSuppressXhtml("Snipped for Brevity");
-    json.compose(bytes, profileFeed);
+    json.compose(bytes, resourceBundle);
     bytes.close();
     return new String(bytes.toByteArray());
   }
@@ -3207,7 +3314,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     s.close();
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
-    addToResourceFeed(rp, typeFeed, (fn));
+    addToResourceFeed(rp, typeBundle, (fn));
     cloneToXhtml(pt.getName().toLowerCase() + ".profile", "StructureDefinition for " + pt.getName(), false, "profile-instance:type:" + pt.getName(), "Type");
     jsonToXhtml(pt.getName().toLowerCase() + ".profile", "StructureDefinition for " + pt.getName(), resource2Json(rp), "profile-instance:type:" + pt.getName(), "Type");
   }
@@ -3225,7 +3332,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     s.close();
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
-    addToResourceFeed(rp, typeFeed, (fn));
+    addToResourceFeed(rp, typeBundle, (fn));
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
     // + File.separator + "datatypes.html"));
     cloneToXhtml(type.getCode().toLowerCase() + ".profile", "StructureDefinition for " + type.getCode(), false, "profile-instance:type:" + type.getCode(), "Type");
@@ -3258,7 +3365,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     s.close();
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
-    addToResourceFeed(rp, typeFeed, fn);
+    addToResourceFeed(rp, typeBundle, fn);
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
     // + File.separator + "datatypes.html"));
     cloneToXhtml(type.getName().toLowerCase() + ".profile", "StructureDefinition for " + type.getName(), false, "profile-instance:type:" + type.getName(), "Type");
@@ -3417,7 +3524,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
     page.getEpub().registerFile(n + ".html", "Base Page for " + resource.getName(), EPubManager.XHTML_TYPE, true);
 
-    StructureDefinition profile = (StructureDefinition) ResourceUtilities.getById(profileFeed, ResourceType.StructureDefinition, resource.getName());
+    StructureDefinition profile = (StructureDefinition) ResourceUtilities.getById(resourceBundle, ResourceType.StructureDefinition, resource.getName());
     String pages = page.getIni().getStringProperty("resource-pages", n);
     if (!Utilities.noString(pages)) {
       for (String p : pages.split(",")) {
@@ -3512,7 +3619,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceOperation(ImplementationGuideDefn ig, String name, String id, String resourceName, Operation op) throws Exception {
-    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), dataElements).generate(name, id, resourceName, op);
+    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).generate(name, id, resourceName, op);
 
     String dir = ig == null ? "" : ig.getCode()+File.separator;
 
@@ -3526,7 +3633,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     jsonToXhtml(dir+"operation-" + name, "Operation Definition", resource2Json(opd), "resource-instance:OperationDefinition", "Operation definition");
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + dir+"operation-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "operation-" + name + ".xml"));
     if (buildFlags.get("all"))
-      addToResourceFeed(opd, profileFeed, name);
+      addToResourceFeed(opd, resourceBundle, name);
 
     // now, we create an html page from the narrative
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer().compose(opd.getText().getDiv()));
@@ -3857,7 +3964,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           break;
       }
     if (e == null) {
-      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, path, "The reference to "+rn+"/"+id+" could not be resolved", IssueSeverity.WARNING));
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, path, "The reference to "+rn+"/"+id+" could not be resolved", IssueSeverity.INFORMATION/*WARNING*/));
       return "#null";
     } else
       return e.getTitle()+".html";
@@ -3958,7 +4065,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + n + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + n
         + ".profile.xml"));
     if (buildFlags.get("all")) {
-      addToResourceFeed(rp, profileFeed, null);
+      addToResourceFeed(rp, resourceBundle, null);
     }
     if (gen) {
       saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir + "html" + File.separator + n + ".html"));

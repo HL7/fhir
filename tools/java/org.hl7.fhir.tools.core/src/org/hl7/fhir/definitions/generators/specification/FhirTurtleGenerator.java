@@ -645,7 +645,7 @@ public class FhirTurtleGenerator extends TurtleGenerator {
       subject.label(extension.getDisplay());
       subject.comment(extension.getDescription());
       if (extension.hasVersion())
-        subject.predicate("fhir:version", extension.getVersion());
+        subject.predicate("fhir:version", literal(extension.getVersion()));
       if (extension.hasCopyright()) 
         subject.predicate("dc:rights", literal(extension.getCopyright()));
       subject.predicate("fhir:status", complex().predicate("a", "fhir:conformance-resource-status\\#"+extension.getStatus().toCode()));
