@@ -11,7 +11,7 @@
          <a name="purpose"></a>
          <h2>Purpose</h2>
          <p>
-            The FHIR USLab Public Health Report (FHIR ELR) Implementation (FHIR ELR) is based upon the <a href="uslabreport-guide.html">USLab Report Implementation</a> and repeats most of that content here as well as the additional requirements, specifications and standards, and on providing the implementation guidanceneeded to transmit reportable laboratory observations to appropriate US local, state, territorial and federal health agencies using  using <a href="[%fhir-path%]http.html">FHIR in the RESTful framework</a>.  FHIR ELR facilitates the inclusion of information necessary for public health reporting in the larger test order - test result process between ordering providers/laboratories and performing laboratories to ensure that the data is available to be sent to PH when necessary. Harmonizing the technical specifications (format and vocabulary) for the test order (order placer sends order to lab), test result (lab sends result to order placer), and reportable test result (lab sends result to PH) enhances interoperability and data quality thus improving the overall laboratory result reporting process for both the sender and the receiver.
+            The FHIR USLab Public Health Report (FHIR ELR) Implementation (FHIR ELR) is based upon the <a href="uslabreport-guide.html">USLab Report Implementation</a> and repeats most of that content here as well as the additional requirements, specifications and standards, and on providing the implementation guidance needed to transmit reportable laboratory observations to appropriate US local, state, territorial and federal health agencies using  using <a href="[%fhir-path%]http.html">FHIR in the RESTful framework</a>.  FHIR ELR facilitates the inclusion of information necessary for public health reporting in the larger test order - test result process between ordering providers/laboratories and performing laboratories to ensure that the data is available to be sent to PH when necessary. Harmonizing the technical specifications (format and vocabulary) for the test order (order placer sends order to lab), test result (lab sends result to order placer), and reportable test result (lab sends result to PH) enhances interoperability and data quality thus improving the overall laboratory result reporting process for both the sender and the receiver.
          </p>
          <p>This implementation is not specific to any pathogen or reportable condition and is applicable for most biological and chemistry reportable laboratory observations. Each state and territory has requirements for laboratories to report certain findings to health officials. Authority to establish a list of reportable conditions and to specify the content of those reports resides with the individual public health jurisdiction. Reports made to Public Health come in two forms: case reports (not the subject of this guide), and laboratory reports related to reportable conditions.  Reporters can access further information about reportable conditions at the website for their own Public Health jurisdiction relevant to their service area.   Additionally, this implementation does not replace the need for each public health jurisdiction to document additional constraints of their specific implementation.</p>
          <a name="audience"></a>
@@ -101,7 +101,7 @@
          <a name="snapshot"></a>
          <h3>Snapshot Mode </h3>
          <p>
-            FHIR only functions using snapshot mode - updates are communicated by sending a complete copy of the instance with the new data filled in.  If a correction and/or status update to Obsveration Resource is necessary, the DiagnosticReport with all references to all Obsveration Resource, even if previously
+            FHIR only functions using snapshot mode - updates are communicated by sending a complete copy of the instance with the new data filled in.  If a correction and/or status update to Observation Resource is necessary, the DiagnosticReport with all references to all Observation Resource, even if previously
             sent, shall be resent with the correction and/or current status and/or current values. For example,
             when a Complete Blood Count with manual differential is ordered, the blood count will be released
             and then at a later time the manual differential will be performed and released. When the blood count
@@ -129,7 +129,7 @@
          </p>
          <a name="scope"></a>
          <h3>Scope </h3>
-         <p>The scope is the sending of "reportable lab results from a laboratory to a PublicHealth agency is US Realm. </p>
+         <p>The scope is the sending of "reportable lab results from a laboratory to a Public Health agency is US Realm. </p>
          <a name="inscope"></a>
          <h4>In Scope</h4>
          <ul>
@@ -183,7 +183,7 @@
                FHIR profiles defined in this guide. This actor is the Organization Resource referenced through the .performer (Organization) Resource within FHIR.
             </li>
             <!-- EH discuss whether should use the dot notation to refer to elements  e.g. .orderer-->
-            <li>Laboratory Report Receiver - The Public Health agreceiver of the DiagnosticReport Resource Instance that declares conformance
+            <li>Laboratory Report Receiver - The Public Health receiver of the DiagnosticReport Resource Instance that declares conformance
                to "RESTful FHIR" and FHIR profiles defined in this guide. This actor is implied within FHIR. ( i.e. not explicitly referenced in the DiagnosticReport Resource Instance or the linked resources).
             </li>
          </ul>
@@ -317,7 +317,7 @@
          <!--EH:  need to rework for REST  acknowledgment codes -->
          <a name="errorhandling"></a>
          <h2>Error Handling</h2>
-          <p>Refer to the FHIR Specification on <a href="[%fhir-path%]http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="[%fhir-path%]operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
+          <p>Refer to the FHIR Specification on <a href="[%fhir-path%]http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="[%fhir-path%]operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note: The error handling specifications are currently not fully defined for this implementation.</p>
          <!--EH needed?  these are covered by functional requirments  ? 2.6.2 ERROR HANDLING -->
          <!--- EH  Not needed: 1.14  Conformance to this Guide  (covered in the actual profiles -->
          <!--- EH  Not needed: 2 DATA TYPES  ( covered in spec and defined extensions-->
@@ -361,7 +361,7 @@
          <h3>Value Sets</h3>
          <p>
             The value sets for this implementation as well as USLabOrder and USLabPHReport can be found  on the <a href="uslab.html">USlab Implementation page</a>. <!-- to do create section bookmark to valueset-->
-            In additionm, mappings to the <i>HL7 Version 2.5.1 Implementation Guide:
+            In addition, mappings to the <i>HL7 Version 2.5.1 Implementation Guide:
             S&amp;I Framework Lab Results Interface</i> are also available.
          </p>
          <!-- EH  8   ADDITIONAL IMPLEMENTATION GUIDANCE - REFLEX AND CULTURE/SUSCEPTIBILITY TESTING -->
@@ -397,7 +397,7 @@
                </ol>
             </li>
          </ul>
-         <p>An <!-- a href="todo">Culture and Susceptibility example</a --> example is provided here for the scenario in which a urine cultire results in the identification of the pathogens:  E.coli, x and y and a susceptibilty is performed on all three pathogens.  todo..
+         <p>An <!-- a href="todo">Culture and Susceptibility example</a --> example is provided here for the scenario in which a urine culture results in the identification of the pathogens:  E.coli, x and y and a susceptibility is performed on all three pathogens.  todo..
          </p>
          <a name="addon"></a>
          <h3>Add-On Testing</h3>
@@ -538,7 +538,7 @@
          -->
          <a name="clsi-definitions"></a>
          <h3>CLSI Definitions - Quantitative, Semi-quantitative, Qualitative Results </h3>
-         <p>The following <a href="http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm">defnitions</a> were derived from the CLSI website:
+         <p>The following <a href="http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm">definitions</a> were derived from the CLSI website:
          </p>
          <ul>
             <li>
@@ -570,7 +570,7 @@
                   <li>Characterization applied to laboratory tests that detect and/or identify a particular analyte,
                      constituent, or condition;  <br/>
                      NOTE 1: This term is applied to tests that detect whether a particular analyte, constituent, or
-                     condition is present or absent, and is sometimes assigned a positive degree (ie, 1+, 2+);  <br/>
+                     condition is present or absent, and is sometimes assigned a positive degree (i.e., 1+, 2+);  <br/>
                      NOTE 2: It may also be called semiquantitative tests;  <br/>
                      NOTE 3: Specific identification may be performed.
                   </li>
@@ -580,7 +580,7 @@
                <b>SEMI-QUANTITATIVE</b>
                <ul>
                   <li>A test that has a dose-response gradient that may be included in the reported result, but for which
-                     no authorative calibration scale exists to determine inaccuracy and imprecision; tests that yield
+                     no authoritative calibration scale exists to determine inaccuracy and imprecision; tests that yield
                      results in an approximate range of values (e.g., trace, moderate);  <br/>
                      NOTE: This definition includes tests with subjective readout of quantification such as IF-ANA
                      titers, and it includes tests with an instrumental readout of quantification such as ELISA-ANA
@@ -648,7 +648,7 @@
                   <li> <a href="http:/pediatrics.aappublications.org/content/114/1/297.full.html ">http:/pediatrics.aappublications.org/content/114/1/297.full.html</a></li>
                </ul>
             </li>
-            <li><b>Orderable Test:  </b>A request to perform an individual test or panel. It always refers to a single  DiagnosticOrder Resource item. and 		may have one or more associated analytes (bservations).
+            <li><b>Orderable Test:  </b>A request to perform an individual test or panel. It always refers to a single  DiagnosticOrder Resource item. and 		may have one or more associated analytes (observations).
             </li>
             <li><b>Panel:  </b>While there are differences in the meanings of the terms "panel" among various laboratories, for the
                purposes of this guide, it is defined as a grouping of procedures that measure multiple analytes from a

@@ -126,7 +126,7 @@
             </ul></li>
             <li>Concepts related to: order queues, clearing houses, or other transport-level mechanisms and protocols that may be used to transfer or hold laboratory orders for later retrieval by a laboratory selected to perform the laboratory service. </li>
             <li>Multi-order status requests (for one patient or multiple patients). </li>
-            <li>Specification of the required/supported error condition codes as part of acknowledgements in REST or with a FHIR Resource. </li>
+            <li>Specification of the required/supported error condition codes as part of acknowledgments in REST or with a FHIR Resource. </li>
             <!-- EH check if this is accurate for REST-->
             <li>Laboratory orders not transmitted electronically. </li>
             <li>Secondary uses of laboratory order data. </li>
@@ -187,10 +187,10 @@
                by trading partner agreement.
             </li>
             <li>An EHR system is capable of generating an order electronically and is capable of receiving and
-               processing acknowledgements, results and cancellations.
+               processing acknowledgments, results and cancellations.
             </li>
             <li>A LIS is capable of receiving orders and cancellation requests, and generating
-               acknowledgements and cancelation notifications.
+               acknowledgments and cancellation notifications.
             </li>
             <li>The Laboratory is capable of receiving laboratory orders electronically and in standardized
                structured format.
@@ -258,7 +258,7 @@
          <h4>Post-Conditions</h4>
          <ul>
             <li>Laboratory orders are successfully transmitted electronically from the Provider's (.orderer) EHR System to the Laboratory's LIS. The Receiving Laboratory electronically
-               transmits acknowledgement of receipt of the laboratory order. The received order may be placed
+               transmits acknowledgment of receipt of the laboratory order. The received order may be placed
                into an electronic queue for further processing depending on laboratory workflow (although
                order queues are out of scope for this Use Case).
             </li>
@@ -335,14 +335,14 @@
             Laboratory Order
          </h4>
          <p>The Provider (.orderer) determines that one or more orders from a previously transmitted
-            electronic laboratory requisition needs to be cancelled and requests via the EHR that the Laboratory
+            electronic laboratory requisition needs to be canceled and requests via the EHR that the Laboratory
             cancel the performance of the laboratory order(s).
             Since the Provider does not know how far the Laboratory has progressed with the performance of the
             test, or may not even have received the specimen, the Provider must use the USLabOrder DiagnosticOrder Cancel
             Profile.
-            The Laboratory determines whether the test can be cancelled, or whether the order has progressed too
+            The Laboratory determines whether the test can be canceled, or whether the order has progressed too
             far to cancel.  Laboratories must use the USLabReport DiagnosticResult Cancel Profile.
-            Once the Provider receives any preliminary or final results, the test cannot be cancelled anymore and the
+            Once the Provider receives any preliminary or final results, the test cannot be canceled anymore and the
             Provider shall not use the USLabOrder DiagnosticOrder Cancel
             Profile.  anymore.
          </p>
@@ -506,7 +506,7 @@
               (REST takes care of this )-->
          <a name="errorhandling"></a>
          <h2>Error Handling</h2>
-         <p>Refer to the FHIR Specification on <a href="[%fhir-path%]http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="[%fhir-path%]operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
+         <p>Refer to the FHIR Specification on <a href="[%fhir-path%]http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="[%fhir-path%]operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note: The error handling specifications are currently not fully defined for this implementation.</p>
          <!--EH needed?  these are covered by functional requirments  ? 2.7.9  ERROR HANDLING -->
          <!-- EH  Not needed: 2.8  Referenced Profiles - Antecedents-->
          <!--- EH  Not needed: 2.9  Conformance to this Guide  (covered in the actual profiles -->
@@ -637,12 +637,11 @@
             <ul>
                <li>Mosby's Medical Dictionary, 8th edition. &copy; 2009, Elsevier </li>
                <li>World Health Organization - provides standardization for perinatal definitions </li>
-               <li>Management of Hyperbilirubinemia in the Newborn Infant 35 or More Weeks of Gestation </li>
+               <li>Management of HyperbilirubiHyperbilirubinemiarn Infant 35 or More Weeks of Gestation </li>
                <li> <a href="http:/pediatrics.aappublications.org/content/114/1/297.full.html ">http:/pediatrics.aappublications.org/content/114/1/297.full.html</a></li>
             </ul>
             </li>
-             <li><b>Orderable Test:  </b>A request to perform an individual test or panel. It always refers to a single  DiagnosticOrder Resource item. and 		may have one or more associated analytes (bservations).
-            </li>
+             <li><b>Orderable Test:  </b>A request to perform an individual test or panel. It always refers to a single  DiagnosticOrder Resource item. and 		may have one or more associated analytes (bservations).observations  </li>
             <li><b>Panel:  </b>While there are differences in the meanings of the terms "panel" among various laboratories, for the
                purposes of this guide, it is defined as a grouping of procedures that measure multiple analytes from a
                single specimen (or multiple specimens in some cases) and can be requested through one laboratory
