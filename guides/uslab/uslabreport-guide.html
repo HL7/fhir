@@ -121,7 +121,7 @@
          </p>
          <a name="snapshot"></a>
          <h3>Snapshot Mode </h3>
-         FHIR only functions using snapshot mode - updates are communicated by sending a complete copy of the instance with the new data filled in.  If a correction and/or status update to Obsveration Resource is necessary, the DiagnosticReport with all references to all Obsveration Resource, even if previously
+         FHIR only functions using snapshot mode - updates are communicated by sending a complete copy of the instance with the new data filled in.  If a correction and/or status update to Observation Resource is necessary, the DiagnosticReport with all references to all Observation Resource, even if previously
          sent, shall be resent with the correction and/or current status and/or current values. For example,
          when a Complete Blood Count with manual differential is ordered, the blood count will be released
          and then at a later time the manual differential will be performed and released. When the blood count
@@ -182,7 +182,7 @@
             <li>Querying for laboratory results.</li>
             <li>Querying for historical laboratory results. </li>
             <li>Receiving historical laboratory results.</li>
-            <li>Secondary use of laboratory data (i.e., public health or bio surveillance uses of the reported
+            <li>Secondary use of laboratory data (i.e., public health or bio-surveillance uses of the reported
                laboratory results).
             </li>
             <li>In hospital ordering and reporting of laboratory results. </li>
@@ -334,7 +334,7 @@
          <!--EH:  need to rework for REST  acknowledgment codes -->
          <a name="errorhandling"></a>
          <h2>Error Handling</h2>
-          <p>Refer to the FHIR Specification on <a href="[%fhir-path%]http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="[%fhir-path%]operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
+          <p>Refer to the FHIR Specification on <a href="[%fhir-path%]http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="[%fhir-path%]operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note: The error handling specifications are currently not fully defined for this implementation.</p>
          <!--EH needed?  these are covered by functional requirments  ? 2.6.2 ERROR HANDLING -->
          <!--- EH  Not needed: 3.0  Conformance to this Guide  (covered in the actual profiles -->
          <!--- EH  Not needed: 4  DATA TYPES  ( covered in spec and defined extensions-->
@@ -365,9 +365,9 @@
          </ol>
          <h3>SNOMED CT</h3>
          <p>The use of the <a href="http://snomed.info/sct">SNOMED-CT</a> code system is required
-            where a SNOMED-CT concept code is available for Observation.valueCodeableConcept,  i.e. the actiual coded result.   If a local coding system is in use, a local code should also be sent in addition to the SNOMED-CT concept code to help with identification of coding issues. When no valid SNOMED-CT exists the local code may be the only code sent.  to satisfy CLIA reporting requirements, It also recommended that the Observation.valueCodeableConcept.text element is used if laboratory's original text which is used for printing and/or display is different from the code display value.
+            where a SNOMED-CT concept code is available for Observation.valueCodeableConcept,  i.e. the actual coded result.   If a local coding system is in use, a local code should also be sent in addition to the SNOMED-CT concept code to help with identification of coding issues. When no valid SNOMED-CT exists the local code may be the only code sent.  to satisfy CLIA reporting requirements, It also recommended that the Observation.valueCodeableConcept.text element is used if laboratory's original text which is used for printing and/or display is different from the code display value.
          </p>
-         <p>SNOMED CT is required for specimen source term elements, Specimen.type and Specimen.Collection.sourceSite where a SNOMED-CT concept code is available.</p>
+         <p>SNOMED CT is required for specimen source term elements, Specimen.type and Specimen.collection.bodySite where a SNOMED-CT concept code is available.</p>
          <h3>UCUM</h3>
          <p>The use of the <a href="http://unitsofmeasure.org">UCUM (Unified Code for Units of Measure)</a> code system is required for reporting units of
             measure in Observation.quantity.
@@ -375,7 +375,7 @@
          <h3>Value Sets</h3>
          <p>
             The value sets for this implementation as well as USLabOrder and USLabPHReport can be found  on the <a href="uslab.html">USlab Implementation page</a>. <!-- to do create section bookmark to valueset-->
-            In additionm, mappings to the <i>HL7 Version 2.5.1 Implementation Guide:
+            In addition, mappings to the <i>HL7 Version 2.5.1 Implementation Guide:
             S&amp;I Framework Lab Results Interface</i> are also available.
          </p>
          <!-- EH  8   ADDITIONAL IMPLEMENTATION GUIDANCE - REFLEX AND CULTURE/SUSCEPTIBILITY TESTING -->
@@ -411,7 +411,7 @@
                </ol>
                </li>
          </ul>
-         <p>An <!--a href="todo">Culture and Susceptibility example</a--> example is provided here for the scenario in which a urine cultire results in the identification of the pathogens:  E.coli, x and y and a susceptibilty is performed on all three pathogens.  todo..
+         <p>An <!--a href="todo">Culture and Susceptibility example</a--> example is provided here for the scenario in which a urine culture results in the identification of the pathogens:  E.coli, x and y and a susceptibility is performed on all three pathogens.  todo..
          </p>
             <a name="addon"></a>
          <h3>Add-On Testing</h3>
@@ -525,7 +525,7 @@
                <td>DiagnosticReport.performer(Organization)</td>
                <td>The identification of the performing laboratory is required. Populated
                   with the CLIA ID Number.  If the CLIA ID
-                  number is not used, all demographic fieldsmust be provided with appropriate information.
+                  number is not used, all demographic fields must be provided with appropriate information.
                </td>
             </tr>
             <tr>
@@ -535,16 +535,16 @@
                </td>
             </tr>
             <tr>
-               <td>Observation.UnsatisfactorySpecimenReason (extension)</td>
+               <td>Extension: Specimen Rejection Reason</td>
                <!--EH - need to find best plae for this at repor level or obs level or at speicmen level -->
                <td>To specify the
-                  reason for specimen rejection..
+                  reason for specimen rejection.
                </td>
             </tr>
          </table>
          <a name="clsi-definitions"></a>
          <h3>CLSI Definitions - Quantitative, Semi-quantitative, Qualitative Results </h3>
-         <p>The following <a href="http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm">defnitions</a> were derived from the CLSI website:
+         <p>The following <a href="http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm">definitions</a> were derived from the CLSI website:
          </p>
          <ul>
             <li>
@@ -586,7 +586,7 @@
                <b>SEMI-QUANTITATIVE</b>
                <ul>
                   <li>A test that has a dose-response gradient that may be included in the reported result, but for which
-                     no authorative calibration scale exists to determine inaccuracy and imprecision; tests that yield
+                     no authoritative calibration scale exists to determine inaccuracy and imprecision; tests that yield
                      results in an approximate range of values (e.g., trace, moderate);  <br/>
                      NOTE: This definition includes tests with subjective readout of quantification such as IF-ANA
                      titers, and it includes tests with an instrumental readout of quantification such as ELISA-ANA
@@ -654,7 +654,7 @@
                   <li> <a href="http:/pediatrics.aappublications.org/content/114/1/297.full.html">http:/pediatrics.aappublications.org/content/114/1/297.full.html</a></li>
                </ul>
             </li>
-            <li><b>Orderable Test:  </b>A request to perform an individual test or panel. It always refers to a single  DiagnosticOrder Resource item. and 		may have one or more associated analytes (bservations).
+            <li><b>Orderable Test:  </b>A request to perform an individual test or panel. It always refers to a single  DiagnosticOrder Resource item. and 		may have one or more associated analytes (observations).
             </li>
             <li><b>Panel:  </b>While there are differences in the meanings of the terms "panel" among various laboratories, for the
                purposes of this guide, it is defined as a grouping of procedures that measure multiple analytes from a

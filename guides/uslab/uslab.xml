@@ -387,6 +387,12 @@
 				<kind value="resource"/>
 				<format value="generated"/>
 			</page>
+			<page>
+				<source value="do-uslab-example1.html"/>
+				<name value="USLab DiagnosticOrder Example 1"/>
+				<kind value="example"/>
+				<format value="generated"/>
+			</page>
 		</page>
 		<page>
 			<source value="dr-uslab.html"/>
@@ -397,6 +403,12 @@
 				<source value="uslab-dr.html"/>
 				<name value="US Laboratory Diagnostic Report Details"/>
 				<kind value="resource"/>
+				<format value="generated"/>
+			</page>
+			<page>
+				<source value="dr-uslab-example1.html"/>
+				<name value="USLab DiagnosticReport Example 1"/>
+				<kind value="example"/>
 				<format value="generated"/>
 			</page>
 		</page>
@@ -410,36 +422,84 @@
 				<name value="US Laboratory result using Quantity Data Type for numeric results"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="obs-uslab-example1.html"/>
+					<name value="USLab Quantitative Observation Profile Example: Capillary Blood Lead"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
+				<page>
+					<source value="obs-uslab-example5.html"/>
+					<name value="USLab Quantitative Observation Profile Example: Blood Lead"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-obscode.html"/>
 				<name value="US Laboratory result using CodeableConcept Data Type for non-numeric results"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="obs-uslab-example2.html"/>
+					<name value="USLab Coded Observation Profile Example: N gonorrhoeae PCR"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
+				<page>
+					<source value="obs-uslab-example6.html"/>
+					<name value="USLab Coded Observation Profile Example: C trachomatis PCR"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-obspanel.html"/>
 				<name value="US Laboratory result panel observations"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="obs-uslab-example6.html"/>
+					<name value="USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-obsrange.html"/>
 				<name value="US Laboratory result using Range Data Type for numeric results"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="obs-uslab-example8.html"/>
+					<name value="USLab Range Observation Profile Example: WBCs in Urine"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-obsRatio.html"/>
 				<name value="US Laboratory result using Ratio Data Type for non-numeric results"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="obs-uslab-example4.html"/>
+					<name value="USLab Ratio Observation Profile Example: Dengue Titer"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-obsother.html"/>
 				<name value="US Laboratory result using one of Attachment|dateTime|Period|SampledData|string|timeData Type for results."/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="obs-uslab-example3.html"/>
+					<name value="USLab Other (string) Observation Profile Example: S.aureus"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="extension-uslab-specimenrejectreason.html"/>
@@ -464,12 +524,24 @@
 				<name value="US Laboratory Patient Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="patient-uslab-example1.html"/>
+					<name value="USLab Patient Example"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-phpatient.html"/>
 				<name value="US Laboratory Patient with expanded contact information Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="patient-uslab-example2.html"/>
+					<name value="USLab Public Health Patient Example"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 		</page>
 		<page>
@@ -482,12 +554,30 @@
 				<name value="US Laboratory Practitioner Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="pract-uslab-example1.html"/>
+					<name value="USLab Practitioner Example 1"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
+					<page>
+					<source value="pract-uslab-example3.html"/>
+					<name value="USLab Practitioner Example 3"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-phpract.html"/>
 				<name value="US Laboratory Practitioner with expanded contact information Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+					<page>
+					<source value="pract-uslab-example2.html"/>
+					<name value="USLab Practitioner for Public Health Reporting Example"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 		</page>
 		<page>
@@ -500,18 +590,36 @@
 				<name value="US Laboratory Orderer's Organization ( clinic, hospital,etc ) Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+					<page>
+					<source value="org-uslab-example1.html"/>
+					<name value="USLab Ordering Organization Example"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-performinglab.html"/>
 				<name value="US Laboratory Practitioner Performing Laboratory Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+					<page>
+					<source value="org-uslab-example3.html"/>
+					<name value="USLab Performing Lab Example"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-cctarget.html"/>
 				<name value="US Laboratory Copy to Organization Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="org-uslab-example2.html"/>
+					<name value="USLab Copy to Organization Example"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 		</page>
 		<page>
@@ -524,6 +632,12 @@
 				<name value="US Laboratory Specimen Detail"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="spec-uslab-example1.html"/>
+					<name value="USLab Specimen Example"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 		</page>
 		<page>
@@ -536,6 +650,12 @@
 				<name value="US Laboratory Condition Detail"/>
 				<kind value="resource"/>
 				<format value="generated"/>
+				<page>
+					<source value="cond-uslab-example1.html"/>
+					<name value="USLab Condition Example"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
 			</page>
 			<page>
 				<source value="uslab-reasonforstudy.html"/>
