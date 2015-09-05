@@ -25,13 +25,13 @@ The Standard Profile for Genetics supports reporting of a DNA variant at the gen
 Implementers should be aware that semantic equivalency of results of genetic variants cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
 </p>
 <p>
-These challenges raised above are discussed in the HL7 Clinical Sequencing Domain Analysis Model (passed January 2015 ballot and in process of being published).
+This FHIR genomics work is based on work of the HL7 Clinical Genomics Workgroup and modeled based on the Domain Analysis Model and SMART on FHIR Genomics as published in JAMIA 2015 (http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long). 
 </p>
 <p>
 Hl7 Clinical Genomics Work Group emphasizes the importance of transmitting structured genetic findings within the clinical, translational, and research environments fully integrated with other clinical data, in order to drive outcomes analysis, operational decision making, discovery research, and public health reporting. the standard doesn't currently cover the reporting of clinically relevant negative or wildtype results within genetic data portion of the message.
 </p>
 <p>
-    <a href="https://www.hl7.org/documentcenter/public_temp_65DE7F6D-1C23-BA17-0CB30D7343EDE16D/wg/clingenomics/docs/V3DAM_CG_CLINSEQ_R1_O1_2013JAN.pdf">Here</a> is the document of <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> Domain Analysis Model where the examples used in genetics profile are from (Page 5).
+    <a href="https://www.hl7.org/documentcenter/public_temp_65DE7F6D-1C23-BA17-0CB30D7343EDE16D/wg/clingenomics/docs/V3DAM_CG_CLINSEQ_R1_O1_2013JAN.pdf">Here</a> is the document of HL7 Version 3 Domain Analysis Model where the examples used in genetics profile are from (Page 5).
 </p>
 
 <h3>Component</h3>
