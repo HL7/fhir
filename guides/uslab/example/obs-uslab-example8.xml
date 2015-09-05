@@ -103,8 +103,8 @@ see narrative this the screen that leads to follow up order for whole blood lead
     </coding>
   </interpretation>
   <specimen>
-    <reference value="Specimen/spec-uslab-example1"/>
-    <display value="Blood sample"/>
+    <reference value="Specimen/spec-uslab-example2"/>
+    <display value="Urine Sample"/>
   </specimen>
   <referenceRange>
     <low>

@@ -634,7 +634,13 @@
 				<format value="generated"/>
 				<page>
 					<source value="spec-uslab-example1.html"/>
-					<name value="USLab Specimen Example"/>
+					<name value="USLab Specimen Profile Canonical Example: Blood"/>
+					<kind value="example"/>
+					<format value="generated"/>
+				</page>
+				<page>
+					<source value="spec-uslab-example2.html"/>
+					<name value="USLab Specimen Profile Example: Urine- first catch"/>
 					<kind value="example"/>
 					<format value="generated"/>
 				</page>
