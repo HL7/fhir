@@ -10,18 +10,18 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-16T05:46:25Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12975</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowHeight>6015</WindowHeight>
+  <WindowWidth>25260</WindowWidth>
+  <WindowTopX>-15</WindowTopX>
+  <WindowTopY>5970</WindowTopY>
   <TabRatio>888</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1074,7 +1074,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1110,6 +1109,7 @@
    x:FullRows="1" ss:StyleID="s87" ss:DefaultColumnWidth="68.25"
    ss:DefaultRowHeight="30">
    <Column ss:Index="5" ss:StyleID="s88" ss:AutoFitWidth="0" ss:Width="151.5"/>
+   <Column ss:Index="9" ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="291.75"/>
    <Column ss:Index="16" ss:StyleID="s88" ss:AutoFitWidth="0" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s89">
     <Cell ss:StyleID="s90"><Data ss:Type="String">Committee Notes</Data><Comment
@@ -3973,10 +3973,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>10</TabColorIndex>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>40</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -3984,8 +3985,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>55</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -163,7 +163,7 @@
 
  -- Row 17 -----------------------------------
   Element = DiagnosticReport.performer
-  Card. = 0..1
+  Card. = 1..1
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/uslab-pract}
   Committee Notes = 11/19/2014 EH:OBR.32:Principal Result Interpreter:NDL:RE::[0..1]::::(ORC.12/ OBR.16:Ordering Provider is in the order)

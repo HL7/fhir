@@ -80,7 +80,7 @@
 
  -- Row 8 -----------------------------------
   Element = Organization.name
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Inv. = 1
   Committee Notes = ORC.21.1: Organization Name: ST: RE: : : 1..50: #:  can have either name or facility

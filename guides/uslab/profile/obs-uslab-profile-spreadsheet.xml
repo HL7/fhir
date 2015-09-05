@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-05-17T22:08:35Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2015-09-05T16:09:02Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,8 +21,8 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>913</TabRatio>
-  <ActiveSheet>19</ActiveSheet>
-  <FirstVisibleSheet>11</FirstVisibleSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1086,7 +1086,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1103,7 +1103,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2411,7 +2410,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}</Data><NamedCell
@@ -4148,7 +4147,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4162,10 +4161,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>18</ActiveCol>
+     <ActiveRow>45</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5350,7 +5351,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}</Data><NamedCell
@@ -7271,9 +7272,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>34</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>15</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -7285,10 +7286,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>17</ActiveCol>
+     <ActiveRow>41</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8322,7 +8325,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}</Data><NamedCell
@@ -10267,7 +10270,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>15</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -10281,11 +10284,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveRow>36</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -11551,7 +11555,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.specimen</Data></Cell>
     <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data></Cell>
@@ -13424,11 +13428,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <TopRowVisible>33</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>46</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -14485,7 +14490,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}</Data><NamedCell
@@ -16542,7 +16547,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>17</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -16556,10 +16561,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>18</ActiveCol>
+     <ActiveRow>37</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -17495,7 +17502,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Observation.specimen</Data></Cell>
     <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Y</Data></Cell>
@@ -19035,11 +19042,13 @@
     <HorizontalResolution>200</HorizontalResolution>
     <VerticalResolution>200</VerticalResolution>
    </Print>
+   <Selected/>
    <TopRowVisible>29</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>38</ActiveRow>
+     <ActiveRow>40</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -28181,7 +28190,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

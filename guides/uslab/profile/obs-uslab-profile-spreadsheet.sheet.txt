@@ -423,7 +423,7 @@
 
  -- Row 45 -----------------------------------
   Element = Observation.specimen
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
   Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
@@ -758,7 +758,7 @@
 
  -- Row 41 -----------------------------------
   Element = Observation.specimen
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
   Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
@@ -1153,7 +1153,7 @@
 
  -- Row 36 -----------------------------------
   Element = Observation.specimen
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
   Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
@@ -1526,7 +1526,7 @@
 
  -- Row 46 -----------------------------------
   Element = Observation.specimen
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
   Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
@@ -1924,7 +1924,7 @@
 
  -- Row 37 -----------------------------------
   Element = Observation.specimen
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
   Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
@@ -2315,7 +2315,7 @@
 
  -- Row 33 -----------------------------------
   Element = Observation.specimen
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/uslab-spec}
   Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.
