@@ -58,7 +58,7 @@
       <p>The DAF Requestor SHALL support accessing at least one FHIR resource using the appropriate DAF profile(s) for the resource being accessed.
 	  The DAF Requestor SHALL implement REST behavior according to the 
         <a href="http.html">FHIR</a> specification.
-	  The DAF Requestor SHALL use either json or xml resource formats for all DAF interactions.
+	  The DAF Requestor SHALL support either json or xml resource formats for all DAF interactions.
       </p>
 	  
 	  
@@ -650,10 +650,6 @@
         </li>
 		 
         <li>
-          <a href="../search.html#include">_include</a>
-        </li>
-		 
-        <li>
           <a href="../search.html#summary">_summary</a>
         </li>
 		 
@@ -666,7 +662,13 @@
         </li>
 	  
       </ul>
-	 
+	  
+	  <p>DAF Requestors SHOULD use the following common parameters as part of queries related to DAF profiles to avoid repeated queries.</p>
+	  <ul>
+		<li>
+          <a href="../search.html#include">_include</a>
+        </li>
+	  </ul>
 	
       <p>DAF Requestors MAY use the following search contexts defined within the 
         <a href="../search.html#Introduction">FHIR</a>specification.
@@ -681,10 +683,11 @@
       </ul>
 	
       <p>DAF Requestors MAY use 
-        <a href="../search.html#Modifiers">Modifiers</a> as applicable to the data types of the search parameters to access data. DAF Requestors MAY also use 
-        <a href="../search.html#Composite Search Parameters">Composite Search Parameters</a> as defined in the FHIR specification.
+        <a href="../search.html#Modifiers">Modifiers</a> as applicable to the data types of the search parameters to access data.
+		DAF Requestors MAY use any search parameters that are appropriate for querying a particular FHIR resource, however they can only count on the search parameters that are identified as SHALL within the <a href="conformance-daf-query-responder.html">DAF Responder's conformance statement</a> to be used in the execution of the search. For a complete list of search parameters that are available, please refer to <a href="conformance-daf-query-responder.html">DAF Responder's conformance statement</a> and the search parameters supported by the base FHIR resources profiled by DAF.
       </p>
 	  
+	  <!--
       <table class="grid">
         
         <thead>
@@ -1695,6 +1698,7 @@
 	  
       </table>
       
+	  -->
       <br/>
       
       <br/>
@@ -1734,6 +1738,8 @@
     <security>
       <description value="Implementations SHOULD meet the security requirements documented in the [[daf-security|DAF implementation guide]]."/>
     </security>
+	
+	
     <resource>
       <type value="Patient"/>
       <profile>
@@ -3061,8 +3067,8 @@
         <chain value="patient.given"/>
         <chain value="patient.family"/>
       </searchParam>
-    </resource>
-    -->
+    </resource> -->
+    
     <resource>
       <type value="List"/>
       <profile>
@@ -3123,6 +3129,6 @@
         <name value="empty-reason"/>
         <type value="token"/>
       </searchParam>
-    </resource>
+    </resource> 
   </rest>
 </Conformance>

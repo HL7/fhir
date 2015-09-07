@@ -754,7 +754,7 @@
 					
                 <li>
                   <a href="../patient.html#search">telecom</a> - Search based on telecom (
-                  <a href="../search.html#string">string</a>)
+                  <a href="../search.html#token">token</a>)
                 </li>
 					
                 <li>
@@ -768,17 +768,17 @@
                 </li>
 					
                 <li>
-                  <a href="../patient-extensions.html#search">city</a> - Search based on City (
+                  <a href="../patient-extensions.html#search">address-city</a> - Search based on City (
                   <a href="../search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient-extensions.html#search">postalCode</a> - Search based on postal code (
+                  <a href="../patient-extensions.html#search">address-postalCode</a> - Search based on postal code (
                   <a href="../search.html#string">string</a>)
                 </li>
 					
                 <li>
-                  <a href="../patient-extensions.html#search">state</a> - Search based on state (
+                  <a href="../patient-extensions.html#search">address-state</a> - Search based on state (
                   <a href="../search.html#string">string</a>)
                 </li>
 					
@@ -828,12 +828,6 @@
 					
                 <li>Chained parameter - patient.identifier</li>
 					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
-					
                 <li>
                   <a href="../allergyintolerance.html#search">category</a> - Search based on category(
                   <a href="../search.html#token">token</a>)
@@ -857,11 +851,6 @@
                 <li>
                   <a href="../allergyintolerance.html#search">severity</a> - Search based on allergy severity(
                   <a href="../search.html#token">token</a>)
-                </li>
-					
-                <li>
-                  <a href="../allergyintolerance.html#search">duration</a> - Search based on how long the allergy event lasted(
-                  <a href="../search.html#quantity">quantity</a>)
                 </li>
 					
                 <li>
@@ -897,23 +886,13 @@
 					
                 <li>Chained parameter - patient.identifier</li>
 					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
-					
                 <li>
                   <a href="../diagnosticorder.html#search">orderer</a> - Search based on ordering provider (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - orderer.identifier</li>
-					
-                <li>Chained parameter - orderer.given</li>
-					
-                <li>Chained parameter - orderer.family</li>
-					
+				
                 <li>
                   <a href="../diagnosticorder.html#search">code</a> - Search based on type of the test ordered (
                   <a href="../search.html#token">token</a>)
@@ -926,8 +905,6 @@
 					
                 <li>Chained parameter - encounter.identifier</li>
 					
-                <li>Chained parameter - encounter.type</li>
-					
                 <li>
                   <a href="../diagnosticorder.html#search">item-date</a> - Search based on order date (
                   <a href="../search.html#date">date</a>)
@@ -938,6 +915,7 @@
                 <li>Include parameter - DiagnosticOrder.orderer</li>
 					
                 <li>Include parameter - DiagnosticOrder.encounter</li>
+
 				
               </ul>
 			
@@ -965,17 +943,6 @@
 					
                 <li>Chained parameter - patient.identifier</li>
 					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
-					
-                <li>
-                  <a href="../diagnosticreport.html#search">name</a> - Search based on name of the test (
-                  <a href="../search.html#token">token</a>)
-                </li>
-					
                 <li>
                   <a href="../diagnosticreport.html#search">date</a> - Search based on DiagnosticReport date (
                   <a href="../search.html#date">date</a>)
@@ -988,8 +955,6 @@
 					
                 <li>Chained parameter - encounter.identifier</li>
 					
-                <li>Chained parameter - encounter.type</li>
-					
                 <li>
                   <a href="../diagnosticreport.html#search">performer</a> - Search based on diagnostic report performer (
                   <a href="../search.html#reference">reference</a>)
@@ -997,14 +962,12 @@
 					
                 <li>Chained parameter - performer.identifier</li>
 					
-                <li>Chained parameter - performer.name</li>
-					
                 <li>
                   <a href="../diagnosticreport.html#search">result</a> - Search based on results included in the diagnostic report (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
-                <li>Chained parameter - result.type</li>
+                <li>Chained parameter - result.code</li>
 					
                 <li>Include parameter - DiagnosticReport.subject</li>
 					
@@ -1040,22 +1003,12 @@
 					
                 <li>Chained parameter - patient.identifier</li>
 					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
-					
                 <li>
                   <a href="../encounter.html#search">location</a> - Search based on Encounter location (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - location.identifier</li>
-					
-                <li>Chained parameter - location.name</li>
-					
-                <li>Chained parameter - location.address</li>
 					
                 <li>
                   <a href="../encounter.html#search">type</a> - Search based on type of the Encounter (
@@ -1102,19 +1055,13 @@
 					
                 <li>Chained parameter - patient.identifier</li>
 					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
-					
                 <li>
                   <a href="../familymemberhistory.html#search">relationship</a> - Search based on FamilyMemberHistory Relationship type (
                   <a href="../search.html#token">token</a>)
                 </li>
 					
                 <li>
-                  <a href="../familymemberhistory.html#search">familymemberhistorycondition</a> - Search based on the clinical condition of the related person (
+                  <a href="../familymemberhistory.html#search">code</a> - Search based on the clinical condition of the related person (
                   <a href="../search.html#token">token</a>)
                 </li>
 					
@@ -1146,19 +1093,13 @@
 					
                 <li>Chained parameter - patient.identifier</li>
 					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
-					
                 <li>
                   <a href="../immunization.html#search">date</a> - Search based on Immunization date (
                   <a href="../search.html#date">date</a>)
                 </li>
 					
                 <li>
-                  <a href="../immunization.html#search">vaccine-type</a> - Search based on type of the vaccine (
+                  <a href="../immunization.html#search">vaccine-code</a> - Search based on vaccine product administered (
                   <a href="../search.html#token">token</a>)
                 </li>
 					
@@ -1179,8 +1120,6 @@
 					
                 <li>Chained parameter - requester.identifier</li>
 					
-                <li>Chained parameter - requester.name</li>
-					
                 <li>Include parameter - Immunization.patient</li>
 					
                 <li>Include parameter - Immunization.performer</li>
@@ -1199,7 +1138,7 @@
 		  
           <tr>
 		    
-            <td id="DAFResultsSearch">DAFResults</td>
+            <td id="DAFLabResultsSearch">DAFLabResults</td>
 			
             <td>
 				
@@ -1216,12 +1155,6 @@
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
-					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
 					
                 <li>
                   <a href="../observation.html#search">code</a> - Search based on test code (
@@ -1255,8 +1188,6 @@
 					
                 <li>Chained parameter - encounter.identifier</li>
 					
-                <li>Chained parameter - encounter.type</li>
-					
                 <li>Include parameter - Observation.subject</li>
 					
                 <li>Include parameter - Observation.encounter</li>
@@ -1276,18 +1207,8 @@
               <ul>
 					
                 <li>
-                  <a href="../medication.html#search">identifier</a> - Search for Medication by identifiers (
-                  <a href="../search.html#token">token</a>)
-                </li>
-					
-                <li>
                   <a href="../medication.html#search">code</a> - Search by drug code (
                   <a href="../search.html#token">token</a>)
-                </li>
-					
-                <li>
-                  <a href="../medication.html#search">name</a> - Search by drug name (
-                  <a href="../search.html#string">string</a>)
                 </li>
 					
                 <li>
@@ -1328,12 +1249,6 @@
 					
                 <li>Chained parameter - patient.identifier</li>
 					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
-					
                 <li>
                   <a href="../medicationstatement.html#search">effectivedate</a> - Search for medications by date of administration (
                   <a href="../search.html#date">date</a>)
@@ -1345,8 +1260,6 @@
                 </li>
 					
                 <li>Chained parameter - medication.code</li>
-					
-                <li>Chained parameter - medication.name</li>
 					
                 <li>Include parameter - MedicationStatement.patient</li>
 					
@@ -1378,12 +1291,6 @@
 					
                 <li>Chained parameter - patient.identifier</li>
 					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
-					
                 <li>
                   <a href="../medicationadministration.html#search">effectivetime</a> - Search for medications by date of administration (
                   <a href="../search.html#date">date</a>)
@@ -1396,16 +1303,13 @@
 					
                 <li>Chained parameter - encounter.identifier</li>
 					
-                <li>Chained parameter - encounter.type</li>
-					
                 <li>
                   <a href="../medicationadministration.html#search">practitioner</a> - Search based on practitioner (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - practitioner.identifier</li>
-					
-                <li>Chained parameter - practitioner.name</li>
+
 					
                 <li>
                   <a href="../medicationadministration.html#search">prescription</a> - Search based on prescription (
@@ -1413,8 +1317,6 @@
                 </li>
 					
                 <li>Chained parameter - prescription.identifier</li>
-					
-                <li>Chained parameter - prescription.datewritten</li>
 					
                 <li>Include parameter - MedicationAdministration.patient</li>
 					
@@ -1429,6 +1331,91 @@
             </td>
 		  
           </tr>
+		  
+		  <tr>
+		    
+            <td id="DAFMedicationDispenseSearch">DAFMedicationDispense</td>
+			
+            <td>
+				
+              <ul>
+					
+                <li>
+                  <a href="../medicationdispense.html#search">identifier</a> - Search by identifiers (
+                  <a href="../search.html#token">token</a>)
+                </li>
+					
+                <li>
+                  <a href="../medicationdispense.html#search">patient</a> - Search for medications for a patient (
+                  <a href="../search.html#reference">reference</a>)
+                </li>
+					
+                <li>Chained parameter - patient.identifier</li>
+					
+                <li>
+                  <a href="../medicationdispense.html#search">code</a> - Search for medications by based on code (
+                  <a href="../search.html#token">token</a>)
+                </li>
+					
+                <li>
+                  <a href="../medicationdispense.html#search">medication</a> - Search for medications dispensed by medication (
+                  <a href="../search.html#reference">reference</a>)
+                </li>
+						
+                <li>Include parameter - MedicationDispense.patient</li>
+					
+                <li>Include parameter - MedicationDispense.medicationReference</li>
+				
+              </ul>
+			
+            </td>
+		  
+          </tr>
+		  
+		  <tr>
+		    
+            <td id="DAFMedicationOrderSearch">DAFMedicationOrder</td>
+			
+            <td>
+				
+              <ul>
+					
+                <li>
+                  <a href="../medicationorder.html#search">identifier</a> - Search by identifiers (
+                  <a href="../search.html#token">token</a>)
+                </li>
+					
+                <li>
+                  <a href="../medicationorder.html#search">patient</a> - Search for medication orders for a patient (
+                  <a href="../search.html#reference">reference</a>)
+                </li>
+					
+                <li>Chained parameter - patient.identifier</li>
+					
+                <li>
+                  <a href="../medicationorder.html#search">code</a> - Search for medication orders by based on code (
+                  <a href="../search.html#token">token</a>)
+                </li>
+					
+                <li>
+                  <a href="../medicationorder.html#search">medication</a> - Search for medication orders by medication (
+                  <a href="../search.html#reference">reference</a>)
+                </li>
+						
+                <li>Include parameter - MedicationOrder.patient</li>
+					
+                <li>Include parameter - MedicationOrder.medicationReference</li>
+				
+				<li>Include parameter - MedicationOrder.encounter</li>
+				
+				<li>Include parameter - MedicationOrder.prescriber</li>
+				
+              </ul>
+			
+            </td>
+		  
+          </tr>
+		  
 		  
           <tr>
 		    
@@ -1449,18 +1436,12 @@
                 </li>
 					
                 <li>
-                  <a href="../condition.html#search">date-Asserted</a> - Search by date condition was asserted (
-                  <a href="../search.html#date">date</a>)
-                </li>
-					
-                <li>
                   <a href="../condition.html#search">encounter</a> - Search by encounter (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - encounter.identifier</li>
-					
-                <li>Chained parameter - encounter.type</li>
+		
 					
                 <li>
                   <a href="../condition.html#search">onset</a> - Search by onset Age of the condition (
@@ -1473,12 +1454,6 @@
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
-					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
 					
                 <li>
                   <a href="../condition.html#search">severity</a> - Search for conditions by severity (
@@ -1511,7 +1486,7 @@
                 </li>
 					
                 <li>
-                  <a href="../procedure.html#search">type</a> - Search by Procedure type (
+                  <a href="../procedure.html#search">code</a> - Search by Procedure type (
                   <a href="../search.html#token">token</a>)
                 </li>
 					
@@ -1527,20 +1502,12 @@
 					
                 <li>Chained parameter - patient.identifier</li>
 					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
-					
                 <li>
                   <a href="../procedure.html#search">encounter</a> - Search by encounter (
                   <a href="../search.html#reference">reference</a>)
                 </li>
 					
                 <li>Chained parameter - encounter.identifier</li>
-					
-                <li>Chained parameter - encounter.type</li>
 					
                 <li>Include parameter - Procedure.patient</li>
 					
@@ -1583,12 +1550,6 @@
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
-					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
 					
                 <li>Include parameter - Observation.subject</li>
 					
@@ -1639,12 +1600,7 @@
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
-					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
+				
 					
                 <li>Include parameter - Observation.subject</li>
 					
@@ -1691,12 +1647,6 @@
                 </li>
 					
                 <li>Chained parameter - patient.identifier</li>
-					
-                <li>Chained parameter - patient.name</li>
-					
-                <li>Chained parameter - patient.given</li>
-					
-                <li>Chained parameter - patient.family</li>
 					
                 <li>Include parameter - List.subject</li>
 					
@@ -1890,7 +1840,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="city"/>
+        <name value="address-city"/>
         <definition value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-city"/>
         <type value="string"/>
       </searchParam>
@@ -1898,7 +1848,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="postalCode"/>
+        <name value="address-postalCode"/>
         <definition value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-postalCode"/>
         <type value="string"/>
       </searchParam>
@@ -1906,7 +1856,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="state"/>
+        <name value="address-state"/>
         <definition value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-state"/>
         <type value="string"/>
       </searchParam>
@@ -1991,9 +1941,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2029,13 +1976,6 @@
         </extension>
         <name value="severity"/>
         <type value="token"/>
-      </searchParam>
-      <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="duration"/>
-        <type value="quantity"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2095,9 +2035,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2106,8 +2043,6 @@
         <name value="orderer"/>
         <type value="reference"/>
         <chain value="orderer.identifier"/>
-        <chain value="orderer.given"/>
-        <chain value="orderer.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2123,7 +2058,6 @@
         <name value="encounter"/>
         <type value="reference"/>
         <chain value="encounter.identifier"/>
-        <chain value="encounter.type"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2184,16 +2118,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
-      </searchParam>
-      <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="name"/>
-        <type value="token"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2209,7 +2133,6 @@
         <name value="encounter"/>
         <type value="reference"/>
         <chain value="encounter.identifier"/>
-        <chain value="encounter.type"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2218,7 +2141,6 @@
         <name value="performer"/>
         <type value="reference"/>
         <chain value="performer.identifier"/>
-        <chain value="performer.name"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2278,9 +2200,7 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
+        
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2289,8 +2209,7 @@
         <name value="location"/>
         <type value="reference"/>
         <chain value="location.identifier"/>
-        <chain value="location.name"/>
-        <chain value="location.address"/>
+        
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2362,9 +2281,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2377,7 +2293,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="familymemberhistorycondition"/>
+        <name value="code"/>
         <type value="token"/>
       </searchParam>
     </resource>
@@ -2433,9 +2349,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2448,7 +2361,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="vaccine-type"/>
+        <name value="vaccine-code"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
@@ -2472,41 +2385,40 @@
         <name value="requester"/>
         <type value="reference"/>
         <chain value="requester.identifier"/>
-        <chain value="requester.name"/>
       </searchParam>
     </resource>
     <resource>
       <type value="Observation"/>
       <profile>
-        <reference value="http://hl7.org/fhir/StructureDefinition/daf-resultobscode"/>
+        <reference value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
-        <documentation value="Allows discovery of existing DAFResults resources using different search criteria"/>
+        <documentation value="Allows discovery of existing DAFLabResults resources using different search criteria"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
-        <documentation value="Allows retrieval of a specific DAFResults by id"/>
+        <documentation value="Allows retrieval of a specific DAFRLabesults by id"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
-        <documentation value="Allows review of changes to DAFResults instance over time"/>
+        <documentation value="Allows review of changes to DAFLabResults instance over time"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
-        <documentation value="Allows retrieval of a historical version of a DAFResults instance"/>
+        <documentation value="Allows retrieval of a historical version of a DAFLabResults instance"/>
       </interaction>
       <searchInclude value="Observation.encounter"/>
       <searchInclude value="Observation.subject"/>
@@ -2524,9 +2436,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2541,6 +2450,13 @@
         </extension>
         <name value="value-concept"/>
         <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="value-quantity"/>
+        <type value="quantity"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2563,7 +2479,6 @@
         <name value="encounter"/>
         <type value="reference"/>
         <chain value="encounter.identifier"/>
-        <chain value="encounter.type"/>
       </searchParam>
     </resource>
     <resource>
@@ -2604,22 +2519,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="identifier"/>
-        <type value="token"/>
-      </searchParam>
-      <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
         <name value="code"/>
         <type value="token"/>
-      </searchParam>
-      <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <name value="name"/>
-        <type value="string"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2685,9 +2586,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2703,7 +2601,6 @@
         <name value="medication"/>
         <type value="reference"/>
         <chain value="medication.code"/>
-        <chain value="medication.name"/>
       </searchParam>
     </resource>
     <resource>
@@ -2757,9 +2654,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2775,7 +2669,6 @@
         <name value="encounter"/>
         <type value="reference"/>
         <chain value="encounter.identifier"/>
-        <chain value="encounter.type"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2784,7 +2677,6 @@
         <name value="practitioner"/>
         <type value="reference"/>
         <chain value="practitioner.identifier"/>
-        <chain value="practitioner.name"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2793,9 +2685,150 @@
         <name value="prescription"/>
         <type value="reference"/>
         <chain value="prescription.identifier"/>
-        <chain value="prescription.datewritten"/>
       </searchParam>
     </resource>
+	
+	<resource>
+      <type value="MedicationDispense"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/StructureDefinition/daf-medicationdispense"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFMedicationDispense resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFMedicationDispense by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFMedicationDispense instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFMedicationDispenseinstance"/>
+      </interaction>
+      <searchInclude value="MedicationDispense.patient"/>
+      <searchInclude value="MedicationDispense.medication"/>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+        <chain value="patient.identifier"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="code"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="medication"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+	
+	<resource>
+      <type value="MedicationOrder"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/StructureDefinition/daf-medicationdispense"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFMedicationOrder resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFMedicationOrder by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFMedicationOrder instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFMedicationOrder instances"/>
+      </interaction>
+      <searchInclude value="MedicationOrder.patient"/>
+      <searchInclude value="MedicationOrder.medication"/>
+	  <searchInclude value="MedicationOrder.encounter"/>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+        <chain value="patient.identifier"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="code"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="medication"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="encounter"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+	
+	
     <resource>
       <type value="Condition"/>
       <profile>
@@ -2846,9 +2879,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2861,17 +2891,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="date-asserted"/>
-        <type value="date"/>
-      </searchParam>
-      <searchParam>
-        <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
         <name value="encounter"/>
         <type value="reference"/>
         <chain value="encounter.identifier"/>
-        <chain value="encounter.type"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2935,7 +2957,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
-        <name value="type"/>
+        <name value="code"/>
         <type value="token"/>
       </searchParam>
       <searchParam>
@@ -2952,9 +2974,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -2963,7 +2982,6 @@
         <name value="encounter"/>
         <type value="reference"/>
         <chain value="encounter.identifier"/>
-        <chain value="encounter.type"/>
       </searchParam>
     </resource>
     <!--
@@ -3160,9 +3178,6 @@
         <name value="patient"/>
         <type value="reference"/>
         <chain value="patient.identifier"/>
-        <chain value="patient.name"/>
-        <chain value="patient.given"/>
-        <chain value="patient.family"/>
       </searchParam>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">

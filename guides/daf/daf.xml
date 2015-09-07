@@ -235,7 +235,7 @@
     </page>
     <page>
       <source value="daf-medicationusage.html"/>
-      <name value="Medications Page"/>
+      <name value="DAF Medication Profiles Overview"/>
       <kind value="page"/>
     </page>
     <page>
@@ -282,6 +282,18 @@
       <page>
         <source value="daf-medicationdispense.html"/>
         <name value="Medication Dispense Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+    </page>
+	<page>
+      <source value="medicationorder-daf.html"/>
+      <name value="Medication Orders"/>
+      <kind value="page"/>
+      <format value="generated"/>
+      <page>
+        <source value="daf-medicationorder.html"/>
+        <name value="Medication Order Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
@@ -388,45 +400,48 @@
         <format value="generated"/>
       </page>
     </page>
-    
     <page>
-      <source value="daf-organization.html"/>
-      <name value="Organization Details"/>
-      <kind value="resource"/>
-      <format value="generated"/>
+      <source value="daf-supportingprofiles.html"/>
+      <name value="SupportingProfiles"/>
+      <kind value="page"/>
+		<page>
+		  <source value="daf-organization.html"/>
+		  <name value="Organization Details"/>
+		  <kind value="resource"/>
+		  <format value="generated"/>
+		</page>
+		<page>
+		  <source value="daf-location.html"/>
+		  <name value="Location Details"/>
+		  <kind value="resource"/>
+		  <format value="generated"/>
+		</page>
+		<page>
+		  <source value="daf-pract.html"/>
+		  <name value="Practitioner Details"/>
+		  <kind value="resource"/>
+		  <format value="generated"/>
+		</page>
+		<page>
+		  <source value="daf-substance.html"/>
+		  <name value="Substance Details"/>
+		  <kind value="resource"/>
+		  <format value="generated"/>
+		</page>
+		
+		<page>
+		  <source value="daf-spec.html"/>
+		  <name value="Specimen Details"/>
+		  <kind value="resource"/>
+		  <format value="generated"/>
+		</page>
+		<page>
+		  <source value="daf-relatedperson.html"/>
+		  <name value="RelatedPerson Details"/>
+		  <kind value="resource"/>
+		  <format value="generated"/>
+		</page>
     </page>
-    <page>
-      <source value="daf-location.html"/>
-      <name value="Location Details"/>
-      <kind value="resource"/>
-      <format value="generated"/>
-    </page>
-    <page>
-      <source value="daf-pract.html"/>
-      <name value="Practitioner Details"/>
-      <kind value="resource"/>
-      <format value="generated"/>
-    </page>
-    <page>
-      <source value="daf-substance.html"/>
-      <name value="Substance Details"/>
-      <kind value="resource"/>
-      <format value="generated"/>
-    </page>
-    
-    <page>
-      <source value="daf-spec.html"/>
-      <name value="Specimen Details"/>
-      <kind value="resource"/>
-      <format value="generated"/>
-    </page>
-    <page>
-      <source value="daf-relatedperson.html"/>
-      <name value="RelatedPerson Details"/>
-      <kind value="resource"/>
-      <format value="generated"/>
-    </page>
-    
     <page>
       <source value="daf-security.html"/>
       <name value="Security"/>

@@ -368,7 +368,7 @@
   Must Support = Y
   Type = CodeableConcept
   Definition = Fixed code for Problems.
-  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><code value=\"72166-2\"/></coding></valueCodeableConcept>
+  Value = <valueCodeableConcept><coding><system value=\"http://loinc.org\"/><code value=\"11450-4\"/></coding></valueCodeableConcept>
 
  -- Row 4 -----------------------------------
   Element = List.subject

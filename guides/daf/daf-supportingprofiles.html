@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="DAF Supporting Profiles"></a> 
+<h3>DAF Supporting Profiles</h3>
+<p>
+This document provides links to the various supporting profiles within the context of the <a href="daf.html">DAF</a> Implementation Guide. The supporting profiles are defined as those which are used within other DAF profiles and DAF use cases will not be querying the resources represented by the Supporting profiles directly. For e.g DAF Organization profile and DAF Practitioner profiles are used in other DAF profiles of resources such as Patient, Medication Administration, Condition etc. 
+</p>
+<br/>
+<div>
+	<table class="grid">
+        <thead>
+          <tr>
+            <th>DAF Supporting profile</th>
+            <th>Purpose</th>
+			<th>Base FHIR Resource</th>
+          </tr>
+        </thead>
+        <tbody>
+        	<tr>
+        		<td><a href="daf-pract.html">DAFPractitioner</a></td>
+        		<td>This profile is used to represent a medical practitioner who delivers various clinical services.</td>
+        		<td><a href="[%fhir-path%]practitioner.html">Practitioner</a></td>
+        	</tr>
+        	<tr>
+        		<td><a href="daf-organization.html">DAFOrganization</a></td>
+        		<td>This profile is used to represent an organization where clinical services or delivered or is somehow related to the treatment of the patient.</td>
+        		<td><a href="[%fhir-path%]organization.html">Organization</a></td>
+        	</tr>    	
+        	<tr>
+			<td><a href="daf-location.html">DAFLocation</a></td>
+			<td>This profile is used to represent a location associated with the delivery of clinical services to a patient.</td>
+			<td><a href="[%fhir-path%]location.html">Location</a></td>
+		  </tr>
+		  <tr>
+			<td><a href="daf-substance.html">DAFSubstance</a></td>
+			<td>This profile is used to represent either a substance which is part of a drug or is a substance which is known to cause allergies to a patient.</td>
+			<td><a href="[%fhir-path%]subtance.html">Substance</a></td>
+		  </tr>
+		  <tr>
+			<td><a href="daf-spec.html">DAFSpecimen</a></td>
+			<td>This profile is used to represent a specimen that is used to perform lab tests or other clincal observations against.</td>
+			<td><a href="[%fhir-path%]Specimen.html">Specimen</a></td>
+		  </tr>
+		  <tr>
+			<td><a href="daf-relatedperson.html">DAFRelatedPerson</a></td>
+			<td>This profile is used to represent a person who is related to a patient.</td>
+			<td><a href="[%fhir-path%]RelatedPerson.html">RelatedPerson</a></td>
+		  </tr>
+		</tbody>
+	</table>
+</div>
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>
