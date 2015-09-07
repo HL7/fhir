@@ -22,24 +22,36 @@ particularly those related to:
 <ul>
   <li><a href="[%fhir-path%]security.html#http">Communications</a></li>
   <li><a href="[%fhir-path%]security.html#authentication">Authentication</a></li>
-  <li><a href="[%fhir-path%]security.html#binding">Authorization/Access Control</a></li>
-  <li><a href="[%fhir-path%]security.html#audit">Audit Logging</a></li>
-  <li><a href="[%fhir-path%]security.html#signatures">Digital Signatures</a></li>
+  <li><a href="[%fhir-path%]security.html#authorization/access control">Authorization/Access Control</a></li>
+  <li><a href="[%fhir-path%]security.html#audit logging">Audit Logging</a></li>
+  <li><a href="[%fhir-path%]security.html#digital signatures">Digital Signatures</a></li>
+  <li><a href="[%fhir-path%]security-labels.html">Security Labels</a></li>
+  <li><a href="[%fhir-path%]security.html#narrative">Narrative</a></li>
 </ul>
 <p>
-For the purposes of DAF, security conformance rules are as follows:
+For the purposes of DAF, security conformance requirements are as follows:
 </p>
 <ul>
   <li>Systems SHALL establish a risk  analysis and management regime that conforms with HIPAA security regulatory requirements. In addition US Federal systems SHOULD conform with the risk management and mitigation requirements defined in NIST 800 series documents.  This SHOULD include security category assignment in accordance with NIST 800-60 vol. 2 Appendix D.14. The coordination of risk management and the related security and privacy controls – policies, administrative practices, and technical controls – SHALL be defined in the Business Associate Agreements.</li>
-  <li>Systems SHALL reference a single time source to establish a common time base for security auditing, as well as clinical data records,  among computing systems. The selected time service SHALL be documented in the Business Associate Agreements.</li>
-  <li>Systems SHALL use either IHE's ATNA standard for audit logging or an equivalent using the <a href="[%fhir-path%]auditevent.html">AuditEvent</a>
-  resource</li>
+  <li>Systems SHALL reference a single time source to establish a common time base for security auditing, as well as clinical data records,  among computing systems. The selected time service SHOULD be documented in the Business Associate Agreements.</li>
+  <li>Systems SHALL use the <a href="[%fhir-path%]auditevent.html">AuditEvent</a> resource to capture audit logs of the various transactions. Systems SHOULD capture as many AuditEvent resource data elements as appropriate based on local policies. The following events SHOULD trigger an audit event:</li>
+  <ul>
+	<li>Every successful and unsuccessful Resource Request (GET, READ, vREAD etc.)and corresponding Response.</li>
+	<li>Every Authentication and Authorization request</li>
+	<li>Security decisions related to consent, digital signatures, data release and security labelling of returned resources</li>
+  </ul>
+</ul>
+<br/>
+<ul>
   <li>Systems SHALL use TLS version 1.0 or higher for all transmissions not taking place over a secure network connection.<br/>
   (Using TLS even within a secured network environment is still encouraged to provide defense in depth.) US Federal systems SHOULD conform with FIPS PUB 140-2.</li>
+  <li>Systems SHALL conform to <a href="[%fhir-path%]security.html#http">FHIR Communications</a> requirements.</li>
+  <li>For Authentication and Authorization, Systems SHALL use the <a href="http://fhir-docs.smarthealthit.org/argonaut-dev/authorization/backend-services/">Smart On FHIR</a> OAuth2 profiles. NOTE: The Smart On FHIR specifications include the required OAuth2 scopes for enabling security decisions.</li>
+  <li>Systems SHOULD implement requirements from <a href="[%fhir-path%]security-labels.html">FHIR Security Labels</a> to provide information on the type and sensitivity of data.</li>
+  <li>Systems SHALL implement consent requirements per their state, local, and institutional policies. The Business Associate Agreements SHOULD document systems mutual consent requirements. DAF actors SHALL ensure that any necessary consent records exist and are reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in the same manner as other transactions, as discussed above under <a href="#general">General Security Considerations</a>.</li>
+  <li>Systems SHOULD track the provenance meta data of a resource using<a href="[%fhir-path%]provenance.html">FHIR Provenance</a> resource and associated requirements.</li>
+  <li>Systems SHOULD implement the <a href="[%fhir-path%]security.html#digital signatures">FHIR Digital Signatures</a> and provide feedback on it's appropriateness for DAF transactions.</li>
   <li>Systems MAY protect the confidentiality of data at rest via encryption and associated access controls. The policies and methods used are outside the scope of this specification.</li>
-  <li>Systems SHALL use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).<br/>
-  The existing <a href="http://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_IUA.pdf">IHE IUA</a> profile specifies how to use OAuth tokens when accessing RESTful resources. Note: OAuth standards and profiles are still in flux and as such this requirement will be replaced in future with newer releases of IHE IUA or equivalent profiles. Authentication or authorization failures SHALL produce a negative response to the DAF Requestor and SHALL be recorded in the local system's audit logs.</li>
-  <li>Systems SHALL implement coordinated consent requirements per their state, local, and institutional policies. The Business Associate Agreements SHALL document systems mutual consent requirements. DAF actors SHALL ensure that any necessary consent records exist and are reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in the same manner as other transactions, as discussed above under <a href="#general">General Security Considerations</a>.</li>
 </ul>
 
 </div>

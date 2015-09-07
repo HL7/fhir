@@ -31,17 +31,17 @@ The DAF List profile mapping to Meaningful Use data elements and FHIR Resources 
           <tr>
 			<td>Problem List</td>
 			<td>Active Problem List</td>
-			<td>List using DAFProblemList profile</td>
+			<td>List using DAF-ProblemList profile</td>
 		  </tr>
 		  <tr>
 		    <td>Problems</td>
 			<td>No known Problems</td>
-			<td>List (Empty DAFProblemList with coded List.emptyReason)</td>
+			<td>List (Empty DAF-ProblemList with coded List.emptyReason)</td>
 		  </tr>
 		  <tr>
 			<td>Medication allergies</td>
 			<td>List of documented allergies</td>
-			<td>List using DAFAllergyIntoleranceList profile</td>
+			<td>List using DAF-AllergyList profile</td>
 		  </tr>
 		  <tr>
 			<td>Medication Allergies</td>
@@ -51,17 +51,17 @@ The DAF List profile mapping to Meaningful Use data elements and FHIR Resources 
 		  <tr>
 			<td>Medications List*</td>
 			<td>List of active Medications*</td>
-			<td>List using DAFMedicationList profile</td>
+			<td>List using DAF-MedicationList profile</td>
 		  </tr>
 		  <tr>
 		    <td>Medications</td>
 			<td>No known Medications</td>
-			<td>List (Empty DAFMedicationList with coded List.emptyReason)</td>
+			<td>List (Empty DAF-MedicationList with coded List.emptyReason)</td>
 		  </tr>
 		  <tr>
 			<td>Immunization List</td>
 			<td>List of Immunizations</td>
-			<td>List using DAFImmunizationList profile</td>
+			<td>List using DAF-ImmunizationList profile</td>
 		  </tr>
 		  <tr>
 		    <td>Immunizations</td>
@@ -71,12 +71,17 @@ The DAF List profile mapping to Meaningful Use data elements and FHIR Resources 
 		  <tr>
 			<td>Laboratory Result Values</td>
 			<td>List of lab results</td>
-			<td>List using DAFResultsList profile</td>
+			<td>List using DAF-ResultsList profile</td>
 		  </tr>
 		  <tr>
 		    <td>Encounter Diagnoses</td>
 			<td>List of encounters for a patient</td>
-			<td>List using DAFEncounterList profile</td>
+			<td>List using DAF-EncounterList profile</td>
+		  </tr>
+		  <tr>
+		    <td>Procedures</td>
+			<td>List of procedures for a patient</td>
+			<td>List using DAF-ProcedureList profile</td>
 		  </tr>
 		</tbody>
 	</table>
