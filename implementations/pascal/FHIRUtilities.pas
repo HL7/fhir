@@ -239,10 +239,7 @@ type
 
   TFHIRCodingListHelper = class helper for TFHIRCodingList
   public
-    procedure CopyTags(tags : TFHIRCodingList);
-    function AsHeader : String;
-    function json : TBytes;
-    procedure AddValue(code, system, display : String);
+    function AddCoding(system, code, display : String) : TFHIRCoding;
   end;
 
   TFhirBundleLinkListHelper = class helper for TFhirBundleLinkList
@@ -1759,7 +1756,7 @@ end;
 
 { TFHIRCodingListHelper }
 
-procedure TFHIRCodingListHelper.AddValue(code, system, display: String);
+function TFHIRCodingListHelper.AddCoding(system, code, display: String) : TFHIRCoding;
 var
   c : TFHIRCoding;
 begin
@@ -1769,21 +1766,43 @@ begin
   c.display := display;
 end;
 
-function TFHIRCodingListHelper.AsHeader: String;
-begin
-  raise Exception.Create('todo');
-end;
-
-procedure TFHIRCodingListHelper.CopyTags(tags: TFHIRCodingList);
-begin
-  raise Exception.Create('todo');
-end;
-
-function TFHIRCodingListHelper.json: TBytes;
-  begin
-  SetLength(result, 0);
-end;
-
+//function TFHIRCodingListHelper.AsHeader: String;
+//begin
+//  raise Exception.Create('todo');
+//end;
+//
+//procedure TFHIRCodingListHelper.CopyTags(meta: TFHIRMeta);
+//begin
+//  AddAll(meta.tagList);
+//  AddAll(meta.securityList);
+//  !
+//end;
+//
+//function TFHIRCodingListHelper.getCoding(system, code: String): TFHIRCoding;
+//begin
+//  raise Exception.Create('todo');
+//end;
+//
+//function TFHIRCodingListHelper.hasCoding(system, code: String): boolean;
+//begin
+//  raise Exception.Create('todo');
+//end;
+//
+//procedure TFHIRCodingListHelper.CopyCodings(tags: TFHIRCodingList);
+//begin
+//  raise Exception.Create('todo');
+//end;
+//
+//function TFHIRCodingListHelper.json: TBytes;
+//begin
+//  SetLength(result, 0);
+//end;
+//
+//procedure TFHIRCodingListHelper.WriteTags(meta: TFHIRMeta);
+//begin
+//  raise Exception.Create('todo');
+//end;
+//
 { TFhirBundleLinkListHelper }
 
 procedure TFhirBundleLinkListHelper.AddRelRef(rel, ref: String);
@@ -1796,8 +1815,18 @@ begin
 end;
 
 function TFhirBundleLinkListHelper.AsHeader: String;
+var
+  i : integer;
+  bl : TFhirBundleLink;
 begin
-  result := ''; // todo
+  result := '';
+  for i := 0 to Count - 1 do
+begin
+    bl := Item(i);
+    if (result <> '') then
+      result := result +', ';
+    result := result + '<'+bl.url+'>;rel='+bl.relation;
+  end;
 end;
 
 function TFhirBundleLinkListHelper.getMatch(rel: String): string;

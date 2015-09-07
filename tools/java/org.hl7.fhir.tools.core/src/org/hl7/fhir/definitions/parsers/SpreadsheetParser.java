@@ -1897,7 +1897,7 @@ public class SpreadsheetParser {
     ex.setConstrainedType("Extension");
     ex.setBase("http://hl7.org/fhir/StructureDefinition/Extension");
     ex.setAbstract(false);
-    ex.setVersion(version);
+    ex.setFhirVersion(version);
 
     ToolResourceUtilities.updateUsage(ex, ap.getCategory());
 	  String name = sheet.getColumn(row, "Code");

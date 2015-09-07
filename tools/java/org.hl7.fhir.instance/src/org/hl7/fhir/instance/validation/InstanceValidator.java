@@ -666,7 +666,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         if (n != null && n.getName().equals(child.getName())) { 
           sfx = "["+Integer.toString(lastCount+1)+"]";
         }
-        return basePath+"/f:"+name()+sfx;
+        if (FormatUtilities.XHTML_NS.equals(child.getNamespace()))
+          return basePath+"/h:"+name()+sfx;
+        else
+          return basePath+"/f:"+name()+sfx;
       } else {
         String sfx = "";
         if (n != null && n.getName().equals(child.getName())) { 

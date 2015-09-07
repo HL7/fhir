@@ -158,7 +158,7 @@ Type
   TFHIRComposer = {abstract} class (TFHIRObject)
   private
     FLang: String;
-    FSummaryOnly: Boolean;
+    FSummaryOption: TFHIRSummaryOption;
     FNoHeader: Boolean;
   protected
     Procedure ComposeResource(xml : TXmlBuilder; oResource : TFhirResource; links : TFhirBundleLinkList = nil); overload; virtual;
@@ -178,7 +178,7 @@ Type
 
     Function MimeType : String; virtual;
     Property Lang : String read FLang write FLang;
-    Property SummaryOnly : Boolean read FSummaryOnly write FSummaryOnly;
+    Property SummaryOption : TFHIRSummaryOption read FSummaryOption write FSummaryOption;
     property NoHeader : Boolean read FNoHeader write FNoHeader;
   End;
 
@@ -240,14 +240,14 @@ Type
   private
     FBaseURL: String;
     FSession: TFhirSession;
-    FTags : TFHIRCodingList;
+    FTags : TFHIRTagList;
     FrelativeReferenceAdjustment: integer;
     FOnGetLink: TFHIRXhtmlComposerGetLink;
     FOperationName : String;
     procedure SetSession(const Value: TFhirSession);
-    function PresentTags(aType : TFhirResourceType; target : String; tags : TFHIRCodingList; c : integer):String; overload;
+    function PresentTags(aType : TFhirResourceType; target : String; tags : TFHIRTagList; c : integer):String; overload;
     function PresentTags(aType : TFhirResourceType; target : String; meta: TFhirMeta; c : integer):String; overload;
-    procedure SetTags(const Value: TFHIRCodingList);
+    procedure SetTags(const Value: TFHIRTagList);
     function PatchToWeb(url: String): String;
 //    xml : TXmlBuilder;
 //    procedure ComposeNode(node : TFhirXHtmlNode);
@@ -260,7 +260,7 @@ Type
     Destructor Destroy; override;
     property BaseURL : String read FBaseURL write FBaseURL;
     Property Session : TFhirSession read FSession write SetSession;
-    property Tags : TFHIRCodingList read FTags write SetTags;
+    property Tags : TFHIRTagList read FTags write SetTags;
     Procedure ComposeResource(xml : TXmlBuilder; oResource : TFhirResource; links : TFhirBundleLinkList = nil); Override;
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
     Function MimeType : String; Override;
@@ -1254,7 +1254,7 @@ begin
   result := FBaseURL+'_web/'+url.substring(FBaseURL.length);
 end;
 
-function TFHIRXhtmlComposer.PresentTags(aType: TFhirResourceType; target: String; tags: TFHIRCodingList; c: integer): String;
+function TFHIRXhtmlComposer.PresentTags(aType: TFhirResourceType; target: String; tags: TFHIRTagList; c: integer): String;
 begin
 //  PresentTags()
 end;
@@ -2248,7 +2248,7 @@ begin
 end;
 
 
-procedure TFHIRXhtmlComposer.SetTags(const Value: TFHIRCodingList);
+procedure TFHIRXhtmlComposer.SetTags(const Value: TFHIRTagList);
 begin
   FTags.free;
   FTags := Value;

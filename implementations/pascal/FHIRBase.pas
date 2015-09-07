@@ -116,35 +116,36 @@ Type
 
   TFHIRXhtmlParserPolicy = (xppAllow, xppDrop, xppReject);
 
-  TFhirTagKind = (tkUnknown, tkTag, tkProfile, tkSecurity);
+  TFHIRSummaryOption = (soFull, soSummary, soText, soData, soCount);
 
-  TFhirTag = class (TAdvName)
-  private
-    FKey : integer;
-    FDisplay : String;
-    FKind : TFhirTagKind;
-    FUri : String;
-    FCode : String;
-  public
-    function combine : String;
-
-    property Key : integer read FKey write FKey;
-    property Kind : TFhirTagKind read FKind write FKind;
-    property Uri : String read FUri write FUri;
-    property Code : String read FCode write FCode;
-    property Display : String read FDisplay write FDisplay;
-  end;
+//  TFhirTag = class (TAdvName)
+//  private
+//    FKey : integer;
+//    FDisplay : String;
+//    FKind : TFhirTagKind;
+//    FUri : String;
+//    FCode : String;
+//  public
+//    function combine : String;
+//
+//    property Key : integer read FKey write FKey;
+//    property Kind : TFhirTagKind read FKind write FKind;
+//    property Uri : String read FUri write FUri;
+//    property Code : String read FCode write FCode;
+//    property Display : String read FDisplay write FDisplay;
+//  end;
 
 Const
   FHIR_NS = 'http://hl7.org/fhir';
-  FHIR_TAG_SCHEME = 'http://hl7.org/fhir/tag';
   CODES_TFHIRCommandType : array [TFHIRCommandType] of String = (
     'Unknown', 'MailBox', 'Read', 'VersionRead', 'Update', 'Delete', 'HistoryInstance', 'Create', 'Search', 'HistoryType', 'Validate', 'ConformanceStmt', 'Transaction', 'HistorySystem', 'Upload', 'GetTags', 'UpdateTags', 'DeleteTags', 'Operation', 'WebUI', 'Null');
   CODES_TFHIRHtmlNodeType : array [TFHIRHtmlNodeType] of String = ('Element', 'Text', 'Comment', 'Document');
   CODES_TFHIRFormat : Array [TFHIRFormat] of String = ('AsIs', 'XML', 'JSON', 'XHTML');
   MIMETYPES_TFHIRFormat : Array [TFHIRFormat] of String = ('', 'text/xml+fhir', 'application/json+fhir', 'text/xhtml');
   Names_TFHIRAuthProvider : Array [TFHIRAuthProvider] of String = ('', 'Custom', 'Facebook', 'Google', 'HL7');
-  SCHEMES_TFhirTagKind : array [TFhirTagKind] of String = ('', 'http://hl7.org/fhir/tag', 'http://hl7.org/fhir/tag/profile', 'http://hl7.org/fhir/tag/security');
+  USER_SCHEME_IMPLICIT = 'http://healthintersections.com.au/fhir/user/implicit';
+  USER_SCHEME_PROVIDER : array [TFHIRAuthProvider] of String =
+    ('', 'http://healthintersections.com.au/fhir/user/explicit', 'http://www.facebook.com', 'http://www.google.com', 'http://www.hl7.org');
 
 type
 
@@ -529,9 +530,6 @@ type
   private
   public
   end;
-
-function TagCombine(type_ : TFhirTagKind; uri, code : String): String;
-function TagKindForScheme(uri : String): TFhirTagKind;
 
 Implementation
 
@@ -1605,28 +1603,6 @@ end;
 function TFhirXhtmlNodeListEnumerator.GetCurrent : TFhirXhtmlNode;
 begin
   Result := FList[FIndex];
-end;
-
-{ TFhirTag }
-
-function TagCombine(type_ : TFhirTagKind; uri, code : String): String;
-begin
-  result := inttostr(ord(type_))+uri+#1+code;
-end;
-
-function TagKindForScheme(uri : String): TFhirTagKind;
-var
-  ndx : Integer;
-begin
-  ndx := StringArrayIndexOfSensitive(SCHEMES_TFhirTagKind, uri);
-  if ndx = -1 then
-    ndx := 0;
-  result := TFhirTagKind(ndx);
-end;
-
-function TFhirTag.combine: String;
-begin
-  result := TagCombine(kind, uri, code);
 end;
 
 End.

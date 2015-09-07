@@ -31,24 +31,207 @@ POSSIBILITY OF SUCH DAMAGE.
 interface
 
 uses
-  FHIRBase;
+  SysUtils, Classes,
+  AdvObjects, AdvGenerics, AdvJson, AdvVclStreams,
+  FHIRBase, FHIRTypes;
 
 const
-  TAG_FHIR_SCHEME = 'http://hl7.org/fhir/tag';
-  TAG_FHIR_SCHEME_PROFILE = 'http://hl7.org/fhir/tag/profile';
-  TAG_FHIR_SCHEME_SECURITY = 'http://hl7.org/fhir/tag/security';
+  TAG_FHIR_SYSTEM = 'http://healthintersections.com.au/fhir/tags';
+//  TAG_FHIR_SYSTEM_PROFILES = 'http://healthintersections.com.au/fhir/profiles'; // code will be a uri
 
-  TAG_READONLY = 'http://hl7.org/fhir/tags/connectathon4/read-only';
+//  TAG_READONLY = 'read-only';
+//  TAG_SUMMARY = 'summary';
 
-  USER_SCHEME_IMPLICIT = 'http://healthintersections.com.au/fhir/user/implicit';
-  USER_SCHEME_PROVIDER : array [TFHIRAuthProvider] of String =
-    ('', 'http://healthintersections.com.au/fhir/user/explicit', 'http://www.facebook.com', 'http://www.google.com', 'http://www.hl7.org');
 
-  TAG_COMPARTMENT_IN = 'http://fhir.org/connectathon4/patient-compartment/';
-  TAG_COMPARTMENT_OUT = 'http://fhir.org/connectathon4/patient-compartment-not/';
-  TAG_USER_COMPARTMENT = 'http://fhir.org/connectathon4/patient-compartment-user/';
+  TAG_COMPARTMENT_IN = 'patient-compartment';
+  TAG_COMPARTMENT_OUT = 'patient-compartment-not';
+//  TAG_USER_COMPARTMENT = 'patient-compartment-user';
 
+type
+  TFHIRTagCategory = (tcTag, tcSecurity, tcProfile);
+
+  TFHIRTag = class (TFHIRCoding)
+  private
+    FKey : integer;
+    FCategory : TFHIRTagCategory;
+  public
+    function Link : TFHIRTag;
+    property Key : integer read Fkey write FKey;
+    property Category : TFHIRTagCategory read FCategory write FCategory;
+  end;
+
+  TFHIRTagList = class (TAdvObject)
+  private
+    FList : TAdvList<TFHIRTag>;
+    function GetCount: Integer;
+    function GetTag(index: integer): TFHIRTag;
+  public
+    Constructor Create; Override;
+    Destructor Destroy; Override;
+    function Link : TFHIRTagList;
+    procedure readTags(meta : TFhirMeta);
+    procedure writeTags(meta : TFhirMeta);
+    Property Count : Integer read GetCount;
+    Property Tag[index : integer] : TFHIRTag read GetTag; default;
+    function json : TArray<byte>;
+    function findTag(system, code : String) : TFHIRTag;
+    procedure addTag(key : integer; kind : TFHIRTagCategory; system, code, display : String);
+    procedure add(tag : TFHIRTag);
+    function asHeader : String;
+  end;
 
 implementation
+
+uses
+  FHIRUtilities;
+
+{ TFHIRTag }
+
+function TFHIRTag.Link: TFHIRTag;
+begin
+  result := TFHIRTag(inherited Link);
+end;
+
+{ TFHIRTagList }
+
+Constructor TFHIRTagList.Create;
+begin
+  inherited;
+  FList := TAdvList<TFHIRTag>.create;
+end;
+
+
+Destructor TFHIRTagList.Destroy;
+begin
+  FList.Free;
+  inherited;
+end;
+
+
+function TFHIRTagList.Link: TFHIRTagList;
+begin
+  result := TFHIRTagList(inherited Link);
+end;
+
+
+procedure TFHIRTagList.add(tag: TFHIRTag);
+begin
+  FList.Add(tag);
+end;
+
+procedure TFHIRTagList.addTag(key: integer; kind: TFHIRTagCategory; system, code, display: String);
+var
+  tag : TFHIRTag;
+begin
+  tag := TFHIRTag.create;
+  try
+    tag.Key := Key;
+    tag.Category := kind;
+    tag.system := system;
+    tag.code := code;
+    tag.display := display;
+    FList.Add(tag.Link);
+  finally
+    tag.free;
+  end;
+end;
+
+function TFHIRTagList.asHeader: String;
+begin
+  raise Exception.Create('Not Done Yet');
+end;
+
+function TFHIRTagList.GetCount: Integer;
+begin
+  result := FList.Count;
+end;
+
+function TFHIRTagList.findTag(system, code: String): TFHIRTag;
+var
+  t : TFHIRTag;
+begin
+  result := nil;
+  for t in FList do
+    if (t.system = system) and (t.code = code) then
+    begin
+      result := t;
+      exit;
+    end;
+end;
+
+function TFHIRTagList.GetTag(index: integer): TFHIRTag;
+begin
+  result := FList[index];
+end;
+
+function TFHIRTagList.json: TArray<byte>;
+var
+  json : TJSONWriter;
+  s : TBytesStream;
+  vs : TAdvVCLStream;
+  t : TFHIRTag;
+begin
+  s := TBytesStream.Create;
+  try
+    vs := TAdvVCLStream.Create;
+    try
+      vs.Stream := s;
+      json := TJSONWriter.Create;
+      try
+        json.Stream := vs.link;
+        json.Start;
+        json.HasWhitespace := false;
+        json.ValueArray('tags');
+        for t in FList do
+        begin
+          json.ValueObject();
+          json.Value('key', t.Key);
+          json.Value('category', ord(t.Category));
+          json.Value('system', t.system);
+          json.Value('code', t.code);
+          json.Value('display', t.display);
+        end;
+        json.FinishArray;
+        json.Finish;
+      finally
+        json.free;
+      end;
+    finally
+      vs.Free;
+    end;
+    result := s.Bytes;
+  finally
+    s.free;
+  end;
+end;
+
+procedure TFHIRTagList.readTags(meta: TFhirMeta);
+var
+  c : TFHIRCoding;
+  u : TFhirUri;
+begin
+  for c in meta.tagList do
+    addTag(0, tcTag, c.system, c.code, c.display);
+  for c in meta.securityList do
+    addTag(0, tcSecurity, c.system, c.code, c.display);
+  for u in meta.profileList do
+    addTag(0, tcProfile, 'urn:ietf:rfc:3986', u.value, '');
+end;
+
+procedure TFHIRTagList.writeTags(meta: TFhirMeta);
+var
+  t : TFHIRTag;
+begin
+  meta.tagList.Clear;
+  meta.securityList.Clear;
+  meta.profileList.Clear;
+  for t in FList do
+    case t.Category of
+      tcTag: meta.tagList.addCoding(t.system, t.code, t.display);
+      tcSecurity: meta.securityList.addCoding(t.system, t.code, t.display);
+      tcProfile: meta.profileList.Append.value := t.code;
+    end;
+end;
+
 
 end.

@@ -202,6 +202,13 @@
         <DCCReference Include="support\AdvNames.pas"/>
         <DCCReference Include="support\OIDSupport.pas"/>
         <DCCReference Include="FHIRValidator.pas"/>
+        <DCCReference Include="support\AltovaXMLLib_TLB.pas"/>
+        <DCCReference Include="support\AdvZipReaders.pas"/>
+        <DCCReference Include="support\AdvNameBuffers.pas"/>
+        <DCCReference Include="support\AdvZipDeclarations.pas"/>
+        <DCCReference Include="support\AdvZipParts.pas"/>
+        <DCCReference Include="support\AdvZipUtilities.pas"/>
+        <DCCReference Include="support\AdvZipWorkers.pas"/>
         <None Include="Profiling\AQtimeModule1.aqt"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
@@ -269,7 +276,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
-            <Deployment Version="1">
+            <Deployment Version="2">
                 <DeployFile LocalName="FHIRTest.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>FHIRTest.exe</RemoteName>
@@ -594,13 +601,13 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
-                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
             </Deployment>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

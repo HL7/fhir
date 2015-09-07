@@ -203,7 +203,7 @@ public class ProfileGenerator {
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
     p.setBase("http://hl7.org/fhir/StructureDefinition/Element");
-    p.setVersion(version);
+    p.setFhirVersion(version);
 
     
     ToolResourceUtilities.updateUsage(p, "core");
@@ -322,7 +322,7 @@ public class ProfileGenerator {
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
-    p.setVersion(version);
+    p.setFhirVersion(version);
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
@@ -422,7 +422,7 @@ public class ProfileGenerator {
     p.setUserData("path", "datatypes.html#"+t.getName());
     if (!Utilities.noString(t.typeCode()))
       p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // all deemd to be element whether they say Type or Structure
-    p.setVersion(version);
+    p.setFhirVersion(version);
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(t.getName());
@@ -475,7 +475,7 @@ public class ProfileGenerator {
     p.setAbstract(false);
     p.setUserData("filename", pt.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+pt.getName());
-    p.setVersion(version);
+    p.setFhirVersion(version);
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(pt.getName());
@@ -604,7 +604,7 @@ public class ProfileGenerator {
     p.setUserData("filename", r.getName().toLowerCase());
     p.setUserData("path", r.getName().toLowerCase()+".html");
     p.setDisplay(pack.metadata("display"));
-    p.setVersion(version);
+    p.setFhirVersion(version);
 
     if (r.getFmmLevel() != null)
       ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(r.getFmmLevel()));
@@ -698,7 +698,7 @@ public class ProfileGenerator {
     p.setUserData("filename", id);
     p.setUserData("path", ((usage == null || usage.isCore()) ? "" : usage.getCode()+File.separator)+id+".html");
     p.setDisplay(pack.metadata("display"));
-    p.setVersion(version);
+    p.setFhirVersion(version);
 
 
     ToolResourceUtilities.updateUsage(p, usage.getCode());

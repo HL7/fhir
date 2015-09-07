@@ -107,7 +107,14 @@ uses
   FHIRDigitalSignatures in 'FHIRDigitalSignatures.pas',
   AdvNames in 'support\AdvNames.pas',
   OIDSupport in 'support\OIDSupport.pas',
-  FHIRValidator in 'FHIRValidator.pas';
+  FHIRValidator in 'FHIRValidator.pas',
+  AltovaXMLLib_TLB in 'support\AltovaXMLLib_TLB.pas',
+  AdvZipReaders in 'support\AdvZipReaders.pas',
+  AdvNameBuffers in 'support\AdvNameBuffers.pas',
+  AdvZipDeclarations in 'support\AdvZipDeclarations.pas',
+  AdvZipParts in 'support\AdvZipParts.pas',
+  AdvZipUtilities in 'support\AdvZipUtilities.pas',
+  AdvZipWorkers in 'support\AdvZipWorkers.pas';
 
 procedure SaveStringToFile(s : AnsiString; fn : String);
 var

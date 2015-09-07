@@ -42,7 +42,7 @@ uses
   StringSupport, DecimalSupport, GuidSupport,
   AdvObjects, AdvBuffers, AdvStringLists, AdvStringMatches,
   DateAndTime, JWT, SCIMObjects,
-  FHirBase, FHirResources, FHIRConstants, FHIRTypes, FHIRSecurity;
+  FHirBase, FHirResources, FHIRConstants, FHIRTypes, FHIRSecurity, FHIRTags;
 
 Const
    HTTP_OK_200 = 200;
@@ -231,7 +231,7 @@ Type
     FDefaultSearch: boolean;
     FLang: String;
     FSession: TFhirSession;
-    FCategories : TFHIRCodingList;
+    FTags : TFHIRTagList;
     FContent : TAdvBuffer;
     FIp: string;
     FCompartments: String;
@@ -244,6 +244,7 @@ Type
     FIfNoneMatch: String;
     FIfModifiedSince: TDateTime;
     FIfNoneExist: String;
+    FSummary: TFHIRSummaryOption;
     procedure SetResource(const Value: TFhirResource);
     procedure SetSource(const Value: TAdvBuffer);
     procedure SetSession(const Value: TFhirSession);
@@ -251,6 +252,7 @@ Type
     procedure SetFeed(const Value: TFhirBundle);
     procedure SetMeta(const Value: TFhirMeta);
     procedure SetProvenance(const Value: TFhirProvenance);
+    procedure processParams;
   Public
     Constructor Create; Override;
     Destructor Destroy; Override;
@@ -340,10 +342,10 @@ Type
     Property Feed : TFhirBundle read GetFeed write SetFeed;
     property meta : TFhirMeta read FMeta write SetMeta;
 
-    {@member categories
+    {@member Tags
       Tags on the request - if it's a resource directly
     }
-    property categories : TFHIRCodingList read Fcategories;
+    property Tags : TFHIRTagList read FTags;
 
     {@member originalId
       The specified originalId of the resource in the request (if present) (i.e. in a transaction)
@@ -379,6 +381,11 @@ Type
       Preferred language of the requester (used for error messages)
     }
     Property Lang : String read FLang write FLang;
+
+    {@member Summary
+      What kind of summary is requested
+    }
+    Property Summary : TFHIRSummaryOption read FSummary write FSummary;
 
     Property IfMatch : String read FIfMatch write FIfMatch;
     Property IfNoneMatch : String read FIfNoneMatch write FIfNoneMatch;
@@ -418,12 +425,11 @@ Type
     FFormat: TFHIRFormat;
     FContentLocation: String;
     FLocation: String;
-    FCategories : TFHIRCodingList;
+    FTags : TFHIRTagList;
     Flink_list : TFhirBundleLinkList;
     FOrigin: String;
     FId: String;
     FMeta: TFhirMeta;
-    FNeedsObject: boolean;
     procedure SetResource(const Value: TFhirResource);
     function GetFeed: TFhirBundle;
     procedure SetFeed(const Value: TFhirBundle);
@@ -516,10 +522,10 @@ Type
     }
     Property Location : String read FLocation write FLocation;
 
-    {@member categories
+    {@member Tags
       Tags for the response
     }
-    property categories : TFHIRCodingList read Fcategories;
+    property Tags : TFHIRTagList read FTags;
 
     property meta : TFhirMeta read FMeta write SetMeta;
 
@@ -535,10 +541,6 @@ Type
     }
     Property Origin : String read FOrigin write FOrigin;
 
-    {@member NeedsObject
-      Set by the RESTful server if it needs an object to respond properly. Do not change in a script.
-    }
-    Property NeedsObject : boolean read FNeedsObject write FNeedsObject;
   end;
 
   ERestfulException = class (EAdvException)
@@ -802,14 +804,14 @@ end;
 constructor TFHIRRequest.Create;
 begin
   inherited;
-  FCategories := TFHIRCodingList.create;
+  FTags := TFHIRTagList.create;
 end;
 
 destructor TFHIRRequest.Destroy;
 begin
   FMeta.Free;
   FContent.Free;
-  FCategories.free;
+  FTags.free;
   FSession.Free;
   FSource.Free;
   FResource.Free;
@@ -835,6 +837,7 @@ begin
     FParams.Free;
   FParams := nil;
   FParams := TParseMap.create(s);
+  processParams;
 end;
 
 procedure TFHIRRequest.LoadParams(form: TIdSoapMimeMessage);
@@ -854,6 +857,7 @@ begin
         FParams.addItem(n, s);
     end;
   end;
+  processParams;
 end;
 
 function TFHIRRequest.LogSummary: String;
@@ -861,6 +865,23 @@ begin
   result := CODES_TFHIRCommandType[CommandType]+'\('+CODES_TFHIRFormat[PostFormat]+')'+CODES_TFhirResourceType[ResourceType]+'\'+Id;
   if SubId <> '' then
     result := result + '\'+SubId;
+end;
+
+procedure TFHIRRequest.processParams;
+var
+  s : String;
+begin
+  s := FParams.GetVar('_summary');
+  if s = 'true' then
+    Summary := soSummary
+  else if s = 'text' then
+    Summary := soText
+  else if s = 'data' then
+    Summary := soData
+  else if s = 'count' then
+    Summary := soCount
+  else
+    Summary := soFull;
 end;
 
 procedure TFHIRRequest.SetFeed(const Value: TFhirBundle);
@@ -920,7 +941,7 @@ begin
   addValue('Content-Location', FcontentLocation, FcontentLocation <> '');
   addValue('defaultSearch', BooleanToString(FDefaultSearch), CommandType = fcmdSearch);
   addValue('Language', FLang, FLang <> '');
-  addValue('Category', FCategories.ToString, FCategories.count > 0);
+  addValue('Tag', FTags.ToString, FTags.count > 0);
   addValue('ip', FIp, FIp <> '');
   addValue('compartments', FCompartments, FCompartments <> '');
   addValue('compartmentId', FCompartmentId, FCompartmentId <> '');
@@ -931,14 +952,14 @@ end;
 constructor TFHIRResponse.Create;
 begin
   inherited;
-  FCategories := TFHIRCodingList.create;
+  FTags := TFHIRTagList.create;
   Flink_list := TFhirBundleLinkList.create;
 end;
 
 destructor TFHIRResponse.Destroy;
 begin
   Flink_list.Free;
-  FCategories.free;
+  FTags.free;
   FResource.Free;
   FMeta.Free;
   inherited;
