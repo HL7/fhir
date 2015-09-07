@@ -76,7 +76,7 @@ The DAF Condition profile mapping to Meaningful Use data elements and FHIR Resou
 This profile relies on the following other profiles:
 </p>
 <ul>
-  <li><a href="patient-daf.html">DAFPatient</a> which defines DAF Patient profile is used by DAFCondition profile to refer to patients.</li>
+  <li><a href="patient-daf.html">DAFPatient</a> which defines how the DAF Patient profile is used by DAFCondition profile to refer to patients.</li>
   <li><a href="../extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. 
   Specifically the <a href="../extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
   See <a href="daf.html">DAF FHIR IG</a> for additional guidance.</li>

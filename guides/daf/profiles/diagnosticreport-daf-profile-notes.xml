@@ -10,11 +10,11 @@ The full list of supported search parameters are can be accessed at <a href="con
 	<h4>Example Usage Scenarios</h4>
 
 <p>
-The following are example usage scenarios for the.effectiveReport profile:
+The following are example usage scenarios for the DAF Diagnostic Report profile:
 </p>
 <ul>
-	<li>Query for.effective reports belonging to a Patient</li>
-	<li>Query for all patients who have had a specific.effective test report</li>
+	<li>Query for Diagnostic reports belonging to a Patient</li>
+	<li>Query for all patients who have had a specific type of Diagnostic report.</li>
 </ul>
 
 	<a name="profiles_specific_implementation_guidance"> </a>

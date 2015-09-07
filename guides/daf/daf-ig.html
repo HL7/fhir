@@ -34,8 +34,8 @@ The conformance verbs used are defined in <a href="[%fhir-path%]conformance-rule
 In the context of DAF profiles, <i>Supported</i> on any data element SHALL be interpreted as follows:
 <ul>
       <li>DAF Responders SHALL be capable of including the data element as part of the query results as specified by the DAF conformance resources.</li>
-	  <li>DAF Requestors SHALL be capable of processing resource instances containing the data elements.</li>
-	  <li>In situations where information on a particular data element is not present and the reason is unknown, DAF Responders SHALL NOT include the data elements in the resource instance returned as part of the query results.</li>
+	  <li>DAF Requestors SHALL be capable of processing resource instances containing the data elements. In other words DAF Requestors SHOULD be capable of displaying the data elements for human use or storing it for other purposes. </li>
+	  <li>In situations where information on a particular data element is not present and the <b>reason for absence</b> is unknown, DAF Responders SHALL NOT include the data elements in the resource instance returned as part of the query results.</li>
 	  <li>When querying DAF Responders, DAF Requestors SHALL interpret missing data elements within resource instances as data not present in the DAF Responder's systems.</li>
 	  <li>In situations where information on a particular data element is missing and the DAF Responder knows the precise reason for the absence of data, DAF Responders SHALL send the reason for the missing information using values from the value set where they exist or using the <a href="[%fhir-path%]extension-data-absent-reason.html">dataAbsentReason</a> extension.</li>
 	  <li>DAF Requestors SHALL be able to process resource instances containing data elements asserting missing information.</li>
