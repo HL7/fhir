@@ -115,6 +115,7 @@
   Element = ProcedureRequest.extension
   Profile Name = ProcedureRequest.approachBodySite
   Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-approachBodySite}
+  QDM Mapping = anatomical approach site
 
  -- Row 7 -----------------------------------
   Element = ProcedureRequest.extension
