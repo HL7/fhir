@@ -32,6 +32,12 @@
   Description = Value set for encoding a condition (problem)
   Conformance = preferred
 
+ -- Row 5 -----------------------------------
+  Binding Name = DAFBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-bodysite
+  Conformance = preferred
+
 === Sheet QICore-MedicationOrder =====================================
 
  -- Row 1 -----------------------------------
@@ -153,20 +159,24 @@
   QDM Mapping = dose
 
  -- Row 23 -----------------------------------
+  Element = MedicationOrder.dosageInstruction.site[x]
+  Binding = DAFBodySite
+
+ -- Row 24 -----------------------------------
   Element = MedicationOrder.reason[x]
   Binding = QICoreProblemCode
   QDM Mapping = reason
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MedicationOrder.dispenseRequest
   Must Support = Y
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MedicationOrder.dispenseRequest.medication[x]
   Type = CodeableConcept|Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
   Binding = !QICoreMedicationCodes
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = !MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
   QDM Mapping = refils
 

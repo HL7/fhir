@@ -16,6 +16,18 @@
   Definition = The set of RxNorm codes to represent medications
   Conformance = preferred
 
+ -- Row 3 -----------------------------------
+  Binding Name = DAFBodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-bodysite
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = DAFRoute
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/daf-medication-route
+  Conformance = preferred
+
 === Sheet QICore-MedicationStatement =====================================
 
  -- Row 1 -----------------------------------
@@ -73,11 +85,16 @@
   QDM Mapping = frequency
 
  -- Row 12 -----------------------------------
-  Element = MedicationStatement.dosage.route
-  Must Support = Y
-  QDM Mapping = route
+  Element = MedicationStatement.dosage.site[x]
+  Binding = DAFBodySite
 
  -- Row 13 -----------------------------------
+  Element = MedicationStatement.dosage.route
+  Must Support = Y
+  Binding = DAFRoute
+  QDM Mapping = route
+
+ -- Row 14 -----------------------------------
   Element = MedicationStatement.dosage.quantity
   Must Support = Y
   QDM Mapping = dose
