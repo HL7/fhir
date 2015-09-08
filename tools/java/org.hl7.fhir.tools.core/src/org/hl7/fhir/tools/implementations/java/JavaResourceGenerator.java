@@ -186,8 +186,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write("@Block()\r\n");
       write("public class "+upFirst(name)+" extends BackboneElement ");
     } else if (clss == JavaGenClass.Constraint) {
-      write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
-			write("public class "+upFirst(cd.getName())+" extends "+upFirst(root.getName())+" ");
+      write("@DatatypeDef(name=\""+upFirst(name)+"\", profileOf=" + upFirst(root.getName()) + ".class)\r\n");
+			write("public class "+upFirst(cd.getName())+" extends " + upFirst(root.getName()) + " ");
     } else if (root.getName().equals("Quantity")) {
 		  write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
 			write("public class "+upFirst(name)+" extends Type implements ICompositeType ");
