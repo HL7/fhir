@@ -1106,7 +1106,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     impl.append("{ "+tn+" }\r\n\r\n");
 
     for (ElementDefn c : e.getElements()) {
-      generateField(c, e.getName(), defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", category, e.getName().equals("Extension"));
+      generateField(c, e.getPath(), defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", category, e.getName().equals("Extension"));
     }
 
     def.append("  private\r\n");
@@ -1513,7 +1513,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
     String s = getElementName(e.getName());
     String sumSet = "";
-    if (s.equals("id"))
+    if (s.equals("id") || path == null || path.startsWith("Bundle") || path.startsWith("Parameters") || definitions.hasBaseType(path) )
       sumSet = "soFull, soSummary, soText, soData";
     else if ((s.equals("text") && path.equals("DomainResource")) || (path.equals("Narrative")) )
       sumSet = "soFull, soText";

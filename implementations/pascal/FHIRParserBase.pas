@@ -812,13 +812,13 @@ end;
 procedure TFHIRJsonComposerBase.composeInnerResource(json: TJSONWriter; name: String; holder : TFHIRElement; oResource: TFhirResource);
 var
   blob : TAdvBuffer;
+  bytes : TBytes;
 begin
   if (holder <> nil) and (holder.Tag <> nil) then
 begin
     blob := holder.Tag as TAdvBuffer;
-    json.ValueObject(name);
-    json.ProduceBytes(blob.AsBytes);
-    json.FinishObject;
+    bytes := blob.AsBytes;
+    json.ValueBytes(name, bytes);
   end
   else if oResource <> nil then
   begin

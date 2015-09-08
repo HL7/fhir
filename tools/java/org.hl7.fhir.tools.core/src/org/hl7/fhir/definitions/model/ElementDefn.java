@@ -640,6 +640,8 @@ public class ElementDefn {
 
     private String sliceDescription;
 
+    private String path;
+
 	   public List<String> getAcceptableGenericTypes()
 	   {
 		   return acceptableGenericTypes;
@@ -858,6 +860,14 @@ public class ElementDefn {
 
   public void setNoBindingAllowed(boolean noBindingAllowed) {
     this.noBindingAllowed = noBindingAllowed;
+  }
+
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }	
   
 }

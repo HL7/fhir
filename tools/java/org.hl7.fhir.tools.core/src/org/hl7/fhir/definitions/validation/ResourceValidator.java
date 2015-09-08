@@ -455,6 +455,7 @@ public class ResourceValidator extends BaseValidator {
 //  	  else
 //  	    typeCounter.put(t.getName(), typeCounter.get(t.getName())+1);
 //	  }
+	  e.setPath(path);
 	  int vsWarnings = 0;
 	  if (!names.containsKey(e.getName()))
 	    names.put(e.getName(), 0);

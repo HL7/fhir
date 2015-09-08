@@ -190,6 +190,7 @@ begin
           json.Value('system', t.system);
           json.Value('code', t.code);
           json.Value('display', t.display);
+          json.FinishObject;
         end;
         json.FinishArray;
         json.Finish;
