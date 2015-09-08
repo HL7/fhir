@@ -463,7 +463,6 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
 		return isBlank(getValue());
 	}
 
-  @Override
   public boolean isIdPartValid() {
     String id = getIdPart();
     if (StringUtils.isBlank(id)) {
