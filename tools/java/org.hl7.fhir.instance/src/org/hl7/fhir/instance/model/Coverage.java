@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
+// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -150,16 +150,16 @@ public class Coverage extends DomainResource {
     /**
      * The policy(s) which constitute this insurance coverage.
      */
-    @Child(name = "contract", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "contract", type = {Contract.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract details", formalDefinition="The policy(s) which constitute this insurance coverage." )
     protected List<Reference> contract;
     /**
      * The actual objects that are the target of the reference (The policy(s) which constitute this insurance coverage.)
      */
-    protected List<Resource> contractTarget;
+    protected List<Contract> contractTarget;
 
 
-    private static final long serialVersionUID = -554495631L;
+    private static final long serialVersionUID = -1312031251L;
 
   /*
    * Constructor
@@ -696,10 +696,22 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #contract} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The policy(s) which constitute this insurance coverage.)
      */
-    public List<Resource> getContractTarget() { 
+    public List<Contract> getContractTarget() { 
       if (this.contractTarget == null)
-        this.contractTarget = new ArrayList<Resource>();
+        this.contractTarget = new ArrayList<Contract>();
       return this.contractTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #contract} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The policy(s) which constitute this insurance coverage.)
+     */
+    public Contract addContractTarget() { 
+      Contract r = new Contract();
+      if (this.contractTarget == null)
+        this.contractTarget = new ArrayList<Contract>();
+      this.contractTarget.add(r);
+      return r;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -717,7 +729,7 @@ public class Coverage extends DomainResource {
         childrenList.add(new Property("sequence", "positiveInt", "An optional counter for a particular instance of the identified coverage which increments upon each renewal.", 0, java.lang.Integer.MAX_VALUE, sequence));
         childrenList.add(new Property("subscriber", "Reference(Patient)", "The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.", 0, java.lang.Integer.MAX_VALUE, subscriber));
         childrenList.add(new Property("network", "Identifier", "The identifier for a community of providers.", 0, java.lang.Integer.MAX_VALUE, network));
-        childrenList.add(new Property("contract", "Reference(Any)", "The policy(s) which constitute this insurance coverage.", 0, java.lang.Integer.MAX_VALUE, contract));
+        childrenList.add(new Property("contract", "Reference(Contract)", "The policy(s) which constitute this insurance coverage.", 0, java.lang.Integer.MAX_VALUE, contract));
       }
 
       public Coverage copy() {

@@ -228,7 +228,7 @@ public class ToolingExtensions {
     return readStringExtension(c, EXT_COMMENT);    
   }
 
-  public static Boolean getDeprecated(ConceptDefinitionComponent c) {
+  public static Boolean getDeprecated(Element c) {
     return readBooleanExtension(c, EXT_DEPRECATED);    
   }
 
@@ -236,7 +236,7 @@ public class ToolingExtensions {
     return findStringExtension(c, EXT_COMMENT);    
   }
 
-  public static boolean hasDeprecated(ConceptDefinitionComponent c) {
+  public static boolean hasDeprecated(Element c) {
     return findBooleanExtension(c, EXT_DEPRECATED);    
   }
 

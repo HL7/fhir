@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
+// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -140,7 +140,7 @@ public class Observation extends DomainResource {
             case PRELIMINARY: return "Preliminary";
             case FINAL: return "Final";
             case AMENDED: return "Amended";
-            case CANCELLED: return "Cancelled";
+            case CANCELLED: return "cancelled";
             case ENTEREDINERROR: return "Entered in Error";
             case UNKNOWN: return "Unknown Status";
             default: return "?";
@@ -206,11 +206,11 @@ public class Observation extends DomainResource {
          */
         REPLACES, 
         /**
-         * The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure)
+         * The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipemia measure target from a plasma measure)
          */
         QUALIFIEDBY, 
         /**
-         * The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value)
+         * The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value)
          */
         INTERFEREDBY, 
         /**
@@ -262,8 +262,8 @@ public class Observation extends DomainResource {
             case DERIVEDFROM: return "The target resource (Observation or QuestionnaireAnswer) is part of the information from which this observation value is derived. (e.g. calculated anion gap, Apgar score)  NOTE:  \"derived-from\" is only logical choice when referencing QuestionnaireAnswer";
             case SEQUELTO: return "This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test)";
             case REPLACES: return "This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete";
-            case QUALIFIEDBY: return "The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure)";
-            case INTERFEREDBY: return "The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value)";
+            case QUALIFIEDBY: return "The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipemia measure target from a plasma measure)";
+            case INTERFEREDBY: return "The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value)";
             default: return "?";
           }
         }
@@ -566,14 +566,14 @@ public class Observation extends DomainResource {
         protected Enumeration<ObservationRelationshipType> type;
 
         /**
-         * A reference to the observation or questionnaireanswer that is related to this observation.
+         * A reference to the observation or questionnaireanswer resource that is related to this observation.
          */
         @Child(name = "target", type = {Observation.class, QuestionnaireResponse.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Resource that is related to this one", formalDefinition="A reference to the observation or questionnaireanswer that is related to this observation." )
+        @Description(shortDefinition="Resource that is related to this one", formalDefinition="A reference to the observation or questionnaireanswer resource that is related to this observation." )
         protected Reference target;
 
         /**
-         * The actual object that is the target of the reference (A reference to the observation or questionnaireanswer that is related to this observation.)
+         * The actual object that is the target of the reference (A reference to the observation or questionnaireanswer resource that is related to this observation.)
          */
         protected Resource targetTarget;
 
@@ -644,7 +644,7 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @return {@link #target} (A reference to the observation or questionnaireanswer that is related to this observation.)
+         * @return {@link #target} (A reference to the observation or questionnaireanswer resource that is related to this observation.)
          */
         public Reference getTarget() { 
           if (this.target == null)
@@ -660,7 +660,7 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @param value {@link #target} (A reference to the observation or questionnaireanswer that is related to this observation.)
+         * @param value {@link #target} (A reference to the observation or questionnaireanswer resource that is related to this observation.)
          */
         public ObservationRelatedComponent setTarget(Reference value) { 
           this.target = value;
@@ -668,14 +668,14 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the observation or questionnaireanswer that is related to this observation.)
+         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the observation or questionnaireanswer resource that is related to this observation.)
          */
         public Resource getTargetTarget() { 
           return this.targetTarget;
         }
 
         /**
-         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the observation or questionnaireanswer that is related to this observation.)
+         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the observation or questionnaireanswer resource that is related to this observation.)
          */
         public ObservationRelatedComponent setTargetTarget(Resource value) { 
           this.targetTarget = value;
@@ -685,7 +685,7 @@ public class Observation extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A code specifying the kind of relationship that exists with the target resource.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("target", "Reference(Observation|QuestionnaireResponse)", "A reference to the observation or questionnaireanswer that is related to this observation.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("target", "Reference(Observation|QuestionnaireResponse)", "A reference to the observation or questionnaireanswer resource that is related to this observation.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public ObservationRelatedComponent copy() {
@@ -750,7 +750,7 @@ public class Observation extends DomainResource {
          * Guidance on how to interpret the value by comparison to a normal or recommended range.
          */
         @Child(name = "referenceRange", type = {ObservationReferenceRangeComponent.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Provides guide for interpretation ofcomponent result", formalDefinition="Guidance on how to interpret the value by comparison to a normal or recommended range." )
+        @Description(shortDefinition="Provides guide for interpretation of component result", formalDefinition="Guidance on how to interpret the value by comparison to a normal or recommended range." )
         protected List<ObservationReferenceRangeComponent> referenceRange;
 
         private static final long serialVersionUID = 946602904L;
@@ -1210,10 +1210,10 @@ public class Observation extends DomainResource {
     protected List<ObservationReferenceRangeComponent> referenceRange;
 
     /**
-     * A  reference to another resource ( usally another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.
+     * A  reference to another resource ( usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.
      */
     @Child(name = "related", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Resource related to this observation", formalDefinition="A  reference to another resource ( usally another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code." )
+    @Description(shortDefinition="Resource related to this observation", formalDefinition="A  reference to another resource ( usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code." )
     protected List<ObservationRelatedComponent> related;
 
     /**
@@ -2018,7 +2018,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #related} (A  reference to another resource ( usally another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.)
+     * @return {@link #related} (A  reference to another resource ( usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.)
      */
     public List<ObservationRelatedComponent> getRelated() { 
       if (this.related == null)
@@ -2036,7 +2036,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #related} (A  reference to another resource ( usally another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.)
+     * @return {@link #related} (A  reference to another resource ( usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.)
      */
     // syntactic sugar
     public ObservationRelatedComponent addRelated() { //3
@@ -2117,7 +2117,7 @@ public class Observation extends DomainResource {
         childrenList.add(new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("device", "Reference(Device|DeviceMetric)", "The device used to generate the observation data.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("referenceRange", "", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange));
-        childrenList.add(new Property("related", "", "A  reference to another resource ( usally another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.", 0, java.lang.Integer.MAX_VALUE, related));
+        childrenList.add(new Property("related", "", "A  reference to another resource ( usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.", 0, java.lang.Integer.MAX_VALUE, related));
         childrenList.add(new Property("component", "", "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.", 0, java.lang.Integer.MAX_VALUE, component));
       }
 

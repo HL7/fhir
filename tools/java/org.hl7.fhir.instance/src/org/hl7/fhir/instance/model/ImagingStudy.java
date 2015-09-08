@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
+// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -198,10 +198,10 @@ public class ImagingStudy extends DomainResource {
         protected UriType url;
 
         /**
-         * Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.
+         * Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT.
          */
         @Child(name = "bodySite", type = {Coding.class}, order=8, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Body part examined", formalDefinition="Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed." )
+        @Description(shortDefinition="Body part examined", formalDefinition="Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT." )
         protected Coding bodySite;
 
         /**
@@ -551,7 +551,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #bodySite} (Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.)
+         * @return {@link #bodySite} (Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT.)
          */
         public Coding getBodySite() { 
           if (this.bodySite == null)
@@ -567,7 +567,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #bodySite} (Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.)
+         * @param value {@link #bodySite} (Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT.)
          */
         public ImagingStudySeriesComponent setBodySite(Coding value) { 
           this.bodySite = value;
@@ -696,7 +696,7 @@ public class ImagingStudy extends DomainResource {
           childrenList.add(new Property("numberOfInstances", "unsignedInt", "Number of SOP Instances in Series.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
           childrenList.add(new Property("availability", "code", "Availability of series (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
           childrenList.add(new Property("url", "uri", "URI/URL specifying the location of the referenced series using WADO-RS.", 0, java.lang.Integer.MAX_VALUE, url));
-          childrenList.add(new Property("bodySite", "Coding", "Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
+          childrenList.add(new Property("bodySite", "Coding", "Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT.", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("laterality", "Coding", "Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code.", 0, java.lang.Integer.MAX_VALUE, laterality));
           childrenList.add(new Property("started", "dateTime", "The date and time when the series was started.", 0, java.lang.Integer.MAX_VALUE, started));
           childrenList.add(new Property("instance", "", "A single SOP Instance within the series, e.g., an image, or presentation state.", 0, java.lang.Integer.MAX_VALUE, instance));
@@ -2146,9 +2146,9 @@ public class ImagingStudy extends DomainResource {
     return ResourceType.ImagingStudy;
    }
 
-  @SearchParamDefinition(name="uid", path="ImagingStudy.series.instance.uid", description="The instance unique identifier", type="token" )
+  @SearchParamDefinition(name="uid", path="ImagingStudy.series.instance.uid", description="The instance unique identifier", type="string" )
   public static final String SP_UID = "uid";
-  @SearchParamDefinition(name="series", path="ImagingStudy.series.uid", description="The identifier of the series of images", type="token" )
+  @SearchParamDefinition(name="series", path="ImagingStudy.series.uid", description="The identifier of the series of images", type="string" )
   public static final String SP_SERIES = "series";
   @SearchParamDefinition(name="patient", path="ImagingStudy.patient", description="Who the study is about", type="reference" )
   public static final String SP_PATIENT = "patient";
@@ -2158,13 +2158,13 @@ public class ImagingStudy extends DomainResource {
   public static final String SP_BODYSITE = "bodysite";
   @SearchParamDefinition(name="accession", path="ImagingStudy.accession", description="The accession identifier for the study", type="token" )
   public static final String SP_ACCESSION = "accession";
-  @SearchParamDefinition(name="study", path="ImagingStudy.uid", description="The study identifier for the image", type="token" )
+  @SearchParamDefinition(name="study", path="ImagingStudy.uid", description="The study identifier for the image", type="string" )
   public static final String SP_STUDY = "study";
   @SearchParamDefinition(name="modality", path="ImagingStudy.series.modality", description="The modality of the series", type="token" )
   public static final String SP_MODALITY = "modality";
   @SearchParamDefinition(name="started", path="ImagingStudy.started", description="When the study was started", type="date" )
   public static final String SP_STARTED = "started";
-  @SearchParamDefinition(name="dicom-class", path="ImagingStudy.series.instance.sopClass", description="The type of the instance", type="token" )
+  @SearchParamDefinition(name="dicom-class", path="ImagingStudy.series.instance.sopClass", description="The type of the instance", type="string" )
   public static final String SP_DICOMCLASS = "dicom-class";
 
 }

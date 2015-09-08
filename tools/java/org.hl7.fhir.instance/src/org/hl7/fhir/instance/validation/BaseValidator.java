@@ -266,8 +266,9 @@ public class BaseValidator {
    *          Set this parameter to <code>false</code> if the validation does not pass
    * @return Returns <code>thePass</code> (in other words, returns <code>true</code> if the rule did not fail validation)
    */
-  protected boolean warning(List<ValidationMessage> errors, IssueType type, int line, int col, String path, boolean thePass, String msg) {
+  protected boolean warning(List<ValidationMessage> errors, IssueType type, int line, int col, String path, boolean thePass, String msg, Object... theMessageArguments) {
     if (!thePass) { 
+      msg = formatMessage(msg, theMessageArguments);
       errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.WARNING));
     }
     return thePass;

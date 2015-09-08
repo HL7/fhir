@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 1, 2015 11:15+1000 for FHIR v1.0.0
+// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -161,10 +161,10 @@ public class Quantity extends Type implements ICompositeType {
     protected Enumeration<QuantityComparator> comparator;
 
     /**
-     * A human-readable form of the units.
+     * A human-readable form of the unit.
      */
     @Child(name = "unit", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Unit representation", formalDefinition="A human-readable form of the units." )
+    @Description(shortDefinition="Unit representation", formalDefinition="A human-readable form of the unit." )
     protected StringType unit;
 
     /**
@@ -175,10 +175,10 @@ public class Quantity extends Type implements ICompositeType {
     protected UriType system;
 
     /**
-     * A computer processable form of the units in some unit representation system.
+     * A computer processable form of the unit in some unit representation system.
      */
     @Child(name = "code", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Coded form of the unit", formalDefinition="A computer processable form of the units in some unit representation system." )
+    @Description(shortDefinition="Coded form of the unit", formalDefinition="A computer processable form of the unit in some unit representation system." )
     protected CodeType code;
 
     private static final long serialVersionUID = 1069574054L;
@@ -289,7 +289,7 @@ public class Quantity extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #unit} (A human-readable form of the units.). This is the underlying object with id, value and extensions. The accessor "getUnit" gives direct access to the value
+     * @return {@link #unit} (A human-readable form of the unit.). This is the underlying object with id, value and extensions. The accessor "getUnit" gives direct access to the value
      */
     public StringType getUnitElement() { 
       if (this.unit == null)
@@ -309,7 +309,7 @@ public class Quantity extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #unit} (A human-readable form of the units.). This is the underlying object with id, value and extensions. The accessor "getUnit" gives direct access to the value
+     * @param value {@link #unit} (A human-readable form of the unit.). This is the underlying object with id, value and extensions. The accessor "getUnit" gives direct access to the value
      */
     public Quantity setUnitElement(StringType value) { 
       this.unit = value;
@@ -317,14 +317,14 @@ public class Quantity extends Type implements ICompositeType {
     }
 
     /**
-     * @return A human-readable form of the units.
+     * @return A human-readable form of the unit.
      */
     public String getUnit() { 
       return this.unit == null ? null : this.unit.getValue();
     }
 
     /**
-     * @param value A human-readable form of the units.
+     * @param value A human-readable form of the unit.
      */
     public Quantity setUnit(String value) { 
       if (Utilities.noString(value))
@@ -387,7 +387,7 @@ public class Quantity extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #code} (A computer processable form of the units in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+     * @return {@link #code} (A computer processable form of the unit in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
     public CodeType getCodeElement() { 
       if (this.code == null)
@@ -407,7 +407,7 @@ public class Quantity extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #code} (A computer processable form of the units in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+     * @param value {@link #code} (A computer processable form of the unit in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
     public Quantity setCodeElement(CodeType value) { 
       this.code = value;
@@ -415,14 +415,14 @@ public class Quantity extends Type implements ICompositeType {
     }
 
     /**
-     * @return A computer processable form of the units in some unit representation system.
+     * @return A computer processable form of the unit in some unit representation system.
      */
     public String getCode() { 
       return this.code == null ? null : this.code.getValue();
     }
 
     /**
-     * @param value A computer processable form of the units in some unit representation system.
+     * @param value A computer processable form of the unit in some unit representation system.
      */
     public Quantity setCode(String value) { 
       if (Utilities.noString(value))
@@ -439,9 +439,9 @@ public class Quantity extends Type implements ICompositeType {
         super.listChildren(childrenList);
         childrenList.add(new Property("value", "decimal", "The value of the measured amount. The value includes an implicit precision in the presentation of the value.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("comparator", "code", "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is \"<\" , then the real value is < stated value.", 0, java.lang.Integer.MAX_VALUE, comparator));
-        childrenList.add(new Property("unit", "string", "A human-readable form of the units.", 0, java.lang.Integer.MAX_VALUE, unit));
+        childrenList.add(new Property("unit", "string", "A human-readable form of the unit.", 0, java.lang.Integer.MAX_VALUE, unit));
         childrenList.add(new Property("system", "uri", "The identification of the system that provides the coded form of the unit.", 0, java.lang.Integer.MAX_VALUE, system));
-        childrenList.add(new Property("code", "code", "A computer processable form of the units in some unit representation system.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("code", "code", "A computer processable form of the unit in some unit representation system.", 0, java.lang.Integer.MAX_VALUE, code));
       }
 
       public Quantity copy() {
