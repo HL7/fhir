@@ -1121,7 +1121,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Service category</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A code that classifies the dlinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code.</Data><NamedCell
@@ -1519,7 +1519,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">dImagingStudy and ImageObjectStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ImagingStudy and ImageObjectStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]</Data><NamedCell
@@ -1667,7 +1667,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Concise and clinically contextualized narrative interpretation of the diagnostic report</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to provide a conclusion that is not lost amongst the basic result data</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to provide a conclusion that is not lost among the basic result data</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Typically, a report is either [all data, no narrative (e.g. Core lab)] or [a mix of data with some concluding narrative (e.g. Structured Pathology Report, Bone Density)], or [all narrative (e.g. typical imaging report, histopathology)]. In all of these cases, the narrative goes in &quot;text&quot;.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

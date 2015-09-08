@@ -8,35 +8,44 @@ Examples of nested report groups: the antibody hepatitis order panel code for a 
 <h2>
 Notes:
 </h2>
-	<ul>
-		<li>
-If the diagnostic procedure was performed on the patient directly, <i>diagnostic[x]</i> is a dateTime, the time it was performed.
-If specimens were taken, the diagnostically relevant time can be derived from the specimen collection times, but
-since detailed specimen information is not always available, and nor is the diagnostically relevant time always exactly the specimen collection time (e.g. complex timed tests), the
-reports SHALL always include a <i>diagnostic[x]</i> element. Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> messages often carry a diagnostically relevant time without carrying any specimen information.
+<h3>Clinically Relevant Time</h3>
+	<p>
+If the diagnostic procedure was performed on the patient directly, the <a href="diagnosticreport-definitions.html#DiagnosticReport.effective_x_">effective[x]</a> element is a dateTime, the time it was performed.
+If specimens were taken, the clinically relevant time of the report can be derived from the specimen collection times, but
+since detailed specimen information is not always available, and nor is the clinically relevant time always exactly the specimen collection time (e.g. complex timed tests), the
+reports SHALL always include a effective[x] element. Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> messages often carry a diagnostically relevant time without carrying any specimen information.
+</p>
+<h3>Associated Observations</h3>
+<ul>		
+<li>
+The DiagnosticReport.code always contains the name of the report itself. The report can also contain a set of Observations in the DiagnosticReport.result element. These Observations can be simple observations (e.g. atomic results) or groups/panels of other observations. The Observation.code indicates the nature of the observation or panel (e.g. individual measure, organism isolate/sensitivity or antibody functional testing).   When relevant, the observation can specify a particular specimen from which the result comes.
+<ul>		
+<li>
+ Examples of nesting groups/panels within an observation include reporting a "profile" consisting of several  panels as is shown in <a href="diagnosticreport-example-ghp.html">this example</a>, a group of antibiotic isolate/sensitivities for a bacterial culture, or a set of perinatal measurements on a single fetus. 
+ </li>
+ <li>There is rarely a need for more than two levels of nesting in the Observation tree. One known use is for organism sensitivities - an example of a <a href="diagnosticreport-micro1.html">complex Micro Isolate and Sensitivities</a> is provided.
 </li>
-		<li>
-A report always contains the name of the report itself. The report can also contain a set of observations, which can themselves be simple observations (e.g. atomic results) or can themselves be groups/panels of other observations.
-The Observation.name is a code that indicates the nature of the observation or panel (e.g. individual measure, organism isolate/sensitivity or antibody functional testing).  When relevant, the observation can specify a particular
-specimen from which the result comes.
+</ul>
 </li>
-		<li>
-There is rarely a need for more than two levels of nesting in the Observation tree. One known use is for organism sensitivities - see <a href="diagnosticreport-micro1.html">this example</a>.
-</li>
-		<li>
+</ul>
+<h3>Associated Images</h3>
+<p>
+ImagingStudy and ImageObjectStudy and the DiagnosticReport.image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.
+</p>
+<h3>Diagnostic Report Status</h3>
+<ul>
+<li>
 Applications consuming diagnostic reports must take careful note of updated (revised) reports, and ensure that retracted reports are appropriately handled.
 </li>
-		<li>
+<li>
 For applications providing diagnostic reports, a report should not be final until all the individual data items
-reported with it are final or amended. If a report is retracted, all the results should be retracted by replacing
-every result value with the Concept "withdrawn" in the internal terminology <a href="valueset-special-values.html">"Special values"</a>
-(url = "http://hl7.org/fhir/special-values"), and setting the conclusion (if provided) and the text narrative to some
-text like "This report has been withdrawn" in the appropriate language. A reason for retraction may be provided in the
-narrative. </li>
-		<li>
-		ImagingStudy and ImageObjectStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.
-		</li>
-	</ul>
+reported with it are final or amended.
+</li>
+<li>
+If the report has been withdrawn following a previous final release, the DiagnosticReport and associated Observations should be retracted by replacing the status codes with the concept "entered-in-error", and setting the conclusion/comment (if provided) and the text narrative to some text like "This report has been withdrawn" in the appropriate language. A reason for retraction may be provided in the narrative.
+</li>
+</ul>
+
 	<h3>Report Content</h3>
 	<p>
 This resource provides for 3 different ways of presenting the Diagnostic Report:
