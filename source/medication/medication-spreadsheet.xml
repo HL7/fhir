@@ -10,16 +10,16 @@
   <LastAuthor>Rik Smithies</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-13T15:10:31Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>13680</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopY>60</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -976,7 +976,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Not published</Font>        </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="39">
     <Cell ss:StyleID="s78"><Data ss:Type="String">Medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1009,7 +1009,7 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="330" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Height="218.25">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1039,14 +1039,14 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code  </Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code / RXC-2.1 Component Code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Height="54">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.isBrand</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1080,7 +1080,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="285" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Height="78">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.manufacturer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1115,7 +1115,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="51">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.product</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1147,7 +1147,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="345" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Height="37.5">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.product.form</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1181,7 +1181,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60.75">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.product.ingredient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1215,7 +1215,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="405" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Height="37.5">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.product.ingredient.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1241,14 +1241,14 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.player</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">if substance: RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code  </Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Height="36">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.product.ingredient.amount</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1274,14 +1274,14 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">if substance: RXC-3-Component Amount &amp; RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum &amp; RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum &amp; RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount &amp; RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum &amp; RXE-5-Give Units / RXE-4-Give Amount - Maximum &amp; RXE-5-Give Units / RXE-10-Dispense Amount &amp; RXE-10-Dispense Units  </Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">RXC-3-Component Amount &amp; RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum &amp; RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum &amp; RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount &amp; RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum &amp; RXE-5-Give Units / RXE-4-Give Amount - Maximum &amp; RXE-5-Give Units / RXE-10-Dispense Amount &amp; RXE-10-Dispense Units  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.product.batch</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1311,7 +1311,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Height="32.25">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.product.batch.lotNumber</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1335,13 +1335,14 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">RXA-15 Substance Lot Number / RXG-19 Substance Lot Number</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Height="34.5">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.product.batch.expirationDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1365,13 +1366,14 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">RXA-16 Substance Expiration Date / RXG-20 Substance Expiration Date</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.package</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1404,7 +1406,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Height="57.75">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.package.container</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1437,7 +1439,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medication.package.content</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3710,9 +3712,9 @@
    <FrozenNoSplit/>
    <FilterOn/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3724,11 +3726,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>21</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>19</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

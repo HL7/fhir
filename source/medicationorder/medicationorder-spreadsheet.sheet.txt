@@ -190,7 +190,7 @@
   Type = CodeableConcept | Reference(Condition)
   Short Label = Reason or indication for writing the prescription
   Definition = Can be the reason or the indication for writing the prescription.
-  v2 Mapping = ORC-16-Order Control Code Reason
+  v2 Mapping = ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication
   RIM Mapping = reason.observation or reason.observation[code=ASSERTION].value
   w5 = why
 
@@ -208,7 +208,7 @@
   Short Label = Medication to be taken
   Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used
-  v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code
+  v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code
   RIM Mapping = consumable.administrableMedication
   w5 = what
 
@@ -236,7 +236,7 @@
   Type = CodeableConcept
   Short Label = Supplemental instructions - e.g. \"with meals\"
   Definition = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
-  v2 Mapping = RXE-7.2-Provider\'s Administration Instructions.text / RXO-7.2-Provider\'s Administration Instructions.text / TQ1-10-Condition Text / TQ1-11-Text Instruction ?
+  v2 Mapping = RXE-7.2-Provider\'s Administration Instructions.text / RXO-7.2-Provider\'s Administration Instructions.text / TQ1-10-Condition Text / TQ1-11-Text Instruction
   RIM Mapping = component.substanceAdministrationRequest.text
 
  -- Row 16 -----------------------------------
@@ -245,7 +245,7 @@
   Type = Timing
   Short Label = When medication should be administered
   Definition = The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.
-  v2 Mapping = RDS:TQ1
+  v2 Mapping = TQ1-X / ORC Quantity/timing
   RIM Mapping = effectiveTime
 
  -- Row 17 -----------------------------------
@@ -341,7 +341,6 @@
   Type = Period
   Short Label = Time period supply is authorized for
   Definition = Design Comments: This indicates the validity period of a prescription (stale dating the Prescription)  It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.  Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.
-  v2 Mapping = RXD-3-Date/Time Dispensed ? / RXD-19-Substance Expiration Date
   RIM Mapping = effectiveTime
   To Do = Check v2 mapping
 
@@ -388,7 +387,7 @@
   Binding = MedicationIntendedSubstitutionType
   Short Label = generic | formulary +
   Definition = A code signifying whether a different drug should be dispensed from what was prescribed.
-  v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status?
+  v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = code
 
  -- Row 32 -----------------------------------
@@ -398,6 +397,7 @@
   Binding = MedicationIntendedSubstitutionReason
   Short Label = Why should substitution (not) be made
   Definition = Indicates the reason for the substitution, or why substitution must or must not be performed.
+  v2 Mapping = RXE-9 Substition status
   RIM Mapping = reasonCode
 
  -- Row 33 -----------------------------------

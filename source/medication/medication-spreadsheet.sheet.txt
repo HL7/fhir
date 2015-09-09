@@ -44,7 +44,7 @@
   Short Label = Codes that identify this medication
   Definition = A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.
   Comments = Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) should be marked as “primary”. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one).
-  v2 Mapping = RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code
+  v2 Mapping = RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code / RXC-2.1 Component Code
   RIM Mapping = .code
   w5 = class
 
@@ -103,7 +103,7 @@
   Type = Reference(Substance|Medication)
   Short Label = The product contained
   Definition = The actual ingredient - either a substance (simple ingredient) or another medication
-  v2 Mapping = if substance: RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code
+  v2 Mapping = RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code
   RIM Mapping = .player
 
  -- Row 9 -----------------------------------
@@ -112,7 +112,7 @@
   Type = Ratio
   Short Label = How much ingredient in product
   Definition = Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet
-  v2 Mapping = if substance: RXC-3-Component Amount & RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum & RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum & RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount & RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum & RXE-5-Give Units / RXE-4-Give Amount - Maximum & RXE-5-Give Units / RXE-10-Dispense Amount & RXE-10-Dispense Units
+  v2 Mapping = RXC-3-Component Amount & RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum & RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum & RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount & RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum & RXE-5-Give Units / RXE-4-Give Amount - Maximum & RXE-5-Give Units / RXE-10-Dispense Amount & RXE-10-Dispense Units
   RIM Mapping = .quantity
 
  -- Row 10 -----------------------------------
@@ -126,12 +126,14 @@
   Card. = 0..1
   Type = string
   Definition = The assigned lot number of a batch of the specified product.
+  v2 Mapping = RXA-15 Substance Lot Number / RXG-19 Substance Lot Number
 
  -- Row 12 -----------------------------------
   Element = Medication.product.batch.expirationDate
   Card. = 0..1
   Type = dateTime
   Definition = When this specific batch of product will expire.
+  v2 Mapping = RXA-16 Substance Expiration Date / RXG-20 Substance Expiration Date
 
  -- Row 13 -----------------------------------
   Element = Medication.package

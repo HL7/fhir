@@ -115,7 +115,7 @@
   Type = Identifier
   Short Label = External identifier
   Definition = External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
-  v2 Mapping = RXA-25-Administered Barcode Identifier? (HL7 v2 def\'n of RXA-25 refers to the \'give\' occurrence; appears not to discuss \'administer\' cardinality which would seem to be 0..*)
+  v2 Mapping = RXA-25-Administered Barcode Identifier
   RIM Mapping = id
   w5 = id
 
@@ -167,7 +167,7 @@
   Type = Reference(MedicationOrder)
   Short Label = Order administration performed against
   Definition = The original request, instruction or authority to perform the administration.
-  v2 Mapping = ORC-3-Filler Order Number / ORC-2-Placer Order Number
+  v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = InFullfillmentOf->SubstanceAdministration
 
  -- Row 8 -----------------------------------
@@ -189,7 +189,7 @@
   Binding = MedicationAdministrationNegationReason
   Short Label = Reason administration not performed
   Definition = A code indicating why the administration was not performed.
-  v2 Mapping = RXA-9-Administration Notes:RXA-20-Completion Status=\'NA\'
+  v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
   RIM Mapping = Reason->Observation->Value
 
  -- Row 10 -----------------------------------
@@ -200,6 +200,7 @@
   Binding = MedicationAdministrationReason
   Short Label = Reason administration performed
   Definition = A code indicating why the medication was given.
+  v2 Mapping = RXE-27 Give Indication
 
  -- Row 11 -----------------------------------
   Element = MedicationAdministration.effectiveTime[x]
@@ -228,7 +229,7 @@
   Type = Reference(Device)
   Short Label = Device used to administer
   Definition = The device used in administering the medication to the patient.  E.g. a particular infusion pump
-  v2 Mapping = PRT-10-Participation Device
+  v2 Mapping = PRT-10 Participation Device / RXR-3 Administrative Device
   RIM Mapping = device->Access  OR device->AssignedDevice
 
  -- Row 14 -----------------------------------
@@ -261,7 +262,7 @@
   Binding = MedicationAdministrationSite
   Short Label = Body site administered to
   Definition = A coded specification of the anatomic site where the medication first entered the body.  E.g. \"left arm\"
-  v2 Mapping = RXR-2-Administration Site
+  v2 Mapping = RXR-2 Administration Site / RXR-6 Administration Site Modifier
   RIM Mapping = approachSiteCode
 
  -- Row 18 -----------------------------------
@@ -291,7 +292,7 @@
   Short Label = Amount administered in one dose
   Definition = The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
   Comments = If the administration is not instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount administered over period of time of a single administration (as indicated by schedule)
-  v2 Mapping = RXA-6-Administered Amount / RXA-7.1-Administered Units.code / RXA-7.3-Administered Units.name of coding system (uri<->code system mapping required)
+  v2 Mapping = RXA-6 Administered Amount / RXA-7 Administered Units
   RIM Mapping = doseQuantity
 
  -- Row 21 -----------------------------------
