@@ -33,20 +33,20 @@ func (q *Query) Params() []SearchParam {
 		info, ok := SearchParameterDictionary[q.Resource][pSplit[0]]
 		if ok {
 			if len(pSplit) > 1 && info.Type != "reference" {
-				panic(fmt.Sprintf("Unimplemented: search modifier: :%s", pSplit[1]))
+				panic(UnsupportedError(fmt.Sprintf("search modifier: :%s", pSplit[1])))
 			}
 			for _, value := range values {
 				results = append(results, info.CreateSearchParam(value))
 			}
 		} else {
 			if strings.HasPrefix(param, "_") {
-				panic(fmt.Sprintf("Unimplemented: special search parameter: %s", param))
+				panic(UnsupportedError(fmt.Sprintf("special search parameter: %s", param)))
 			} else if strings.Contains(param, ".") {
-				panic("Unimplemented: chained search parameters")
+				panic(UnsupportedError("chained search parameters"))
 			} else if strings.Contains(param, ":") {
-				panic(fmt.Sprintf("Unimplemented: search modifier: %s", param[strings.Index(param, ":"):]))
+				panic(UnsupportedError(fmt.Sprintf("Unimplemented: search modifier: %s", param[strings.Index(param, ":"):])))
 			} else {
-				panic(fmt.Sprintf("%s does not support search parameter: %s", q.Resource, param))
+				panic(InvalidSearchError(fmt.Sprintf("%s does not support search parameter: %s", q.Resource, param)))
 			}
 		}
 	}

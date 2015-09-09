@@ -2,6 +2,7 @@ package server
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -15,6 +16,19 @@ import (
 )
 
 func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+	defer func() {
+		if r := recover(); r != nil {
+			switch x := r.(type) {
+			case search.UnsupportedError:
+				http.Error(rw, x.Error(), http.StatusNotImplemented)
+			case search.InvalidSearchError:
+				http.Error(rw, x.Error(), http.StatusBadRequest)
+			default:
+				http.Error(rw, fmt.Sprintf("%s", x), http.StatusInternalServerError)
+			}
+		}
+	}()
+
 	var result []models.<ModelName>
 	c := Database.C("<CollectionName>")
 
