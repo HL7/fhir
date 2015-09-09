@@ -40,11 +40,10 @@
   Conformance = preferred
 
  -- Row 6 -----------------------------------
-  Binding Name = QICoreActReason
+  Binding Name = QICoreCancelReason
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
+  Reference = valueset-encounter-canceled-reason
+  Conformance = example
 
 === Sheet QICore-Encounter =====================================
 
@@ -113,7 +112,7 @@
   Profile Name = Encounter.reasonCancelled
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-reasonCancelled}
-  Binding = QICoreActReason
+  Binding = QICoreCancelReason
   QDM Mapping = negation rationale
 
  -- Row 12 -----------------------------------

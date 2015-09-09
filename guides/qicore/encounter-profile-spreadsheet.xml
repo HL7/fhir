@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12252</WindowHeight>
-  <WindowWidth>24948</WindowWidth>
+  <WindowHeight>9168</WindowHeight>
+  <WindowWidth>23916</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -897,13 +897,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s166" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
-  </Style>
   <Style ss:ID="s167" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
@@ -1002,70 +995,24 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s218">
+  <Style ss:ID="s183">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s219">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s220">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s221">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
+  <Style ss:ID="s184">
    <Borders/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s222">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s223">
+  <Style ss:ID="s185">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s224">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s225">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
-   </Borders>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s226">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -1656,7 +1603,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/encounter-reasonCancelled}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">QICoreActReason</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">QICoreCancelReason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2063,33 +2010,33 @@
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16.05" ss:StyleID="s226">
-    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s219"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s219"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s220"><Data ss:Type="String">!Encounter.hospitalization.dietPreference</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:Height="16.05" ss:StyleID="s105">
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">!Encounter.hospitalization.dietPreference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><Data ss:Type="String">!QICoreEncounterDiet</Data><NamedCell
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">!QICoreEncounterDiet</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s221"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s222"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s222"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s225"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16.05">
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3709,13 +3656,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3731,8 +3677,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6317,7 +6263,7 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Must implementations use this value set?</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Reference</Data><Comment
+    <Cell ss:StyleID="s183"><Data ss:Type="String">Reference</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">#tab-name or value set filename(without extension) or URL for reference </Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6359,8 +6305,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Encounter Reason Value Set to describe reason for encounter</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s166" ss:HRef="http://hl7.org/fhir/ValueSet/daf-encounter-reason"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/daf-encounter-reason</Data></Cell>
+    <Cell ss:StyleID="s184"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-encounter-reason</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
@@ -6390,8 +6335,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Encounter Type Value set to describe the type of encounter</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s167" ss:HRef="http://hl7.org/fhir/ValueSet/daf-encounter-type"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/daf-encounter-type</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/daf-encounter-type</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
@@ -6431,21 +6375,20 @@
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s149"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s94"><Data ss:Type="String">QICoreActReason</Data></Cell>
-    <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s166" ss:HRef="http://hl7.org/fhir/ValueSet/v3-ActReason"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActReason</Data></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">A set of codes specifying the motivation, cause, or rationale of an Act.</Data></Cell>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s146"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s185">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">QICoreCancelReason</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s184"><Data ss:Type="String">valueset-encounter-canceled-reason</Data></Cell>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s148"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"/>
@@ -6760,6 +6703,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6779,7 +6723,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
