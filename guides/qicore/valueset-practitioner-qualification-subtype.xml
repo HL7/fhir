@@ -5,6 +5,7 @@
   <version value="0.01"/>
   <name value="HSPC Provider Qualification Status Value Set Definition"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Health Services Platform Consortium (HSPC)"/>
   <date value="2015-02-09"/>
   <description value="TBD"/>

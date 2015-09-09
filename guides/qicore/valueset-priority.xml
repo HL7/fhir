@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      <p>This value set includes all the &quot;Priorities&quot; SNOMED CT codes (i.e. codes with an is-a relationship with 272125009: Priorities).</p>
-      
-      
-      <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p>  
-    
-    
-    </div>
-  </text>
   <name value="SNOMED CT Priorities Codes"/>
   <status value="draft"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
