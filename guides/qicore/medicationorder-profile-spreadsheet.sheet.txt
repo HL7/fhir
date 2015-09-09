@@ -139,7 +139,7 @@
   Element = MedicationOrder.medication[x]
   Must Support = Y
   Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
-  Binding = !QICoreMedicationCodes
+  Binding = QICoreMedicationCodes
   QDM Mapping = primary code
 
  -- Row 19 -----------------------------------
