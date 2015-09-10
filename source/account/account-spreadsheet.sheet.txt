@@ -15,8 +15,11 @@
 
  -- Row 3 -----------------------------------
   Binding Name = AccountCurrency
-  Binding = unbound
+  Binding = reference
+  Reference = http://www.iso.org/iso/home/standards/currency_codes
   Definition = The monetary currency that this account records values in
+  Description = Currency codes - ISO 4217
+  Conformance = example
 
 === Sheet account-status =====================================
 
@@ -89,6 +92,7 @@
   Element = Account.currency
   Card. = 0..1
   Type = Coding
+  Binding = AccountCurrency
   Short Label = Base currency in which balance is tracked
   Definition = Identifies the currency to which transactions must be converted when crediting or debiting the account.
   Comments = Tracked separately from balance because currency might be known when balance is not.  In some cases, balance might be expressed in a currency other than the base currency for the account
