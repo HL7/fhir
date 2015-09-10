@@ -35,26 +35,6 @@
   QUICK mapping = ImmunizationPerformanceOccurrence
 
  -- Row 2 -----------------------------------
-  Element = Immunization.identifier
-  Card. = 0..*
-  Must Support = Y
-  Type = Identifier
-  QUICK mapping = identifier
-
- -- Row 3 -----------------------------------
-  Element = Immunization.status
-  Card. = 1..1
-  Must Support = Y
-  Type = code
-
- -- Row 4 -----------------------------------
-  Element = Immunization.date
-  Card. = 1..1
-  Must Support = Y
-  Type = dateTime
-  QUICK mapping = performanceTime
-
- -- Row 5 -----------------------------------
   Element = Immunization.vaccineType
   Card. = 1..1
   Must Support = Y
@@ -62,6 +42,26 @@
   Binding = VaccineTypesCVX
   Short Label = Vaccine Product Type (bind to CVX)
   QUICK mapping = vaccine
+
+ -- Row 3 -----------------------------------
+  Element = Immunization.identifier
+  Card. = 0..*
+  Must Support = Y
+  Type = Identifier
+  QUICK mapping = identifier
+
+ -- Row 4 -----------------------------------
+  Element = Immunization.status
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+
+ -- Row 5 -----------------------------------
+  Element = Immunization.date
+  Card. = 1..1
+  Must Support = Y
+  Type = dateTime
+  QUICK mapping = performanceTime
 
  -- Row 6 -----------------------------------
   Element = Immunization.patient

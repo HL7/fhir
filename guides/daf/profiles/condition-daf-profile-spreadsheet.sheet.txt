@@ -51,7 +51,7 @@
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
 
  -- Row 6 -----------------------------------
-  Element = Condition.dateAsserted
+  Element = Condition.dateRecorded
   Card. = 0..1
   Must Support = Y
   Type = date

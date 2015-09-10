@@ -272,7 +272,6 @@
 
  -- Row 31 -----------------------------------
   Element = Patient.contact.address
-  Card. = 0..*
   Must Support = y
   Type = Address
 

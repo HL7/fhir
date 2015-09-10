@@ -59,13 +59,11 @@
 
  -- Row 7 -----------------------------------
   Element = MedicationOrder.prescriber
-  Card. = 0..*
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}
 
  -- Row 8 -----------------------------------
   Element = MedicationOrder.encounter
-  Card. = 0..*
   Must Support = Y
   Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}
 

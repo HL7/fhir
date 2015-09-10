@@ -154,10 +154,8 @@
   Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}
 
  -- Row 17 -----------------------------------
-  Element = DiagnosticOrder.clinicalNotes
-  Card. = 0..1
+  Element = DiagnosticOrder.reason
   Must Support = Y
-  Type = string
   Committee Notes = 11/17/2014 EH:  prefer to use the observations for this? But practically may need this
 
  -- Row 18 -----------------------------------

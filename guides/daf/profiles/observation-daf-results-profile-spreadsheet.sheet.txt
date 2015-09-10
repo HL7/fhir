@@ -277,7 +277,6 @@
 
  -- Row 25 -----------------------------------
   Element = Observation.specimen
-  Card. = 0..*
   Must Support = Y
   Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/daf-spec}
   Committee Notes = 11/19/2014 EH: SPM segment ,  Will start with the LRI usage and card for this.

@@ -23,14 +23,12 @@
   ServD Mapping = Organization
 
  -- Row 2 -----------------------------------
-  Element = Substance.type
+  Element = Substance.code
   Must Support = Y
-  Type = CodeableConcept
   ServD Mapping = n/a
 
  -- Row 3 -----------------------------------
   Element = Substance.description
   Must Support = Y
-  Type = string
 
 === Sheet Search =====================================
