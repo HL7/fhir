@@ -18,13 +18,16 @@ import (
 func <ModelName>IndexHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	defer func() {
 		if r := recover(); r != nil {
+			rw.Header().Set("Content-Type", "application/json; charset=utf-8")
 			switch x := r.(type) {
-			case search.UnsupportedError:
-				http.Error(rw, x.Error(), http.StatusNotImplemented)
-			case search.InvalidSearchError:
-				http.Error(rw, x.Error(), http.StatusBadRequest)
+			case search.SearchError:
+				rw.WriteHeader(x.HTTPStatus())
+				json.NewEncoder(rw).Encode(x.OperationOutcome())
+				return
 			default:
-				http.Error(rw, fmt.Sprintf("%s", x), http.StatusInternalServerError)
+				e := search.InternalServerError(fmt.Sprintf("%s", x))
+				rw.WriteHeader(e.HTTPStatus())
+				json.NewEncoder(rw).Encode(e.OperationOutcome())
 			}
 		}
 	}()

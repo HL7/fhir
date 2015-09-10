@@ -2,9 +2,11 @@ package search
 
 import (
 	"fmt"
+	"net/http"
 	"regexp"
 	"strings"
 
+	"github.com/intervention-engine/fhir/models"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -272,18 +274,66 @@ func (m *MongoSearcher) createOrQueryObject(resource string, o *OrParam) bson.M 
 	}
 }
 
+// SearchError is an interface for search errors, providing an HTTP status and operation outcome
+type SearchError interface {
+	HTTPStatus() int
+	OperationOutcome() *models.OperationOutcome
+}
+
+func createOpOutcome(severity string, code string, display string, details string) *models.OperationOutcome {
+	return &models.OperationOutcome{
+		Issue: []models.OperationOutcomeIssueComponent{
+			models.OperationOutcomeIssueComponent{
+				Severity: severity,
+				Code: &models.CodeableConcept{
+					Coding: []models.Coding{
+						models.Coding{Code: code, System: "http://hl7.org/fhir/issue-type", Display: display},
+					},
+					Text: display,
+				},
+				Details: details,
+			},
+		},
+	}
+}
+
 // UnsupportedError indicates that the requested search is not currently supported.
 type UnsupportedError string
 
-func (s UnsupportedError) Error() string {
-	return "Unsupported: " + string(s)
+// HTTPStatus returns HTTP 501
+func (s UnsupportedError) HTTPStatus() int {
+	return http.StatusNotImplemented
+}
+
+// OperationOutcome returns an OperationOutcome with the 'not-supported' code
+func (s UnsupportedError) OperationOutcome() *models.OperationOutcome {
+	return createOpOutcome("error", "not-supported", "Content not supported", "Unsupported: "+string(s))
 }
 
 // InvalidSearchError indicates that the requested search is not a valid FHIR search.
 type InvalidSearchError string
 
-func (s InvalidSearchError) Error() string {
-	return "Invalid search: " + string(s)
+// HTTPStatus returns HTTP 400
+func (s InvalidSearchError) HTTPStatus() int {
+	return http.StatusBadRequest
+}
+
+// OperationOutcome returns an OperationOutcome with the 'processing' code
+func (s InvalidSearchError) OperationOutcome() *models.OperationOutcome {
+	return createOpOutcome("error", "processing", "Processing Failure", "Invalid Search: "+string(s))
+}
+
+// InternalServerError indicates that there was an unexpected error in the server.
+type InternalServerError string
+
+// HTTPStatus returns HTTP 500
+func (s InternalServerError) HTTPStatus() int {
+	return http.StatusInternalServerError
+}
+
+// OperationOutcome returns an OperationOutcome with the 'exception' code
+func (s InternalServerError) OperationOutcome() *models.OperationOutcome {
+	return createOpOutcome("fatal", "exception", "Exception", string(s))
 }
 
 func buildBSON(path string, criteria interface{}) bson.M {
