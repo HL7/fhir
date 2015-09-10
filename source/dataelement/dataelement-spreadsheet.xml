@@ -17,7 +17,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>12975</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -973,8 +973,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Master Observation; Data Element; CDE</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">1..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">DomainResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3834,7 +3833,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>16</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3842,15 +3841,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>92</ActiveRow>
-     <ActiveCol>24</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
