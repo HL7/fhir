@@ -9,9 +9,9 @@
   Conformance = preferred
 
  -- Row 2 -----------------------------------
-  Binding Name = QICoreActReason
+  Binding Name = QICoreReasonRejected
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
+  Reference = valueset-goal-reason-rejected
   Description = A set of codes specifying the motivation, cause, or rationale of an Act.
   Conformance = preferred
 
@@ -64,7 +64,7 @@
   Profile Name = Goal.reasonRejected
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/goal-reasonRejected}
-  Binding = QICoreActReason
+  Binding = QICoreReasonRejected
   QDM Mapping = negation rationale
 
  -- Row 6 -----------------------------------

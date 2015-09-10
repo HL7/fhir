@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12504</WindowHeight>
-  <WindowWidth>25068</WindowWidth>
+  <WindowHeight>9168</WindowHeight>
+  <WindowWidth>23916</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -827,13 +827,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s155" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
-  </Style>
   <Style ss:ID="s156" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
@@ -915,6 +908,19 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
+  </Style>
+  <Style ss:ID="s171">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#BFBFBF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s173">
+   <Borders/>
+  </Style>
+  <Style ss:ID="s174">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -1329,7 +1335,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/goal-reasonRejected}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreActReason</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreReasonRejected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1387,7 +1393,7 @@
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!QICoreGoalCategory</Data><NamedCell
+    <Cell ss:StyleID="s171"><Data ss:Type="String">!QICoreGoalCategory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3120,7 +3126,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3141,7 +3146,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
@@ -5824,29 +5829,27 @@
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s135"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><Data ss:Type="String">QICoreActReason</Data></Cell>
-    <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s155" ss:HRef="http://hl7.org/fhir/ValueSet/v3-ActReason"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActReason</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">A set of codes specifying the motivation, cause, or rationale of an Act.</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s135"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s174">
+    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreReasonRejected</Data></Cell>
+    <Cell ss:StyleID="s107"/>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s173"><Data ss:Type="String">valueset-goal-reason-rejected</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">A set of codes specifying the motivation, cause, or rationale of an Act.</Data></Cell>
+    <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"><Data ss:Type="String">QICoreObservationName</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">LOINC codes</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/uslab-obs-codes"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-obs-codes</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-obs-codes</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s156"/>
@@ -5861,8 +5864,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">SNOMED CT for coded results</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s156" ss:HRef="http://hl7.org/fhir/ValueSet/uslab-obs-codedresults"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-obs-codedresults</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-obs-codedresults</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s156"/>
@@ -6186,6 +6188,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6205,7 +6208,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

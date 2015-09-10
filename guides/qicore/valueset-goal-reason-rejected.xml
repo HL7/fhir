@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="encounter-canceled-reason"/>
-  <name value="Reasons for canceled or refused encounter codes"/>
+  <id value="goal-reason-rejected"/>
+  <name value="Reasons for rejecting goal codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
@@ -12,7 +12,7 @@
       <value value="http://www.hl7.org/Special/committees/cqi"/>
     </telecom>
   </contact>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the encounter process, in particular the process and reasons for canceling or refusing an encounter. This value set is provided as a suggestive example"/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the goal process, in particular the process and reasons for rejecting a goal. This value set is provided as a suggestive example"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ActReason"/>
@@ -33,7 +33,7 @@
 	  <!-- _ControlActNullificationReasonCode -->
       <concept>
         <code value="ALTD"/> <!-- altered decision -->
-      </concept>	  
+      </concept>
     </include>
   </compose>
 </ValueSet>
