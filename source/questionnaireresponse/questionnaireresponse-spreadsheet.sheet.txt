@@ -9,6 +9,12 @@
   Conformance = required
   Oid = required
 
+ -- Row 2 -----------------------------------
+  Binding Name = QuestionnaireAnswer
+  Binding = unbound
+  Definition = Code indicating the response provided for a question.
+  Description = Binding this is problematic because one value set can\'t apply to both codes and quantities.
+
 === Sheet questionnaire-answers-status =====================================
 
  -- Row 1 -----------------------------------
@@ -248,6 +254,7 @@
   Element = QuestionnaireResponse.group.question.answer.value[x]
   Card. = 0..1
   Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  Binding = QuestionnaireAnswer
   Short Label = Single-valued answer to the question
   Definition = The answer (or one of the answers) provided by the respondant to the question
   Requirements = Need to be able to retain a single-valued answer to a question

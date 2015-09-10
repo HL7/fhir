@@ -44,7 +44,7 @@
   Card. = 0..0
 
  -- Row 11 -----------------------------------
-  Element = CarePlan.concern
+  Element = CarePlan.addresses
   Card. = 0..0
 
  -- Row 12 -----------------------------------

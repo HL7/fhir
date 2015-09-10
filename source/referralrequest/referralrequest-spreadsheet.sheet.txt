@@ -6,6 +6,39 @@
   Binding = code list
   Reference = #referralstatus
   Definition = The status of the referral
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = RequestedService
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
+  Definition = Codes indicating the types of services that might be requested as part of a referral
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = ReferralType
+  Binding = unbound
+  Definition = Codes for types of referral.  E.g. Consult, transfer, temporary transfer
+
+ -- Row 4 -----------------------------------
+  Binding Name = ReferralSpecialty
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/practitioner-specialty
+  Definition = Codes indicating the types of capability the referred to service provider must have
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = ReferralPriority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/diagnostic-order-priority
+  Definition = Codes indicating the relative priority of the referral
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = ReferralReason
+  Binding = unbound
+  Definition = Codes indicating why the referral is being requested
+  Conformance = example
 
 === Sheet referralstatus =====================================
 
@@ -99,6 +132,7 @@
   Is Modifier = N
   Summary = Y
   Type = CodeableConcept
+  Binding = ReferralType
   Short Label = Referral/Transition of care request type
   Definition = An indication of the type of referral (or where applicable the type of transfer of care) request
   Comments = Examples of referral type: - consultation;         second opinion;          third opinion - Assume management - Request for procedure(s)  HL7 v2.8 Example - Table 0336: S = second opinion p = patient preference o = provider ordered w = work load
@@ -109,6 +143,7 @@
   Card. = 0..1
   Is Modifier = N
   Type = CodeableConcept
+  Binding = ReferralSpecialty
   Short Label = The clinical specialty (discipline) that the referral is requested for
   Definition = Indication of the clinical domain or discipline to which the referral or transfer of care request is sent
   Comments = Examples: Cardiology Gastroenterology Diabetology
@@ -119,6 +154,7 @@
   Is Modifier = N
   Summary = Y
   Type = CodeableConcept
+  Binding = ReferralPriority
   Short Label = Urgency of referral / transfer of care request
   Definition = An indication of the urgency of referral (or where applicable the type of transfer of care) request
   w5 = grade
@@ -181,6 +217,7 @@
   Is Modifier = N
   Summary = Y
   Type = CodeableConcept
+  Binding = ReferralReason
   Short Label = Reason for referral / Transfer of care request
   Definition = Description of clinical condition indicating why referral/transfer of care is requested
   Comments = Examples: \"2nd degree AV block\"  Oral Health example ReferralReasonCode: 01 = Pathological Anomalies 02 = Disabled (physical or mental) 03 = Complexity of Treatment 04 = Seizure Disorders 05 = Extensive Surgery 06 = Surgical Complexity 07 = Rampant decay 08 = Medical History (to provide details upon request) 09 = Temporal Mandibular Joint Anomalies 10 = Accidental Injury 11 = Anaesthesia complications (local or general) 12 = Developmental Anomalies 13 = Behavioral Management
@@ -201,6 +238,7 @@
   Is Modifier = N
   Summary = Y
   Type = CodeableConcept
+  Binding = RequestedService
   Short Label = What actions are requested as part of referral?
   Definition = The service(s) that is/are requested to be provided to the patient
   Comments = Examples: \"cardiac pacemaker insertion\"  HL7 v3 Concept domain - ReferralReasonCode examples: - Specialized medical assistance - Other care requirement

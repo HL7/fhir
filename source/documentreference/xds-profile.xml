@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-10-30T18:32:49Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2015-09-10T18:40:03Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -30,7 +30,6 @@
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1311,7 +1310,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="=DocumentReference!R1C1:R102C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="104" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="102" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="121.5"/>
    <Column ss:StyleID="s92" ss:Width="67.5"/>
@@ -1443,7 +1442,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!Identifier</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1467,9 +1466,9 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.identifier</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..*</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!Identifier</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1519,9 +1518,9 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.type</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1547,7 +1546,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1599,7 +1598,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Reference(Organization)</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!Reference(Organization)</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1617,39 +1616,13 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s110"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.policyManager</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">XDSDocumentEntry.homeCommunityId</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">A globally unique identifier for a community with which this document is associated</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.authenticator</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s113"/>
@@ -1677,7 +1650,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!dateTime</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1703,7 +1676,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">instant</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!instant</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1727,9 +1700,9 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.status</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!code</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1755,7 +1728,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1779,7 +1752,7 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.relatesTo</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..*</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1805,9 +1778,9 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.relatesTo.code</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!code</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1831,9 +1804,9 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.relatesTo.target</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Reference(DocumentReference)</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!Reference(DocumentReference)</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1857,9 +1830,9 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.description</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!string</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1885,7 +1858,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1909,7 +1882,7 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.content</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!1..*</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1935,9 +1908,9 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.content.attachment</Data></Cell>
     <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!Attachment</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -1948,32 +1921,6 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s110"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.content.attachment.language</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">XDSDocumentEntry.languageCode</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Specifies the human language of character data in the document. The values of the attribute are language identifiers as described by the IETF (Internet Engineering Task Force) RFC 3066.</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">This value may further be restricted by the registry according to XDS Affinity Domain specific policy.</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
@@ -1989,7 +1936,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!code</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -2007,15 +1954,67 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.content.attachment.language</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!code</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">XDSDocumentEntry.languageCode</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Specifies the human language of character data in the document. The values of the attribute are language identifiers as described by the IETF (Internet Engineering Task Force) RFC 3066.</Data></Cell>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">This value may further be restricted by the registry according to XDS Affinity Domain specific policy.</Data></Cell>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.content.attachment.url</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!uri</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">repository location (by implication &amp; configuration)</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Where to access the document</Data></Cell>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.content.attachment.size</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">unsignedInt</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!unsignedInt</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -2039,9 +2038,9 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.content.attachment.hash</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">base64Binary</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!base64Binary</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -2052,58 +2051,6 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">Hash key of the XDS Document itself</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s114"><Data ss:Type="String">This value is computed by the Document Repository and used by the Document Registry for detecting the improper resubmission of XDS Documents. If present, shall have a single value. If this attribute is received in a Provide &amp; Register Document Set-b [ITI-41] transaction, it shall be verified by the repository with the actual hash value of the submitted document; an XDSRepositoryMetadataError shall be returned on mismatch</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s110"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.content.attachment.url</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">repository location (by implication &amp; configuration)</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Where to access the document</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="300">
-    <Cell ss:StyleID="s110"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.content.format</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Coding</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">XDSDocumentEntry.formatCode</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Code globally uniquely specifying the format of the document. Along with the typeCode, it should provide sufficient information to allow any potential XDS Document Consumer to know if it will be able to process the document. The formatCode shall be sufficiently specific to ensure processing/display by identifying a document encoding, structure and template (e.g., for a CDA Document, the fact that it complies with a CDA schema, possibly a template and the choice of a content-specific style sheet).</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Format codes may be specified by multiple organizations. Format codes defined by ITI shall have names with the prefix urn:ihe:iti:. Format codes defined by other IHE domains shall have names with the prefix urn:ihe:???domain initials???: Format codes defined by the Affinity Domain shall have names with the prefix urn:ad:???name of affinity domain???: Affinity Domains shall be unique. The prefixes described here are not assumed to be exhaustive.</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
@@ -2145,7 +2092,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!Reference(Encounter)</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -2169,9 +2116,9 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.context.event</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..*</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -2197,7 +2144,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Period</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!Period</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -2215,39 +2162,15 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">DocumentReference.context.practiceSetting</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:Index="15" ss:StyleID="s113"><Data ss:Type="String">XDSDocumentEntry.practiceSettingCode</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="300">
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentReference.context.facilityType</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -2258,6 +2181,30 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">This code represents the type of organizational setting of the clinical encounter during which the documented act occurred</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s114"><Data ss:Type="String">In some cases, the setting of the encounter is inherent in the typeCode, such as &quot;Diabetes Clinic Progress Note&quot;. healthcareFacilityTypeCode shall be equivalent to or further specialize the value inherent in the typeCode; for example, where the typeCode is simply &quot;Clinic Progress Note&quot; and the value of healthcareFacilityTypeCode is &quot;private clinic&quot;. The value shall not conflict with the value inherent in the typeCode, as such a conflict would create an ambiguous situation</Data></Cell>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">DocumentReference.context.practiceSetting</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:Index="15" ss:StyleID="s113"><Data ss:Type="String">XDSDocumentEntry.practiceSettingCode</Data></Cell>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
@@ -4077,9 +4024,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4091,11 +4038,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4107,7 +4054,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="=DocumentManifest!R1C1:R100C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="101" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="102" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="121.5"/>
    <Column ss:StyleID="s92" ss:Width="67.5"/>
@@ -4235,11 +4182,11 @@
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.identifier</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.masterIdentifier</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!Identifier</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
@@ -4261,9 +4208,35 @@
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">!DocumentManifest.identifier</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..*</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!Identifier</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.subject</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s113"/>
@@ -4289,7 +4262,7 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.recipient</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..*</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">Reference(Patient|Practitioner|Organization)</Data></Cell>
     <Cell ss:StyleID="s113"/>
@@ -4315,7 +4288,7 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.type</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s113"/>
@@ -4367,7 +4340,7 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.created</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s113"/>
@@ -4393,7 +4366,7 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.source</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s113"/>
@@ -4419,7 +4392,7 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.status</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!1..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s113"/>
@@ -4439,39 +4412,13 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s110"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.supersedes</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Reference(DocumentManifest)</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">todo</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">If this document manifest replaces another</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.description</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..1</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s113"/>
@@ -4491,23 +4438,23 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.confidentiality</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.content</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!1..*</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">SubmissionSet.confidentialityCode</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">A code specifying the level of confidentiality of this set of Documents</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">SubmissionSet.documentEntry</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s115"/>
@@ -4521,19 +4468,45 @@
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s111"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">DocumentManifest.content</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">!DocumentManifest.related</Data></Cell>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">!0..*</Data></Cell>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">SubmissionSet.documentEntry</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">!DocumentManifest.supersedes</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Reference(DocumentManifest)</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">todo</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">If this document manifest replaces another</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s115"/>
@@ -6813,8 +6786,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -31,7 +31,7 @@
   Binding Name = ProcedureOutcome
   Binding = value set
   Reference = valueset-procedure-outcome
-  Definition = An outcome of a procedure - whether it resolveed the reasons why the procedure was performed
+  Definition = An outcome of a procedure - whether it resolved the reasons why the procedure was performed
   Conformance = example
 
  -- Row 6 -----------------------------------
@@ -75,6 +75,13 @@
   Reference = http://hl7.org/fhir/ValueSet/body-site
   Definition = Codes describing anatomical locations. May include laterality
   Description = SNOMED CT Body site concepts
+  Conformance = example
+
+ -- Row 12 -----------------------------------
+  Binding Name = ProcedureComplication
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-code
+  Definition = Codes describing complications that resulted from a procedure
   Conformance = example
 
 === Sheet procedure-relationship-type =====================================
@@ -326,6 +333,7 @@
   Element = Procedure.complication
   Card. = 0..*
   Type = CodeableConcept
+  Binding = ProcedureComplication
   Short Label = Complication following the procedure
   Definition = Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any \'post procedure\' issues
   Comments = If complications are only expressed by the narrative text, it can be captured using the CodeableConcept.text.

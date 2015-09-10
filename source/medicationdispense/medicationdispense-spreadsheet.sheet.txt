@@ -58,6 +58,11 @@
   Description = SubstanceAdminSubstitutionReason
   Conformance = example
 
+ -- Row 9 -----------------------------------
+  Binding Name = AdditionalInstructions
+  Binding = unbound
+  Definition = Codes identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\"
+
 === Sheet medication-dispense-status =====================================
 
  -- Row 1 -----------------------------------
@@ -270,6 +275,7 @@
   Element = MedicationDispense.dosageInstruction.additionalInstructions
   Card. = 0..1
   Type = CodeableConcept
+  Binding = AdditionalInstructions
   Short Label = E.g. \"Take with food\"
   Definition = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
   RIM Mapping = .text

@@ -130,7 +130,6 @@
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-religion}
   Binding = DAFReligion
-  QIDAM Mapping = From DAF
 
  -- Row 5 -----------------------------------
   Element = !Patient.extension
@@ -143,7 +142,6 @@
   Profile Name = birthPlace
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/birthPlace}
-  QIDAM Mapping = From DAF
 
  -- Row 7 -----------------------------------
   Element = Patient.extension
@@ -165,7 +163,6 @@
   Profile Name = nationality
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality}
-  QIDAM Mapping = Not QIDAM, but recognized as important for infectious disease decision support (e.g., flag patient from Liberia for ebola screening)
 
  -- Row 10 -----------------------------------
   Element = Patient.extension.extension
@@ -173,14 +170,12 @@
   Card. = 1..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality#code}
   Binding = USCountry
-  QIDAM Mapping = (see nationality)
 
  -- Row 11 -----------------------------------
   Element = Patient.extension.extension
   Profile Name = nationality.period
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-nationality#period}
-  QIDAM Mapping = (see nationality)
 
  -- Row 12 -----------------------------------
   Element = !Patient.extension
@@ -207,7 +202,6 @@
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-cadavericDonor}
   Comments = Do as standard extension on Patient?
-  QIDAM Mapping = Not in QIDAM, but recognized as important for CDS; e.g. a CDS system could flag the provider to initiate organ transplantation procedures.
 
  -- Row 16 -----------------------------------
   Element = !Patient.extension
@@ -222,7 +216,6 @@
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/qicore-patient-militaryService}
   Binding = QICorePatientMilitaryService
-  QIDAM Mapping = Not in QIDAM, but recognized as important, e.g., veterans may be at increased risk for conditions such as traumatic brain injury, agent orange exposure.
 
  -- Row 18 -----------------------------------
   Element = !Patient.extension
@@ -274,7 +267,6 @@
   Profile Name = telecom.preferred
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-preferred}
-  QIDAM Mapping = Not in QIDAM, but CDS could need this for notifications in population health contexts, for example.
 
  -- Row 26 -----------------------------------
   Element = !Patient.telecom.use
@@ -314,7 +306,6 @@
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-preferred}
   Comments = Make general extension
-  QIDAM Mapping = Not in QIDAM, but CDS could need this for notifications in population health contexts, for example.
 
  -- Row 32 -----------------------------------
   Element = Patient.address.state

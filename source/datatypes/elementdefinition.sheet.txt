@@ -6,24 +6,35 @@
   Binding = code list
   Reference = #constraint-severity
   Definition = SHALL applications comply with this constraint?
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = SlicingRules
   Binding = code list
   Reference = #resource-slicing-rules
   Definition = How slices are interpreted when evaluating an instance
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = AggregationMode
   Binding = code list
   Reference = #resource-aggregation-mode
   Definition = How resource references can be aggregated
+  Conformance = required
 
  -- Row 4 -----------------------------------
   Binding Name = PropertyRepresentation
   Binding = code list
   Reference = #property-representation
   Definition = How a property is represented on the wire
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = ElementDefinitionCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/observation-codes
+  Definition = Codes that indicate the meaning of a data element
+  Conformance = example
 
 === Sheet constraint-severity =====================================
 
@@ -247,6 +258,7 @@
   Element = ElementDefinition.code
   Card. = 0..*
   Type = Coding
+  Binding = ElementDefinitionCode
   Short Label = Defining code
   Definition = A code that provides the meaning for the element according to a particular terminology.
   Requirements = Links the meaning of an element to an external terminology

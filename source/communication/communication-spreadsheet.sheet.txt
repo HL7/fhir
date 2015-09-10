@@ -7,6 +7,24 @@
   Reference = #communication-status
   Definition = The status of the communication
 
+ -- Row 2 -----------------------------------
+  Binding Name = CommunicationCategory
+  Binding = unbound
+  Definition = Codes for general categories of communications such as alerts, instruction, etc.
+
+ -- Row 3 -----------------------------------
+  Binding Name = CommunicationMedium
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ParticipationMode
+  Definition = Codes for communication mediums such as phone, fax, email, in person, etc.
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = CommunicationReason
+  Binding = unbound
+  Definition = Codes for describing reasons for the occurrence of a communication
+  Conformance = example
+
 === Sheet communication-status =====================================
 
  -- Row 1 -----------------------------------
@@ -63,6 +81,7 @@
   Element = Communication.category
   Card. = 0..1
   Type = CodeableConcept
+  Binding = CommunicationCategory
   Short Label = Message category
   Definition = The type of message conveyed such as alert, notification, reminder, instruction, etc.
   w5 = class
@@ -101,6 +120,7 @@
   Element = Communication.medium
   Card. = 0..*
   Type = CodeableConcept
+  Binding = CommunicationMedium
   Short Label = A channel of communication
   Definition = A channel that was used for this communication (e.g. email, fax).
 
@@ -142,6 +162,7 @@
   Element = Communication.reason
   Card. = 0..*
   Type = CodeableConcept
+  Binding = CommunicationReason
   Short Label = Indication for message
   Definition = The reason or justification for the communication.
 

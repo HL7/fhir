@@ -16,7 +16,7 @@
 
  -- Row 3 -----------------------------------
   Element = Observation.value[x]
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period
 
@@ -63,7 +63,7 @@
   Type = code
 
  -- Row 11 -----------------------------------
-  Element = Observation.bodySite[x]
+  Element = Observation.bodySite
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
@@ -123,7 +123,7 @@
 
  -- Row 21 -----------------------------------
   Element = Observation.related.target
-  Card. = 0..1
+  Card. = 1..1
   Must Support = Y
   Type = Reference(Observation)
 

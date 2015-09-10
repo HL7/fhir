@@ -6,6 +6,11 @@
   Binding = unbound
   Definition = When a requested action should be performed  (e.g. STAT, daily, evenings, etc.)
 
+ -- Row 2 -----------------------------------
+  Binding Name = OrderReason
+  Binding = unbound
+  Definition = Indicates the reason for seeking fulfillment of the order
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -77,6 +82,7 @@
   Element = Order.reason[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Any)
+  Binding = OrderReason
   Short Label = Text - why the order was made
   v2 Mapping = ORC-16.2 / OBR-31.2 / BPO-13.2-BP / RXO-20.2 / RXE-27.2 / RXD-21.2 / RXG-22.2 / RXA-19.2
   RIM Mapping = .reasonCode or .outboundRelationship[typeCode=RSON].target

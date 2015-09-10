@@ -16,6 +16,21 @@
   Definition = Different measurement principle supported by the device
   Conformance = required
 
+ -- Row 3 -----------------------------------
+  Binding Name = DeviceComponentOperationalStatus
+  Binding = unbound
+  Definition = Codes representing the current status of the device - on, off, suspended, etc
+
+ -- Row 4 -----------------------------------
+  Binding Name = DeviceSpecificationSpecType
+  Binding = unbound
+  Definition = Codes for device specification types such as serial number, part number, hardware revision, software revision, etc.
+
+ -- Row 5 -----------------------------------
+  Binding Name = DeviceComponentParameterGroup
+  Binding = unbound
+  Definition = Codes identifying groupings of parameters.  E.g. Cardiovascular
+
 === Sheet measurement-principle =====================================
 
  -- Row 1 -----------------------------------
@@ -141,6 +156,7 @@
   Element = DeviceComponent.operationalStatus
   Card. = 0..*
   Type = CodeableConcept
+  Binding = DeviceComponentOperationalStatus
   Short Label = Component operational status
   Definition = Indicates current operational status of the device. For example: On, Off, Standby, etc.
   Comments = OperationalStatus for the MDS, VMD, or Channel will be bound to a specific ValueSet that is defined in its profile.
@@ -149,6 +165,7 @@
   Element = DeviceComponent.parameterGroup
   Card. = 0..1
   Type = CodeableConcept
+  Binding = DeviceComponentParameterGroup
   Short Label = Current supported parameter group
   Definition = Describes the parameter group supported by the current device component that is based on some nomenclature, e.g., cardiovascular.
 
@@ -171,6 +188,7 @@
   Element = DeviceComponent.productionSpecification.specType
   Card. = 0..1
   Type = CodeableConcept
+  Binding = DeviceSpecificationSpecType
   Short Label = Specification type
   Definition = Describes the specification type, such as, serial number, part number, hardware revision, software revision, etc.
 
@@ -192,6 +210,7 @@
   Element = DeviceComponent.languageCode
   Card. = 0..1
   Type = CodeableConcept
+  Binding = Language
   Short Label = Language code for the human-readable text strings produced by the device
   Definition = Describes the language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
 

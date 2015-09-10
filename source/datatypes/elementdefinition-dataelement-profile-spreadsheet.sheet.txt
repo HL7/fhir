@@ -20,153 +20,55 @@
   Type = Extension {http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits}
 
  -- Row 4 -----------------------------------
-  Element = ElementDefinition.path
-
- -- Row 5 -----------------------------------
   Element = ElementDefinition.representation
   Card. = 0..0
 
- -- Row 6 -----------------------------------
-  Element = ElementDefinition.name
-
- -- Row 7 -----------------------------------
-  Element = ElementDefinition.label
-
- -- Row 8 -----------------------------------
-  Element = ElementDefinition.code
-
- -- Row 9 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = ElementDefinition.slicing
   Card. = 0..0
 
- -- Row 10 -----------------------------------
-  Element = ElementDefinition.slicing.discriminator
-
- -- Row 11 -----------------------------------
-  Element = ElementDefinition.slicing.description
-
- -- Row 12 -----------------------------------
-  Element = ElementDefinition.slicing.ordered
-
- -- Row 13 -----------------------------------
-  Element = ElementDefinition.slicing.rules
-
- -- Row 14 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = ElementDefinition.short
   Card. = 0..0
 
- -- Row 15 -----------------------------------
-  Element = ElementDefinition.definition
-
- -- Row 16 -----------------------------------
-  Element = ElementDefinition.comments
-
- -- Row 17 -----------------------------------
-  Element = ElementDefinition.requirements
-
- -- Row 18 -----------------------------------
-  Element = ElementDefinition.alias
-
- -- Row 19 -----------------------------------
-  Element = ElementDefinition.min
-
- -- Row 20 -----------------------------------
-  Element = ElementDefinition.max
-
- -- Row 21 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = ElementDefinition.type
+  Card. = !0..*
 
- -- Row 22 -----------------------------------
-  Element = ElementDefinition.type.code
-
- -- Row 23 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = ElementDefinition.type.profile
   Card. = 0..0
 
- -- Row 24 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = ElementDefinition.type.aggregation
   Card. = 0..0
 
- -- Row 25 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = ElementDefinition.nameReference
   Card. = 0..0
 
- -- Row 26 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = ElementDefinition.defaultValue[x]
   Comments = ...  This element should only be used on child elements of complex data elements
 
- -- Row 27 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = ElementDefinition.meaningWhenMissing
   Comments = ...  This element should only be used on child elements of complex data elements
 
- -- Row 28 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = ElementDefinition.fixed[x]
   Card. = 0..0
 
- -- Row 29 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = ElementDefinition.pattern[x]
   Card. = 0..0
 
- -- Row 30 -----------------------------------
-  Element = ElementDefinition.example[x]
-
- -- Row 31 -----------------------------------
-  Element = ElementDefinition.maxLength
-
- -- Row 32 -----------------------------------
-  Element = ElementDefinition.condition
-
- -- Row 33 -----------------------------------
-  Element = ElementDefinition.constraint
-
- -- Row 34 -----------------------------------
-  Element = ElementDefinition.constraint.key
-
- -- Row 35 -----------------------------------
-  Element = ElementDefinition.constraint.name
-
- -- Row 36 -----------------------------------
-  Element = ElementDefinition.constraint.severity
-
- -- Row 37 -----------------------------------
-  Element = ElementDefinition.constraint.human
-
- -- Row 38 -----------------------------------
-  Element = ElementDefinition.constraint.xpath
-
- -- Row 39 -----------------------------------
-  Element = ElementDefinition.mustSupport
-
- -- Row 40 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ElementDefinition.isModifier
   Card. = 0..0
 
- -- Row 41 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ElementDefinition.isSummary
   Card. = 0..0
-
- -- Row 42 -----------------------------------
-  Element = ElementDefinition.binding
-
- -- Row 43 -----------------------------------
-  Element = ElementDefinition.binding.strength
-
- -- Row 44 -----------------------------------
-  Element = ElementDefinition.binding.description
-
- -- Row 45 -----------------------------------
-  Element = ElementDefinition.binding.valueSet[x]
-
- -- Row 46 -----------------------------------
-  Element = ElementDefinition.mapping
-
- -- Row 47 -----------------------------------
-  Element = ElementDefinition.mapping.identity
-
- -- Row 48 -----------------------------------
-  Element = ElementDefinition.mapping.language
-
- -- Row 49 -----------------------------------
-  Element = ElementDefinition.mapping.map
 
 === Sheet Search =====================================

@@ -1,6 +1,11 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = Tags
+  Binding = unbound
+  Definition = Codes that represent various types of tags, commonly workflow-related.  E.g. \"Needs review by Dr. Jones\"
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -48,6 +53,7 @@
   Element = Meta.tag
   Card. = 0..*
   Type = Coding
+  Binding = Tags
   Short Label = Tags applied
   Definition = Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource
   Comments = The tags can be updated without changing the stated version of the resource.  The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored

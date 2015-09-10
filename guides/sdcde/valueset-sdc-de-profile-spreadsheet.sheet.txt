@@ -259,18 +259,12 @@
   Type = !string
 
  -- Row 44 -----------------------------------
-  Element = ValueSet.compose.include.mode
-  Card. = !1..1
-  Must Support = Y
-  Type = !code
-
- -- Row 45 -----------------------------------
   Element = ValueSet.compose.include.concept
   Card. = !0..*
   Must Support = Y
   IHE SDC mapping = list_item/value
 
- -- Row 46 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = ValueSet.compose.include.concept.extension
   Profile Name = conceptConceptOrder
   Card. = 0..1
@@ -279,102 +273,102 @@
   Comments = The presence of a sort order implies that sort order is important
   IHE SDC mapping = list_item/list_item_order
 
- -- Row 47 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = ValueSet.compose.include.concept.code
   Card. = !1..1
   Must Support = Y
   Type = !code
   IHE SDC mapping = list_item/value
 
- -- Row 48 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = ValueSet.compose.include.concept.display
   Card. = !0..1
   Must Support = Y
   Type = !string
   IHE SDC mapping = list_item/item_number/label
 
- -- Row 49 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = !ValueSet.compose.include.concept.designation
   Card. = !0..*
   Type = !@ValueSet.codeSystem.concept.designation
 
- -- Row 50 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = ValueSet.compose.include.filter
   Card. = !0..*
   Must Support = Y
 
- -- Row 51 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = ValueSet.compose.include.filter.property
   Card. = !1..1
   Must Support = Y
   Type = !code
 
- -- Row 52 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = ValueSet.compose.include.filter.op
   Card. = !1..1
   Must Support = Y
   Type = !code
 
- -- Row 53 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = ValueSet.compose.include.filter.value
   Card. = !1..1
   Must Support = Y
   Type = !code
 
- -- Row 54 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = ValueSet.compose.exclude
   Card. = !0..*
   Must Support = Y
   Type = !@ValueSet.compose.include
 
- -- Row 55 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = ValueSet.expansion
   Card. = !0..1
   Must Support = Y
 
- -- Row 56 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = ValueSet.expansion.identifier
   Card. = !0..1
   Must Support = Y
   Type = !uri
 
- -- Row 57 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = ValueSet.expansion.timestamp
   Card. = !1..1
   Must Support = Y
   Type = !dateTime
 
- -- Row 58 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = !ValueSet.expansion.total
   Card. = !0..1
   Type = !integer
 
- -- Row 59 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = !ValueSet.expansion.offset
   Card. = !0..1
   Type = !integer
 
- -- Row 60 -----------------------------------
+ -- Row 59 -----------------------------------
   Element = !ValueSet.expansion.parameter
   Card. = !0..*
 
- -- Row 61 -----------------------------------
+ -- Row 60 -----------------------------------
   Element = !ValueSet.expansion.parameter.name
   Card. = !1..1
   Type = !string
 
- -- Row 62 -----------------------------------
+ -- Row 61 -----------------------------------
   Element = !ValueSet.expansion.parameter.value
   Card. = !0..1
   Type = !string | boolean | integer | decimal | uri | code
 
- -- Row 63 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = ValueSet.expansion.contains
   Card. = !0..*
   Must Support = Y
   IHE SDC mapping = list_item
 
- -- Row 64 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = ValueSet.expansion.contains.extension
   Profile Name = conceptConceptOrder
   Card. = 0..1
@@ -383,53 +377,53 @@
   Comments = The presence of a sort order implies that sort order is important
   IHE SDC mapping = list_item_order
 
- -- Row 65 -----------------------------------
+ -- Row 64 -----------------------------------
   Element = ValueSet.expansion.contains.extension
   Profile Name = definition
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-definition}
 
- -- Row 66 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = ValueSet.expansion.contains.extension
   Profile Name = systemName
   Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/valueset-systemName}
 
- -- Row 67 -----------------------------------
+ -- Row 66 -----------------------------------
   Element = ValueSet.expansion.contains.system
   Card. = !1..1
   Must Support = Y
   Type = !uri
 
- -- Row 68 -----------------------------------
+ -- Row 67 -----------------------------------
   Element = ValueSet.expansion.contains.abstract
   Card. = !0..1
   Must Support = Y
   Type = !boolean
 
- -- Row 69 -----------------------------------
+ -- Row 68 -----------------------------------
   Element = ValueSet.expansion.contains.version
   Card. = !0..1
   Must Support = Y
   Type = !string
 
- -- Row 70 -----------------------------------
+ -- Row 69 -----------------------------------
   Element = ValueSet.expansion.contains.code
   Card. = !0..1
   Must Support = Y
   Type = !code
   IHE SDC mapping = value
 
- -- Row 71 -----------------------------------
+ -- Row 70 -----------------------------------
   Element = ValueSet.expansion.contains.display
   Card. = !0..1
   Must Support = Y
   Type = !string
   IHE SDC mapping = item_prompt
 
- -- Row 72 -----------------------------------
+ -- Row 71 -----------------------------------
   Element = ValueSet.expansion.contains.contains
   Card. = !0..*
   Must Support = Y

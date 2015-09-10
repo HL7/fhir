@@ -40,6 +40,13 @@
   Definition = A set of codes indicating the reason why the MedicationAdministration is negated
   Conformance = example
 
+ -- Row 7 -----------------------------------
+  Binding Name = MedicationReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-code
+  Definition = Codes identifying why the medication is being taken
+  Conformance = example
+
 === Sheet medication-statement-status =====================================
 
  -- Row 1 -----------------------------------
@@ -161,6 +168,7 @@
   Element = MedicationStatement.reasonForUse[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Condition)
+  Binding = MedicationReason
   Definition = A reason for why the medication is being/was taken.
 
  -- Row 10 -----------------------------------

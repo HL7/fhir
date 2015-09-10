@@ -42,6 +42,11 @@
   Binding = unbound
   Definition = A coded concept describing the technique by which the medicine is administered
 
+ -- Row 7 -----------------------------------
+  Binding Name = MedicationCode
+  Binding = unbound
+  Definition = Codes identifying substance that can be administered
+
 === Sheet medication-admin-status =====================================
 
  -- Row 1 -----------------------------------

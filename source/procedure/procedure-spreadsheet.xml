@@ -10,18 +10,17 @@
   <LastAuthor>Iryna Roy</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-28T22:12:22Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1636,7 +1635,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ProcedureComplication</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3972,13 +3972,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3994,8 +3993,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>21</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6486,7 +6485,7 @@
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="173.25"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="165.75" ss:Span="1"/>
    <Column ss:Index="13" ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="107.25"/>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="15.75">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Binding Name</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique name across all resources</Font>       </ss:Data></Comment><NamedCell
@@ -6540,7 +6539,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unpublished notes</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s146"><Data ss:Type="String">ProcedureRelationshipType</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The nature of the relationship with this procedure</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">code list</Data></Cell>
@@ -6555,7 +6554,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s114"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s88"><Data ss:Type="String">DeviceActionKind</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A kind of change that happened to the device during the procedure</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
@@ -6570,7 +6569,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s147"><Data ss:Type="String">ProcedureStatus</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code specifying the state of the procedure record</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">code list</Data></Cell>
@@ -6585,7 +6584,7 @@
     <Cell ss:StyleID="s113"><Data ss:Type="String">ActStatus</Data></Cell>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s88"><Data ss:Type="String">ProcedureCode</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code to identify a specific procedure </Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
@@ -6600,9 +6599,9 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s88"><Data ss:Type="String">ProcedureOutcome</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">An outcome of a procedure - whether it resolveed the reasons why the procedure was performed</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">An outcome of a procedure - whether it resolved the reasons why the procedure was performed</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-procedure-outcome</Data></Cell>
@@ -6615,7 +6614,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s88"><Data ss:Type="String">ProcedureFollowUp</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Specific follow up required for a procedure e.g. removal of sutures</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
@@ -6630,7 +6629,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">ProcedureCategory</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code that classifies a procedure for searching, sorting and display purposes</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
@@ -6645,7 +6644,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">ProcedureNegationReason</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code that explains a reason why a procedure was not performed</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
@@ -6660,7 +6659,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">ProcedureReason</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code that explains a reason why a procedure is  required.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
@@ -6675,7 +6674,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">ProcedurePerformerRole</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code that identifies a role of a performer in a procedure process</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
@@ -6690,7 +6689,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">BodySite</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Codes describing anatomical locations. May include laterality</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
@@ -6705,12 +6704,12 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
+   <Row ss:Height="30.75">
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ProcedureComplication</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Codes describing complications that resulted from a procedure</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/condition-code</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
@@ -6720,7 +6719,7 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s122"/>
    </Row>
-   <Row ss:AutoFitHeight="0"/>
+   <Row ss:Height="15.75"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -6728,12 +6727,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6753,7 +6752,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>12</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
