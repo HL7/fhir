@@ -28,6 +28,26 @@
   Definition = Additional details about where the content was created (e.g. clinical specialty)
   Conformance = Preferred
 
+ -- Row 5 -----------------------------------
+  Binding Name = ServiceType
+  Binding = unbound
+  Definition = The type of healthcare service that could be provided
+
+ -- Row 6 -----------------------------------
+  Binding Name = ServiceCategory
+  Binding = unbound
+  Definition = A category of the service(s) that could be provided
+
+ -- Row 7 -----------------------------------
+  Binding Name = ServiceCharacteristic
+  Binding = unbound
+  Definition = A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)
+
+ -- Row 8 -----------------------------------
+  Binding Name = ServiceEligibility
+  Binding = unbound
+  Definition = Coded values underwhich a specific service is made available
+
 === Sheet service-referral-method =====================================
 
  -- Row 1 -----------------------------------
@@ -158,6 +178,7 @@
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
+  Binding = ServiceCategory
   Short Label = Identifies the broad category of service being performed or delivered. Selecting a Service Category then determines the list of relevant service types that can be selected in the Primary Service Type
   w5 = class
 
@@ -167,6 +188,7 @@
   Summary = Y
   UML = 350;0
   Type = =ServiceType
+  Binding = ServiceType
   Short Label = A specific type of service that may be delivered or performed
 
  -- Row 6 -----------------------------------
@@ -246,6 +268,7 @@
   Element = HealthcareService.eligibility
   Card. = 0..1
   Type = CodeableConcept
+  Binding = ServiceEligibility
   Short Label = Does this service have specific eligibility requirements that need to be met in order to use the service
 
  -- Row 17 -----------------------------------
@@ -266,6 +289,7 @@
   Element = HealthcareService.characteristic
   Card. = 0..*
   Type = CodeableConcept
+  Binding = ServiceCharacteristic
   Short Label = Collection of Characteristics (attributes)
   Comments = These could be such things as is wheelchair accessible
 

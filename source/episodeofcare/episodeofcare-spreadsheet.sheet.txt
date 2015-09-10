@@ -9,6 +9,11 @@
   Conformance = required
 
  -- Row 2 -----------------------------------
+  Binding Name = EpisodeOfCareType
+  Binding = unbound
+  Definition = The type of the encounter
+
+ -- Row 3 -----------------------------------
   Binding Name = EpisodeOfCareTeamRole
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/participant-role
@@ -107,6 +112,7 @@
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
+  Binding = EpisodeOfCareType
   Short Label = Specific type of EpisodeOfCare
   Definition = The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications
   w5 = class

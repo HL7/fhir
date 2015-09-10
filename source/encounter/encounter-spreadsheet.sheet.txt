@@ -86,6 +86,11 @@
   Definition = The status of the location
   Conformance = required
 
+ -- Row 13 -----------------------------------
+  Binding Name = ReAdmissionType
+  Binding = unbound
+  Definition = The reason for re-admission of this hospitalization encounter
+
 === Sheet encounter-state =====================================
 
  -- Row 1 -----------------------------------
@@ -473,6 +478,7 @@
   Element = Encounter.hospitalization.reAdmission
   Card. = 0..1
   Type = CodeableConcept
+  Binding = ReAdmissionType
   Short Label = The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission
   Definition = Whether this hospitalization is a readmission and why if known
   v2 Mapping = PV1-13-re-admission indicator
