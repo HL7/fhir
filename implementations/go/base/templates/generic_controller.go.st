@@ -133,6 +133,7 @@ func <ModelName>CreateHandler(rw http.ResponseWriter, r *http.Request, next http
 	}
 
 	rw.Header().Add("Location", "http://" + host + ":3001/<ModelName>/" + i.Hex())
+	rw.WriteHeader(http.StatusCreated)
 }
 
 func <ModelName>UpdateHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
