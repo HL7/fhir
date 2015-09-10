@@ -8,6 +8,16 @@
   Definition = Indicates whether the account is available to be used
   Conformance = Preferred
 
+ -- Row 2 -----------------------------------
+  Binding Name = AccountType
+  Binding = unbound
+  Definition = The usage type of this account, permits categorization of accounts
+
+ -- Row 3 -----------------------------------
+  Binding Name = AccountCurrency
+  Binding = unbound
+  Definition = The monetary currency that this account records values in
+
 === Sheet account-status =====================================
 
  -- Row 1 -----------------------------------
@@ -52,6 +62,7 @@
   Element = Account.type
   Card. = 0..1
   Type = CodeableConcept
+  Binding = AccountType
   Short Label = E.g. patient, expense, depreciation
   Definition = Categorizes the account for reporting and searching purposes
 

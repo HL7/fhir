@@ -29,9 +29,9 @@
   Conformance = Preferred
 
  -- Row 5 -----------------------------------
-  Binding Name = ServiceType
+  Binding Name = ServiceSpecialty
   Binding = unbound
-  Definition = The type of healthcare service that could be provided
+  Definition = A specialty that a healthcare service may provide
 
  -- Row 6 -----------------------------------
   Binding Name = ServiceCategory
@@ -188,7 +188,6 @@
   Summary = Y
   UML = 350;0
   Type = =ServiceType
-  Binding = ServiceType
   Short Label = A specific type of service that may be delivered or performed
 
  -- Row 6 -----------------------------------
@@ -205,6 +204,7 @@
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
+  Binding = ServiceSpecialty
   Short Label = Collection of Specialties handled by the Service Site. This is more of a Medical Term
 
  -- Row 8 -----------------------------------
