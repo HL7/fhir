@@ -17,27 +17,27 @@
     <concept>
       <code value="imm"/>
       <display value="Immediate"/>
-      <definition value="Within seconds"/>
+      <definition value="Within seconds."/>
     </concept>
     <concept>
       <code value="emg"/>
       <display value="Emergency"/>
-      <definition value="Within 10 minutes"/>
+      <definition value="Within 10 minutes."/>
     </concept>
     <concept>
       <code value="urg"/>
       <display value="Urgent"/>
-      <definition value="Within 30 minutes"/>
+      <definition value="Within 30 minutes."/>
     </concept>
     <concept>
       <code value="s-urg"/>
       <display value="Semi-urgent"/>
-      <definition value="Within 60 minutes"/>
+      <definition value="Within 60 minutes."/>
     </concept>
     <concept>
       <code value="no-urg"/>
       <display value="Non-urgent"/>
-      <definition value="Within 120 minutes"/>
+      <definition value="Within 120 minutes."/>
     </concept>
   </codeSystem>
 </ValueSet>

@@ -13,8 +13,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="SNOMED CT Substance concepts Other Than Clinical Drug Substances that are not represented by RXNORM  drug concepts or FDA UNII substance concepts. This value set is meant to be quite broad and includes many substances that may never be prescribed or be a reactant. It does not remove all overlap with RXNORM and UNII; for those concepts, the alternative code system should be chosen"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <description value="SNOMED CT Substance concepts Other Than Clinical Drug Substances that are not represented by RXNORM  drug concepts or FDA UNII substance concepts. This value set is meant to be quite broad and includes many substances that may never be prescribed or be a reactant. It does not remove all overlap with RXNORM and UNII; for those concepts, the alternative code system should be chosen."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

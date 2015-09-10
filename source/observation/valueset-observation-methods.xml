@@ -24,8 +24,8 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<description value="Observation Method codes from SNOMED CT (codes subsumed by 272394005 &quot;Technique&quot;, and the v3 Code System &quot;ObservationMethod&quot; (which is no loner actively maintained)"/>
-	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<description value="Observation Method codes from SNOMED CT (codes subsumed by 272394005 &quot;Technique&quot;, and the v3 Code System &quot;ObservationMethod&quot; (which is no longer actively maintained)."/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/v3/ObservationMethod"/>

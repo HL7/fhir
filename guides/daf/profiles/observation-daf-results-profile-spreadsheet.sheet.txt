@@ -231,7 +231,7 @@
 
  -- Row 18 -----------------------------------
   Element = Observation.identifier
-  Card. = 1..*
+  Card. = 0..*
   Must Support = Y
   Type = Identifier
   Committee Notes = 11/19/2014 EH: new identifier instance recommend using and discuss

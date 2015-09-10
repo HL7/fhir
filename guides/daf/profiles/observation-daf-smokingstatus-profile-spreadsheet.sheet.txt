@@ -32,99 +32,61 @@
   Element = Observation.valueCodeableConcept
   Card. = 0..1
   Must Support = Y
-  Type = CodeableConcept
   Binding = C-CDASmokingStatusValue
   Short Label = Coded Responses from Smoking Status Value Set
 
  -- Row 4 -----------------------------------
-  Element = Observation.dataAbsentReason
-  Card. = 0..1
-  Must Support = Y
-  Type = CodeableConcept
-
- -- Row 5 -----------------------------------
   Element = Observation.interpretation
   Card. = 0..0
-  Type = CodeableConcept
 
- -- Row 6 -----------------------------------
-  Element = !Observation.comments
-  Card. = 0..1
-  Type = string
-
- -- Row 7 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Observation.effectivePeriod
   Card. = 0..1
   Must Support = Y
-  Type = Period
 
- -- Row 8 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Observation.issued
   Card. = 0..1
   Must Support = Y
-  Type = instant
 
- -- Row 9 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Observation.status
   Card. = 1..1
   Must Support = Y
-  Type = code
-  Value = final
 
- -- Row 10 -----------------------------------
-  Element = !Observation.reliability
-  Card. = 0..1
-  Type = code
-
- -- Row 11 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Observation.bodySite
   Card. = 0..0
-  Type = CodeableConcept
 
- -- Row 12 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Observation.method
   Card. = 0..0
-  Type = CodeableConcept
 
- -- Row 13 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.identifier
   Card. = 0..*
   Must Support = Y
-  Type = Identifier
 
- -- Row 14 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.subject
   Card. = 0..1
   Must Support = Y
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
 
- -- Row 15 -----------------------------------
-  Element = Observation.specimen
-  Card. = 0..0
-  Type = Reference(Specimen)
-
- -- Row 16 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.performer
   Card. = 0..*
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}|Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/daf-relatedperson}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}
 
- -- Row 17 -----------------------------------
-  Element = Observation.device
-  Card. = 0..1
-
- -- Row 18 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.referenceRange
   Card. = 0..0
 
- -- Row 19 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Observation.encounter
   Card. = 0..1
   Must Support = Y
   Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}
-
- -- Row 20 -----------------------------------
-  Element = !Observation.related
-  Card. = 0..*
 
 === Sheet Search =====================================

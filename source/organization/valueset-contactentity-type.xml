@@ -10,39 +10,39 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This example value set defines a set of codes that can be used to indicate      the purpose for which you would contact a contact party."/>
+  <description value="This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/contactentity-type"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="BILL"/>
       <display value="Billing"/>
-      <definition value="Contact details for information regarding to billing/general finance enquiries"/>
+      <definition value="Contact details for information regarding to billing/general finance enquiries."/>
     </concept>
     <concept>
       <code value="ADMIN"/>
       <display value="Administrative"/>
-      <definition value="Contact details for administrative enquiries"/>
+      <definition value="Contact details for administrative enquiries."/>
     </concept>
     <concept>
       <code value="HR"/>
       <display value="Human Resource"/>
-      <definition value="Contact details for issues related to Human Resources, such as staff matters, OH&amp;S etc"/>
+      <definition value="Contact details for issues related to Human Resources, such as staff matters, OH&amp;S etc."/>
     </concept>
     <concept>
       <code value="PAYOR"/>
       <display value="Payor"/>
-      <definition value="Contact details for dealing with issues related to insurance claims/adjudication/payment"/>
+      <definition value="Contact details for dealing with issues related to insurance claims/adjudication/payment."/>
     </concept>
     <concept>
       <code value="PATINF"/>
       <display value="Patient"/>
-      <definition value="Generic information contact for patients"/>
+      <definition value="Generic information contact for patients."/>
     </concept>
     <concept>
       <code value="PRESS"/>
       <display value="Press"/>
-      <definition value="Dedicated contact point for matters relating to press enquiries"/>
+      <definition value="Dedicated contact point for matters relating to press enquiries."/>
     </concept>
   </codeSystem>
 </ValueSet>

@@ -10,14 +10,14 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines a set of codes that are used to indicate the nature of the relationship between      a patient and a contactperson for that patient"/>
+  <description value="This value set defines a set of codes that are used to indicate the nature of the relationship between a patient and a contactperson for that patient."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/patient-contact-relationship"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="emergency"/>
       <display value="Emergency"/>
-      <definition value="Contact for use in case of emergency"/>
+      <definition value="Contact for use in case of emergency."/>
     </concept>
     <concept>
       <code value="family"/>
@@ -38,7 +38,7 @@
     <concept>
       <code value="work"/>
       <display value="Work"/>
-      <definition value="Contact for matters related to the patients occupation/employment"/>
+      <definition value="Contact for matters related to the patients occupation/employment."/>
     </concept>
     <concept>
       <code value="caregiver"/>

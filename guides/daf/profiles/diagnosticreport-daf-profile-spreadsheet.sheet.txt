@@ -185,7 +185,7 @@
 
  -- Row 19 -----------------------------------
   Element = DiagnosticReport.identifier
-  Card. = 1..*
+  Card. = 0..*
   Must Support = Y
   Type = Identifier
   To Do = cocpy this pattern to other identifier instances

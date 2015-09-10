@@ -10,7 +10,7 @@
       <value value="http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0"/>
     </telecom>
   </contact>
-  <description value="Developed for use in the collection, analysis and dissemination of occupation statistics in Australia and New Zealand"/>
+  <description value="Developed for use in the collection, analysis and dissemination of occupation statistics in Australia and New Zealand."/>
   <useContext>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
@@ -31,12 +31,12 @@
     <concept>
       <code value="100000"/>
       <display value="Managers nfd"/>
-      <definition value="Managers nfd"/>
+      <definition value="Managers not further defined"/>
     </concept>
     <concept>
       <code value="111000"/>
       <display value="Chief Executives, General Managers and Legislators nfd"/>
-      <definition value="Chief Executives, General Managers and Legislators nfd"/>
+      <definition value="Chief Executives, General Managers and Legislators not further defined"/>
     </concept>
     <concept>
       <code value="111111"/>
@@ -46,7 +46,7 @@
     <concept>
       <code value="111200"/>
       <display value="General Managers nfd"/>
-      <definition value="General Managers nfd"/>
+      <definition value="General Managers not further defined"/>
     </concept>
     <concept>
       <code value="111211"/>
@@ -61,7 +61,7 @@
     <concept>
       <code value="111300"/>
       <display value="Legislators nfd"/>
-      <definition value="Legislators nfd"/>
+      <definition value="Legislators not further defined"/>
     </concept>
     <concept>
       <code value="111311"/>
@@ -76,12 +76,12 @@
     <concept>
       <code value="111399"/>
       <display value="Legislators nec"/>
-      <definition value="Legislators nec"/>
+      <definition value="Legislators not elsewhere classified"/>
     </concept>
     <concept>
       <code value="121000"/>
       <display value="Farmers and Farm Managers nfd"/>
-      <definition value="Farmers and Farm Managers nfd"/>
+      <definition value="Farmers and Farm Managers not further defined"/>
     </concept>
     <concept>
       <code value="121111"/>
@@ -91,7 +91,7 @@
     <concept>
       <code value="121200"/>
       <display value="Crop Farmers nfd"/>
-      <definition value="Crop Farmers nfd"/>
+      <definition value="Crop Farmers not further defined"/>
     </concept>
     <concept>
       <code value="121211"/>
@@ -141,12 +141,12 @@
     <concept>
       <code value="121299"/>
       <display value="Crop Farmers nec"/>
-      <definition value="Crop Farmers nec"/>
+      <definition value="Crop Farmers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="121300"/>
       <display value="Livestock Farmers nfd"/>
-      <definition value="Livestock Farmers nfd"/>
+      <definition value="Livestock Farmers not further defined"/>
     </concept>
     <concept>
       <code value="121311"/>
@@ -201,7 +201,7 @@
     <concept>
       <code value="121399"/>
       <display value="Livestock Farmers nec"/>
-      <definition value="Livestock Farmers nec"/>
+      <definition value="Livestock Farmers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="121411"/>
@@ -211,12 +211,12 @@
     <concept>
       <code value="130000"/>
       <display value="Specialist Managers nfd"/>
-      <definition value="Specialist Managers nfd"/>
+      <definition value="Specialist Managers not further defined"/>
     </concept>
     <concept>
       <code value="131100"/>
       <display value="Advertising and Sales Managers nfd"/>
-      <definition value="Advertising and Sales Managers nfd"/>
+      <definition value="Advertising and Sales Managers not further defined"/>
     </concept>
     <concept>
       <code value="131111"/>
@@ -231,7 +231,7 @@
     <concept>
       <code value="132000"/>
       <display value="Business Administration Managers nfd"/>
-      <definition value="Business Administration Managers nfd"/>
+      <definition value="Business Administration Managers not further defined"/>
     </concept>
     <concept>
       <code value="132111"/>
@@ -261,12 +261,12 @@
     <concept>
       <code value="133000"/>
       <display value="Construction, Distribution and Production Managers nfd"/>
-      <definition value="Construction, Distribution and Production Managers nfd"/>
+      <definition value="Construction, Distribution and Production Managers not further defined"/>
     </concept>
     <concept>
       <code value="133100"/>
       <display value="Construction Managers nfd"/>
-      <definition value="Construction Managers nfd"/>
+      <definition value="Construction Managers not further defined"/>
     </concept>
     <concept>
       <code value="133111"/>
@@ -286,7 +286,7 @@
     <concept>
       <code value="133300"/>
       <display value="Importers, Exporters and Wholesalers nfd"/>
-      <definition value="Importers, Exporters and Wholesalers nfd"/>
+      <definition value="Importers, Exporters and Wholesalers not further defined"/>
     </concept>
     <concept>
       <code value="133311"/>
@@ -306,7 +306,7 @@
     <concept>
       <code value="133500"/>
       <display value="Production Managers nfd"/>
-      <definition value="Production Managers nfd"/>
+      <definition value="Production Managers not further defined"/>
     </concept>
     <concept>
       <code value="133511"/>
@@ -331,7 +331,7 @@
     <concept>
       <code value="134000"/>
       <display value="Education, Health and Welfare Services Managers nfd"/>
-      <definition value="Education, Health and Welfare Services Managers nfd"/>
+      <definition value="Education, Health and Welfare Services Managers not further defined"/>
     </concept>
     <concept>
       <code value="134111"/>
@@ -341,7 +341,7 @@
     <concept>
       <code value="134200"/>
       <display value="Health and Welfare Services Managers nfd"/>
-      <definition value="Health and Welfare Services Managers nfd"/>
+      <definition value="Health and Welfare Services Managers not further defined"/>
     </concept>
     <concept>
       <code value="134211"/>
@@ -366,7 +366,7 @@
     <concept>
       <code value="134299"/>
       <display value="Health and Welfare Services Managers nec"/>
-      <definition value="Health and Welfare Services Managers nec"/>
+      <definition value="Health and Welfare Services Managers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="134311"/>
@@ -376,7 +376,7 @@
     <concept>
       <code value="134400"/>
       <display value="Other Education Managers nfd"/>
-      <definition value="Other Education Managers nfd"/>
+      <definition value="Other Education Managers not further defined"/>
     </concept>
     <concept>
       <code value="134411"/>
@@ -391,12 +391,12 @@
     <concept>
       <code value="134499"/>
       <display value="Education Managers nec"/>
-      <definition value="Education Managers nec"/>
+      <definition value="Education Managers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="135100"/>
       <display value="ICT Managers nfd"/>
-      <definition value="ICT Managers nfd"/>
+      <definition value="ICT Managers not further defined"/>
     </concept>
     <concept>
       <code value="135111"/>
@@ -411,17 +411,17 @@
     <concept>
       <code value="135199"/>
       <display value="ICT Managers nec"/>
-      <definition value="ICT Managers nec"/>
+      <definition value="ICT Managers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="139000"/>
       <display value="Miscellaneous Specialist Managers nfd"/>
-      <definition value="Miscellaneous Specialist Managers nfd"/>
+      <definition value="Miscellaneous Specialist Managers not further defined"/>
     </concept>
     <concept>
       <code value="139100"/>
       <display value="Commissioned Officers (Management) nfd"/>
-      <definition value="Commissioned Officers (Management) nfd"/>
+      <definition value="Commissioned Officers (Management) not further defined"/>
     </concept>
     <concept>
       <code value="139111"/>
@@ -446,7 +446,7 @@
     <concept>
       <code value="139900"/>
       <display value="Other Specialist Managers nfd"/>
-      <definition value="Other Specialist Managers nfd"/>
+      <definition value="Other Specialist Managers not further defined"/>
     </concept>
     <concept>
       <code value="139911"/>
@@ -476,17 +476,17 @@
     <concept>
       <code value="139999"/>
       <display value="Specialist Managers nec"/>
-      <definition value="Specialist Managers nec"/>
+      <definition value="Specialist Managers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="140000"/>
       <display value="Hospitality, Retail and Service Managers nfd"/>
-      <definition value="Hospitality, Retail and Service Managers nfd"/>
+      <definition value="Hospitality, Retail and Service Managers not further defined"/>
     </concept>
     <concept>
       <code value="141000"/>
       <display value="Accommodation and Hospitality Managers nfd"/>
-      <definition value="Accommodation and Hospitality Managers nfd"/>
+      <definition value="Accommodation and Hospitality Managers not further defined"/>
     </concept>
     <concept>
       <code value="141111"/>
@@ -511,7 +511,7 @@
     <concept>
       <code value="141900"/>
       <display value="Other Accommodation and Hospitality Managers nfd"/>
-      <definition value="Other Accommodation and Hospitality Managers nfd"/>
+      <definition value="Other Accommodation and Hospitality Managers not further defined"/>
     </concept>
     <concept>
       <code value="141911"/>
@@ -521,12 +521,12 @@
     <concept>
       <code value="141999"/>
       <display value="Accommodation and Hospitality Managers nec"/>
-      <definition value="Accommodation and Hospitality Managers nec"/>
+      <definition value="Accommodation and Hospitality Managers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="142100"/>
       <display value="Retail Managers nfd"/>
-      <definition value="Retail Managers nfd"/>
+      <definition value="Retail Managers not further defined"/>
     </concept>
     <concept>
       <code value="142111"/>
@@ -561,12 +561,12 @@
     <concept>
       <code value="149000"/>
       <display value="Miscellaneous Hospitality, Retail and Service Managers nfd"/>
-      <definition value="Miscellaneous Hospitality, Retail and Service Managers nfd"/>
+      <definition value="Miscellaneous Hospitality, Retail and Service Managers not further defined"/>
     </concept>
     <concept>
       <code value="149100"/>
       <display value="Amusement, Fitness and Sports Centre Managers nfd"/>
-      <definition value="Amusement, Fitness and Sports Centre Managers nfd"/>
+      <definition value="Amusement, Fitness and Sports Centre Managers not further defined"/>
     </concept>
     <concept>
       <code value="149111"/>
@@ -586,7 +586,7 @@
     <concept>
       <code value="149200"/>
       <display value="Call or Contact Centre and Customer Service Managers nfd"/>
-      <definition value="Call or Contact Centre and Customer Service Managers nfd"/>
+      <definition value="Call or Contact Centre and Customer Service Managers not further defined"/>
     </concept>
     <concept>
       <code value="149211"/>
@@ -606,7 +606,7 @@
     <concept>
       <code value="149400"/>
       <display value="Transport Services Managers nfd"/>
-      <definition value="Transport Services Managers nfd"/>
+      <definition value="Transport Services Managers not further defined"/>
     </concept>
     <concept>
       <code value="149411"/>
@@ -626,7 +626,7 @@
     <concept>
       <code value="149900"/>
       <display value="Other Hospitality, Retail and Service Managers nfd"/>
-      <definition value="Other Hospitality, Retail and Service Managers nfd"/>
+      <definition value="Other Hospitality, Retail and Service Managers not further defined"/>
     </concept>
     <concept>
       <code value="149911"/>
@@ -651,27 +651,27 @@
     <concept>
       <code value="149999"/>
       <display value="Hospitality, Retail and Service Managers nec"/>
-      <definition value="Hospitality, Retail and Service Managers nec"/>
+      <definition value="Hospitality, Retail and Service Managers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="200000"/>
       <display value="Professionals nfd"/>
-      <definition value="Professionals nfd"/>
+      <definition value="Professionals not further defined"/>
     </concept>
     <concept>
       <code value="210000"/>
       <display value="Arts and Media Professionals nfd"/>
-      <definition value="Arts and Media Professionals nfd"/>
+      <definition value="Arts and Media Professionals not further defined"/>
     </concept>
     <concept>
       <code value="211000"/>
       <display value="Arts Professionals nfd"/>
-      <definition value="Arts Professionals nfd"/>
+      <definition value="Arts Professionals not further defined"/>
     </concept>
     <concept>
       <code value="211100"/>
       <display value="Actors, Dancers and Other Entertainers nfd"/>
-      <definition value="Actors, Dancers and Other Entertainers nfd"/>
+      <definition value="Actors, Dancers and Other Entertainers not further defined"/>
     </concept>
     <concept>
       <code value="211111"/>
@@ -691,11 +691,12 @@
     <concept>
       <code value="211199"/>
       <display value="Actors, Dancers and Other Entertainers nec"/>
-      <definition value="Actors, Dancers and Other Entertainers nec"/>
+      <definition value="Actors, Dancers and Other Entertainers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="211200"/>
-      <definition value="Music Professionals nfd"/>
+      <display value="Music Professionals nfd"/>
+      <definition value="Music Professionals not further defined"/>
     </concept>
     <concept>
       <code value="211211"/>
@@ -720,7 +721,7 @@
     <concept>
       <code value="211299"/>
       <display value="Music Professionals nec"/>
-      <definition value="Music Professionals nec"/>
+      <definition value="Music Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="211311"/>
@@ -730,10 +731,11 @@
     <concept>
       <code value="211400"/>
       <display value="Visual Arts and Crafts Professionals nfd"/>
-      <definition value="Visual Arts and Crafts Professionals nfd"/>
+      <definition value="Visual Arts and Crafts Professionals not further defined"/>
     </concept>
     <concept>
       <code value="211411"/>
+      <display value="Painter (Visual Arts)"/>
       <definition value="Painter (Visual Arts)"/>
     </concept>
     <concept>
@@ -749,17 +751,17 @@
     <concept>
       <code value="211499"/>
       <display value="Visual Arts and Crafts Professionals nec"/>
-      <definition value="Visual Arts and Crafts Professionals nec"/>
+      <definition value="Visual Arts and Crafts Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="212000"/>
       <display value="Media Professionals nfd"/>
-      <definition value="Media Professionals nfd"/>
+      <definition value="Media Professionals not further defined"/>
     </concept>
     <concept>
       <code value="212100"/>
       <display value="Artistic Directors, and Media Producers and Presenters nfd"/>
-      <definition value="Artistic Directors, and Media Producers and Presenters nfd"/>
+      <definition value="Artistic Directors, and Media Producers and Presenters not further defined"/>
     </concept>
     <concept>
       <code value="212111"/>
@@ -784,7 +786,7 @@
     <concept>
       <code value="212200"/>
       <display value="Authors, and Book and Script Editors nfd"/>
-      <definition value="Authors, and Book and Script Editors nfd"/>
+      <definition value="Authors, and Book and Script Editors not further defined"/>
     </concept>
     <concept>
       <code value="212211"/>
@@ -799,7 +801,7 @@
     <concept>
       <code value="212300"/>
       <display value="Film, Television, Radio and Stage Directors nfd"/>
-      <definition value="Film, Television, Radio and Stage Directors nfd"/>
+      <definition value="Film, Television, Radio and Stage Directors not further defined"/>
     </concept>
     <concept>
       <code value="212311"/>
@@ -844,12 +846,12 @@
     <concept>
       <code value="212399"/>
       <display value="Film, Television, Radio and Stage Directors nec"/>
-      <definition value="Film, Television, Radio and Stage Directors nec"/>
+      <definition value="Film, Television, Radio and Stage Directors not elsewhere classified"/>
     </concept>
     <concept>
       <code value="212400"/>
       <display value="Journalists and Other Writers nfd"/>
-      <definition value="Journalists and Other Writers nfd"/>
+      <definition value="Journalists and Other Writers not further defined"/>
     </concept>
     <concept>
       <code value="212411"/>
@@ -884,22 +886,22 @@
     <concept>
       <code value="212499"/>
       <display value="Journalists and Other Writers nec"/>
-      <definition value="Journalists and Other Writers nec"/>
+      <definition value="Journalists and Other Writers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="220000"/>
       <display value="Business, Human Resource and Marketing Professionals nfd"/>
-      <definition value="Business, Human Resource and Marketing Professionals nfd"/>
+      <definition value="Business, Human Resource and Marketing Professionals not further defined"/>
     </concept>
     <concept>
       <code value="221000"/>
       <display value="Accountants, Auditors and Company Secretaries nfd"/>
-      <definition value="Accountants, Auditors and Company Secretaries nfd"/>
+      <definition value="Accountants, Auditors and Company Secretaries not further defined"/>
     </concept>
     <concept>
       <code value="221100"/>
       <display value="Accountants nfd"/>
-      <definition value="Accountants nfd"/>
+      <definition value="Accountants not further defined"/>
     </concept>
     <concept>
       <code value="221111"/>
@@ -919,7 +921,7 @@
     <concept>
       <code value="221200"/>
       <display value="Auditors, Company Secretaries and Corporate Treasurers nfd"/>
-      <definition value="Auditors, Company Secretaries and Corporate Treasurers nfd"/>
+      <definition value="Auditors, Company Secretaries and Corporate Treasurers not further defined"/>
     </concept>
     <concept>
       <code value="221211"/>
@@ -944,12 +946,12 @@
     <concept>
       <code value="222000"/>
       <display value="Financial Brokers and Dealers, and Investment Advisers nfd"/>
-      <definition value="Financial Brokers and Dealers, and Investment Advisers nfd"/>
+      <definition value="Financial Brokers and Dealers, and Investment Advisers not further defined"/>
     </concept>
     <concept>
       <code value="222100"/>
       <display value="Financial Brokers nfd"/>
-      <definition value="Financial Brokers nfd"/>
+      <definition value="Financial Brokers not further defined"/>
     </concept>
     <concept>
       <code value="222111"/>
@@ -969,12 +971,12 @@
     <concept>
       <code value="222199"/>
       <display value="Financial Brokers nec"/>
-      <definition value="Financial Brokers nec"/>
+      <definition value="Financial Brokers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="222200"/>
       <display value="Financial Dealers nfd"/>
-      <definition value="Financial Dealers nfd"/>
+      <definition value="Financial Dealers not further defined"/>
     </concept>
     <concept>
       <code value="222211"/>
@@ -983,6 +985,7 @@
     </concept>
     <concept>
       <code value="222212"/>
+      <display value="Futures Trader"/>
       <definition value="Futures Trader"/>
     </concept>
     <concept>
@@ -993,12 +996,12 @@
     <concept>
       <code value="222299"/>
       <display value="Financial Dealers nec"/>
-      <definition value="Financial Dealers nec"/>
+      <definition value="Financial Dealers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="222300"/>
       <display value="Financial Investment Advisers and Managers nfd"/>
-      <definition value="Financial Investment Advisers and Managers nfd"/>
+      <definition value="Financial Investment Advisers and Managers not further defined"/>
     </concept>
     <concept>
       <code value="222311"/>
@@ -1013,12 +1016,12 @@
     <concept>
       <code value="223000"/>
       <display value="Human Resource and Training Professionals nfd"/>
-      <definition value="Human Resource and Training Professionals nfd"/>
+      <definition value="Human Resource and Training Professionals not further defined"/>
     </concept>
     <concept>
       <code value="223100"/>
       <display value="Human Resource Professionals nfd"/>
-      <definition value="Human Resource Professionals nfd"/>
+      <definition value="Human Resource Professionals not further defined"/>
     </concept>
     <concept>
       <code value="223111"/>
@@ -1027,6 +1030,7 @@
     </concept>
     <concept>
       <code value="223112"/>
+      <display value="Recruitment Consultant"/>
       <definition value="Recruitment Consultant"/>
     </concept>
     <concept>
@@ -1047,12 +1051,12 @@
     <concept>
       <code value="224000"/>
       <display value="Information and Organization Professionals nfd"/>
-      <definition value="Information and Organization Professionals nfd"/>
+      <definition value="Information and Organization Professionals not further defined"/>
     </concept>
     <concept>
       <code value="224100"/>
       <display value="Actuaries, Mathematicians and Statisticians nfd"/>
-      <definition value="Actuaries, Mathematicians and Statisticians nfd"/>
+      <definition value="Actuaries, Mathematicians and Statisticians not further defined"/>
     </concept>
     <concept>
       <code value="224111"/>
@@ -1072,7 +1076,7 @@
     <concept>
       <code value="224200"/>
       <display value="Archivists, Curators and Records Managers nfd"/>
-      <definition value="Archivists, Curators and Records Managers nfd"/>
+      <definition value="Archivists, Curators and Records Managers not further defined"/>
     </concept>
     <concept>
       <code value="224211"/>
@@ -1102,7 +1106,7 @@
     <concept>
       <code value="224400"/>
       <display value="Intelligence and Policy Analysts nfd"/>
-      <definition value="Intelligence and Policy Analysts nfd"/>
+      <definition value="Intelligence and Policy Analysts not further defined"/>
     </concept>
     <concept>
       <code value="224411"/>
@@ -1117,7 +1121,7 @@
     <concept>
       <code value="224500"/>
       <display value="Land Economists and Valuers nfd"/>
-      <definition value="Land Economists and Valuers nfd"/>
+      <definition value="Land Economists and Valuers not further defined"/>
     </concept>
     <concept>
       <code value="224511"/>
@@ -1137,7 +1141,7 @@
     <concept>
       <code value="224700"/>
       <display value="Management and Organization Analysts nfd"/>
-      <definition value="Management and Organization Analysts nfd"/>
+      <definition value="Management and Organization Analysts not further defined"/>
     </concept>
     <concept>
       <code value="224711"/>
@@ -1152,7 +1156,7 @@
     <concept>
       <code value="224900"/>
       <display value="Other Information and Organization Professionals nfd"/>
-      <definition value="Other Information and Organization Professionals nfd"/>
+      <definition value="Other Information and Organization Professionals not further defined"/>
     </concept>
     <concept>
       <code value="224911"/>
@@ -1177,17 +1181,17 @@
     <concept>
       <code value="224999"/>
       <display value="Information and Organization Professionals nec"/>
-      <definition value="Information and Organization Professionals nec"/>
+      <definition value="Information and Organization Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="225000"/>
       <display value="Sales, Marketing and Public Relations Professionals nfd"/>
-      <definition value="Sales, Marketing and Public Relations Professionals nfd"/>
+      <definition value="Sales, Marketing and Public Relations Professionals not further defined"/>
     </concept>
     <concept>
       <code value="225100"/>
       <display value="Advertising and Marketing Professionals nfd"/>
-      <definition value="Advertising and Marketing Professionals nfd"/>
+      <definition value="Advertising and Marketing Professionals not further defined"/>
     </concept>
     <concept>
       <code value="225111"/>
@@ -1207,7 +1211,7 @@
     <concept>
       <code value="225200"/>
       <display value="ICT Sales Professionals nfd"/>
-      <definition value="ICT Sales Professionals nfd"/>
+      <definition value="ICT Sales Professionals not further defined"/>
     </concept>
     <concept>
       <code value="225211"/>
@@ -1232,7 +1236,7 @@
     <concept>
       <code value="225400"/>
       <display value="Technical Sales Representatives nfd"/>
-      <definition value="Technical Sales Representatives nfd"/>
+      <definition value="Technical Sales Representatives not further defined"/>
     </concept>
     <concept>
       <code value="225411"/>
@@ -1247,22 +1251,22 @@
     <concept>
       <code value="225499"/>
       <display value="Technical Sales Representatives nec"/>
-      <definition value="Technical Sales Representatives nec"/>
+      <definition value="Technical Sales Representatives not elsewhere classified"/>
     </concept>
     <concept>
       <code value="230000"/>
       <display value="Design, Engineering, Science and Transport Professionals nfd"/>
-      <definition value="Design, Engineering, Science and Transport Professionals nfd"/>
+      <definition value="Design, Engineering, Science and Transport Professionals not further defined"/>
     </concept>
     <concept>
       <code value="231000"/>
       <display value="Air and Marine Transport Professionals nfd"/>
-      <definition value="Air and Marine Transport Professionals nfd"/>
+      <definition value="Air and Marine Transport Professionals not further defined"/>
     </concept>
     <concept>
       <code value="231100"/>
       <display value="Air Transport Professionals nfd"/>
-      <definition value="Air Transport Professionals nfd"/>
+      <definition value="Air Transport Professionals not further defined"/>
     </concept>
     <concept>
       <code value="231111"/>
@@ -1287,12 +1291,12 @@
     <concept>
       <code value="231199"/>
       <display value="Air Transport Professionals nec"/>
-      <definition value="Air Transport Professionals nec"/>
+      <definition value="Air Transport Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="231200"/>
       <display value="Marine Transport Professionals nfd"/>
-      <definition value="Marine Transport Professionals nfd"/>
+      <definition value="Marine Transport Professionals not further defined"/>
     </concept>
     <concept>
       <code value="231211"/>
@@ -1322,17 +1326,17 @@
     <concept>
       <code value="231299"/>
       <display value="Marine Transport Professionals nec"/>
-      <definition value="Marine Transport Professionals nec"/>
+      <definition value="Marine Transport Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="232000"/>
       <display value="Architects, Designers, Planners and Surveyors nfd"/>
-      <definition value="Architects, Designers, Planners and Surveyors nfd"/>
+      <definition value="Architects, Designers, Planners and Surveyors not further defined"/>
     </concept>
     <concept>
       <code value="232100"/>
       <display value="Architects and Landscape Architects nfd"/>
-      <definition value="Architects and Landscape Architects nfd"/>
+      <definition value="Architects and Landscape Architects not further defined"/>
     </concept>
     <concept>
       <code value="232111"/>
@@ -1347,7 +1351,7 @@
     <concept>
       <code value="232200"/>
       <display value="Cartographers and Surveyors nfd"/>
-      <definition value="Cartographers and Surveyors nfd"/>
+      <definition value="Cartographers and Surveyors not further defined"/>
     </concept>
     <concept>
       <code value="232211"/>
@@ -1362,7 +1366,7 @@
     <concept>
       <code value="232300"/>
       <display value="Fashion, Industrial and Jewellery Designers nfd"/>
-      <definition value="Fashion, Industrial and Jewellery Designers nfd"/>
+      <definition value="Fashion, Industrial and Jewellery Designers not further defined"/>
     </concept>
     <concept>
       <code value="232311"/>
@@ -1382,7 +1386,7 @@
     <concept>
       <code value="232400"/>
       <display value="Graphic and Web Designers, and Illustrators nfd"/>
-      <definition value="Graphic and Web Designers, and Illustrators nfd"/>
+      <definition value="Graphic and Web Designers, and Illustrators not further defined"/>
     </concept>
     <concept>
       <code value="232411"/>
@@ -1417,12 +1421,12 @@
     <concept>
       <code value="233000"/>
       <display value="Engineering Professionals nfd"/>
-      <definition value="Engineering Professionals nfd"/>
+      <definition value="Engineering Professionals not further defined"/>
     </concept>
     <concept>
       <code value="233100"/>
       <display value="Chemical and Materials Engineers nfd"/>
-      <definition value="Chemical and Materials Engineers nfd"/>
+      <definition value="Chemical and Materials Engineers not further defined"/>
     </concept>
     <concept>
       <code value="233111"/>
@@ -1437,7 +1441,7 @@
     <concept>
       <code value="233200"/>
       <display value="Civil Engineering Professionals nfd"/>
-      <definition value="Civil Engineering Professionals nfd"/>
+      <definition value="Civil Engineering Professionals not further defined"/>
     </concept>
     <concept>
       <code value="233211"/>
@@ -1477,7 +1481,7 @@
     <concept>
       <code value="233500"/>
       <display value="Industrial, Mechanical and Production Engineers nfd"/>
-      <definition value="Industrial, Mechanical and Production Engineers nfd"/>
+      <definition value="Industrial, Mechanical and Production Engineers not further defined"/>
     </concept>
     <concept>
       <code value="233511"/>
@@ -1497,7 +1501,7 @@
     <concept>
       <code value="233600"/>
       <display value="Mining Engineers nfd"/>
-      <definition value="Mining Engineers nfd"/>
+      <definition value="Mining Engineers not further defined"/>
     </concept>
     <concept>
       <code value="233611"/>
@@ -1512,7 +1516,7 @@
     <concept>
       <code value="233900"/>
       <display value="Other Engineering Professionals nfd"/>
-      <definition value="Other Engineering Professionals nfd"/>
+      <definition value="Other Engineering Professionals not further defined"/>
     </concept>
     <concept>
       <code value="233911"/>
@@ -1547,17 +1551,17 @@
     <concept>
       <code value="233999"/>
       <display value="Engineering Professionals nec"/>
-      <definition value="Engineering Professionals nec"/>
+      <definition value="Engineering Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="234000"/>
       <display value="Natural and Physical Science Professionals nfd"/>
-      <definition value="Natural and Physical Science Professionals nfd"/>
+      <definition value="Natural and Physical Science Professionals not further defined"/>
     </concept>
     <concept>
       <code value="234100"/>
       <display value="Agricultural and Forestry Scientists nfd"/>
-      <definition value="Agricultural and Forestry Scientists nfd"/>
+      <definition value="Agricultural and Forestry Scientists not further defined"/>
     </concept>
     <concept>
       <code value="234111"/>
@@ -1577,7 +1581,7 @@
     <concept>
       <code value="234200"/>
       <display value="Chemists, and Food and Wine Scientists nfd"/>
-      <definition value="Chemists, and Food and Wine Scientists nfd"/>
+      <definition value="Chemists, and Food and Wine Scientists not further defined"/>
     </concept>
     <concept>
       <code value="234211"/>
@@ -1597,7 +1601,7 @@
     <concept>
       <code value="234300"/>
       <display value="Environmental Scientists nfd"/>
-      <definition value="Environmental Scientists nfd"/>
+      <definition value="Environmental Scientists not further defined"/>
     </concept>
     <concept>
       <code value="234311"/>
@@ -1622,12 +1626,12 @@
     <concept>
       <code value="234399"/>
       <display value="Environmental Scientists nec"/>
-      <definition value="Environmental Scientists nec"/>
+      <definition value="Environmental Scientists not elsewhere classified"/>
     </concept>
     <concept>
       <code value="234400"/>
       <display value="Geologists and Geophysicists nfd"/>
-      <definition value="Geologists and Geophysicists nfd"/>
+      <definition value="Geologists and Geophysicists not further defined"/>
     </concept>
     <concept>
       <code value="234411"/>
@@ -1642,7 +1646,7 @@
     <concept>
       <code value="234500"/>
       <display value="Life Scientists nfd"/>
-      <definition value="Life Scientists nfd"/>
+      <definition value="Life Scientists not further defined"/>
     </concept>
     <concept>
       <code value="234511"/>
@@ -1687,7 +1691,7 @@
     <concept>
       <code value="234599"/>
       <display value="Life Scientists nec"/>
-      <definition value="Life Scientists nec"/>
+      <definition value="Life Scientists not elsewhere classified"/>
     </concept>
     <concept>
       <code value="234611"/>
@@ -1702,7 +1706,7 @@
     <concept>
       <code value="234900"/>
       <display value="Other Natural and Physical Science Professionals nfd"/>
-      <definition value="Other Natural and Physical Science Professionals nfd"/>
+      <definition value="Other Natural and Physical Science Professionals not further defined"/>
     </concept>
     <concept>
       <code value="234911"/>
@@ -1727,17 +1731,17 @@
     <concept>
       <code value="234999"/>
       <display value="Natural and Physical Science Professionals nec"/>
-      <definition value="Natural and Physical Science Professionals nec"/>
+      <definition value="Natural and Physical Science Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="240000"/>
       <display value="Education Professionals nfd"/>
-      <definition value="Education Professionals nfd"/>
+      <definition value="Education Professionals not further defined"/>
     </concept>
     <concept>
       <code value="241000"/>
       <display value="School Teachers nfd"/>
-      <definition value="School Teachers nfd"/>
+      <definition value="School Teachers not further defined"/>
     </concept>
     <concept>
       <code value="241111"/>
@@ -1762,7 +1766,7 @@
     <concept>
       <code value="241500"/>
       <display value="Special Education Teachers nfd"/>
-      <definition value="Special Education Teachers nfd"/>
+      <definition value="Special Education Teachers not further defined"/>
     </concept>
     <concept>
       <code value="241511"/>
@@ -1782,17 +1786,17 @@
     <concept>
       <code value="241599"/>
       <display value="Special Education Teachers nec"/>
-      <definition value="Special Education Teachers nec"/>
+      <definition value="Special Education Teachers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="242000"/>
       <display value="Tertiary Education Teachers nfd"/>
-      <definition value="Tertiary Education Teachers nfd"/>
+      <definition value="Tertiary Education Teachers not further defined"/>
     </concept>
     <concept>
       <code value="242100"/>
       <display value="University Lecturers and Tutors nfd"/>
-      <definition value="University Lecturers and Tutors nfd"/>
+      <definition value="University Lecturers and Tutors not further defined"/>
     </concept>
     <concept>
       <code value="242111"/>
@@ -1812,12 +1816,12 @@
     <concept>
       <code value="249000"/>
       <display value="Miscellaneous Education Professionals nfd"/>
-      <definition value="Miscellaneous Education Professionals nfd"/>
+      <definition value="Miscellaneous Education Professionals not further defined"/>
     </concept>
     <concept>
       <code value="249100"/>
       <display value="Education Advisers and Reviewers nfd"/>
-      <definition value="Education Advisers and Reviewers nfd"/>
+      <definition value="Education Advisers and Reviewers not further defined"/>
     </concept>
     <concept>
       <code value="249111"/>
@@ -1832,7 +1836,7 @@
     <concept>
       <code value="249200"/>
       <display value="Private Tutors and Teachers nfd"/>
-      <definition value="Private Tutors and Teachers nfd"/>
+      <definition value="Private Tutors and Teachers not further defined"/>
     </concept>
     <concept>
       <code value="249211"/>
@@ -1846,6 +1850,7 @@
     </concept>
     <concept>
       <code value="249213"/>
+      <display value="Drama Teacher (Private Tuition)"/>
       <definition value="Drama Teacher (Private Tuition)"/>
     </concept>
     <concept>
@@ -1856,7 +1861,7 @@
     <concept>
       <code value="249299"/>
       <display value="Private Tutors and Teachers nec"/>
-      <definition value="Private Tutors and Teachers nec"/>
+      <definition value="Private Tutors and Teachers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="249311"/>
@@ -1866,12 +1871,12 @@
     <concept>
       <code value="250000"/>
       <display value="Health Professionals nfd"/>
-      <definition value="Health Professionals nfd"/>
+      <definition value="Health Professionals not further defined"/>
     </concept>
     <concept>
       <code value="251000"/>
       <display value="Health Diagnostic and Promotion Professionals nfd"/>
-      <definition value="Health Diagnostic and Promotion Professionals nfd"/>
+      <definition value="Health Diagnostic and Promotion Professionals not further defined"/>
     </concept>
     <concept>
       <code value="251111"/>
@@ -1881,7 +1886,7 @@
     <concept>
       <code value="251200"/>
       <display value="Medical Imaging Professionals nfd"/>
-      <definition value="Medical Imaging Professionals nfd"/>
+      <definition value="Medical Imaging Professionals not further defined"/>
     </concept>
     <concept>
       <code value="251211"/>
@@ -1906,7 +1911,7 @@
     <concept>
       <code value="251300"/>
       <display value="Occupational and Environmental Health Professionals nfd"/>
-      <definition value="Occupational and Environmental Health Professionals nfd"/>
+      <definition value="Occupational and Environmental Health Professionals not further defined"/>
     </concept>
     <concept>
       <code value="251311"/>
@@ -1921,7 +1926,7 @@
     <concept>
       <code value="251400"/>
       <display value="Optometrists and Orthoptists nfd"/>
-      <definition value="Optometrists and Orthoptists nfd"/>
+      <definition value="Optometrists and Orthoptists not further defined"/>
     </concept>
     <concept>
       <code value="251411"/>
@@ -1936,7 +1941,7 @@
     <concept>
       <code value="251500"/>
       <display value="Pharmacists nfd"/>
-      <definition value="Pharmacists nfd"/>
+      <definition value="Pharmacists not further defined"/>
     </concept>
     <concept>
       <code value="251511"/>
@@ -1956,7 +1961,7 @@
     <concept>
       <code value="251900"/>
       <display value="Other Health Diagnostic and Promotion Professionals nfd"/>
-      <definition value="Other Health Diagnostic and Promotion Professionals nfd"/>
+      <definition value="Other Health Diagnostic and Promotion Professionals not further defined"/>
     </concept>
     <concept>
       <code value="251911"/>
@@ -1971,17 +1976,17 @@
     <concept>
       <code value="251999"/>
       <display value="Health Diagnostic and Promotion Professionals nec"/>
-      <definition value="Health Diagnostic and Promotion Professionals nec"/>
+      <definition value="Health Diagnostic and Promotion Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="252000"/>
       <display value="Health Therapy Professionals nfd"/>
-      <definition value="Health Therapy Professionals nfd"/>
+      <definition value="Health Therapy Professionals not further defined"/>
     </concept>
     <concept>
       <code value="252100"/>
       <display value="Chiropractors and Osteopaths nfd"/>
-      <definition value="Chiropractors and Osteopaths nfd"/>
+      <definition value="Chiropractors and Osteopaths not further defined"/>
     </concept>
     <concept>
       <code value="252111"/>
@@ -1996,7 +2001,7 @@
     <concept>
       <code value="252200"/>
       <display value="Complementary Health Therapists nfd"/>
-      <definition value="Complementary Health Therapists nfd"/>
+      <definition value="Complementary Health Therapists not further defined"/>
     </concept>
     <concept>
       <code value="252211"/>
@@ -2021,12 +2026,12 @@
     <concept>
       <code value="252299"/>
       <display value="Complementary Health Therapists nec"/>
-      <definition value="Complementary Health Therapists nec"/>
+      <definition value="Complementary Health Therapists not elsewhere classified"/>
     </concept>
     <concept>
       <code value="252300"/>
       <display value="Dental Practitioners nfd"/>
-      <definition value="Dental Practitioners nfd"/>
+      <definition value="Dental Practitioners not further defined"/>
     </concept>
     <concept>
       <code value="252311"/>
@@ -2040,6 +2045,7 @@
     </concept>
     <concept>
       <code value="252411"/>
+      <display value="Occupational Therapist"/>
       <definition value="Occupational Therapist"/>
     </concept>
     <concept>
@@ -2055,10 +2061,11 @@
     <concept>
       <code value="252700"/>
       <display value="Speech Professionals and Audiologists nfd"/>
-      <definition value="Speech Professionals and Audiologists nfd"/>
+      <definition value="Speech Professionals and Audiologists not further defined"/>
     </concept>
     <concept>
       <code value="252711"/>
+      <display value="Audiologist"/>
       <definition value="Audiologist"/>
     </concept>
     <concept>
@@ -2069,12 +2076,12 @@
     <concept>
       <code value="253000"/>
       <display value="Medical Practitioners nfd"/>
-      <definition value="Medical Practitioners nfd"/>
+      <definition value="Medical Practitioners not further defined"/>
     </concept>
     <concept>
       <code value="253100"/>
       <display value="Generalist Medical Practitioners nfd"/>
-      <definition value="Generalist Medical Practitioners nfd"/>
+      <definition value="Generalist Medical Practitioners not further defined"/>
     </concept>
     <concept>
       <code value="253111"/>
@@ -2094,7 +2101,7 @@
     <concept>
       <code value="253300"/>
       <display value="Internal Medicine Specialists nfd"/>
-      <definition value="Internal Medicine Specialists nfd"/>
+      <definition value="Internal Medicine Specialists not further defined"/>
     </concept>
     <concept>
       <code value="253311"/>
@@ -2113,6 +2120,7 @@
     </concept>
     <concept>
       <code value="253314"/>
+      <display value="Clinical Oncologist"/>
       <definition value="Clinical Oncologist"/>
     </concept>
     <concept>
@@ -2158,7 +2166,7 @@
     <concept>
       <code value="253399"/>
       <display value="Internal Medicine Specialists nec"/>
-      <definition value="Internal Medicine Specialists nec"/>
+      <definition value="Internal Medicine Specialists not elsewhere classified"/>
     </concept>
     <concept>
       <code value="253411"/>
@@ -2168,7 +2176,7 @@
     <concept>
       <code value="253500"/>
       <display value="Surgeons nfd"/>
-      <definition value="Surgeons nfd"/>
+      <definition value="Surgeons not further defined"/>
     </concept>
     <concept>
       <code value="253511"/>
@@ -2218,7 +2226,7 @@
     <concept>
       <code value="253900"/>
       <display value="Other Medical Practitioners nfd"/>
-      <definition value="Other Medical Practitioners nfd"/>
+      <definition value="Other Medical Practitioners not further defined"/>
     </concept>
     <concept>
       <code value="253911"/>
@@ -2227,6 +2235,7 @@
     </concept>
     <concept>
       <code value="253912"/>
+      <display value="Emergency Medicine Specialist"/>
       <definition value="Emergency Medicine Specialist"/>
     </concept>
     <concept>
@@ -2252,12 +2261,12 @@
     <concept>
       <code value="253999"/>
       <display value="Medical Practitioners nec"/>
-      <definition value="Medical Practitioners nec"/>
+      <definition value="Medical Practitioners not elsewhere classified"/>
     </concept>
     <concept>
       <code value="254000"/>
       <display value="Midwifery and Nursing Professionals nfd"/>
-      <definition value="Midwifery and Nursing Professionals nfd"/>
+      <definition value="Midwifery and Nursing Professionals not further defined"/>
     </concept>
     <concept>
       <code value="254111"/>
@@ -2267,7 +2276,7 @@
     <concept>
       <code value="254200"/>
       <display value="Nurse Educators and Researchers nfd"/>
-      <definition value="Nurse Educators and Researchers nfd"/>
+      <definition value="Nurse Educators and Researchers not further defined"/>
     </concept>
     <concept>
       <code value="254211"/>
@@ -2287,7 +2296,7 @@
     <concept>
       <code value="254400"/>
       <display value="Registered Nurses nfd"/>
-      <definition value="Registered Nurses nfd"/>
+      <definition value="Registered Nurses not further defined"/>
     </concept>
     <concept>
       <code value="254411"/>
@@ -2311,6 +2320,7 @@
     </concept>
     <concept>
       <code value="254415"/>
+      <display value="Registered Nurse (Critical Care and Emergency)"/>
       <definition value="Registered Nurse (Critical Care and Emergency)"/>
     </concept>
     <concept>
@@ -2351,22 +2361,22 @@
     <concept>
       <code value="254499"/>
       <display value="Registered Nurses nec"/>
-      <definition value="Registered Nurses nec"/>
+      <definition value="Registered Nurses not elsewhere classified"/>
     </concept>
     <concept>
       <code value="260000"/>
       <display value="ICT Professionals nfd"/>
-      <definition value="ICT Professionals nfd"/>
+      <definition value="ICT Professionals not further defined"/>
     </concept>
     <concept>
       <code value="261000"/>
       <display value="Business and Systems Analysts, and Programmers nfd"/>
-      <definition value="Business and Systems Analysts, and Programmers nfd"/>
+      <definition value="Business and Systems Analysts, and Programmers not further defined"/>
     </concept>
     <concept>
       <code value="261100"/>
       <display value="ICT Business and Systems Analysts nfd"/>
-      <definition value="ICT Business and Systems Analysts nfd"/>
+      <definition value="ICT Business and Systems Analysts not further defined"/>
     </concept>
     <concept>
       <code value="261111"/>
@@ -2381,7 +2391,7 @@
     <concept>
       <code value="261200"/>
       <display value="Multimedia Specialists and Web Developers nfd"/>
-      <definition value="Multimedia Specialists and Web Developers nfd"/>
+      <definition value="Multimedia Specialists and Web Developers not further defined"/>
     </concept>
     <concept>
       <code value="261211"/>
@@ -2396,7 +2406,7 @@
     <concept>
       <code value="261300"/>
       <display value="Software and Applications Programmers nfd"/>
-      <definition value="Software and Applications Programmers nfd"/>
+      <definition value="Software and Applications Programmers not further defined"/>
     </concept>
     <concept>
       <code value="261311"/>
@@ -2416,12 +2426,12 @@
     <concept>
       <code value="261399"/>
       <display value="Software and Applications Programmers nec"/>
-      <definition value="Software and Applications Programmers nec"/>
+      <definition value="Software and Applications Programmers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="262100"/>
       <display value="Database and Systems Administrators, and ICT Security Specialists nfd"/>
-      <definition value="Database and Systems Administrators, and ICT Security Specialists nfd"/>
+      <definition value="Database and Systems Administrators, and ICT Security Specialists not further defined"/>
     </concept>
     <concept>
       <code value="262111"/>
@@ -2441,12 +2451,12 @@
     <concept>
       <code value="263000"/>
       <display value="ICT Network and Support Professionals nfd"/>
-      <definition value="ICT Network and Support Professionals nfd"/>
+      <definition value="ICT Network and Support Professionals not further defined"/>
     </concept>
     <concept>
       <code value="263100"/>
       <display value="Computer Network Professionals nfd"/>
-      <definition value="Computer Network Professionals nfd"/>
+      <definition value="Computer Network Professionals not further defined"/>
     </concept>
     <concept>
       <code value="263111"/>
@@ -2466,7 +2476,7 @@
     <concept>
       <code value="263200"/>
       <display value="ICT Support and Test Engineers nfd"/>
-      <definition value="ICT Support and Test Engineers nfd"/>
+      <definition value="ICT Support and Test Engineers not further defined"/>
     </concept>
     <concept>
       <code value="263211"/>
@@ -2486,12 +2496,12 @@
     <concept>
       <code value="263299"/>
       <display value="ICT Support and Test Engineers nec"/>
-      <definition value="ICT Support and Test Engineers nec"/>
+      <definition value="ICT Support and Test Engineers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="263300"/>
       <display value="Telecommunications Engineering Professionals nfd"/>
-      <definition value="Telecommunications Engineering Professionals nfd"/>
+      <definition value="Telecommunications Engineering Professionals not further defined"/>
     </concept>
     <concept>
       <code value="263311"/>
@@ -2506,12 +2516,12 @@
     <concept>
       <code value="270000"/>
       <display value="Legal, Social and Welfare Professionals nfd"/>
-      <definition value="Legal, Social and Welfare Professionals nfd"/>
+      <definition value="Legal, Social and Welfare Professionals not further defined"/>
     </concept>
     <concept>
       <code value="271000"/>
       <display value="Legal Professionals nfd"/>
-      <definition value="Legal Professionals nfd"/>
+      <definition value="Legal Professionals not further defined"/>
     </concept>
     <concept>
       <code value="271111"/>
@@ -2521,7 +2531,7 @@
     <concept>
       <code value="271200"/>
       <display value="Judicial and Other Legal Professionals nfd"/>
-      <definition value="Judicial and Other Legal Professionals nfd"/>
+      <definition value="Judicial and Other Legal Professionals not further defined"/>
     </concept>
     <concept>
       <code value="271211"/>
@@ -2541,7 +2551,7 @@
     <concept>
       <code value="271299"/>
       <display value="Judicial and Other Legal Professionals nec"/>
-      <definition value="Judicial and Other Legal Professionals nec"/>
+      <definition value="Judicial and Other Legal Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="271311"/>
@@ -2551,12 +2561,12 @@
     <concept>
       <code value="272000"/>
       <display value="Social and Welfare Professionals nfd"/>
-      <definition value="Social and Welfare Professionals nfd"/>
+      <definition value="Social and Welfare Professionals not further defined"/>
     </concept>
     <concept>
       <code value="272100"/>
       <display value="Counsellors nfd"/>
-      <definition value="Counsellors nfd"/>
+      <definition value="Counsellors not further defined"/>
     </concept>
     <concept>
       <code value="272111"/>
@@ -2586,7 +2596,7 @@
     <concept>
       <code value="272199"/>
       <display value="Counsellors nec"/>
-      <definition value="Counsellors nec"/>
+      <definition value="Counsellors not elsewhere classified"/>
     </concept>
     <concept>
       <code value="272211"/>
@@ -2596,7 +2606,7 @@
     <concept>
       <code value="272300"/>
       <display value="Psychologists nfd"/>
-      <definition value="Psychologists nfd"/>
+      <definition value="Psychologists not further defined"/>
     </concept>
     <concept>
       <code value="272311"/>
@@ -2621,12 +2631,12 @@
     <concept>
       <code value="272399"/>
       <display value="Psychologists nec"/>
-      <definition value="Psychologists nec"/>
+      <definition value="Psychologists not elsewhere classified"/>
     </concept>
     <concept>
       <code value="272400"/>
       <display value="Social Professionals nfd"/>
-      <definition value="Social Professionals nfd"/>
+      <definition value="Social Professionals not further defined"/>
     </concept>
     <concept>
       <code value="272411"/>
@@ -2646,7 +2656,7 @@
     <concept>
       <code value="272499"/>
       <display value="Social Professionals nec"/>
-      <definition value="Social Professionals nec"/>
+      <definition value="Social Professionals not elsewhere classified"/>
     </concept>
     <concept>
       <code value="272511"/>
@@ -2656,7 +2666,7 @@
     <concept>
       <code value="272600"/>
       <display value="Welfare, Recreation and Community Arts Workers nfd"/>
-      <definition value="Welfare, Recreation and Community Arts Workers nfd"/>
+      <definition value="Welfare, Recreation and Community Arts Workers not further defined"/>
     </concept>
     <concept>
       <code value="272611"/>
@@ -2676,17 +2686,17 @@
     <concept>
       <code value="300000"/>
       <display value="Technicians and Trades Workers nfd"/>
-      <definition value="Technicians and Trades Workers nfd"/>
+      <definition value="Technicians and Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="310000"/>
       <display value="Engineering, ICT and Science Technicians nfd"/>
-      <definition value="Engineering, ICT and Science Technicians nfd"/>
+      <definition value="Engineering, ICT and Science Technicians not further defined"/>
     </concept>
     <concept>
       <code value="311000"/>
       <display value="Agricultural, Medical and Science Technicians nfd"/>
-      <definition value="Agricultural, Medical and Science Technicians nfd"/>
+      <definition value="Agricultural, Medical and Science Technicians not further defined"/>
     </concept>
     <concept>
       <code value="311111"/>
@@ -2696,7 +2706,7 @@
     <concept>
       <code value="311200"/>
       <display value="Medical Technicians nfd"/>
-      <definition value="Medical Technicians nfd"/>
+      <definition value="Medical Technicians not further defined"/>
     </concept>
     <concept>
       <code value="311211"/>
@@ -2726,12 +2736,12 @@
     <concept>
       <code value="311299"/>
       <display value="Medical Technicians nec"/>
-      <definition value="Medical Technicians nec"/>
+      <definition value="Medical Technicians not elsewhere classified"/>
     </concept>
     <concept>
       <code value="311300"/>
       <display value="Primary Products Inspectors nfd"/>
-      <definition value="Primary Products Inspectors nfd"/>
+      <definition value="Primary Products Inspectors not further defined"/>
     </concept>
     <concept>
       <code value="311311"/>
@@ -2751,12 +2761,12 @@
     <concept>
       <code value="311399"/>
       <display value="Primary Products Inspectors nec"/>
-      <definition value="Primary Products Inspectors nec"/>
+      <definition value="Primary Products Inspectors not elsewhere classified"/>
     </concept>
     <concept>
       <code value="311400"/>
       <display value="Science Technicians nfd"/>
-      <definition value="Science Technicians nfd"/>
+      <definition value="Science Technicians not further defined"/>
     </concept>
     <concept>
       <code value="311411"/>
@@ -2781,17 +2791,17 @@
     <concept>
       <code value="311499"/>
       <display value="Science Technicians nec"/>
-      <definition value="Science Technicians nec"/>
+      <definition value="Science Technicians not elsewhere classified"/>
     </concept>
     <concept>
       <code value="312000"/>
       <display value="Building and Engineering Technicians nfd"/>
-      <definition value="Building and Engineering Technicians nfd"/>
+      <definition value="Building and Engineering Technicians not further defined"/>
     </concept>
     <concept>
       <code value="312100"/>
       <display value="Architectural, Building and Surveying Technicians nfd"/>
-      <definition value="Architectural, Building and Surveying Technicians nfd"/>
+      <definition value="Architectural, Building and Surveying Technicians not further defined"/>
     </concept>
     <concept>
       <code value="312111"/>
@@ -2826,7 +2836,7 @@
     <concept>
       <code value="312200"/>
       <display value="Civil Engineering Draftspersons and Technicians nfd"/>
-      <definition value="Civil Engineering Draftspersons and Technicians nfd"/>
+      <definition value="Civil Engineering Draftspersons and Technicians not further defined"/>
     </concept>
     <concept>
       <code value="312211"/>
@@ -2841,7 +2851,7 @@
     <concept>
       <code value="312300"/>
       <display value="Electrical Engineering Draftspersons and Technicians nfd"/>
-      <definition value="Electrical Engineering Draftspersons and Technicians nfd"/>
+      <definition value="Electrical Engineering Draftspersons and Technicians not further defined"/>
     </concept>
     <concept>
       <code value="312311"/>
@@ -2856,7 +2866,7 @@
     <concept>
       <code value="312400"/>
       <display value="Electronic Engineering Draftspersons and Technicians nfd"/>
-      <definition value="Electronic Engineering Draftspersons and Technicians nfd"/>
+      <definition value="Electronic Engineering Draftspersons and Technicians not further defined"/>
     </concept>
     <concept>
       <code value="312411"/>
@@ -2871,7 +2881,7 @@
     <concept>
       <code value="312500"/>
       <display value="Mechanical Engineering Draftspersons and Technicians nfd"/>
-      <definition value="Mechanical Engineering Draftspersons and Technicians nfd"/>
+      <definition value="Mechanical Engineering Draftspersons and Technicians not further defined"/>
     </concept>
     <concept>
       <code value="312511"/>
@@ -2891,7 +2901,7 @@
     <concept>
       <code value="312900"/>
       <display value="Other Building and Engineering Technicians nfd"/>
-      <definition value="Other Building and Engineering Technicians nfd"/>
+      <definition value="Other Building and Engineering Technicians not further defined"/>
     </concept>
     <concept>
       <code value="312911"/>
@@ -2905,22 +2915,23 @@
     </concept>
     <concept>
       <code value="312913"/>
+      <display value="Mine Deputy"/>
       <definition value="Mine Deputy"/>
     </concept>
     <concept>
       <code value="312999"/>
       <display value="Building and Engineering Technicians nec"/>
-      <definition value="Building and Engineering Technicians nec"/>
+      <definition value="Building and Engineering Technicians not elsewhere classified"/>
     </concept>
     <concept>
       <code value="313000"/>
       <display value="ICT and Telecommunications Technicians nfd"/>
-      <definition value="ICT and Telecommunications Technicians nfd"/>
+      <definition value="ICT and Telecommunications Technicians not further defined"/>
     </concept>
     <concept>
       <code value="313100"/>
       <display value="ICT Support Technicians nfd"/>
-      <definition value="ICT Support Technicians nfd"/>
+      <definition value="ICT Support Technicians not further defined"/>
     </concept>
     <concept>
       <code value="313111"/>
@@ -2940,12 +2951,12 @@
     <concept>
       <code value="313199"/>
       <display value="ICT Support Technicians nec"/>
-      <definition value="ICT Support Technicians nec"/>
+      <definition value="ICT Support Technicians not elsewhere classified"/>
     </concept>
     <concept>
       <code value="313200"/>
       <display value="Telecommunications Technical Specialists nfd"/>
-      <definition value="Telecommunications Technical Specialists nfd"/>
+      <definition value="Telecommunications Technical Specialists not further defined"/>
     </concept>
     <concept>
       <code value="313211"/>
@@ -2970,12 +2981,12 @@
     <concept>
       <code value="320000"/>
       <display value="Automotive and Engineering Trades Workers nfd"/>
-      <definition value="Automotive and Engineering Trades Workers nfd"/>
+      <definition value="Automotive and Engineering Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="321000"/>
       <display value="Automotive Electricians and Mechanics nfd"/>
-      <definition value="Automotive Electricians and Mechanics nfd"/>
+      <definition value="Automotive Electricians and Mechanics not further defined"/>
     </concept>
     <concept>
       <code value="321111"/>
@@ -2985,7 +2996,7 @@
     <concept>
       <code value="321200"/>
       <display value="Motor Mechanics nfd"/>
-      <definition value="Motor Mechanics nfd"/>
+      <definition value="Motor Mechanics not further defined"/>
     </concept>
     <concept>
       <code value="321211"/>
@@ -3010,12 +3021,12 @@
     <concept>
       <code value="322000"/>
       <display value="Fabrication Engineering Trades Workers nfd"/>
-      <definition value="Fabrication Engineering Trades Workers nfd"/>
+      <definition value="Fabrication Engineering Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="322100"/>
       <display value="Metal Casting, Forging and Finishing Trades Workers nfd"/>
-      <definition value="Metal Casting, Forging and Finishing Trades Workers nfd"/>
+      <definition value="Metal Casting, Forging and Finishing Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="322111"/>
@@ -3050,7 +3061,7 @@
     <concept>
       <code value="322300"/>
       <display value="Structural Steel and Welding Trades Workers nfd"/>
-      <definition value="Structural Steel and Welding Trades Workers nfd"/>
+      <definition value="Structural Steel and Welding Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="322311"/>
@@ -3070,12 +3081,12 @@
     <concept>
       <code value="323000"/>
       <display value="Mechanical Engineering Trades Workers nfd"/>
-      <definition value="Mechanical Engineering Trades Workers nfd"/>
+      <definition value="Mechanical Engineering Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="323100"/>
       <display value="Aircraft Maintenance Engineers nfd"/>
-      <definition value="Aircraft Maintenance Engineers nfd"/>
+      <definition value="Aircraft Maintenance Engineers not further defined"/>
     </concept>
     <concept>
       <code value="323111"/>
@@ -3095,7 +3106,7 @@
     <concept>
       <code value="323200"/>
       <display value="Metal Fitters and Machinists nfd"/>
-      <definition value="Metal Fitters and Machinists nfd"/>
+      <definition value="Metal Fitters and Machinists not further defined"/>
     </concept>
     <concept>
       <code value="323211"/>
@@ -3125,12 +3136,12 @@
     <concept>
       <code value="323299"/>
       <display value="Metal Fitters and Machinists nec"/>
-      <definition value="Metal Fitters and Machinists nec"/>
+      <definition value="Metal Fitters and Machinists not elsewhere classified"/>
     </concept>
     <concept>
       <code value="323300"/>
       <display value="Precision Metal Trades Workers nfd"/>
-      <definition value="Precision Metal Trades Workers nfd"/>
+      <definition value="Precision Metal Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="323311"/>
@@ -3165,7 +3176,7 @@
     <concept>
       <code value="323400"/>
       <display value="Toolmakers and Engineering Patternmakers nfd"/>
-      <definition value="Toolmakers and Engineering Patternmakers nfd"/>
+      <definition value="Toolmakers and Engineering Patternmakers not further defined"/>
     </concept>
     <concept>
       <code value="323411"/>
@@ -3180,7 +3191,7 @@
     <concept>
       <code value="324000"/>
       <display value="Panelbeaters, and Vehicle Body Builders, Trimmers and Painters nfd"/>
-      <definition value="Panelbeaters, and Vehicle Body Builders, Trimmers and Painters nfd"/>
+      <definition value="Panelbeaters, and Vehicle Body Builders, Trimmers and Painters not further defined"/>
     </concept>
     <concept>
       <code value="324111"/>
@@ -3190,7 +3201,7 @@
     <concept>
       <code value="324200"/>
       <display value="Vehicle Body Builders and Trimmers nfd"/>
-      <definition value="Vehicle Body Builders and Trimmers nfd"/>
+      <definition value="Vehicle Body Builders and Trimmers not further defined"/>
     </concept>
     <concept>
       <code value="324211"/>
@@ -3210,17 +3221,17 @@
     <concept>
       <code value="330000"/>
       <display value="Construction Trades Workers nfd"/>
-      <definition value="Construction Trades Workers nfd"/>
+      <definition value="Construction Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="331000"/>
       <display value="Bricklayers, and Carpenters and Joiners nfd"/>
-      <definition value="Bricklayers, and Carpenters and Joiners nfd"/>
+      <definition value="Bricklayers, and Carpenters and Joiners not further defined"/>
     </concept>
     <concept>
       <code value="331100"/>
       <display value="Bricklayers and Stonemasons nfd"/>
-      <definition value="Bricklayers and Stonemasons nfd"/>
+      <definition value="Bricklayers and Stonemasons not further defined"/>
     </concept>
     <concept>
       <code value="331111"/>
@@ -3250,7 +3261,7 @@
     <concept>
       <code value="332000"/>
       <display value="Floor Finishers and Painting Trades Workers nfd"/>
-      <definition value="Floor Finishers and Painting Trades Workers nfd"/>
+      <definition value="Floor Finishers and Painting Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="332111"/>
@@ -3259,12 +3270,13 @@
     </concept>
     <concept>
       <code value="332211"/>
+      <display value="Painting Trades Worker"/>
       <definition value="Painting Trades Worker"/>
     </concept>
     <concept>
       <code value="333000"/>
       <display value="Glaziers, Plasterers and Tilers nfd"/>
-      <definition value="Glaziers, Plasterers and Tilers nfd"/>
+      <definition value="Glaziers, Plasterers and Tilers not further defined"/>
     </concept>
     <concept>
       <code value="333111"/>
@@ -3274,7 +3286,7 @@
     <concept>
       <code value="333200"/>
       <display value="Plasterers nfd"/>
-      <definition value="Plasterers nfd"/>
+      <definition value="Plasterers not further defined"/>
     </concept>
     <concept>
       <code value="333211"/>
@@ -3299,7 +3311,7 @@
     <concept>
       <code value="334100"/>
       <display value="Plumbers nfd"/>
-      <definition value="Plumbers nfd"/>
+      <definition value="Plumbers not further defined"/>
     </concept>
     <concept>
       <code value="334111"/>
@@ -3329,12 +3341,12 @@
     <concept>
       <code value="340000"/>
       <display value="Electrotechnology and Telecommunications Trades Workers nfd"/>
-      <definition value="Electrotechnology and Telecommunications Trades Workers nfd"/>
+      <definition value="Electrotechnology and Telecommunications Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="341100"/>
       <display value="Electricians nfd"/>
-      <definition value="Electricians nfd"/>
+      <definition value="Electricians not further defined"/>
     </concept>
     <concept>
       <code value="341111"/>
@@ -3354,7 +3366,7 @@
     <concept>
       <code value="342000"/>
       <display value="Electronics and Telecommunications Trades Workers nfd"/>
-      <definition value="Electronics and Telecommunications Trades Workers nfd"/>
+      <definition value="Electronics and Telecommunications Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="342111"/>
@@ -3363,7 +3375,8 @@
     </concept>
     <concept>
       <code value="342200"/>
-      <definition value="Electrical Distribution Trades Workers nfd"/>
+      <display value="Electrical Distribution Trades Workers nfd"/>
+      <definition value="Electrical Distribution Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="342211"/>
@@ -3378,7 +3391,7 @@
     <concept>
       <code value="342300"/>
       <display value="Electronics Trades Workers nfd"/>
-      <definition value="Electronics Trades Workers nfd"/>
+      <definition value="Electronics Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="342311"/>
@@ -3408,7 +3421,7 @@
     <concept>
       <code value="342400"/>
       <display value="Telecommunications Trades Workers nfd"/>
-      <definition value="Telecommunications Trades Workers nfd"/>
+      <definition value="Telecommunications Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="342411"/>
@@ -3433,12 +3446,12 @@
     <concept>
       <code value="351000"/>
       <display value="Food Trades Workers nfd"/>
-      <definition value="Food Trades Workers nfd"/>
+      <definition value="Food Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="351100"/>
       <display value="Bakers and Pastrycooks nfd"/>
-      <definition value="Bakers and Pastrycooks nfd"/>
+      <definition value="Bakers and Pastrycooks not further defined"/>
     </concept>
     <concept>
       <code value="351111"/>
@@ -3468,17 +3481,17 @@
     <concept>
       <code value="360000"/>
       <display value="Skilled Animal and Horticultural Workers nfd"/>
-      <definition value="Skilled Animal and Horticultural Workers nfd"/>
+      <definition value="Skilled Animal and Horticultural Workers not further defined"/>
     </concept>
     <concept>
       <code value="361000"/>
       <display value="Animal Attendants and Trainers, and Shearers nfd"/>
-      <definition value="Animal Attendants and Trainers, and Shearers nfd"/>
+      <definition value="Animal Attendants and Trainers, and Shearers not further defined"/>
     </concept>
     <concept>
       <code value="361100"/>
       <display value="Animal Attendants and Trainers nfd"/>
-      <definition value="Animal Attendants and Trainers nfd"/>
+      <definition value="Animal Attendants and Trainers not further defined"/>
     </concept>
     <concept>
       <code value="361111"/>
@@ -3503,7 +3516,7 @@
     <concept>
       <code value="361199"/>
       <display value="Animal Attendants and Trainers nec"/>
-      <definition value="Animal Attendants and Trainers nec"/>
+      <definition value="Animal Attendants and Trainers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="361211"/>
@@ -3518,7 +3531,7 @@
     <concept>
       <code value="362000"/>
       <display value="Horticultural Trades Workers nfd"/>
-      <definition value="Horticultural Trades Workers nfd"/>
+      <definition value="Horticultural Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="362111"/>
@@ -3528,7 +3541,7 @@
     <concept>
       <code value="362200"/>
       <display value="Gardeners nfd"/>
-      <definition value="Gardeners nfd"/>
+      <definition value="Gardeners not further defined"/>
     </concept>
     <concept>
       <code value="362211"/>
@@ -3558,7 +3571,7 @@
     <concept>
       <code value="390000"/>
       <display value="Other Technicians and Trades Workers nfd"/>
-      <definition value="Other Technicians and Trades Workers nfd"/>
+      <definition value="Other Technicians and Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="391111"/>
@@ -3568,12 +3581,12 @@
     <concept>
       <code value="392000"/>
       <display value="Printing Trades Workers nfd"/>
-      <definition value="Printing Trades Workers nfd"/>
+      <definition value="Printing Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="392100"/>
       <display value="Binders, Finishers and Screen Printers nfd"/>
-      <definition value="Binders, Finishers and Screen Printers nfd"/>
+      <definition value="Binders, Finishers and Screen Printers not further defined"/>
     </concept>
     <concept>
       <code value="392111"/>
@@ -3593,7 +3606,7 @@
     <concept>
       <code value="392300"/>
       <display value="Printers nfd"/>
-      <definition value="Printers nfd"/>
+      <definition value="Printers not further defined"/>
     </concept>
     <concept>
       <code value="392311"/>
@@ -3608,12 +3621,12 @@
     <concept>
       <code value="393000"/>
       <display value="Textile, Clothing and Footwear Trades Workers nfd"/>
-      <definition value="Textile, Clothing and Footwear Trades Workers nfd"/>
+      <definition value="Textile, Clothing and Footwear Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="393100"/>
       <display value="Canvas and Leather Goods Makers nfd"/>
-      <definition value="Canvas and Leather Goods Makers nfd"/>
+      <definition value="Canvas and Leather Goods Makers not further defined"/>
     </concept>
     <concept>
       <code value="393111"/>
@@ -3638,7 +3651,7 @@
     <concept>
       <code value="393200"/>
       <display value="Clothing Trades Workers nfd"/>
-      <definition value="Clothing Trades Workers nfd"/>
+      <definition value="Clothing Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="393211"/>
@@ -3658,7 +3671,7 @@
     <concept>
       <code value="393299"/>
       <display value="Clothing Trades Workers nec"/>
-      <definition value="Clothing Trades Workers nec"/>
+      <definition value="Clothing Trades Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="393311"/>
@@ -3668,7 +3681,7 @@
     <concept>
       <code value="394000"/>
       <display value="Wood Trades Workers nfd"/>
-      <definition value="Wood Trades Workers nfd"/>
+      <definition value="Wood Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="394111"/>
@@ -3678,7 +3691,7 @@
     <concept>
       <code value="394200"/>
       <display value="Wood Machinists and Other Wood Trades Workers nfd"/>
-      <definition value="Wood Machinists and Other Wood Trades Workers nfd"/>
+      <definition value="Wood Machinists and Other Wood Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="394211"/>
@@ -3703,17 +3716,17 @@
     <concept>
       <code value="394299"/>
       <display value="Wood Machinists and Other Wood Trades Workers nec"/>
-      <definition value="Wood Machinists and Other Wood Trades Workers nec"/>
+      <definition value="Wood Machinists and Other Wood Trades Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="399000"/>
       <display value="Miscellaneous Technicians and Trades Workers nfd"/>
-      <definition value="Miscellaneous Technicians and Trades Workers nfd"/>
+      <definition value="Miscellaneous Technicians and Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="399100"/>
       <display value="Boat Builders and Shipwrights nfd"/>
-      <definition value="Boat Builders and Shipwrights nfd"/>
+      <definition value="Boat Builders and Shipwrights not further defined"/>
     </concept>
     <concept>
       <code value="399111"/>
@@ -3728,7 +3741,7 @@
     <concept>
       <code value="399200"/>
       <display value="Chemical, Gas, Petroleum and Power Generation Plant Operators nfd"/>
-      <definition value="Chemical, Gas, Petroleum and Power Generation Plant Operators nfd"/>
+      <definition value="Chemical, Gas, Petroleum and Power Generation Plant Operators not further defined"/>
     </concept>
     <concept>
       <code value="399211"/>
@@ -3748,7 +3761,7 @@
     <concept>
       <code value="399300"/>
       <display value="Gallery, Library and Museum Technicians nfd"/>
-      <definition value="Gallery, Library and Museum Technicians nfd"/>
+      <definition value="Gallery, Library and Museum Technicians not further defined"/>
     </concept>
     <concept>
       <code value="399311"/>
@@ -3768,7 +3781,7 @@
     <concept>
       <code value="399500"/>
       <display value="Performing Arts Technicians nfd"/>
-      <definition value="Performing Arts Technicians nfd"/>
+      <definition value="Performing Arts Technicians not further defined"/>
     </concept>
     <concept>
       <code value="399511"/>
@@ -3808,7 +3821,7 @@
     <concept>
       <code value="399599"/>
       <display value="Performing Arts Technicians nec"/>
-      <definition value="Performing Arts Technicians nec"/>
+      <definition value="Performing Arts Technicians not elsewhere classified"/>
     </concept>
     <concept>
       <code value="399611"/>
@@ -3818,7 +3831,7 @@
     <concept>
       <code value="399900"/>
       <display value="Other Miscellaneous Technicians and Trades Workers nfd"/>
-      <definition value="Other Miscellaneous Technicians and Trades Workers nfd"/>
+      <definition value="Other Miscellaneous Technicians and Trades Workers not further defined"/>
     </concept>
     <concept>
       <code value="399911"/>
@@ -3858,22 +3871,22 @@
     <concept>
       <code value="399999"/>
       <display value="Technicians and Trades Workers nec"/>
-      <definition value="Technicians and Trades Workers nec"/>
+      <definition value="Technicians and Trades Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="400000"/>
       <display value="Community and Personal Service Workers nfd"/>
-      <definition value="Community and Personal Service Workers nfd"/>
+      <definition value="Community and Personal Service Workers not further defined"/>
     </concept>
     <concept>
       <code value="411000"/>
       <display value="Health and Welfare Support Workers nfd"/>
-      <definition value="Health and Welfare Support Workers nfd"/>
+      <definition value="Health and Welfare Support Workers not further defined"/>
     </concept>
     <concept>
       <code value="411100"/>
       <display value="Ambulance Officers and Paramedics nfd"/>
-      <definition value="Ambulance Officers and Paramedics nfd"/>
+      <definition value="Ambulance Officers and Paramedics not further defined"/>
     </concept>
     <concept>
       <code value="411111"/>
@@ -3888,7 +3901,7 @@
     <concept>
       <code value="411200"/>
       <display value="Dental Hygienists, Technicians and Therapists nfd"/>
-      <definition value="Dental Hygienists, Technicians and Therapists nfd"/>
+      <definition value="Dental Hygienists, Technicians and Therapists not further defined"/>
     </concept>
     <concept>
       <code value="411211"/>
@@ -3918,7 +3931,7 @@
     <concept>
       <code value="411400"/>
       <display value="Enrolled and Mothercraft Nurses nfd"/>
-      <definition value="Enrolled and Mothercraft Nurses nfd"/>
+      <definition value="Enrolled and Mothercraft Nurses not further defined"/>
     </concept>
     <concept>
       <code value="411411"/>
@@ -3943,7 +3956,7 @@
     <concept>
       <code value="411700"/>
       <display value="Welfare Support Workers nfd"/>
-      <definition value="Welfare Support Workers nfd"/>
+      <definition value="Welfare Support Workers not further defined"/>
     </concept>
     <concept>
       <code value="411711"/>
@@ -3978,12 +3991,12 @@
     <concept>
       <code value="420000"/>
       <display value="Carers and Aides nfd"/>
-      <definition value="Carers and Aides nfd"/>
+      <definition value="Carers and Aides not further defined"/>
     </concept>
     <concept>
       <code value="421100"/>
       <display value="Child Carers nfd"/>
-      <definition value="Child Carers nfd"/>
+      <definition value="Child Carers not further defined"/>
     </concept>
     <concept>
       <code value="421111"/>
@@ -4008,7 +4021,7 @@
     <concept>
       <code value="422100"/>
       <display value="Education Aides nfd"/>
-      <definition value="Education Aides nfd"/>
+      <definition value="Education Aides not further defined"/>
     </concept>
     <concept>
       <code value="422111"/>
@@ -4033,7 +4046,7 @@
     <concept>
       <code value="423000"/>
       <display value="Personal Carers and Assistants nfd"/>
-      <definition value="Personal Carers and Assistants nfd"/>
+      <definition value="Personal Carers and Assistants not further defined"/>
     </concept>
     <concept>
       <code value="423111"/>
@@ -4048,7 +4061,7 @@
     <concept>
       <code value="423300"/>
       <display value="Nursing Support and Personal Care Workers nfd"/>
-      <definition value="Nursing Support and Personal Care Workers nfd"/>
+      <definition value="Nursing Support and Personal Care Workers not further defined"/>
     </concept>
     <concept>
       <code value="423311"/>
@@ -4073,7 +4086,7 @@
     <concept>
       <code value="423400"/>
       <display value="Special Care Workers nfd"/>
-      <definition value="Special Care Workers nfd"/>
+      <definition value="Special Care Workers not further defined"/>
     </concept>
     <concept>
       <code value="423411"/>
@@ -4093,12 +4106,12 @@
     <concept>
       <code value="431000"/>
       <display value="Hospitality Workers nfd"/>
-      <definition value="Hospitality Workers nfd"/>
+      <definition value="Hospitality Workers not further defined"/>
     </concept>
     <concept>
       <code value="431100"/>
       <display value="Bar Attendants and Baristas nfd"/>
-      <definition value="Bar Attendants and Baristas nfd"/>
+      <definition value="Bar Attendants and Baristas not further defined"/>
     </concept>
     <concept>
       <code value="431111"/>
@@ -4133,7 +4146,7 @@
     <concept>
       <code value="431900"/>
       <display value="Other Hospitality Workers nfd"/>
-      <definition value="Other Hospitality Workers nfd"/>
+      <definition value="Other Hospitality Workers not further defined"/>
     </concept>
     <concept>
       <code value="431911"/>
@@ -4148,17 +4161,17 @@
     <concept>
       <code value="431999"/>
       <display value="Hospitality Workers nec"/>
-      <definition value="Hospitality Workers nec"/>
+      <definition value="Hospitality Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="440000"/>
       <display value="Protective Service Workers nfd"/>
-      <definition value="Protective Service Workers nfd"/>
+      <definition value="Protective Service Workers not further defined"/>
     </concept>
     <concept>
       <code value="441000"/>
       <display value="Defence Force Members, Fire Fighters and Police nfd"/>
-      <definition value="Defence Force Members, Fire Fighters and Police nfd"/>
+      <definition value="Defence Force Members, Fire Fighters and Police not further defined"/>
     </concept>
     <concept>
       <code value="441111"/>
@@ -4168,7 +4181,7 @@
     <concept>
       <code value="441200"/>
       <display value="Fire and Emergency Workers nfd"/>
-      <definition value="Fire and Emergency Workers nfd"/>
+      <definition value="Fire and Emergency Workers not further defined"/>
     </concept>
     <concept>
       <code value="441211"/>
@@ -4183,7 +4196,7 @@
     <concept>
       <code value="441300"/>
       <display value="Police nfd"/>
-      <definition value="Police nfd"/>
+      <definition value="Police not further defined"/>
     </concept>
     <concept>
       <code value="441311"/>
@@ -4198,7 +4211,7 @@
     <concept>
       <code value="442000"/>
       <display value="Prison and Security Officers nfd"/>
-      <definition value="Prison and Security Officers nfd"/>
+      <definition value="Prison and Security Officers not further defined"/>
     </concept>
     <concept>
       <code value="442111"/>
@@ -4208,7 +4221,7 @@
     <concept>
       <code value="442200"/>
       <display value="Security Officers and Guards nfd"/>
-      <definition value="Security Officers and Guards nfd"/>
+      <definition value="Security Officers and Guards not further defined"/>
     </concept>
     <concept>
       <code value="442211"/>
@@ -4248,17 +4261,17 @@
     <concept>
       <code value="442299"/>
       <display value="Security Officers and Guards nec"/>
-      <definition value="Security Officers and Guards nec"/>
+      <definition value="Security Officers and Guards not elsewhere classified"/>
     </concept>
     <concept>
       <code value="450000"/>
       <display value="Sports and Personal Service Workers nfd"/>
-      <definition value="Sports and Personal Service Workers nfd"/>
+      <definition value="Sports and Personal Service Workers not further defined"/>
     </concept>
     <concept>
       <code value="451000"/>
       <display value="Personal Service and Travel Workers nfd"/>
-      <definition value="Personal Service and Travel Workers nfd"/>
+      <definition value="Personal Service and Travel Workers not further defined"/>
     </concept>
     <concept>
       <code value="451111"/>
@@ -4273,7 +4286,7 @@
     <concept>
       <code value="451300"/>
       <display value="Funeral Workers nfd"/>
-      <definition value="Funeral Workers nfd"/>
+      <definition value="Funeral Workers not further defined"/>
     </concept>
     <concept>
       <code value="451311"/>
@@ -4283,12 +4296,12 @@
     <concept>
       <code value="451399"/>
       <display value="Funeral Workers nec"/>
-      <definition value="Funeral Workers nec"/>
+      <definition value="Funeral Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="451400"/>
       <display value="Gallery, Museum and Tour Guides nfd"/>
-      <definition value="Gallery, Museum and Tour Guides nfd"/>
+      <definition value="Gallery, Museum and Tour Guides not further defined"/>
     </concept>
     <concept>
       <code value="451411"/>
@@ -4303,7 +4316,7 @@
     <concept>
       <code value="451500"/>
       <display value="Personal Care Consultants nfd"/>
-      <definition value="Personal Care Consultants nfd"/>
+      <definition value="Personal Care Consultants not further defined"/>
     </concept>
     <concept>
       <code value="451511"/>
@@ -4318,7 +4331,7 @@
     <concept>
       <code value="451600"/>
       <display value="Tourism and Travel Advisers nfd"/>
-      <definition value="Tourism and Travel Advisers nfd"/>
+      <definition value="Tourism and Travel Advisers not further defined"/>
     </concept>
     <concept>
       <code value="451611"/>
@@ -4333,7 +4346,7 @@
     <concept>
       <code value="451700"/>
       <display value="Travel Attendants nfd"/>
-      <definition value="Travel Attendants nfd"/>
+      <definition value="Travel Attendants not further defined"/>
     </concept>
     <concept>
       <code value="451711"/>
@@ -4343,12 +4356,12 @@
     <concept>
       <code value="451799"/>
       <display value="Travel Attendants nec"/>
-      <definition value="Travel Attendants nec"/>
+      <definition value="Travel Attendants not elsewhere classified"/>
     </concept>
     <concept>
       <code value="451800"/>
       <display value="Other Personal Service Workers nfd"/>
-      <definition value="Other Personal Service Workers nfd"/>
+      <definition value="Other Personal Service Workers not further defined"/>
     </concept>
     <concept>
       <code value="451811"/>
@@ -4368,12 +4381,12 @@
     <concept>
       <code value="451899"/>
       <display value="Personal Service Workers nec"/>
-      <definition value="Personal Service Workers nec"/>
+      <definition value="Personal Service Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="452000"/>
       <display value="Sports and Fitness Workers nfd"/>
-      <definition value="Sports and Fitness Workers nfd"/>
+      <definition value="Sports and Fitness Workers not further defined"/>
     </concept>
     <concept>
       <code value="452111"/>
@@ -4383,7 +4396,7 @@
     <concept>
       <code value="452200"/>
       <display value="Outdoor Adventure Guides nfd"/>
-      <definition value="Outdoor Adventure Guides nfd"/>
+      <definition value="Outdoor Adventure Guides not further defined"/>
     </concept>
     <concept>
       <code value="452211"/>
@@ -4423,12 +4436,12 @@
     <concept>
       <code value="452299"/>
       <display value="Outdoor Adventure Guides nec"/>
-      <definition value="Outdoor Adventure Guides nec"/>
+      <definition value="Outdoor Adventure Guides not elsewhere classified"/>
     </concept>
     <concept>
       <code value="452300"/>
       <display value="Sports Coaches, Instructors and Officials nfd"/>
-      <definition value="Sports Coaches, Instructors and Officials nfd"/>
+      <definition value="Sports Coaches, Instructors and Officials not further defined"/>
     </concept>
     <concept>
       <code value="452311"/>
@@ -4488,7 +4501,7 @@
     <concept>
       <code value="452400"/>
       <display value="Sportspersons nfd"/>
-      <definition value="Sportspersons nfd"/>
+      <definition value="Sportspersons not further defined"/>
     </concept>
     <concept>
       <code value="452411"/>
@@ -4513,22 +4526,22 @@
     <concept>
       <code value="452499"/>
       <display value="Sportspersons nec"/>
-      <definition value="Sportspersons nec"/>
+      <definition value="Sportspersons not elsewhere classified"/>
     </concept>
     <concept>
       <code value="500000"/>
       <display value="Clerical and Administrative Workers nfd"/>
-      <definition value="Clerical and Administrative Workers nfd"/>
+      <definition value="Clerical and Administrative Workers not further defined"/>
     </concept>
     <concept>
       <code value="510000"/>
       <display value="Office Managers and Program Administrators nfd"/>
-      <definition value="Office Managers and Program Administrators nfd"/>
+      <definition value="Office Managers and Program Administrators not further defined"/>
     </concept>
     <concept>
       <code value="511100"/>
       <display value="Contract, Program and Project Administrators nfd"/>
-      <definition value="Contract, Program and Project Administrators nfd"/>
+      <definition value="Contract, Program and Project Administrators not further defined"/>
     </concept>
     <concept>
       <code value="511111"/>
@@ -4543,7 +4556,7 @@
     <concept>
       <code value="512000"/>
       <display value="Office and Practice Managers nfd"/>
-      <definition value="Office and Practice Managers nfd"/>
+      <definition value="Office and Practice Managers not further defined"/>
     </concept>
     <concept>
       <code value="512111"/>
@@ -4553,7 +4566,7 @@
     <concept>
       <code value="512200"/>
       <display value="Practice Managers nfd"/>
-      <definition value="Practice Managers nfd"/>
+      <definition value="Practice Managers not further defined"/>
     </concept>
     <concept>
       <code value="512211"/>
@@ -4563,12 +4576,12 @@
     <concept>
       <code value="512299"/>
       <display value="Practice Managers nec"/>
-      <definition value="Practice Managers nec"/>
+      <definition value="Practice Managers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="521000"/>
       <display value="Personal Assistants and Secretaries nfd"/>
-      <definition value="Personal Assistants and Secretaries nfd"/>
+      <definition value="Personal Assistants and Secretaries not further defined"/>
     </concept>
     <concept>
       <code value="521111"/>
@@ -4578,7 +4591,7 @@
     <concept>
       <code value="521200"/>
       <display value="Secretaries nfd"/>
-      <definition value="Secretaries nfd"/>
+      <definition value="Secretaries not further defined"/>
     </concept>
     <concept>
       <code value="521211"/>
@@ -4593,7 +4606,7 @@
     <concept>
       <code value="530000"/>
       <display value="General Clerical Workers nfd"/>
-      <definition value="General Clerical Workers nfd"/>
+      <definition value="General Clerical Workers not further defined"/>
     </concept>
     <concept>
       <code value="531111"/>
@@ -4603,7 +4616,7 @@
     <concept>
       <code value="532100"/>
       <display value="Keyboard Operators nfd"/>
-      <definition value="Keyboard Operators nfd"/>
+      <definition value="Keyboard Operators not further defined"/>
     </concept>
     <concept>
       <code value="532111"/>
@@ -4623,17 +4636,17 @@
     <concept>
       <code value="540000"/>
       <display value="Inquiry Clerks and Receptionists nfd"/>
-      <definition value="Inquiry Clerks and Receptionists nfd"/>
+      <definition value="Inquiry Clerks and Receptionists not further defined"/>
     </concept>
     <concept>
       <code value="541000"/>
       <display value="Call or Contact Centre Information Clerks nfd"/>
-      <definition value="Call or Contact Centre Information Clerks nfd"/>
+      <definition value="Call or Contact Centre Information Clerks not further defined"/>
     </concept>
     <concept>
       <code value="541100"/>
       <display value="Call or Contact Centre Workers nfd"/>
-      <definition value="Call or Contact Centre Workers nfd"/>
+      <definition value="Call or Contact Centre Workers not further defined"/>
     </concept>
     <concept>
       <code value="541111"/>
@@ -4653,7 +4666,7 @@
     <concept>
       <code value="542100"/>
       <display value="Receptionists nfd"/>
-      <definition value="Receptionists nfd"/>
+      <definition value="Receptionists not further defined"/>
     </concept>
     <concept>
       <code value="542111"/>
@@ -4678,17 +4691,17 @@
     <concept>
       <code value="550000"/>
       <display value="Numerical Clerks nfd"/>
-      <definition value="Numerical Clerks nfd"/>
+      <definition value="Numerical Clerks not further defined"/>
     </concept>
     <concept>
       <code value="551000"/>
       <display value="Accounting Clerks and Bookkeepers nfd"/>
-      <definition value="Accounting Clerks and Bookkeepers nfd"/>
+      <definition value="Accounting Clerks and Bookkeepers not further defined"/>
     </concept>
     <concept>
       <code value="551100"/>
       <display value="Accounting Clerks nfd"/>
-      <definition value="Accounting Clerks nfd"/>
+      <definition value="Accounting Clerks not further defined"/>
     </concept>
     <concept>
       <code value="551111"/>
@@ -4713,7 +4726,7 @@
     <concept>
       <code value="552000"/>
       <display value="Financial and Insurance Clerks nfd"/>
-      <definition value="Financial and Insurance Clerks nfd"/>
+      <definition value="Financial and Insurance Clerks not further defined"/>
     </concept>
     <concept>
       <code value="552111"/>
@@ -4728,7 +4741,7 @@
     <concept>
       <code value="552300"/>
       <display value="Insurance, Money Market and Statistical Clerks nfd"/>
-      <definition value="Insurance, Money Market and Statistical Clerks nfd"/>
+      <definition value="Insurance, Money Market and Statistical Clerks not further defined"/>
     </concept>
     <concept>
       <code value="552311"/>
@@ -4753,12 +4766,12 @@
     <concept>
       <code value="561000"/>
       <display value="Clerical and Office Support Workers nfd"/>
-      <definition value="Clerical and Office Support Workers nfd"/>
+      <definition value="Clerical and Office Support Workers not further defined"/>
     </concept>
     <concept>
       <code value="561100"/>
       <display value="Betting Clerks nfd"/>
-      <definition value="Betting Clerks nfd"/>
+      <definition value="Betting Clerks not further defined"/>
     </concept>
     <concept>
       <code value="561111"/>
@@ -4778,12 +4791,12 @@
     <concept>
       <code value="561199"/>
       <display value="Betting Clerks nec"/>
-      <definition value="Betting Clerks nec"/>
+      <definition value="Betting Clerks not elsewhere classified"/>
     </concept>
     <concept>
       <code value="561200"/>
       <display value="Couriers and Postal Deliverers nfd"/>
-      <definition value="Couriers and Postal Deliverers nfd"/>
+      <definition value="Couriers and Postal Deliverers not further defined"/>
     </concept>
     <concept>
       <code value="561211"/>
@@ -4803,7 +4816,7 @@
     <concept>
       <code value="561400"/>
       <display value="Mail Sorters nfd"/>
-      <definition value="Mail Sorters nfd"/>
+      <definition value="Mail Sorters not further defined"/>
     </concept>
     <concept>
       <code value="561411"/>
@@ -4828,7 +4841,7 @@
     <concept>
       <code value="561900"/>
       <display value="Other Clerical and Office Support Workers nfd"/>
-      <definition value="Other Clerical and Office Support Workers nfd"/>
+      <definition value="Other Clerical and Office Support Workers not further defined"/>
     </concept>
     <concept>
       <code value="561911"/>
@@ -4848,22 +4861,22 @@
     <concept>
       <code value="561999"/>
       <display value="Clerical and Office Support Workers nec"/>
-      <definition value="Clerical and Office Support Workers nec"/>
+      <definition value="Clerical and Office Support Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="590000"/>
       <display value="Other Clerical and Administrative Workers nfd"/>
-      <definition value="Other Clerical and Administrative Workers nfd"/>
+      <definition value="Other Clerical and Administrative Workers not further defined"/>
     </concept>
     <concept>
       <code value="591000"/>
       <display value="Logistics Clerks nfd"/>
-      <definition value="Logistics Clerks nfd"/>
+      <definition value="Logistics Clerks not further defined"/>
     </concept>
     <concept>
       <code value="591100"/>
       <display value="Purchasing and Supply Logistics Clerks nfd"/>
-      <definition value="Purchasing and Supply Logistics Clerks nfd"/>
+      <definition value="Purchasing and Supply Logistics Clerks not further defined"/>
     </concept>
     <concept>
       <code value="591111"/>
@@ -4882,6 +4895,7 @@
     </concept>
     <concept>
       <code value="591114"/>
+      <display value="Sales Clerk"/>
       <definition value="Sales Clerk"/>
     </concept>
     <concept>
@@ -4897,7 +4911,7 @@
     <concept>
       <code value="591200"/>
       <display value="Transport and Despatch Clerks nfd"/>
-      <definition value="Transport and Despatch Clerks nfd"/>
+      <definition value="Transport and Despatch Clerks not further defined"/>
     </concept>
     <concept>
       <code value="591211"/>
@@ -4912,12 +4926,12 @@
     <concept>
       <code value="599000"/>
       <display value="Miscellaneous Clerical and Administrative Workers nfd"/>
-      <definition value="Miscellaneous Clerical and Administrative Workers nfd"/>
+      <definition value="Miscellaneous Clerical and Administrative Workers not further defined"/>
     </concept>
     <concept>
       <code value="599100"/>
       <display value="Conveyancers and Legal Executives nfd"/>
-      <definition value="Conveyancers and Legal Executives nfd"/>
+      <definition value="Conveyancers and Legal Executives not further defined"/>
     </concept>
     <concept>
       <code value="599111"/>
@@ -4932,7 +4946,7 @@
     <concept>
       <code value="599200"/>
       <display value="Court and Legal Clerks nfd"/>
-      <definition value="Court and Legal Clerks nfd"/>
+      <definition value="Court and Legal Clerks not further defined"/>
     </concept>
     <concept>
       <code value="599211"/>
@@ -4972,7 +4986,7 @@
     <concept>
       <code value="599500"/>
       <display value="Inspectors and Regulatory Officers nfd"/>
-      <definition value="Inspectors and Regulatory Officers nfd"/>
+      <definition value="Inspectors and Regulatory Officers not further defined"/>
     </concept>
     <concept>
       <code value="599511"/>
@@ -5022,12 +5036,12 @@
     <concept>
       <code value="599599"/>
       <display value="Inspectors and Regulatory Officers nec"/>
-      <definition value="Inspectors and Regulatory Officers nec"/>
+      <definition value="Inspectors and Regulatory Officers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="599600"/>
       <display value="Insurance Investigators, Loss Adjusters and Risk Surveyors nfd"/>
-      <definition value="Insurance Investigators, Loss Adjusters and Risk Surveyors nfd"/>
+      <definition value="Insurance Investigators, Loss Adjusters and Risk Surveyors not further defined"/>
     </concept>
     <concept>
       <code value="599611"/>
@@ -5052,7 +5066,7 @@
     <concept>
       <code value="599900"/>
       <display value="Other Miscellaneous Clerical and Administrative Workers nfd"/>
-      <definition value="Other Miscellaneous Clerical and Administrative Workers nfd"/>
+      <definition value="Other Miscellaneous Clerical and Administrative Workers not further defined"/>
     </concept>
     <concept>
       <code value="599911"/>
@@ -5077,27 +5091,27 @@
     <concept>
       <code value="599999"/>
       <display value="Clerical and Administrative Workers nec"/>
-      <definition value="Clerical and Administrative Workers nec"/>
+      <definition value="Clerical and Administrative Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="600000"/>
       <display value="Sales Workers nfd"/>
-      <definition value="Sales Workers nfd"/>
+      <definition value="Sales Workers not further defined"/>
     </concept>
     <concept>
       <code value="610000"/>
       <display value="Sales Representatives and Agents nfd"/>
-      <definition value="Sales Representatives and Agents nfd"/>
+      <definition value="Sales Representatives and Agents not further defined"/>
     </concept>
     <concept>
       <code value="611000"/>
       <display value="Insurance Agents and Sales Representatives nfd"/>
-      <definition value="Insurance Agents and Sales Representatives nfd"/>
+      <definition value="Insurance Agents and Sales Representatives not further defined"/>
     </concept>
     <concept>
       <code value="611100"/>
       <display value="Auctioneers, and Stock and Station Agents nfd"/>
-      <definition value="Auctioneers, and Stock and Station Agents nfd"/>
+      <definition value="Auctioneers, and Stock and Station Agents not further defined"/>
     </concept>
     <concept>
       <code value="611111"/>
@@ -5117,7 +5131,7 @@
     <concept>
       <code value="611300"/>
       <display value="Sales Representatives nfd"/>
-      <definition value="Sales Representatives nfd"/>
+      <definition value="Sales Representatives not further defined"/>
     </concept>
     <concept>
       <code value="611311"/>
@@ -5142,12 +5156,12 @@
     <concept>
       <code value="611399"/>
       <display value="Sales Representatives nec"/>
-      <definition value="Sales Representatives nec"/>
+      <definition value="Sales Representatives not elsewhere classified"/>
     </concept>
     <concept>
       <code value="612100"/>
       <display value="Real Estate Sales Agents nfd"/>
-      <definition value="Real Estate Sales Agents nfd"/>
+      <definition value="Real Estate Sales Agents not further defined"/>
     </concept>
     <concept>
       <code value="612111"/>
@@ -5177,7 +5191,7 @@
     <concept>
       <code value="621000"/>
       <display value="Sales Assistants and Salespersons nfd"/>
-      <definition value="Sales Assistants and Salespersons nfd"/>
+      <definition value="Sales Assistants and Salespersons not further defined"/>
     </concept>
     <concept>
       <code value="621111"/>
@@ -5192,7 +5206,7 @@
     <concept>
       <code value="621300"/>
       <display value="Motor Vehicle and Vehicle Parts Salespersons nfd"/>
-      <definition value="Motor Vehicle and Vehicle Parts Salespersons nfd"/>
+      <definition value="Motor Vehicle and Vehicle Parts Salespersons not further defined"/>
     </concept>
     <concept>
       <code value="621311"/>
@@ -5222,7 +5236,7 @@
     <concept>
       <code value="621700"/>
       <display value="Street Vendors and Related Salespersons nfd"/>
-      <definition value="Street Vendors and Related Salespersons nfd"/>
+      <definition value="Street Vendors and Related Salespersons not further defined"/>
     </concept>
     <concept>
       <code value="621711"/>
@@ -5242,7 +5256,7 @@
     <concept>
       <code value="621900"/>
       <display value="Other Sales Assistants and Salespersons nfd"/>
-      <definition value="Other Sales Assistants and Salespersons nfd"/>
+      <definition value="Other Sales Assistants and Salespersons not further defined"/>
     </concept>
     <concept>
       <code value="621911"/>
@@ -5257,17 +5271,17 @@
     <concept>
       <code value="621999"/>
       <display value="Sales Assistants and Salespersons nec"/>
-      <definition value="Sales Assistants and Salespersons nec"/>
+      <definition value="Sales Assistants and Salespersons not elsewhere classified"/>
     </concept>
     <concept>
       <code value="630000"/>
       <display value="Sales Support Workers nfd"/>
-      <definition value="Sales Support Workers nfd"/>
+      <definition value="Sales Support Workers not further defined"/>
     </concept>
     <concept>
       <code value="631100"/>
       <display value="Checkout Operators and Office Cashiers nfd"/>
-      <definition value="Checkout Operators and Office Cashiers nfd"/>
+      <definition value="Checkout Operators and Office Cashiers not further defined"/>
     </concept>
     <concept>
       <code value="631111"/>
@@ -5282,12 +5296,12 @@
     <concept>
       <code value="639000"/>
       <display value="Miscellaneous Sales Support Workers nfd"/>
-      <definition value="Miscellaneous Sales Support Workers nfd"/>
+      <definition value="Miscellaneous Sales Support Workers not further defined"/>
     </concept>
     <concept>
       <code value="639100"/>
       <display value="Models and Sales Demonstrators nfd"/>
-      <definition value="Models and Sales Demonstrators nfd"/>
+      <definition value="Models and Sales Demonstrators not further defined"/>
     </concept>
     <concept>
       <code value="639111"/>
@@ -5302,7 +5316,7 @@
     <concept>
       <code value="639200"/>
       <display value="Retail and Wool Buyers nfd"/>
-      <definition value="Retail and Wool Buyers nfd"/>
+      <definition value="Retail and Wool Buyers not further defined"/>
     </concept>
     <concept>
       <code value="639211"/>
@@ -5322,7 +5336,7 @@
     <concept>
       <code value="639400"/>
       <display value="Ticket Salespersons nfd"/>
-      <definition value="Ticket Salespersons nfd"/>
+      <definition value="Ticket Salespersons not further defined"/>
     </concept>
     <concept>
       <code value="639411"/>
@@ -5347,22 +5361,22 @@
     <concept>
       <code value="700000"/>
       <display value="Machinery Operators and Drivers nfd"/>
-      <definition value="Machinery Operators and Drivers nfd"/>
+      <definition value="Machinery Operators and Drivers not further defined"/>
     </concept>
     <concept>
       <code value="710000"/>
       <display value="Machine and Stationary Plant Operators nfd"/>
-      <definition value="Machine and Stationary Plant Operators nfd"/>
+      <definition value="Machine and Stationary Plant Operators not further defined"/>
     </concept>
     <concept>
       <code value="711000"/>
       <display value="Machine Operators nfd"/>
-      <definition value="Machine Operators nfd"/>
+      <definition value="Machine Operators not further defined"/>
     </concept>
     <concept>
       <code value="711100"/>
       <display value="Clay, Concrete, Glass and Stone Processing Machine Operators nfd"/>
-      <definition value="Clay, Concrete, Glass and Stone Processing Machine Operators nfd"/>
+      <definition value="Clay, Concrete, Glass and Stone Processing Machine Operators not further defined"/>
     </concept>
     <concept>
       <code value="711111"/>
@@ -5387,7 +5401,7 @@
     <concept>
       <code value="711199"/>
       <display value="Clay, Concrete, Glass and Stone Processing Machine Operators nec"/>
-      <definition value="Clay, Concrete, Glass and Stone Processing Machine Operators nec"/>
+      <definition value="Clay, Concrete, Glass and Stone Processing Machine Operators not elsewhere classified"/>
     </concept>
     <concept>
       <code value="711211"/>
@@ -5397,7 +5411,7 @@
     <concept>
       <code value="711300"/>
       <display value="Paper and Wood Processing Machine Operators nfd"/>
-      <definition value="Paper and Wood Processing Machine Operators nfd"/>
+      <definition value="Paper and Wood Processing Machine Operators not further defined"/>
     </concept>
     <concept>
       <code value="711311"/>
@@ -5417,7 +5431,7 @@
     <concept>
       <code value="711500"/>
       <display value="Plastics and Rubber Production Machine Operators nfd"/>
-      <definition value="Plastics and Rubber Production Machine Operators nfd"/>
+      <definition value="Plastics and Rubber Production Machine Operators not further defined"/>
     </concept>
     <concept>
       <code value="711511"/>
@@ -5452,7 +5466,7 @@
     <concept>
       <code value="711599"/>
       <display value="Plastics and Rubber Production Machine Operators nec"/>
-      <definition value="Plastics and Rubber Production Machine Operators nec"/>
+      <definition value="Plastics and Rubber Production Machine Operators not elsewhere classified"/>
     </concept>
     <concept>
       <code value="711611"/>
@@ -5462,7 +5476,7 @@
     <concept>
       <code value="711700"/>
       <display value="Textile and Footwear Production Machine Operators nfd"/>
-      <definition value="Textile and Footwear Production Machine Operators nfd"/>
+      <definition value="Textile and Footwear Production Machine Operators not further defined"/>
     </concept>
     <concept>
       <code value="711711"/>
@@ -5497,12 +5511,12 @@
     <concept>
       <code value="711799"/>
       <display value="Textile and Footwear Production Machine Operators nec"/>
-      <definition value="Textile and Footwear Production Machine Operators nec"/>
+      <definition value="Textile and Footwear Production Machine Operators not elsewhere classified"/>
     </concept>
     <concept>
       <code value="711900"/>
       <display value="Other Machine Operators nfd"/>
-      <definition value="Other Machine Operators nfd"/>
+      <definition value="Other Machine Operators not further defined"/>
     </concept>
     <concept>
       <code value="711911"/>
@@ -5527,12 +5541,12 @@
     <concept>
       <code value="711999"/>
       <display value="Machine Operators nec"/>
-      <definition value="Machine Operators nec"/>
+      <definition value="Machine Operators not elsewhere classified"/>
     </concept>
     <concept>
       <code value="712000"/>
       <display value="Stationary Plant Operators nfd"/>
-      <definition value="Stationary Plant Operators nfd"/>
+      <definition value="Stationary Plant Operators not further defined"/>
     </concept>
     <concept>
       <code value="712111"/>
@@ -5542,7 +5556,7 @@
     <concept>
       <code value="712200"/>
       <display value="Drillers, Miners and Shot Firers nfd"/>
-      <definition value="Drillers, Miners and Shot Firers nfd"/>
+      <definition value="Drillers, Miners and Shot Firers not further defined"/>
     </concept>
     <concept>
       <code value="712211"/>
@@ -5567,7 +5581,7 @@
     <concept>
       <code value="712900"/>
       <display value="Other Stationary Plant Operators nfd"/>
-      <definition value="Other Stationary Plant Operators nfd"/>
+      <definition value="Other Stationary Plant Operators not further defined"/>
     </concept>
     <concept>
       <code value="712911"/>
@@ -5576,6 +5590,7 @@
     </concept>
     <concept>
       <code value="712912"/>
+      <display value="Bulk Materials Handling Plant Operator"/>
       <definition value="Bulk Materials Handling Plant Operator"/>
     </concept>
     <concept>
@@ -5621,17 +5636,17 @@
     <concept>
       <code value="712999"/>
       <display value="Stationary Plant Operators nec"/>
-      <definition value="Stationary Plant Operators nec"/>
+      <definition value="Stationary Plant Operators not elsewhere classified"/>
     </concept>
     <concept>
       <code value="721000"/>
       <display value="Mobile Plant Operators nfd"/>
-      <definition value="Mobile Plant Operators nfd"/>
+      <definition value="Mobile Plant Operators not further defined"/>
     </concept>
     <concept>
       <code value="721100"/>
       <display value="Agricultural, Forestry and Horticultural Plant Operators nfd"/>
-      <definition value="Agricultural, Forestry and Horticultural Plant Operators nfd"/>
+      <definition value="Agricultural, Forestry and Horticultural Plant Operators not further defined"/>
     </concept>
     <concept>
       <code value="721111"/>
@@ -5646,7 +5661,7 @@
     <concept>
       <code value="721200"/>
       <display value="Earthmoving Plant Operators nfd"/>
-      <definition value="Earthmoving Plant Operators nfd"/>
+      <definition value="Earthmoving Plant Operators not further defined"/>
     </concept>
     <concept>
       <code value="721211"/>
@@ -5686,7 +5701,7 @@
     <concept>
       <code value="721900"/>
       <display value="Other Mobile Plant Operators nfd"/>
-      <definition value="Other Mobile Plant Operators nfd"/>
+      <definition value="Other Mobile Plant Operators not further defined"/>
     </concept>
     <concept>
       <code value="721911"/>
@@ -5721,22 +5736,22 @@
     <concept>
       <code value="721999"/>
       <display value="Mobile Plant Operators nec"/>
-      <definition value="Mobile Plant Operators nec"/>
+      <definition value="Mobile Plant Operators not elsewhere classified"/>
     </concept>
     <concept>
       <code value="730000"/>
       <display value="Road and Rail Drivers nfd"/>
-      <definition value="Road and Rail Drivers nfd"/>
+      <definition value="Road and Rail Drivers not further defined"/>
     </concept>
     <concept>
       <code value="731000"/>
       <display value="Automobile, Bus and Rail Drivers nfd"/>
-      <definition value="Automobile, Bus and Rail Drivers nfd"/>
+      <definition value="Automobile, Bus and Rail Drivers not further defined"/>
     </concept>
     <concept>
       <code value="731100"/>
       <display value="Automobile Drivers nfd"/>
-      <definition value="Automobile Drivers nfd"/>
+      <definition value="Automobile Drivers not further defined"/>
     </concept>
     <concept>
       <code value="731111"/>
@@ -5751,12 +5766,12 @@
     <concept>
       <code value="731199"/>
       <display value="Automobile Drivers nec"/>
-      <definition value="Automobile Drivers nec"/>
+      <definition value="Automobile Drivers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="731200"/>
       <display value="Bus and Coach Drivers nfd"/>
-      <definition value="Bus and Coach Drivers nfd"/>
+      <definition value="Bus and Coach Drivers not further defined"/>
     </concept>
     <concept>
       <code value="731211"/>
@@ -5776,7 +5791,7 @@
     <concept>
       <code value="731300"/>
       <display value="Train and Tram Drivers nfd"/>
-      <definition value="Train and Tram Drivers nfd"/>
+      <definition value="Train and Tram Drivers not further defined"/>
     </concept>
     <concept>
       <code value="731311"/>
@@ -5796,7 +5811,7 @@
     <concept>
       <code value="733100"/>
       <display value="Truck Drivers nfd"/>
-      <definition value="Truck Drivers nfd"/>
+      <definition value="Truck Drivers not further defined"/>
     </concept>
     <concept>
       <code value="733111"/>
@@ -5831,12 +5846,12 @@
     <concept>
       <code value="800000"/>
       <display value="Labourers nfd"/>
-      <definition value="Labourers nfd"/>
+      <definition value="Labourers not further defined"/>
     </concept>
     <concept>
       <code value="811000"/>
       <display value="Cleaners and Laundry Workers nfd"/>
-      <definition value="Cleaners and Laundry Workers nfd"/>
+      <definition value="Cleaners and Laundry Workers not further defined"/>
     </concept>
     <concept>
       <code value="811111"/>
@@ -5856,7 +5871,7 @@
     <concept>
       <code value="811400"/>
       <display value="Housekeepers nfd"/>
-      <definition value="Housekeepers nfd"/>
+      <definition value="Housekeepers not further defined"/>
     </concept>
     <concept>
       <code value="811411"/>
@@ -5871,7 +5886,7 @@
     <concept>
       <code value="811500"/>
       <display value="Laundry Workers nfd"/>
-      <definition value="Laundry Workers nfd"/>
+      <definition value="Laundry Workers not further defined"/>
     </concept>
     <concept>
       <code value="811511"/>
@@ -5891,7 +5906,7 @@
     <concept>
       <code value="811600"/>
       <display value="Other Cleaners nfd"/>
-      <definition value="Other Cleaners nfd"/>
+      <definition value="Other Cleaners not further defined"/>
     </concept>
     <concept>
       <code value="811611"/>
@@ -5906,17 +5921,17 @@
     <concept>
       <code value="811699"/>
       <display value="Cleaners nec"/>
-      <definition value="Cleaners nec"/>
+      <definition value="Cleaners not elsewhere classified"/>
     </concept>
     <concept>
       <code value="821000"/>
       <display value="Construction and Mining Labourers nfd"/>
-      <definition value="Construction and Mining Labourers nfd"/>
+      <definition value="Construction and Mining Labourers not further defined"/>
     </concept>
     <concept>
       <code value="821100"/>
       <display value="Building and Plumbing Labourers nfd"/>
-      <definition value="Building and Plumbing Labourers nfd"/>
+      <definition value="Building and Plumbing Labourers not further defined"/>
     </concept>
     <concept>
       <code value="821111"/>
@@ -5951,7 +5966,7 @@
     <concept>
       <code value="821400"/>
       <display value="Insulation and Home Improvement Installers nfd"/>
-      <definition value="Insulation and Home Improvement Installers nfd"/>
+      <definition value="Insulation and Home Improvement Installers not further defined"/>
     </concept>
     <concept>
       <code value="821411"/>
@@ -5976,7 +5991,7 @@
     <concept>
       <code value="821700"/>
       <display value="Structural Steel Construction Workers nfd"/>
-      <definition value="Structural Steel Construction Workers nfd"/>
+      <definition value="Structural Steel Construction Workers not further defined"/>
     </concept>
     <concept>
       <code value="821711"/>
@@ -6001,7 +6016,7 @@
     <concept>
       <code value="821900"/>
       <display value="Other Construction and Mining Labourers nfd"/>
-      <definition value="Other Construction and Mining Labourers nfd"/>
+      <definition value="Other Construction and Mining Labourers not further defined"/>
     </concept>
     <concept>
       <code value="821911"/>
@@ -6031,17 +6046,17 @@
     <concept>
       <code value="830000"/>
       <display value="Factory Process Workers nfd"/>
-      <definition value="Factory Process Workers nfd"/>
+      <definition value="Factory Process Workers not further defined"/>
     </concept>
     <concept>
       <code value="831000"/>
       <display value="Food Process Workers nfd"/>
-      <definition value="Food Process Workers nfd"/>
+      <definition value="Food Process Workers not further defined"/>
     </concept>
     <concept>
       <code value="831100"/>
       <display value="Food and Drink Factory Workers nfd"/>
-      <definition value="Food and Drink Factory Workers nfd"/>
+      <definition value="Food and Drink Factory Workers not further defined"/>
     </concept>
     <concept>
       <code value="831111"/>
@@ -6086,12 +6101,12 @@
     <concept>
       <code value="831199"/>
       <display value="Food and Drink Factory Workers nec"/>
-      <definition value="Food and Drink Factory Workers nec"/>
+      <definition value="Food and Drink Factory Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="831200"/>
       <display value="Meat Boners and Slicers, and Slaughterers nfd"/>
-      <definition value="Meat Boners and Slicers, and Slaughterers nfd"/>
+      <definition value="Meat Boners and Slicers, and Slaughterers not further defined"/>
     </concept>
     <concept>
       <code value="831211"/>
@@ -6106,7 +6121,7 @@
     <concept>
       <code value="831300"/>
       <display value="Meat, Poultry and Seafood Process Workers nfd"/>
-      <definition value="Meat, Poultry and Seafood Process Workers nfd"/>
+      <definition value="Meat, Poultry and Seafood Process Workers not further defined"/>
     </concept>
     <concept>
       <code value="831311"/>
@@ -6126,12 +6141,12 @@
     <concept>
       <code value="832000"/>
       <display value="Packers and Product Assemblers nfd"/>
-      <definition value="Packers and Product Assemblers nfd"/>
+      <definition value="Packers and Product Assemblers not further defined"/>
     </concept>
     <concept>
       <code value="832100"/>
       <display value="Packers nfd"/>
-      <definition value="Packers nfd"/>
+      <definition value="Packers not further defined"/>
     </concept>
     <concept>
       <code value="832111"/>
@@ -6161,7 +6176,7 @@
     <concept>
       <code value="832199"/>
       <display value="Packers nec"/>
-      <definition value="Packers nec"/>
+      <definition value="Packers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="832211"/>
@@ -6171,7 +6186,7 @@
     <concept>
       <code value="839000"/>
       <display value="Miscellaneous Factory Process Workers nfd"/>
-      <definition value="Miscellaneous Factory Process Workers nfd"/>
+      <definition value="Miscellaneous Factory Process Workers not further defined"/>
     </concept>
     <concept>
       <code value="839111"/>
@@ -6181,7 +6196,7 @@
     <concept>
       <code value="839200"/>
       <display value="Plastics and Rubber Factory Workers nfd"/>
-      <definition value="Plastics and Rubber Factory Workers nfd"/>
+      <definition value="Plastics and Rubber Factory Workers not further defined"/>
     </concept>
     <concept>
       <code value="839211"/>
@@ -6196,7 +6211,7 @@
     <concept>
       <code value="839300"/>
       <display value="Product Quality Controllers nfd"/>
-      <definition value="Product Quality Controllers nfd"/>
+      <definition value="Product Quality Controllers not further defined"/>
     </concept>
     <concept>
       <code value="839311"/>
@@ -6216,7 +6231,7 @@
     <concept>
       <code value="839400"/>
       <display value="Timber and Wood Process Workers nfd"/>
-      <definition value="Timber and Wood Process Workers nfd"/>
+      <definition value="Timber and Wood Process Workers not further defined"/>
     </concept>
     <concept>
       <code value="839411"/>
@@ -6236,7 +6251,7 @@
     <concept>
       <code value="839900"/>
       <display value="Other Factory Process Workers nfd"/>
-      <definition value="Other Factory Process Workers nfd"/>
+      <definition value="Other Factory Process Workers not further defined"/>
     </concept>
     <concept>
       <code value="839911"/>
@@ -6276,12 +6291,12 @@
     <concept>
       <code value="839999"/>
       <display value="Factory Process Workers nec"/>
-      <definition value="Factory Process Workers nec"/>
+      <definition value="Factory Process Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="841000"/>
       <display value="Farm, Forestry and Garden Workers nfd"/>
-      <definition value="Farm, Forestry and Garden Workers nfd"/>
+      <definition value="Farm, Forestry and Garden Workers not further defined"/>
     </concept>
     <concept>
       <code value="841111"/>
@@ -6291,7 +6306,7 @@
     <concept>
       <code value="841200"/>
       <display value="Crop Farm Workers nfd"/>
-      <definition value="Crop Farm Workers nfd"/>
+      <definition value="Crop Farm Workers not further defined"/>
     </concept>
     <concept>
       <code value="841211"/>
@@ -6326,12 +6341,12 @@
     <concept>
       <code value="841299"/>
       <display value="Crop Farm Workers nec"/>
-      <definition value="Crop Farm Workers nec"/>
+      <definition value="Crop Farm Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="841300"/>
       <display value="Forestry and Logging Workers nfd"/>
-      <definition value="Forestry and Logging Workers nfd"/>
+      <definition value="Forestry and Logging Workers not further defined"/>
     </concept>
     <concept>
       <code value="841311"/>
@@ -6351,7 +6366,7 @@
     <concept>
       <code value="841400"/>
       <display value="Garden and Nursery Labourers nfd"/>
-      <definition value="Garden and Nursery Labourers nfd"/>
+      <definition value="Garden and Nursery Labourers not further defined"/>
     </concept>
     <concept>
       <code value="841411"/>
@@ -6366,7 +6381,7 @@
     <concept>
       <code value="841500"/>
       <display value="Livestock Farm Workers nfd"/>
-      <definition value="Livestock Farm Workers nfd"/>
+      <definition value="Livestock Farm Workers not further defined"/>
     </concept>
     <concept>
       <code value="841511"/>
@@ -6406,7 +6421,7 @@
     <concept>
       <code value="841599"/>
       <display value="Livestock Farm Workers nec"/>
-      <definition value="Livestock Farm Workers nec"/>
+      <definition value="Livestock Farm Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="841611"/>
@@ -6416,7 +6431,7 @@
     <concept>
       <code value="841900"/>
       <display value="Other Farm, Forestry and Garden Workers nfd"/>
-      <definition value="Other Farm, Forestry and Garden Workers nfd"/>
+      <definition value="Other Farm, Forestry and Garden Workers not further defined"/>
     </concept>
     <concept>
       <code value="841911"/>
@@ -6425,17 +6440,18 @@
     </concept>
     <concept>
       <code value="841912"/>
+      <display value="Pest or Weed Controller"/>
       <definition value="Pest or Weed Controller"/>
     </concept>
     <concept>
       <code value="841999"/>
       <display value="Farm, Forestry and Garden Workers nec"/>
-      <definition value="Farm, Forestry and Garden Workers nec"/>
+      <definition value="Farm, Forestry and Garden Workers not elsewhere classified"/>
     </concept>
     <concept>
       <code value="851000"/>
       <display value="Food Preparation Assistants nfd"/>
-      <definition value="Food Preparation Assistants nfd"/>
+      <definition value="Food Preparation Assistants not further defined"/>
     </concept>
     <concept>
       <code value="851111"/>
@@ -6445,7 +6461,7 @@
     <concept>
       <code value="851200"/>
       <display value="Food Trades Assistants nfd"/>
-      <definition value="Food Trades Assistants nfd"/>
+      <definition value="Food Trades Assistants not further defined"/>
     </concept>
     <concept>
       <code value="851211"/>
@@ -6455,26 +6471,27 @@
     <concept>
       <code value="851299"/>
       <display value="Food Trades Assistants nec"/>
-      <definition value="Food Trades Assistants nec"/>
+      <definition value="Food Trades Assistants not elsewhere classified"/>
     </concept>
     <concept>
       <code value="851311"/>
+      <display value="Kitchenhand"/>
       <definition value="Kitchenhand"/>
     </concept>
     <concept>
       <code value="890000"/>
       <display value="Other Labourers nfd"/>
-      <definition value="Other Labourers nfd"/>
+      <definition value="Other Labourers not further defined"/>
     </concept>
     <concept>
       <code value="891000"/>
       <display value="Freight Handlers and Shelf Fillers nfd"/>
-      <definition value="Freight Handlers and Shelf Fillers nfd"/>
+      <definition value="Freight Handlers and Shelf Fillers not further defined"/>
     </concept>
     <concept>
       <code value="891100"/>
       <display value="Freight and Furniture Handlers nfd"/>
-      <definition value="Freight and Furniture Handlers nfd"/>
+      <definition value="Freight and Furniture Handlers not further defined"/>
     </concept>
     <concept>
       <code value="891111"/>
@@ -6483,6 +6500,7 @@
     </concept>
     <concept>
       <code value="891112"/>
+      <display value="Truck Driver&#39;s Offsider"/>
       <definition value="Truck Driver&#39;s Offsider"/>
     </concept>
     <concept>
@@ -6498,7 +6516,7 @@
     <concept>
       <code value="899000"/>
       <display value="Miscellaneous Labourers nfd"/>
-      <definition value="Miscellaneous Labourers nfd"/>
+      <definition value="Miscellaneous Labourers not further defined"/>
     </concept>
     <concept>
       <code value="899111"/>
@@ -6508,7 +6526,7 @@
     <concept>
       <code value="899200"/>
       <display value="Deck and Fishing Hands nfd"/>
-      <definition value="Deck and Fishing Hands nfd"/>
+      <definition value="Deck and Fishing Hands not further defined"/>
     </concept>
     <concept>
       <code value="899211"/>
@@ -6528,7 +6546,7 @@
     <concept>
       <code value="899400"/>
       <display value="Motor Vehicle Parts and Accessories Fitters nfd"/>
-      <definition value="Motor Vehicle Parts and Accessories Fitters nfd"/>
+      <definition value="Motor Vehicle Parts and Accessories Fitters not further defined"/>
     </concept>
     <concept>
       <code value="899411"/>
@@ -6558,7 +6576,7 @@
     <concept>
       <code value="899500"/>
       <display value="Printing Assistants and Table Workers nfd"/>
-      <definition value="Printing Assistants and Table Workers nfd"/>
+      <definition value="Printing Assistants and Table Workers not further defined"/>
     </concept>
     <concept>
       <code value="899511"/>
@@ -6583,7 +6601,7 @@
     <concept>
       <code value="899900"/>
       <display value="Other Miscellaneous Labourers nfd"/>
-      <definition value="Other Miscellaneous Labourers nfd"/>
+      <definition value="Other Miscellaneous Labourers not further defined"/>
     </concept>
     <concept>
       <code value="899911"/>
@@ -6638,7 +6656,7 @@
     <concept>
       <code value="899999"/>
       <display value="Labourers nec"/>
-      <definition value="Labourers nec"/>
+      <definition value="Labourers not elsewhere classified"/>
     </concept>
   </codeSystem>
 </ValueSet>

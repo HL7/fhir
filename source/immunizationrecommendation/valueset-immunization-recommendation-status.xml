@@ -10,19 +10,19 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/immunization-recommendation-status"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="due"/>
-      <display value="due"/>
-      <definition value="The patient is due for their next vaccination"/>
+      <display value="Due"/>
+      <definition value="The patient is due for their next vaccination."/>
     </concept>
     <concept>
       <code value="overdue"/>
-      <display value="overdue"/>
-      <definition value="The patient is considered overdue for their next vaccination"/>
+      <display value="Overdue"/>
+      <definition value="The patient is considered overdue for their next vaccination."/>
     </concept>
   </codeSystem>
 </ValueSet>

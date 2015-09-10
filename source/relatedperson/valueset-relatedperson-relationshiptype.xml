@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="A set of codes that can be used to indicate the relationship between a Patient and a RelatedPerson."/>
+  <description value="A set of codes that can be used to indicate the relationship between a Patient and a Related Person."/>
   <compose>
     <import value="http://hl7.org/fhir/ValueSet/patient-contact-relationship"/>
     <include>

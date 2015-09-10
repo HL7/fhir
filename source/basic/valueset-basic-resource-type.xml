@@ -42,7 +42,7 @@
     <concept>
       <code value="diet"/>
       <display value="Diet"/>
-      <definition value="The specification of a set of food and/or other nutritonal material to be delivered to a patient."/>
+      <definition value="The specification of a set of food and/or other nutritional material to be delivered to a patient."/>
     </concept>
     <concept>
       <code value="adminact"/>
@@ -77,7 +77,7 @@
     <concept>
       <code value="predetreq"/>
       <display value="Predetermination Request"/>
-      <definition value="A request for a predication of the cost that would be paid under an insurance plan for a hypothetical claim for goods or services"/>
+      <definition value="A request for a predetermination of the cost that would be paid under an insurance plan for a hypothetical claim for goods or services"/>
     </concept>
     <concept>
       <code value="predetermine"/>

@@ -8,24 +8,12 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
       <p>Value set &quot;LOINC Codes for Cholesterol&quot;: This is an example value set that includes 
         all the  codes for serum cholesterol from LOINC v2.36.</p>
-      
-      
       <p>Developed by: FHIR project team (example)</p>
-      
-      
       <p>Published for testing on 13-June 2012</p>
-      
-      
       <p>This value set includes all the LOINC codes in LOINC Part Concept Cholesterol | Bld-Ser-Plas (LP43571-6), except for 5932-9 Cholesterol [Presence] in Blood by Test strip</p>
-      
-      
-      <p>This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</p>
-    
-    
+      <p>This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</p>
     </div>
   </text>
 <!--   
@@ -55,8 +43,8 @@
     </telecom>
   </contact>
   <date value="2015-06-22"/>
-  <description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36"/>
-  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/>
+  <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
 <!--   
 	  in extensional value sets, it's often done
     not to specify a locked date, or a version of the

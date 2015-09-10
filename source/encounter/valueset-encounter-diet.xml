@@ -17,37 +17,37 @@
     <concept>
       <code value="vegetarian"/>
       <display value="Vegetarian"/>
-      <definition value="Food without meat, poultry or seafood"/>
+      <definition value="Food without meat, poultry or seafood."/>
     </concept>
     <concept>
       <code value="dairy-free"/>
       <display value="Dairy Free"/>
-      <definition value="Exludes dairy products"/>
+      <definition value="Excludes dairy products."/>
     </concept>
     <concept>
       <code value="nut-free"/>
       <display value="Nut Free"/>
-      <definition value="Excludes ingredients containing nuts"/>
+      <definition value="Excludes ingredients containing nuts."/>
     </concept>
     <concept>
       <code value="gluten-free"/>
       <display value="Gluten Free"/>
-      <definition value="Excludes ingredients containing gluten"/>
+      <definition value="Excludes ingredients containing gluten."/>
     </concept>
     <concept>
       <code value="vegan"/>
       <display value="Vegan"/>
-      <definition value="Food without meat, poultry, seafood, eggs, dairy products and other animal-derived substances"/>
+      <definition value="Food without meat, poultry, seafood, eggs, dairy products and other animal-derived substances."/>
     </concept>
     <concept>
       <code value="halal"/>
       <display value="Halal"/>
-      <definition value="Foods that conform to Islamic law"/>
+      <definition value="Foods that conform to Islamic law."/>
     </concept>
     <concept>
       <code value="kosher"/>
       <display value="Kosher"/>
-      <definition value="foods that conform to Jewish dietary law"/>
+      <definition value="Foods that conform to Jewish dietary law."/>
     </concept>
   </codeSystem>
 </ValueSet>

@@ -13,7 +13,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="All ND-FRT NUIs for concepts that are subsumed by &#39;Mechanism of Action - N0000000223&#39;, &#39;Physiologic Effect - N0000009802&#39; or &#39;Chemical Structure - N0000000002&#39;"/>
+  <description value="All ND-FRT NUIs for concepts that are subsumed by &#39;Mechanism of Action - N0000000223&#39;, &#39;Physiologic Effect - N0000009802&#39; or &#39;Chemical Structure - N0000000002&#39;."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/ndfrt"/>

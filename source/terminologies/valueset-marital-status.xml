@@ -11,15 +11,15 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines the set of codes that can be used to indicate the marital status of a person"/>
+  <description value="This value set defines the set of codes that can be used to indicate the marital status of a person."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/marital-status"/>
     <caseSensitive value="true"/>
     <concept>
     <!--   work around for missing code in v3 code system - should be temporary, until added in v3   -->
       <code value="U"/>
-      <display value="unmarried"/>
-      <definition value="The person is not presently married. The marital history is not known or stated"/>
+      <display value="Unmarried"/>
+      <definition value="The person is not presently married. The marital history is not known or stated."/>
     </concept>
   </codeSystem>
   <compose>

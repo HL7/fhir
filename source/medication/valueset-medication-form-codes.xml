@@ -4,32 +4,14 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
       <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains medicvation form concepts.</p>
-      
-      
       <p>Possible sources include:</p>
-      
-      
       <ul>
-        
-        
         <li>SNOMED CT - Children of SCTID: xxxxxxxx &quot;xxxxxxxxxxxxxx&quot;</li>
-        
-        
         <li>ISO 11239 - Medication form</li>
-      
-      
       </ul>
-      
-      
       <p>SNOMED CT is being used here as the example terminology.</p>
-      
-      
-      <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p>  
-    
-    
+      <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.</p>  
     </div>
   </text>
   <name value="SNOMED CT Form Codes"/>
@@ -41,8 +23,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes all Form codes from SNOMED CT - provided as an exemplar"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <description value="This value set includes all Form codes from SNOMED CT - provided as an exemplar."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

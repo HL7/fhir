@@ -11,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="EnteralFormulaAdditiveType :  Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example"/>
+  <description value="EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/entformula-additive"/>
     <caseSensitive value="true"/>

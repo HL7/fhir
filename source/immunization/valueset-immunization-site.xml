@@ -10,15 +10,17 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ActSite"/>
       <concept>
         <code value="LA"/>
+        <display value="Left arm"/>
       </concept>
       <concept>
         <code value="RA"/>
+        <display value="Right arm"/>
       </concept>
     </include>
   </compose>

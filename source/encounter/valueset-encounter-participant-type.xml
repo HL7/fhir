@@ -10,19 +10,19 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines a set of codes that can be used to indicate how an individual participates in an encounter"/>
+  <description value="This value set defines a set of codes that can be used to indicate how an individual participates in an encounter."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/participant-type"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="translator"/>
       <display value="Translator"/>
-      <definition value="A translator who is facilitating communication with the patient during the encounter"/>
+      <definition value="A translator who is facilitating communication with the patient during the encounter."/>
     </concept>
     <concept>
       <code value="emergency"/>
       <display value="Emergency"/>
-      <definition value="A person to be contacted in case of an emergency during the encounter"/>
+      <definition value="A person to be contacted in case of an emergency during the encounter."/>
     </concept>
   </codeSystem>
   <compose>

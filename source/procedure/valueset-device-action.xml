@@ -11,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Example value set for Procedure Device Action code (what happened to a device during a procedure"/>
+  <description value="Example value set for Procedure Device Action code (what happened to a device during a procedure."/>
 <!--   due to the lack of any available codes, we invent our own examples here   -->
   <codeSystem>
     <system value="http://hl7.org/fhir/device-action"/>
@@ -19,17 +19,17 @@
     <concept>
       <code value="implanted"/>
       <display value="Implanted"/>
-      <definition value="The device was implanted in the patient during the procedure"/>
+      <definition value="The device was implanted in the patient during the procedure."/>
     </concept>
     <concept>
       <code value="explanted"/>
       <display value="Explanted"/>
-      <definition value="The device was explanted from the patient during the procedure"/>
+      <definition value="The device was explanted from the patient during the procedure."/>
     </concept>
     <concept>
       <code value="manipulated"/>
       <display value="Manipulated"/>
-      <definition value="The device remains in that patient, but it&#39;s location, settings, or functionality was changed"/>
+      <definition value="The device remains in that patient, but its location, settings, or functionality was changed."/>
     </concept>
   </codeSystem>
 </ValueSet>

@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines a set of codes that can be used to where the patient left the hospital"/>
+  <description value="This value set defines a set of codes that can be used to where the patient left the hospital."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/discharge-disposition"/>
     <caseSensitive value="true"/>

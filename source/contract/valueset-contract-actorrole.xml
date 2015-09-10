@@ -11,15 +11,17 @@
     </telecom>
   </contact>
   <description value="This value set includes sample Contract Actor Role codes."/>
-  <copyright value="This is an example set"/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://www.hl7.org/fhir/contractactorrole"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="practitioner"/>
+      <display value="Practitioner"/>
     </concept>
     <concept>
       <code value="patient"/>
+      <display value="Patient"/>
     </concept>
   </codeSystem>
 </ValueSet>

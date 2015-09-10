@@ -4,32 +4,14 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
       <p>This value set includes the following SNOMED CT &quot;Severity&quot; concepts:</p>
-      
-      
       <ul>
-        
-        
         <li>399166001: Fatal</li>
-        
-        
         <li>24484000: Severe</li>
-        
-        
         <li>6736007: Moderate</li>
-        
-        
         <li>255604002: Mild</li>
-      
-      
       </ul>
-      
-      
       <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p>  
-    
-    
     </div>
   </text>
   <url value="http://hl7.org/fhir/ValueSet/Condition-severity"/>
@@ -43,7 +25,7 @@
     </telecom>
   </contact>
   <description value="Preferred value set for Condition/Diagnosis severity grading"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

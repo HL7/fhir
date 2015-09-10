@@ -4,7 +4,7 @@
  -- Row 1 -----------------------------------
   Binding Name = DAFBodySite
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/daf-bodysite
+  Reference = valueset-bodysite
   Definition = This identifies the body site at which the substance was administered
   Conformance = preferred
   Oid = 2.16.840.1.113883.3.88.12.3221.8.9
@@ -12,10 +12,18 @@
  -- Row 2 -----------------------------------
   Binding Name = DAFRoute
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/daf-medication-route
+  Reference = valueset-medication-route
   Definition = This identifies the route of substance administration.
   Conformance = preferred
   Oid = 2.16.840.1.113883.3.88.12.3221.8.11
+
+ -- Row 3 -----------------------------------
+  Binding Name = DAFMedications
+  Binding = value set
+  Reference = valueset-medication-codes
+  Definition = Prescribable medications
+  Conformance = extensible
+  Oid = 2.16.840.1.113762.1.4.1010.4
 
 === Sheet DAF-MedicationAdministration =====================================
 
@@ -29,13 +37,11 @@
   Element = MedicationAdministration.identifier
   Card. = 0..*
   Must Support = Y
-  Type = Identifier
 
  -- Row 3 -----------------------------------
   Element = MedicationAdministration.status
   Card. = 1..1
   Must Support = Y
-  Type = code
 
  -- Row 4 -----------------------------------
   Element = MedicationAdministration.patient
@@ -65,52 +71,48 @@
   Element = MedicationAdministration.wasNotGiven
   Card. = 0..1
   Must Support = Y
-  Type = boolean
 
  -- Row 9 -----------------------------------
   Element = MedicationAdministration.reasonNotGiven
   Card. = 0..1
   Must Support = Y
-  Type = CodeableConcept
 
  -- Row 10 -----------------------------------
   Element = MedicationAdministration.effectiveTime[x]
   Card. = 1..1
   Must Support = Y
-  Type = dateTime|Period
 
  -- Row 11 -----------------------------------
-  Element = MedicationAdministration.medication
+  Element = MedicationAdministration.medication[x]
+  Profile Name = medicationroot
+  Discriminator = @type
   Card. = 1..1
+
+ -- Row 12 -----------------------------------
+  Element = MedicationAdministration.medicationCodeableConcept
+  Profile Name = medicationcodeableconcept
+  Must Support = Y
+  Type = CodeableConcept
+  Binding = DAFMedications
+
+ -- Row 13 -----------------------------------
+  Element = MedicationAdministration.medicationReference
+  Profile Name = medicationreference
   Must Support = Y
   Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationAdministration.device
   Card. = 0..*
   Must Support = Y
-  Type = Reference(Device)
-
- -- Row 13 -----------------------------------
-  Element = MedicationAdministration.dosage
-  Card. = 0..*
-  Must Support = Y
-
- -- Row 14 -----------------------------------
-  Element = !MedicationAdministration.dosage.timing[x]
-  Card. = 0..1
-  Must Support = Y
-  Type = dateTime|Period
 
  -- Row 15 -----------------------------------
-  Element = !MedicationAdministration.dosage.asNeeded[x]
+  Element = MedicationAdministration.dosage
   Card. = 0..1
   Must Support = Y
-  Type = boolean | CodeableConcept
 
  -- Row 16 -----------------------------------
-  Element = MedicationAdministration.dosage.site
-  Card. = 0..1
+  Element = MedicationAdministration.dosage.siteCodeableConcept
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFBodySite
@@ -119,31 +121,21 @@
   Element = MedicationAdministration.dosage.route
   Card. = 0..1
   Must Support = Y
-  Type = CodeableConcept
   Binding = DAFRoute
 
  -- Row 18 -----------------------------------
   Element = MedicationAdministration.dosage.method
   Card. = 0..1
   Must Support = Y
-  Type = CodeableConcept
 
  -- Row 19 -----------------------------------
   Element = MedicationAdministration.dosage.quantity
   Card. = 0..1
   Must Support = Y
-  Type = SimpleQuantity
 
  -- Row 20 -----------------------------------
-  Element = MedicationAdministration.dosage.rate
+  Element = MedicationAdministration.dosage.rate[x]
   Card. = 0..1
   Must Support = Y
-  Type = Ratio
-
- -- Row 21 -----------------------------------
-  Element = !MedicationAdministration.dosage.maxDosePerPeriod
-  Card. = 0..1
-  Must Support = Y
-  Type = Ratio
 
 === Sheet Search =====================================

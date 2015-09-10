@@ -69,7 +69,7 @@
 
  -- Row 6 -----------------------------------
   Element = DiagnosticOrder.identifier
-  Card. = 1..*
+  Card. = 0..*
   Aliases = Placer ID, Filler ID
   Must Support = Y
   Type = Identifier

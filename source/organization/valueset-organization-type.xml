@@ -17,7 +17,7 @@
     <concept>
       <code value="prov"/>
       <display value="Healthcare Provider"/>
-      <definition value="An organization that provides healthcare services"/>
+      <definition value="An organization that provides healthcare services."/>
     </concept>
     <concept>
       <code value="dept"/>
@@ -31,47 +31,47 @@
     <concept>
       <code value="team"/>
       <display value="Organizational team"/>
-      <definition value="An organizational team is usualy a grouping of practitioners that perform a specific function within an organization (which could be a top level organization, or a department)"/>
+      <definition value="An organizational team is usually a grouping of practitioners that perform a specific function within an organization (which could be a top level organization, or a department)."/>
     </concept>
     <concept>
       <code value="govt"/>
       <display value="Government"/>
-      <definition value="A political body, often used when including organization records for government bodies such as a Federal Government, State or Local Government"/>
+      <definition value="A political body, often used when including organization records for government bodies such as a Federal Government, State or Local Government."/>
     </concept>
     <concept>
       <code value="ins"/>
       <display value="Insurance Company"/>
-      <definition value="A company that provides insurance to its subscribers that may include healthcare related policies"/>
+      <definition value="A company that provides insurance to its subscribers that may include healthcare related policies."/>
     </concept>
     <concept>
       <code value="edu"/>
       <display value="Educational Institute"/>
-      <definition value="An educational institution that provides education or research facilitites"/>
+      <definition value="An educational institution that provides education or research facilities."/>
     </concept>
     <concept>
       <code value="reli"/>
       <display value="Religious Institution"/>
-      <definition value="An organization that is identified as a part of a religeous institution"/>
+      <definition value="An organization that is identified as a part of a religious institution."/>
     </concept>
     <concept>
       <code value="crs"/>
       <display value="Clinical Research Sponsor"/>
-      <definition value="An organization that is identified as a Pharmaceutical/Clinical Research Sponsor"/>
+      <definition value="An organization that is identified as a Pharmaceutical/Clinical Research Sponsor."/>
     </concept>
     <concept>
       <code value="cg"/>
       <display value="Community Group"/>
-      <definition value="An un-incorporated community group"/>
+      <definition value="An un-incorporated community group."/>
     </concept>
     <concept>
       <code value="bus"/>
       <display value="Non-Healthcare Business or Corporation"/>
-      <definition value="An organization that is a registered business or corporation but not identified by other types"/>
+      <definition value="An organization that is a registered business or corporation but not identified by other types."/>
     </concept>
     <concept>
       <code value="other"/>
       <display value="Other"/>
-      <definition value="Other type of organization not already specified"/>
+      <definition value="Other type of organization not already specified."/>
     </concept>
   </codeSystem>
 </ValueSet>

@@ -1,6 +1,30 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = DAFBodySite
+  Binding = value set
+  Reference = valueset-bodysite
+  Definition = This identifies the body site at which the substance was administered
+  Description = 2.16.840.1.113883.3.88.12.3221.8.9
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = DAFRoute
+  Binding = value set
+  Reference = valueset-medication-route
+  Definition = This identifies the route of substance administration.
+  Description = 2.16.840.1.113883.3.88.12.3221.8.11
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = DAFMedications
+  Binding = value set
+  Reference = valueset-medication-codes
+  Definition = Prescribable medications
+  Description = 2.16.840.1.113762.1.4.1010.4
+  Conformance = extensible
+
 === Sheet DAF-MedicationStatement =====================================
 
  -- Row 1 -----------------------------------
@@ -13,7 +37,6 @@
   Element = MedicationStatement.identifier
   Card. = 0..*
   Must Support = Y
-  Type = Identifier
 
  -- Row 3 -----------------------------------
   Element = MedicationStatement.patient
@@ -28,14 +51,14 @@
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}|Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/daf-relatedperson}
 
  -- Row 5 -----------------------------------
-  Element = MedicationStatement.wasNotGiven
-  Card. = 0..0
-  Type = boolean
+  Element = MedicationStatement.wasNotTaken
+  Card. = 0..1
+  Must Support = Y
 
  -- Row 6 -----------------------------------
-  Element = MedicationStatement.reasonNotGiven
-  Card. = 0..0
-  Type = CodeableConcept
+  Element = MedicationStatement.reasonNotTaken
+  Card. = 0..1
+  Must Support = Y
 
  -- Row 7 -----------------------------------
   Element = MedicationStatement.effectivePeriod
@@ -50,61 +73,46 @@
   Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
 
  -- Row 9 -----------------------------------
-  Element = !MedicationStatement.device
-  Card. = 0..*
-  Type = Reference(Device)
-
- -- Row 10 -----------------------------------
   Element = MedicationStatement.dosage
   Card. = 0..*
   Must Support = Y
 
+ -- Row 10 -----------------------------------
+  Element = MedicationStatement.dosage.timing
+  Card. = 0..1
+  Must Support = Y
+
  -- Row 11 -----------------------------------
-  Element = MedicationStatement.dosage.schedule
-  Card. = 0..1
-  Must Support = Y
-  Type = Timing
-
- -- Row 12 -----------------------------------
-  Element = MedicationStatement.dosage.asNeeded[x]
-  Card. = 0..1
-  Must Support = Y
-  Type = boolean | CodeableConcept
-
- -- Row 13 -----------------------------------
-  Element = MedicationStatement.dosage.site
+  Element = MedicationStatement.dosage.siteCodeableConcept
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
+  Binding = DAFBodySite
 
- -- Row 14 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationStatement.dosage.route
   Card. = 0..1
   Must Support = Y
-  Type = CodeableConcept
+  Binding = DAFRoute
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationStatement.dosage.method
   Card. = 0..1
   Must Support = Y
-  Type = CodeableConcept
+
+ -- Row 14 -----------------------------------
+  Element = MedicationStatement.dosage.quantity[x]
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 15 -----------------------------------
+  Element = MedicationStatement.dosage.rate[x]
+  Card. = 0..1
+  Must Support = Y
 
  -- Row 16 -----------------------------------
-  Element = MedicationStatement.dosage.quantity
-  Card. = 0..1
-  Must Support = Y
-  Type = SimpleQuantity
-
- -- Row 17 -----------------------------------
-  Element = MedicationStatement.dosage.rate
-  Card. = 0..1
-  Must Support = Y
-  Type = Ratio
-
- -- Row 18 -----------------------------------
   Element = MedicationStatement.dosage.maxDosePerPeriod
   Card. = 0..1
   Must Support = Y
-  Type = Ratio
 
 === Sheet Search =====================================

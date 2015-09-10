@@ -34,7 +34,7 @@
 
  -- Row 2 -----------------------------------
   Element = Encounter.identifier
-  Card. = 1..*
+  Card. = 0..*
   Must Support = Y
   Type = Identifier
 
@@ -47,7 +47,7 @@
 
  -- Row 4 -----------------------------------
   Element = Encounter.class
-  Card. = 1..1
+  Card. = 0..1
   Must Support = Y
   Type = code
   Short Label = inpatient | outpatient | ambulatory | emergency +
@@ -85,111 +85,39 @@
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/daf-relatedperson}
 
  -- Row 10 -----------------------------------
-  Element = !Encounter.fulfills
-
- -- Row 11 -----------------------------------
   Element = Encounter.period
   Card. = 0..1
   Must Support = Y
   Type = Period
 
- -- Row 12 -----------------------------------
-  Element = !Encounter.length
-
- -- Row 13 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Encounter.reason
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFEncounterReasonValueset
 
- -- Row 14 -----------------------------------
-  Element = !Encounter.indication
-
- -- Row 15 -----------------------------------
-  Element = !Encounter.priority
-
- -- Row 16 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Encounter.hospitalization
   Card. = 0..1
   Must Support = Y
 
- -- Row 17 -----------------------------------
-  Element = !Encounter.hospitalization.preAdmissionIdentifier
-
- -- Row 18 -----------------------------------
-  Element = !Encounter.hospitalization.preAdmissionTest
-
- -- Row 19 -----------------------------------
-  Element = !Encounter.hospitalization.origin
-
- -- Row 20 -----------------------------------
-  Element = !Encounter.hospitalization.admitSource
-
- -- Row 21 -----------------------------------
-  Element = !Encounter.hospitalization.period
-  Card. = 0..1
-  Must Support = Y
-  Type = Period
-
- -- Row 22 -----------------------------------
-  Element = !Encounter.hospitalization.accomodation
-
- -- Row 23 -----------------------------------
-  Element = !Encounter.hospitalization.accomodation.bed
-
- -- Row 24 -----------------------------------
-  Element = !Encounter.hospitalization.accomodation.period
-
- -- Row 25 -----------------------------------
-  Element = !Encounter.hospitalization.diet
-
- -- Row 26 -----------------------------------
-  Element = !Encounter.hospitalization.specialCourtesy
-
- -- Row 27 -----------------------------------
-  Element = !Encounter.hospitalization.specialArrangement
-
- -- Row 28 -----------------------------------
-  Element = !Encounter.hospitalization.destination
-
- -- Row 29 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Encounter.hospitalization.dischargeDisposition
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFDischargeDispo
 
- -- Row 30 -----------------------------------
-  Element = !Encounter.hospitalization.dischargeDiagnosis
-  Card. = 0..1
-  Must Support = Y
-  Type = Reference(Any)
-  Committee Notes = Type Changed GDG - was CodeableConcept, but this is illegal
-
- -- Row 31 -----------------------------------
-  Element = !Encounter.hospitalization.reAdmission
-
- -- Row 32 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Encounter.location
   Card. = 0..1
   Must Support = Y
 
- -- Row 33 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Encounter.location.location
   Card. = 1..1
   Must Support = Y
   Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/daf-location}
-
- -- Row 34 -----------------------------------
-  Element = !Encounter.location.period
-  Card. = 0..1
-  Type = Period
-
- -- Row 35 -----------------------------------
-  Element = !Encounter.serviceProvider
-
- -- Row 36 -----------------------------------
-  Element = !Encounter.partOf
 
 === Sheet Search =====================================

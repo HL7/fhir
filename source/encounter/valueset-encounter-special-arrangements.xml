@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines a set of codes that can be used to indicate the kinds     of special arrangements in place for a patients visit"/>
+  <description value="This value set defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patients visit."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/encounter-special-arrangements"/>
     <caseSensitive value="true"/>

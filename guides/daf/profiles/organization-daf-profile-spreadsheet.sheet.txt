@@ -33,47 +33,30 @@
 
  -- Row 4 -----------------------------------
   Element = Organization.telecom
-  Card. = 0..1
+  Card. = 0..*
   Must Support = Y
   Type = ContactPoint
 
  -- Row 5 -----------------------------------
   Element = Organization.address
-  Card. = 1..1
+  Card. = 0..1
   Must Support = Y
   Type = Address
   ServD Mapping = n/a
 
  -- Row 6 -----------------------------------
-  Element = !Organization.address.extension.extension
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding}
-  Binding = USFIPSCounty
-
- -- Row 7 -----------------------------------
-  Element = !Organization.address.extension.extension.system
-  Card. = 0..1
-  Must Support = Y
-
- -- Row 8 -----------------------------------
-  Element = !Organization.address.extension.extension.code
-  Card. = 0..1
-  Must Support = Y
-
- -- Row 9 -----------------------------------
   Element = Organization.address.line
-  Card. = 0..2
+  Card. = 0..*
   Must Support = Y
   Type = string
 
- -- Row 10 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Organization.address.city
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 11 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Organization.address.state
   Card. = 0..1
   Must Support = Y
@@ -81,14 +64,14 @@
   Binding = USPSState
   ServD Mapping = ./Sites
 
- -- Row 12 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Organization.address.postalCode
   Card. = 0..1
   Must Support = Y
   Type = string
   Short Label = US Zip Codes
 
- -- Row 13 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Organization.active
   Card. = 0..1
   Must Support = Y

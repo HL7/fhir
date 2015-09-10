@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list)"/>
+  <description value="General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list)."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/list-empty-reason"/>
     <caseSensitive value="true"/>
@@ -20,12 +20,12 @@
       </extension>
       <code value="nilknown"/>
       <display value="Nil Known"/>
-      <definition value="Clinical judgement that there are no known items for this list after reasonable investigation. Note that this a positive statement by a clinical user, and not a default position asserted by a computer system in the lack of other information. Example uses:  * For allergies: the patient or patient&#39;s agent/guardian has asserted that he/she is not aware of any allergies (NKA - nil known allergies)  * For medications: the patient or patient&#39;s agent/guardian has asserted that the patient is known to be taking no medications  * For diagnoses, problems and procedures: the patient or patient&#39;s agent/guardian has asserted that there is no known event to record."/>
+      <definition value="Clinical judgment that there are no known items for this list after reasonable investigation. Note that this a positive statement by a clinical user, and not a default position asserted by a computer system in the lack of other information. Example uses:  * For allergies: the patient or patient&#39;s agent/guardian has asserted that he/she is not aware of any allergies (NKA - nil known allergies)  * For medications: the patient or patient&#39;s agent/guardian has asserted that the patient is known to be taking no medications  * For diagnoses, problems and procedures: the patient or patient&#39;s agent/guardian has asserted that there is no known event to record."/>
     </concept>
     <concept>
       <code value="notasked"/>
       <display value="Not Asked"/>
-      <definition value="THe investigation to find out whether there are items for this list has not occurred"/>
+      <definition value="The investigation to find out whether there are items for this list has not occurred."/>
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
@@ -33,22 +33,22 @@
       </extension>
       <code value="withheld"/>
       <display value="Information Withheld"/>
-      <definition value="The content of the list was not provided due to privacy or confidentiality concerns. Note that it should not be assumed that this means that the particular information in question was withheld due to its contents - it can also be a policy decision"/>
+      <definition value="The content of the list was not provided due to privacy or confidentiality concerns. Note that it should not be assumed that this means that the particular information in question was withheld due to its contents - it can also be a policy decision."/>
     </concept>
     <concept>
       <code value="unavailable"/>
       <display value="Unavailable"/>
-      <definition value="Information to populate this list cannot be obtained.  E.g. unconscious patient"/>
+      <definition value="Information to populate this list cannot be obtained.  E.g. unconscious patient."/>
     </concept>
     <concept>
       <code value="notstarted"/>
       <display value="Not Started"/>
-      <definition value="The work to populate this list has not yet begun"/>
+      <definition value="The work to populate this list has not yet begun."/>
     </concept>
     <concept>
       <code value="closed"/>
       <display value="Closed"/>
-      <definition value="This list has now closed or has ceased to be relevant or useful"/>
+      <definition value="This list has now closed or has ceased to be relevant or useful."/>
     </concept>
   </codeSystem>
 </ValueSet>

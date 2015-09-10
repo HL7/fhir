@@ -127,7 +127,6 @@
 
  -- Row 15 -----------------------------------
   Element = Immunization.site
-  Profile Name = x
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept

@@ -11,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts"/>
+  <description value="This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts."/>
   <compose>
     <import value="http://hl7.org/fhir/ValueSet/usps-state"/>
   <!--   states   -->

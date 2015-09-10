@@ -6,7 +6,7 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = Practitioner
-  English = Shall have Organization.name and/or Organization.identifier.
+  English = Shall havePractitioner.name and/or Practitioner.identifier.
   XPath = exists(f:name) or exists(f:identifier)
   Severity = error
 
@@ -60,60 +60,54 @@
   Type = HumanName
 
  -- Row 8 -----------------------------------
-  Element = !Practitioner.name.use
-  Card. = 1..1
-  Must Support = Y
-  Type = code
-
- -- Row 9 -----------------------------------
   Element = Practitioner.name.family
-  Card. = 1..1
+  Card. = 1..*
   Must Support = Y
   Type = string
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Practitioner.name.given
   Card. = 0..2
   Must Support = Y
   Type = string
   Comments = Can be first and middle name or initial
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Practitioner.name.prefix
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Practitioner.name.suffix
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Practitioner.telecom
-  Card. = 0..2
+  Card. = 0..*
   Must Support = Y
   Type = ContactPoint
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Practitioner.telecom.system
   Card. = 1..1
   Must Support = Y
   Type = code
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Practitioner.telecom.value
   Card. = 1..1
   Must Support = Y
   Type = string
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Practitioner.practitionerRole
   Card. = 0..*
   Must Support = Y
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Practitioner.practitionerRole.managingOrganization
   Card. = 0..1
   Must Support = Y

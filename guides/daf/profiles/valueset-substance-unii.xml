@@ -13,7 +13,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="All UNII codes"/>
+  <description value="All UNII codes."/>
   <compose>
     <include>
     <!--   all of UNI   -->

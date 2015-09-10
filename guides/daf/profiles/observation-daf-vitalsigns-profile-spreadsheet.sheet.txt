@@ -51,215 +51,175 @@
   Type = decimal
 
  -- Row 5 -----------------------------------
-  Element = !Observation.valueQuantity.comparator
-  Card. = 0..1
-  Must Support = Y
-  Type = code
-
- -- Row 6 -----------------------------------
   Element = Observation.valueQuantity.unit
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Observation.valueQuantity.system
   Card. = 0..1
   Must Support = Y
   Type = uri
   Value = http://unitsofmeasure.org
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Observation.valueQuantity.code
   Card. = 0..1
   Must Support = Y
   Type = code
   Short Label = Coded responses from the common UCUM units for vital signs value set.
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Observation.dataAbsentReason
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
 
- -- Row 10 -----------------------------------
-  Element = !Observation.interpretation
-  Card. = 0..1
-
- -- Row 11 -----------------------------------
-  Element = !Observation.comments
-  Card. = 0..1
-
- -- Row 12 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Observation.effective[x]
   Card. = 1..1
   Must Support = Y
   Type = dateTime | Period
   Short Label = Often just a dateTime for Vital Signs
 
- -- Row 13 -----------------------------------
-  Element = !Observation.issued
-  Card. = 0..1
-
- -- Row 14 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.status
   Card. = 1..1
   Must Support = Y
   Type = code
 
- -- Row 15 -----------------------------------
-  Element = !Observation.reliability
-  Card. = 0..1
-  Type = code
-
- -- Row 16 -----------------------------------
-  Element = !Observation.bodySite
-  Card. = 0..1
-  Value = .
-
- -- Row 17 -----------------------------------
-  Element = !Observation.method
-  Card. = 0..1
-
- -- Row 18 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.identifier
   Card. = 1..*
   Must Support = Y
   Type = Identifier
 
- -- Row 19 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.subject
   Card. = 1..1
   Must Support = Y
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}
 
- -- Row 20 -----------------------------------
-  Element = Observation.specimen
-  Card. = 0..0
-
- -- Row 21 -----------------------------------
-  Element = Observation.device
-  Card. = 0..1
-
- -- Row 22 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.referenceRange
   Card. = 0..1
   Must Support = Y
 
- -- Row 23 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Observation.referenceRange.text
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 24 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Observation.referenceRange.low
   Card. = 0..1
   Must Support = Y
   Type = SimpleQuantity
   Binding = CommonUCUMunitsVitals
 
- -- Row 25 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Observation.referenceRange.low.value
   Card. = 0..1
   Must Support = Y
   Type = decimal
 
- -- Row 26 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Observation.referenceRange.low.comparator
   Card. = 0..1
   Must Support = Y
   Type = code
 
- -- Row 27 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Observation.referenceRange.low.unit
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 28 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Observation.referenceRange.low.system
   Card. = 0..1
   Must Support = Y
   Type = uri
   Value = http://unitsofmeasure.org
 
- -- Row 29 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Observation.referenceRange.low.code
   Card. = 0..1
   Must Support = Y
   Type = code
 
- -- Row 30 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Observation.referenceRange.high
   Card. = 0..1
   Must Support = Y
   Type = SimpleQuantity
   Binding = CommonUCUMunitsVitals
 
- -- Row 31 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Observation.referenceRange.high.value
   Card. = 0..1
   Must Support = Y
   Type = decimal
 
- -- Row 32 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Observation.referenceRange.high.comparator
   Card. = 0..1
   Must Support = Y
   Type = code
 
- -- Row 33 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Observation.referenceRange.high.unit
   Card. = 0..1
   Must Support = Y
   Type = string
 
- -- Row 34 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Observation.referenceRange.high.system
   Card. = 0..1
   Must Support = Y
   Type = uri
   Value = http://unitsofmeasure.org
 
- -- Row 35 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Observation.referenceRange.high.code
   Card. = 0..1
   Must Support = Y
   Type = code
 
- -- Row 36 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Observation.referenceRange.meaning
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
 
- -- Row 37 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Observation.performer
   Card. = 0..1
   Must Support = Y
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/daf-pract}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/daf-patient}|Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/daf-relatedperson}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/daf-organization}
 
- -- Row 38 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Observation.encounter
   Card. = 0..1
   Must Support = Y
   Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/daf-encounter}
 
- -- Row 39 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Observation.related
   Card. = 0..1
   Must Support = Y
   Short Label = Used when reporting systolic and diastolic blood pressure.
 
- -- Row 40 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Observation.related.type
   Card. = 1..1
   Must Support = Y
   Type = code
   Value = has-component
 
- -- Row 41 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Observation.related.target
   Card. = 1..1
   Must Support = Y

@@ -10,34 +10,34 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Codes representing the likelihood of a particular outcome in a risk assessment"/>
+  <description value="Codes representing the likelihood of a particular outcome in a risk assessment."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/risk-probability"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="negligible"/>
-      <display value="negligible likelihood"/>
-      <definition value="The specified outcome is exceptionally unlikely"/>
+      <display value="Negligible likelihood"/>
+      <definition value="The specified outcome is exceptionally unlikely."/>
     </concept>
     <concept>
       <code value="low"/>
-      <display value="low likelihood"/>
-      <definition value="The specified outcome is possible but unlikely"/>
+      <display value="Low likelihood"/>
+      <definition value="The specified outcome is possible but unlikely."/>
     </concept>
     <concept>
       <code value="moderate"/>
-      <display value="moderate likelihood"/>
-      <definition value="The specified outcome has a reasonable likelihood of occurrence"/>
+      <display value="Moderate likelihood"/>
+      <definition value="The specified outcome has a reasonable likelihood of occurrence."/>
     </concept>
     <concept>
       <code value="high"/>
-      <display value="high likelihood"/>
-      <definition value="The specified outcome is more likely to occur than not"/>
+      <display value="High likelihood"/>
+      <definition value="The specified outcome is more likely to occur than not."/>
     </concept>
     <concept>
       <code value="certain"/>
-      <display value="certain"/>
-      <definition value="The specified outcome is effectively guaranteed"/>
+      <display value="Certain"/>
+      <definition value="The specified outcome is effectively guaranteed."/>
     </concept>
   </codeSystem>
 </ValueSet>

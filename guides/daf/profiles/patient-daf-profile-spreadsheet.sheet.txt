@@ -272,7 +272,7 @@
 
  -- Row 31 -----------------------------------
   Element = Patient.contact.address
-  Card. = 0..1
+  Card. = 0..*
   Must Support = y
   Type = Address
 
@@ -283,7 +283,7 @@
 
  -- Row 33 -----------------------------------
   Element = Patient.contact.address.line
-  Card. = 0..2
+  Card. = 0..*
   Must Support = Y
 
  -- Row 34 -----------------------------------

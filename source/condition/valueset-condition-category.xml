@@ -11,29 +11,29 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Preferred value set for Condition Categories"/>
+  <description value="Preferred value set for Condition Categories."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/condition-category"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="complaint"/>
       <display value="Complaint"/>
-      <definition value="The patient considers the condition an issue to be addressed"/>
+      <definition value="The patient considers the condition an issue to be addressed."/>
     </concept>
     <concept>
       <code value="symptom"/>
       <display value="Symptom"/>
-      <definition value="A symptom of a condition (as might be mentioned in a review of systems)"/>
+      <definition value="A symptom of a condition (as might be mentioned in a review of systems)."/>
     </concept>
     <concept>
       <code value="finding"/>
       <display value="Finding"/>
-      <definition value="An observation made by a healthcare provider"/>
+      <definition value="An observation made by a healthcare provider."/>
     </concept>
     <concept>
       <code value="diagnosis"/>
       <display value="Diagnosis"/>
-      <definition value="This is a judgment made by a healthcare provider that the patient has a particular disease or condition"/>
+      <definition value="This is a judgment made by a healthcare provider that the patient has a particular disease or condition."/>
     </concept>
   </codeSystem>
 </ValueSet>

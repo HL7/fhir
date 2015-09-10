@@ -24,7 +24,7 @@
 
  -- Row 2 -----------------------------------
   Element = AllergyIntolerance.identifier
-  Card. = 1..*
+  Card. = 0..*
   Must Support = Y
   Type = Identifier
 

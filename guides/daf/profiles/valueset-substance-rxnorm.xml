@@ -13,7 +13,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="All RxNorm codes that have TTY = IN,PIN,MIN,BN, but TTY != OCD"/>
+  <description value="All RxNorm codes that have TTY = IN,PIN,MIN,BN, but TTY != OCD."/>
   <compose>
     <include>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>

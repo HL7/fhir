@@ -18,14 +18,14 @@
     </telecom>
   </contact>
   <date value="2023-05-12"/>
-  <description value="The type of a provenance participant. Use either a defined FHIR resource type, or, if the reference is not to a resource, one of the defined codes, or some other code if none of the defined codes are appropriate"/>
+  <description value="The type of a provenance participant. Use either a defined FHIR resource type, or, if the reference is not to a resource, one of the defined codes, or some other code if none of the defined codes are appropriate."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/provenance-participant-type"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="person"/>
       <display value="Person"/>
-      <definition value="The participant is a person acting on their on behalf or on behalf of the patient rather than as an practitioner for an organization.  I.e. &quot;not a healthcare provider&quot;"/>
+      <definition value="The participant is a person acting on their on behalf or on behalf of the patient rather than as an practitioner for an organization.  I.e. &quot;not a healthcare provider&quot;."/>
     </concept>
     <concept>
       <code value="practitioner"/>
@@ -35,7 +35,7 @@
     <concept>
       <code value="organization"/>
       <display value="Organization"/>
-      <definition value="The participant is an organization"/>
+      <definition value="The participant is an organization."/>
     </concept>
     <concept>
       <code value="software"/>

@@ -83,18 +83,12 @@
   Binding = DAFProblemCode
 
  -- Row 13 -----------------------------------
-  Element = FamilyMemberHistory.condition.outcome
-  Card. = 0..1
-  Must Support = Y
-  Type = CodeableConcept
-
- -- Row 14 -----------------------------------
   Element = FamilyMemberHistory.condition.onset[x]
   Card. = 0..1
   Must Support = Y
   Type = Age | Range | string
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = FamilyMemberHistory.condition.note
   Card. = 0..1
   Type = Annotation

@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This example value set defines a set of codes that can be used to indicate the type     of encounter: a specific code indicating type of service provided ."/>
+  <description value="This example value set defines a set of codes that can be used to indicate the type of encounter: a specific code indicating type of service provided."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/encounter-type"/>
     <caseSensitive value="true"/>

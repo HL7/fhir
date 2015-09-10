@@ -6,8 +6,8 @@
   <name value="Common UCUM units"/>
   <status value="draft"/>
   <publisher value="FHIR Project"/>
-  <description value="Commonly encountered UCUM units (for purposes of helping populate look ups"/>
-  <copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
+  <description value="Commonly encountered UCUM units (for purposes of helping populate look ups."/>
+  <copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details."/>
   <extensible value="true"/>
   <compose>
     <include>
