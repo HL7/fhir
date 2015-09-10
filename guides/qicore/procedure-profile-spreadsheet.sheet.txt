@@ -65,7 +65,7 @@
   QDM Mapping = incision datetime
 
  -- Row 6 -----------------------------------
-  Element = Procedure.extension
+  Element = !Procedure.extension
   Profile Name = Procedure.causedBy
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/procedure-causedBy}

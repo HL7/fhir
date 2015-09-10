@@ -23,12 +23,13 @@
   Profile Name = Specimen.container.sequenceNumber
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-sequenceNumber}
+  QIDAM Mapping = Not in QIDAM, but recognized as important since there are labs where the sequence of the collection is important (e.g., knowing that 1 is the first sample, 2 is the second, etc.).
 
  -- Row 4 -----------------------------------
   Element = Specimen.collection
 
  -- Row 5 -----------------------------------
-  Element = Specimen.collection.extension
+  Element = !Specimen.collection.extension
   Profile Name = Specimen.collection.specialHandling
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-specialHandling}
@@ -49,7 +50,7 @@
   Element = Specimen.collection.quantity
 
  -- Row 9 -----------------------------------
-  Element = Specimen.collection.quantity.extension
+  Element = !Specimen.collection.quantity.extension
   Profile Name = Specimen.collection.quantity.isDryWeight
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-isDryWeight}
@@ -58,7 +59,7 @@
   Element = Specimen.treatment
 
  -- Row 11 -----------------------------------
-  Element = Specimen.treatment.extension
+  Element = !Specimen.treatment.extension
   Profile Name = Specimen.treatment.treatmentTime
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-treatmentTime}

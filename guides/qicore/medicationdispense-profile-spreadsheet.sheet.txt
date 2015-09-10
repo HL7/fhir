@@ -35,6 +35,7 @@
   Profile Name = MedicationDispense.validityPeriod
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod}
+  QIDAM Mapping = Dispense.validityPeriod
 
  -- Row 3 -----------------------------------
   Element = MedicationDispense.dosageInstruction
@@ -45,48 +46,56 @@
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType}
   Binding = QICoreMedicationDoseType
+  QIDAM Mapping = Dosage.doseType
 
  -- Row 5 -----------------------------------
   Element = MedicationDispense.dosageInstruction.extension
   Profile Name = MedicationDispense.dosageInstruction.infuseOver
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver}
+  QIDAM Mapping = Dosage.infuseOver
 
  -- Row 6 -----------------------------------
   Element = MedicationDispense.dosageInstruction.extension
   Profile Name = MedicationDispense.dosageInstruction.rateIncrement
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrement}
+  QIDAM Mapping = Dosage.rateIncrement
 
  -- Row 7 -----------------------------------
   Element = MedicationDispense.dosageInstruction.extension
   Profile Name = MedicationDispense.dosageInstruction.rateIncrementInterval
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrementInterval}
+  QIDAM Mapping = Dosage.rateIncrementInterval
 
  -- Row 8 -----------------------------------
   Element = MedicationDispense.dosageInstruction.extension
   Profile Name = MedicationDispense.dosageInstruction.rateGoal
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateGoal}
+  QIDAM Mapping = Dosage.rateGoal
 
  -- Row 9 -----------------------------------
   Element = MedicationDispense.dosageInstruction.extension
   Profile Name = MedicationDispense.dosageInstruction.minDosePerPeriod
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod}
+  QIDAM Mapping = Dosage.minDosePerPeriod
 
  -- Row 10 -----------------------------------
   Element = MedicationDispense.dosageInstruction.extension
   Profile Name = MedicationDispense.dosageInstruction.maxDeliveryRate
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryRate}
+  QIDAM Mapping = Dosage.maxDeliveryRate
 
  -- Row 11 -----------------------------------
   Element = MedicationDispense.dosageInstruction.extension
   Profile Name = MedicationDispense.dosageInstruction.maxDeliveryVolume
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume}
+  QIDAM Mapping = Dosage.maxDeliveryVolume
 
  -- Row 12 -----------------------------------
   Element = !MedicationDispense.dosageInstruction.extension

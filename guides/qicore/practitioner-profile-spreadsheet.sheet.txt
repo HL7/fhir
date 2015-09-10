@@ -55,6 +55,7 @@
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-classification}
   Binding = !QICoreProviderClassification
+  QIDAM Mapping = Not in QIDAM, but recognized as important. While there is practitionerRole, that may refer more to something like “attending” vs. “consultant” physician, whereas the classification would be useful for classifying the practitioner to things like “Physician”, “Resident”, “Pharmacist”, “Nurse”, “PA”.  This could then determine whether the practitioner should receive a particular CDS.
 
  -- Row 3 -----------------------------------
   Element = !Practitioner.extension
@@ -133,6 +134,7 @@
   Profile Name = Practitioner.practitionerRole.specialty.primaryInd
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-primaryInd}
+  QIDAM Mapping = Not in QIDAM, but recognized as important. The primary specialty could drive the order sets or order preferences that are provided as default in an order entry system.  Also, a population health management system may want to manage patients with heart failure who are managed by a provider whose primary specialty is cardiology.
 
  -- Row 18 -----------------------------------
   Element = Practitioner.practitionerRole.location

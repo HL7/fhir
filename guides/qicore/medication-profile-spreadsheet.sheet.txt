@@ -26,7 +26,7 @@
   Element = Medication.product
 
  -- Row 3 -----------------------------------
-  Element = Medication.product.extension
+  Element = !Medication.product.extension
   Profile Name = Medication.product.usualRoute
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/medication-usualRoute}
@@ -40,6 +40,7 @@
   Profile Name = Medication.product.ingredient.isActiveIngredient
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/medication-isActiveIngredient}
+  QIDAM Mapping = Not in QIDAM, but added because it was determined to be important for drug-allergy checking. For example, if the patient is allergic to Depakote\n(a trade name, and includes blue dye as an inactive ingredient), then when patient is prescribed warfarin, it shoots out a drug-allergy alert because warfarin also contains blue dye.  Providers hate this. We recently overcame this problem by having the drug-allergy alert interaction settings only check for allergies to active ingredients.
 
  -- Row 6 -----------------------------------
   Element = Medication.code

@@ -115,10 +115,11 @@
   Element = ProcedureRequest.extension
   Profile Name = ProcedureRequest.approachBodySite
   Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-approachBodySite}
+  QIDAM Mapping = Not in QIDAM, but should have been included because the procedure request might include a requested approach, for example, to distinguish between urethral and supra-pubic urinary catheterization.
   QDM Mapping = anatomical approach site
 
  -- Row 7 -----------------------------------
-  Element = ProcedureRequest.extension
+  Element = !ProcedureRequest.extension
   Profile Name = ProcedureRequest.authorizedBy
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-authorizedBy}
@@ -129,6 +130,7 @@
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest-appropriatenessScore}
   Binding = QICoreAppropriatenessScore
+  QIDAM Mapping = Not in QIDAM, but added because of a persuasive ballot comment (May 2015).
 
  -- Row 9 -----------------------------------
   Element = ProcedureRequest.subject
