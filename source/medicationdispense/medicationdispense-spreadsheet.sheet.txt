@@ -131,7 +131,6 @@
   Binding = MedicationDispenseStatus
   Short Label = in-progress | on-hold | completed | entered-in-error | stopped
   Definition = A code specifying the state of the set of dispense events.
-  v2 Mapping = (Not clear whether or how HL7 v2 provides for a snapshot of dispense status)
   RIM Mapping = .status
   Committee Notes = Active - processed but not pickup Completed - process and pickup Aborted - process and put back in stock  This is not related to partialFill whioch is really a partialFulfillment of the order
   w5 = status
@@ -164,7 +163,7 @@
   Type = Reference(MedicationOrder)
   Short Label = Medication order that authorizes the dispense
   Definition = Indicates the medication order that is being dispensed against.
-  v2 Mapping = ORC-3-Filler Order Number / ORC-2-Placer Order Number
+  v2 Mapping = ORC-2 Placer Order Number
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=RQO]
 
  -- Row 7 -----------------------------------
@@ -229,7 +228,7 @@
   Type = Reference(Location)
   Short Label = Where the medication was sent
   Definition = Identification of the facility/location where the medication was shipped to, as part of the dispense event.
-  v2 Mapping = RXD-13-Dispense-to Location; RXD-30-Dispense to Pharmacy; RXD-31-Dispense to Pharmacy Address (HL7 v2 (in definition of RXD-13, RXD-30 and RXD-31) directs use of the PRT segment but there doesn\'t appear to be a standard code in Table 0912 suitable for PRT-4-Participation)
+  v2 Mapping = RXD-13 Dispense-to Location; RXD-30 Dispense to Pharmacy; RXD-31 Dispense to Pharmacy Address
   RIM Mapping = .participation[typeCode=DST].role
   Committee Notes = for inpatient setting this is core, but this may not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?
 
@@ -248,6 +247,7 @@
   Type = string
   Short Label = Information about the dispense
   Definition = Extra information about the dispense that could not be conveyed in the other attributes.
+  v2 Mapping = RXD-9 Dispense Notes
 
  -- Row 16 -----------------------------------
   Element = MedicationDispense.dosageInstruction
@@ -280,7 +280,6 @@
   Type = Timing
   Short Label = When medication should be administered
   Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"
-  v2 Mapping = RDS:TQ1
   RIM Mapping = .effectiveTime
 
  -- Row 20 -----------------------------------
@@ -367,7 +366,7 @@
   Binding = MedicationIntendedSubstitutionType
   Short Label = Type of substitiution
   Definition = A code signifying whether a different drug was dispensed from what was prescribed.
-  v2 Mapping = RXE-9-Substitution Status? (perhaps RXO-9-Allow Substitutions?)
+  v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = .code
   Committee Notes = No substitution made or expected Subtitution made but not expected Substitution expected but not made Substitution made and expected
 

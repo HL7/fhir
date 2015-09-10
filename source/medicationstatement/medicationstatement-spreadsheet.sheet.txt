@@ -99,7 +99,6 @@
   Type = Identifier
   Short Label = External Identifier
   Definition = External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
-  v2 Mapping = RXA-25-Administered Barcode Identifier?
   RIM Mapping = SubstanceAdministration.id
   w5 = id
 
@@ -143,7 +142,6 @@
   Type = boolean
   Short Label = True if medication is/was not being taken
   Definition = Set this to true if the record is saying that the medication was NOT taken.
-  v2 Mapping = RXA-20-Completion Status=\'NA\'
   RIM Mapping = SubstanceAdministration.actionNegationInd
   Missing Meaning = If this is missing, then the medication was taken
   w5 = status
@@ -156,7 +154,6 @@
   Binding = MedicationAdministrationNegationReason
   Short Label = True if asserting medication was not given
   Definition = A code indicating why the medication was not taken.
-  v2 Mapping = RXA-9-Administration Notes:RXA-20-Completion Status=\'NA\'
   RIM Mapping = SubstanceAdministration->Reason->Observation->Value
   To Do = Is this in the 80% for medication statement?
 
@@ -173,7 +170,6 @@
   Short Label = Over what period was medication consumed?
   Definition = The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the \'wasNotGiven\' attribute is true).
   Comments = If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.
-  v2 Mapping = RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration
   RIM Mapping = SubstanceAdministration.effectiveTime
   w5 = when.done
 
@@ -199,7 +195,6 @@
   Short Label = What medication was taken?
   Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the medication this statement concerns. When the only available information is a text description of the medication, Medication.code.text should be used
-  v2 Mapping = RXA-5-Administered Code
   RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest.consumable
   w5 = what
 
@@ -225,7 +220,6 @@
   Type = Timing
   Short Label = When/how often was medication taken?
   Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"
-  v2 Mapping = RAS:TQ1
   RIM Mapping = .effectiveTime
 
  -- Row 17 -----------------------------------
@@ -244,7 +238,6 @@
   Binding = MedicationAdministrationSite
   Short Label = Where on body was medication administered?
   Definition = A coded specification of or a reference to the anatomic site where the medication first enters the body
-  v2 Mapping = RXR-2-Administration Site
   RIM Mapping = .approachSiteCode
 
  -- Row 19 -----------------------------------
@@ -254,7 +247,6 @@
   Binding = RouteOfAdministration
   Short Label = How did the medication enter the body?
   Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
-  v2 Mapping = RXR-1-Route
   RIM Mapping = .routeCode
 
  -- Row 20 -----------------------------------
@@ -264,7 +256,6 @@
   Binding = MedicationAdministrationMethod
   Short Label = Technique used to administer medication
   Definition = A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  Examples: Slow Push, Deep IV.  One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
-  v2 Mapping = RXR-4-Administration Method
   RIM Mapping = .methodCode
 
  -- Row 21 -----------------------------------
@@ -273,7 +264,6 @@
   Type = SimpleQuantity | Range
   Short Label = Amount administered in one dose
   Definition = The amount of therapeutic or other substance given at one administration event.
-  v2 Mapping = RXA-6-Administered Amount / RXA-7.1-Administered Units.code / RXA-7.3-Administered Units.name of coding system
   RIM Mapping = .doseQuantity
 
  -- Row 22 -----------------------------------
@@ -282,7 +272,6 @@
   Type = Ratio|Range
   Short Label = Dose quantity per unit of time
   Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of \'1\' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours
-  v2 Mapping = RXA-12-Administered Per (Time Unit)
   RIM Mapping = .rateQuantity
 
  -- Row 23 -----------------------------------
@@ -291,7 +280,6 @@
   Type = Ratio
   Short Label = Maximum dose that was consumed per unit of time
   Definition = The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
-  v2 Mapping = RXE-4-Give Amount - Maximum / RXE-5-Give Units
   RIM Mapping = .maxDoseQuantity
   To Do = Is this in the 80% for medication statement?
 
