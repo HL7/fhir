@@ -68,7 +68,7 @@ Note that many diagnostic processes are procedures that generate observations an
 </p>
 
 <p>
-In contrast to the <a href="observation.html">Observation resource</a>, the DiagnosticReport resource typically includes additional clinical context and and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations. Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.
+In contrast to the <a href="observation.html">Observation resource</a>, the DiagnosticReport resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations. Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.
 </p>
 
 <p>
