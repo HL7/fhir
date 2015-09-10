@@ -764,7 +764,7 @@ public class ResourceValidator extends BaseValidator {
 //    rule(errors, IssueType.STRUCTURE, "Binding @ "+path, !cd.isHeirachical() || (cd.getChildCodes().size() < cd.getCodes().size()), "Logic error processing Hirachical code set");
 
     // now, rules for the source
-    warning(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding");
+    suppressedwarning(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding");
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getElementType() != ElementType.Simple || cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding for code elements");
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, (cd.getElementType() != ElementType.Simple || cd.getStrength() == BindingStrength.REQUIRED), "Must be a required binding if bound to a code instead of a Coding/CodeableConcept");
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, Utilities.noString(cd.getDefinition())  || (cd.getDefinition().charAt(0) == cd.getDefinition().toUpperCase().charAt(0)), "Definition cannot start with a lowercase letter");
