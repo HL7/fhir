@@ -10,6 +10,8 @@ import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.ImplementationGuide;
 import org.hl7.fhir.instance.model.ImplementationGuide.GuidePageKind;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageComponent;
+import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -17,6 +19,7 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
@@ -193,7 +196,7 @@ public class ImplementationGuideDefn {
     this.ig = ig;
   }
 
-  public String makeList(String pagename, String type, String genlevel, String crumbTitle) {
+  public String makeList(String pagename, String type, String genlevel, String crumbTitle) throws Exception {
     String n = pagename.replace("/", "\\");
     if (n.startsWith(code+File.separator))
       n = n.substring(code.length()+1);
@@ -216,7 +219,7 @@ public class ImplementationGuideDefn {
     return b.toString();
   }
 
-  private List<LinkTriple> determinePath(String n, String type, String crumbTitle) {
+  private List<LinkTriple> determinePath(String n, String type, String crumbTitle) throws Exception {
     List<LinkTriple> res = new ArrayList<ImplementationGuideDefn.LinkTriple>();
     if (type.equals("valueSet") && hasVSRegistry()) {
       res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
@@ -228,13 +231,36 @@ public class ImplementationGuideDefn {
     } else {
       res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
       if (!n.equals(ig.getPage().getSource())) {
-        if (!findPage(n, res, ig.getPage().getPage())) {
+        if (!findPage(n, res, ig.getPage().getPage()) && !findLogicalPage(n, res, ig.getPage().getPage())) {
+          // we didn't find it as a simple page. Figure out what 
+         
           issues.add(new ValidationMessage(Source.Publisher, IssueType.PROCESSING, code+"/"+n, "The page "+n+" is not assigned a bread crumb yet", IssueSeverity.INFORMATION/*WARNING*/));
           res.add(new LinkTriple(null, "unsorted", "Work in Progress yet"));
         }
       }
     }
     return res;
+  }
+
+  private boolean findLogicalPage(String n, List<LinkTriple> res, List<ImplementationGuidePageComponent> page) throws Exception {
+    String src = Utilities.fileTitle(n)+ ".html";
+    for (ImplementationGuidePackageComponent p : ig.getPackage()) {
+      for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
+        if (src.equals(r.getSourceUriType().asStringValue())) {
+          if (r.hasExampleFor()) {
+            String psrc = r.getExampleFor().getReference().substring(r.getExampleFor().getReference().indexOf("/")+1)+".html";
+            if (findPage(psrc, res, page)) {
+              res.add(new LinkTriple(null, "Example", null));
+              return true;
+            } else
+              return false;
+          } else 
+            return false; 
+        }
+      }
+    }
+    
+    return false;
   }
 
   private boolean findPage(String n, List<LinkTriple> res, List<ImplementationGuidePageComponent> list) {

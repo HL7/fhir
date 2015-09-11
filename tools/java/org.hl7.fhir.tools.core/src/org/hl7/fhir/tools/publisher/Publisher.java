@@ -539,9 +539,11 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       prsr.parse(page.getGenDate(), page.getValidationErrors());
 
-      if (web || (isGenerate && buildFlags.get("all"))) {
+      if (web) {
         page.log("Clear Directory", LogMessageType.Process);
         Utilities.clearDirectory(page.getFolders().dstDir);
+      }
+      if (web || (isGenerate && buildFlags.get("all"))) {
         Utilities.createDirectory(page.getFolders().dstDir + "html");
         Utilities.createDirectory(page.getFolders().dstDir + "examples");
       }
