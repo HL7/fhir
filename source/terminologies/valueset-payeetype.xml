@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Payee type Codes"/>
+  <name value="Payee Type Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
@@ -10,8 +10,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample Payee type codes."/>
-  <copyright value="This is an example set"/>
+  <description value="This value set includes sample Payee Type codes."/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/payeetype"/>
     <caseSensitive value="true"/>

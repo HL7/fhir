@@ -10,19 +10,19 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value sets refers to a Category of supply"/>
+  <description value="This value sets refers to a Category of supply."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/supply-kind"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="central"/>
       <display value="Central Supply"/>
-      <definition value="Supply is stored and requested from central supply"/>
+      <definition value="Supply is stored and requested from central supply."/>
     </concept>
     <concept>
       <code value="nonstock"/>
       <display value="Non-Stock"/>
-      <definition value="Supply is not onsite and must be requested from an outside vendor using a non-stock requisition"/>
+      <definition value="Supply is not onsite and must be requested from an outside vendor using a non-stock requisition."/>
     </concept>
   </codeSystem>
 </ValueSet>

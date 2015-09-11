@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value sets refers to a specific supply item"/>
+  <description value="This value sets refers to a specific supply item."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/supply-item-type"/>
     <caseSensitive value="true"/>
@@ -22,7 +22,7 @@
     <concept>
       <code value="device"/>
       <display value="Device"/>
-      <definition value="What is supplied (or requested) is a device"/>
+      <definition value="What is supplied (or requested) is a device."/>
     </concept>
   </codeSystem>
 </ValueSet>

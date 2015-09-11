@@ -10,25 +10,25 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes the financial processing priority codes"/>
-  <copyright value="This is an example set"/>
+  <description value="This value set includes the financial processing priority codes."/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/processpriority"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="stat"/>
       <display value="Immediate"/>
-      <definition value="Immediately in real time"/>
+      <definition value="Immediately in real time."/>
     </concept>
     <concept>
       <code value="normal"/>
       <display value="Normal"/>
-      <definition value="With best effort"/>
+      <definition value="With best effort."/>
     </concept>
     <concept>
       <code value="deferred"/>
       <display value="Deferred"/>
-      <definition value="Later, when possible"/>
+      <definition value="Later, when possible."/>
     </concept>
   </codeSystem>
 </ValueSet>

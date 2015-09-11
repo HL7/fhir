@@ -15,8 +15,8 @@
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="HITSP"/>
-  <description value="This is the code representing the clinical specialty of the clinician or provider who     interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty     has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition."/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International    Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <description value="This is the code representing the clinical specialty of the clinician or provider who interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

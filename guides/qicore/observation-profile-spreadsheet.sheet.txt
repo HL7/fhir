@@ -65,6 +65,7 @@
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-bodyPosition}
   Binding = QICoreObservationBodyPosition
+  QIDAM Mapping = Not in QIDAM, but recognized as important to intrepreting many observations for the purposes of CDS.
 
  -- Row 3 -----------------------------------
   Element = !Observation.extension

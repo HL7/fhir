@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Example Vision Prescription Product Codes"/>
+  <name value="Example Vision Contact Duration Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
@@ -10,8 +10,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes a smattering of Contact Duration codes"/>
-  <copyright value="This is an example set"/>
+  <description value="This value set includes a smattering of Contact Duration codes."/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/ex-visioncontactduration"/>
     <caseSensitive value="true"/>

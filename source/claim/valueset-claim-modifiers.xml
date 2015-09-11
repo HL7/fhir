@@ -11,7 +11,7 @@
     </telecom>
   </contact>
   <description value="This value set includes sample Modifier type codes."/>
-  <copyright value="This is an example set"/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/modifiers"/>
     <caseSensitive value="true"/>
@@ -19,31 +19,31 @@
       <code value="A"/>
     <!--   Repair of prior service or installation   -->
       <display value="Repair of prior service or installation"/>
-      <definition value="Repair of prior service or installation"/>
+      <definition value="Repair of prior service or installation."/>
     </concept>
     <concept>
       <code value="B"/>
     <!--   Temporary service or installation   -->
       <display value="Temporary service or installation"/>
-      <definition value="Temporary service or installation"/>
+      <definition value="Temporary service or installation."/>
     </concept>
     <concept>
       <code value="C"/>
     <!--   TMJ treatment   -->
       <display value="TMJ treatment"/>
-      <definition value="Treatment associated with TMJ"/>
+      <definition value="Treatment associated with TMJ."/>
     </concept>
     <concept>
       <code value="E"/>
     <!--   Implant or associated with an implant   -->
       <display value="Implant or associated with an implant"/>
-      <definition value="Implant or associated with an implant"/>
+      <definition value="Implant or associated with an implant."/>
     </concept>
     <concept>
       <code value="X"/>
     <!--   none    -->
       <display value="None"/>
-      <definition value="None"/>
+      <definition value="None."/>
     </concept>
   </codeSystem>
 </ValueSet>

@@ -11,7 +11,7 @@
     </telecom>
   </contact>
   <description value="This value set includes sample Contract Action codes."/>
-  <copyright value="This is an example set"/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://www.hl7.org/fhir/contractaction"/>
     <caseSensitive value="true"/>

@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="The  technique that is used to perform the process or preserve the specimen"/>
+  <description value="The technique that is used to perform the process or preserve the specimen."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v2/0373"/>

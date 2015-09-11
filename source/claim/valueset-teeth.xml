@@ -11,169 +11,169 @@
     </telecom>
   </contact>
   <description value="This value set includes the FDI Teeth codes."/>
-  <copyright value="This is an example set"/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/ex-fdi"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="11"/>
       <display value="11"/>
-      <definition value="Upper Right Tooth 1 from the central axis, permanent dentition"/>
+      <definition value="Upper Right Tooth 1 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="12"/>
       <display value="12"/>
-      <definition value="Upper Right Tooth 2 from the central axis, permanent dentition"/>
+      <definition value="Upper Right Tooth 2 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="13"/>
       <display value="13"/>
-      <definition value="Upper Right Tooth 3 from the central axis, permanent dentition"/>
+      <definition value="Upper Right Tooth 3 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="14"/>
       <display value="14"/>
-      <definition value="Upper Right Tooth 4 from the central axis, permanent dentition"/>
+      <definition value="Upper Right Tooth 4 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="15"/>
       <display value="15"/>
-      <definition value="Upper Right Tooth 5 from the central axis, permanent dentition"/>
+      <definition value="Upper Right Tooth 5 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="16"/>
       <display value="16"/>
-      <definition value="Upper Right Tooth 6 from the central axis, permanent dentition"/>
+      <definition value="Upper Right Tooth 6 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="17"/>
       <display value="17"/>
-      <definition value="Upper Right Tooth 7 from the central axis, permanent dentition"/>
+      <definition value="Upper Right Tooth 7 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="18"/>
       <display value="18"/>
-      <definition value="Upper Right Tooth 1 from the central axis, permanent dentition"/>
+      <definition value="Upper Right Tooth 1 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="21"/>
       <display value="21"/>
-      <definition value="Upper Left Tooth 1 from the central axis, permanent dentition"/>
+      <definition value="Upper Left Tooth 1 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="22"/>
       <display value="22"/>
-      <definition value="Upper Left Tooth 2 from the central axis, permanent dentition"/>
+      <definition value="Upper Left Tooth 2 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="23"/>
       <display value="23"/>
-      <definition value="Upper Left Tooth 3 from the central axis, permanent dentition"/>
+      <definition value="Upper Left Tooth 3 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="24"/>
       <display value="24"/>
-      <definition value="Upper Left Tooth 4 from the central axis, permanent dentition"/>
+      <definition value="Upper Left Tooth 4 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="25"/>
       <display value="25"/>
-      <definition value="Upper Left Tooth 5 from the central axis, permanent dentition"/>
+      <definition value="Upper Left Tooth 5 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="26"/>
       <display value="26"/>
-      <definition value="Upper Left Tooth 6 from the central axis, permanent dentition"/>
+      <definition value="Upper Left Tooth 6 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="27"/>
       <display value="27"/>
-      <definition value="Upper Left Tooth 7 from the central axis, permanent dentition"/>
+      <definition value="Upper Left Tooth 7 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="28"/>
       <display value="28"/>
-      <definition value="Upper Left Tooth 8 from the central axis, permanent dentition"/>
+      <definition value="Upper Left Tooth 8 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="31"/>
       <display value="31"/>
-      <definition value="Lower Left Tooth 1 from the central axis, permanent dentition"/>
+      <definition value="Lower Left Tooth 1 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="32"/>
       <display value="32"/>
-      <definition value="Lower Left Tooth 2 from the central axis, permanent dentition"/>
+      <definition value="Lower Left Tooth 2 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="33"/>
       <display value="33"/>
-      <definition value="Lower Left Tooth 3 from the central axis, permanent dentition"/>
+      <definition value="Lower Left Tooth 3 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="34"/>
       <display value="34"/>
-      <definition value="Lower Left Tooth 4 from the central axis, permanent dentition"/>
+      <definition value="Lower Left Tooth 4 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="35"/>
       <display value="35"/>
-      <definition value="Lower Left Tooth 5 from the central axis, permanent dentition"/>
+      <definition value="Lower Left Tooth 5 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="36"/>
       <display value="36"/>
-      <definition value="Lower Left Tooth 6 from the central axis, permanent dentition"/>
+      <definition value="Lower Left Tooth 6 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="37"/>
       <display value="37"/>
-      <definition value="Lower Left Tooth 7 from the central axis, permanent dentition"/>
+      <definition value="Lower Left Tooth 7 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="38"/>
       <display value="38"/>
-      <definition value="Lower Left Tooth 8 from the central axis, permanent dentition"/>
+      <definition value="Lower Left Tooth 8 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="41"/>
       <display value="41"/>
-      <definition value="Lower Right Tooth 1 from the central axis, permanent dentition"/>
+      <definition value="Lower Right Tooth 1 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="42"/>
       <display value="42"/>
-      <definition value="Lower Right Tooth 2 from the central axis, permanent dentition"/>
+      <definition value="Lower Right Tooth 2 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="43"/>
       <display value="43"/>
-      <definition value="Lower Right Tooth 3 from the central axis, permanent dentition"/>
+      <definition value="Lower Right Tooth 3 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="44"/>
       <display value="44"/>
-      <definition value="Lower Right Tooth 4 from the central axis, permanent dentition"/>
+      <definition value="Lower Right Tooth 4 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="45"/>
       <display value="45"/>
-      <definition value="Lower Right Tooth 5 from the central axis, permanent dentition"/>
+      <definition value="Lower Right Tooth 5 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="46"/>
       <display value="46"/>
-      <definition value="Lower Right Tooth 6 from the central axis, permanent dentition"/>
+      <definition value="Lower Right Tooth 6 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="47"/>
       <display value="47"/>
-      <definition value="Lower Right Tooth 7 from the central axis, permanent dentition"/>
+      <definition value="Lower Right Tooth 7 from the central axis, permanent dentition."/>
     </concept>
     <concept>
       <code value="48"/>
       <display value="48"/>
-      <definition value="Lower Right Tooth 8 from the central axis, permanent dentition"/>
+      <definition value="Lower Right Tooth 8 from the central axis, permanent dentition."/>
     </concept>
   </codeSystem>
 </ValueSet>

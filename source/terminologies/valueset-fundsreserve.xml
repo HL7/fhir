@@ -11,7 +11,7 @@
     </telecom>
   </contact>
   <description value="This value set includes sample funds reservation type codes."/>
-  <copyright value="This is an example set"/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/fundsreserve"/>
     <caseSensitive value="true"/>

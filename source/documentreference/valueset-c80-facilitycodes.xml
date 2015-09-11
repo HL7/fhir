@@ -11,12 +11,12 @@
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/valueset-xds-facilitycodes"/>
   <version value="20091109"/>
-  <name value="Facililty Type Code Value Set"/>
+  <name value="Facility Type Code Value Set"/>
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="HITSP"/>
   <description value="This is the code representing the type of organizational setting where the clinical encounter, service, interaction, or treatment occurred. The value set used for Healthcare Facility Type has been defined by HITSP to be the value set reproduced from HITSP C80 Table 2-147."/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International    Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

@@ -10,8 +10,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes smattering of a Adjustment Reason codes"/>
-  <copyright value="This is an example set"/>
+  <description value="This value set includes smattering of a Adjustment Reason codes."/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/adjustment-reason"/>
     <caseSensitive value="true"/>

@@ -10,15 +10,15 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes a smattering of Service/Product codes"/>
-  <copyright value="This is an example set"/>
+  <description value="This value set includes a smattering of Service/Product codes."/>
+  <copyright value="This is an example set."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/ex-serviceproduct"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="exam"/>
       <display value="Exam"/>
-      <definition value="Ex"/>
+      <definition value="Exam"/>
     </concept>
     <concept>
       <code value="flushot"/>

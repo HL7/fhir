@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="detectedissue-category"/>
+  <name value="Detected Issue Category"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

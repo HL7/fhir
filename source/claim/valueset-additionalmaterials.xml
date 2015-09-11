@@ -11,7 +11,7 @@
     </telecom>
   </contact>
   <description value="This value set includes sample additional material type codes."/>
-  <copyright value="This is an example set"/>
+  <copyright value="This is an example set."/>
   <extensible value="false"/>
   <codeSystem>
     <system value="http://hl7.org/fhir/additionalmaterials"/>
@@ -29,7 +29,7 @@
     <concept>
       <code value="email"/>
       <display value="Email"/>
-      <definition value="EMail"/>
+      <definition value="Email"/>
     </concept>
     <concept>
       <code value="model"/>
