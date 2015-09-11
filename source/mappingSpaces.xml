@@ -211,4 +211,11 @@
     <id>fhirprovenance</id>
     <sort>26</sort>
   </space>
+    <space>
+    <url>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378</url>
+    <columnName>QIDAM Mapping</columnName>
+    <title>Quality Improvement Domain Analysis Model</title>
+    <id>qidam</id>
+    <sort>27</sort>
+  </space>
 </mappingSpaces>
