@@ -1417,7 +1417,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     Collections.sort(names);
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (String n  : names) 
-      b.append(n);
+      b.append("<code>"+n+"</code>");
     return b.toString();
   }
 

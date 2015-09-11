@@ -227,7 +227,10 @@ public class ImplementationGuideDefn {
       findPage(getVSRegistry().getSource(), res, ig.getPage().getPage());
       res.add(new LinkTriple(null, crumbTitle, null));
     } else if (type.startsWith("extension:")) {
-      res.add(new LinkTriple(null, "Extension Stuff", "Work in Progress yet"));
+      if (findRegistryPage("StructureDefinition", res, ig.getPage().getPage())) 
+        res.add(new LinkTriple(null, "Extension", null));
+      else
+        res.add(new LinkTriple(null, "Extension Stuff", "Work in Progress yet"));
     } else if (type.startsWith("search-parameter:")) {
       String[] p = type.split("\\/");
       if (p.length >= 2 && findPage(p[1]+".html", res, ig.getPage().getPage())) {
