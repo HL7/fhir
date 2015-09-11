@@ -121,7 +121,7 @@
       <description value="Example of QICore AdverseEvent"/>
       <sourceUri value="basic-adverseevent-example.xml"/>
       <exampleFor>
-        <reference value="basic-adverseevent-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-adverseevent"/>
       </exampleFor>
     </resource>
     <resource>
@@ -139,7 +139,7 @@
       <description value="Example of QICore AllergyIntolerance Refuted"/>
       <sourceUri value="allergyintolerance-example-refuted.xml"/>
       <exampleFor>
-        <reference value="allergyintolerance-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-allergyintolerance"/>
       </exampleFor>
     </resource>
     <resource>
@@ -148,7 +148,7 @@
       <description value="Example of QICore Communication"/>
       <sourceUri value="communication-example.xml"/>
       <exampleFor>
-        <reference value="communication-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-communication"/>
       </exampleFor>
     </resource>
     <resource>
@@ -157,7 +157,7 @@
       <description value="Example of QICore CommunicationRequest"/>
       <sourceUri value="communicationrequest-example.xml"/>
       <exampleFor>
-        <reference value="communicationrequest-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-communicationrequest"/>
       </exampleFor>
     </resource>
     <resource>
@@ -166,7 +166,7 @@
       <description value="Example of QICore Condition"/>
       <sourceUri value="condition-example.xml"/>
       <exampleFor>
-        <reference value="condition-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-condition"/>
       </exampleFor>
     </resource>
     <resource>
@@ -175,7 +175,7 @@
       <description value="Example of QICore DeviceUseRequest"/>
       <sourceUri value="deviceuserequest-example.xml"/>
       <exampleFor>
-        <reference value="deviceuserequest-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-deviceuserequest"/>
       </exampleFor>
     </resource>
     <resource>
@@ -184,7 +184,7 @@
       <description value="Example of QICore DiagnosticOrder"/>
       <sourceUri value="diagnosticorder-example.xml"/>
       <exampleFor>
-        <reference value="diagnosticorder-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-diagnosticorder"/>
       </exampleFor>
     </resource>
     <resource>
@@ -193,7 +193,7 @@
       <description value="Example of QICore DiagnosticReport"/>
       <sourceUri value="diagnosticreport-example.xml"/>
       <exampleFor>
-        <reference value="diagnosticreport-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-diagnosticreport"/>
       </exampleFor>
     </resource>
     <resource>
@@ -202,7 +202,7 @@
       <description value="Example of QICore Encounter"/>
       <sourceUri value="encounter-example.xml"/>
       <exampleFor>
-        <reference value="encounter-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-encounter"/>
       </exampleFor>
     </resource>
     <resource>
@@ -211,7 +211,7 @@
       <description value="Example of QICore FamilyMemberHistory with condition did-not-have"/>
       <sourceUri value="familymemberhistory-example.xml"/>
       <exampleFor>
-        <reference value="familymemberhistory-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-familymemberhistory"/>
       </exampleFor>
     </resource>
     <resource>
@@ -220,7 +220,7 @@
       <description value="Example of QICore Flag"/>
       <sourceUri value="flag-example.xml"/>
       <exampleFor>
-        <reference value="flag-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-flag"/>
       </exampleFor>
     </resource>
     <resource>
@@ -229,7 +229,7 @@
       <description value="Example of QICoreGoal"/>
       <sourceUri value="goal-example.xml"/>
       <exampleFor>
-        <reference value="goal-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-goal"/>
       </exampleFor>
     </resource>
     <resource>
@@ -238,7 +238,7 @@
       <description value="Example of QICore ImagingStudy"/>
       <sourceUri value="imagingstudy-example.xml"/>
       <exampleFor>
-        <reference value="imagingstudy-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-imagingstudy"/>
       </exampleFor>
     </resource>
     <resource>
@@ -247,7 +247,7 @@
       <description value="Example of QICore MedicationDispense"/>
       <sourceUri value="medicationdispense-example.xml"/>
       <exampleFor>
-        <reference value="medicationdispense-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-medicationdispense"/>
       </exampleFor>
     </resource>
     <resource>
@@ -256,7 +256,7 @@
       <description value="Example of QICore MedicationOrder"/>
       <sourceUri value="medicationorder-example.xml"/>
       <exampleFor>
-        <reference value="medicationorder-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-medicationorder"/>
       </exampleFor>
     </resource>
     <resource>
@@ -265,7 +265,7 @@
       <description value="Example of QICore MedicationStatement"/>
       <sourceUri value="medicationstatement-example.xml"/>
       <exampleFor>
-        <reference value="medicationstatement-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-medicationstatement"/>
       </exampleFor>
     </resource>
     <resource>
@@ -274,7 +274,7 @@
       <description value="Example of QICore Observation"/>
       <sourceUri value="observation-example.xml"/>
       <exampleFor>
-        <reference value="observation-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-observation"/>
       </exampleFor>
     </resource>
     <resource>
@@ -283,7 +283,7 @@
       <description value="Example of QICore Organization"/>
       <sourceUri value="organization-example.xml"/>
       <exampleFor>
-        <reference value="organization-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-organization"/>
       </exampleFor>
     </resource>
     <resource>
@@ -292,7 +292,7 @@
       <description value="Example of QICore Patient"/>
       <sourceUri value="patient-example.xml"/>
       <exampleFor>
-        <reference value="patient-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-patient"/>
       </exampleFor>
     </resource>
     <resource>
@@ -301,7 +301,7 @@
       <description value="Example of QICore Practitioner"/>
       <sourceUri value="practitioner-example.xml"/>
       <exampleFor>
-        <reference value="practitioner-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-practitioner"/>
       </exampleFor>
     </resource>
     <resource>
@@ -310,7 +310,7 @@
       <description value="Example of QICore Procedure"/>
       <sourceUri value="procedure-example.xml"/>
       <exampleFor>
-        <reference value="procedure-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-procedure"/>
       </exampleFor>
     </resource>
     <resource>
@@ -319,7 +319,7 @@
       <description value="Example of QICore ProcedureRequest"/>
       <sourceUri value="procedurerequest-example.xml"/>
       <exampleFor>
-        <reference value="procedurerequest-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-procedurerequest"/>
       </exampleFor>
     </resource>
     <resource>
@@ -328,7 +328,7 @@
       <description value="Example of QICore ReferralRequest"/>
       <sourceUri value="referralrequest-example.xml"/>
       <exampleFor>
-        <reference value="referralrequest-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-referralrequest"/>
       </exampleFor>
     </resource>
     <resource>
@@ -337,7 +337,7 @@
       <description value="Example of QICore Specimen"/>
       <sourceUri value="specimen-example.xml"/>
       <exampleFor>
-        <reference value="specimen-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-specimen"/>
       </exampleFor>
     </resource>
   </package>

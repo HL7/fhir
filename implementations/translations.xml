@@ -994,6 +994,12 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="fr">Paramètre "%s" non reconnu</translation>
 		<translation lang="ru">Параметр "%s" не понят</translation>
 	</item>
+  <item id="MSG_PARAM_INVALID" ecode="true">
+    <translation lang="en">Parameter "%s" content is invalid</translation>
+  </item>
+  <item id="MSG_PARAM_MODIFIER_INVALID" ecode="true">
+    <translation lang="en">Parameter "%s" modifier is invalid</translation>
+  </item>
 	<item id="MSG_RESOURCE_EXAMPLE_PROTECTED" ecode="true">
 		<translation lang="en">Resources with identity "example" cannot be deleted (for testing/training purposes)</translation>
 		<translation lang="nl">Resources met identiteit "voorbeeld" kunnen niet worden verwijderd (ten behoeve van testen/training)</translation>

@@ -221,17 +221,29 @@ public class ImplementationGuideDefn {
 
   private List<LinkTriple> determinePath(String n, String type, String crumbTitle) throws Exception {
     List<LinkTriple> res = new ArrayList<ImplementationGuideDefn.LinkTriple>();
+    res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
+
     if (type.equals("valueSet") && hasVSRegistry()) {
-      res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
       findPage(getVSRegistry().getSource(), res, ig.getPage().getPage());
       res.add(new LinkTriple(null, crumbTitle, null));
     } else if (type.startsWith("extension:")) {
-      res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
       res.add(new LinkTriple(null, "Extension Stuff", "Work in Progress yet"));
+    } else if (type.startsWith("search-parameter:")) {
+      String[] p = type.split("\\/");
+      if (p.length >= 2 && findPage(p[1]+".html", res, ig.getPage().getPage())) {
+        res.add(new LinkTriple(null, "Search Parameter", null));
+      } else
+        res.add(new LinkTriple(null, "Search Parameter Stuff", "Work in Progress yet"));        
+    } else if (n.equals("terminologies-valuesets.html")) {
+      res.add(new LinkTriple(null, "Value Sets", "Value set List"));
     } else {
-      res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
+      if (n.endsWith(".xml.html"))
+        n = n.substring(0, n.length()-9)+".html";
+      else if (n.endsWith(".json.html"))
+        n = n.substring(0, n.length()-10)+".html";
+      
       if (!n.equals(ig.getPage().getSource())) {
-        if (!findPage(n, res, ig.getPage().getPage()) && !findLogicalPage(n, res, ig.getPage().getPage())) {
+        if (!findPage(n, res, ig.getPage().getPage()) && !findLogicalPage(n, type, res, ig.getPage().getPage())) {
           // we didn't find it as a simple page. Figure out what 
          
           issues.add(new ValidationMessage(Source.Publisher, IssueType.PROCESSING, code+"/"+n, "The page "+n+" is not assigned a bread crumb yet", IssueSeverity.INFORMATION/*WARNING*/));
@@ -242,24 +254,82 @@ public class ImplementationGuideDefn {
     return res;
   }
 
-  private boolean findLogicalPage(String n, List<LinkTriple> res, List<ImplementationGuidePageComponent> page) throws Exception {
+  private boolean findLogicalPage(String n, String type, List<LinkTriple> res, List<ImplementationGuidePageComponent> page) throws Exception {
+    // see if we can find it as an example of an existing profile
     String src = Utilities.fileTitle(n)+ ".html";
     for (ImplementationGuidePackageComponent p : ig.getPackage()) {
       for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
         if (src.equals(r.getSourceUriType().asStringValue())) {
           if (r.hasExampleFor()) {
-            String psrc = r.getExampleFor().getReference().substring(r.getExampleFor().getReference().indexOf("/")+1)+".html";
+            String psrc = r.getExampleFor().getReference().substring(r.getExampleFor().getReference().lastIndexOf("/")+1)+".html";
             if (findPage(psrc, res, page)) {
-              res.add(new LinkTriple(null, "Example", null));
+              res.add(new LinkTriple(null, r.getName(), null));
               return true;
-            } else
-              return false;
-          } else 
-            return false; 
+            }
+          }
         }
       }
     }
+    // now, see if we can find a registry to make it a child of 
+    String id = Utilities.fileTitle(n);
+    for (Example e : examples) {
+      if (e.getId().equals(id))
+        if (findRegistryPage(e.getResourceName(), res, page)) {
+          res.add(new LinkTriple(null, e.getName(), null));
+          return true;
+        }
+    }
+    if (type.startsWith("profile:"))
+      if (findRegistryPage("StructureDefinition", res, page)) {
+        res.add(new LinkTriple(null, "Profile", null));
+        return true;
+      }
+      
+    if (findModified(n, "-operations.html", "Operations", res, page))
+      return true;
+    if (findModified(n, "-questionnaire.html", "Questionnaire", res, page))
+      return true;
+    if (findModified(n, ".profile.html", "SturctureDefinition", res, page))
+      return true;
+    return false;
+  }
+
+  private boolean findModified(String n, String suffix, String title, List<LinkTriple> res, List<ImplementationGuidePageComponent> page) {
+    // now, see if we can drop -operations...
+    if (n.endsWith(suffix)) {
+      if (findPage(n.substring(0, n.length()-suffix.length())+".html", res, page)) {
+        res.add(new LinkTriple(null, title, null));
+        return true;
+      }
+    }
+    return false;
+
     
+  }
+
+  private boolean findRegistryPage(String n, List<LinkTriple> res, List<ImplementationGuidePageComponent> list) {
+    for (ImplementationGuidePageComponent page : list) {
+      if (page.getKind() == GuidePageKind.LIST && isListFor(page, n)) {
+        res.add(new LinkTriple(page.getSource(), page.getName(), null));
+        return true;
+      }
+      if (page.hasPage()) {
+        res.add(new LinkTriple(page.getSource(), page.getName(), null));
+        if (findPage(n, res, page.getPage()))
+          return true;
+        else {
+          res.remove(res.size()-1);
+        }
+      }
+    }
+    return false;
+  }
+
+  private boolean isListFor(ImplementationGuidePageComponent page, String n) {
+    for (CodeType s : page.getType()) {
+      if (s.getValue().equals(n))
+        return true;
+    }
     return false;
   }
 

@@ -252,6 +252,11 @@ begin
       writeall := writeall and FWriteAllowed[a];
   end;
 
+  if FreadAll then
+    FReadAllowed[frtNull] := true;
+  if WriteAll then
+    FWriteAllowed[frtNull] := true;
+
   s := '';
   if FUserInfo then
     s := 'openid profile';

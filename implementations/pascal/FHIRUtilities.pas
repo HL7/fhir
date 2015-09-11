@@ -51,6 +51,7 @@ const
 function HumanNameAsText(name : TFhirHumanName):String;
 function GetEmailAddress(contacts : TFhirContactPointList):String;
 function ResourceTypeByName(name : String) : TFhirResourceType;
+function isResourceName(name : String) : boolean;
 
 Function RecogniseFHIRResourceName(Const sName : String; out aType : TFhirResourceType): boolean;
 Function RecogniseFHIRResourceManagerName(Const sName : String; out aType : TFhirResourceType): boolean;
@@ -360,6 +361,14 @@ begin
   if index < 1 then
     raise Exception.Create('Unknown resource name "'+name+'"');
   result := TFhirResourceType(index);
+end;
+
+function isResourceName(name : String) : boolean;
+var
+  index : Integer;
+begin
+  index := StringArrayIndexOfSensitive(CODES_TFhirResourceType, name);
+  result := index > 0;
 end;
 
 Function RecogniseFHIRResourceName(Const sName : String; out aType : TFhirResourceType): boolean;

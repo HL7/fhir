@@ -4262,7 +4262,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String json = resource2Json(sp);
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("SearchParameter " + sp.getName()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-    html = page.processPageIncludes(title + ".json.html", html, resourceName+"/"+pack.getId()+"/"+sp.getId(), null, sp, null, "Search Parameter", ig);
+    html = page.processPageIncludes(title + ".json.html", html, "search-parameter:"+resourceName+"/"+pack.getId()+"/"+sp.getId(), null, sp, null, "Search Parameter", ig);
     TextFile.stringToFile(html, page.getFolders().dstDir + prefix+title + ".json.html");
     page.getEpub().registerExternal(prefix+title + ".json.html");
   }

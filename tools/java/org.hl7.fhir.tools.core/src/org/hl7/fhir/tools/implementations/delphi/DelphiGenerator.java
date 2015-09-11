@@ -1593,7 +1593,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
         workingParserJ.append(
             "    if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"') then\r\n"+
-                "      iterateEnumArray(jsn.vArr['"+e.getName()+"'], jsn.vArr['_"+e.getName()+"'], result."+s+obj+", parseEnum, CODES_"+tn+");\r\n");
+                "      iterateEnumArray(jsn.vArr['"+e.getName()+"'], jsn.vArr['_"+e.getName()+"'], jsn.path+'/"+e.getName()+"', result."+s+obj+", parseEnum, CODES_"+tn+");\r\n");
 
         workingComposerJ.append("  if (SummaryOption in ["+sumSet+"]) and (elem."+s+obj+".Count > 0) then\r\n");
         workingComposerJ.append(
@@ -1770,7 +1770,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         else  
           workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+"Element := "+parse+"{1a}\r\n");
         workingParserJ.append("    if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"')  then\r\n"+
-            "      result."+s+"Element := parseEnum(jsn['"+e.getName()+"'], jsn.vObj['_"+e.getName()+"'], CODES_"+tn+");\r\n");
+            "      result."+s+"Element := parseEnum(jsn.path+'/"+e.getName()+"', jsn['"+e.getName()+"'], jsn.vObj['_"+e.getName()+"'], CODES_"+tn+");\r\n");
         destroy.append("  F"+getTitle(s)+".free;\r\n");
         if (enumNames.contains(tn)) {         
           workingComposerX.append("  if (SummaryOption in ["+sumSet+"]) then\r\n     ComposeEnum(xml, '"+e.getName()+"', elem."+getTitle(s)+"Element, CODES_"+tn+");\r\n");
@@ -2458,16 +2458,16 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       prsrImpl.append("  end;\r\n");
       prsrImpl.append("end;\r\n\r\n");
 
-      prsrdefJ.append("    procedure ParseEnum(value : string; jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+"; Const aNames : Array Of String); overload;\r\n");
-      prsrImpl.append("procedure TFHIRJsonParser.ParseEnum(value : string; jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+"; Const aNames : Array Of String);\r\n");
+      prsrdefJ.append("    procedure ParseEnum(path, value : string; jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+"; Const aNames : Array Of String); overload;\r\n");
+      prsrImpl.append("procedure TFHIRJsonParser.ParseEnum(path, value : string; jsn : TJsonObject; ctxt : "+listForm("TFHIRObject")+"; Const aNames : Array Of String);\r\n");
       prsrImpl.append("begin\r\n");
-      prsrImpl.append("  ctxt.add(ParseEnum(value, jsn, aNames));\r\n");
+      prsrImpl.append("  ctxt.add(ParseEnum(path, value, jsn, aNames));\r\n");
       prsrImpl.append("end;\r\n\r\n");
-      prsrdefJ.append("    function ParseEnum(value : string; jsn : TJsonObject; Const aNames : Array Of String) : TFHIREnum; overload;\r\n");
-      prsrImpl.append("function TFHIRJsonParser.ParseEnum(value : string; jsn : TJsonObject; Const aNames : Array Of String) : TFHIREnum;\r\n");
+      prsrdefJ.append("    function ParseEnum(path, value : string; jsn : TJsonObject; Const aNames : Array Of String) : TFHIREnum; overload;\r\n");
+      prsrImpl.append("function TFHIRJsonParser.ParseEnum(path, value : string; jsn : TJsonObject; Const aNames : Array Of String) : TFHIREnum;\r\n");
       prsrImpl.append("begin\r\n");
-      prsrImpl.append("  if StringArrayIndexOfSensitive(aNames, value) < 0 then\r\n");
-      prsrImpl.append("    raise Exception.create('unknown code: '+value+' from a set of choices of '+StringArrayToCommaString(aNames)+' for \"'+jsn.path+'\"');\r\n");
+      prsrImpl.append("  if (value <> '') and (StringArrayIndexOfSensitive(aNames, value) < 0) then\r\n");
+      prsrImpl.append("    raise Exception.create('unknown code: '+value+' from a set of choices of '+StringArrayToCommaString(aNames)+' for \"'+path+'\"');\r\n");
       prsrImpl.append("  result := TFHIREnum.create;\r\n");
       prsrImpl.append("  try\r\n");
       prsrImpl.append("    result.value := value;\r\n");

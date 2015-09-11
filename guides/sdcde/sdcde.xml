@@ -41,7 +41,7 @@
       <description value="Patient gender represented according to SDC rules"/>
       <sourceUri value="dataelement-sdc-profile-example-de.xml"/>
       <exampleFor>
-        <reference value="dataelement-sdc-de-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/sdcde-dataelement"/>
       </exampleFor>
     </resource>
   </package>

@@ -46,7 +46,7 @@
       <description value="KnowledgeModule used to define a Guideline Appropriate Ordering module"/>
       <sourceUri value="knowledgemodule-example.xml"/>
       <exampleFor>
-        <reference value="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"/>
+        <reference value="StructureDefinition/cqif-knowledgemodule"/>
       </exampleFor>
     </resource>
     <resource>
@@ -55,7 +55,7 @@
 		<description value="KnowledgeModule used to expose a CQL library as a knowledge module"/>
 		<sourceUri value="knowledgemodule-library-example.xml"/>
 		<exampleFor>
-			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"/>
+			<reference value="StructureDefinition/cqif-knowledgemodule"/>
 		</exampleFor>
     </resource>
 	<resource>
@@ -64,7 +64,7 @@
 		<description value="GuidanceArtifact used to expose an existing HeD artifact as a knowledge module"/>
 		<sourceUri value="guidanceartifact-hedreference-example.xml"/>
 		<exampleFor>
-			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
+			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -73,7 +73,7 @@
 		<description value="GuidanceArtifact used to define an ECA Rule"/>
 		<sourceUri value="guidanceartifact-ecarule-example.xml"/>
 		<exampleFor>
-			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
+			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -82,7 +82,7 @@
 		<description value="GuidanceArtifact used to define a Documentation Template"/>
 		<sourceUri value="guidanceartifact-documentationtemplate-example.xml"/>
 		<exampleFor>
-			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
+			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -91,7 +91,7 @@
 		<description value="GuidanceArtifact used to define an Order Set"/>
 		<sourceUri value="guidanceartifact-orderset-example.xml"/>
 		<exampleFor>
-			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
+			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -100,7 +100,7 @@
 		<description value="GuidanceArtifact used to define a suicide risk management Order Set"/>
 		<sourceUri value="mmi-suiciderisk-orderset-example.xml"/>
 		<exampleFor>
-			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceartifact"/>
+			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
     </resource>
     <resource>
@@ -109,7 +109,7 @@
 		<description value="Questionnaire used to define the questions involved in the PHQ-9 health questionnaire"/>
 		<sourceUri value="questionnaire-cqif-example.xml"/>
 		<exampleFor>
-			<reference value="http://hl7.org/fhir/StructureDefinition/cqif-questionnaire"/>
+			<reference value="StructureDefinition/cqif-questionnaire"/>
 		</exampleFor>
     </resource>
 	<!--    
@@ -119,7 +119,7 @@
       <description value="GuidanceRequest for a Guideline Appropriate Ordering module evaluation"/>
       <sourceUri value="guidance-operation-request-example-v2.xml"/>
       <exampleFor>
-        <reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidancerequest"/>
+        <reference value="StructureDefinition/cqif-guidancerequest"/>
       </exampleFor>
     </resource>
     <resource>
@@ -128,7 +128,7 @@
       <description value="GuidanceResponse for a Guideline Appropriate Ordering module evaluation"/>
       <sourceUri value="guidance-operation-response-example-v2.xml"/>
       <exampleFor>
-        <reference value="http://hl7.org/fhir/StructureDefinition/cqif-guidanceresponse"/>
+        <reference value="StructureDefinition/cqif-guidanceresponse"/>
       </exampleFor>
     </resource> 
 	-->
@@ -301,10 +301,10 @@
 		  -->
       </page>
       <page>
-		  <source value="operation-guidancerequest-cqif-guidance.html"/>
-		  <name value="Guidance Operation"/>
-		  <kind value="page"/>
-		  <format value="generated"/>
+  		  <source value="operation-guidancerequest-cqif-guidance.html"/>
+	  	  <name value="Guidance Operation"/>
+		    <kind value="page"/>
+		    <format value="generated"/>
 		  <!--
 		  <page>
 			  <source value="guidance-operation-request-example-v2.html"/>
@@ -319,6 +319,12 @@
 			  <format value="generated"/>
 		  </page>
 		  -->
+      </page>
+      <page>
+  		  <source value="operation-guidancerequest-cqif-guidance-requirements.html"/>
+	  	  <name value="Guidance Operation (Requirements)"/>
+		    <kind value="page"/>
+		    <format value="generated"/>
       </page>
     </page>
     <page>
