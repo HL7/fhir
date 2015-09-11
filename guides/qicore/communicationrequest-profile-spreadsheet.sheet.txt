@@ -2,12 +2,11 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QICoreActReasonRejected
+  Binding Name = QICoreCommunicationReasonRejected
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
+  Reference = http://hl7.org/fhir/ValueSet/qicore-communication-reason-not-performed
   Definition = Reason communication request was not performed
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
+  Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = QICoreActReason
@@ -15,7 +14,7 @@
   Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
   Definition = Reason communication was requested
   Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = QICoreCommunicationMedium
@@ -48,7 +47,7 @@
   Profile Name = CommunicationRequest.reasonRejected
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/communicationrequest-reasonRejected}
-  Binding = QICoreActReasonRejected
+  Binding = QICoreCommunicationReasonRejected
   QDM Mapping = negation rationale (when CommunicationRequest.status is rejected or failed)
 
  -- Row 5 -----------------------------------

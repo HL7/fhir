@@ -11,9 +11,8 @@
  -- Row 2 -----------------------------------
   Binding Name = QICoreCommunicationReasonNotPerformed
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
+  Reference = valueset-communication-reason-not-performed
   Definition = Reason communication was not performed
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
   Conformance = example
 
  -- Row 3 -----------------------------------
