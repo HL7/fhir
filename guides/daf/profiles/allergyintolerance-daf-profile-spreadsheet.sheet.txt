@@ -24,21 +24,15 @@
 
  -- Row 2 -----------------------------------
   Element = AllergyIntolerance.identifier
-  Card. = 0..*
   Must Support = Y
-  Type = Identifier
 
  -- Row 3 -----------------------------------
   Element = AllergyIntolerance.onset
-  Card. = 0..1
   Must Support = Y
-  Type = dateTime
 
  -- Row 4 -----------------------------------
   Element = AllergyIntolerance.recordedDate
-  Card. = 0..1
   Must Support = Y
-  Type = dateTime
 
  -- Row 5 -----------------------------------
   Element = AllergyIntolerance.recorder
@@ -67,25 +61,18 @@
 
  -- Row 9 -----------------------------------
   Element = AllergyIntolerance.status
-  Card. = 0..1
   Must Support = Y
-  Type = code
 
  -- Row 10 -----------------------------------
   Element = AllergyIntolerance.criticality
-  Card. = 0..1
   Must Support = Y
-  Type = code
 
  -- Row 11 -----------------------------------
   Element = AllergyIntolerance.category
-  Card. = 0..1
   Must Support = Y
-  Type = code
 
  -- Row 12 -----------------------------------
   Element = AllergyIntolerance.reaction
-  Card. = 0..*
   Must Support = Y
 
  -- Row 13 -----------------------------------
@@ -104,18 +91,12 @@
 
  -- Row 15 -----------------------------------
   Element = AllergyIntolerance.reaction.severity
-  Card. = 0..1
   Must Support = Y
-  Type = code
 
  -- Row 16 -----------------------------------
   Element = !AllergyIntolerance.reaction.exposureRoute
-  Card. = 0..1
-  Type = CodeableConcept
 
  -- Row 17 -----------------------------------
   Element = !AllergyIntolerance.reaction.notes
-  Card. = 0..1
-  Type = string
 
 === Sheet Search =====================================
