@@ -328,6 +328,12 @@
       </page>
     </page>
     <page>
+      <source value="cqif-evidence.html"/>
+      <name value="Evidence Profile"/>
+      <kind value="resource"/>
+      <format value="generated"/>
+    </page>
+    <page>
       <source value="registry.html"/>
       <name value="Registry"/>
       <kind value="list"/>

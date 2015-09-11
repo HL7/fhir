@@ -27,5 +27,17 @@
     <source value="argonaut.html"/>
     <name value="Home Page"/>
     <kind value="page"/>
+		<page>
+			<source value="careplan-argonaut.html"/>
+			<name value="Careplan Profile"/>
+			<kind value="page"/>
+			<format value="generated"/>
+      <page>
+        <source value="argonaut-careplan.html"/>
+        <name value="Careplan Details"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+		</page>
   </page>
 </ImplementationGuide>

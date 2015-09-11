@@ -27,6 +27,18 @@
     <name value="Home Page"/>
     <kind value="page"/>
 		<page>
+			<source value="ehrsrle-auditevent.html"/>
+			<name value="AuditEvent Profile"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
+			<source value="ehrsrle-provenance.html"/>
+			<name value="Provenance Profile"/>
+			<kind value="resource"/>
+			<format value="generated"/>
+		</page>
+		<page>
 			<source value="registry.html"/>
 			<name value="Registry"/>
 			<kind value="list"/>
