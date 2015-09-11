@@ -123,7 +123,7 @@
  -- Row 10 -----------------------------------
   Element = SupplyRequest.reason[x]
   Card. = 0..1
-  Type = CodeableConcept|Reference(any)
+  Type = CodeableConcept|Reference(Any)
   Short Label = Why the supply item was requested
   Definition = Why the supply item was requested
 
