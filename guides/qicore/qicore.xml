@@ -130,7 +130,7 @@
       <description value="Example of QICore AllergyIntolerance"/>
       <sourceUri value="allergyintolerance-example.xml"/>
       <exampleFor>
-        <reference value="allergyintolerance-profile-spreadsheet.xml"/>
+        <reference value="StructureDefinition/qicore-allergyintolerance"/>
       </exampleFor>
     </resource>
     <resource>
