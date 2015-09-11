@@ -42,6 +42,7 @@ func (m *MongoSearcher) createQueryObject(query Query) bson.M {
 func (m *MongoSearcher) createParamObjects(resource string, params []SearchParam) []bson.M {
 	results := make([]bson.M, len(params))
 	for i, p := range params {
+		panicOnUnsupportedFeatures(p)
 		switch p := p.(type) {
 		case *CompositeParam:
 			results[i] = m.createCompositeQueryObject(resource, p)
@@ -62,11 +63,28 @@ func (m *MongoSearcher) createParamObjects(resource string, params []SearchParam
 		case *OrParam:
 			results[i] = m.createOrQueryObject(resource, p)
 		default:
-			results[i] = bson.M{}
+			panic(InternalServerError("Unknown search type"))
 		}
 	}
 
 	return results
+}
+
+func panicOnUnsupportedFeatures(p SearchParam) {
+	// No prefixes are supported except EQ (the default)
+	prefix := p.getInfo().Prefix
+	if prefix != "" && prefix != EQ {
+		panic(UnsupportedError("search prefix: " + prefix))
+	}
+
+	// No modifiers are supported except for resource types in reference parameters
+	_, isRef := p.(*ReferenceParam)
+	modifier := p.getInfo().Modifier
+	if modifier != "" {
+		if _, ok := SearchParameterDictionary[modifier]; !isRef || !ok {
+			panic(UnsupportedError("search modifier: :" + modifier))
+		}
+	}
 }
 
 func (m *MongoSearcher) createCompositeQueryObject(resource string, c *CompositeParam) bson.M {
@@ -168,17 +186,30 @@ func (m *MongoSearcher) createQuantityQueryObject(q *QuantityParam) bson.M {
 func (m *MongoSearcher) createReferenceQueryObject(r *ReferenceParam) bson.M {
 	single := func(p SearchParamPath) bson.M {
 		criteria := bson.M{}
-		id, ok := r.GetID()
-		if ok {
-			criteria["referenceid"] = ci(id)
-			typ, ok := r.GetType()
-			if ok {
-				criteria["type"] = typ
+		switch ref := r.Reference.(type) {
+		case LocalReference:
+			criteria["referenceid"] = ci(ref.ID)
+			if ref.Type != "" {
+				criteria["type"] = ref.Type
 			}
-		} else {
-			url, ok := r.GetURL()
-			if ok {
-				criteria["reference"] = ci(url)
+		case ExternalReference:
+			criteria["reference"] = ci(ref.URL)
+		case ChainedQueryReference:
+			// Since MongoDB does not support cross-collection searches, we must break this into two:
+			// (1) perform search against referenced collection using chained search Query
+			// (2) use ID results from first query to build second query
+			var idObjs []struct {
+				ID string `bson:"_id"`
+			}
+			q := m.CreateQuery(ref.ChainedQuery)
+			q.Select(bson.M{"_id": 1}).All(&idObjs)
+			ids := make([]string, len(idObjs))
+			for i := range idObjs {
+				ids[i] = idObjs[i].ID
+			}
+			criteria["referenceid"] = bson.M{"$in": ids}
+			if ref.Type != "" {
+				criteria["type"] = ref.Type
 			}
 		}
 		return buildBSON(p.Path, criteria)
@@ -280,7 +311,7 @@ type SearchError interface {
 	OperationOutcome() *models.OperationOutcome
 }
 
-func createOpOutcome(severity string, code string, display string, details string) *models.OperationOutcome {
+func createOpOutcome(severity, code, display, details string) *models.OperationOutcome {
 	return &models.OperationOutcome{
 		Issue: []models.OperationOutcomeIssueComponent{
 			models.OperationOutcomeIssueComponent{

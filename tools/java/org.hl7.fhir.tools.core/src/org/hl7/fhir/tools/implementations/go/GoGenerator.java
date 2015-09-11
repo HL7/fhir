@@ -293,6 +293,11 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
                 }
                 param.sortComposites();
 
+                for (String target : p.getWorkingTargets()) {
+                    param.addTarget(target);
+                }
+                param.sortTargets();
+
                 searchInfo.addSearchParam(param);
             }
             searchInfo.sortSearchParams(); // Sort the param list so that the final result is deterministic
@@ -388,12 +393,14 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         private final SearchParameterDefn.SearchType type;
         private final List<SearchPath> paths;
         private final List<String> composites;
+        private final List<String> targets;
 
         public SearchParam(String name, SearchParameterDefn.SearchType type) {
             this.name = name;
             this.type = type;
             this.paths = new ArrayList<SearchPath>();
             this.composites = new ArrayList<String>();
+            this.targets = new ArrayList<String>();
         }
 
         public String getName() {
@@ -410,6 +417,10 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
         public List<String> getComposites() {
             return composites;
+        }
+
+        public List<String> getTargets() {
+            return targets;
         }
 
         public void sortPaths() {
@@ -429,12 +440,20 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
             Collections.sort(composites);
         }
 
+        public void sortTargets() {
+            Collections.sort(targets);
+        }
+
         public void addPath(SearchPath path) {
             paths.add(path);
         }
 
         public void addComposite(String composite) {
             composites.add(composite);
+        }
+
+        public void addTarget(String target) {
+            targets.add(target);
         }
     }
 

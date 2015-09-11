@@ -24,6 +24,12 @@ var SearchParameterDictionary = map[string]map[string]SearchParamInfo{
 				"<c>",
 }>			<\u007D>,
 <endif>
+<if(s.targets)>
+			Targets: []string<\u007B>
+<s.targets: {t |
+				"<t>",
+}>			<\u007D>,
+<endif>
 		<\u007D>,
 }>	<\u007D>,
 }>}

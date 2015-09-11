@@ -8,8 +8,6 @@ import (
 	"strconv"
 	"strings"
 	"time"
-
-	//"github.com/davecgh/go-spew/spew"
 )
 
 // Query describes a string-based FHIR query and the resource it is associated
@@ -29,12 +27,22 @@ func (q *Query) Params() []SearchParam {
 	var results []SearchParam
 	queryMap, _ := url.ParseQuery(q.Query)
 	for param, values := range queryMap {
-		pSplit := strings.Split(param, ":")
-		info, ok := SearchParameterDictionary[q.Resource][pSplit[0]]
+		var postfix, modifier string
+		if strings.Contains(param, ".") {
+			split := strings.SplitN(param, ".", 2)
+			param = split[0]
+			postfix = split[1]
+		}
+		if strings.Contains(param, ":") {
+			split := strings.SplitN(param, ":", 2)
+			param = split[0]
+			modifier = split[1]
+		}
+
+		info, ok := SearchParameterDictionary[q.Resource][param]
 		if ok {
-			if len(pSplit) > 1 && info.Type != "reference" {
-				panic(UnsupportedError(fmt.Sprintf("search modifier: :%s", pSplit[1])))
-			}
+			info.Postfix = postfix
+			info.Modifier = modifier
 			for _, value := range values {
 				results = append(results, info.CreateSearchParam(value))
 			}
@@ -43,8 +51,6 @@ func (q *Query) Params() []SearchParam {
 				panic(UnsupportedError(fmt.Sprintf("special search parameter: %s", param)))
 			} else if strings.Contains(param, ".") {
 				panic(UnsupportedError("chained search parameters"))
-			} else if strings.Contains(param, ":") {
-				panic(UnsupportedError(fmt.Sprintf("Unimplemented: search modifier: %s", param[strings.Index(param, ":"):])))
 			} else {
 				panic(InvalidSearchError(fmt.Sprintf("%s does not support search parameter: %s", q.Resource, param)))
 			}
@@ -66,6 +72,10 @@ type SearchParamInfo struct {
 	Type       string
 	Paths      []SearchParamPath
 	Composites []string
+	Targets    []string
+	Prefix     Prefix
+	Postfix    string
+	Modifier   string
 }
 
 // CreateSearchParam converts a singular string query value (e.g. "2012") into
@@ -140,8 +150,7 @@ func ParseCompositeParam(paramString string, info SearchParamInfo) *CompositePar
 // consistent behavior.
 type DateParam struct {
 	SearchParamInfo
-	Prefix Prefix
-	Date   *Date
+	Date *Date
 }
 
 func (d *DateParam) getInfo() SearchParamInfo {
@@ -321,7 +330,6 @@ func (p DatePrecision) layout() string {
 // Searching on a simple numerical value in a resource.
 type NumberParam struct {
 	SearchParamInfo
-	Prefix Prefix
 	Number *Number
 }
 
@@ -407,7 +415,6 @@ func ParseNumber(numStr string) *Number {
 // A quantity parameter searches on the Quantity data type.
 type QuantityParam struct {
 	SearchParamInfo
-	Prefix Prefix
 	Number *Number
 	System string
 	Code   string
@@ -443,70 +450,82 @@ func ParseQuantityParam(paramStr string, info SearchParamInfo) *QuantityParam {
 // where the patient is selected by name or identifier.
 type ReferenceParam struct {
 	SearchParamInfo
-	Reference string
+	Reference interface{}
 }
 
 func (r *ReferenceParam) getInfo() SearchParamInfo {
 	return r.SearchParamInfo
 }
 
-// GetID returns the ID that is referred to.  If the reference isn't to an ID,
-// the second return value (ok) will be false.
-func (r *ReferenceParam) GetID() (id string, ok bool) {
-	if r.Reference == "" {
-		ok = false
-	} else if !r.isURL() {
-		i := strings.LastIndex(r.Reference, "/")
-		id = r.Reference[i+1:]
-		ok = true
-	} else {
-		ok = false
-	}
-	return
-}
-
-// GetType returns the type of reference being searched, if supplied.  If the
-// type isn't available, the second return value (ok) will be false.
-func (r *ReferenceParam) GetType() (typ string, ok bool) {
-	if !r.isURL() {
-		i := strings.LastIndex(r.Reference, "/")
-		if i == -1 {
-			ok = false
-		} else {
-			typ = r.Reference[:i]
-			ok = true
-		}
-	} else {
-		ok = false
-	}
-	return
-}
-
-// GetURL returns the URL that is referred to.  If the reference isn't to an URL,
-// the second return value (ok) will be false.
-func (r *ReferenceParam) GetURL() (url string, ok bool) {
-	if r.isURL() {
-		url = r.Reference
-		ok = true
-	} else {
-		ok = false
-	}
-	return
-}
-
-// isURL returns true if the reference is an URL, false otherwise.
-func (r *ReferenceParam) isURL() bool {
-	u, e := url.Parse(r.Reference)
-	if e == nil {
-		return u.IsAbs()
-	}
-	return false
-}
-
 // ParseReferenceParam parses a reference-based query string and returns a
 // pointer to a ReferenceParam based on the query and the parameter definition.
 func ParseReferenceParam(paramStr string, info SearchParamInfo) *ReferenceParam {
-	return &ReferenceParam{info, unescape(paramStr)}
+	ref := unescape(paramStr)
+	re := regexp.MustCompile("\\/?(([^\\/]+)\\/)?([^\\/]+)$")
+	if m := re.FindStringSubmatch(ref); m != nil {
+		typ := findReferencedType(m[2], info)
+		if info.Postfix != "" {
+			q := Query{Resource: typ, Query: info.Postfix + "=" + paramStr}
+			return &ReferenceParam{info, ChainedQueryReference{Type: typ, ChainedQuery: q}}
+		} else if u, e := url.Parse(ref); e == nil && u.IsAbs() {
+			return &ReferenceParam{info, ExternalReference{Type: typ, URL: ref}}
+		} else {
+			return &ReferenceParam{info, LocalReference{Type: typ, ID: m[3]}}
+		}
+	}
+	return &ReferenceParam{info, nil}
+}
+
+func findReferencedType(typeFromVal string, info SearchParamInfo) string {
+	t := typeFromVal
+
+	if info.Modifier != "" {
+		if t != "" && t != info.Modifier {
+			panic(InvalidSearchError("reference modifier is " + info.Modifier + ", but type is " + t))
+		}
+		t = info.Modifier
+	}
+
+	if len(info.Targets) == 1 {
+		target := info.Targets[0]
+		if target != "Any" {
+			if t == "" {
+				t = target
+			} else if t != target {
+				panic(InvalidSearchError("target is " + target + ", but type is " + t))
+			}
+		}
+	} else if len(info.Targets) > 0 {
+		valid := false
+		for _, target := range info.Targets {
+			if t == target {
+				valid = true
+			}
+		}
+		if !valid {
+			panic(InvalidSearchError("type " + t + " does not match any of the valid targets"))
+		}
+	}
+
+	return t
+}
+
+// LocalReference represents a local reference by ID (and potentially Type)
+type LocalReference struct {
+	Type string
+	ID   string
+}
+
+// ExternalReference represents an external reference by URL
+type ExternalReference struct {
+	Type string
+	URL  string
+}
+
+// ChainedQueryReference represents a chained query
+type ChainedQueryReference struct {
+	Type         string
+	ChainedQuery Query
 }
 
 // StringParam represents a string-flavored search parameter.  The
