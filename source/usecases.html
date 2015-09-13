@@ -45,7 +45,7 @@ In this scenario, the PHR provider:
 The EMR exposes a FHIR server that supports the <a href="http.html#search">search</a> and <a href="http.html#read">read</a> operations on the following resources: 
 </p>
 <ol>
- <li>the <a href="patient.html">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access to</li>
+ <li>the <a href="patient.html">Patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access to</li>
  <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on the <a href="documentreference.html">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc. (PDFs are preferred)</li>
  <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on a set of <a href="clinical.html">clinical resources</a></li> 
 </ol>
@@ -61,8 +61,8 @@ records by relatives/carers, to allow the patient to upload their own documents,
 (e.g. from patient monitoring devices) and/or to allow the patient to make appointments. This 
 additional functionality will involve additional API capabilities to be implemented and 
 exposed. The EMR server may also choose to expose the <a href="http.html#search">search</a>, <a href="http.html#read">read</a> and <a href="http.html#history">history</a> operation on 
-the Audit Event resource for the patient-specific records to allow patient review of record access. Note that all 
-usage of the RESTful API should be logged in AuditEvent resources.
+the <a href="auditevent.html">AuditEvent</a> resource for the patient-specific records to allow patient review of record access. Note that all 
+usage of the RESTful API should be logged in an AuditEvent resource.
 </p>
 
 <a name="xds"></a>
@@ -109,7 +109,7 @@ Common uses of clinical decision support are:
 </p>
 <ul>
  <li>Drug-drug interaction checking, and more generally, prescription safety checks</li>
- <li>Suggesting commonly missed Diagnostic Data interpretations (including delta checking)</li>
+ <li>Suggesting commonly missed diagnostic data interpretations (including delta checking)</li>
  <li>Patient surveillance for early warning of deteriorating patient health (both acute and ambulatory care)</li>
  <li>Identifying candidates for alternative treatment plans for improved efficacy</li>
 </ul>
@@ -124,14 +124,14 @@ decision support implementation in the FHIR specification. Generally, the patter
 <ol>
  <li>The decision comes from an engine entirely hidden behind a system interface and has no direct impact on the data exchange</li>
  <li>The decision support engine uses existing data and generates alarm messages concerning patient state that are visible on the FHIR interface</li>
- <li>The decision support engine is consulted through a described interface; it accepts a request for a decision and returns a decision</li>
+ <li>The decision support engine is consulted through a described interface; it accepts a request for, and returns a decision</li>
 </ol>
 <p>
 Any decision support may fall into multiple categories at once, depending on the perspective of a particular system.
 </p>
 <ol>
  <li>There is no particular support required from the FHIR specification, though there will be ongoing review of the contents of the resources to ensure that they support common decision support practices appropriately</li>
- <li>There is no suitable resource for this use yet. The <a href="flag.html">Flag</a> resource is intended or clinical notes about the patient, and is not intended for this use. A resource called "Alarm" is under preparation for this purpose </li>
+ <li>There is no suitable resource for this use yet. The <a href="flag.html">Flag</a> resource is intended for clinical notes about the patient, and is not intended for this use. A resource called "Alarm" is under preparation for this purpose </li>
  <li>A request for a decision support is understood as a <a href="search.html">search</a> using a named _query that takes a set of parameters. See below</li>
 </ol>
  
@@ -151,7 +151,7 @@ When a query is initiated in order to get a decision made, the following conside
 
 <p><b>Response</b></p>
 <ul>
- <li>If the decision support engine is unable to provide the requested decision, it returns an <a href="operationoutcome.html">Operation Outcome Resource</a> describing the issue</li>
+ <li>If the decision support engine is unable to provide the requested decision, it returns an <a href="operationoutcome.html">OperationOutcome Resource</a> describing the issue</li>
  <li>Otherwise it returns a resource that represents the decision, along with other resources as supporting information, as described by the resource, or applicable profiles</li>
  <li>In principle, the decision provider can choose to make a copy of the returned decision resource available through a normal RESTful interface, or it can choose not to. This decision may be constrained by applicable profiles, policy decision, or the innate nature of the query</li>
  <li>If either the decision provider or the requester choose to retain a copy of the decision, they must ensure that the (lack of) currency of the decision is appropriately considered when it is used</li>

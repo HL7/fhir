@@ -92,7 +92,7 @@ instance namespace in the resource itself.
 </p>
 <p>
 Given the way <a href="extensibility.html">extensions</a> work, applications reading
-XML resources will never enocunter unknown elements. However once an application 
+XML resources will never encounter unknown elements. However once an application 
 starts trading with other appplications that conform to later versions of this specification,
 unknown XML elements may be encountered. Applications MAY choose to ignore unknown elements
 in order to foster forwards compatibility in this regard, but may also choose not to - which 
@@ -105,9 +105,9 @@ their behaviour with regard to unknown elements using <a href="conformance-defin
 
 <p>
 In addition to the validation schema, this specification provides a
-set of schema suitable for code generation usage. These schema describe
+set of schema suitable for code generation. These schema describe
 the same XML syntax, but apply less validation in order to create a 
-schema that works with more code generation frameworks. 
+schema that works with more code generation tooling. 
 </p>
 <p>
 Specifically, these schemas are generated without any xs:choice elements, 
@@ -194,7 +194,7 @@ following additional canonicalization URLS are also defined:
  </tr>
 </table>
 <p>
-These canonicalization methods allow system the flexiibility to sign the various portions of 
+These canonicalization methods allow system the flexibility to sign the various portions of 
 the resource that matter for the workflow the signature serves.
 </p>
 

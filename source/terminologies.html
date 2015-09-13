@@ -448,7 +448,7 @@ may bind the element to any value set they choose.
 <h2>Other notes</h2>
 
 <ul>
- <li>Subsequent versions of FHIR may replace example value sets with preferred bindings if enough consensus emerges in the space</li>
+ <li>Subsequent versions of FHIR may replace example value sets with preferred bindings if enough consensus emerges in the relevant sphere.</li>
  <li>Bindings to value sets provided as part of the specification are always specific
 to the version of the value set published with the specification. The value set
 may be sealed by defining a simple list of enumerated codes, or it may include
@@ -460,7 +460,7 @@ underlying code system, in which case the list of valid concepts may change over
 <h3>Binding String Values</h3>
 <p>
 In a few special cases, humans customarily use codes directly for elements that have type "string". A typical case is codes for states,
-and there are several places where a URIs must come from a set of controlled values. 
+and there are several places where a URI must come from a set of controlled values. 
 An element of type <a href="datatypes.html#string">string</a> or <a href="datatypes.html#uri">uri</a> can also be bound to a value set. 
 When a string or URI is bound to a value set, the value property SHALL contain the code specified by the value set, and the system 
 and display values are ignored. 
