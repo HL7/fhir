@@ -1074,7 +1074,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       if (url != null) {
         if (url.startsWith("http://hl7.org/fhir"))
-          page.getDefinitions().addNs(url, "System "+ns.getName(), ns.getUserString("path"));
+          page.getDefinitions().addNs(url, "System "+ns.getName(), "terminologies-systems.html#"+url);
         page.getDefinitions().addNs(entry.getFullUrl(), ns.getId(), "terminologies-systems.html#"+url);
       }
     }
@@ -3736,8 +3736,14 @@ public class Publisher implements URIResolver, SectionNumberer {
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + prefix+ profile.getId().toLowerCase() + "-questionnaire.json");
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, q);
     s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + prefix+ profile.getId().toLowerCase() + "-questionnaire.canonical.json");
+    new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, q);
+    s.close();
     s = new FileOutputStream(page.getFolders().dstDir + prefix+ profile.getId().toLowerCase() + "-questionnaire.xml");
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, q);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + prefix+ profile.getId().toLowerCase() + "-questionnaire.canonical.xml");
+    new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, q);
     s.close();
 
     String json = "<div class=\"example\">\r\n<p>Generated Questionnaire for "+profile.getId()+"</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(q)) + "\r\n</pre>\r\n</div>\r\n";
@@ -3951,7 +3957,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     // now, we create an html page from the narrative
     narrative = fixExampleReferences(e.getTitle(), narrative);
-    html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative).replace("<%example-usage%>", genExampleUsage(e));
+    html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative).replace("<%example-usage%>", genExampleUsage(e, prefix));
     html = page.processPageIncludes(n + ".html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example", ig);
     TextFile.stringToFile(html, page.getFolders().dstDir + prefix +n + ".html");
     // head =
@@ -4023,7 +4029,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
-  private String genExampleUsage(Example e) {
+  private String genExampleUsage(Example e, String prefix) {
     if (e.getInbounds().isEmpty())
       return "";
     else {
@@ -4039,6 +4045,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           if (n.equals(y.getResourceName()+":"+y.getId()))
             x = y;
         b.append("<li><a href=\"");
+        b.append(prefix);
         if (x.getIg() != null) {
           ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(x.getIg());
           if (ig != null && !ig.isCore()) {

@@ -64,8 +64,8 @@
     but the publishing tool gets confused if it isn't  -->
   <binary value="http://h7.org/fhir/fhir.css"/>
   <page>
-    <source value="example.html"/>
-    <name value="Example Page"/>
+    <source value="patient-example.html"/>
+    <name value="Example Patient Page"/>
     <kind value="page"/>
     <page>
       <source value="list.html"/>

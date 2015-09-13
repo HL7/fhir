@@ -478,10 +478,6 @@ public class Definitions {
     return null;
   }
 
-  public String getSourceFile(String type) {
-    return null;
-  }
-
   public Map<String, WorkGroup> getWorkgroups() {
     return workgroups;
   }
@@ -646,7 +642,7 @@ public class Definitions {
   }
 
   public List<NamingSystem> getNamingSystems() {
-    return namingSystems ;
+    return namingSystems;
   }
 
   public Set<String> getStructuralPages() {
@@ -689,6 +685,9 @@ public class Definitions {
   }
   
   public void addNs(String url, String name, String page, boolean notUnique) throws Exception {
+    if (page == null || page.startsWith("null"))
+      throw new Exception("error in path (null) for "+url);
+      
     if (!url.startsWith("http://hl7.org/fhir")) 
       throw new Exception("namespace wrong: "+url);  
     else if (redirectList == null) 

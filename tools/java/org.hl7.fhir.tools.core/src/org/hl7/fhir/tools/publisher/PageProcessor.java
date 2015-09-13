@@ -4351,9 +4351,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "";
   }
 
-  private String getDraftNote(Profile pack) {
+  private String getDraftNote(Profile pack, String prefix) {
     if ("draft".equals(pack.metadata("status")))
-      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This profile is <a href=\"timelines.html#levels\">marked as a draft</a>.</p>";
+      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This profile is <a href=\""+prefix+"timelines.html#levels\">marked as a draft</a>.</p>";
     else
       return "";
   }
@@ -5279,7 +5279,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("profile.inv"))
         src = s1+getInvariantList(profile.getResource())+s3;
       else if (com[0].equals("draft-note"))
-        src = s1+getDraftNote(pack)+s3;
+        src = s1+getDraftNote(pack, genlevel(level))+s3;
       else if (com[0].equals("pagepath"))
         src = s1+filename+s3;
       else if (com[0].equals("rellink"))
@@ -6859,15 +6859,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : definitions.sortedResourceNames())
       definitions.addNs("http://hl7.org/fhir/"+n, n+" Resource", n.toLowerCase()+".html");
     for (String n : definitions.getTypes().keySet())
-      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSourceFile(n)+".html#"+n);
+      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSrcFile(n)+".html#"+n);
     for (String n : definitions.getStructures().keySet())
-      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSourceFile(n)+".html#"+n);
+      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSrcFile(n)+".html#"+n);
     for (String n : definitions.getPrimitives().keySet())
-      definitions.addNs("http://hl7.org/fhir/"+n, "Primitive Data Type "+n, definitions.getSourceFile(n)+".html#"+n);
+      definitions.addNs("http://hl7.org/fhir/"+n, "Primitive Data Type "+n, definitions.getSrcFile(n)+".html#"+n);
     for (String n : definitions.getConstraints().keySet())
-      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type Profile "+n, definitions.getSourceFile(n)+".html#"+n);
+      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type Profile "+n, definitions.getSrcFile(n)+".html#"+n);
     for (String n : definitions.getInfrastructure().keySet())
-      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSourceFile(n)+".html#"+n);
+      definitions.addNs("http://hl7.org/fhir/"+n, "Data Type "+n, definitions.getSrcFile(n)+".html#"+n);
     for (ValueSet vs : getCodeSystems().values())
       if (vs.getCodeSystem().getSystem().startsWith("http://hl7.org/fhir"))
         definitions.addNs(vs.getCodeSystem().getSystem(), "CodeSystem "+vs.getName(), vs.getUserString("path"));

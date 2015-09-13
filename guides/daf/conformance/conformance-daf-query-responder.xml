@@ -1735,7 +1735,7 @@
   </profile>
   <rest>
     <mode value="server"/>
-    <documentation value="The DAF Responder SHALL support the DAFPatient resource profile. In addition to the DAFPatient, the DAF Responder SHALL support at least one additional resource profile from the list of DAF profiles.The DAF Responder SHALL implement REST behavior according to the FHIR specification.The DAF Responder SHALL support both json and xml resource formats for all DAF interactions."/>
+    <documentation value="The DAF Responder SHALL support the DAFPatient resource profile. In addition to the DAFPatient, the DAF Responder SHALL support at least one additional resource profile from the list of DAF profiles. The DAF Responder SHALL implement REST behavior according to the FHIR specification. The DAF Responder SHALL support both json and xml resource formats for all DAF interactions."/>
     <security>
       <description value="DAF Responders SHALL implement the security requirements documented in the [[daf-security|DAF FHIR IG]]."/>
     </security>

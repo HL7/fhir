@@ -138,22 +138,22 @@ provider by using an OAuth login. See <a href="compartments.html#compartments">C
 </p>
 <p><b>Identity</b></p>
 <p>
-Systems often need to compare two URLs to determine whether they refer to the same URL or not.
+Systems often need to compare two URLs to determine whether they refer to the same underlying object or not.
 For the purposes of this specification, the following rules apply:
 </p>
 <ul>
  <li>The query part of the URL (anything after <code>?</code>) is ignored</li>
  <li>The comparison of the document portion of the URL (i.e. not the server/port) is case sensitive</li>
- <li><code>http:</code> and <code>https:</code> are exchangeable and refer to the same object</li>
+ <li>The protocols <code>http:</code> and <code>https:</code> SHALL NOT be used to refer to different underlying objects</li>
  <li>If a port is specified, then the ports must be identical or the objects are different (due to 
    the prevalence of port mapping and/or interface engines running on different ports). Ports should 
 	 only be explicit when they have explicit meaning to the server</li>
 </ul>
 <p>
 For example:
-<code>http://myserver.com/patient/1</code> and <code>https://myserver.com/patient/1</code> are the same, while <code>http://myserver.com:81/patient/1</code> is distinct from either of the above.
-This does not mean that the two addresses need to be treated the same, or that a server must serve both addresses, but just that these two 
-addresses have the same identity, and if both are served, they must both represent the same real world object. Systems are not required to 
+<code>http://myserver.com/patient/1</code> and <code>https://myserver.com/patient/1</code> refer to the same underlying object, while <code>http://myserver.com:81/patient/1</code> is a distinct entity from either of the above.
+This does not mean that the two addresses need to be treated the same, or that a server must serve both addresses, or that the content from the two addresses must be identical, but just that if these two 
+addresses have the same identity, and if both are served, they must both represent the same underlying object. Systems are not required to 
 check that this is true. Note: the identity comparison for protocols other than http/https is undefined.
 </p>
 

@@ -57,7 +57,7 @@
       
       <p>The DAF Requestor SHALL support accessing at least one FHIR resource using the appropriate DAF profile(s) for the resource being accessed.
 	  The DAF Requestor SHALL implement REST behavior according to the 
-        <a href="http.html">FHIR</a> specification.
+        <a href="../http.html">FHIR</a> specification.
 	  The DAF Requestor SHALL support either json or xml resource formats for all DAF interactions.
       </p>
 	  
@@ -73,19 +73,19 @@
             <th>Resource(Profile Name)</th>
             
             <th>
-              <a href="type-restful-interaction.html">Search</a>
+              <a href="../type-restful-interaction.html">Search</a>
             </th>
             
             <th>
-              <a href="type-restful-interaction.html">Read</a>
+              <a href="../type-restful-interaction.html">Read</a>
             </th>
             
             <th>
-              <a href="type-restful-interaction.html">Read Version</a>
+              <a href="../type-restful-interaction.html">Read Version</a>
             </th>
             
             <th>
-              <a href="type-restful-interaction.html">Instance History</a>
+              <a href="../type-restful-interaction.html">Instance History</a>
             </th>
           
           </tr>
@@ -671,7 +671,7 @@
 	  </ul>
 	
       <p>DAF Requestors MAY use the following search contexts defined within the 
-        <a href="../search.html#Introduction">FHIR</a>specification.
+        <a href="../search.html#Introduction">FHIR</a> specification.
       </p> 
 	
       <ul>
