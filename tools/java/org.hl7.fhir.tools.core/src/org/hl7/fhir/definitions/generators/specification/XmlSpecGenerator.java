@@ -112,7 +112,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
   private void generateExtensionInner(StructureDefinition ed) throws IOException, Exception {
     ElementDefinition root = ed.getSnapshot().getElement().get(0);
     write("&lt;!-- "+Utilities.escapeXml(ed.getName())+" -->");
-    write("<span style=\"float: right\"><a title=\"Documentation for this format\" href=\""+prefix+"xml.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+    write("<span style=\"float: right\"><a title=\"Documentation for this format\" href=\""+prefix+"xml.html\"><img src=\""+prefix+"help.png\" alt=\"doco\"/></a></span>\r\n");
     String rn = ed.getSnapshot().getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
 
     write("\r\n&lt;");
@@ -196,7 +196,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		  }
 		}
 		if (resource) {
-		    write("&gt; <span style=\"float: right\"><a title=\"Documentation for this format\" href=\""+prefix+"xml.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+		    write("&gt; <span style=\"float: right\"><a title=\"Documentation for this format\" href=\""+prefix+"xml.html\"><img src=\""+prefix+"help.png\" alt=\"doco\"/></a></span>\r\n");
 		} else 
 		  write("&gt;\r\n");
     if (rn.equals(root.getName()) && resource) {

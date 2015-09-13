@@ -35,10 +35,12 @@ import org.hl7.fhir.definitions.generators.specification.BaseGenerator;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Example;
+import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.hl7.fhir.utilities.xml.XhtmlGeneratorAdorner;
@@ -184,7 +186,12 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
             throw new Exception("unable to find type "+type);
           for (Example e : r.getExamples()) {
             if (id.equals(e.getId()))
-              return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+prefix+e.getTitle()+".xml.html\">", "</a>");
+              if (Utilities.noString(e.getIg())) {
+                return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+prefix+e.getTitle()+".xml.html\">", "</a>");
+              } else {
+                ImplementationGuideDefn ig = definitions.getIgs().get(e.getIg());
+                return new ExampleAdornerState(State.Reference, s.path+".reference", s.getDefinition(), "<a href=\""+prefix+ig.getPrefix()+e.getTitle()+".xml.html\">", "</a>");
+              }
             if (e.getXml() != null && e.getXml().getDocumentElement().getLocalName().equals("feed")) {
               List<Element> entries = new ArrayList<Element>();
               XMLUtil.getNamedChildren(e.getXml().getDocumentElement(), "entry", entries);
