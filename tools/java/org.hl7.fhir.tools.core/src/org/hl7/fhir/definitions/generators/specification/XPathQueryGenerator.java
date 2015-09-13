@@ -1,5 +1,6 @@
 package org.hl7.fhir.definitions.generators.specification;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
@@ -34,7 +35,7 @@ public class XPathQueryGenerator {
   public String generateXpath(List<String> list) throws Exception {
     StringBuilder b = new StringBuilder();
     for (String ppath : list) {
-      String path[] = ppath.split("\\.");
+      String path[] = splitPath(ppath);
       if (path[path.length -1].endsWith("[x]")) {
         ElementDefn defn = definitions.getElementDefn(path[0]);
         ElementDefn ed = defn.getElementForPath(ppath, definitions, "Search parameter xpath generation", true);
@@ -46,6 +47,28 @@ public class XPathQueryGenerator {
       return b.toString();
     }
     return null;
+  }
+
+  private String[] splitPath(String ppath) {
+    List<String> parts = new ArrayList<String>();
+    boolean inExtension = false;
+    StringBuilder b = new StringBuilder();
+    for (char c : ppath.toCharArray()) {
+      if (inExtension) {
+        b.append(c);
+        if (c == '}') 
+          inExtension = false;
+      } else if (c == '.') {
+        parts.add(b.toString());
+        b = new StringBuilder();        
+      } else if (c == '{') {
+        b.append(c);
+        inExtension = true;
+      } else
+        b.append(c);
+    }
+    parts.add(b.toString());
+    return parts.toArray(new String[] {});
   }
 
   private void buildPath(StringBuilder b, String[] path, String last) {
@@ -63,17 +86,26 @@ public class XPathQueryGenerator {
   }
 
   private Object processCondition(String s) {
-    if (!s.contains("("))
+    if (!s.contains("(") && !s.contains("{"))
       return s;
-    String cond = s.substring(s.indexOf("(")+1);
-    cond = cond.substring(0, cond.indexOf(")"));
-    s = s.substring(0, s.indexOf("("));
-    if (Utilities.isInteger(cond))
-      return s+"["+cond+"]";
-    else {
-      String[] parts = cond.split("=");
-      return s+"["+parts[0]+"/@value='"+parts[1]+"']";
-      
+    if (s.contains("{")) {
+      String cond = s.substring(s.indexOf("{")+1);
+      cond = cond.substring(0, cond.indexOf("}"));
+      s = s.substring(0, s.indexOf("{"));
+      if (Utilities.isInteger(cond))
+        return s+"["+cond+"]";
+      else 
+        return s+"[@url='"+cond+"']";
+    } else {
+      String cond = s.substring(s.indexOf("(")+1);
+      cond = cond.substring(0, cond.indexOf(")"));
+      s = s.substring(0, s.indexOf("("));
+      if (Utilities.isInteger(cond))
+        return s+"["+cond+"]";
+      else {
+        String[] parts = cond.split("=");
+        return s+"["+parts[0]+"/@value='"+parts[1]+"']";
+      }
     }
   }
 
