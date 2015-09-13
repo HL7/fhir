@@ -327,7 +327,7 @@
  -- Row 3 -----------------------------------
   Name = identifier
   Type = token
-  Description = Return administrations with this external identity
+  Description = Return administrations with this external identifier
   Path = MedicationAdministration.identifier
 
  -- Row 4 -----------------------------------

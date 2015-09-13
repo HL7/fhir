@@ -1774,7 +1774,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Context of the conposition</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Context of the composition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Describes the clinical encounter or type of care this documentation is associated with.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

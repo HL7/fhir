@@ -265,19 +265,19 @@
  -- Row 2 -----------------------------------
   Name = encounter
   Type = reference
-  Description = Return prescriptions with this encounter identity
+  Description = Return prescriptions with this encounter identifier
   Path = VisionPrescription.encounter
 
  -- Row 3 -----------------------------------
   Name = identifier
   Type = token
-  Description = Return prescriptions with this external identity
+  Description = Return prescriptions with this external identifier
   Path = VisionPrescription.identifier
 
  -- Row 4 -----------------------------------
   Name = patient
   Type = reference
-  Description = The identity of a patient to list dispenses  for
+  Description = The identity of a patient to list dispenses for
   Path = VisionPrescription.patient
 
  -- Row 5 -----------------------------------

@@ -1756,7 +1756,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Cause of event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to track why resources are being changed and report in the audit log/history of the resource.  May affect authorization.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

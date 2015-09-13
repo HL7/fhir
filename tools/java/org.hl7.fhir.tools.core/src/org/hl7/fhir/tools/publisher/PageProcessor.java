@@ -1788,7 +1788,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v3:cs:"+name, "CodeSystem", null);
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
     new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".canonical.json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path("v3", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:cs:"+name, "CodeSystem", null);
+    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json.html"), vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:cs:"+name, "CodeSystem", null);
 
     return ""; // use generic value set mechanism instead... new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -1802,7 +1802,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v3:vs:"+name, "ValueSet", null);
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
     new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".canonical.json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path("v3", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:vs:"+name, "ValueSet", null);
+    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json.html"), vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:vs:"+name, "ValueSet", null);
 
     return ""; // use generic value set mechanism instead... new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
@@ -1815,7 +1815,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getName(), vs.getDescription(), 3, false, "v2:tbl"+name, "V2 Table", null);
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs);
     new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".canonical.json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json"), Utilities.path("v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json.html"), "v2-"+n[0]+"-"+n[1]+".json", vs.getName(), vs.getDescription(), 3, r2Json(vs), "v2:tbl"+name, "V2 Table", null);
+    jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json"), Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json.html"), vs.getName(), vs.getDescription(), 3, r2Json(vs), "v2:tbl"+name, "V2 Table", null);
     addToValuesets(v2Valuesets, vs);
     
     return new XhtmlComposer().compose(vs.getText().getDiv());
@@ -1827,10 +1827,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       vs = valueSets.get("http://hl7.org/fhir/ValueSet/v2-"+name);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml"), vs);
     new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".canonical.xml"), vs);
-    cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v2:tbl"+name, "V2 Table", null);
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs);
     new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".canonical.json"), vs);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json"), Utilities.path("v2", name, "v2-"+name+".json.html"), "v2-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v2:tbl"+name, "V2 Table", null);
+    cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v2:tbl"+name, "V2 Table", null);
+    jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json"), Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json.html"), vs.getName(), vs.getDescription(), 2, r2Json(vs), "v2:tbl"+name, "V2 Table", null);
     addToValuesets(v2Valuesets, vs);
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -1860,46 +1860,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String html = ("<%setlevel "+Integer.toString(level)+"%>"+TextFile.fileToString(folders.srcDir + "template-example-xml.html")).replace("<%example%>", b.toString());
     html = processPageIncludes(n+".xml.html", html, pageType, null, null, null, crumbTitle, ig);
     TextFile.stringToFile(html, dst);
-    
-//    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
     epub.registerExternal(dst);
   }
 
-  public void jsonToXhtml(String src, String dst, String link, String name, String description, int level, String json, String pageType, String crumbTitle, ImplementationGuideDefn ig) throws Exception {
+  public void jsonToXhtml(String src, String dst, String name, String description, int level, String json, String pageType, String crumbTitle, ImplementationGuideDefn ig) throws Exception {
 
+    String n = new File(dst).getName();
+    n = n.substring(0, n.length()-10);
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = ("<%setlevel "+Integer.toString(level)+"%>"+TextFile.fileToString(folders.srcDir + "template-example-json.html")).replace("<%example%>", json);
-    html = processPageIncludes(dst, html, pageType, null, null, null, crumbTitle, ig);
-    TextFile.stringToFile(html, getFolders().dstDir + dst);
-//    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
+    html = processPageIncludes(n+".json.html", html, pageType, null, null, null, crumbTitle, ig);
+    TextFile.stringToFile(html, dst);
     epub.registerExternal(dst);
-//
-//    
-//    FileOutputStream outs = new FileOutputStream(folders.dstDir+ dst);
-//    OutputStreamWriter out = new OutputStreamWriter(outs, "UTF-8");
-//    
-//    out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
-//    out.write("<head>\r\n");
-//    out.write(" <title>Example Instance for "+name+"</title>\r\n");
-//    out.write(" <link rel=\"Stylesheet\" href=\"");
-//    for (int i = 0; i < level; i++)
-//      out.write("../");
-//    out.write("fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n");
-//    out.write("</head>\r\n");
-//    out.write("<body>\r\n");
-//    out.write("<p>&nbsp;</p>\r\n"); 
-//    out.write("<div class=\"example\">\r\n");
-//    out.write("<p>"+Utilities.escapeXml(description)+"</p>\r\n"); 
-//    out.write("<p><a href=\""+link+"\">Raw JSON</a></p>\r\n"); 
-//    out.write("<pre class=\"json\">\r\n");
-//    out.write(Utilities.escapeXml(json));    
-//    out.write("</pre>\r\n");
-//    out.write("</div>\r\n");
-//    out.write("</body>\r\n");
-//    out.write("</html>\r\n");
-//    out.flush();
-//    outs.close();
-//    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
   }
 
   

@@ -50,7 +50,7 @@ is often not practical - for instance, <a href="snomedct.html">SNOMED CT</a> has
 may lead to variations in meaning of concepts, but there is only one identifier for LOINC. 
 </p>
 <p>
-For this reason, a code system MAY provide a version identifer in <i>ValueSet.codeSystem.version</i>. The version specific identifier SHOULD be 
+For this reason, a code system MAY provide a version identifier in <i>ValueSet.codeSystem.version</i>. The version specific identifier SHOULD be 
 provided whenever there are potentially significant changes in meaning across multiple releases of a code system.
 There is no particular format requirement for the version identifier, though HL7 recommends a date based approach. 
 </p>

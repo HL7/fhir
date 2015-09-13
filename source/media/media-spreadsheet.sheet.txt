@@ -160,7 +160,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = MediaView
-  Short Label = Imaging view e.g Lateral or Antero-posterior
+  Short Label = Imaging view, e.g. Lateral or Antero-posterior
   Definition = The name of the imaging view e.g Lateral or Antero-posterior (AP).
   RIM Mapping = DiagnosticImage.subjectOrientationCode
   w5 = class
@@ -227,3 +227,70 @@
   Definition = The actual content of the media - inline or by direct reference to the media source file
   Comments = Recommended content types: image/jpeg, image/png, image/tiff, video/mpeg, audio/mp4, application/dicom. Application/dicom can contain the transfer syntax as a parameter.  For an media that covers a period of time (video/sound), the content.creationTime is the end time. Creation time is used for tracking, organizing versions and searching
   RIM Mapping = .text
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = type
+  Type = token
+  Path = Media.type
+
+ -- Row 2 -----------------------------------
+  Name = subtype
+  Type = token
+  Path = Media.subtype
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Media.identifier
+
+ -- Row 4 -----------------------------------
+  Name = created
+  Type = date
+  Path = Media.content.creation
+
+ -- Row 5 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = Media.subject
+
+ -- Row 6 -----------------------------------
+  Name = operator
+  Type = reference
+  Path = Media.operator
+
+ -- Row 7 -----------------------------------
+  Name = view
+  Type = token
+  Path = Media.view
+
+ -- Row 8 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Media.subject
+  Target Types = Patient
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Plain Photo
+  Identity = example
+  Description = Simple photo
+  Filename = media-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Ultrasound
+  Identity = 1.2.840.11361907579238403408700.3.0.14.19970327150033
+  Description = Example Ultrasound Image
+  Filename = media-example-dicom.xml
+
+ -- Row 3 -----------------------------------
+  Name = Sound
+  Identity = sound
+  Description = Exxample Sound Recording
+  Filename = media-example-sound.xml
+
+=== Sheet Examples =====================================

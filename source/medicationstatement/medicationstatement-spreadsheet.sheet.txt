@@ -296,7 +296,7 @@
  -- Row 1 -----------------------------------
   Name = identifier
   Type = token
-  Description = Return statements with this external identity
+  Description = Return statements with this external identifier
   Path = MedicationStatement.identifier
 
  -- Row 2 -----------------------------------

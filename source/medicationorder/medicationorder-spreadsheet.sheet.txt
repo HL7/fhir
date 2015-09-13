@@ -443,13 +443,13 @@
  -- Row 2 -----------------------------------
   Name = encounter
   Type = reference
-  Description = Return prescriptions with this encounter identity
+  Description = Return prescriptions with this encounter identifier
   Path = MedicationOrder.encounter
 
  -- Row 3 -----------------------------------
   Name = identifier
   Type = token
-  Description = Return prescriptions with this external identity
+  Description = Return prescriptions with this external identifier
   Path = MedicationOrder.identifier
 
  -- Row 4 -----------------------------------
@@ -467,7 +467,7 @@
  -- Row 6 -----------------------------------
   Name = patient
   Type = reference
-  Description = The identity of a patient to list dispenses  for
+  Description = The identity of a patient to list orders  for
   Path = MedicationOrder.patient
 
  -- Row 7 -----------------------------------

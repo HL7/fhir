@@ -583,13 +583,13 @@
  -- Row 3 -----------------------------------
   Name = identifier
   Type = token
-  Description = Return nutrition orders with this external identity
+  Description = Return nutrition orders with this external identifier
   Path = NutritionOrder.identifier
 
  -- Row 4 -----------------------------------
   Name = encounter
   Type = reference
-  Description = Return nutrition orders with this encounter identity
+  Description = Return nutrition orders with this encounter identifier
   Path = NutritionOrder.encounter
 
  -- Row 5 -----------------------------------

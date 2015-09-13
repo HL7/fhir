@@ -3968,7 +3968,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">ProcessRequest.provider</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">The provider who renerated this request</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">The provider who regenerated this request</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">action</Data></Cell>

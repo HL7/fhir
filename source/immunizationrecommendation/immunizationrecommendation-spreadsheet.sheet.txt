@@ -150,7 +150,7 @@
   Element = ImmunizationRecommendation.recommendation.protocol.doseSequence
   Card. = 0..1
   Type = integer
-  Short Label = Number of dose within sequence
+  Short Label = Dose number within sequence
   Definition = Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
   v2 Mapping = OBX-5-observation value : OBX-3-observation identifier = 30973-2
   RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=DEF]].sequenceNumber

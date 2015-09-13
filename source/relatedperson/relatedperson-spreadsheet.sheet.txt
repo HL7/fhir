@@ -191,7 +191,7 @@
  -- Row 10 -----------------------------------
   Name = address-postalcode
   Type = string
-  Description = A postalCode specified in an address
+  Description = A postal code specified in an address
   Path = RelatedPerson.address.postalCode
 
  -- Row 11 -----------------------------------

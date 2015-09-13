@@ -78,7 +78,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = DetectedIssueCategory
-  Short Label = E.g. Drug-drug, duplicate therapy, etc.
+  Short Label = Issue Category, e.g. drug-drug, duplicate therapy, etc.
   Definition = Identifies the general type of issue identified.
   RIM Mapping = .code
   w5 = class

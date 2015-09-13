@@ -182,7 +182,7 @@
   Card. = 0..0
   Must Support = Y
   Type = Reference(Encounter)
-  Short Label = Context of the conposition
+  Short Label = Context of the composition
   Definition = Describes the clinical encounter or type of care this documentation is associated with.
 
  -- Row 26 -----------------------------------

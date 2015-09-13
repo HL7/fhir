@@ -82,7 +82,7 @@
     <severity value="severe"/>
   </reaction>
   <reaction> 
-    <!-- this was the first occurence -->
+    <!-- this was the first occurrence -->
     <certainty value="likely"/>
     <manifestation>
       <coding>

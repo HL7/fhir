@@ -10,19 +10,20 @@
   <LastAuthor>marla.albitz</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-09-09T20:53:14Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13680</WindowHeight>
-  <WindowWidth>10005</WindowWidth>
+  <WindowHeight>16575</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>60</WindowTopY>
+  <WindowTopY>0</WindowTopY>
   <TabRatio>631</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3931,7 +3932,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
@@ -3952,7 +3952,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>18</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -4542,14 +4542,14 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MedicationOrder.encounter</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Return prescriptions with this encounter identity</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Return prescriptions with this encounter identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MedicationOrder.identifier</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Return prescriptions with this external identity</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Return prescriptions with this external identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">medication</Data></Cell>
@@ -4570,7 +4570,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MedicationOrder.patient</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">The identity of a patient to list dispenses  for</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">The identity of a patient to list orders  for</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">status</Data></Cell>
@@ -4754,6 +4754,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4773,8 +4774,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6690,7 +6691,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s88"><Data ss:Type="String">MedicationCode</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Codes identifying substance that can be administered</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">unbound</Data></Cell>

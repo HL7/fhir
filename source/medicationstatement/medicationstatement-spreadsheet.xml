@@ -4518,7 +4518,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s115"><Data ss:Type="String">MedicationStatement.identifier</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Return statements with this external identity</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Return statements with this external identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s114"><Data ss:Type="String">medication</Data></Cell>

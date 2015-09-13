@@ -363,7 +363,7 @@
   Element = Immunization.vaccinationProtocol.doseSequence
   Card. = 1..1
   Type = positiveInt
-  Short Label = What dose number within series?
+  Short Label = Dose number within series
   Definition = Nominal position in a series
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].sequenceNumber
 

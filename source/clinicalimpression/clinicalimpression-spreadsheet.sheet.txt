@@ -197,7 +197,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ConditionKind
-  Short Label = Diagnosies/conditions resolved since previous assessment
+  Short Label = Diagnoses/conditions resolved since previous assessment
   Definition = Diagnoses/conditions resolved since the last assessment
 
  -- Row 19 -----------------------------------

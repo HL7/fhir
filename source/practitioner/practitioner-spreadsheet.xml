@@ -4700,7 +4700,7 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner.practitionerRole.specialty</Data></Cell>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">The practitioner has this specailty at an organization</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">The practitioner has this specialty at an organization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">role</Data></Cell>

@@ -4460,7 +4460,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MedicationAdministration.identifier</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Return administrations with this external identity</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Return administrations with this external identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">medication</Data></Cell>

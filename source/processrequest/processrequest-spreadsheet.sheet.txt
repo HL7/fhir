@@ -191,7 +191,7 @@
  -- Row 3 -----------------------------------
   Name = provider
   Type = reference
-  Description = The provider who renerated this request
+  Description = The provider who regenerated this request
   Path = ProcessRequest.provider
 
  -- Row 4 -----------------------------------

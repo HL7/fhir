@@ -517,7 +517,7 @@
   Card. = 0..1
   Type = Identifier
   Short Label = Payment identifier
-  Definition = Payment identifer
+  Definition = Payment identifier
   Committee Notes = G01, B.23
 
  -- Row 71 -----------------------------------

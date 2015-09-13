@@ -3681,21 +3681,21 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">VisionPrescription.encounter</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Return prescriptions with this encounter identity</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Return prescriptions with this encounter identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">VisionPrescription.identifier</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Return prescriptions with this external identity</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Return prescriptions with this external identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">VisionPrescription.patient</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">The identity of a patient to list dispenses  for</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">The identity of a patient to list dispenses for</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">prescriber</Data></Cell>

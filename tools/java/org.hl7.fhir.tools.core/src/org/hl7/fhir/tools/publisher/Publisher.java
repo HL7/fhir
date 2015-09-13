@@ -3266,7 +3266,7 @@ public class Publisher implements URIResolver, SectionNumberer {
             ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(id));
 
             String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "index.html", vs, null, null, "V3 CodeSystem", null);
-            sf = addSectionNumbers("v3" + id + ".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")), 2, null, null);
+            sf = addSectionNumbers(Utilities.path("v3", id, "index.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")), 2, null, null);
             TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "index.html");
             page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "index.html");
           }
@@ -3280,7 +3280,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-vs.html");
           ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(id));
           String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "index.html", vs, null, "V3 ValueSet", null);
-          sf = addSectionNumbers("v3" + id + ".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("id")), 2, null, null);
+          sf = addSectionNumbers(Utilities.path("v3", id, "index.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("id")), 2, null, null);
           TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "index.html");
           page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "index.html");
         }
@@ -3876,6 +3876,7 @@ public class Publisher implements URIResolver, SectionNumberer {
                 new XmlGenerator().generate(ers, bs);
                 bs.close();
                 NamingSystem ns = (NamingSystem) new XmlParser().parse(new ByteArrayInputStream(bs.toByteArray()));
+                ns.setUserData("path", prefix +n+".html");
                 page.getDefinitions().getNamingSystems().add(ns);
               }
             }
@@ -3957,7 +3958,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     // now, we create an html page from the narrative
     narrative = fixExampleReferences(e.getTitle(), narrative);
-    html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative).replace("<%example-usage%>", genExampleUsage(e, prefix));
+    html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative).replace("<%example-usage%>", genExampleUsage(e, page.genlevel(level)));
     html = page.processPageIncludes(n + ".html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example", ig);
     TextFile.stringToFile(html, page.getFolders().dstDir + prefix +n + ".html");
     // head =

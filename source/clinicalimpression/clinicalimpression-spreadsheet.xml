@@ -1570,7 +1570,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Diagnosies/conditions resolved since previous assessment</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Diagnoses/conditions resolved since previous assessment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Diagnoses/conditions resolved since the last assessment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -221,7 +221,7 @@ Extending and restricting resources (collectively known as 'constraining a resou
 how the elements in a resource are used, and where extensions are used in a resource.
 </p>
 
-<a name="resources"> </a>
+<a name="cardinality"> </a>
 <h3>Changing Cardinality</h3>
 
 <p>
@@ -653,7 +653,7 @@ specification, following these rules:
 Note that local codes are not as interoperable as standard published code systems (e.g. LOINC, SNOMED C, so it is preferable to use standard code systems.
 </p>
 
-<a name="resources"> </a>
+<a name="binding-strength"> </a>
 <h3>Changing Binding Strength in Profiles</h3>
 
 <p>
@@ -670,7 +670,7 @@ it is constraining. This table summarises the changes that can be made to the bi
 </table>
 <p>
 Note that a constraining profile may leave the binding strength the same and change the value set instead. Whatever the 
-constraining profile does, it cannot make codes valid that are valid in the base structure/profile.
+constraining profile does, it cannot make codes valid that are invalid in the base structure/profile.
 </p>
 
 <a name="mustSupport"> </a>

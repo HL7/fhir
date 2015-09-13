@@ -4536,35 +4536,35 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s115"><Data ss:Type="String">MedicationDispense.destination</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Return dispenses that should be sent to a secific destination</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Return dispenses that should be sent to a specific destination</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">dispenser</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MedicationDispense.dispenser</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Return all dispenses performed by a specific indiividual</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Return all dispenses performed by a specific individual</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MedicationDispense.identifier</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Return dispenses with this external identity</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Return dispenses with this external identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">medication</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MedicationDispense.medicationReference</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Returns dispenses of this medicine resource</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Return dispenses of this medicine resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MedicationDispense.medicationCodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Returns dispenses of this medicine code</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Return dispenses of this medicine code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">patient</Data></Cell>

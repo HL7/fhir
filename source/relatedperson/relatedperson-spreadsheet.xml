@@ -4374,7 +4374,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.address.postalCode</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">A postalCode specified in an address</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">A postal code specified in an address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">address-country</Data></Cell>

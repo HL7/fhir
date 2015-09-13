@@ -393,7 +393,7 @@
  -- Row 19 -----------------------------------
   Name = specialty
   Type = token
-  Description = The practitioner has this specailty at an organization
+  Description = The practitioner has this specialty at an organization
   Path = Practitioner.practitionerRole.specialty
 
  -- Row 20 -----------------------------------

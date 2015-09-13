@@ -240,7 +240,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = External Ids for this item
+  Short Label = External ids for this item
   Definition = This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   RIM Mapping = .id
   w5 = id
@@ -362,9 +362,9 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Label = Date(/time) of last known occurence of a reaction
-  Definition = Represents the date and/or time of the last known occurence of a reaction event
-  Comments = This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurence is required e.g \'In Childhood, \'10 years ago\' the Comment element should be used.
+  Short Label = Date(/time) of last known occurrence of a reaction
+  Definition = Represents the date and/or time of the last known occurrence of a reaction event
+  Comments = This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g \'In Childhood, \'10 years ago\' the Comment element should be used.
 
  -- Row 14 -----------------------------------
   Element = AllergyIntolerance.note

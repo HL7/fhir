@@ -179,7 +179,7 @@
  -- Row 9 -----------------------------------
   Name = identifier
   Type = token
-  Description = Instance id fromsource, target, and/or  others
+  Description = Instance id from source, target, and/or  others
   Path = Order.identifier
 
 === Sheet Profiles =====================================

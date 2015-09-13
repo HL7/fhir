@@ -400,31 +400,31 @@
  -- Row 1 -----------------------------------
   Name = destination
   Type = reference
-  Description = Return dispenses that should be sent to a secific destination
+  Description = Return dispenses that should be sent to a specific destination
   Path = MedicationDispense.destination
 
  -- Row 2 -----------------------------------
   Name = dispenser
   Type = reference
-  Description = Return all dispenses performed by a specific indiividual
+  Description = Return all dispenses performed by a specific individual
   Path = MedicationDispense.dispenser
 
  -- Row 3 -----------------------------------
   Name = identifier
   Type = token
-  Description = Return dispenses with this external identity
+  Description = Return dispenses with this external identifier
   Path = MedicationDispense.identifier
 
  -- Row 4 -----------------------------------
   Name = medication
   Type = reference
-  Description = Returns dispenses of this medicine resource
+  Description = Return dispenses of this medicine resource
   Path = MedicationDispense.medicationReference
 
  -- Row 5 -----------------------------------
   Name = code
   Type = token
-  Description = Returns dispenses of this medicine code
+  Description = Return dispenses of this medicine code
   Path = MedicationDispense.medicationCodeableConcept
 
  -- Row 6 -----------------------------------

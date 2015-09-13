@@ -1031,25 +1031,21 @@
  -- Row 1 -----------------------------------
   Name = url
   Type = uri
-  Description = TestScript url
   Path = TestScript.url
 
  -- Row 2 -----------------------------------
   Name = identifier
   Type = token
-  Description = TestScript.identifier
   Path = TestScript.identifier
 
  -- Row 3 -----------------------------------
   Name = name
   Type = string
-  Description = TestScript.name
   Path = TestScript.name
 
  -- Row 4 -----------------------------------
   Name = description
   Type = string
-  Description = TestScript description
   Path = TestScript.description
 
  -- Row 5 -----------------------------------
