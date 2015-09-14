@@ -260,7 +260,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
   private String describeTypes(List<TypeRefComponent> types) throws Exception {
     if (types.isEmpty())
-      return null;
+      return "";
+    
     StringBuilder b = new StringBuilder();
     if (types.size() == 1)
       describeType(b, types.get(0));
