@@ -1138,7 +1138,7 @@
 		  
           <tr>
 		    
-            <td id="DAFLabResultsSearch">DAFLabResults</td>
+            <td id="DAFResultsSearch">DAFResults</td>
 			
             <td>
 				
@@ -1191,6 +1191,10 @@
                 <li>Include parameter - Observation.subject</li>
 					
                 <li>Include parameter - Observation.encounter</li>
+				
+				<li>Include parameter - Observation.related</li>
+				
+				<li>Reverse Include parameter - Observation.component</li>
 				
               </ul>
 			
@@ -2397,31 +2401,33 @@
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
-        <documentation value="Allows discovery of existing DAFLabResults resources using different search criteria"/>
+        <documentation value="Allows discovery of existing DAFResults resources using different search criteria"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
-        <documentation value="Allows retrieval of a specific DAFRLabesults by id"/>
+        <documentation value="Allows retrieval of a specific DAFResults by id"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
-        <documentation value="Allows review of changes to DAFLabResults instance over time"/>
+        <documentation value="Allows review of changes to DAFResults instance over time"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
-        <documentation value="Allows retrieval of a historical version of a DAFLabResults instance"/>
+        <documentation value="Allows retrieval of a historical version of a DAFResults instance"/>
       </interaction>
       <searchInclude value="Observation.encounter"/>
       <searchInclude value="Observation.subject"/>
+	  <searchInclude value="Observation.related"/>
+	  <searchRevInclude value="Observation.component"/>
       <searchParam>
         <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="SHALL"/>
