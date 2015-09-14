@@ -6,7 +6,7 @@
 	
 	
 <p>
-This profile sets expectations for use of the <a href="../allergyintolerance.html">AllergyIntolerance</a> resource to record allergies/adverse events associated with a patient within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
+This profile sets expectations for use of the <a href="../allergyintolerance.html">AllergyIntolerance</a> resource to record allergies/adverse events associated with a patient within the <a href="daf.html">DAF FHIR IG</a>. This profile identifies which core elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
 For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases. 
 The mappings between the ONC 2014 Edition S&amp;CC data elements and DAF data elements are captured in the table below, where the first column identifies the ONC 2014 Edition S&amp;CC data element name, 
 the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data elements which are derived from ONC 2014 Edition S&amp;CC standards and DAF use cases and lastly the third column identifies the mapping to FHIR resources and attributes.
@@ -17,7 +17,7 @@ the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data e
 	<a name="MU_data_element_mapping"> </a>
 	<h3>Meaningful Use Data Element Mapping</h3>
 <p>
-The DAF AllergyIntolerance profile mapping to Meaningful Use data elements and FHIR Resources are as shown below.
+The DAF-AllergyIntolerance profile mapping to Meaningful Use data elements and FHIR Resources are as shown below.For an overview of how the DAF profiles and data elements were derived from ONC 2014 Edition S&amp;CC please refer to <a href="daf.html#DataMapping">DAF FHIR IG</a> data mapping section.
 </p>
 <br/>
 	<table class="grid">
@@ -82,7 +82,7 @@ The DAF AllergyIntolerance profile mapping to Meaningful Use data elements and F
 This profile relies on the following other profiles:
 </p>
 <ul>
-  <li><a href="patient-daf.html">DAFPatient</a> which defines how the DAF Patient profile is used by DAFAllergyIntolerance profile to refer to patients.</li>
+  <li><a href="patient-daf.html">DAF-Patient</a> is used by DAFAllergyIntolerance profile to refer to patients.</li>
   <li><a href="../extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. 
   Specifically the <a href="../extension-data-absent-reason.html">data-absent-reason</a> extension can be used to code data elements with missing information when appropriate.
   See <a href="daf.html">DAF FHIR IG</a> for additional guidance.</li>

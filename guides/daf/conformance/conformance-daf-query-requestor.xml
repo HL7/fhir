@@ -23,7 +23,7 @@
       
       <p>This profile defines the expected capabilities of the 
         <i>DAF Requestor</i> actor when conforming to the 
-        <a href="daf.html">DAF FHIR implementation guide</a>.
+        <a href="daf.html">DAF FHIR IG</a>.
       </p>
       
       <h2>General</h2>

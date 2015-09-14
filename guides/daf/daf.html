@@ -21,12 +21,12 @@ This implementation guide is prepared as a U.S. Realm Specification on behalf of
 
 <h3>Draft Standard for Trial Use (DSTU)</h3>
 <p>
-This DAF FHIR Implementation Guide (DAF FHIR IG) is submitted as a DSTU.  The focus of the implementation guide is limited in scope to the profiles, operations, value sets and conformance
-statements it defines.  This guide is based on FHIR DSTU 2 and will be published separately from the FHIR specification itself.  For full details please refer to <a href="daf-toc.html">DAF FHIR IG Table of Contents</a>. Readers can also access the <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">DAF Project wiki</a> containing development materials and discussions. The DAF project wiki contents are not part of the normative implementation guide content but is provided as additional background reading material.
+This DAF FHIR IG is submitted as a DSTU.  The focus of the implementation guide is limited in scope to the profiles, operations, value sets and conformance
+statements it defines.  This guide is based on FHIR DSTU 2 and will be published separately from the FHIR specification itself.  For full details of the DAF profiles please refer to <a href="daf-toc.html">DAF FHIR IG Table of Contents</a>. For DAF background readers can also access the <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">DAF Project wiki</a> containing development materials and discussions. The DAF project wiki contents are not part of the normative implementation guide content but is provided as additional background reading material.
 </p>
 
 <h3>DAF FHIR IG - Table Of Contents</h3>
-<p> Readers are advised to read the sections below to get a good overview of the DAF context, however familiar readers can skip to the <a href="daf-toc.html">Complete Table of Contents</a> directly.</p>
+<p> Readers are advised to read the sections below to get a good overview of the DAF context, however readers trying to access the DAF profiles can skip to the <a href="daf-toc.html">Complete Table of Contents</a> directly.</p>
 
 <h3>DAF FHIR IG Overview and Conformance Requirements</h3>
 <p>
@@ -93,7 +93,7 @@ specific profiles and the search parameters applicable to each of the DAF actors
 </div>
 
 <div>
-<h4>DAF profiles, extensions and constraints</h4>
+<h4 id="DataMapping">DAF profiles, extensions and constraints</h4>
 <p>
 This section outlines the DAF profiles created using FHIR resources and include both extensions and constraints on top of the base FHIR Resources.
 DAF profiles were created for each conceptual data element identified in the <a href="http://healthit.gov/policy-researchers-implementers/health-it-regulations">ONC 2014 Edition Standards and Certification Criteria (S&amp;CC) related to Meaningful Use Stage 2 (MU2)</a>.
@@ -189,7 +189,7 @@ In addition to deriving the granular data elements from the MU2 conceptual data 
 		  </tr>
 		  <tr>
 			<td></td>
-			<td>DAF Supporting Profiles:<a href="daf-organization.html">DAF-Organization</a>, <a href="daf-location.html">DAF-Location</a>, <a href="daf-pract.html">DAF-Practitioner</a>, <a href="daf-substance.html">DAF-Substance</a>,<a href="daf-relatedperson.html">DAF-RelatedPerson</a>,<a href="daf-spec.html">DAF-Specimen</a></td>
+			<td><a href="daf-supportingprofiles.html">DAF Supporting Profiles</a>:<a href="daf-organization.html">DAF-Organization</a>, <a href="daf-location.html">DAF-Location</a>, <a href="daf-pract.html">DAF-Practitioner</a>, <a href="daf-substance.html">DAF-Substance</a>,<a href="daf-relatedperson.html">DAF-RelatedPerson</a>,<a href="daf-spec.html">DAF-Specimen</a></td>
 			<td><a href="[%fhir-path%]organization.html">Organization</a>, <a href="[%fhir-path%]location.html">Location</a>, <a href="[%fhir-path%]practitioner.html">Practitioner</a>, <a href="[%fhir-path%]substance.html">Substance</a>,<a href="[%fhir-path%]relatedperson.html"> RelatedPerson</a>,<a href="[%fhir-path%]specimen.html">Specimen</a></td>
 		  </tr>	
 		</tbody>
@@ -197,9 +197,9 @@ In addition to deriving the granular data elements from the MU2 conceptual data 
 </div>
 
 <div>
-      <h4>DAF Security Implementation Guidance</h4>
+      <h4>DAF FHIR IG Security Implementation Guidance</h4>
 	 <p>Implementations must meet the security requirements documented in the security section of the
-        <a href="daf-security.html">DAF implementation guide</a>.
+        <a href="daf-security.html">DAF FHIR IG</a>.
       </p>
 	  </div>
 

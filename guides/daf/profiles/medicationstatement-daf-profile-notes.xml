@@ -10,7 +10,7 @@ The full list of supported search parameters are can be accessed at <a href="con
 	<h4>Example Usage Scenarios</h4>
 	
 <p>
-The following are example usage scenarios for the DAFMedicationStatement profile:
+The following are example usage scenarios for the DAF-MedicationStatement profile:
 </p>
 <ul>
 	<li>Query for active medications being taken by a patient</li>
@@ -26,7 +26,7 @@ Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
 	
-	<p><b>Representing No Known Medications:</b> No Known Medications will be represented using the <a href="daf-medicationlist.html">DAFMedicationList</a> profile with no entries.</p>
+	<p><b>Representing No Known Medications:</b> No Known Medications will be represented using the <a href="daf-medicationlist.html">DAF-MedicationList</a> profile with no entries.</p>
 	<p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 	
 </ul>

@@ -11,7 +11,7 @@ The full list of supported search parameters are can be accessed at <a href="con
 	<h4>Example Usage Scenarios</h4>
 
 <p>
-The following are example usage scenarios for the DAF AllergyIntolerance profile:
+The following are example usage scenarios for the DAF-AllergyIntolerance profile:
 </p>
 <ul>
 	<li>Query for allergies belonging to a Patient</li>

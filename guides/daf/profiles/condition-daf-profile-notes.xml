@@ -8,7 +8,7 @@ The full list of supported search parameters are can be accessed at <a href="con
 	<h4>Example Usage Scenarios</h4>
 
 <p>
-The following are example usage scenarios for the DAF Condition profile:
+The following are example usage scenarios for the DAF-Condition profile:
 </p>
 <ul>
 	<li>Query for a Patient's problems</li>
@@ -24,7 +24,7 @@ The following are example usage scenarios for the DAF Condition profile:
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<p><b>Representing No known Problems:</b> No known Problems will be represented using the <a href="daf-problemlist.html">DAFProblemList</a> profile with no entries and a valid code in the List's emptyReason element.</p>
+	<p><b>Representing No known Problems:</b> No known Problems will be represented using the <a href="daf-problemlist.html">DAF-ProblemList</a> profile with no entries and a valid code in the List's emptyReason element.</p>
 	
 	<p>See<a href="daf.html"> DAF FHIR IG</a> for implementation guidance common to all profiles.</p>
 	

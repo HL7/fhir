@@ -5,7 +5,7 @@
 	<h3>Scope and Usage</h3>
 <p>
 This profile sets expectations for use of the <a href="../list.html">List</a> resource within the 
-<a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core data elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
+<a href="daf.html">DAF FHIR IG</a>. This profile identifies which core data elements, extensions, vocabularies and value sets must be <i>Supported</i> by DAF actors.
 For the definition of <i>Supported</i> please refer to <a href="daf.html">DAF FHIR IG</a>. The data elements identified by the profile are based on ONC 2014 Edition S&amp;CC and DAF use cases. 
 The mappings between the ONC 2014 Edition S&amp;CC data elements and DAF data elements are captured in the table below, where the first column identifies the ONC 2014 Edition S&amp;CC data element name, 
 the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data elements which are derived from ONC 2014 Edition S&amp;CC standards and DAF use cases and lastly the third column identifies the mapping to FHIR resources and attributes.
@@ -16,7 +16,7 @@ the second column maps the ONC 2014 Edition S&amp;CC data elements to DAF data e
 	<a name="MU_data_element_mapping"> </a>
 	<h3>Meaningful Use Data Element Mapping</h3>
 <p>
-The DAF List profile mapping to Meaningful Use data elements and FHIR Resources are as shown below.
+The DAF List profile mapping to Meaningful Use data elements and FHIR Resources are as shown below.For an overview of how the DAF profiles and data elements were derived from ONC 2014 Edition S&amp;CC please refer to <a href="daf.html#DataMapping">DAF FHIR IG</a> data mapping section.
 </p>
 <br/>
 	<table class="grid">
@@ -85,13 +85,13 @@ The DAF List profile mapping to Meaningful Use data elements and FHIR Resources 
 		  </tr>
 		</tbody>
 	</table>
-	<p><b>*</b>: The DAFMedicationList summarizes information from other DAF medication profiles. This profile supports three types of medication lists:</p>
+	<p><b>*</b>: The DAF-MedicationList summarizes information from other DAF medication profiles. This profile supports three types of medication lists:</p>
 	<ul>
-		<li>Admission Medications - Contains the medications taken by the patient prior to and at the time of admission to the facility (LOINC: 42346-7). This list will contain instances of DAFMedicationStatement and DAFMedicationOrder.</li>
+		<li>Admission Medications - Contains the medications taken by the patient prior to and at the time of admission to the facility (LOINC: 42346-7). This list will contain instances of DAF-MedicationStatement and DAF-MedicationOrder.</li>
 
-		<li>Medications - The DAFMedicationsList contains a patient's current medications and pertinent medication history (LOINC: 10160-0).  At a minimum, the currently active medications are listed. An entire medication history is an option. Typically a DAF Responder system is expected to maintain only one current medication list per patient outside of an individual episode or encounter. This list will contain instances of DAFMedicationStatement, DAFMedicationOrder, and may include instances of  DAFMedicationDispense and DAFMedicationAdministration.</li>
+		<li>Medications - The DAF-MedicationsList contains a patient's current medications and pertinent medication history (LOINC: 10160-0).  At a minimum, the currently active medications are listed. An entire medication history is an option. Typically a DAF Responder system is expected to maintain only one current medication list per patient outside of an individual episode or encounter. This list will contain instances of DAF-MedicationStatement, DAF-MedicationOrder, and may include instances of  DAF-MedicationDispense and DAF-MedicationAdministration.</li>
 
-		<li>Discharge Medications - Contains the medications the patient is intended to take after discharge (LOINC: 75311-1). Current, active medications must be listed. This list will contain instances of DAFMedicationOrder.</li>
+		<li>Discharge Medications - Contains the medications the patient is intended to take after discharge (LOINC: 75311-1). Current, active medications must be listed. This list will contain instances of DAF-MedicationOrder.</li>
 
 	</ul>
 </div>
