@@ -22,6 +22,17 @@ subset of AllergyIntolerances that are deemed to be "current". Lists are allowed
 that there is a nested collection of lists.
 </p>
 <p>
+Querying a List of resources such as AllergyIntolerance, Condition or Medication-related
+resources is different than querying the resource-specific end point. For example, a List of
+AllergyIntolerance would represent a curated point-in-time snapshot of the patient's allergies
+and intolerances. On the other hand, querying the AllergyIntolerance endpoint would typically
+produce a larger set of records as it would both be non-currated (potentially containing
+duplicate or out-of-date records) as well as current - generated based on information as of
+"now" rather than the last time a human manually revised the List resource instance. Which
+mechanism is most appropriate for data retrieval will vary by use-case. In some cases, systems
+may not have an appropriate currated List to query.
+</p>
+<p>
 Note that the presence of an item in a List resource SHALL NOT change the meaning of any information that would be 
 understood by looking at the item outside the context of the List, because items may be accessed directly outside 
 the list by RESTful means, or after a document is processed. For example, a List with a code that means 
