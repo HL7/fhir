@@ -91,7 +91,7 @@
   Short Label = usual | official | temp | nickname | anonymous | old | maiden
   Definition = Identifies the purpose for this name
   Requirements = Allows the appropriate name for a particular context of use to be selected from among a set of names
-  Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old name etc for a current/permanent one. Applications can assume that a name is current unless it explicitly says that it is temporary or old
+  Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old name etc.for a current/permanent one. Applications can assume that a name is current unless it explicitly says that it is temporary or old
   v2 Mapping = XPN.7, but often indicated by which field contains the name
   RIM Mapping = unique(./use)
   ServD Mapping = ./NamePurpose

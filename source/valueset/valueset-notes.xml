@@ -33,7 +33,7 @@ identifiers SHALL be different.
 </ul>
 <p>
 Note: Value sets only contain inline code systems when they are not defined elsewhere,
-such as in SNOMED CT, LOINC, RxNorm etc which have their own public distributions. 
+such as in SNOMED CT, LOINC, RxNorm etc.which have their own public distributions. 
 To specify a value set that is made up of codes from other code systems, see "compose" below. 
 </p>
 
@@ -253,7 +253,7 @@ be the same).
 Sometimes code systems may be used to represent more complex information than just 
 code, display name and code system.  For example, a code system of drug information
 which contains information about the content of the medication (e.g. RxNorm), or a set of  
-observation types, that contain methods, units, etc (e.g. LOINC).  
+observation types, that contain methods, units, etc.(e.g. LOINC).  
 In FHIR, these are handled by splitting the concept into two distinct parts - the 
 <b>ValueSet</b> resource is used to manage the codes, display names and relationships.  
 A separate "detail" resource (e.g. <a href="medication.html">Medication</a> for 
@@ -276,7 +276,7 @@ resources, independent retrieval and update is possible.</li>
 <li>It supports use-cases for sharing medication, location, observation type and 
 similar information in circumstances where the code may be unknown, unavailable or 
 occasionally non-existent (e.g. custom compounds, non-registered locations).  Having 
-a distinct resource supports these capabilties which would not be possible using 
+a distinct resource supports these capabilities which would not be possible using 
 <b>ValueSet</b>.</li>
 </ul>
 <p>

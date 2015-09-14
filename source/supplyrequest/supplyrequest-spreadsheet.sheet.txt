@@ -99,7 +99,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = SupplyRequestKind
-  Short Label = The kind of supply (central, non-stock, etc)
+  Short Label = The kind of supply (central, non-stock, etc.)
   Definition = Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process
   RIM Mapping = .code
   Committee Notes = [3417]

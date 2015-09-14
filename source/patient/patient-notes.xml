@@ -163,7 +163,7 @@ The patient-mpi-match extension has one of the <a href="valueset-patient-mpi-mat
 One optional parameter to the mpi match operation is "userid", which is
 used to pass the user details from a trusted client to the MPI. This may 
 be used by the MPI to restrict the possible matches that are returned based 
-on user's rights. For example, a staff member covered by policies etc 
+on user's rights. For example, a staff member covered by policies etc.
 may well get a different result than a patient trying to find their own 
 record. Note that this parameter is used where the user would not be 
 expected to log in to the MPI directly; whether this is appropriate or not is 

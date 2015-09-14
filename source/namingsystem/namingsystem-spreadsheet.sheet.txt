@@ -69,7 +69,7 @@
   Id = 4
   Code = other
   Display = Other
-  Definition = Some other type of unique identifier.  E.g HL7-assigned reserved string such as LN for LOINC
+  Definition = Some other type of unique identifier.  E.g. HL7-assigned reserved string such as LN for LOINC
 
 === Sheet Invariants =====================================
 

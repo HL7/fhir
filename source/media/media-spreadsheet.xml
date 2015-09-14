@@ -1172,7 +1172,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Who requested that this image be collected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Helps connect to workflow etc</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Helps connect to workflow etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.participation[typeCode=&quot;REFB&quot;]???</Data><NamedCell
@@ -1243,7 +1243,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Imaging view, e.g. Lateral or Antero-posterior</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The name of the imaging view e.g Lateral or Antero-posterior (AP).</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The name of the imaging view e.g. Lateral or Antero-posterior (AP).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1311,9 +1311,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Height of the image in pixels(photo/video)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Height of the image in pixels (photo/video)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Height of the image in pixels(photo/video)</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Height of the image in pixels (photo/video)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>

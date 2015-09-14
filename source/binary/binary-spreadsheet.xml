@@ -981,7 +981,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Pure binary content defined by some other format than FHIR</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">A binary resource can contain any content, whether text, image, pdf, zip archive, etc</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">A binary resource can contain any content, whether text, image, pdf, zip archive, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">There are situations where it is useful or required to handle pure binary content using the same framework as other resources</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

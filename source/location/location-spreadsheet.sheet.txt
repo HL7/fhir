@@ -41,7 +41,7 @@
   Id = 2
   Code = kind
   Display = Kind
-  Definition = The Location represents a class of Locations (e.g. Any Operating Theatre). Although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc)
+  Definition = The Location represents a class of Locations (e.g. Any Operating Theatre). Although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc.)
 
 === Sheet location-status =====================================
 

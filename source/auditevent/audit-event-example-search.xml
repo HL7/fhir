@@ -36,7 +36,7 @@
     </type>
   </source>
   <object>
-  <!-- http GET encoded in base64Binary -->
+  <!-- HTTP GET encoded in base64Binary -->
   <!-- orignal example encoded here is -->
   <!-- "http://fhir-dev.healthintersections.com.au/open/Encounter?participant=13" -->
     <type>

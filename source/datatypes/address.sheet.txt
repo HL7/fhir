@@ -98,7 +98,7 @@
   Short Label = home | work | temp | old - purpose of this address
   Definition = The purpose of this address
   Requirements = Allows an appropriate address to be chosen from a list of many
-  Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old address etc for a current/permanent one. Applications can assume that an address is current unless it explicitly says that it is temporary or old
+  Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old address etc.for a current/permanent one. Applications can assume that an address is current unless it explicitly says that it is temporary or old
   v2 Mapping = XAD.7
   RIM Mapping = unique(./use)
   ServD Mapping = ./AddressPurpose

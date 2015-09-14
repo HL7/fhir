@@ -1230,7 +1230,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">When this document manifest created</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Creation time is used for tracking, organizing versions and searching. This is the creation time of the document set, not the documents on which it is based</Data><NamedCell
@@ -1572,7 +1572,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>

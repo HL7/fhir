@@ -109,7 +109,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">instant</Data></Cell>
     <Cell><Data ss:Type="String">An instant in time - known at least to the second</Data></Cell>
-    <Cell><Data ss:Type="String">Note: This is intended for precisely observed times, typically system logs etc, and not human-reported times - for them, see date and dateTime below. Time zone is always required</Data></Cell>
+    <Cell><Data ss:Type="String">Note: This is intended for precisely observed times, typically system logs etc., and not human-reported times - for them, see date and dateTime below. Time zone is always required</Data></Cell>
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">TS</Data></Cell>
     <Cell><Data ss:Type="String">DTM</Data></Cell>

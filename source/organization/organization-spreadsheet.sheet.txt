@@ -233,7 +233,7 @@
   Element = Organization.contact.telecom
   Card. = 0..*
   Type = ContactPoint
-  Short Label = Contact details (telephone, email, etc)  for a contact
+  Short Label = Contact details (telephone, email, etc.)  for a contact
   Definition = A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.
   Requirements = People have (primary) ways to contact them in some way such as phone, email.
   v2 Mapping = PID-13, PID-14

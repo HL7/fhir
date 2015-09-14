@@ -6431,7 +6431,7 @@
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"><Data ss:Type="String">List of authorization codes </Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">List of special authorization codes which may apply to the services being reported.</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">When authorizations or predeterminations have been received for services then the references should be supplied when reporting on or claiming for those services.</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">When authorizations or pre-determinations have been received for services then the references should be supplied when reporting on or claiming for those services.</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>

@@ -1502,7 +1502,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Diagnoses etc with request</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Diagnoses etc.with request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">History and Diagnoses provided with request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2367,7 +2367,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Type of instance (image etc)</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Type of instance (image etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">A human-friendly SOP Class name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

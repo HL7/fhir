@@ -355,7 +355,7 @@ ISO 13606-1 rc_id (record component id),  which is persisted across EHR reposito
 different versions of the record, and not  re-used between workflow state changes. Hence the scope is "VER". 
 The reliability is VRF; in the context of  ISO 13606 the use of ISS is not recommended as it can only be used 
 by the primary issuing system, and this makes it unfeasible to attest to the record.
-The primary use of ISS is in patient management etc, where it can be used to help build 
+The primary use of ISS is in patient management etc., where it can be used to help build 
 linking/unlinking/merging workflows.
 7.6.7.7.8  Message snapshot 
 <example xsi:type="DSET_II">
@@ -1829,7 +1829,7 @@ inv "positive": isNotNull implies value > 0
 7.8.6.1  Description
 Specializes QTY.
 Represents data where coded values are associated with a specific order.
-CO may be used for things that model rankings and scores, e.g. likert scales, pain,  Apgar values, etc, where 
+CO may be used for things that model rankings and scores, e.g. likert scales, pain,  Apgar values, etc., where 
 there is a) implied ordering, b) no implication that the distance between each value is constant, and c) the total 
 number of values is finite. CO may also be used in the context of an ordered code system. In this case, it may 
 not  be appropriate or even possible to use the value attribute, but CO may still be used so that models that 
@@ -2307,7 +2307,7 @@ ISO/FDIS 21090:2009(E)
 96  © ISO 2009 – All rights reserved
 7.8.12.3  Attributes
 7.8.12.3.1  value : Decimal:  The value of the MO. MO values are usually precise to 0.01 (one cent, penny, 
-paisa, etc.) or 1 (yen, forint, etc), though other precisions exist. ISO 4217 documents the appropriate precision 
+paisa, etc.) or 1 (yen, forint, etc.), though other precisions exist. ISO 4217 documents the appropriate precision 
 for most currencies.
 7.8.12.3.2  currency : Code: The currency unit as defined in ISO 4217.
 7.8.12.4  Equality
@@ -3204,7 +3204,7 @@ The original text shall be an excerpt of the relevant information in the origina
 exact reproduction. Thus the original text  shall  be represented in plain text form. In specific circumstances, 
 when clearly descirbed the context of use, the originalText may be a reference to some other text artifact for 
 which the resolution scope is clearly described.
-NOTE  The details of the link in the originalText.reference between different artifacts of medical information (e.g ., 
+NOTE  The details of the link in the originalText.reference between different artifacts of medical information (e.g. ., 
 document and coded result) is outside the scope of  this International Standard  and  can  be further proscribed in 
 specifications that use this International Standard.
 7.10.2.4  Equality

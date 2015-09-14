@@ -497,9 +497,9 @@
   Element = TestScript.metadata.capability
   Card. = 1..*
   UML = 500;0
-  Short Label = Capabiltities that are assumed to function correctly on the FHIR server being tested
-  Definition = Capabilties that must exist and is assumed to function correctly on the FHIR server being tested.
-  Comments = When the metadata capabiltiies section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabiltiies section is defined at TestScript.test.metadata and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The \"metadata.capabilities.required\" and \"metadata.capabilities.validated\" elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose \"metadata.capabilities.validated\" flag is true are the primary focus of the test script.
+  Short Label = Capabilities  that are assumed to function correctly on the FHIR server being tested
+  Definition = Capabilities that must exist and is assumed to function correctly on the FHIR server being tested.
+  Comments = When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The \"metadata.capabilities.required\" and \"metadata.capabilities.validated\" elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose \"metadata.capabilities.validated\" flag is true are the primary focus of the test script.
 
  -- Row 22 -----------------------------------
   Element = TestScript.metadata.capability.required
@@ -544,7 +544,7 @@
   Type = Reference(Conformance)
   Short Label = Required Conformance
   Definition = Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.
-  Comments = The conformance statement of the server has to contain at a mininum the contents of the reference pointed to by this element.
+  Comments = The conformance statement of the server has to contain at a minimum the contents of the reference pointed to by this element.
 
  -- Row 28 -----------------------------------
   Element = TestScript.multiserver
@@ -644,8 +644,8 @@
   Element = TestScript.setup.metadata
   Card. = 0..1
   Type = @TestScript.metadata
-  Short Label = Capabiltities that are assumed to function correctly on the FHIR server being tested
-  Definition = Capabilties that must exist and is assumed to function correctly on the FHIR server being tested.
+  Short Label = Capabilities  that are assumed to function correctly on the FHIR server being tested
+  Definition = Capabilities that must exist and is assumed to function correctly on the FHIR server being tested.
 
  -- Row 41 -----------------------------------
   Element = TestScript.setup.action
@@ -978,8 +978,8 @@
   Element = TestScript.test.metadata
   Card. = 0..1
   Type = @TestScript.metadata
-  Short Label = Capabiltities that are expected to function correctly on the FHIR server being tested
-  Definition = Capabilties that must exist and is assumed to function correctly on the FHIR server being tested.
+  Short Label = Capabilities  that are expected to function correctly on the FHIR server being tested
+  Definition = Capabilities that must exist and is assumed to function correctly on the FHIR server being tested.
 
  -- Row 82 -----------------------------------
   Element = TestScript.test.action

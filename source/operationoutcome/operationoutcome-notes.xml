@@ -51,7 +51,7 @@ allow client systems to:
 In order to support these kinds of usages, this applications
 need to use the location element consistently. Applications
 can use the location element to refer to a location inside
-a resource, or some location in the http request (when appropriate). 
+a resource, or some location in the HTTP request (when appropriate). 
 </p>
 <h3>Reporting Errors in Resources</h3>
 <p>

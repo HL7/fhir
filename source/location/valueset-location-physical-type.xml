@@ -37,7 +37,7 @@
     <concept>
       <code value="ro"/>
       <display value="Room"/>
-      <definition value="A space that is allocated as a room, it may have walls/roof etc, but does not require these."/>
+      <definition value="A space that is allocated as a room, it may have walls/roof etc., but does not require these."/>
     </concept>
     <concept>
       <code value="bd"/>
@@ -67,7 +67,7 @@
     <concept>
       <code value="jdn"/>
       <display value="Jurisdiction"/>
-      <definition value="A wide scope that covers a conceptual domain, such as a Nation (Country wide community or Federal Government - e.g. Ministry of Health),  Province or State (community or Government), Business (throughout the enterprise), Nation with a business scope of an agency (eg. CDC, FDA etc.) or a Business segment (UK Pharmacy)."/>
+      <definition value="A wide scope that covers a conceptual domain, such as a Nation (Country wide community or Federal Government - e.g. Ministry of Health),  Province or State (community or Government), Business (throughout the enterprise), Nation with a business scope of an agency (e.g. CDC, FDA etc.) or a Business segment (UK Pharmacy)."/>
     </concept>
     <concept>
       <code value="area"/>

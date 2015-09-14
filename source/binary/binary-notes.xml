@@ -13,7 +13,7 @@ be returned as a PDF directly.
 </p>
 <p>
 Note that due to the way the web infrastructure works, it is not possible to make blanket
-rules about the relationship between the "Accept" field in the http request, and the 
+rules about the relationship between the "Accept" field in the HTTP request, and the 
 return type, which is why there is no hard rule about this. However the intent is that
 unless specifically requested, the FHIR XML/JSON representation is not returned. 
 </p>
@@ -43,7 +43,7 @@ above. The _format  parameter has no meaning when used with binary
 resources: they are always represented using their original content type.
 </p>
 <p>
-Note that on GET, POST, and PUT operations, the http content-type
+Note that on GET, POST, and PUT operations, the HTTP content-type
 header is the mime type of the binary resource, and the HTTP body is
 the resource in its binary form. (The <a href="xml.html#binary">XML</a> 
 and <a href="json.html#binary">JSON</a> Bundle Representations for binary 

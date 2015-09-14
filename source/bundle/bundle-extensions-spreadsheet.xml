@@ -1783,7 +1783,7 @@
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s104">
-					<Data ss:Type="String">Http Response header</Data>
+					<Data ss:Type="String">HTTP Response header</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s104">
@@ -1817,11 +1817,11 @@
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s104">
-					<Data ss:Type="String">Http header returned by the interaction</Data>
+					<Data ss:Type="String">HTTP header returned by the interaction</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s105">
-					<Data ss:Type="String">In a transaction, every single interaction can have multiple http response headers returned as a result of the interaction</Data>
+					<Data ss:Type="String">In a transaction, every single interaction can have multiple HTTP response headers returned as a result of the interaction</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s106">

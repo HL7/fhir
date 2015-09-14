@@ -1460,7 +1460,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Represents the date and/or time of the last known occurrence of a reaction event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g 'In Childhood, '10 years ago' the Comment element should be used.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g. 'In Childhood, '10 years ago' the Comment element should be used.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -8202,7 +8202,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Intolerance</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">Adverse reaction to a substance, not judged to be immune-mediated (non-allergic).  This can include (but is not limited to) pseudoallergic reactions, side effects, drug toxicities (eg to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions.</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">Adverse reaction to a substance, not judged to be immune-mediated (non-allergic).  This can include (but is not limited to) pseudoallergic reactions, side effects, drug toxicities (e.g. to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>

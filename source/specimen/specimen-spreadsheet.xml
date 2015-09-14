@@ -1710,7 +1710,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Direct container of specimen (tube/slide, etc)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Direct container of specimen (tube/slide, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1811,7 +1811,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Kind of container directly associated with specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of container associated with the specimen (e.g. slide, aliquot, etc)</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of container associated with the specimen (e.g. slide, aliquot, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -1133,7 +1133,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">The primary purpose of listing the subject explicitly is to help with finding the right list</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Some purely aribitrary lists do not have a common subject, so this is optional</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Some purely arbitrary lists do not have a common subject, so this is optional</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.participation[typeCode&lt;SUB].role (and sometimes .player)</Data><NamedCell

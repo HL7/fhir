@@ -2739,7 +2739,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The type of value a search parameter refers to, and how the content is interpreted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">While this can be looked up from the definition, it is included here as a convenience for systems that auto-generate a query interface based on the server conformance statement.  It SHALL be the same as the type in the search parameter definition</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server conformance statement.  It SHALL be the same as the type in the search parameter definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3027,7 +3027,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Typically, the only search parameters supported for all parameters are search parameters that apply to all resources - tags, profiles, text search etc</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Typically, the only search parameters supported for all parameters are search parameters that apply to all resources - tags, profiles, text search etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -9928,7 +9928,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The application sends or receives messages using HTTP POST (may be over http or https)</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The application sends or receives messages using HTTP POST (may be over http: or https:)</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
@@ -14429,7 +14429,7 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Type</Data></Cell>
-    <Cell><Data ss:Type="String">The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc)</Data></Cell>
+    <Cell><Data ss:Type="String">The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.)</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s145"/>

@@ -5565,7 +5565,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">OID assigned to the value set or code system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">The OID assigned the same object as the URI points to. Examples include OIDs assigned to code systems like SNOMED CT (urn:oid:2.16.840.1.113883..6.96) or LOINC (urn:oid:2.16.840.1.113883.6.1), value sets like AdministrativeGender (urn:oid:2.16.840.1.113883.11.1), identification systems like SSN (urn:oid:2.16.840.1.113883.4.1) etc</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The OID assigned the same object as the URI points to. Examples include OIDs assigned to code systems like SNOMED CT (urn:oid:2.16.840.1.113883..6.96) or LOINC (urn:oid:2.16.840.1.113883.6.1), value sets like AdministrativeGender (urn:oid:2.16.840.1.113883.11.1), identification systems like SSN (urn:oid:2.16.840.1.113883.4.1) etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Many existing terminology services are OID based</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

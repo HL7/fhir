@@ -6929,7 +6929,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s142"><Data ss:Type="String">Not Available</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The Device is no longer available for use ( e.g lost, expired, damaged)</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The Device is no longer available for use ( e.g. lost, expired, damaged)</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>

@@ -1544,7 +1544,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Required capability that is assumed to function correctly on the FHIR server being tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The required capability must exist and is assumed to function correctly on the FHIR server being tested.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The required capability must exist and are assumed to function correctly on the FHIR server being tested.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1665,12 +1665,12 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabiltities that are assumed to function correctly on the FHIR server being tested</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabilities  that are assumed to function correctly on the FHIR server being tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabilties that must exist and is assumed to function correctly on the FHIR server being tested.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">When the metadata capabiltiies section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabiltiies section is defined at TestScript.test.metadata and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The &quot;metadata.capabilities.required&quot; and &quot;metadata.capabilities.validated&quot; elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose &quot;metadata.capabilities.validated&quot; flag is true are the primary focus of the test script.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The &quot;metadata.capabilities.required&quot; and &quot;metadata.capabilities.validated&quot; elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose &quot;metadata.capabilities.validated&quot; flag is true are the primary focus of the test script.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1860,7 +1860,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The conformance statement of the server has to contain at a mininum the contents of the reference pointed to by this element. </Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The conformance statement of the server has to contain at a minimum the contents of the reference pointed to by this element. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2269,9 +2269,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabiltities that are assumed to function correctly on the FHIR server being tested</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabilities  that are assumed to function correctly on the FHIR server being tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabilties that must exist and is assumed to function correctly on the FHIR server being tested.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2883,7 +2883,7 @@
     <Cell><Data ss:Type="String">Evaluates the results of previous operations to determine if the server under test behaves appropriately. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">In order to evaluate an assertion the request, response, and results of the most recently executed operation must always be maintained by the test engine.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3525,7 +3525,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Tracking/logging name of this test</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The name of this testused for tracking/logging purposes by test engines.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The name of this test used for tracking/logging purposes by test engines.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3585,9 +3585,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabiltities that are expected to function correctly on the FHIR server being tested</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabilities  that are expected to function correctly on the FHIR server being tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabilties that must exist and is assumed to function correctly on the FHIR server being tested.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3684,7 +3684,7 @@
     <Cell><Data ss:Type="String">Evaluates the results of previous operations to determine if the server under test behaves appropriately. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">In order to evaluate an assertion the request, response, and results of the most recently executed operation must always be maintained by the test engine.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>

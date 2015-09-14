@@ -106,7 +106,7 @@
  -- Row 1 -----------------------------------
   Element = ContactPoint
   Type = Structure
-  Short Label = Details of a Technology mediated contact point (phone, fax, email, etc)
+  Short Label = Details of a Technology mediated contact point (phone, fax, email, etc.)
   Definition = Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
   Requirements = Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.
   v2 Mapping = XTN
@@ -146,7 +146,7 @@
   Short Label = home | work | temp | old | mobile - purpose of this contact point
   Definition = Identifies the purpose for the contact point
   Requirements = Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose
-  Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old contact etc for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old
+  Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old contact etc.for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old
   v2 Mapping = XTN.2 - but often indicated by field
   RIM Mapping = unique(./use)
   ServD Mapping = ./ContactPointPurpose

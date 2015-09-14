@@ -28,7 +28,7 @@
   Binding = value set
   Reference = valueset-condition-outcome
   Definition = Codes that describe the assessed outcome of the condition
-  Description = E.g 21134002 - Disability; 370996005 - Patient Condition Resolved; 37522003 - Determination of outcome, death unavoidable.
+  Description = e.g. 21134002 - Disability; 370996005 - Patient Condition Resolved; 37522003 - Determination of outcome, death unavoidable.
   Conformance = example
 
 === Sheet condition-state =====================================

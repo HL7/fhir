@@ -225,7 +225,7 @@ that was followed when the resource was constructed, and which must be understoo
 <p>
 Asserting this rule set restricts the content to be only understood by a limited set of 
 trading partners. This inherently limits the usefulness of the data in the long term,
-and should be avoided where possible. However the existing health 
+and should be avoided where possible. However, the existing health 
 eco-system is highly fractured, and not yet ready to define, collect, and exchange 
 data in a generally exchangeable sense. 
 </p>

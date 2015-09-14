@@ -385,7 +385,7 @@
   Id = 10
   Code = type
   Display = Type
-  Definition = The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc)
+  Definition = The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.)
 
 === Sheet unknown-content-code =====================================
 
@@ -968,7 +968,7 @@
   Binding = SearchParamType
   Short Label = number | date | string | token | reference | composite | quantity | uri
   Definition = The type of value a search parameter refers to, and how the content is interpreted
-  Comments = While this can be looked up from the definition, it is included here as a convenience for systems that auto-generate a query interface based on the server conformance statement.  It SHALL be the same as the type in the search parameter definition
+  Comments = While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server conformance statement.  It SHALL be the same as the type in the search parameter definition
 
  -- Row 55 -----------------------------------
   Element = Conformance.rest.resource.searchParam.documentation

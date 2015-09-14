@@ -762,7 +762,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 
 <hr/><!-- =========================================================================================================================================================== -->
 <h4 id="howToSpecifiyCapabilities">How to specify metadata capabilities</h4>
-<p>If the capabilities are supported by the server, then the TestScript can be executed.  Otherwise, the TestScript as a whole or a specific test within the test script may be skipped depending on where the capabilties section is defined.</p>
+<p>If the capabilities are supported by the server, then the TestScript can be executed.  Otherwise, the TestScript as a whole or a specific test within the test script may be skipped depending on where the capabilities section is defined.</p>
 <p>Here's how to specify that the test script requires the server to support Patient create and delete operations:</p>
 <div class="xmlCode"><xmp>
 <metadata>
@@ -796,9 +796,9 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </Conformance>
 </xmp></div>
 
-<p>When the metadata capabiltiies section is defined at <a href="testscript-definitions.html#TestScript.metadata">TestScript.metadata</a> or at <a href="testscript-definitions.html#TestScript.setup.metadata">TestScript.setup.metadata</a>, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.</p>
+<p>When the metadata capabilities section is defined at <a href="testscript-definitions.html#TestScript.metadata">TestScript.metadata</a> or at <a href="testscript-definitions.html#TestScript.setup.metadata">TestScript.setup.metadata</a>, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.</p>
 
-<p>When the metadata capabiltiies section is defined at <a href="testscript-definitions.html#TestScript.test.metadata">TestScript.test.metadata</a> and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.</p>
+<p>When the metadata capabilities section is defined at <a href="testscript-definitions.html#TestScript.test.metadata">TestScript.test.metadata</a> and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.</p>
 
 <p>The "metadata.capabilities.required" and "metadata.capabilities.validated" elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose "metadata.capabilities.validated" flag is true are the primary focus of the test script.</p>
 

@@ -1061,7 +1061,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">draft | active | retired</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates whether the namingsystem is &quot;ready for use&quot; or not.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates whether the naming system is &quot;ready for use&quot; or not.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1094,7 +1094,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">codesystem | identifier | root</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates the purpose for the namingsystem - what kinds of things does it make unique?</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates the purpose for the naming system - what kinds of things does it make unique?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1325,9 +1325,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">e.g. driver,  provider,  patient, bank etc</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">e.g. driver,  provider,  patient, bank etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Categorizes a namingsystem for easier search by grouping related namingsystems.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Categorizes a naming system for easier search by grouping related naming systems.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">This will most commonly be used for identifier namespaces, but categories could potentially be useful for code systems and authorities as well.</Data><NamedCell
@@ -1357,7 +1357,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">What does namingsystem identify?</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">What does naming system identify?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Details about what the namespace identifies including scope, granularity, version labeling, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1589,7 +1589,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">When is identifier valid?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the period of time over which this identifier is considered appropriate to refer to the namingsystem.  Outside of this window, the identifier might be non-deterministic</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Within a registry, a given identifier should only be &quot;active&quot; for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time)</Data><NamedCell
@@ -1622,7 +1622,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Use this instead</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">For namingsystems that are retired, indicates the namingsystem that should be used in their place (if any)</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">For naming systems that are retired, indicates the naming system that should be used in their place (if any)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3832,7 +3832,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">NamingSystem</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Can only have replacedBy if namingsystem is retired</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Can only have replacedBy if naming system is retired</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s108"><Data ss:Type="String">not(f:replacedBy) or f:status/@value='retired'</Data></Cell>
    </Row>
@@ -6293,7 +6293,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s147"><Data ss:Type="String">NamingSystemType</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Identifies the purpose of the namingsystem</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Identifies the purpose of the naming system</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">#namingsystem-type</Data></Cell>
@@ -6308,7 +6308,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s148"><Data ss:Type="String">NamingSystemCategory</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifies the general purpose of the namingsystem identifiers provided; e.g. Driver, Provider, Patient, Bank, etc.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifies the general purpose of the naming system identifiers provided; e.g. Driver, Provider, Patient, Bank, etc.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -6814,7 +6814,7 @@
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Code System</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The namingsystem is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s141"/>
@@ -6825,7 +6825,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The namingsystem is used to manage identifiers (e.g. license numbers, order numbers, etc.)</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.)</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -6836,7 +6836,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Root</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The namingsystem is used as the root for other identifiers and namingsystems</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The naming system is used as the root for other identifiers and naming systems</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7476,7 +7476,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Other</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Some other type of unique identifier.  E.g HL7-assigned reserved string such as LN for LOINC</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Some other type of unique identifier.  E.g. HL7-assigned reserved string such as LN for LOINC</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>

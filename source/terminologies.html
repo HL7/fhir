@@ -131,7 +131,7 @@ defining the correct URI to use:
  <li>Implementers strongly prefer a human readable URI. http://acme.com/patients/mrn is a great deal easier to work with than urn:oid:1.2.3.4.5.6.7</li>
  <li>An http: address SHOULD resolve to some useful description of the code system. Ideally, if a user makes a request of the address with the media type set to a FHIR media type, the server will respond
    with a FHIR Value Set resource with an inline <a href="valueset-definitions.html#ValueSet.codeSystem">code system</a>, but some other human or computable definition is allowed</li>
- <li>http addresses should be permalinks which may re-direct to the current correct content</li>
+ <li>HTTP addresses should be permalinks which may re-direct to the current correct content</li>
  <li>A scope of the code system URI and the correct usage of codes and displays in its namespace SHOULD be clearly defined. 
    See examples for <a href="snomedct.html">SNOMED CT</a>, <a href="rxnorm.html">RxNorm</a>, <a href="loinc.html">LOINC</a>, <a href="ndc.html">NDC</a></li>
  <li>Generally, allocation of URLs is hierarchical, and most care is required in choosing the root URL. One sub-URL policies are clearly defined, URIs can often be automatically assigned</li>

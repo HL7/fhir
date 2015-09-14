@@ -85,7 +85,7 @@
   Short Label = Unit representation
   Definition = A human-readable form of the unit
   Requirements = There are many representations for units of measure and in many contexts, particular representations are fixed and required. I.e. mcg for micrograms
-  v2 Mapping = (see OBX.6 etc) / CQ.2
+  v2 Mapping = (see OBX.6 etc.) / CQ.2
   RIM Mapping = PQ.unit
 
  -- Row 5 -----------------------------------
@@ -96,7 +96,7 @@
   Short Label = System that defines coded unit form
   Definition = The identification of the system that provides the coded form of the unit
   Requirements = Need to know the system that defines the coded form of the unit
-  v2 Mapping = (see OBX.6 etc) / CQ.2
+  v2 Mapping = (see OBX.6 etc.) / CQ.2
   RIM Mapping = CO.codeSystem, PQ.translation.codeSystem
 
  -- Row 6 -----------------------------------
@@ -107,5 +107,5 @@
   Definition = A computer processable form of the unit in some unit representation system
   Requirements = Need a computable form of the unit that is fixed across all forms. UCUM provides this for quantities, but SNOMED CT provides many units of interest
   Comments = The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system
-  v2 Mapping = (see OBX.6 etc) / CQ.2
+  v2 Mapping = (see OBX.6 etc.) / CQ.2
   RIM Mapping = PQ.code, MO.currency, PQ.translation.code

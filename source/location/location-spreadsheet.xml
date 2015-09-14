@@ -6876,7 +6876,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Kind</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The Location represents a class of Locations (e.g. Any Operating Theatre). Although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc)</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The Location represents a class of Locations (e.g. Any Operating Theatre). Although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc.)</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>

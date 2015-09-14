@@ -195,7 +195,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">CountryRegion</Data></Cell>
     <Cell><Data ss:Type="String">ISO state/province code</Data></Cell>
-    <Cell><Data ss:Type="String">If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified area of the country (state, province, terratory, etc).  For example, the state associated with a license number.</Data></Cell>
+    <Cell><Data ss:Type="String">If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified area of the country (state, province, terratory, etc.).  For example, the state associated with a license number.</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>

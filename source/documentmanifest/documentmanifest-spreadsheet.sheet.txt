@@ -89,7 +89,7 @@
   Card. = 0..1
   Type = dateTime
   Short Label = When this document manifest created
-  Definition = When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc)
+  Definition = When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc.)
   Comments = Creation time is used for tracking, organizing versions and searching. This is the creation time of the document set, not the documents on which it is based
   XDS Mapping = SubmissionSet.submissionTime
   RIM Mapping = .participation[typeCode=AUT].time

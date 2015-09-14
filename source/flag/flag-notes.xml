@@ -5,7 +5,7 @@ The Flag resource is sometimes known as "patient notes" and MAY be used to warn 
 </p>
 <ul>
  <li>Issues that impact on the patient's ability to receive/respond to care the care provision process itself (e.g. poor language comprehension, low compliance expected)</li>
- <li>Issues that impact on the ability to provide care (e.g patient has a big dog at home)</li>
+ <li>Issues that impact on the ability to provide care (e.g. patient has a big dog at home)</li>
  <li>Financial matters (e.g. patient is a bad debtor)</li>
 </ul>
 

@@ -64,13 +64,13 @@ expose FHIR interfaces even though they don't actually store any information.
 <p>
 Each resource contains a small amount of highly-focused data. A single resource doesn't say much, but a lot of very small resources 
 together create a useful clinical record. Information systems map the actions that a user takes (look up patient records, make a
-note in their history, etc) to operations on the relevant resources.
+note in their history, etc.) to operations on the relevant resources.
 </p>
 
 <h3>Extensibility and Profiling</h3>
 <p>
 The forms in FHIR are generic.  They have to be useable in different countries, by different types of clinicians
-in different contexts (human care, veterinary care, public health, research, etc).  FHIR recognizes that
+in different contexts (human care, veterinary care, public health, research, etc.).  FHIR recognizes that
 one size fits all is not appropriate in a healthcare space, so it provides the ability to adjust the
 forms to be able to handle the needs of different implementation spaces - adding additional "extensions"
 as well as enforcing constraints.  For example, a "prescription" form might have extension elements

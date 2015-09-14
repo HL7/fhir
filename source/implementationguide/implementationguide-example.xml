@@ -60,7 +60,7 @@
      <reference value="StructureDefinition/daf-patient"/>
    </profile>
   </global>
-  <!-- standard FHIR stylesheet. This doesn't need to be an absolute http reference, 
+  <!-- standard FHIR stylesheet. This doesn't need to be an absolute HTTP reference, 
     but the publishing tool gets confused if it isn't  -->
   <binary value="http://h7.org/fhir/fhir.css"/>
   <page>

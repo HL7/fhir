@@ -52,7 +52,7 @@
   Id = 5
   Code = message
   Display = Message
-  Definition = The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc) to the application identified in the URI
+  Definition = The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI
 
 === Sheet subscription-status =====================================
 
@@ -162,7 +162,7 @@
   Type = code
   Binding = SubscriptionChannelType
   Short Label = rest-hook | websocket | email | sms | message
-  Definition = The type of channel to send notififcations on
+  Definition = The type of channel to send notifications on
 
  -- Row 9 -----------------------------------
   Element = Subscription.channel.endpoint
@@ -170,7 +170,7 @@
   Type = uri
   Short Label = Where the channel points to
   Definition = The uri that describes tha actual end-point to send messages to
-  Comments = For rest-hook, and websocket, the end-point must be an http: or https URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
+  Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
 
  -- Row 10 -----------------------------------
   Element = Subscription.channel.payload

@@ -163,7 +163,7 @@
   Type = string
   Short Label = The Description of anatomical location
   Definition = Description of anatomical location.
-  Comments = This Description  could include any visual markings used to orientate the viewer e.g external reference points, special sutures, ink markings.
+  Comments = This Description  could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings.
   OpenEHR mapping = Description of anatomical location/Visual markings/orientation
 
  -- Row 15 -----------------------------------

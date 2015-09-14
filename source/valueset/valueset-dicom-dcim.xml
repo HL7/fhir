@@ -10653,7 +10653,7 @@
     <concept>
       <code value="113943"/>
       <display value="X-Ray Source Data Available"/>
-      <definition value="Parameters related to the X-Ray source (generator, tube, etc) are available to the recording application"/>
+      <definition value="Parameters related to the X-Ray source (generator, tube, etc.) are available to the recording application"/>
     </concept>
     <concept>
       <code value="113944"/>

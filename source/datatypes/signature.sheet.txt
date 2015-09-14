@@ -59,6 +59,6 @@
   Element = Signature.blob
   Card. = 1..1
   Type = base64Binary
-  Short Label = The actual signature content (XML DigSig. JWT, picture, etc)
+  Short Label = The actual signature content (XML DigSig. JWT, picture, etc.)
   Definition = The base64 encoding of the Signature content
   Comments = Where the signature type is an XML DigSig, the signed content is a FHIR Resource(s), the signature is of the XML form of the Resource(s) using  XML-Signature (XMLDIG) \"Detached Signature\" form.

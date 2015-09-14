@@ -298,7 +298,7 @@
   Element = Specimen.container
   Card. = 0..*
   UML = right
-  Short Label = Direct container of specimen (tube/slide, etc)
+  Short Label = Direct container of specimen (tube/slide, etc.)
   Definition = The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
   RIM Mapping = .player.scopingRole[classCode=CONT].scoper
 
@@ -325,7 +325,7 @@
   Type = CodeableConcept
   Binding = SpecimenContainerType
   Short Label = Kind of container directly associated with specimen
-  Definition = The type of container associated with the specimen (e.g. slide, aliquot, etc)
+  Definition = The type of container associated with the specimen (e.g. slide, aliquot, etc.)
   v2 Mapping = SPM-27
   RIM Mapping = .code
 

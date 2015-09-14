@@ -260,7 +260,7 @@
   UML = right
   Short Label = Medicine administration instructions to the patient/carer
   Definition = Indicates how the medication is to be used by the patient
-  Comments = When the dose or rate is intended to change over the entire administration period, eg. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.
+  Comments = When the dose or rate is intended to change over the entire administration period, e.g. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 

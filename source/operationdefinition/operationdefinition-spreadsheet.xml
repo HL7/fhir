@@ -1171,7 +1171,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">operation | query</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Whether this is operation or named query</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Whether this is an operation or a named query</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Named queries are invoked differently, and have different capabilities</Data><NamedCell
@@ -2011,7 +2011,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s89"><Data ss:Type="String">For value sets,the referenceResource, the display can contain the value set description.  The reference may be version-specific or not</Data><NamedCell
+    <Cell ss:Index="17" ss:StyleID="s89"><Data ss:Type="String">For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>

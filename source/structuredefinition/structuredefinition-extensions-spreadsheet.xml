@@ -4581,7 +4581,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Advisory - name of Type for implementations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">A name to use for the type, in implementations. This is a suggestion; it's not a normative part of the FHIR specification, but it does appear in the UML diagrams, and is used in generated code, schemas, etc to identify the type</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">A name to use for the type, in implementations. This is a suggestion; it's not a normative part of the FHIR specification, but it does appear in the UML diagrams, and is used in generated code, schemas, etc.to identify the type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>

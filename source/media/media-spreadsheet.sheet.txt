@@ -161,7 +161,7 @@
   Type = CodeableConcept
   Binding = MediaView
   Short Label = Imaging view, e.g. Lateral or Antero-posterior
-  Definition = The name of the imaging view e.g Lateral or Antero-posterior (AP).
+  Definition = The name of the imaging view e.g. Lateral or Antero-posterior (AP).
   RIM Mapping = DiagnosticImage.subjectOrientationCode
   w5 = class
 

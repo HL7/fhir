@@ -27,7 +27,7 @@
 		<concept>
 			<code value="body"/>
 			<display value="Body Substance"/>
-			<definition value="A substance that comes directly from a human or an animal (e.g blood, urine, feces, tears, etc.)"/>
+			<definition value="A substance that comes directly from a human or an animal (e.g. blood, urine, feces, tears, etc.)"/>
 		</concept>
 		<concept>
 			<code value="chemical"/>

@@ -107,7 +107,7 @@
           <name value="name"/>
           <valueString value="LOINC"/>
         </parameter>
-      <!--  etc  -->
+      <!--  etc. -->
       </Parameters>
     </resource>
     <response>
@@ -122,7 +122,7 @@
       <Bundle>
         <id value="fb6ed6cb-324e-4588-87cd-0c92c68986ca"/>
         <type value="searchset"/>
-      <!--  etc  -->
+      <!--  etc. -->
       </Bundle>
     </resource>
     <response>

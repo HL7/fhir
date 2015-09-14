@@ -1548,7 +1548,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates how the medication is to be used by the patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">When the dose or rate is intended to change over the entire administration period, eg. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">When the dose or rate is intended to change over the entire administration period, e.g. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]</Data><NamedCell

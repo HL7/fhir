@@ -1306,7 +1306,7 @@
             <item id="0" code="V04" desc="VXU - Unsolicited vaccination record update">
                 <desc lang="nl" value="VXU - Ongevraagde update vaccinatiegegevens"/>
             </item>
-            <item id="0" code="varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)">
+            <item id="0" code="varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g. M05 - location)">
                 <desc lang="nl" value="MFQ/MFR - Query masterbestanden (gebruik event gelijk aan vraag naar bijv. M05 - locatie)"/>
             </item>
             <item id="0" code="W01" desc="ORU - Waveform result, unsolicited transmission of requested information">
@@ -1879,7 +1879,7 @@
             <item id="187" code="V04" desc="VXU - Unsolicited vaccination record update">
                 <desc lang="nl" value="VXU - Ongevraagde update vaccinatiegegevens"/>
             </item>
-            <item id="83" code="varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)">
+            <item id="83" code="varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g. M05 - location)">
                 <desc lang="nl" value="MFQ/MFR - Query masterbestanden (gebruik event gelijk aan vraag naar bijv. M05 - locatie)"/>
             </item>
             <item id="188" code="W01" desc="ORU - Waveform result, unsolicited transmission of requested information">
@@ -2638,7 +2638,7 @@
             <item id="250" code="V04" desc="VXU - Unsolicited vaccination record update">
                 <desc lang="nl" value="VXU - Ongevraagde update vaccinatiegegevens"/>
             </item>
-            <item id="251" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)">
+            <item id="251" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g. M05 - location)">
                 <desc lang="nl" value="MFQ/MFR - Masterbestanden query (gebruik event zoals bij vragen naar bijv. M05 - locatie)"/>
             </item>
             <item id="252" code="W01" desc="ORU - Waveform result, unsolicited transmission of requested information">
@@ -3499,7 +3499,7 @@
             <item id="283" code="V04" desc="VXU - Unsolicited vaccination record update">
                 <desc lang="nl" value="VXU - Ongevraagde update vaccinatiegegevens"/>
             </item>
-            <item id="284" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)">
+            <item id="284" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g. M05 - location)">
                 <desc lang="nl" value="MFQ/MFR - Masterbestanden query (gebruik event zoals bij vragen naar bijv. M05 - locatie)"/>
             </item>
             <item id="285" code="W01" desc="ORU - Waveform result, unsolicited transmission of requested information">
@@ -4366,7 +4366,7 @@
             <item id="283" code="V04" desc="VXU - Unsolicited vaccination record update">
                 <desc lang="nl" value="VXU - Ongevraagde update vaccinatiegegevens"/>
             </item>
-            <item id="284" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)">
+            <item id="284" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g. M05 - location)">
                 <desc lang="nl" value="MFQ/MFR - Masterbestanden query (gebruik event zoals bij vragen naar bijv. M05 - locatie)"/>
             </item>
             <item id="285" code="W01" desc="ORU - Waveform result, unsolicited transmission of requested information">
@@ -5293,7 +5293,7 @@
             <item id="305" code="V04" desc="VXU - Unsolicited vaccination record update">
                 <desc lang="nl" value="VXU - Ongevraagde update vaccinatiegegevens"/>
             </item>
-            <item id="306" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)">
+            <item id="306" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g. M05 - location)">
                 <desc lang="nl" value="MFQ/MFR - Masterbestanden query (gebruik event zoals bij vragen naar bijv. M05 - locatie)"/>
             </item>
             <item id="307" code="W01" desc="ORU - Waveform result, unsolicited transmission of requested information">
@@ -6262,7 +6262,7 @@
             <item id="319" code="V04" desc="VXU - Unsolicited vaccination record update">
                 <desc lang="nl" value="VXU - Ongevraagde update vaccinatiegegevens"/>
             </item>
-            <item id="320" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g., M05 - location)">
+            <item id="320" code="Varies" desc="MFQ/MFR - Master files query (use event same as asking for e.g. M05 - location)">
                 <desc lang="nl" value="MFQ/MFR - Masterbestanden query (gebruik event zoals bij vragen naar bijv. M05 - locatie)"/>
             </item>
             <item id="321" code="W01" desc="ORU - Waveform result, unsolicited transmission of requested information">
@@ -8853,7 +8853,7 @@
             <item id="9" code="6" desc="On active military duty"/>
             <item id="11" code="9" desc="Unknown"/>
             <item id="4" code="C" desc="Contract, per diem"/>
-            <item id="5" code="L" desc="Leave of absence (e.g., family leave, sabbatical, etc.)"/>
+            <item id="5" code="L" desc="Leave of absence (e.g. family leave, sabbatical, etc.)"/>
             <item id="10" code="O" desc="Other"/>
             <item id="6" code="T" desc="Temporarily unemployed"/>
         </version>
@@ -8866,7 +8866,7 @@
             <item id="9" code="6" desc="On active military duty"/>
             <item id="11" code="9" desc="Unknown"/>
             <item id="4" code="C" desc="Contract, per diem"/>
-            <item id="5" code="L" desc="Leave of absence (e.g., family leave, sabbatical, etc.)"/>
+            <item id="5" code="L" desc="Leave of absence (e.g. family leave, sabbatical, etc.)"/>
             <item id="10" code="O" desc="Other"/>
             <item id="6" code="T" desc="Temporarily unemployed"/>
         </version>
@@ -9877,7 +9877,7 @@
             <item id="0" code="CP" desc="Cytopathology"/>
             <item id="0" code="CT" desc="CAT scan"/>
             <item id="0" code="CUS" desc="Cardiac Ultrasound"/>
-            <item id="0" code="EC" desc="Electrocardiac (e.g., EKG, EEC, Holter)"/>
+            <item id="0" code="EC" desc="Electrocardiac (e.g. EKG, EEC, Holter)"/>
             <item id="0" code="HM" desc="Hematology"/>
             <item id="0" code="IMM" desc="Immunology"/>
             <item id="0" code="MB" desc="Microbiology"/>
@@ -9909,7 +9909,7 @@
             <item id="6" code="CT" desc="CAT scan"/>
             <item id="5" code="CTH" desc="Cardiac catheterization"/>
             <item id="4" code="CUS" desc="Cardiac Ultrasound"/>
-            <item id="9" code="EC" desc="Electrocardiac (e.g., EKG, EEC, Holter)"/>
+            <item id="9" code="EC" desc="Electrocardiac (e.g. EKG, EEC, Holter)"/>
             <item id="10" code="EN" desc="Electroneuro (EEG, EMG)"/>
             <item id="11" code="HM" desc="Hematology"/>
             <item id="12" code="IMM" desc="Immunology"/>
@@ -9947,7 +9947,7 @@
             <item id="0" code="CT" desc="CAT scan"/>
             <item id="0" code="CTH" desc="Cardiac catheterization"/>
             <item id="0" code="CUS" desc="Cardiac Ultrasound"/>
-            <item id="0" code="EC" desc="Electrocardiac (e.g., EKG,  EEC, Holter)"/>
+            <item id="0" code="EC" desc="Electrocardiac (e.g. EKG,  EEC, Holter)"/>
             <item id="0" code="EN" desc="Electroneuro (EEG, EMG,EP,PSG)"/>
             <item id="0" code="HM" desc="Hematology"/>
             <item id="0" code="ICU" desc="Bedside ICU Monitoring"/>
@@ -9988,7 +9988,7 @@
             <item id="6" code="CT" desc="CAT Scan"/>
             <item id="5" code="CTH" desc="Cardiac Catheterization"/>
             <item id="4" code="CUS" desc="Cardiac Ultrasound"/>
-            <item id="9" code="EC" desc="Electrocardiac (e.g., EKG,  EEC, Holter)"/>
+            <item id="9" code="EC" desc="Electrocardiac (e.g. EKG,  EEC, Holter)"/>
             <item id="10" code="EN" desc="Electroneuro (EEG, EMG,EP,PSG)"/>
             <item id="11" code="HM" desc="Hematology"/>
             <item id="12" code="ICU" desc="Bedside ICU Monitoring"/>
@@ -10029,7 +10029,7 @@
             <item id="6" code="CT" desc="CAT Scan"/>
             <item id="5" code="CTH" desc="Cardiac Catheterization"/>
             <item id="4" code="CUS" desc="Cardiac Ultrasound"/>
-            <item id="9" code="EC" desc="Electrocardiac (e.g., EKG,  EEC, Holter)"/>
+            <item id="9" code="EC" desc="Electrocardiac (e.g. EKG,  EEC, Holter)"/>
             <item id="10" code="EN" desc="Electroneuro (EEG, EMG,EP,PSG)"/>
             <item id="11" code="HM" desc="Hematology"/>
             <item id="12" code="ICU" desc="Bedside ICU Monitoring"/>
@@ -10074,7 +10074,7 @@
             <item id="6" code="CT" desc="CAT Scan"/>
             <item id="5" code="CTH" desc="Cardiac Catheterization"/>
             <item id="4" code="CUS" desc="Cardiac Ultrasound"/>
-            <item id="9" code="EC" desc="Electrocardiac (e.g., EKG,  EEC, Holter)"/>
+            <item id="9" code="EC" desc="Electrocardiac (e.g. EKG,  EEC, Holter)"/>
             <item id="10" code="EN" desc="Electroneuro (EEG, EMG,EP,PSG)"/>
             <item id="11" code="HM" desc="Hematology"/>
             <item id="12" code="ICU" desc="Bedside ICU Monitoring"/>
@@ -10115,7 +10115,7 @@
             <item id="6" code="CT" desc="CAT Scan"/>
             <item id="5" code="CTH" desc="Cardiac Catheterization"/>
             <item id="4" code="CUS" desc="Cardiac Ultrasound"/>
-            <item id="9" code="EC" desc="Electrocardiac (e.g., EKG,  EEC, Holter)"/>
+            <item id="9" code="EC" desc="Electrocardiac (e.g. EKG,  EEC, Holter)"/>
             <item id="10" code="EN" desc="Electroneuro (EEG, EMG,EP,PSG)"/>
             <item id="11" code="HM" desc="Hematology"/>
             <item id="12" code="ICU" desc="Bedside ICU Monitoring"/>
@@ -10156,7 +10156,7 @@
             <item id="6" code="CT" desc="CAT Scan"/>
             <item id="5" code="CTH" desc="Cardiac Catheterization"/>
             <item id="4" code="CUS" desc="Cardiac Ultrasound"/>
-            <item id="9" code="EC" desc="Electrocardiac (e.g., EKG,  EEC, Holter)"/>
+            <item id="9" code="EC" desc="Electrocardiac (e.g. EKG,  EEC, Holter)"/>
             <item id="10" code="EN" desc="Electroneuro (EEG, EMG,EP,PSG)"/>
             <item id="11" code="HM" desc="Hematology"/>
             <item id="12" code="ICU" desc="Bedside ICU Monitoring"/>
@@ -10197,7 +10197,7 @@
             <item id="6" code="CT" desc="CAT Scan"/>
             <item id="5" code="CTH" desc="Cardiac Catheterization"/>
             <item id="4" code="CUS" desc="Cardiac Ultrasound"/>
-            <item id="9" code="EC" desc="Electrocardiac (e.g., EKG,  EEC, Holter)"/>
+            <item id="9" code="EC" desc="Electrocardiac (e.g. EKG,  EEC, Holter)"/>
             <item id="10" code="EN" desc="Electroneuro (EEG, EMG,EP,PSG)"/>
             <item id="11" code="HM" desc="Hematology"/>
             <item id="12" code="ICU" desc="Bedside ICU Monitoring"/>
@@ -11440,7 +11440,7 @@
             <item id="0" code="P" desc="Preliminary results"/>
             <item id="0" code="R" desc="Results entered -- not verified"/>
             <item id="0" code="S" desc="Partial results"/>
-            <item id="0" code="U" desc="Results status change to Final.  Results did not change (don't transmit test).  E.g., radiology changes status from preliminary to final"/>
+            <item id="0" code="U" desc="Results status change to Final.  Results did not change (don't transmit test); e.g. radiology changes status from preliminary to final"/>
             <item id="0" code="X" desc="Results cannot be obtained for this observation"/>
         </version>
         <version version="2.3.1" desc="Observation result status codes interpretation">
@@ -11453,8 +11453,8 @@
             <item id="7" code="P" desc="Preliminary results"/>
             <item id="8" code="R" desc="Results entered -- not verified"/>
             <item id="9" code="S" desc="Partial results"/>
-            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as ‘preliminary.’  E.g., radiology changes status from preliminary to final"/>
-            <item id="12" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as ‘preliminary.’  E.g. radiology changes status from preliminary to final"/>
+            <item id="12" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
             <item id="10" code="X" desc="Results cannot be obtained for this observation"/>
         </version>
         <version version="2.4" desc="Observation result status codes interpretation">
@@ -11467,8 +11467,8 @@
             <item id="7" code="P" desc="Preliminary results"/>
             <item id="8" code="R" desc="Results entered -- not verified"/>
             <item id="9" code="S" desc="Partial results"/>
-            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as 'preliminary.'  E.g., radiology changes status from preliminary to final"/>
-            <item id="12" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as 'preliminary.'  E.g. radiology changes status from preliminary to final"/>
+            <item id="12" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
             <item id="10" code="X" desc="Results cannot be obtained for this observation"/>
         </version>
         <version version="2.5" desc="Observation result status codes interpretation">
@@ -11481,8 +11481,8 @@
             <item id="7" code="P" desc="Preliminary results"/>
             <item id="8" code="R" desc="Results entered -- not verified"/>
             <item id="9" code="S" desc="Partial results"/>
-            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as &quot;preliminary&quot;.  E.g., radiology changes status from preliminary to final"/>
-            <item id="12" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as &quot;preliminary&quot;; e.g. radiology changes status from preliminary to final"/>
+            <item id="12" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
             <item id="10" code="X" desc="Results cannot be obtained for this observation"/>
         </version>
         <version version="2.5.1" desc="Observation result status codes interpretation">
@@ -11495,8 +11495,8 @@
             <item id="7" code="P" desc="Preliminary results"/>
             <item id="8" code="R" desc="Results entered -- not verified"/>
             <item id="9" code="S" desc="Partial results"/>
-            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as â??preliminary.'  E.g., radiology changes status from preliminary to final"/>
-            <item id="12" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as â??preliminary.'  E.g. radiology changes status from preliminary to final"/>
+            <item id="12" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
             <item id="10" code="X" desc="Results cannot be obtained for this observation"/>
         </version>
         <version version="2.6" desc="Observation result status codes interpretation">
@@ -11509,8 +11509,8 @@
             <item id="7" code="P" desc="Preliminary results"/>
             <item id="8" code="R" desc="Results entered -- not verified"/>
             <item id="9" code="S" desc="Partial results.   Deprecated. Retained only for backward compatibility as of V2.6."/>
-            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as 'preliminary.'  E.g., radiology changes status from preliminary to final"/>
-            <item id="12" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as 'preliminary.'  E.g. radiology changes status from preliminary to final"/>
+            <item id="12" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
             <item id="10" code="X" desc="Results cannot be obtained for this observation"/>
         </version>
         <version version="2.7" desc="Observation Result Status Codes Interpretation">
@@ -11523,8 +11523,8 @@
             <item id="7" code="P" desc="Preliminary results"/>
             <item id="8" code="R" desc="Results entered -- not verified"/>
             <item id="9" code="S" desc="Partial results.   Deprecated. Retained only for backward compatibility as of V2.6."/>
-            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as 'preliminary.'  E.g., radiology changes status from preliminary to final"/>
-            <item id="12" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="11" code="U" desc="Results status change to final without retransmitting results already sent as 'preliminary.'  E.g. radiology changes status from preliminary to final"/>
+            <item id="12" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
             <item id="10" code="X" desc="Results cannot be obtained for this observation"/>
         </version>
     </table>
@@ -12269,7 +12269,7 @@
             <item id="38" code="38" desc="Still patient to be defined at state level, if necessary"/>
             <item id="39" code="39" desc="Still patient to be defined at state level, if necessary"/>
             <item id="40" code="40" desc="Expired at home"/>
-            <item id="41" code="41" desc="Expired in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice"/>
+            <item id="41" code="41" desc="Expired in a medical facility; e.g. hospital, SNF, ICF, or free standing hospice"/>
             <item id="42" code="42" desc="Expired - place unknown"/>
         </version>
         <version version="2.4" desc="Discharge disposition">
@@ -12288,7 +12288,7 @@
             <item id="13" code="30" desc="Still patient or expected to return for outpatient services (i.e. still a patient)"/>
             <item id="14" code="31 ... 39" desc="Still patient to be defined at state level, if necessary  (i.e. still a patient)"/>
             <item id="15" code="40" desc="Expired (i.e. died) at home"/>
-            <item id="16" code="41" desc="Expired (i.e. died) in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice"/>
+            <item id="16" code="41" desc="Expired (i.e. died) in a medical facility; e.g. hospital, SNF, ICF, or free standing hospice"/>
             <item id="17" code="42" desc="Expired (i.e. died)  - place unknown"/>
         </version>
         <version version="2.5" desc="Discharge Disposition">
@@ -12307,7 +12307,7 @@
             <item id="13" code="30" desc="Still patient or expected to return for outpatient services (i.e. still a patient)"/>
             <item id="14" code="31 ... 39" desc="Still patient to be defined at state level, if necessary  (i.e. still a patient)"/>
             <item id="15" code="40" desc="Expired (i.e. died) at home"/>
-            <item id="16" code="41" desc="Expired (i.e. died) in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice"/>
+            <item id="16" code="41" desc="Expired (i.e. died) in a medical facility; e.g. hospital, SNF, ICF, or free standing hospice"/>
             <item id="17" code="42" desc="Expired (i.e. died)  - place unknown"/>
         </version>
         <version version="2.5.1" desc="Discharge Disposition">
@@ -12326,7 +12326,7 @@
             <item id="13" code="30" desc="Still patient or expected to return for outpatient services (i.e. still a patient)"/>
             <item id="14" code="31 ... 39" desc="Still patient to be defined at state level, if necessary  (i.e. still a patient)"/>
             <item id="15" code="40" desc="Expired (i.e. died) at home"/>
-            <item id="16" code="41" desc="Expired (i.e. died) in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice"/>
+            <item id="16" code="41" desc="Expired (i.e. died) in a medical facility; e.g. hospital, SNF, ICF, or free standing hospice"/>
             <item id="17" code="42" desc="Expired (i.e. died)  - place unknown"/>
         </version>
         <version version="2.6" desc="Discharge Disposition">
@@ -12345,7 +12345,7 @@
             <item id="13" code="30" desc="Still patient or expected to return for outpatient services (i.e. still a patient)"/>
             <item id="14" code="31 ... 39" desc="Still patient to be defined at state level, if necessary  (i.e. still a patient)"/>
             <item id="15" code="40" desc="Expired (i.e. died) at home"/>
-            <item id="16" code="41" desc="Expired (i.e. died) in a medical facility; e.g., hospital, SNF, ICF, or free standing hospice"/>
+            <item id="16" code="41" desc="Expired (i.e. died) in a medical facility; e.g. hospital, SNF, ICF, or free standing hospice"/>
             <item id="17" code="42" desc="Expired (i.e. died)  - place unknown"/>
         </version>
         <version version="2.7" desc="Discharge Disposition">
@@ -16244,7 +16244,7 @@
         <version version="2.2" desc="PROCESSING PRIORITY">
             <item id="2" code="A" desc="As soon as possible (a priority lower than stat)"/>
             <item id="7" code="B" desc="Do at bedside or portable (may be used with other codes)"/>
-            <item id="6" code="C" desc="Measure continously (e.g., arterial line blood pressure)"/>
+            <item id="6" code="C" desc="Measure continously (e.g. arterial line blood pressure)"/>
             <item id="4" code="P" desc="Preoperative (to be done prior to surgery)"/>
             <item id="3" code="R" desc="Routine"/>
             <item id="1" code="S" desc="Stat (do immediately)"/>
@@ -16253,7 +16253,7 @@
         <version version="2.3" desc="Processing Priority">
             <item id="0" code="A" desc="As soon as possible (a priority lower than stat)"/>
             <item id="0" code="B" desc="Do at bedside or portable (may be used with other codes)"/>
-            <item id="0" code="C" desc="Measure continuously (e.g., arterial line blood pressure)"/>
+            <item id="0" code="C" desc="Measure continuously (e.g. arterial line blood pressure)"/>
             <item id="0" code="P" desc="Preoperative (to be done prior to surgery)"/>
             <item id="0" code="R" desc="Routine"/>
             <item id="0" code="S" desc="Stat (do immediately)"/>
@@ -16262,7 +16262,7 @@
         <version version="2.3.1" desc="Processing priority">
             <item id="2" code="A" desc="As soon as possible (a priority lower than stat)"/>
             <item id="7" code="B" desc="Do at bedside or portable (may be used with other codes)"/>
-            <item id="6" code="C" desc="Measure continuously (e.g., arterial line blood pressure)"/>
+            <item id="6" code="C" desc="Measure continuously (e.g. arterial line blood pressure)"/>
             <item id="4" code="P" desc="Preoperative (to be done prior to surgery)"/>
             <item id="3" code="R" desc="Routine"/>
             <item id="1" code="S" desc="Stat (do immediately)"/>
@@ -16271,7 +16271,7 @@
         <version version="2.4" desc="Processing priority">
             <item id="2" code="A" desc="As soon as possible (a priority lower than stat)"/>
             <item id="7" code="B" desc="Do at bedside or portable (may be used with other codes)"/>
-            <item id="6" code="C" desc="Measure continuously (e.g., arterial line blood pressure)"/>
+            <item id="6" code="C" desc="Measure continuously (e.g. arterial line blood pressure)"/>
             <item id="4" code="P" desc="Preoperative (to be done prior to surgery)"/>
             <item id="3" code="R" desc="Routine"/>
             <item id="1" code="S" desc="Stat (do immediately)"/>
@@ -16280,7 +16280,7 @@
         <version version="2.5" desc="Processing priority">
             <item id="2" code="A" desc="As soon as possible (a priority lower than stat)"/>
             <item id="7" code="B" desc="Do at bedside or portable (may be used with other codes)"/>
-            <item id="6" code="C" desc="Measure continuously (e.g., arterial line blood pressure)"/>
+            <item id="6" code="C" desc="Measure continuously (e.g. arterial line blood pressure)"/>
             <item id="4" code="P" desc="Preoperative (to be done prior to surgery)"/>
             <item id="3" code="R" desc="Routine"/>
             <item id="1" code="S" desc="Stat (do immediately)"/>
@@ -16289,7 +16289,7 @@
         <version version="2.5.1" desc="Processing priority">
             <item id="2" code="A" desc="As soon as possible (a priority lower than stat)"/>
             <item id="7" code="B" desc="Do at bedside or portable (may be used with other codes)"/>
-            <item id="6" code="C" desc="Measure continuously (e.g., arterial line blood pressure)"/>
+            <item id="6" code="C" desc="Measure continuously (e.g. arterial line blood pressure)"/>
             <item id="4" code="P" desc="Preoperative (to be done prior to surgery)"/>
             <item id="3" code="R" desc="Routine"/>
             <item id="1" code="S" desc="Stat (do immediately)"/>
@@ -16298,7 +16298,7 @@
         <version version="2.6" desc="Processing priority">
             <item id="2" code="A" desc="As soon as possible (a priority lower than stat)"/>
             <item id="7" code="B" desc="Do at bedside or portable (may be used with other codes)"/>
-            <item id="6" code="C" desc="Measure continuously (e.g., arterial line blood pressure)"/>
+            <item id="6" code="C" desc="Measure continuously (e.g. arterial line blood pressure)"/>
             <item id="4" code="P" desc="Preoperative (to be done prior to surgery)"/>
             <item id="3" code="R" desc="Routine"/>
             <item id="1" code="S" desc="Stat (do immediately)"/>
@@ -16307,7 +16307,7 @@
         <version version="2.7" desc="Processing Priority">
             <item id="2" code="A" desc="As soon as possible (a priority lower than stat)"/>
             <item id="7" code="B" desc="Do at bedside or portable (may be used with other codes)"/>
-            <item id="6" code="C" desc="Measure continuously (e.g., arterial line blood pressure)"/>
+            <item id="6" code="C" desc="Measure continuously (e.g. arterial line blood pressure)"/>
             <item id="4" code="P" desc="Preoperative (to be done prior to surgery)"/>
             <item id="3" code="R" desc="Routine"/>
             <item id="1" code="S" desc="Stat (do immediately)"/>
@@ -16669,52 +16669,52 @@
         </version>
         <version version="2.3" desc="Nature of Test/Observation">
             <item id="0" code="A" desc="Atomic test/observation (test code or treatment code)"/>
-            <item id="0" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g., Alveolar--arterial ratio, cardiac output)"/>
-            <item id="0" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g., glucose tolerance test, creatine clearance), usually done at different times and/or on different specimens"/>
-            <item id="0" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g., SMA12, electrolytes), usually done at one instrument on one specimen"/>
-            <item id="0" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g., routines = CBC, UA, electrolytes)"/>
+            <item id="0" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g. Alveolar--arterial ratio, cardiac output)"/>
+            <item id="0" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g. glucose tolerance test, creatine clearance), usually done at different times and/or on different specimens"/>
+            <item id="0" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g. SMA12, electrolytes), usually done at one instrument on one specimen"/>
+            <item id="0" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g. routines = CBC, UA, electrolytes)"/>
         </version>
         <version version="2.3.1" desc="Nature of test/observation">
             <item id="3" code="A" desc="Atomic test/observation (test code or treatment code)"/>
-            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g., Alveolar--arterial ratio, cardiac output)"/>
-            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g., glucose tolerance test, creatine clearance), usually done at different times and/or on different specimens"/>
-            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g., SMA12, electrolytes), usually done at one instrument on one specimen"/>
-            <item id="4" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g., routines = CBC, UA, electrolytes)"/>
+            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g. Alveolar--arterial ratio, cardiac output)"/>
+            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g. glucose tolerance test, creatine clearance), usually done at different times and/or on different specimens"/>
+            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g. SMA12, electrolytes), usually done at one instrument on one specimen"/>
+            <item id="4" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g. routines = CBC, UA, electrolytes)"/>
         </version>
         <version version="2.4" desc="Nature of service/test/observation">
             <item id="3" code="A" desc="Atomic service/test/observation (test code or treatment code)"/>
-            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g., Alveolar--arterial ratio, cardiac output)"/>
-            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g., glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
-            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g., SMA12, electrolytes), usually done at one instrument on one specimen"/>
-            <item id="4" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g., routines = CBC, UA, electrolytes); This set indicates that the code being described is used to order multiple service/test/observation b"/>
+            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g. Alveolar--arterial ratio, cardiac output)"/>
+            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g. glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
+            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g. SMA12, electrolytes), usually done at one instrument on one specimen"/>
+            <item id="4" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g. routines = CBC, UA, electrolytes); This set indicates that the code being described is used to order multiple service/test/observation b"/>
         </version>
         <version version="2.5" desc="Nature of Service/Test/Observation">
             <item id="3" code="A" desc="Atomic service/test/observation (test code or treatment code)"/>
-            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g., Alveolar--arterial ratio, cardiac output)"/>
-            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g., glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
-            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g., SMA12, electrolytes), usually done at one instrument on one specimen"/>
-            <item id="4" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g., routines = CBC, UA, electrolytes)"/>
+            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g. Alveolar--arterial ratio, cardiac output)"/>
+            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g. glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
+            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g. SMA12, electrolytes), usually done at one instrument on one specimen"/>
+            <item id="4" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g. routines = CBC, UA, electrolytes)"/>
         </version>
         <version version="2.5.1" desc="Nature of Service/Test/Observation">
             <item id="3" code="A" desc="Atomic service/test/observation (test code or treatment code)"/>
-            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g., Alveolar--arterial ratio, cardiac output)"/>
-            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g., glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
-            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g., SMA12, electrolytes), usually done at one instrument on one specimen"/>
-            <item id="4" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g., routines = CBC, UA, electrolytes)&lt;p&gt;This set indicates that the code being described is used to order multiple service/test/observation"/>
+            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g. Alveolar--arterial ratio, cardiac output)"/>
+            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g. glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
+            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g. SMA12, electrolytes), usually done at one instrument on one specimen"/>
+            <item id="4" code="S" desc="Superset--a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g. routines = CBC, UA, electrolytes)&lt;p&gt;This set indicates that the code being described is used to order multiple service/test/observation"/>
         </version>
         <version version="2.6" desc="Nature of Service/Test/Observation">
             <item id="3" code="A" desc="Atomic service/test/observation (test code or treatment code)"/>
-            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g., Alveolar-arterial ratio, cardiac output)"/>
-            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g., glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
-            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g., SMA12, electrolytes), usually done at one instrument on one specimen"/>
-            <item id="4" code="S" desc="Superset-a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g., routines = CBC, UA, electrolytes)&lt;p&gt;This set indicates that the code being described is used to order multiple service/test/observation b"/>
+            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g. Alveolar-arterial ratio, cardiac output)"/>
+            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g. glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
+            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g. SMA12, electrolytes), usually done at one instrument on one specimen"/>
+            <item id="4" code="S" desc="Superset-a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g. routines = CBC, UA, electrolytes)&lt;p&gt;This set indicates that the code being described is used to order multiple service/test/observation b"/>
         </version>
         <version version="2.7" desc="Nature of Service/Test/Observation">
             <item id="3" code="A" desc="Atomic service/test/observation (test code or treatment code)"/>
-            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g., Alveolar-arterial ratio, cardiac output)"/>
-            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g., glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
-            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g., SMA12, electrolytes), usually done at one instrument on one specimen"/>
-            <item id="4" code="S" desc="Superset-a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g., routines = CBC, UA, electrolytes)&lt;p&gt;This set indicates that the code being described is used to order multiple service/test/observation b"/>
+            <item id="5" code="C" desc="Single observation calculated via a rule or formula from other independent observations (e.g. Alveolar-arterial ratio, cardiac output)"/>
+            <item id="2" code="F" desc="Functional procedure that may consist of one or more interrelated measures (e.g. glucose tolerance test, creatinine clearance), usually done at different times and/or on different specimens"/>
+            <item id="1" code="P" desc="Profile or battery consisting of many independent atomic observations (e.g. SMA12, electrolytes), usually done at one instrument on one specimen"/>
+            <item id="4" code="S" desc="Superset-a set of batteries or procedures ordered under a single code unit but processed as separate batteries (e.g. routines = CBC, UA, electrolytes)&lt;p&gt;This set indicates that the code being described is used to order multiple service/test/observation b"/>
         </version>
     </table>
     <table id="175">
@@ -16735,7 +16735,7 @@
             <item id="0" code="CM1" desc="Clinical study phase master"/>
             <item id="0" code="CM2" desc="Clinical study Data Schedule Master"/>
             <item id="0" code="LOC" desc="Location master file (see Chapter 3, Appendix)"/>
-            <item id="0" code="OM1-OM6" desc="Observation text master file segments (e.g., Lab) (see Chapter 87, Appendix B):"/>
+            <item id="0" code="OM1-OM6" desc="Observation text master file segments (e.g. Lab) (see Chapter 87, Appendix B):"/>
             <item id="0" code="PRA" desc="Practitioner master file (see Chapter 8, Appendix)"/>
             <item id="0" code="STF" desc="Staff Master File (see Chapter 8, Appendix)"/>
         </version>
@@ -19694,43 +19694,43 @@
         <version version="2.3" desc="Procedure Functional Type">
             <item id="0" code="A" desc="Anesthesia"/>
             <item id="0" code="D" desc="Diagnostic Procedure"/>
-            <item id="0" code="I" desc="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)"/>
+            <item id="0" code="I" desc="Invasive procedure not classified elsewhere (e.g. IV, catheter, etc.)"/>
             <item id="0" code="P" desc="Procedure for treatment (therapeutic includes operations)"/>
         </version>
         <version version="2.3.1" desc="Procedure functional type">
             <item id="1" code="A" desc="Anesthesia"/>
             <item id="4" code="D" desc="Diagnostic procedure"/>
-            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)"/>
+            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g. IV, catheter, etc.)"/>
             <item id="2" code="P" desc="Procedure for treatment (therapeutic, including operations)"/>
         </version>
         <version version="2.4" desc="Procedure functional type">
             <item id="1" code="A" desc="Anesthesia"/>
             <item id="4" code="D" desc="Diagnostic procedure"/>
-            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)"/>
+            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g. IV, catheter, etc.)"/>
             <item id="2" code="P" desc="Procedure for treatment (therapeutic, including operations)"/>
         </version>
         <version version="2.5" desc="Procedure Functional Type">
             <item id="1" code="A" desc="Anesthesia"/>
             <item id="4" code="D" desc="Diagnostic procedure"/>
-            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)"/>
+            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g. IV, catheter, etc.)"/>
             <item id="2" code="P" desc="Procedure for treatment (therapeutic, including operations)"/>
         </version>
         <version version="2.5.1" desc="Procedure Functional Type">
             <item id="1" code="A" desc="Anesthesia"/>
             <item id="4" code="D" desc="Diagnostic procedure"/>
-            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)"/>
+            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g. IV, catheter, etc.)"/>
             <item id="2" code="P" desc="Procedure for treatment (therapeutic, including operations)"/>
         </version>
         <version version="2.6" desc="Procedure Functional Type">
             <item id="1" code="A" desc="Anesthesia"/>
             <item id="4" code="D" desc="Diagnostic procedure"/>
-            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)"/>
+            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g. IV, catheter, etc.)"/>
             <item id="2" code="P" desc="Procedure for treatment (therapeutic, including operations)"/>
         </version>
         <version version="2.7" desc="Procedure Functional Type">
             <item id="1" code="A" desc="Anesthesia"/>
             <item id="4" code="D" desc="Diagnostic procedure"/>
-            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)"/>
+            <item id="3" code="I" desc="Invasive procedure not classified elsewhere (e.g. IV, catheter, etc.)"/>
             <item id="2" code="P" desc="Procedure for treatment (therapeutic, including operations)"/>
         </version>
     </table>
@@ -20579,7 +20579,7 @@
     <table id="248">
         <version version="2.3" desc="Product Source">
             <item id="0" code="A" desc="Actual product involved in incident was evaluated"/>
-            <item id="0" code="L" desc="A product from the same lot as the the actual product involved was evaluated"/>
+            <item id="0" code="L" desc="A product from the same lot as the actual product involved was evaluated"/>
             <item id="0" code="N" desc="A product from a controlled/non-related inventory was evaluated"/>
             <item id="0" code="R" desc="A product from a reserve sample was evaluated"/>
         </version>
@@ -21967,37 +21967,37 @@
     </table>
     <table id="257">
         <version version="2.3" desc="Nature of Challenge">
-            <item id="0" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g., 1H POST CFST"/>
+            <item id="0" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g. 1H POST CFST"/>
             <item id="0" code="EXCZ" desc="Exercise undertaken as challenge (can be quantified)"/>
             <item id="0" code="FFST" desc="No fluid intake for the period specified in the time component of the term"/>
         </version>
         <version version="2.3.1" desc="Nature of challenge">
-            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g., 1H POST  CFST"/>
+            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g. 1H POST  CFST"/>
             <item id="2" code="EXCZ" desc="Exercise undertaken as challenge (can be quantified)"/>
             <item id="3" code="FFST" desc="No fluid intake for the period specified in the time component of the term"/>
         </version>
         <version version="2.4" desc="Nature of challenge">
-            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g., 1H POST CFST"/>
+            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g. 1H POST CFST"/>
             <item id="2" code="EXCZ" desc="Exercise undertaken as challenge (can be quantified)"/>
             <item id="3" code="FFST" desc="No fluid intake for the period specified in the time component of the term"/>
         </version>
         <version version="2.5" desc="Nature of challenge">
-            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g., 1H POST CFST"/>
+            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g. 1H POST CFST"/>
             <item id="2" code="EXCZ" desc="Exercise undertaken as challenge (can be quantified)"/>
             <item id="3" code="FFST" desc="No fluid intake for the period specified in the time component of the term"/>
         </version>
         <version version="2.5.1" desc="Nature of challenge">
-            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g., 1H POST CFST"/>
+            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g. 1H POST CFST"/>
             <item id="2" code="EXCZ" desc="Exercise undertaken as challenge (can be quantified)"/>
             <item id="3" code="FFST" desc="No fluid intake for the period specified in the time component of the term"/>
         </version>
         <version version="2.6" desc="Nature of challenge">
-            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g., 1H POST CFST"/>
+            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g. 1H POST CFST"/>
             <item id="2" code="EXCZ" desc="Exercise undertaken as challenge (can be quantified)"/>
             <item id="3" code="FFST" desc="No fluid intake for the period specified in the time component of the term"/>
         </version>
         <version version="2.7" desc="Nature of Challenge">
-            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g., 1H POST CFST"/>
+            <item id="1" code="CFST" desc="Fasting (no calorie intake) for the period specified in the time component of the term, e.g. 1H POST CFST"/>
             <item id="2" code="EXCZ" desc="Exercise undertaken as challenge (can be quantified)"/>
             <item id="3" code="FFST" desc="No fluid intake for the period specified in the time component of the term"/>
         </version>
@@ -23230,39 +23230,39 @@
     </table>
     <table id="277">
         <version version="2.3" desc="Appointment Type Codes">
-            <item id="0" code="COMPLETE" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g., STAT, walk-in, etc.)"/>
+            <item id="0" code="COMPLETE" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g. STAT, walk-in, etc.)"/>
             <item id="0" code="NORMAL" desc="Routine schedule request type - default if not valued"/>
-            <item id="0" code="TENTATIVE" desc="A request for a tentative (e.g., “penciled in”) appointment"/>
+            <item id="0" code="TENTATIVE" desc="A request for a tentative (e.g. “penciled in”) appointment"/>
         </version>
         <version version="2.3.1" desc="Appointment type codes">
             <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments"/>
             <item id="1" code="Normal" desc="Routine schedule request type - default if not valued"/>
-            <item id="2" code="Tentative" desc="A request for a tentative (e.g., “penciled in”) appointment"/>
+            <item id="2" code="Tentative" desc="A request for a tentative (e.g. “penciled in”) appointment"/>
         </version>
         <version version="2.4" desc="Appointment type codes">
-            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g., STAT, walk-in, etc.)"/>
+            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g. STAT, walk-in, etc.)"/>
             <item id="1" code="Normal" desc="Routine schedule request type - default if not valued"/>
-            <item id="2" code="Tentative" desc="A request for a tentative (e.g., &quot;penciled in&quot;) appointment"/>
+            <item id="2" code="Tentative" desc="A request for a tentative (e.g. &quot;penciled in&quot;) appointment"/>
         </version>
         <version version="2.5" desc="Appointment Type Codes">
-            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g., STAT, walk-in, etc.)"/>
+            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g. STAT, walk-in, etc.)"/>
             <item id="1" code="Normal" desc="Routine schedule request type - default if not valued"/>
-            <item id="2" code="Tentative" desc="A request for a tentative (e.g., &quot;penciled in&quot;) appointment"/>
+            <item id="2" code="Tentative" desc="A request for a tentative (e.g. &quot;penciled in&quot;) appointment"/>
         </version>
         <version version="2.5.1" desc="Appointment Type Codes">
-            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g., STAT, walk-in, etc.)"/>
+            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g. STAT, walk-in, etc.)"/>
             <item id="1" code="Normal" desc="Routine schedule request type - default if not valued"/>
-            <item id="2" code="Tentative" desc="A request for a tentative (e.g., &quot;penciled in&quot;) appointment"/>
+            <item id="2" code="Tentative" desc="A request for a tentative (e.g. &quot;penciled in&quot;) appointment"/>
         </version>
         <version version="2.6" desc="Appointment Type Codes">
-            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g., STAT, walk-in, etc.)"/>
+            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g. STAT, walk-in, etc.)"/>
             <item id="1" code="Normal" desc="Routine schedule request type - default if not valued"/>
-            <item id="2" code="Tentative" desc="A request for a tentative (e.g., &quot;penciled in&quot;) appointment"/>
+            <item id="2" code="Tentative" desc="A request for a tentative (e.g. &quot;penciled in&quot;) appointment"/>
         </version>
         <version version="2.7" desc="Appointment Type Codes">
-            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g., STAT, walk-in, etc.)"/>
+            <item id="3" code="Complete" desc="A request to add a completed appointment, used to maintain records of completed appointments that did not appear in the schedule (e.g. STAT, walk-in, etc.)"/>
             <item id="1" code="Normal" desc="Routine schedule request type - default if not valued"/>
-            <item id="2" code="Tentative" desc="A request for a tentative (e.g., &quot;penciled in&quot;) appointment"/>
+            <item id="2" code="Tentative" desc="A request for a tentative (e.g. &quot;penciled in&quot;) appointment"/>
         </version>
     </table>
     <table id="278">
@@ -25924,16 +25924,16 @@
         <version version="2.3.1" desc="Repeat Pattern"/>
         <version version="2.4" desc="Repeat pattern">
             <item id="23" code="A" desc="Ante (before)"/>
-            <item id="8" code="BID" desc="twice a day at institution-specified times (e.g., 9AM-4PM)"/>
+            <item id="8" code="BID" desc="twice a day at institution-specified times (e.g. 9AM-4PM)"/>
             <item id="17" code="C" desc="service is provided continuously between start time and stop time"/>
             <item id="27" code="D" desc="Cibus Diurnus (lunch)"/>
-            <item id="25" code="I" desc="Inter (e.g., between this meal and the next, between dinner and sleep"/>
+            <item id="25" code="I" desc="Inter (e.g. between this meal and the next, between dinner and sleep"/>
             <item id="26" code="M" desc="Cibus Matutinus (breakfast)"/>
             <item id="22" code="Meal Related Timings" desc="&lt;timing&gt;C (&quot;cum&quot;)&lt;meal&gt;"/>
             <item id="21" code="Once" desc="one time only.  This is also the default when this component is null."/>
             <item id="24" code="P" desc="Post (after)"/>
             <item id="19" code="PRN" desc="given as needed"/>
-            <item id="20" code="PRNxxx" desc="where xxx is some frequency code (e.g., PRNQ6H); given as needed over the frequency period."/>
+            <item id="20" code="PRNxxx" desc="where xxx is some frequency code (e.g. PRNQ6H); given as needed over the frequency period."/>
             <item id="4" code="Q&lt;integer&gt;D" desc="every &lt;integer&gt; days"/>
             <item id="3" code="Q&lt;integer&gt;H" desc="every &lt;integer&gt; hours"/>
             <item id="7" code="Q&lt;integer&gt;J&lt;day#&gt;" desc="repeats on a particular day of the week, from the French jour (day).  If &lt;integer&gt; is missing, the repeat rate is assumed to be 1.  Day numbers are counted from 1=Monday to 7=Sunday.  So Q2J2 means every second Tuesday; Q1J6 means every Saturday."/>
@@ -25943,14 +25943,14 @@
             <item id="5" code="Q&lt;integer&gt;W" desc="every &lt;integer&gt; weeks"/>
             <item id="12" code="QAM" desc="in the morning at institution-specified time"/>
             <item id="15" code="QHS" desc="every day before the hour of sleep"/>
-            <item id="10" code="QID" desc="four times a day at institution-specified times (e.g., 9AM-11AM-4PM-9PM)"/>
+            <item id="10" code="QID" desc="four times a day at institution-specified times (e.g. 9AM-11AM-4PM-9PM)"/>
             <item id="14" code="QOD" desc="every other day (same as Q2D)"/>
             <item id="16" code="QPM" desc="in the evening at institution-specified time"/>
             <item id="13" code="QSHIFT" desc="during each of three eight-hour shifts at institution-specified times"/>
-            <item id="9" code="TID" desc="three times a day at institution-specified times (e.g., 9AM-4PM-9PM)"/>
+            <item id="9" code="TID" desc="three times a day at institution-specified times (e.g. 9AM-4PM-9PM)"/>
             <item id="18" code="U &lt;spec&gt;" desc="for future use, where &lt;spec&gt; is an interval specification as defined by the UNIX cron specification."/>
             <item id="28" code="V" desc="Cibus Vespertinus (dinner)"/>
-            <item id="11" code="xID" desc="&quot;X&quot; times per day at institution-specified times, where X is a numeral 5 or greater.  E.g., 5ID=five times per day; 8ID=8 times per day"/>
+            <item id="11" code="xID" desc="&quot;X&quot; times per day at institution-specified times, where X is a numeral 5 or greater; e.g. 5ID=five times per day; 8ID=8 times per day"/>
         </version>
         <version version="2.5" desc="Repeat pattern">
             <item id="23" code="A" desc="Ante (before)"/>
@@ -29257,7 +29257,7 @@
     </table>
     <table id="376">
         <version version="2.4" desc="Special handling considerations">
-            <item id="6" code="C37" desc="Critical maintain at 37C (e.g., cryoglobulin specimen"/>
+            <item id="6" code="C37" desc="Critical maintain at 37C (e.g. cryoglobulin specimen"/>
             <item id="5" code="CAMB" desc="Critical ambient temperature"/>
             <item id="3" code="CATM" desc="Critical do not expose to atmosphere - Do not uncap"/>
             <item id="2" code="CFRZ" desc="Critical Frozen"/>
@@ -29506,7 +29506,7 @@
             <item id="4" code="PT" desc="Pretreatment"/>
             <item id="7" code="PW" desc="Purified Water"/>
             <item id="5" code="RC" desc="Reagent Calibrator"/>
-            <item id="10" code="SC" desc="Countable Solid Item (e.g., Tip, etc.)"/>
+            <item id="10" code="SC" desc="Countable Solid Item (e.g. Tip, etc.)"/>
             <item id="1" code="SR" desc="Single Test Reagent"/>
             <item id="9" code="SW" desc="Solid Waste"/>
         </version>
@@ -33636,8 +33636,8 @@
     <table id="472">
         <version version="2.4" desc="TQ Conjunction ID">
             <item id="2" code="A" desc="Asynchronous: Do the next specification in parallel with this one (unless otherwise constrained by the following components: ORC-7^4-start date/time and ORC-7^5-end date/time).  The conjunction of &quot;A&quot; specifies two parallel instructions, as are sometimes"/>
-            <item id="3" code="C" desc="This is an actuation time.  It will be followed by a completion time for the service.  This code allows one to distinguish between the time and priority at which a service should be actuated (e.g., blood should be drawn) and the time and priority at which"/>
-            <item id="1" code="S" desc="Synchronous. Do the next specification after this one (unless otherwise constrained by the following components: ORC-7^4-start date/time and ORC-7^5-end date/time). An &quot;S&quot; specification implies that the second timing sequence follows the first, e.g., when"/>
+            <item id="3" code="C" desc="This is an actuation time.  It will be followed by a completion time for the service.  This code allows one to distinguish between the time and priority at which a service should be actuated (e.g. blood should be drawn) and the time and priority at which"/>
+            <item id="1" code="S" desc="Synchronous. Do the next specification after this one (unless otherwise constrained by the following components: ORC-7^4-start date/time and ORC-7^5-end date/time). An &quot;S&quot; specification implies that the second timing sequence follows the first, e.g. when"/>
         </version>
         <version version="2.5" desc="TQ conjunction ID">
             <item id="2" code="A" desc="Asynchronous"/>
@@ -36555,7 +36555,7 @@
             <item id="3" code="F" desc="Final status; Can only be changed with a corrected status"/>
             <item id="4" code="O" desc="Order detail description only (no status)"/>
             <item id="5" code="P" desc="Preliminary status"/>
-            <item id="6" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="6" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
         </version>
         <version version="2.5.1" desc="BP Observation Status Codes Interpretation">
             <item id="1" code="C" desc="Record coming over is a correction and thus replaces a final status"/>
@@ -36563,7 +36563,7 @@
             <item id="3" code="F" desc="Final status; Can only be changed with a corrected status"/>
             <item id="4" code="O" desc="Order detail description only (no status)"/>
             <item id="5" code="P" desc="Preliminary status"/>
-            <item id="6" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="6" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
         </version>
         <version version="2.6" desc="BP Observation Status Codes Interpretation">
             <item id="1" code="C" desc="Record coming over is a correction and thus replaces a final status"/>
@@ -36571,7 +36571,7 @@
             <item id="3" code="F" desc="Final status; Can only be changed with a corrected status"/>
             <item id="4" code="O" desc="Order detail description only (no status)"/>
             <item id="5" code="P" desc="Preliminary status"/>
-            <item id="6" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="6" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
         </version>
         <version version="2.7" desc="BP Observation Status Codes Interpretation">
             <item id="1" code="C" desc="Record coming over is a correction and thus replaces a final status"/>
@@ -36579,7 +36579,7 @@
             <item id="3" code="F" desc="Final status; Can only be changed with a corrected status"/>
             <item id="4" code="O" desc="Order detail description only (no status)"/>
             <item id="5" code="P" desc="Preliminary status"/>
-            <item id="6" code="W" desc="Post original as wrong, e.g., transmitted for wrong patient"/>
+            <item id="6" code="W" desc="Post original as wrong, e.g. transmitted for wrong patient"/>
         </version>
     </table>
     <table id="512">
@@ -36939,7 +36939,7 @@
             <item id="6" code="ACD" desc="before lunch (from lat. ante cibus diurnus)"/>
             <item id="5" code="ACM" desc="before breakfast (from lat. ante cibus matutinus)"/>
             <item id="7" code="ACV" desc="before dinner (from lat. ante cibus vespertinus)"/>
-            <item id="1" code="HS" desc="the hour of sleep (e.g., H18-22)"/>
+            <item id="1" code="HS" desc="the hour of sleep (e.g. H18-22)"/>
             <item id="4" code="IC" desc="between meals (from lat. inter cibus)"/>
             <item id="12" code="ICD" desc="between lunch and dinner"/>
             <item id="11" code="ICM" desc="between breakfast and lunch"/>
@@ -36954,7 +36954,7 @@
             <item id="6" code="ACD" desc="before lunch (from lat. ante cibus diurnus)"/>
             <item id="5" code="ACM" desc="before breakfast (from lat. ante cibus matutinus)"/>
             <item id="7" code="ACV" desc="before dinner (from lat. ante cibus vespertinus)"/>
-            <item id="1" code="HS" desc="the hour of sleep (e.g., H18-22)"/>
+            <item id="1" code="HS" desc="the hour of sleep (e.g. H18-22)"/>
             <item id="4" code="IC" desc="between meals (from lat. inter cibus)"/>
             <item id="12" code="ICD" desc="between lunch and dinner"/>
             <item id="11" code="ICM" desc="between breakfast and lunch"/>
@@ -36969,7 +36969,7 @@
             <item id="6" code="ACD" desc="before lunch (from lat. ante cibus diurnus)"/>
             <item id="5" code="ACM" desc="before breakfast (from lat. ante cibus matutinus)"/>
             <item id="7" code="ACV" desc="before dinner (from lat. ante cibus vespertinus)"/>
-            <item id="1" code="HS" desc="the hour of sleep (e.g., H18-22)"/>
+            <item id="1" code="HS" desc="the hour of sleep (e.g. H18-22)"/>
             <item id="4" code="IC" desc="between meals (from lat. inter cibus)"/>
             <item id="12" code="ICD" desc="between lunch and dinner"/>
             <item id="11" code="ICM" desc="between breakfast and lunch"/>
@@ -36984,7 +36984,7 @@
             <item id="6" code="ACD" desc="before lunch (from lat. ante cibus diurnus)"/>
             <item id="5" code="ACM" desc="before breakfast (from lat. ante cibus matutinus)"/>
             <item id="7" code="ACV" desc="before dinner (from lat. ante cibus vespertinus)"/>
-            <item id="1" code="HS" desc="the hour of sleep (e.g., H18-22)"/>
+            <item id="1" code="HS" desc="the hour of sleep (e.g. H18-22)"/>
             <item id="4" code="IC" desc="between meals (from lat. inter cibus)"/>
             <item id="12" code="ICD" desc="between lunch and dinner"/>
             <item id="11" code="ICM" desc="between breakfast and lunch"/>
@@ -37161,13 +37161,13 @@
             <item id="2" code="S" desc="Signed authorization for release of any medical or other information necessary to process this claim on file."/>
         </version>
         <version version="2.6" desc="Signature Code">
-            <item id="1" code="C" desc="Signed CMS-1500 claim form on file, e.g., authorization for release of any medical or other information necessary to process this claim and assignment of benefits."/>
+            <item id="1" code="C" desc="Signed CMS-1500 claim form on file, e.g. authorization for release of any medical or other information necessary to process this claim and assignment of benefits."/>
             <item id="3" code="M" desc="Signed authorization for assignment of benefits on file."/>
             <item id="4" code="P" desc="Signature generated by provider because the patient was not physically present for services."/>
             <item id="2" code="S" desc="Signed authorization for release of any medical or other information necessary to process this claim on file."/>
         </version>
         <version version="2.7" desc="Signature Code">
-            <item id="1" code="C" desc="Signed CMS-1500 claim form on file, e.g., authorization for release of any medical or other information necessary to process this claim and assignment of benefits."/>
+            <item id="1" code="C" desc="Signed CMS-1500 claim form on file, e.g. authorization for release of any medical or other information necessary to process this claim and assignment of benefits."/>
             <item id="3" code="M" desc="Signed authorization for assignment of benefits on file."/>
             <item id="4" code="P" desc="Signature generated by provider because the patient was not physically present for services."/>
             <item id="2" code="S" desc="Signed authorization for release of any medical or other information necessary to process this claim on file."/>

@@ -649,7 +649,7 @@
   Card. = 0..1
   Type = Money
   Short Label = Total item cost
-  Definition = The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+  Definition = The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
   Requirements = If a fee is present the associated product/service code must be present
 
  -- Row 63 -----------------------------------
@@ -667,7 +667,7 @@
   Type = Coding
   Binding = OralSites
   Short Label = Service Location
-  Definition = Physical service site on the patient (limb, tooth, etc).
+  Definition = Physical service site on the patient (limb, tooth, etc.).
 
  -- Row 65 -----------------------------------
   Element = Claim.item.subSite
@@ -756,7 +756,7 @@
   Card. = 0..1
   Type = Money
   Short Label = Total additional item cost
-  Definition = The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+  Definition = The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
   Requirements = If a fee is present the associated product/service code must be present
 
  -- Row 77 -----------------------------------
@@ -800,7 +800,7 @@
   Type = Coding
   Binding = ServiceProduct
   Short Label = Additional item codes
-  Definition = The fee for an addittional service or product or charge.
+  Definition = The fee for an additional  service or product or charge.
 
  -- Row 83 -----------------------------------
   Element = Claim.item.detail.subDetail.quantity
@@ -814,7 +814,7 @@
   Card. = 0..1
   Type = Money
   Short Label = Fee, charge or cost per point
-  Definition = The fee for an addittional service or product or charge.
+  Definition = The fee for an additional  service or product or charge.
   Requirements = If a fee is present the associated product/service code must be present
 
  -- Row 85 -----------------------------------
@@ -838,7 +838,7 @@
   Card. = 0..1
   Type = Money
   Short Label = Net additional item cost
-  Definition = The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+  Definition = The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
   Requirements = If a fee is present the associated product/service code must be present
 
  -- Row 88 -----------------------------------

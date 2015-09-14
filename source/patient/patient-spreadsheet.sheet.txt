@@ -806,7 +806,7 @@
  -- Row 2 -----------------------------------
   Name = everything.start
   Use = in
-  Documentation = The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no start date is provided, all records prior to the end date are in scope.
+  Documentation = The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no start date is provided, all records prior to the end date are in scope.
   Type = date
   Title = Start of date range
   Min = 0
@@ -815,7 +815,7 @@
  -- Row 3 -----------------------------------
   Name = everything.end
   Use = in
-  Documentation = The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no end date is provided, all records subsequent to the start date are in scope.
+  Documentation = The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no end date is provided, all records subsequent to the start date are in scope.
   Type = date
   Title = End of date range
   Min = 0

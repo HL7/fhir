@@ -5674,7 +5674,7 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">valueset-condition-outcome</Data></Cell>
-    <Cell ss:StyleID="s123"><Data ss:Type="String">E.g 21134002 - Disability; 370996005 - Patient Condition Resolved; 37522003 - Determination of outcome, death unavoidable.&#10;</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">e.g. 21134002 - Disability; 370996005 - Patient Condition Resolved; 37522003 - Determination of outcome, death unavoidable.&#10;</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>

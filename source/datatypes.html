@@ -116,7 +116,7 @@ all types, they have <a href="extensibility.html">extensions</a>).
  </tr> 
  <tr>
    <td>instant<a name="instant"> </a></td>
-   <td>An instant in time - <b>known at least to the second and always includes a time zone</b>. Note: This is intended for precisely observed times (typically system logs etc), and not human-reported times - for them, use date and dateTime. <code>instant</code> is a more constrained dateTime</td>
+   <td>An instant in time - <b>known at least to the second and always includes a time zone</b>. Note: This is intended for precisely observed times (typically system logs etc.), and not human-reported times - for them, use date and dateTime. <code>instant</code> is a more constrained dateTime</td>
    <td>xs:dateTime</td>
    <td>A JSON string - an xs:dateTime</td>
  </tr>
@@ -165,7 +165,7 @@ Notes:
  <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is needed</li>
  <li>The precision of the decimal value has signficance:<a name="precision"> </a>
     <ul> 
-      <li>e.g 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>
+      <li>e.g. 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>
       <li>Implementations SHALL handle decimal values in ways that preserve and respect the precision of the value as represented for presentation purposes</li>
       <li>Implementations are not required to perform calculations with these numbers differently, though they may choose to do so (i.e. preserve significance)</li>
       <li>See implementation comments for <a href="xml.html#schema-gen">XML</a>, <a href="json.html#decimal">JSON</a> and <a href="rdf.html#decimal">RDF</a></li> 
@@ -902,7 +902,7 @@ If capturing a phone, fax or similar contact point, the value should be a proper
 However, this is frequently not possible due to legacy data and/or clerical practices when recording contact details.
 For this reason, phone, fax, page and email addresses are not handled as formal URLS. For other kinds 
 of contacts, the <code>system</code> is "other" and the <code>value</code> SHOULD be a URL so that its use can be determined automatically. Typical 
-URL schemes used in the value are http(s) for web addresses, and URL schemes for various kinds of messaging systems.
+URL schemes used in the value are http(s): for web addresses, and URL schemes for various kinds of messaging systems.
 If the value is not a URL, then human interpretation will be required.
 </p>
 <p>

@@ -5093,7 +5093,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Start of date range</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no start date is provided, all records prior to the end date are in scope. </Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no start date is provided, all records prior to the end date are in scope. </Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -5104,7 +5104,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">End of date range</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no end date is provided, all records subsequent to the start date are in scope. </Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no end date is provided, all records subsequent to the start date are in scope. </Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">

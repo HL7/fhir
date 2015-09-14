@@ -1726,7 +1726,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Versions, Issues, Scope limitations etc</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Versions, Issues, Scope limitations etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

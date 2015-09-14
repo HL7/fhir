@@ -1976,7 +1976,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Additional representations for the concept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">many concept definition systems support mltiple representations, in multiple languages, and for mltiple purposes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2460,7 +2460,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Additional representations for this valueset</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>

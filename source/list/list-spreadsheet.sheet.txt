@@ -146,7 +146,7 @@
   Short Label = If all resources have the same subject
   Definition = The common subject (or patient) of the resources that are in the list, if there is one
   Requirements = The primary purpose of listing the subject explicitly is to help with finding the right list
-  Comments = Some purely aribitrary lists do not have a common subject, so this is optional
+  Comments = Some purely arbitrary lists do not have a common subject, so this is optional
   RIM Mapping = .participation[typeCode<SUB].role (and sometimes .player)
   w5 = who.focus
 

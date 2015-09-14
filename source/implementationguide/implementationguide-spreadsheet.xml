@@ -1378,7 +1378,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The implementation guide is intended to support these contexts</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdication for which this implementation guide was defined</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of implementation guides. The most common use of this element is to represent the country / jurisdiction for which this implementation guide was defined</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Assist in searching for appropriate implementation guide</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1447,7 +1447,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is $version$ for this version</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A Implementation Guide should specify the target it applies to, as ImplementationGuides are rarely valid across multiple versions of FHIR</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">An Implementation Guide should specify the target it applies to, as ImplementationGuides are rarely valid across multiple versions of FHIR</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1475,7 +1475,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Another Implementation guide this depends on</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc defined in other implementation guides</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1540,7 +1540,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Where to find dependency</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Where the dependncy is located</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Where the dependency is located</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">When a guide is published, and the type is 'include', this will be a relative reference within the guide</Data><NamedCell
@@ -1571,7 +1571,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Group of resources as used in .page.package</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A logial group of resources. Logical groups can be used when building pages</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A logical group of resources. Logical groups can be used when building pages</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1662,7 +1662,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Resource in the implementation guide</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1699,7 +1699,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">This element is provided so that implementation guide tooling does not have to guess the purpose of including a resource in the implementation guide based on the type or context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The purpose alters the way that a resource is handled when a guide is built. At present, only value set and concept map resources are allowed for terminology resources, and only StructureDefinition, SearchPerameter, and OperationDefinition for profile. Dictionaries must be bundles of DataElement or Medication at this time</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The purpose alters the way that a resource is handled when a guide is built. At present, only value set and concept map resources are allowed for terminology resources, and only StructureDefinition, SearchParameter, and OperationDefinition for profile. Dictionaries must be bundles of DataElement or Medication at this time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1879,7 +1879,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">A set of profiles that all resources covered by this implementation guide must conform to </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">See (reference) for a discussion of which resources are 'covered' by an implementation guide</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">See [Default Profiles](implementationguide.html#default) for a discussion of which resources are 'covered' by an implementation guide</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="19" ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">250;260</Data><NamedCell
@@ -1964,7 +1964,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Image, css, script, etc</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Image, css, script, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A binary file that is included in the  implementation guide when it is published</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2029,7 +2029,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The source address for the page</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The publishing tool will auto-generate source for list (source = n/a), and inject included implementations for include (source = uri of guide to include)</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The publishing tool will autogenerate source for list (source = n/a), and inject included implementations for include (source = uri of guide to include)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="19" ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2056,7 +2056,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Short name shown for navigational assistance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A short name used to represent this page in navigational sturctures such as table of contents, bread crumbs, etc</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A short name used to represent this page in navigational structures such as table of contents, bread crumbs, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2086,7 +2086,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">page | example | list | include | directory | dictionary | toc | resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The kind of page that this is. Some pages are autogenerated (list, example), and othe kinds are of interest so that tools can navigate the user to the page of interest </Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The kind of page that this is. Some pages are autogenerated (list, example), and other kinds are of interest so that tools can navigate the user to the page of interest </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2170,12 +2170,12 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Format of the page (e.g. html, markdown etc)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Format of the page (e.g. html, markdown, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The format of the page</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">This is primarily for the pubishing tool, that will convert all pages to html format. HTML pages are pre-processed, see xxxx</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">This is primarily for the publishing tool, that will convert all pages to html format. HTML pages are pre-processed, see xxxx</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7574,7 +7574,7 @@
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">This is a page that represents a presented resource. This is typically used for generated conformance resource presentations</Data></Cell>
-    <Cell><Data ss:Type="String">These types of pages are auto-generated by the build tool</Data></Cell>
+    <Cell><Data ss:Type="String">These types of pages are autogenerated by the build tool</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

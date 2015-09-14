@@ -1163,7 +1163,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The kind of supply (central, non-stock, etc)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The kind of supply (central, non-stock, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

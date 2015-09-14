@@ -1236,7 +1236,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Which instance of many</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Identify the specific anatomical site out of multiple eg tenth rib; fourth vertebra; second toe.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Identify the specific anatomical site out of multiple e.g. tenth rib; fourth vertebra; second toe.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1298,7 +1298,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Relative anatomical location(s)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Qualifiers to identify non-specific location eg 5cm (distance) inferior (aspect) to the tibial tuberosity (landmark). There may be more than one relative location required to provide a cross reference.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Qualifiers to identify non-specific location e.g. 5cm (distance) inferior (aspect) to the tibial tuberosity (landmark). There may be more than one relative location required to provide a cross reference.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1435,7 +1435,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Description of anatomical location.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">This Description  could include any visual markings used to orientate the viewer e.g external reference points, special sutures, ink markings.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">This Description  could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>

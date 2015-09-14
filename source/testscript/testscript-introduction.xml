@@ -100,7 +100,7 @@ Furthermore, the TestScript resource provides clear examples of the appropriate 
 <h4>Workflow</h4>
 <p><b>Pre-Processing</b></p>
 <p>
-  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test.  This can be determined by evaluating if the interactions listed in the TestScript metadata "capabilities" section are supported by the server's conformance resource.  If the capabilities are supported by the server, then the TestScript can be executed.  Otherwise, the TestScript as a whole or a specific test within the test script may be skipped depending on where the capabilties section is defined. See <a href="#howToSpecifiyCapabilities">How to specify metadata capabilities</a>.
+  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test.  This can be determined by evaluating if the interactions listed in the TestScript metadata "capabilities" section are supported by the server's conformance resource.  If the capabilities are supported by the server, then the TestScript can be executed.  Otherwise, the TestScript as a whole or a specific test within the test script may be skipped depending on where the capabilities section is defined. See <a href="#howToSpecifiyCapabilities">How to specify metadata capabilities</a>.
 </p>
 <p>
   If the server supports the requirements of the TestScript instance, any specified fixtures are loaded or retrieved. If the fixtures are marked as 'autocreate' then they are automatically created on the server(s) under test using 'create' operations. If any of the autocreate operations fail, then the tests in the TestScript are skipped.
@@ -160,7 +160,7 @@ Furthermore, the TestScript resource provides clear examples of the appropriate 
 
 <h4 id="assertion-execution">Assertion Execution</h4>
 <p>
-The "assertion" evaluates the results of previous operations to determine if the server under test behaves appropriately.  In order to evaluate an assertion the request, response, and results of the most recently executed operation must always be maintained by the TestScript execution engine.
+The "assertion" evaluates the results of previous operations to determine if the server under test behaves appropriately.  In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the TestScript execution engine.
 </p>
 <p>
   The TestScript execution engine must implement the behavior of each assertion to determine if the response of the last operation meets the conditions of the assertion.

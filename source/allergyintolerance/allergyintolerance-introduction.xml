@@ -79,7 +79,7 @@ to 'refuted'.
 </p>
 		<p>
 This resource has been designed to allow recording of information about a specific substance (amoxicillin, 
-oysters, or bee sting venom) or, alternatively, a class of substance (eg penicillins)). If a class of substance is recorded 
+oysters, or bee sting venom) or, alternatively, a class of substance (e.g. penicillins)). If a class of substance is recorded 
 then identification of the exact substance can be recorded on a per exposure basis.
 </p>
 		<p>
@@ -141,7 +141,7 @@ general risks to a subject, not generally based on a reaction.
    should be recorded as <a href="condition.html">Condition</a> on the problem list, not using AllergyIntolerance.</li>
 			<li>Not to be used to record adverse events, including failures of clinical process, interventions or products. For example: 
    abnormal use or mistakes/errors made in maladministration of an agent or substance; incorrect dosage; mislabelling; 
-   harm or injury caused by an intervention or procedure; overdose/poisoning etc</li>
+   harm or injury caused by an intervention or procedure; overdose/poisoning etc.</li>
 			<li>Not to be used as a proxy for an adverse event report. See above for how it may be used as one component of an adverse event report</li>
 			<li>Not to be used for recording alerts. Alerts are handled using <a href="flag.html">Flag</a> or - where event-specific, <a href="detectedissue.html">DetectedIssue</a>
 			</li>

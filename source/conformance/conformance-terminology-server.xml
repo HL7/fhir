@@ -5,7 +5,7 @@
 <!-- 
     in addition to the code systems defined in line in value sets, 
 	  terminology servers also provide terminology functionality on 
-		additional code systems. Typically, LOINC, SNOMED CT, RcNorm in USA, etc). 
+		additional code systems. Typically, LOINC, SNOMED CT, RcNorm in USA, etc.). 
 		
 		These extra code systems are declared here in this extension. It's a todo 
 		for a future version to standardise things like which versions are supported etc. 
@@ -98,7 +98,7 @@
       this bit is up to servers - if they support editing, they should do so version safely
       <versioning value="versioned-update"/>
        -->
-    <!--  no need for version history (though servers can), and no need to conditional updates etc  -->
+    <!--  no need for version history (though servers can), and no need to conditional updates etc. -->
     <!--  search parameters: at least code, date, name, reference, status, system, url and version. More is recommended  -->
       <searchParam>
         <name value="code"/>
@@ -170,7 +170,7 @@
       this bit is up to servers - if they support editing, they should do so version safely
       <versioning value="versioned-update"/>
        -->
-    <!--  no need for version history (though servers can), and no need to conditional updates etc  -->
+    <!--  no need for version history (though servers can), and no need to conditional updates etc. -->
     <!--  search parameters: at least date, name, status, source, target, url, version. More is recommended  -->
       <searchParam>
         <name value="date"/>

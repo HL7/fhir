@@ -88,7 +88,7 @@ This specification uses the undescore as a prefix to disambiguate reserved names
 </p>
 <ul>
  <li>To differentiate system wide history and search interactions from interactions on Resource Types</li>
- <li>To differentiate search, history etc interactions from instances of a resource type</li>
+ <li>To differentiate search, history etc.interactions from instances of a resource type</li>
  <li>To differentiate search parameters defined for all reosurces from those defined for specific resource types</li>
 </ul>
 <p>
@@ -154,12 +154,12 @@ For example:
 <code>http://myserver.com/patient/1</code> and <code>https://myserver.com/patient/1</code> refer to the same underlying object, while <code>http://myserver.com:81/patient/1</code> is a distinct entity from either of the above.
 This does not mean that the two addresses need to be treated the same, or that a server must serve both addresses, or that the content from the two addresses must be identical, but just that if these two 
 addresses have the same identity, and if both are served, they must both represent the same underlying object. Systems are not required to 
-check that this is true. Note: the identity comparison for protocols other than http/https is undefined.
+check that this is true. Note: the identity comparison for protocols other than http:/https: is undefined.
 </p>
 
 <h3>Resource Metadata and Versioning</h3>
 <p>
-Each resource has an associated set of <a href="resource.html#metadata">resource metadata elements</a>. These map to the http request and response using the following fields:
+Each resource has an associated set of <a href="resource.html#metadata">resource metadata elements</a>. These map to the HTTP request and response using the following fields:
 </p>
 <table class="grid">
   <tr><th>Metadata Item</th><th>Where found in HTTP</th></tr>
@@ -842,7 +842,7 @@ The <code>batch</code> and <code>transaction</code> interactions submit a set of
 The actions may be performed independently as a "batch", or as a single atomic "transaction" where 
 the entire set of changes succeed or fail as a single entity. Multiple actions on multiple resources 
 of the same or different types may be submitted, and they may be a mix of other interactions defined 
-on this page (e.g. <code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>, <code>delete</code>, etc), or using the <a href="operations.html">operations</a>
+on this page (e.g. <code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>, <code>delete</code>, etc.), or using the <a href="operations.html">operations</a>
 framework.
 </p>
 <p>
@@ -1226,7 +1226,7 @@ Interface engines may also be placed between the consumer and
 the provider. These differ from proxies because they actively
 alter the content and/or destination of the HTTP exchange and are
 not bound the rules that apply to HTTP proxies. Such agents are allowed,
-but SHALL mark the http header to assist with troubleshooting.
+but SHALL mark the HTTP header to assist with troubleshooting.
 </p>
 <p>
 Any agent that modifies an HTTP request or response content other

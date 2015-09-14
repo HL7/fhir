@@ -29,7 +29,7 @@
   Id = 2
   Code = not-available
   Display = Not Available
-  Definition = The Device is no longer available for use ( e.g lost, expired, damaged)
+  Definition = The Device is no longer available for use ( e.g. lost, expired, damaged)
 
  -- Row 3 -----------------------------------
   Id = 3

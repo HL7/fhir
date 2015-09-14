@@ -207,7 +207,7 @@
   Card. = 0..1
   Aliases = AdmittingDiagnosesDescription; AdditionalPatientHistory
   Type = string
-  Short Label = Diagnoses etc with request
+  Short Label = Diagnoses etc.with request
   Definition = History and Diagnoses provided with request
   Comments = For more detailed information check the ImagingStudy.order.
   DICOM Mapping = (0040,1002) | (0008,1080)
@@ -447,7 +447,7 @@
   Element = ImagingStudy.series.instance.type
   Card. = 0..1
   Type = string
-  Short Label = Type of instance (image etc)
+  Short Label = Type of instance (image etc.)
   Definition = A human-friendly SOP Class name
   Comments = E.g. \'CT image\', \'MR multi-frame\', \'blending presentation\'.
   DICOM Mapping = (0004,1430)

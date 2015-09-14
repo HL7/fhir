@@ -364,7 +364,7 @@
   Type = dateTime
   Short Label = Date(/time) of last known occurrence of a reaction
   Definition = Represents the date and/or time of the last known occurrence of a reaction event
-  Comments = This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g \'In Childhood, \'10 years ago\' the Comment element should be used.
+  Comments = This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g. \'In Childhood, \'10 years ago\' the Comment element should be used.
 
  -- Row 14 -----------------------------------
   Element = AllergyIntolerance.note

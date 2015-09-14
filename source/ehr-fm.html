@@ -32,7 +32,7 @@ By default, underlying web frameworks such as SAML would be used. See <a href="s
 <tr><td>IN.1.3</td><td>Entity Access Control</td><td>See above about SAML / OAuth</td></tr>
 <tr><td>IN.1.4</td><td>Patient Access Management</td><td>See <a href="security-labels.html">Security Labels</a></td></tr>
 <tr><td>IN.1.5</td><td>Non-Repudiation</td><td>The <a href="provenance.html">provenance resource</a> tracks the timestamps, actors, digital signatures associated with resources</td></tr>
-<tr><td>IN.1.6</td><td>Secure Data Exchange</td><td>TLS (https:) should be used for all production exchange of data. All conformant FHIR RESTful implementations SHALL be able to use https</td></tr>
+<tr><td>IN.1.6</td><td>Secure Data Exchange</td><td>TLS (https:) should be used for all production exchange of data. All conformant FHIR RESTful implementations SHALL be able to use TLS</td></tr>
 <tr><td>IN.1.7</td><td>Secure Data Routing</td><td>FHIR allows for brokers and various forms of messaging that support assured destinations and delivery (also see IN.2.2 below)</td></tr>
 <tr><td>IN.1.8</td><td>Information Attestation</td><td>See the <a href="provenance.html">provenance resource</a></td></tr>
 <tr><td>IN.1.9</td><td>Patient Privacy and Confidentiality</td><td>FHIR does not include functionality related to this requirement, though implementations would be expected to provide this</td></tr>
@@ -58,7 +58,7 @@ The EHR functional model describes several modes for interaction between systems
 </p>
 <table class="list">
 <tr><th>Interaction Modes</th><th>FHIR Options</th></tr>
-<tr><td>Unsolicited Notifications<br/>e.g. a patient has arrived for a clinic appointment </td><td><ul><li>create/update new resource via http</li><li>push resources using Bundle</li><li>Send FHIR <a href="messaging.html">Message</a> (if appropriate event is defined)</li></ul></td></tr>
+<tr><td>Unsolicited Notifications<br/>e.g. a patient has arrived for a clinic appointment </td><td><ul><li>create/update new resource via HTTP</li><li>push resources using Bundle</li><li>Send FHIR <a href="messaging.html">Message</a> (if appropriate event is defined)</li></ul></td></tr>
 <tr><td>Query/Response<br/>e.g. Is Adam Everyman known to the system? Yes, MRN is 12345678.</td><td><ul><li>search with parameters</li><li>A query message (though not defined yet)</li></ul></td></tr>
 <tr><td>Service Request and Response<br/>e.g. Laboratory Order for Fasting Blood Sugar and a response containing the results of the test.  </td><td>Could be supported either through Messaging or SOA solutions.  Request/Response support is not yet defined</td></tr>
 <tr><td>Information Interchange between organizations (e.g. in a RHIO, or in a National Health System)  </td><td><ul><li>pub/sub using bundles (push or pull)</li><li>RESTful interface</li><li>FHIR messaging</li></ul></td></tr>

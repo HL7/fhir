@@ -112,7 +112,7 @@ operation itself.
 </p>
 <p>
 When used with XDS, updates to the document reference resource are only performed to correct the details associated 
-with the document description - other identifiers, context, location etc. The document itself, the hash value, etc, 
+with the document description - other identifiers, context, location etc. The document itself, the hash value, etc., 
 SHOULD never change. Servers MAY choose to maintain the repository of resources so that there is only one DocumentReference for 
 each original document (unique masterIdentifiers), but doing so will require some way of resolving conflicting 
 claims around the document metadata from different submitters.

@@ -76,8 +76,8 @@
     </concept>
     <concept>
       <code value="predetreq"/>
-      <display value="Predetermination Request"/>
-      <definition value="A request for a predetermination of the cost that would be paid under an insurance plan for a hypothetical claim for goods or services"/>
+      <display value="Pre-determination Request"/>
+      <definition value="A request for a pre-determination of the cost that would be paid under an insurance plan for a hypothetical claim for goods or services"/>
     </concept>
     <concept>
       <code value="predetermine"/>

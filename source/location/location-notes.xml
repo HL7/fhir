@@ -23,7 +23,7 @@ E.g. when a patient arrived 'by ambulance', but it is not known by which ambulan
 missing identifier, not a Location of 'kind' ambulance.</p>
 <p>
 Some of Location's data elements are only relevant when mode is 'instance' and should not be used when mode is 'kind':<br/>
-	<i>(however this information could still be included if was relevant, such as when it is a generic item, but not globally generic, eg a Burgers MU ambulance)</i>
+	<i>(however this information could still be included if was relevant, such as when it is a generic item, but not globally generic, e.g. a Burgers MU ambulance)</i>
 </p>
 <ul>
 <li>Location.identifier</li>
