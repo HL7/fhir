@@ -74,7 +74,7 @@
   Summary = Y
   Type = Identifier
   Short Label = External Ids for this item
-  Definition = This records identifiers associated with this appointment response concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate
+  Definition = This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate
   iCal Mapping = UID
   RIM Mapping = .id
   w5 = id
@@ -136,7 +136,7 @@
   Type = code
   Binding = ParticipantStatus
   Short Label = accepted | declined | tentative | in-process | completed | needs-action
-  Definition = Participation status of the Participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
+  Definition = Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
  -- Row 9 -----------------------------------
@@ -145,7 +145,7 @@
   Type = string
   Short Label = Additional comments
   Definition = Additional comments about the appointment
-  Comments = This comment is particularly important when the responder is declining, tentative or requesting another time to indicate the reasons why.
+  Comments = This comment is particularly important when the responder is declining, tentatively accepting or requesting another time to indicate the reasons why.
   iCal Mapping = COMMENT
 
  -- Row 10 -----------------------------------
