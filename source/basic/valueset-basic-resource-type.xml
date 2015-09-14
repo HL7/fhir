@@ -17,7 +17,7 @@
     <concept>
       <code value="consent"/>
       <display value="Consent"/>
-      <definition value="An assertion of permission for an activity or set of activities to occur, possibly subject to particular limitations.  E.g. surgical consent, information disclosure consent, etc."/>
+      <definition value="An assertion of permission for an activity or set of activities to occur, possibly subject to particular limitations; e.g. surgical consent, information disclosure consent, etc."/>
     </concept>
     <concept>
       <code value="referral"/>
@@ -27,7 +27,7 @@
     <concept>
       <code value="advevent"/>
       <display value="Adverse Event"/>
-      <definition value="An undesired reaction caused by exposure to some agent (e.g., a medication, immunization, food, or environmental agent)."/>
+      <definition value="An undesired reaction caused by exposure to some agent (e.g. a medication, immunization, food, or environmental agent)."/>
     </concept>
     <concept>
       <code value="aptmtreq"/>

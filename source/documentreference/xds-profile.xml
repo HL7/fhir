@@ -1155,7 +1155,7 @@
     <Cell ss:StyleID="s85"><Data ss:Type="String">DocumentReference.description</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s85"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Represents the title of the document.  Clinical documents often do not have a title, in such case the classCode (e.g., a &quot;consultation&quot; or &quot;progress note&quot;) is often used as the title. In that case, the title is usually omitted.  </Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Represents the title of the document.  Clinical documents often do not have a title, in such case the classCode (e.g. a &quot;consultation&quot; or &quot;progress note&quot;) is often used as the title. In that case, the title is usually omitted.  </Data></Cell>
     <Cell ss:StyleID="s85"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75" ss:StyleID="s65">
@@ -1187,7 +1187,7 @@
     <Cell ss:StyleID="s85"><Data ss:Type="String">DocumentReference.format</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Coding</Data></Cell>
-    <Cell><Data ss:Type="String">Globally unique code specifying the format of the document.  Along with the typeCode, it should provide sufficient information to allow potential document consumer to know if it will be able to process the document.   The formatCode shall be sufficiently specific to ensure processing/display by identifying a document encoding, structure and template (e.g., for a CDA Document, the fact that it complies with a CDA schema, possibly a template and the choice of a content-specific style sheet).  </Data></Cell>
+    <Cell><Data ss:Type="String">Globally unique code specifying the format of the document.  Along with the typeCode, it should provide sufficient information to allow potential document consumer to know if it will be able to process the document.   The formatCode shall be sufficiently specific to ensure processing/display by identifying a document encoding, structure and template (e.g. for a CDA Document, the fact that it complies with a CDA schema, possibly a template and the choice of a content-specific style sheet).  </Data></Cell>
     <Cell><Data ss:Type="String">Format codes may be specified by multiple organizations.  Format codes defined by the IHE ITI domain shall have names with the prefix urn:ihe:iti: Format codes defined by other IHE domains shall have names with the prefix urn:ihe:???domain initials???: Format codes defined by the creating entity shall have names with the prefix urn:ad: ???name of creating entity???: Creating Entity shall be unique </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s65">
@@ -1528,7 +1528,7 @@
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s113"><Data ss:Type="String">XDSDocumentEntry.typeCode</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">The code specifying the particular kind of document (e.g., Prescription, Discharge Summary, Report). It is suggested that the XDS Affinity Domain draws these values from a coding scheme providing a coarse level of granularity (about 10 to 100 entries). Shall have a single value</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">The code specifying the particular kind of document (e.g. Prescription, Discharge Summary, Report). It is suggested that the XDS Affinity Domain draws these values from a coding scheme providing a coarse level of granularity (about 10 to 100 entries). Shall have a single value</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s115"/>
@@ -17901,7 +17901,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Context</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur.  E.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">English</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -19468,7 +19468,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element.  E.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Description</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font

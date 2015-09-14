@@ -345,7 +345,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = TextureModifier
-  Short Label = Code to indicate how to alter the texture of the foods, e.g., pureed
+  Short Label = Code to indicate how to alter the texture of the foods, e.g. pureed
   Definition = Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.
   Comments = Coupled with the foodType (Meat)
   RIM Mapping = .code
@@ -356,7 +356,7 @@
   Type = CodeableConcept
   Binding = TextureModifiedFoodType
   Short Label = Concepts that are used to identify an entity that is ingested for nutritional purposes
-  Definition = The food type(s) (e.g., meats, all foods)  that the texture modification applies to.  This could be all foods types.
+  Definition = The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types.
   Comments = Coupled with the textureModifier; could be (All Foods)
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code
 
@@ -366,7 +366,7 @@
   Type = CodeableConcept
   Binding = FluidConsistencyType
   Short Label = The required consistency of fluids and liquids provided to the patient
-  Definition = The required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.
+  Definition = The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.
   RIM Mapping = .code  (Not differentiated from dietTextureModificationType in HL7 v3)
 
  -- Row 24 -----------------------------------
@@ -496,7 +496,7 @@
   Type = CodeableConcept
   Binding = EnteralRouteOfAdministration
   Short Label = How the formula should enter the patient\'s gastrointestinal tract
-  Definition = The route or physiological path of administration into the patient \'s gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.
+  Definition = The route or physiological path of administration into the patient \'s gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube.
   RIM Mapping = .routeCode
 
  -- Row 38 -----------------------------------
@@ -533,7 +533,7 @@
   Card. = 0..1
   Type = SimpleQuantity|Ratio
   Short Label = Speed with which the formula is provided per period of time
-  Definition = The rate of administration of formula via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.
+  Definition = The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.
   Comments = Ratio is used when the quantity value in the denominator is not \"1\", otherwise use Quantity. For example, the Ratio datatype is used for \"200 mL/4 hrs\" versus the Quantity datatype for \"50 mL/hr\".
   RIM Mapping = .rateQuantity
   Committee Notes = 4/15/2015 EH:  #6100,# 6111
@@ -552,7 +552,7 @@
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Upper limit on formula volume per unit of time
-  Definition = The maximum total quantity of formula that may be administered to a subject over the period of time, e.g., 1440 mL over 24 hours.
+  Definition = The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours.
   RIM Mapping = .maxDoseQuantity
 
  -- Row 44 -----------------------------------

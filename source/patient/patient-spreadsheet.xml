@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>808</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -2019,7 +2019,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The language which can be used to communicate with the patient about his or her health</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-EN&quot; for England English</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-EN&quot; for England English</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2055,7 +2055,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Method of expression (e.g.,expressed written, received spoken) </Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Method of expression (e.g.expressed written, received spoken) </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A value representing the person's method of expression of this language. Examples: expressed spoken, expressed written, expressed signed, received spoken, received written, received signed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4074,7 +4074,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
@@ -4097,7 +4096,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>22</ActiveRow>
-     <ActiveCol>21</ActiveCol>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4138,7 +4137,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Context</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur.  E.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">English</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -4669,7 +4668,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element.  E.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">Path Usage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5079,9 +5078,9 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Fetch Patient Record</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">This operation is used to return all the information related to the patient described in the resource on which this operation is invoked. The response is a bundle of type &quot;searchset&quot;. At a minimum, the patient resource itself is returned, along with any other resources that the server has that are related to the patient, and that are available for the given user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, medications, locations, organizations etc. The principle intended use for rhis operation is to provide a patient with access to their entire record (e.g. &quot;Blue Button&quot;).  The server SHOULD return at least all resources that it has that are in the patient compartment for the identified patient, and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements as defined in [DAF]{daf/daf.html}. Other applicable implementation guides may make additional rules about how much information that is returned</Data><NamedCell
+    <Cell ss:StyleID="s129"><Data ss:Type="String">This operation is used to return all the information related to the patient described in the resource on which this operation is invoked. The response is a bundle of type &quot;searchset&quot;. At a minimum, the patient resource itself is returned, along with any other resources that the server has that are related to the patient, and that are available for the given user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, medications, locations, organizations etc. The principle intended use for this operation is to provide a patient with access to their entire record (e.g. &quot;Blue Button&quot;).  The server SHOULD return at least all resources that it has that are in the patient compartment for the identified patient, and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements as defined in [DAF](daf/daf.html). Other applicable implementation guides may make additional rules about how much information that is returned</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="String">The key differences between this operation and simply searching the patient compartment are:  &#10;&#10;* unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) &#10;* the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones). This frees the client from needing to determine what it could or should ask for&#10;&#10;It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Speciying the relationship between the context, a user and patient records is outside the scope of this specification.</Data><NamedCell
+    <Cell ss:StyleID="s130"><Data ss:Type="String">The key differences between this operation and simply searching the patient compartment are:  &#10;&#10;* unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) &#10;* the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones). This frees the client from needing to determine what it could or should ask for&#10;&#10;It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$everything-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$everything-response.txt</Data></Cell>
@@ -5094,7 +5093,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Start of date range</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no date is provided, all records are in scope. </Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no start date is provided, all records prior to the end date are in scope. </Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -5105,7 +5104,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">End of date range</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no date is provided, all records are in scope. </Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no end date is provided, all records subsequent to the start date are in scope. </Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5623,10 +5622,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5639,11 +5639,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -5673,7 +5672,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s101"><Data ss:Type="String">Event Code</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event.  E.g. patient-link  </Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event; e.g. patient-link  </Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Category</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -6263,7 +6262,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Filename</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file.  E.g. resource-example-file-name.xml</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file; e.g. resource-example-file-name.xml</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Profile</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font

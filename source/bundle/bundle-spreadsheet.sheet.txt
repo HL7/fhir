@@ -5,7 +5,7 @@
   Binding Name = BundleType
   Binding = code list
   Reference = #bundle-type
-  Definition = Indicates the purpose of a bundle- how it was intended to be used
+  Definition = Indicates the purpose of a bundle - how it was intended to be used
 
  -- Row 2 -----------------------------------
   Binding Name = SearchEntryMode
@@ -341,14 +341,14 @@
   Card. = 0..1
   Type = string
   Short Label = For managing cache currency
-  Definition = If the ETag values match, return a 304 Not modified status. See the the API documentation for [\"Conditional Read\"](http.html#cread)
+  Definition = If the ETag values match, return a 304 Not modified status. See the API documentation for [\"Conditional Read\"](http.html#cread)
 
  -- Row 18 -----------------------------------
   Element = Bundle.entry.request.ifModifiedSince
   Card. = 0..1
   Type = instant
   Short Label = For managing update contention
-  Definition = Only perform the operation if the last updated date matches. See the the API documentation for [\"Conditional Read\"](http.html#cread)
+  Definition = Only perform the operation if the last updated date matches. See the API documentation for [\"Conditional Read\"](http.html#cread)
 
  -- Row 19 -----------------------------------
   Element = Bundle.entry.request.ifMatch
@@ -362,7 +362,7 @@
   Card. = 0..1
   Type = string
   Short Label = For conditional creates
-  Definition = Instruct the server not to perform the create if a specified resource already exists. For further information,see the the API documentation for [\"Conditional Create\"](http.html#ccreate). This is just the query portion of the URL - what follows the \"?\" (not including the \"?\")
+  Definition = Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [\"Conditional Create\"](http.html#ccreate). This is just the query portion of the URL - what follows the \"?\" (not including the \"?\")
 
  -- Row 21 -----------------------------------
   Element = Bundle.entry.response

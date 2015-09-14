@@ -1395,7 +1395,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Date for given status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The date that the value set status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the implementation guide changes (e.g. the 'content logical definition')</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The date that the value set status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes (e.g. the 'content logical definition')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Need to know when a value set was first legal for use or became withdrawn or replaced.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1814,7 +1814,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Concepts in the code system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Concepts that are in the code system. The concept definitions are inherently heirarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are </Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2110,7 +2110,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Child Concepts (is-a / contains / categorises)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Child Concepts - a heirarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Child Concepts - a hierarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3063,7 +3063,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Code - if blank, this is not a choosable code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The code for this item in the expansion heirarchy. If this code is missing the entry in the heirarchy is a place holder (abstract) and doesn't represent a valid code in the value set</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and doesn't represent a valid code in the value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3128,7 +3128,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Codes contained under this entry</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Other codes and entries contained under this entry in the heirarchy</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Other codes and entries contained under this entry in the hierarchy</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If the expansion uses this element, there is  no implication about the logical relationship between them, and the  structure cannot be used for logical inferencing. The structure  exists to provide navigational assistance for helping human users to  locate codes in the expansion.</Data><NamedCell
@@ -4406,7 +4406,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Context</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur.  E.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">English</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -4945,7 +4945,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element.  E.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Description</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -4957,7 +4957,7 @@
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">ValueSet.url</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">The logical url for the value set</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">The logical URL for the value set</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">identifier</Data></Cell>
@@ -5263,7 +5263,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation.   If the operation is not called at the instance level, one of the in parameters identifier, context or valueset must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.   Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters. Servers are not obliged to support paging, but if they do so, SHALL support both the offset and count parameters. Heirarchical expansions are not subject to paging, and servers simply return the entire expansion.  Different servers may return different results from expanding a value set for the following reasons:  * The underlying code systems are different (e.g. different versions, possibly with different defined behaviour) * The server optimises filter includes differently, such as sorting by code frequency * Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server</Data><NamedCell
+    <Cell ss:StyleID="s133"><Data ss:Type="String">The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.   Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters. Servers are not obliged to support paging, but if they do, SHALL support both the offset and count parameters. Hierarchical expansions are not subject to paging and servers simply return the entire expansion.  Different servers may return different results from expanding a value set for the following reasons:  * The underlying code systems are different (e.g. different versions, possibly with different defined behavior) * The server optimizes filter includes differently, such as sorting by code frequency * Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$expand-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$expand-response.txt</Data></Cell>
@@ -5298,7 +5298,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">The context of the value set, so that the server can resolve this to a value set to expand. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only useable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding to run-time</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">The context of the value set, so that the server can resolve this to a value set to expand. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only useable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -5320,7 +5320,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">A reference to an external definition that provides additional control information about how the expansion is performed.  At this time, there is no agreed format or funtionality for the target of this URI. The [VSAC Documentation](http://www.nlm.nih.gov/vsac/support/authorguidelines/updatingvaluesets.html) provides one example of the use of this parameter.  Implementers using this element will need to agree on an appropriate mechanism for use within their interoperability community.  Known uses for profile include: * whether to return the value set content logical definition with the expansion * whether to include inactive concepts</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">A reference to an external definition that provides additional control information about how the expansion is performed.  At this time, there is no agreed format or functionality for the target of this URI. The [VSAC Documentation](http://www.nlm.nih.gov/vsac/support/authorguidelines/updatingvaluesets.html) provides one example of the use of this parameter.  Implementers using this element will need to agree on an appropriate mechanism for use within their interoperability community.  Known uses for profile include: * whether to return the value set content logical definition with the expansion * whether to include inactive concepts</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -5353,7 +5353,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Paging support - how many codes in a a partial view. Paging only applies to flat expansions - servers ignore paging if the expansion is not flat.  If count = 0, the client is asking how large the expansion is. Servers SHOULD honour this request for heirarchical expansions as well, and simply return the overall count</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Paging support - how many codes should be provided in a partial view. Paging only applies to flat expansions - servers ignore paging if the expansion is not flat.  If count = 0, the client is asking how large the expansion is. Servers SHOULD honor this request for hierarchical expansions as well, and simply return the overall count</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5555,7 +5555,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">The context of the value set, so that the server can resolve this to a value set to validate against. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only useable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding to run-time</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">The context of the value set, so that the server can resolve this to a value set to validate against. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only useable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -5963,7 +5963,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s105"><Data ss:Type="String">Event Code</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event.  E.g. patient-link  </Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event; e.g. patient-link  </Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Category</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -6561,7 +6561,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Filename</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file.  E.g. resource-example-file-name.xml</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file; e.g. resource-example-file-name.xml</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Profile</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font

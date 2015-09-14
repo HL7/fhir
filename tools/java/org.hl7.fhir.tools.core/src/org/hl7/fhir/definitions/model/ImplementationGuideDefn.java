@@ -20,10 +20,10 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Title;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Title;
 
 public class ImplementationGuideDefn {
 
@@ -430,7 +430,7 @@ public class ImplementationGuideDefn {
     }
   }
   
-  public TableModel genToc(HeirarchicalTableGenerator gen) {
+  public TableModel genToc(HierarchicalTableGenerator gen) {
     TableModel model = gen.new TableModel();
     
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table Of Contents", null, null, 0));
@@ -439,7 +439,7 @@ public class ImplementationGuideDefn {
 
    }
 
-  private void addPage(HeirarchicalTableGenerator gen, List<Row> rows, ImplementationGuidePageComponent page) {
+  private void addPage(HierarchicalTableGenerator gen, List<Row> rows, ImplementationGuidePageComponent page) {
     Row row = gen.new Row();
     rows.add(row);
     row.setIcon(getIcon(page.getKind()), page.getKind().getDisplay());

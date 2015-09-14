@@ -275,7 +275,7 @@ this table:
  <td>FHIR Batch allows for concatenation of multiple process steps. SOA Orchestration allows for fine grained control, grouping and sequencing of multiple operations</td> 
  </tr>
  <tr>
- <td>Provides for management of data coherence (e.g., Deadlocks, transactions)</td>
+ <td>Provides for management of data coherence (e.g. Deadlocks, transactions)</td>
  <td align="center">&#9675;</td>
  <td align="center">&#9675;</td>
  <td align="center">&#9679;</td>
@@ -410,7 +410,7 @@ done to accommodate this capability.</p>
 
 <p><b><u>API/Interface Design.</u></b>The default interface into a FHIR server is REST-based, providing
 CRUD operations and allowing for stateless access. The FHIR specification does
-not inherently provide for concurrency management (e.g., managing of "deadlock"
+not inherently provide for concurrency management (e.g. managing of "deadlock"
 conditions where two resources each await update permission from the other). 
 As a result, within the FHIR server itself it is assumed that fault tolerance
 and server availability is being managed (beyond the scope of the
@@ -523,7 +523,7 @@ rules/constraints of each service.</p>
 
 <p><b><u>API/Interface Design.</u></b> Services' API design and explicit exposing of service capabilities
 is an essential and elemental feature of a SOA architecture. Services provide loosely-coupled
-access (e.g., external clients do not have visibility into the inner workings
+access (e.g. external clients do not have visibility into the inner workings
 of a service). Each service exposes specific interface capabilities and
 clients must use those capabilities. SOA interfaces are typically aligned with
 business functionality and are coarse-grained (such as "Register Patient" or

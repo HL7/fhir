@@ -1108,7 +1108,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">This identifies the performed function. For &quot;Execute&quot; Event Action Code audit records, this identifies the application function performed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">e.g., a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">e.g. a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">.code (type, subtype and action are pre-coordinated or sent as translations)</Data><NamedCell
@@ -1226,9 +1226,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">The time when the event occurred on the source</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">This ties an event to a specific date and time. Security audits typically require a consistent time base, e.g., UTC, to eliminate time-zone issues arising from geographical distribution</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">This ties an event to a specific date and time. Security audits typically require a consistent time base, e.g. UTC, to eliminate time-zone issues arising from geographical distribution</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">In a distributed system, some sort of common time base, e.g., an NTP [RFC1305] server, is a good implementation tactic</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">In a distributed system, some sort of common time base, e.g. an NTP [RFC1305] server, is a good implementation tactic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">.effectiveTime</Data><NamedCell
@@ -1548,7 +1548,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Alternative User id e.g. authentication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">In some situations a human user may authenticate with one identity but, to access a specific application system, may use a synonymous identify. For example, some &quot;single sign on&quot; implementations will do this. The alternative identifier would then be the original identify  used for authentication, and the User ID is the one known to and used by the application</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1939,7 +1939,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The event is reported by one source</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Since multi-tier, distributed, or composite applications make source identification ambiguous, this collection of fields may repeat for each application or process actively involved in the event. For example, multiple value-sets can identify participating web servers, application processes, and database server threads in an n-tier distributed application. Passive event participants, e.g., low-level network transports, need not be identified</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Since multi-tier, distributed, or composite applications make source identification ambiguous, this collection of fields may repeat for each application or process actively involved in the event. For example, multiple value-sets can identify participating web servers, application processes, and database server threads in an n-tier distributed application. Passive event participants, e.g. low-level network transports, need not be identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">.participation[typeCode=INF].role[classCode=ASSIGN].player[classCode=DEV, determinerCode=INSTANCE]</Data><NamedCell
@@ -2451,7 +2451,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">An instance-specific descriptor of the Participant Object ID audited, such as a person's name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">This field may be used in a query/report to identify audit events for a specific person, e.g., where multiple synonymous Participant Object IDs (patient number, medical record number, encounter number, etc.) have been used</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">This field may be used in a query/report to identify audit events for a specific person, e.g. where multiple synonymous Participant Object IDs (patient number, medical record number, encounter number, etc.) have been used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">.title</Data><NamedCell
@@ -4497,7 +4497,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Context</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur.  E.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">English</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -5029,7 +5029,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element.  E.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Description</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -5917,7 +5917,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s105"><Data ss:Type="String">Event Code</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event.  E.g. patient-link  </Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event; e.g. patient-link  </Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Category</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -6525,7 +6525,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Filename</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file.  E.g. resource-example-file-name.xml</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file; e.g. resource-example-file-name.xml</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Profile</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -10108,7 +10108,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">urn:ietf:rfc:3881:5.4.3</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Security Server</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">Security server, e.g., a domain controller</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">Security server, e.g. a domain controller</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>
@@ -11521,7 +11521,7 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Job</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">An order, task, work item, procedure step, or other description of work to be performed.  E.g., a particular instance of an MPPS.</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">An order, task, work item, procedure step, or other description of work to be performed; e.g. a particular instance of an MPPS.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>
@@ -11532,7 +11532,7 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Job Stream</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">A list of jobs or a system that provides lists of jobs.  E.g., an MWL SCP.</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">A list of jobs or a system that provides lists of jobs; e.g. an MWL SCP.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>

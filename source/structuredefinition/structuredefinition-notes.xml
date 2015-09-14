@@ -141,7 +141,7 @@ When the structure is a constraint (constrainedType is not null), then the follo
    <ul>
      <li>no new paths may be introduced that are not found in the base structure</li> 
      <li>the list of types for an element must be the same or a subset of the list of types for the same element in the base structure</li> 
-     <li>The definition can be changed in the derived structure, but it must still be logically consistent with the definition in the base. e.g. the base element may be defined as "Result value" and this structure could define it as "Plasma Cholesterol Test Value", but not "Result status".</li>
+     <li>The definition can be changed in the derived structure, but it must still be logically consistent with the definition in the base; e.g. the base element may be defined as "Result value" and this structure could define it as "Plasma Cholesterol Test Value", but not "Result status".</li>
      <li>The cardinality must be a subset of the allowable cardinality in the base structure i.e. the minumum must be >= the base minimum, and the maximum must be &lt;= the base maximum</li>
    </ul>
   </li>

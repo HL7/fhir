@@ -234,7 +234,7 @@
   Summary = y
   Type = dateTime
   Short Label = Date for given status
-  Definition = The date that the value set status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the implementation guide changes (e.g. the \'content logical definition\')
+  Definition = The date that the value set status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes (e.g. the \'content logical definition\')
   Requirements = Need to know when a value set was first legal for use or became withdrawn or replaced.
   Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the value set. Additional specific dates may be added as extensions
   RIM Mapping = N/A
@@ -351,7 +351,7 @@
   UML = -190;140
   Type = =ConceptDefinition
   Short Label = Concepts in the code system
-  Definition = Concepts that are in the code system. The concept definitions are inherently heirarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are
+  Definition = Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are
 
  -- Row 25 -----------------------------------
   Element = ValueSet.codeSystem.concept.code
@@ -421,7 +421,7 @@
   Card. = 0..*
   Type = @ValueSet.codeSystem.concept
   Short Label = Child Concepts (is-a / contains / categorises)
-  Definition = Child Concepts - a heirarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts
+  Definition = Child Concepts - a hierarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts
 
  -- Row 34 -----------------------------------
   Element = ValueSet.compose
@@ -674,7 +674,7 @@
   Type = code
   Binding = !
   Short Label = Code - if blank, this is not a choosable code
-  Definition = The code for this item in the expansion heirarchy. If this code is missing the entry in the heirarchy is a place holder (abstract) and doesn\'t represent a valid code in the value set
+  Definition = The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and doesn\'t represent a valid code in the value set
 
  -- Row 62 -----------------------------------
   Element = ValueSet.expansion.contains.display
@@ -689,7 +689,7 @@
   Card. = 0..*
   Type = @ValueSet.expansion.contains
   Short Label = Codes contained under this entry
-  Definition = Other codes and entries contained under this entry in the heirarchy
+  Definition = Other codes and entries contained under this entry in the hierarchy
   Comments = If the expansion uses this element, there is  no implication about the logical relationship between them, and the  structure cannot be used for logical inferencing. The structure  exists to provide navigational assistance for helping human users to  locate codes in the expansion.
 
 === Sheet Search =====================================
@@ -697,7 +697,7 @@
  -- Row 1 -----------------------------------
   Name = url
   Type = uri
-  Description = The logical url for the value set
+  Description = The logical URL for the value set
   Path = ValueSet.url
 
  -- Row 2 -----------------------------------
@@ -857,7 +857,7 @@
   Example.Request = $expand-request.txt
   Example.Response = $expand-response.txt
   Title = Value Set Expansion
-  Footer = The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.   Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters. Servers are not obliged to support paging, but if they do so, SHALL support both the offset and count parameters. Heirarchical expansions are not subject to paging, and servers simply return the entire expansion.  Different servers may return different results from expanding a value set for the following reasons:  * The underlying code systems are different (e.g. different versions, possibly with different defined behaviour) * The server optimises filter includes differently, such as sorting by code frequency * Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server
+  Footer = The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.   Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters. Servers are not obliged to support paging, but if they do, SHALL support both the offset and count parameters. Hierarchical expansions are not subject to paging and servers simply return the entire expansion.  Different servers may return different results from expanding a value set for the following reasons:  * The underlying code systems are different (e.g. different versions, possibly with different defined behavior) * The server optimizes filter includes differently, such as sorting by code frequency * Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server
 
  -- Row 2 -----------------------------------
   Name = expand.identifier
@@ -878,7 +878,7 @@
  -- Row 4 -----------------------------------
   Name = expand.context
   Use = in
-  Documentation = The context of the value set, so that the server can resolve this to a value set to expand. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only useable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding to run-time
+  Documentation = The context of the value set, so that the server can resolve this to a value set to expand. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only useable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time
   Type = uri
   Min = 0
   Max = 1
@@ -894,7 +894,7 @@
  -- Row 6 -----------------------------------
   Name = expand.profile
   Use = in
-  Documentation = A reference to an external definition that provides additional control information about how the expansion is performed.  At this time, there is no agreed format or funtionality for the target of this URI. The [VSAC Documentation](http://www.nlm.nih.gov/vsac/support/authorguidelines/updatingvaluesets.html) provides one example of the use of this parameter.  Implementers using this element will need to agree on an appropriate mechanism for use within their interoperability community.  Known uses for profile include: * whether to return the value set content logical definition with the expansion * whether to include inactive concepts
+  Documentation = A reference to an external definition that provides additional control information about how the expansion is performed.  At this time, there is no agreed format or functionality for the target of this URI. The [VSAC Documentation](http://www.nlm.nih.gov/vsac/support/authorguidelines/updatingvaluesets.html) provides one example of the use of this parameter.  Implementers using this element will need to agree on an appropriate mechanism for use within their interoperability community.  Known uses for profile include: * whether to return the value set content logical definition with the expansion * whether to include inactive concepts
   Type = uri
   Min = 0
   Max = 1
@@ -918,7 +918,7 @@
  -- Row 9 -----------------------------------
   Name = expand.count
   Use = in
-  Documentation = Paging support - how many codes in a a partial view. Paging only applies to flat expansions - servers ignore paging if the expansion is not flat.  If count = 0, the client is asking how large the expansion is. Servers SHOULD honour this request for heirarchical expansions as well, and simply return the overall count
+  Documentation = Paging support - how many codes should be provided in a partial view. Paging only applies to flat expansions - servers ignore paging if the expansion is not flat.  If count = 0, the client is asking how large the expansion is. Servers SHOULD honor this request for hierarchical expansions as well, and simply return the overall count
   Type = integer
   Min = 0
   Max = 1
@@ -1062,7 +1062,7 @@
  -- Row 27 -----------------------------------
   Name = validate-code.context
   Use = in
-  Documentation = The context of the value set, so that the server can resolve this to a value set to validate against. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only useable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding to run-time
+  Documentation = The context of the value set, so that the server can resolve this to a value set to validate against. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only useable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time
   Type = uri
   Min = 0
   Max = 1

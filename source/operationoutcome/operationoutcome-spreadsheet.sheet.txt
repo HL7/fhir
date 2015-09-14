@@ -177,7 +177,7 @@
   Id = 18
   Code = too-costly
   Display = Operation Too Costly
-  Definition = The operation was stopped to protect server resources. E.g. a request for a value set expansion on all of SNOMED CT
+  Definition = The operation was stopped to protect server resources; e.g. a request for a value set expansion on all of SNOMED CT
   Parent = #11
 
  -- Row 20 -----------------------------------
@@ -218,7 +218,7 @@
   Id = 22
   Code = no-store
   Display = No Store Available
-  Definition = The persistent store unavailable. E.g. the database is down for maintenance or similar
+  Definition = The persistent store unavailable; e.g. the database is down for maintenance or similar
   Parent = #20
 
  -- Row 26 -----------------------------------

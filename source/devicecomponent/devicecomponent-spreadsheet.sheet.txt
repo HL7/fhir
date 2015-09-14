@@ -29,7 +29,7 @@
  -- Row 5 -----------------------------------
   Binding Name = DeviceComponentParameterGroup
   Binding = unbound
-  Definition = Codes identifying groupings of parameters.  E.g. Cardiovascular
+  Definition = Codes identifying groupings of parameters; e.g. Cardiovascular
 
 === Sheet measurement-principle =====================================
 
@@ -167,7 +167,7 @@
   Type = CodeableConcept
   Binding = DeviceComponentParameterGroup
   Short Label = Current supported parameter group
-  Definition = Describes the parameter group supported by the current device component that is based on some nomenclature, e.g., cardiovascular.
+  Definition = Describes the parameter group supported by the current device component that is based on some nomenclature, e.g. cardiovascular.
 
  -- Row 9 -----------------------------------
   Element = DeviceComponent.measurementPrinciple

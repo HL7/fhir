@@ -533,7 +533,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       Utilities.createDirectory(page.getFolders().dstDir);
       Utilities.deleteTempFiles();
 
-      page.getBreadCrumbManager().parse(page.getFolders().srcDir + "heirarchy.xml");
+      page.getBreadCrumbManager().parse(page.getFolders().srcDir + "hierarchy.xml");
       page.loadSnomed();
       page.loadLoinc();
 
@@ -1419,7 +1419,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       Utilities.checkFolder(page.getFolders().xsdDir, errors);
       for (PlatformGenerator gen : page.getReferenceImplementations())
         Utilities.checkFolder(page.getFolders().implDir(gen.getName()), errors);
-      checkFile("required", page.getFolders().srcDir, "heirarchy.xml", errors, "all");
+      checkFile("required", page.getFolders().srcDir, "hierarchy.xml", errors, "all");
       checkFile("required", page.getFolders().srcDir, "fhir-all.xsd", errors, "all");
       checkFile("required", page.getFolders().srcDir, "header.html", errors, "all");
       checkFile("required", page.getFolders().srcDir, "footer.html", errors, "all");
@@ -2850,7 +2850,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       if (handled.containsKey(code)) {
         if (owner == null)
-          throw new Exception("Error handling poly-heirarchy - subsequent mention is on the root");
+          throw new Exception("Error handling poly-hierarchy - subsequent mention is on the root");
         // ToolingExtensions.addParentCode(handled.get(code),
         // owner.getCode());
         ToolingExtensions.addSubsumes(owner, code);
@@ -2961,7 +2961,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       c = XMLUtil.getNextSibling(c);
     }
 
-    // now, organise the heirarchy
+    // now, organise the hierarchy
     for (CodeInfo ci : codes) {
       for (String p : ci.parents) {
         CodeInfo pi = null;

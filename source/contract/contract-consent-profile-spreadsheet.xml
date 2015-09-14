@@ -1176,7 +1176,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Consent Directive</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:   • To one or more identified entities in a defined role   • To perform one or more operations (e.g., collect, access, use, disclose, amend, or delete)   • On an instance or type of individually identifiable health information [IIHI]  • For a purpose such as treatment, payment, operations, research, public health, quality measures, health status evaluation by third parties, or marketing   • Under certain conditions, e.g., when unconscious   • For specified time period, e.g., effective and expiration dates   • In certain context, e.g., in an emergency  &#160;A consent directive is an instance of governing jurisdictional and organization privacy policies, which may or may not be backed up by a signed document (paper or electronic). [HITSP TP30]</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:   • To one or more identified entities in a defined role   • To perform one or more operations (e.g. collect, access, use, disclose, amend, or delete)   • On an instance or type of individually identifiable health information [IIHI]  • For a purpose such as treatment, payment, operations, research, public health, quality measures, health status evaluation by third parties, or marketing   • Under certain conditions, e.g. when unconscious   • For specified time period, e.g. effective and expiration dates   • In certain context, e.g. in an emergency  &#160;A consent directive is an instance of governing jurisdictional and organization privacy policies, which may or may not be backed up by a signed document (paper or electronic). [HITSP TP30]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1360,7 +1360,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Contract.domain</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">scope of governance jurisdication</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">scope of governance jurisdiction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1407,7 +1407,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Consent Directive Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Specific type of patient privacy Consent Directive reflecting the range of patient discretion over granting of rights to patient information and actions that may be taken on that information.  E.g., Opt-in, opt-out, Share All (such as authorization to disclose to payer for payment purposes or benefit eligibility), Share Partial(such as Title 38 Section 7332 and 42 CFR Part 2), Implied Consent, such as a HIPAA Notice of Privacy Practices. </Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Specific type of patient privacy Consent Directive reflecting the range of patient discretion over granting of rights to patient information and actions that may be taken on that information; e.g. Opt-in, opt-out, Share All (such as authorization to disclose to payer for payment purposes or benefit eligibility), Share Partial(such as Title 38 Section 7332 and 42 CFR Part 2), Implied Consent, such as a HIPAA Notice of Privacy Practices. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1444,7 +1444,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">e.g., RECOV </Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">e.g. RECOV </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1477,7 +1477,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">e.g., JURISPOL </Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">e.g. JURISPOL </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1510,7 +1510,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">e.g., QUALIMP</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">e.g. QUALIMP</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1965,7 +1965,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Consent Directive Signer Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Role of this Consent Directive signer, e.g., patient who is Consent Directive Grantee, the Substitute Decision Maker such as a person with Power of Attorney to whom the patient has granted or delegated rights to execute a Consent Directive on the patient's behalf, a notary public or witness.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Role of this Consent Directive signer, e.g. patient who is Consent Directive Grantee, the Substitute Decision Maker such as a person with Power of Attorney to whom the patient has granted or delegated rights to execute a Consent Directive on the patient's behalf, a notary public or witness.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2189,7 +2189,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Consent Directive Term Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Type of Consent Directive Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g., life time maximum benefit.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Type of Consent Directive Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2221,7 +2221,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Consent Directive Term Subtype</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Subtype of this Consent Directive Provision, e.g., life time maximum payment for a contract term for specific valued item, e.g., disability payment.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Subtype of this Consent Directive Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6946,7 +6946,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Context</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur.  E.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">English</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -8612,7 +8612,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element.  E.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Description</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font

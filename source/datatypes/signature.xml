@@ -696,7 +696,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">There are a number of places where content must be signed in healthcare</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The elements of the Signature Resource are for ease of access of these elements. Foro digital signatures (Xml DigSig, JWT), the non-repudiation proof comes from the Signature  validation, which includes validation of the referenced objects (e.g., Resources) (a.k.a., Content) in the XML-Signature Detached form.</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">The elements of the Signature Resource are for ease of access of these elements. Foro digital signatures (Xml DigSig, JWT), the non-repudiation proof comes from the Signature  validation, which includes validation of the referenced objects (e.g. Resources) (a.k.a., Content) in the XML-Signature Detached form.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">application/signature+xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3235,7 +3235,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Context</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur.  E.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">English</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font

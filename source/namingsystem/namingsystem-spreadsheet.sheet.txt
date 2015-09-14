@@ -10,7 +10,7 @@
  -- Row 2 -----------------------------------
   Binding Name = NamingSystemCategory
   Binding = unbound
-  Definition = Identifies the general purpose of the namingsystem identifiers provided.  E.g. Driver, Provider, Patient, Bank, etc.
+  Definition = Identifies the general purpose of the namingsystem identifiers provided; e.g. Driver, Provider, Patient, Bank, etc.
 
  -- Row 3 -----------------------------------
   Binding Name = Country
@@ -31,7 +31,7 @@
   Id = 1
   Code = codesystem
   Display = Code System
-  Definition = The namingsystem is used to define concepts and symbols to represent those concepts.  E.g. UCUM, LOINC, NDC code, local lab codes, etc.
+  Definition = The namingsystem is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -51,7 +51,7 @@
   Id = 1
   Code = oid
   Display = OID
-  Definition = An ISO object identifier.  E.g. 1.2.3.4.5
+  Definition = An ISO object identifier; e.g. 1.2.3.4.5
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -63,7 +63,7 @@
   Id = 3
   Code = uri
   Display = URI
-  Definition = A uniform resource identifier (ideally a URL - uniform resource locator).  E.g. http://unitsofmeasure.org
+  Definition = A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org
 
  -- Row 4 -----------------------------------
   Id = 4
@@ -182,7 +182,7 @@
   Summary = y
   Type = dateTime
   Short Label = Publication Date(/time)
-  Definition = The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the registration changes
+  Definition = The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the registration changes
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
 

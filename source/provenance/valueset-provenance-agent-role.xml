@@ -67,7 +67,7 @@
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="e.g., a next of kin who answers questions about the patient&#39;s history"/>
+        <valueString value="e.g. a next of kin who answers questions about the patient&#39;s history"/>
       </extension>
       <code value="informant"/>
       <display value="Informant"/>

@@ -125,14 +125,14 @@
     </parameter>
   <!--   and the actual expansion   -->
   <!--   
-		  this expansion is made as a heirarchy - a preferred code, followed by two 
+		  this expansion is made as a hierarchy - a preferred code, followed by two 
 			sets of codes categorised by a label. This is to help a human user 
 			navigate the list (e.g. in a picklist)
 			
-			Note that the heirarchy may not have anything to do with the
+			Note that the hierarchy may not have anything to do with the
 			definitions of the codes (e.g. could be divided into common and less common)
 			
-			Building a heirarchy like this is not explicitly specified in a standard value set,
+			Building a hierarchy like this is not explicitly specified in a standard value set,
 			but may be controlled by extensions, the expansion profile, or just performed
 			by the expansion service.
 		  -->

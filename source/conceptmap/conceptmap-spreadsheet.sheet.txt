@@ -129,7 +129,7 @@
   Summary = y
   Type = dateTime
   Short Label = Date for given status
-  Definition = The date that this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the concept map changes
+  Definition = The date that this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes
   Requirements = Need to know when a concept map was first legal for use or became withdrawn or replaced.
   Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the concept map. Additional specific dates may be added as extensions
   RIM Mapping = N/A

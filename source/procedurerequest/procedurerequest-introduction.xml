@@ -50,7 +50,7 @@ is.  More invasive processes are typically represented as procedures, though the
 <p>
 Irrespective of the guidance above, systems should be prepared for some degree of overlap between these resources and be
 prepared to execute searches against multiple resources in cases where differentiation cannot be guaranteed.  As well, in some workflows
-more than one type of resource or even all three might exist.  E.g. Upon receiving a ReferralRequest a practitioner might initiate a 
+more than one type of resource or even all three might exist; e.g. Upon receiving a ReferralRequest a practitioner might initiate a 
 DiagnosticOrder.  The diagnostic service might then initiate a ProcedureRequest.
 </p>
 <p>

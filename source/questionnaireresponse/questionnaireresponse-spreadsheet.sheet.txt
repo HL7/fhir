@@ -256,7 +256,7 @@
   Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
   Binding = QuestionnaireAnswer
   Short Label = Single-valued answer to the question
-  Definition = The answer (or one of the answers) provided by the respondant to the question
+  Definition = The answer (or one of the answers) provided by the respondent to the question
   Requirements = Need to be able to retain a single-valued answer to a question
   Comments = More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
   RIM Mapping = .item

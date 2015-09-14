@@ -39,7 +39,7 @@
     <concept>
       <code value="6"/>
       <display value="Security Server"/>
-      <definition value="Security server, e.g., a domain controller"/>
+      <definition value="Security server, e.g. a domain controller"/>
     </concept>
     <concept>
       <code value="7"/>

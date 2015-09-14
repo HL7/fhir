@@ -358,10 +358,10 @@ public class ValueSet extends DomainResource {
         protected BooleanType caseSensitive;
 
         /**
-         * Concepts that are in the code system. The concept definitions are inherently heirarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are.
+         * Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are.
          */
         @Child(name = "concept", type = {}, order=4, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Concepts in the code system", formalDefinition="Concepts that are in the code system. The concept definitions are inherently heirarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are." )
+        @Description(shortDefinition="Concepts in the code system", formalDefinition="Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are." )
         protected List<ConceptDefinitionComponent> concept;
 
         private static final long serialVersionUID = -1109401192L;
@@ -521,7 +521,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #concept} (Concepts that are in the code system. The concept definitions are inherently heirarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are.)
+         * @return {@link #concept} (Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are.)
          */
         public List<ConceptDefinitionComponent> getConcept() { 
           if (this.concept == null)
@@ -539,7 +539,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #concept} (Concepts that are in the code system. The concept definitions are inherently heirarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are.)
+         * @return {@link #concept} (Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are.)
          */
     // syntactic sugar
         public ConceptDefinitionComponent addConcept() { //3
@@ -565,7 +565,7 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("system", "uri", "An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("version", "string", "The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("caseSensitive", "boolean", "If code comparison is case sensitive when codes within this system are compared to each other.", 0, java.lang.Integer.MAX_VALUE, caseSensitive));
-          childrenList.add(new Property("concept", "", "Concepts that are in the code system. The concept definitions are inherently heirarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are.", 0, java.lang.Integer.MAX_VALUE, concept));
+          childrenList.add(new Property("concept", "", "Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the heirachical relationships are.", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
       public ValueSetCodeSystemComponent copy() {
@@ -650,10 +650,10 @@ public class ValueSet extends DomainResource {
         protected List<ConceptDefinitionDesignationComponent> designation;
 
         /**
-         * Child Concepts - a heirarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts.
+         * Child Concepts - a hierarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts.
          */
         @Child(name = "concept", type = {ConceptDefinitionComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Child Concepts (is-a / contains / categorises)", formalDefinition="Child Concepts - a heirarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts." )
+        @Description(shortDefinition="Child Concepts (is-a / contains / categorises)", formalDefinition="Child Concepts - a hierarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts." )
         protected List<ConceptDefinitionComponent> concept;
 
         private static final long serialVersionUID = -318560292L;
@@ -902,7 +902,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #concept} (Child Concepts - a heirarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts.)
+         * @return {@link #concept} (Child Concepts - a hierarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts.)
          */
         public List<ConceptDefinitionComponent> getConcept() { 
           if (this.concept == null)
@@ -920,7 +920,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #concept} (Child Concepts - a heirarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts.)
+         * @return {@link #concept} (Child Concepts - a hierarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts.)
          */
     // syntactic sugar
         public ConceptDefinitionComponent addConcept() { //3
@@ -948,7 +948,7 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("display", "string", "A human readable string that is the recommended default way to present this concept to a user.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("definition", "string", "The formal definition of the concept. The value set resource does not make formal definitions required, because of the prevalence of legacy systems. However, but they are highly recommended, as without them there is no formal meaning associated with the concept.", 0, java.lang.Integer.MAX_VALUE, definition));
           childrenList.add(new Property("designation", "", "Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.", 0, java.lang.Integer.MAX_VALUE, designation));
-          childrenList.add(new Property("concept", "@ValueSet.codeSystem.concept", "Child Concepts - a heirarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts.", 0, java.lang.Integer.MAX_VALUE, concept));
+          childrenList.add(new Property("concept", "@ValueSet.codeSystem.concept", "Child Concepts - a hierarchy of concepts. The nature of the relationships is variable (is-a / contains / categorises) and can only be determined by examining the definitions of the concepts.", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
       public ConceptDefinitionComponent copy() {
@@ -2769,10 +2769,10 @@ public class ValueSet extends DomainResource {
         protected StringType version;
 
         /**
-         * The code for this item in the expansion heirarchy. If this code is missing the entry in the heirarchy is a place holder (abstract) and doesn't represent a valid code in the value set.
+         * The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and doesn't represent a valid code in the value set.
          */
         @Child(name = "code", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Code - if blank, this is not a choosable code", formalDefinition="The code for this item in the expansion heirarchy. If this code is missing the entry in the heirarchy is a place holder (abstract) and doesn't represent a valid code in the value set." )
+        @Description(shortDefinition="Code - if blank, this is not a choosable code", formalDefinition="The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and doesn't represent a valid code in the value set." )
         protected CodeType code;
 
         /**
@@ -2783,10 +2783,10 @@ public class ValueSet extends DomainResource {
         protected StringType display;
 
         /**
-         * Other codes and entries contained under this entry in the heirarchy.
+         * Other codes and entries contained under this entry in the hierarchy.
          */
         @Child(name = "contains", type = {ValueSetExpansionContainsComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Codes contained under this entry", formalDefinition="Other codes and entries contained under this entry in the heirarchy." )
+        @Description(shortDefinition="Codes contained under this entry", formalDefinition="Other codes and entries contained under this entry in the hierarchy." )
         protected List<ValueSetExpansionContainsComponent> contains;
 
         private static final long serialVersionUID = -2038349483L;
@@ -2942,7 +2942,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #code} (The code for this item in the expansion heirarchy. If this code is missing the entry in the heirarchy is a place holder (abstract) and doesn't represent a valid code in the value set.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #code} (The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and doesn't represent a valid code in the value set.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public CodeType getCodeElement() { 
           if (this.code == null)
@@ -2962,7 +2962,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @param value {@link #code} (The code for this item in the expansion heirarchy. If this code is missing the entry in the heirarchy is a place holder (abstract) and doesn't represent a valid code in the value set.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #code} (The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and doesn't represent a valid code in the value set.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public ValueSetExpansionContainsComponent setCodeElement(CodeType value) { 
           this.code = value;
@@ -2970,14 +2970,14 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return The code for this item in the expansion heirarchy. If this code is missing the entry in the heirarchy is a place holder (abstract) and doesn't represent a valid code in the value set.
+         * @return The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and doesn't represent a valid code in the value set.
          */
         public String getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
-         * @param value The code for this item in the expansion heirarchy. If this code is missing the entry in the heirarchy is a place holder (abstract) and doesn't represent a valid code in the value set.
+         * @param value The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and doesn't represent a valid code in the value set.
          */
         public ValueSetExpansionContainsComponent setCode(String value) { 
           if (Utilities.noString(value))
@@ -3040,7 +3040,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #contains} (Other codes and entries contained under this entry in the heirarchy.)
+         * @return {@link #contains} (Other codes and entries contained under this entry in the hierarchy.)
          */
         public List<ValueSetExpansionContainsComponent> getContains() { 
           if (this.contains == null)
@@ -3058,7 +3058,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #contains} (Other codes and entries contained under this entry in the heirarchy.)
+         * @return {@link #contains} (Other codes and entries contained under this entry in the hierarchy.)
          */
     // syntactic sugar
         public ValueSetExpansionContainsComponent addContains() { //3
@@ -3084,9 +3084,9 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("system", "uri", "An absolute URI which is the code system in which the code for this item in the expansion is defined.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("abstract", "boolean", "If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.", 0, java.lang.Integer.MAX_VALUE, abstract_));
           childrenList.add(new Property("version", "string", "The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.", 0, java.lang.Integer.MAX_VALUE, version));
-          childrenList.add(new Property("code", "code", "The code for this item in the expansion heirarchy. If this code is missing the entry in the heirarchy is a place holder (abstract) and doesn't represent a valid code in the value set.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("code", "code", "The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and doesn't represent a valid code in the value set.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("display", "string", "The recommended display for this item in the expansion.", 0, java.lang.Integer.MAX_VALUE, display));
-          childrenList.add(new Property("contains", "@ValueSet.expansion.contains", "Other codes and entries contained under this entry in the heirarchy.", 0, java.lang.Integer.MAX_VALUE, contains));
+          childrenList.add(new Property("contains", "@ValueSet.expansion.contains", "Other codes and entries contained under this entry in the hierarchy.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
 
       public ValueSetExpansionContainsComponent copy() {

@@ -1140,7 +1140,7 @@ The update period may be different than the measurement repetition time, if the 
 					<Data ss:Type="String">Filename</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file.  E.g. resource-example-file-name.xml</Font>
+							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file; e.g. resource-example-file-name.xml</Font>
 						</ss:Data>
 					</Comment>
 				</Cell>

@@ -117,7 +117,7 @@
  -- Row 7 -----------------------------------
   Element = Contract.domain
   Card. = 0..*
-  Aliases = scope of governance jurisdication
+  Aliases = scope of governance jurisdiction
   Type = Reference(Location)
   Short Label = Domain in which this Contract applies
   Definition = Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.
@@ -140,7 +140,7 @@
   Binding = ContractSubtype
   Short Label = Contract Subtype
   Definition = More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.
-  RIM Mapping = e.g., RECOV
+  RIM Mapping = e.g. RECOV
 
  -- Row 10 -----------------------------------
   Element = Contract.action
@@ -149,7 +149,7 @@
   Binding = ContractAction
   Short Label = Contract Action
   Definition = Action stipulated by this Contract.
-  RIM Mapping = e.g., JURISPOL
+  RIM Mapping = e.g. JURISPOL
 
  -- Row 11 -----------------------------------
   Element = Contract.actionReason
@@ -158,7 +158,7 @@
   Binding = ContractActionReason
   Short Label = Contract Action Reason
   Definition = Reason for action stipulated by this Contract.
-  RIM Mapping = e.g., QUALIMP
+  RIM Mapping = e.g. QUALIMP
 
  -- Row 12 -----------------------------------
   Element = Contract.actor
@@ -270,7 +270,7 @@
   Type = Coding
   Binding = ContractSignerType
   Short Label = Contract Signer Type
-  Definition = Role of this Contract signer, e.g., notary, grantee.
+  Definition = Role of this Contract signer, e.g. notary, grantee.
 
  -- Row 26 -----------------------------------
   Element = Contract.signer.party
@@ -324,7 +324,7 @@
   Type = CodeableConcept
   Binding = ContractTermType
   Short Label = Contract Term Type
-  Definition = Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g., life time maximum benefit.
+  Definition = Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
 
  -- Row 33 -----------------------------------
   Element = Contract.term.subType
@@ -332,7 +332,7 @@
   Type = CodeableConcept
   Binding = ContractTermSubType
   Short Label = Contract Term Subtype
-  Definition = Subtype of this Contract Provision, e.g., life time maximum payment for a contract term for specific valued item, e.g., disability payment.
+  Definition = Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.
 
  -- Row 34 -----------------------------------
   Element = Contract.term.subject

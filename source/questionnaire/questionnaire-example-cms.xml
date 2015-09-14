@@ -343,8 +343,8 @@
 <option><code value="3"/><display value="Medicaid (traditional fee-for-service)"/></option>
 <option><code value="4"/><display value="Medicaid (HMO/managed care)"/></option>
 <option><code value="5"/><display value="Workers' compensation"/></option>
-<option><code value="6"/><display value="Title programs (e.g., Title III, V, or XX)"/></option>
-<option><code value="7"/><display value="Other government (e.g., TriCare, VA, etc.)"/></option>
+<option><code value="6"/><display value="Title programs (e.g. Title III, V, or XX)"/></option>
+<option><code value="7"/><display value="Other government (e.g. TriCare, VA, etc.)"/></option>
 <option><code value="8"/><display value="Private insurance"/></option>
 <option><code value="9"/><display value="Private HMO/managed care"/></option>
 <option><code value="10"/><display value="Self-pay"/></option>
@@ -527,7 +527,7 @@ Complete only if the V-code
 in Column 2 is reported in
 place of a case mix
 diagnosis that is a multiple
-coding situation (e.g., a
+coding situation (e.g. a
 manifestation code).
 Description ICD-9-C M /
 Symptom Control Rating
@@ -597,7 +597,7 @@ hospitalization? (Mark all that apply.)
 ⃞ 2 - Multiple hospitalizations (2 or more) in the past 12 months
 ⃞ 3 - History of falls (2 or more falls - or any fall with an injury - in the past year)
 ⃞ 4 - Taking five or more medications
-⃞ 5 - Frailty indicators, e.g., weight loss, self-reported exhaustion
+⃞ 5 - Frailty indicators, e.g. weight loss, self-reported exhaustion
 ⃞ 6 - Other
 ⃞ 7 - None of the above
 
@@ -626,7 +626,7 @@ season (October 1 through March 31) during this episode of care?
 influenza season. [ Go to M1050 ]
 (M1045) Reason Influenza Vaccine not received: If the patient did not receive the influenza vaccine from your
 agency during this episode of care, state reason:
-⃞ 1 - Received from another health care provider (e.g., physician)
+⃞ 1 - Received from another health care provider (e.g. physician)
 ⃞ 2 - Received from your agency previously during this year’s flu season
 ⃞ 3 - Offered and declined
 ⃞ 4 - Assessed and determined to have medical contraindication(s)
@@ -666,7 +666,7 @@ a. Patient lives alone ⃞ 01 ⃞ 02 ⃞ 03 ⃞ 04 ⃞ 05
 b. Patient lives with other
 person(s) in the home ⃞ 06 ⃞ 07 ⃞ 08 ⃞ 09 ⃞ 10
 c. Patient lives in congregate
-situation (e.g., assisted living) ⃞ 11 ⃞ 12 ⃞ 13 ⃞ 14 ⃞ 15
+situation (e.g. assisted living) ⃞ 11 ⃞ 12 ⃞ 13 ⃞ 14 ⃞ 15
 
 SENSORY STATUS
 (M1200) Vision (with corrective lenses if the patient usually wears them):
@@ -698,7 +698,7 @@ word choice, organization or speech intelligibility). Speaks in phrases or short
 ⃞ 3 - Has severe difficulty expressing basic ideas or needs and requires maximal assistance or guessing
 by listener. Speech limited to single words or short phrases.
 ⃞ 4 - Unable to express basic needs even with maximal prompting or assistance but is not comatose or
-unresponsive (e.g., speech is nonsensical or unintelligible).
+unresponsive (e.g. speech is nonsensical or unintelligible).
 ⃞ 5 - Patient nonresponsive or unable to speak.
 
 (M1240) Has this patient had a formal Pain Assessment using a standardized pain assessment tool (appropriate to
@@ -715,9 +715,9 @@ the patient’s ability to communicate the severity of pain)?
 INTEGUMENTARY STATUS
 (M1300) Pressure Ulcer Assessment: Was this patient assessed for Risk of Developing Pressure Ulcers?
 ⃞ 0 - No assessment conducted [ Go to M1306 ]
-⃞ 1 - Yes, based on an evaluation of clinical factors, e.g., mobility, incontinence, nutrition, etc., without use
+⃞ 1 - Yes, based on an evaluation of clinical factors, e.g. mobility, incontinence, nutrition, etc., without use
 of standardized tool
-⃞ 2 - Yes, using a standardized tool, e.g., Braden, Norton, other
+⃞ 2 - Yes, using a standardized tool, e.g. Braden, Norton, other
 (M1302) Does this patient have a Risk of Developing Pressure Ulcers?
 ⃞ 0 - No
 ⃞ 1 - Yes
@@ -831,9 +831,9 @@ RESPIRATORY STATUS
 (M1400) When is the patient dyspneic or noticeably Short of Breath?
 ⃞ 0 - Patient is not short of breath
 ⃞ 1 - When walking more than 20 feet, climbing stairs
-⃞ 2 - With moderate exertion (e.g., while dressing, using commode or bedpan, walking distances less
+⃞ 2 - With moderate exertion (e.g. while dressing, using commode or bedpan, walking distances less
 than 20 feet)
-⃞ 3 - With minimal exertion (e.g., while eating, talking, or performing other ADLs) or with agitation
+⃞ 3 - With minimal exertion (e.g. while eating, talking, or performing other ADLs) or with agitation
 ⃞ 4 - At rest (during day or night)
 (M1410) Respiratory Treatments utilized at home: (Mark all that apply.)
 ⃞ 1 - Oxygen (intermittent or continuous)
@@ -853,10 +853,10 @@ indicative of heart failure since the previous OASIS assessment, what action(s) 
 respond? (Mark all that apply.)
 ⃞ 0 - No action taken
 ⃞ 1 - Patient’s physician (or other primary care practitioner) contacted the same day
-⃞ 2 - Patient advised to get emergency treatment (e.g., call 911 or go to emergency room)
+⃞ 2 - Patient advised to get emergency treatment (e.g. call 911 or go to emergency room)
 ⃞ 3 - Implemented physician-ordered patient-specific established parameters for treatment
 ⃞ 4 - Patient education or other clinical interventions
-⃞ 5 - Obtained change in care plan orders (e.g., increased monitoring by agency, change in visit
+⃞ 5 - Obtained change in care plan orders (e.g. increased monitoring by agency, change in visit
 frequency, telehealth, etc.)
 ELIMINATION STATUS
 (M1600) Has this patient been treated for a Urinary Tract Infection in the past 14 days?
@@ -899,7 +899,7 @@ comprehension, concentration, and immediate memory for simple commands.
 ⃞ 0 - Alert/oriented, able to focus and shift attention, comprehends and recalls task directions
 independently.
 ⃞ 1 - Requires prompting (cuing, repetition, reminders) only under stressful or unfamiliar conditions.
-⃞ 2 - Requires assistance and some direction in specific situations (e.g., on all tasks involving shifting of
+⃞ 2 - Requires assistance and some direction in specific situations (e.g. on all tasks involving shifting of
 attention), or consistently requires low stimulus environment due to distractibility.
 ⃞ 3 - Requires considerable assistance in routine situations. Is not alert and oriented or is unable to shift
 attention and recall directions more than half the time.
@@ -958,7 +958,7 @@ hours, significant memory loss so that supervision is required
 ⃞ 2 - Impaired decision-making: failure to perform usual ADLs or IADLs, inability to appropriately stop
 activities, jeopardizes safety through actions
 ⃞ 3 - Verbal disruption: yelling, threatening, excessive profanity, sexual references, etc.
-⃞ 4 - Physical aggression: aggressive or combative to self and others (e.g., hits self, throws objects,
+⃞ 4 - Physical aggression: aggressive or combative to self and others (e.g. hits self, throws objects,
 punches, dangerous maneuvers with wheelchair or other objects)
 ⃞ 5 - Disruptive, infantile, or socially inappropriate behavior (excludes verbal actions)
 ⃞ 6 - Delusional, hallucinatory, or paranoid behavior
@@ -1045,7 +1045,7 @@ once in a seated position, on a variety of surfaces.
 (i.e., needs no human assistance or assistive device).
 ⃞ 1 - With the use of a one-handed device (e.g. cane, single crutch, hemi-walker), able to
 independently walk on even and uneven surfaces and negotiate stairs with or without railings.
-⃞ 2 - Requires use of a two-handed device (e.g., walker or crutches) to walk alone on a level surface
+⃞ 2 - Requires use of a two-handed device (e.g. walker or crutches) to walk alone on a level surface
 and/or requires human supervision or assistance to negotiate stairs or steps or uneven surfaces.
 ⃞ 3 - Able to walk only with the supervision or assistance of another person at all times.
 ⃞ 4 - Chairfast, unable to ambulate but is able to wheel self independently.
@@ -1064,7 +1064,7 @@ gastrostomy.
 ⃞ 4 - Unable to take in nutrients orally and is fed nutrients through a nasogastric tube or gastrostomy.
 ⃞ 5 - Unable to take in nutrients orally or by tube feeding.
 
-(M1880) Current Ability to Plan and Prepare Light Meals (e.g., cereal, sandwich) or reheat delivered meals safely:
+(M1880) Current Ability to Plan and Prepare Light Meals (e.g. cereal, sandwich) or reheat delivered meals safely:
 ⃞ 0 - (a) Able to independently plan and prepare all light meals for self or reheat delivered meals; OR
 (b) Is physically, cognitively, and mentally able to prepare light meals on a regular basis but has not
 routinely performed light meal preparation in the past (i.e., prior to this home care admission).
@@ -1084,11 +1084,11 @@ deaf) and call essential numbers.
 illness, exacerbation, or injury. Check only one box in each row.
 Functional Area Independent Needed Some
 Help Dependent
-a. Self-Care (e.g., grooming, dressing, and
+a. Self-Care (e.g. grooming, dressing, and
 bathing) ⃞0 ⃞1 ⃞2
 b. Ambulation ⃞0 ⃞1 ⃞2
 c. Transfer ⃞0 ⃞1 ⃞2
-d. Household tasks (e.g., light meal
+d. Household tasks (e.g. light meal
 preparation, laundry, shopping ) ⃞0 ⃞1 ⃞2
 (M1910) Has this patient had a multi-factor Fall Risk Assessment (such as falls history, use of multiple medications,
 mental impairment, toileting frequency, general mobility/transferring impairment, environmental hazards)?
@@ -1097,7 +1097,7 @@ mental impairment, toileting frequency, general mobility/transferring impairment
 ⃞ 2 - Yes, and it indicates a risk for falls.
 MEDICATIONS
 (M2000) Drug Regimen Review: Does a complete drug regimen review indicate potential clinically significant
-medication issues, e.g., drug reactions, ineffective drug therapy, side effects, drug interactions, duplicate
+medication issues, e.g. drug reactions, ineffective drug therapy, side effects, drug interactions, duplicate
 therapy, omissions, dosage errors, or noncompliance?
 ⃞ 0 - Not assessed/reviewed [ Go to M2010 ]
 ⃞ 1 - No problems found during review [ Go to M2010 ]
@@ -1189,24 +1189,24 @@ no
 Caregiver(s)
 available
 a. ADL assistance
-(e.g., transfer/
+(e.g. transfer/
 ambulation, bathing,
 dressing, toileting,
 eating/feeding)
 ⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
 b. IADL assistance
-(e.g., meals,
+(e.g. meals,
 housekeeping,
 laundry, telephone,
 shopping, finances)
 ⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
 c. Medication
-administration (e.g.,
+administration (e.g.
 oral, inhaled or
 injectable)
 ⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
 d. Medical procedures/
-treatments (e.g.,
+treatments (e.g.
 changing wound
 dressing)
 ⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
@@ -1220,7 +1220,7 @@ equipment or
 supplies)
 ⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
 f. Supervision and
-safety (e.g., due to
+safety (e.g. due to
 cognitive impairment)
 ⃞0 ⃞1 ⃞2 ⃞3 ⃞4 ⃞5
 g. Advocacy or
@@ -1295,9 +1295,9 @@ emergency department (includes holding/observation)?
 hospitalization)? (Mark all that apply.)
 ⃞ 1 - Improper medication administration, medication side effects, toxicity, anaphylaxis
 ⃞ 2 - Injury caused by fall
-⃞ 3 - Respiratory infection (e.g., pneumonia, bronchitis)
+⃞ 3 - Respiratory infection (e.g. pneumonia, bronchitis)
 ⃞ 4 - Other respiratory problem
-⃞ 5 - Heart failure (e.g., fluid overload)
+⃞ 5 - Heart failure (e.g. fluid overload)
 ⃞ 6 - Cardiac dysrhythmia (irregular heartbeat)
 ⃞ 7 - Myocardial infarction or chest pain
 ⃞ 8 - Other heart disease
@@ -1370,9 +1370,9 @@ answer.)
 apply.)
 ⃞ 1 - Improper medication administration, medication side effects, toxicity, anaphylaxis
 ⃞ 2 - Injury caused by fall
-⃞ 3 - Respiratory infection (e.g., pneumonia, bronchitis)
+⃞ 3 - Respiratory infection (e.g. pneumonia, bronchitis)
 ⃞ 4 - Other respiratory problem
-⃞ 5 - Heart failure (e.g., fluid overload)
+⃞ 5 - Heart failure (e.g. fluid overload)
 ⃞ 6 - Cardiac dysrhythmia (irregular heartbeat)
 ⃞ 7 - Myocardial infarction or chest pain
 ⃞ 8 - Other heart disease

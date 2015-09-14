@@ -306,7 +306,7 @@
   Summary = Y
   Type = Reference(Location)
   Short Label = Where the procedure happened
-  Definition = The location where the procedure actually happened.  e.g. a newborn at home, a tracheostomy at a restaurant
+  Definition = The location where the procedure actually happened; e.g. a newborn at home, a tracheostomy at a restaurant
   Comments = Ties a procedure to where the records are kept
   w5 = where
 

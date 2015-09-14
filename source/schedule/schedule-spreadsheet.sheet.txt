@@ -32,8 +32,8 @@
   Summary = Y
   Type = Identifier
   Short Label = External Ids for this item
-  RIM Mapping = .id
   iCal Mapping = UID
+  RIM Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------

@@ -18,7 +18,7 @@
  -- Row 3 -----------------------------------
   Binding Name = ReferralType
   Binding = unbound
-  Definition = Codes for types of referral.  E.g. Consult, transfer, temporary transfer
+  Definition = Codes for types of referral; e.g. Consult, transfer, temporary transfer
 
  -- Row 4 -----------------------------------
   Binding Name = ReferralSpecialty

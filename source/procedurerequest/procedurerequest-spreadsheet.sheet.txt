@@ -238,7 +238,7 @@
   Card. = 0..*
   Type = Annotation
   Short Label = Notes
-  Definition = Any other notes associated with this proposal or order - e.g., provider instructions.
+  Definition = Any other notes associated with this proposal or order - e.g. provider instructions.
   QUICK mapping = ClinicalStatement.additionalText
 
  -- Row 13 -----------------------------------

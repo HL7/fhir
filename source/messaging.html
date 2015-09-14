@@ -266,7 +266,7 @@ statement is a <a href="conformance.html">resource with the name
 <p>
 The simplest way to handle messages where there are also <a href="http.html">RESTful interactions</a>
 occurring is to use the <a href="messageheader-operations.html">$process-message</a>. 
-This operation that accept a messages, processes it according to the definition of the event in the message header, and returns a one or more response messages. 
+This operation accepts a message, processes it according to the definition of the event in the message header, and returns a one or more response messages. 
 e.g. In addition to processing the message event, a server
 may choose to retain all or some the resources and make them available on a RESTful interface, but
 is not required to do so.
@@ -274,7 +274,7 @@ is not required to do so.
 <p>
 When processing messages, a server may return a status code of 200 OK, or an process/error code (300+).
 If the server returns 200 OK, it SHALL return a bundle that is the message response.
-For any other response code, the message has not been succesfully processed. The server MAY return an
+For any other response code, the message has not been successfully processed. The server MAY return an
 <a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD
 do so if the response code is 400 or greater.
 The client SHALL interpret a 4xx response to indicate that there is no point resubmitting the unaltered
@@ -294,7 +294,7 @@ The following rules apply when using $process-message:
  <li>The mailbox may be authenticated using standard HTTP authentication methods, including OAuth</li>
 </ul>
 <p>
-The $process-message operation can be used by any HTTP end point that accepts FHIR messages, not just FHIR RESTful servers.
+The $process-message operation can be used by any HTTP end-point that accepts FHIR messages, not just FHIR RESTful servers.
 </p>
 <p>
 In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of Bundle.id and
@@ -335,9 +335,9 @@ The following rules apply when using the $process-message operation synchronousl
  <li>The server acknowledges the message with a 200OK with no body, or returns an HTTP error if the message cannot be processed. An <a href="operationoutcome.html">OperationOutcome</a> SHOULD be returned in such a case</li>
  <li>Accepting the message means that the server has understood the message enough to know where to respond</li>
  <li>By default, the server responds by invoking the $process-message using the sender's stated end-point in the message: POST [MessageHeader.source.endpoint]/$process-messages]</li>
- <li>Since the source end point may be manipulated by message transfer engines, an alternative response address may be specified using the parameter "response-url": http://server/base/$process-message?async=true&amp;response-url=http://server2.com/base/anything. 
+ <li>Since the source end-point may be manipulated by message transfer engines, an alternative response address may be specified using the parameter "response-url": http://server/base/$process-message?async=true&amp;response-url=http://server2.com/base/anything. 
    The endpoint at the specified URL SHALL implement the signature of the $process-message operation (parameter async=true, accept a Bundle, return a 200 OK or an error)</li>
- <li>The server submits response messages to the appropriate end point with the parameter async=true. There is no response message for the response messages</li>
+ <li>The server submits response messages to the appropriate end-point with the parameter async=true. There is no response message for the response messages</li>
 </ul>
 <p>
 When a message is received, a receiver can determine from the content of the message header whether it's a new message to process, or a response to a message that has already been sent. 
@@ -397,7 +397,7 @@ is useful for low-volume axynchronous exchange.
 </p>
 <p>
 To send a message, a sender posts the message bundle to the 
-/Bundle end point, with a uri that identifies the receiver 
+/Bundle end-point, with a uri that identifies the receiver 
 at <a href="messageheader-definitions.html#MessageHeader.destination.endpoint">MessageHeader.destination.endpoint</a>.
 The RESTful server accepts the bundle,
 stores it as a single bundle, and indexes it on the 

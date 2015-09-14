@@ -2,8 +2,8 @@ package org.hl7.fhir.definitions.generators.specification;
 
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.tools.publisher.PageProcessor;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class DataTypeTableGenerator extends TableGenerator {
@@ -12,7 +12,7 @@ public class DataTypeTableGenerator extends TableGenerator {
   }
 
   public XhtmlNode generate(ElementDefn e) throws Exception {
-    HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(dest, inlineGraphics);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics);
     TableModel model = gen.initNormalTable("", false);
     
     model.getRows().add(genElement(e, gen, false, e.getName(), false, "", RenderMode.DATATYPE));

@@ -43,11 +43,11 @@ import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Piece;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Cell;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 /**
@@ -56,8 +56,8 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  *  * getChildMap --?
  *  * getChildList
  *  * generateSnapshot: Given a base (snapshot) profile structure, and a differential profile, generate a new snapshot profile
- *  * generateExtensionsTable: generate the HTML for a heirarchical table presentation of the extensions
- *  * generateTable: generate  the HTML for a heirarchical table presentation of a structure
+ *  * generateExtensionsTable: generate the HTML for a hierarchical table presentation of the extensions
+ *  * generateTable: generate  the HTML for a hierarchical table presentation of a structure
  *  * summarise: describe the contents of a profile
  * @author Grahame
  *
@@ -941,7 +941,7 @@ public class ProfileUtilities {
 
 
   public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp, boolean full, String corePath) throws Exception {
-    HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable(corePath, false);
 
     boolean deep = false;
@@ -959,7 +959,7 @@ public class ProfileUtilities {
     if (full || vdeep) {
       r.getCells().add(gen.new Cell("", "", "Extension", null, null));
 
-      r.setIcon(deep ? "icon_extension_complex.png" : "icon_extension_simple.png", deep ? HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX : HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
+      r.setIcon(deep ? "icon_extension_complex.png" : "icon_extension_simple.png", deep ? HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX : HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
       List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
       for (ElementDefinition child : children)
         if (!child.getPath().endsWith(".id"))
@@ -972,7 +972,7 @@ public class ProfileUtilities {
       }
 
       r.getCells().add(gen.new Cell("", "", "Extension", null, null));
-      r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
+      r.setIcon("icon_extension_complex.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
       
       for (ElementDefinition c : children) {
         ElementDefinition ved = getValueFor(ed, c);
@@ -985,7 +985,7 @@ public class ProfileUtilities {
           r1.getCells().add(gen.new Cell(null, null, describeCardinality(c, null, new UnusedTracker()), null, null));
           genTypes(gen, pkp, r1, ved, defFile, ed, corePath);
           r1.getCells().add(gen.new Cell(null, null, c.getDefinition(), null, null));
-          r1.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
+          r1.setIcon("icon_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
         }
       }
     } else  {
@@ -997,7 +997,7 @@ public class ProfileUtilities {
 
       genTypes(gen, pkp, r, ved, defFile, ed, corePath);
 
-      r.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
+      r.setIcon("icon_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
     }
     Cell c = gen.new Cell("", "", "URL = "+ed.getUrl(), null, null);
     c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, ed.getName()+": "+ed.getDescription(), null));
@@ -1030,7 +1030,7 @@ public class ProfileUtilities {
   }
 
 
-  private Cell genTypes(HeirarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementDefinition e, String profileBaseFileName, StructureDefinition profile, String corePath) throws Exception {
+  private Cell genTypes(HierarchicalTableGenerator gen, ProfileKnowledgeProvider pkp, Row r, ElementDefinition e, String profileBaseFileName, StructureDefinition profile, String corePath) throws Exception {
     Cell c = gen.new Cell();
     r.getCells().add(c);
     List<TypeRefComponent> types = e.getType();
@@ -1140,7 +1140,7 @@ public class ProfileUtilities {
       return (!min.hasValue() ? "" : Integer.toString(min.getValue())) + ".." + (!max.hasValue() ? "" : max.getValue());
   }
 
-  private void genCardinality(HeirarchicalTableGenerator gen, ElementDefinition definition, Row row, boolean hasDef, UnusedTracker tracker, ElementDefinition fallback) {
+  private void genCardinality(HierarchicalTableGenerator gen, ElementDefinition definition, Row row, boolean hasDef, UnusedTracker tracker, ElementDefinition fallback) {
     IntegerType min = !hasDef ? new IntegerType() : definition.hasMinElement() ? definition.getMinElement() : new IntegerType();
     StringType max = !hasDef ? new StringType() : definition.hasMaxElement() ? definition.getMaxElement() : new StringType();
     if (min.isEmpty() && definition.getUserData(DERIVATION_POINTER) != null) {
@@ -1187,7 +1187,7 @@ public class ProfileUtilities {
 
   public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp, String profileBaseFileName, boolean snapshot, String corePath) throws Exception {
     assert(diff != snapshot);// check it's ok to get rid of one of these
-    HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable(corePath, false);
     List<ElementDefinition> list = diff ? profile.getDifferential().getElement() : profile.getSnapshot().getElement();
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
@@ -1196,7 +1196,7 @@ public class ProfileUtilities {
     return gen.generate(model, corePath);
   }
 
-  private void genElement(String defPath, HeirarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, ProfileKnowledgeProvider pkp, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath) throws Exception {
+  private void genElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, ProfileKnowledgeProvider pkp, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath) throws Exception {
     StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
     List<ElementDefinition> children = getChildren(all, element);
@@ -1211,27 +1211,27 @@ public class ProfileUtilities {
       boolean ext = false;
       if (s.equals("extension") || s.equals("modifierExtension")) {
         if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(pkp, element.getType().get(0).getProfile().get(0).getValue()))
-          row.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
+          row.setIcon("icon_extension_complex.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
         else
-          row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
+          row.setIcon("icon_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
         ext = true;
       } else if (!hasDef || element.getType().size() == 0)
-        row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
+        row.setIcon("icon_element.gif", HierarchicalTableGenerator.TEXT_ICON_ELEMENT);
       else if (hasDef && element.getType().size() > 1) {
         if (allTypesAre(element.getType(), "Reference"))
-          row.setIcon("icon_reference.png", HeirarchicalTableGenerator.TEXT_ICON_REFERENCE);
+          row.setIcon("icon_reference.png", HierarchicalTableGenerator.TEXT_ICON_REFERENCE);
         else
-          row.setIcon("icon_choice.gif", HeirarchicalTableGenerator.TEXT_ICON_CHOICE);
+          row.setIcon("icon_choice.gif", HierarchicalTableGenerator.TEXT_ICON_CHOICE);
       } else if (hasDef && element.getType().get(0).getCode().startsWith("@"))
-        row.setIcon("icon_reuse.png", HeirarchicalTableGenerator.TEXT_ICON_REUSE);
+        row.setIcon("icon_reuse.png", HierarchicalTableGenerator.TEXT_ICON_REUSE);
       else if (hasDef && isPrimitive(element.getType().get(0).getCode()))
-        row.setIcon("icon_primitive.png", HeirarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
+        row.setIcon("icon_primitive.png", HierarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
       else if (hasDef && isReference(element.getType().get(0).getCode()))
-        row.setIcon("icon_reference.png", HeirarchicalTableGenerator.TEXT_ICON_REFERENCE);
+        row.setIcon("icon_reference.png", HierarchicalTableGenerator.TEXT_ICON_REFERENCE);
       else if (hasDef && isDataType(element.getType().get(0).getCode()))
-        row.setIcon("icon_datatype.gif", HeirarchicalTableGenerator.TEXT_ICON_DATATYPE);
+        row.setIcon("icon_datatype.gif", HierarchicalTableGenerator.TEXT_ICON_DATATYPE);
       else
-        row.setIcon("icon_resource.png", HeirarchicalTableGenerator.TEXT_ICON_RESOURCE);
+        row.setIcon("icon_resource.png", HierarchicalTableGenerator.TEXT_ICON_RESOURCE);
       String ref = defPath == null ? null : defPath + makePathLink(element);
       UnusedTracker used = new UnusedTracker();
       used.used = true;
@@ -1291,7 +1291,7 @@ public class ProfileUtilities {
           used.used = element.hasType() && element.getType().get(0).hasProfile();
           showMissing = false;
         } else {
-          row.setIcon("icon_slice.png", HeirarchicalTableGenerator.TEXT_ICON_SLICE);
+          row.setIcon("icon_slice.png", HierarchicalTableGenerator.TEXT_ICON_SLICE);
           row.getCells().get(2).getPieces().clear();
           for (Cell cell : row.getCells())
             for (Piece p : cell.getPieces()) {
@@ -1376,7 +1376,7 @@ public class ProfileUtilities {
 
   }
 
-  private Cell generateDescription(HeirarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, StructureDefinition profile, String corePath) throws Exception {
+  private Cell generateDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, ProfileKnowledgeProvider pkp, StructureDefinition profile, String corePath) throws Exception {
     Cell c = gen.new Cell();
     row.getCells().add(c);
 

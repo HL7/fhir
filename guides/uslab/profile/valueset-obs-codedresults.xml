@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="SNOMED CT Codes"/>
   <status value="draft"/>
-<!--  ObservationValue	 Example SNOMED CT for coded results which includes Organism names, Findings, and Qualifier, Substance, and  Body Structure heirarchies.  This should cover >90% of observation results .	
+<!--  ObservationValue	 Example SNOMED CT for coded results which includes Organism names, Findings, and Qualifier, Substance, and  Body Structure hierarchies.  This should cover >90% of observation results .	
   -->
   <publisher value="HL7 International - Orders and Observations WG"/>
   <contact>

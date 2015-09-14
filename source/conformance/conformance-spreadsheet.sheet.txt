@@ -245,7 +245,7 @@
   Id = 1
   Code = Consequence
   Display = Consequence
-  Definition = The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment
+  Definition = The message represents/requests a change that should not be processed more than once; e.g. Making a booking for an appointment
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -373,13 +373,13 @@
   Id = 8
   Code = below
   Display = Below
-  Definition = The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or heirarchical relationships)
+  Definition = The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships)
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = above
   Display = Above
-  Definition = The search parameter tests whether the value in a resource subsumes the specified value (is-a, or heirarchical relationships)
+  Definition = The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships)
 
  -- Row 10 -----------------------------------
   Id = 10
@@ -429,14 +429,14 @@
  -- Row 3 -----------------------------------
   Code = requirements
   Display = Requirements
-  Definition = The Conformance instance represents a set of requirements for other systems to meet.  E.g. as part of an implementation guide or \'request for proposal\'
+  Definition = The Conformance instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or \'request for proposal\'
 
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Context = Conformance
-  English = A Conformance statement SHALL have at least one of rest, messaging or document
+  English = A Conformance statement SHALL have at least one of REST, messaging or document
   XPath = exists(f:rest) or exists(f:messaging) or exists(f:document)
 
  -- Row 2 -----------------------------------
@@ -448,7 +448,7 @@
  -- Row 3 -----------------------------------
   Id = 3
   Context = Conformance
-  English = Messaging end point is required (and is only permitted) when statement is for an implementation
+  English = Messaging end-point is required (and is only permitted) when statement is for an implementation
   XPath = exists(f:messaging/f:endpoint) = (f:kind/@value = \'instance\')
 
  -- Row 4 -----------------------------------
@@ -609,7 +609,7 @@
   Summary = y
   Type = dateTime
   Short Label = Publication Date(/time)
-  Definition = The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the conformance statement changes
+  Definition = The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the conformance statement changes
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
 
@@ -621,7 +621,7 @@
   Type = string
   Short Label = Human description of the conformance statement
   Definition = A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP
-  Comments = This field cmay include the purpose of this conformance statement, comments about its context etc. This does not need to be populated if the description is adequately implied by the software or implementation details
+  Comments = This field may include the purpose of this conformance statement, comments about its context etc. This does not need to be populated if the description is adequately implied by the software or implementation details
 
  -- Row 13 -----------------------------------
   Element = Conformance.requirements
@@ -637,7 +637,7 @@
   Aliases = License,Restrictions
   Type = string
   Short Label = Use and/or Publishing restrictions
-  Definition = A copyright statement relating to the conformamce statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement
+  Definition = A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement
 
  -- Row 15 -----------------------------------
   Element = Conformance.kind
@@ -742,7 +742,7 @@
   Type = Reference(StructureDefinition)
   Short Label = Profiles for use cases supported
   Definition = A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}
-  Comments = Supported profiles are different to the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports- this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).  Typical supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However they do not need to describe more than one resource
+  Comments = Supported profiles are different to the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).  Typical supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However, they do not need to describe more than one resource
 
  -- Row 27 -----------------------------------
   Element = Conformance.rest
@@ -1000,7 +1000,7 @@
   Type = string
   Short Label = Chained names supported
   Definition = Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type
-  Comments = Sstesm are not required to list all the chain names they support, but if they don\'t list them, clients may not know to use them
+  Comments = Systems are not required to list all the chain names they support, but if they don\'t list them, clients may not know to use them
 
  -- Row 59 -----------------------------------
   Element = Conformance.rest.interaction
@@ -1064,7 +1064,7 @@
   Type = Reference(OperationDefinition)
   Short Label = The defined operation/query
   Definition = Where the formal definition can be found
-  Comments = This can be used to build ah HTML form to invoke the operation, for instance
+  Comments = This can be used to build an HTML form to invoke the operation, for instance
 
  -- Row 67 -----------------------------------
   Element = Conformance.rest.compartment
@@ -1088,7 +1088,7 @@
   Card. = 0..*
   Aliases = 3
   UML = 0;330
-  Short Label = A messaging service end point
+  Short Label = A messaging service end-point
   Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
 
  -- Row 70 -----------------------------------
@@ -1103,7 +1103,7 @@
   Element = Conformance.messaging.endpoint.address
   Card. = 1..1
   Type = uri
-  Short Label = Address of end point
+  Short Label = Address of end-point
   Definition = The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier
 
  -- Row 72 -----------------------------------
@@ -1126,7 +1126,7 @@
   Card. = 1..*
   UML = -20;80
   Short Label = Declare support for this event
-  Definition = A description of the solution\'s support for an event at this end point.
+  Definition = A description of the solution\'s support for an event at this end-point.
   Comments = The same event may be listed up to two times - once as sender and once as receiver.
   To Do = Need to add follow-ups and need to do more to flesh out messaging dynamic model
 

@@ -68,7 +68,7 @@ The primary use case for the Person resource is to be able to support Person reg
 healthcare context, and are able to identify and quantify confidence levels that this is the same person.<br/>
 This could include consumer portals where the actual maintainer of the Person information is the actual person themselves.<br/>
 A system could use the Person entry to cross check changes to information applied to one part of a record to values in another
-system. e.g. A Consumer updates his contact numbers and address when moving in his Person record, and then a Patient Administation
+system; e.g. A Consumer updates his contact numbers and address when moving in his Person record, and then a Patient Administation
 system is able to see that this data is changed, and prompt the organization to follow up with the patient that was linked to
 the person record if they want their details updated, or if they no longer need services and they should be cancelled, 
 as they've moved from the area.
@@ -104,8 +104,8 @@ does not mandate that FHIR servers migrate information between such records on f
 <b>DSTU Note:</b>   We are seeking input from the implementer community on what effect linking/merging/unlinking should have on 
 other functionality such as the GET operation (where the result is the old version of the Patient), searching, reverse includes etc.<br/>
 E.g. Should observation resources from all linked/merged patients be returned when querying for one of them?<br/>
-How should an unlink behaviour be done? (Assuming that no data was "re-allocated" as part of merge)
-These suggested updated behaviours could be the subject of a future connectathon.
+How should an unlink behavior be done? (Assuming that no data was "re-allocated" as part of merge)
+These suggested updated behaviors could be the subject of a future connectathon.
 </p>
 <p>
 Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
@@ -165,7 +165,7 @@ used to pass the user details from a trusted client to the MPI. This may
 be used by the MPI to restrict the possible matches that are returned based 
 on user's rights. For example, a staff member covered by policies etc 
 may well get a different result than a patient trying to find their own 
-record. Note that this parameter is used where the the user would not be 
+record. Note that this parameter is used where the user would not be 
 expected to log in to the MPI directly; whether this is appropriate or not is 
 a deployment choice.
 </p>

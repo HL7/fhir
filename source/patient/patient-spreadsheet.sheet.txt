@@ -416,7 +416,7 @@
   Type = CodeableConcept
   Binding = Language
   Short Label = The language which can be used to communicate with the patient about his or her health
-  Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case. E.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
+  Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
   Requirements = Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect.
   Comments = The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type
   CDA Mapping = .languageCode
@@ -428,7 +428,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = LanguageAbilityMode
-  Short Label = Method of expression (e.g.,expressed written, received spoken)
+  Short Label = Method of expression (e.g.expressed written, received spoken)
   Definition = A value representing the person\'s method of expression of this language. Examples: expressed spoken, expressed written, expressed signed, received spoken, received written, received signed
   Requirements = A Person that can write English fairly well, but is not capable to understand
   Comments = It\'s expected that modeCode and proficiencyLevelCode work in conjunction. It makes less sense to convey modeCode unless you want to distinctly denote someone proficiency for a particular mode. It\'s however perfectly acceptable to have a proficiencyLevelCode without a modeCode
@@ -796,17 +796,17 @@
  -- Row 1 -----------------------------------
   Name = everything
   Use = Resource | Instance
-  Documentation = This operation is used to return all the information related to the patient described in the resource on which this operation is invoked. The response is a bundle of type \"searchset\". At a minimum, the patient resource itself is returned, along with any other resources that the server has that are related to the patient, and that are available for the given user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, medications, locations, organizations etc. The principle intended use for rhis operation is to provide a patient with access to their entire record (e.g. \"Blue Button\").  The server SHOULD return at least all resources that it has that are in the patient compartment for the identified patient, and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements as defined in [DAF]{daf/daf.html}. Other applicable implementation guides may make additional rules about how much information that is returned
+  Documentation = This operation is used to return all the information related to the patient described in the resource on which this operation is invoked. The response is a bundle of type \"searchset\". At a minimum, the patient resource itself is returned, along with any other resources that the server has that are related to the patient, and that are available for the given user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, medications, locations, organizations etc. The principle intended use for this operation is to provide a patient with access to their entire record (e.g. \"Blue Button\").  The server SHOULD return at least all resources that it has that are in the patient compartment for the identified patient, and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements as defined in [DAF](daf/daf.html). Other applicable implementation guides may make additional rules about how much information that is returned
   Type = operation
   Example.Request = $everything-request.txt
   Example.Response = $everything-response.txt
   Title = Fetch Patient Record
-  Footer = The key differences between this operation and simply searching the patient compartment are:  \n\n* unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) \n* the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones). This frees the client from needing to determine what it could or should ask for\n\nIt is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Speciying the relationship between the context, a user and patient records is outside the scope of this specification.
+  Footer = The key differences between this operation and simply searching the patient compartment are:  \n\n* unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) \n* the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones). This frees the client from needing to determine what it could or should ask for\n\nIt is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.
 
  -- Row 2 -----------------------------------
   Name = everything.start
   Use = in
-  Documentation = The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no date is provided, all records are in scope.
+  Documentation = The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no start date is provided, all records prior to the end date are in scope.
   Type = date
   Title = Start of date range
   Min = 0
@@ -815,7 +815,7 @@
  -- Row 3 -----------------------------------
   Name = everything.end
   Use = in
-  Documentation = The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no date is provided, all records are in scope.
+  Documentation = The date range relates to care dates, not record currency dates - e.g all records relating to care provided in a certain date range. If no end date is provided, all records subsequent to the start date are in scope.
   Type = date
   Title = End of date range
   Min = 0

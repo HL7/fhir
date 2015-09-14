@@ -283,7 +283,7 @@
   Card. = 0..*
   Type = string
   Short Label = Program Names that can be used to categorize the service
-  Comments = Programs are often defined externally to an Organization, commonly by governments. E.g. Home and Community Care Programs, Homeless Program, …
+  Comments = Programs are often defined externally to an Organization, commonly by governments; e.g. Home and Community Care Programs, Homeless Program, …
 
  -- Row 19 -----------------------------------
   Element = HealthcareService.characteristic
@@ -372,7 +372,7 @@
   Element = HealthcareService.availabilityExceptions
   Card. = 0..1
   Type = string
-  Short Label = A description of Site availability exceptions, e.g., public holiday availability. Succinctly describing all possible exceptions to normal Site availability as details in the Available Times and Not Available Times
+  Short Label = A description of Site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal Site availability as details in the Available Times and Not Available Times
   Comments = (May contain HTML formatted text)
 
  -- Row 32 -----------------------------------

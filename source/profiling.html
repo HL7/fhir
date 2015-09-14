@@ -194,7 +194,7 @@ In addition to the operations that FHIR provides, servers may provide additional
 operations that are not part of the FHIR specification. Implementers can safely do this 
 by appending a custom operation name prefixed with '$' to an existing FHIR URL, as the <a href="operations.html">Operations
 framework</a> does. The Conformance resource supports defining what OperationDefinitions make use of particular
-names on an end point.  If services are defined that are not declared using OperationDefinition, it may be
+names on an end-point.  If services are defined that are not declared using OperationDefinition, it may be
 appropriate to use longer names, reducing the chance of collision (and confusion) with services declared by
 other interfaces.  The base specification will never define operation names with a "." in them, so 
 implementers are recommended to use some appropriate prefix for their names (such as "ihe.someService")
@@ -279,7 +279,7 @@ is published. The following kinds of statements can be made about how an element
 series of <a href="elementdefinition.html">Element Definitions</a>:
 </p>
 <ul>
- <li>Restricting the cardinality of the element. e.g. the base might allow 0..*, and a particular application might support 1..2</li>
+ <li>Restricting the cardinality of the element; e.g. the base might allow 0..*, and a particular application might support 1..2</li>
  <li>Ruling out use of an element by setting its maximum cardinality to 0</li>
  <li>Restricting the contents of an element to a single fixed value</li>
  <li>Making additional constraints on the content of nested elements within the resource (expressed as XPath statements)</li>
@@ -713,9 +713,9 @@ Search criteria fall into one of four categories:
 </p>
 <ol>
   <li>Enabling search on core elements that don't have standard search criteria defined (e.g. searching Observation by normal range)</li>
-  <li>Enabling search on elements that already have a standard search criteria defined, but with custom matching rules.  E.g. a sounds-like search on Practitioner name</li>
+  <li>Enabling search on elements that already have a standard search criteria defined, but with custom matching rules; e.g. a sounds-like search on Practitioner name</li>
   <li>Enabling search on a particular extension</li>
-  <li>Enabling search that doesn't correspond to a single element but rather a combination of elements or computation on an element.  E.g. searching for patients by age</li>
+  <li>Enabling search that doesn't correspond to a single element but rather a combination of elements or computation on an element; e.g. searching for patients by age</li>
 </ol>
 <p>
 Additional Search Parameters can be defined using the <a href="searchparameter.html">SearchParameter</a> resource.

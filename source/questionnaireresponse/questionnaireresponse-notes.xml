@@ -38,7 +38,7 @@ Access Control
 </h2>
 <p>
 For most resources, the type of information that can be conveyed in the resource is determined by the resource and the key attributes that
-determine the sensitvity level of the information are also known.  E.g. drug, observation type, clinical trial randomaization status, etc.  However, for QuestionnaireResponse, the
+determine the sensitvity level of the information are also known; e.g. drug, observation type, clinical trial randomaization status, etc.  However, for QuestionnaireResponse, the
 sensitivity of an instance is dependent on what type of Questionnaire it's associated with.  And the data elements that determine that
 sensitivity could be the answers to any of the questions.  This makes automatically enforcing access control rules more challenging.  Designers
 should take these challenges into account and may need to place stricter access controls around QuestionnaireResponse to ensure that access to

@@ -310,8 +310,8 @@ dt:II.extension a rdf:Property;
    rdfs:range xs:string.
 
 dt:II.identifierName a rdf:Property;
-   dcterms:description "This is a human-readable name for the namespace represented in the root. It is a descriptive name for the actual namespace. e.g. 'California, U.S. Driver's License Number, 1970-'.";
-   rdfs:comment "This is a human-readable name for the namespace represented in the root. It is a descriptive name for the actual namespace. e.g. 'California, U.S. Driver's License Number, 1970-'.";
+   dcterms:description "This is a human-readable name for the namespace represented in the root. It is a descriptive name for the actual namespace; e.g. 'California, U.S. Driver's License Number, 1970-'.";
+   rdfs:comment "This is a human-readable name for the namespace represented in the root. It is a descriptive name for the actual namespace; e.g. 'California, U.S. Driver's License Number, 1970-'.";
    os:occurs os:Zero-or-one;
    rdfs:domain dt:II;
    rdfs:range xs:string.

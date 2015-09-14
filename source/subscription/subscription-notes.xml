@@ -100,7 +100,7 @@ makes to the client.
 </p>
 <p>
 Alternatively, the server can be asked to send the entire 
-resource to a nominated FHIR end point. This is usually appropriate
+resource to a nominated FHIR end-point. This is usually appropriate
 for defining routing rules within a managed eco-system such
 as a healthcare institution. 
 </p>

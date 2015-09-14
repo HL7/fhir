@@ -251,7 +251,7 @@ Prefer: return=representation
 </pre>
 <p>
 The first of these two asks to return no body. The
-second asks to return the full resource. Servers SHOULD honour this header.
+second asks to return the full resource. Servers SHOULD honor this header.
 In the absence of the header, servers may chose whether to return the
 full resource or not. Note that this setting only applies to succesful interactions.
 In case of failure, servers SHOULD always return a body that contains an 
@@ -468,7 +468,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 <ul>
  <li><b><code>400</code> Bad Request</b> - resource could not be parsed or failed basic FHIR validation rules (or multiple matches were found for </li>
  <li><b><code>403</code> Not Authorised</b> - authorization is required for the interaction that was attempted</li>
- <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end point</li>
+ <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end-point</li>
  <li><b><code>405</code> Method Not allowed</b> - the resource did not exist prior to the update, and the server does not allow client defined ids</li>
  <li><b><code>409</code>/<code>412</code></b> - version conflict management - see <a href="#concurrency">below</a></li>
  <li><b><code>422</code> Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules</li>
@@ -496,7 +496,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b>: The server performs a <a href="#create"><code>create</code></a> interaction</li>
  <li><b>One Match</b>: The server performs the update against the matching resource</li>
- <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the the client's criteria were not selective enough</li>
+ <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough</li>
 </ul>
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to submit
@@ -614,7 +614,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b>: The server returns <code>404</code> Not found</li>
  <li><b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
- <li><b>Multiple matches</b>: Servers may choose to delete all the matching resources, or it may choose to return a <code>412</code> Precondition Failed error indicating the the client's criteria were not selective enough.
+ <li><b>Multiple matches</b>: Servers may choose to delete all the matching resources, or it may choose to return a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough.
    A server indicates whether it can delete multiple resources in its <a href="conformance-definitions.html#Conformance.rest.resource.conditionalDelete">Conformance Statement (.rest.resource.conditionalDelete)</a>.
    if there are multiple matches, either all must deleted, or the server SHALL return an error</li>
 </ul>
@@ -679,7 +679,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 </p>
 <ul>
  <li><b><code>400</code> Bad Request</b> - resource could not be parsed or failed basic FHIR validation rules</li>
- <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end point</li>
+ <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end-point</li>
  <li><b><code>422</code> Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail</li>
 </ul>
 <p>
@@ -710,7 +710,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b>: The server processes the create as above</li>
  <li><b>One Match</b>: The server ignore the post and returns <code>200</code> OK</li>
- <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the the client's criteria were not selective enough</li>
+ <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough</li>
 </ul>
 <p>
 This variant can be used to avoid the risk of two clients
@@ -823,16 +823,16 @@ The Conformance statement returned typically has an arbitrary id, and no meta el
 <p>
 In addition to this <code>conformance</code> interaction, a server may also choose to provide the
 standard set of interactions (<code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>) defined on this page
-for the <a href="conformance.html">Conformance Resource</a> end point.
+for the <a href="conformance.html">Conformance Resource</a> end-point.
 This is different to the <code>conformance</code> interaction:
 </p>
 <table class="grid">
  <tr><td><code>conformance</code> interaction</td><td>returns a conformance statement describing the server's current operational functionality</td></tr>
- <tr><td>Conformance end point</td><td>manages a repository of conformance statements (e.g. the HL7 conformance statement registry)</td></tr>
+ <tr><td>Conformance end-point</td><td>manages a repository of conformance statements (e.g. the HL7 conformance statement registry)</td></tr>
 </table>
 <p>
 All servers are required to support the <code>conformance</code> interaction, but servers may choose whether they wish to support the conformance end-point, 
-just like any other end point.
+just like any other end-point.
 </p>
 
 <a name="transaction"> </a>
@@ -869,7 +869,7 @@ what to do for the entry. If the HTTP command is a <code>PUT</code> or <code>POS
 SHALL contain a resource for the body of the action.
 The resources in the bundle are each processed separately as if they were an individual
 interactions or operations as otherwise described on this page, or the <a href="operations.html">Operations
-framework</a>. The actions are subject to the the normal processing for each,
+framework</a>. The actions are subject to the normal processing for each,
 including the <a href="resource.html#meta">meta element</a>, verification and version aware updates,
 and <a href="#transactional-integrity">transactional integrity</a>.
 </p>
@@ -938,7 +938,7 @@ Servers SHALL replace all matching links in the bundle, whether they are found i
 resource references, url elements, or <code>&lt;a href="" &amp; &lt;img src=""</code> in the narrative.
 </p>
 <p>
-When processing a batch or transaction, a server MAY choose to honour existing 
+When processing a batch or transaction, a server MAY choose to honor existing 
 logical ids (e.g. <code>Observation/1234</code> remains as <code>Observation/1234</code> on the server), but 
 since this is only <a href="#upsert">safe in controlled circumstances</a>, servers
 may choose to assign new ids to all submitted resources, irrespective of any claimed

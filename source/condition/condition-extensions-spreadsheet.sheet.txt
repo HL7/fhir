@@ -13,7 +13,7 @@
   Binding Name = ConditionCause
   Binding = value set
   Reference = valueset-condition-cause
-  Definition = Codes that describe causes of patient conditions.  E.g. Surgical mishap, escalation of a previous condition, etc.
+  Definition = Codes that describe causes of patient conditions; e.g. Surgical mishap, escalation of a previous condition, etc.
   Conformance = example
 
  -- Row 3 -----------------------------------

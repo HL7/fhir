@@ -49,7 +49,7 @@ import org.apache.commons.io.FileUtils;
 import org.hl7.fhir.utilities.Utilities;
 
 
-public class HeirarchicalTableGenerator  {
+public class HierarchicalTableGenerator  {
   public static final String TEXT_ICON_REFERENCE = "Reference to another Resource";
   public static final String TEXT_ICON_PRIMITIVE = "Primitive Data Type";
   public static final String TEXT_ICON_DATATYPE = "Data Type";
@@ -139,7 +139,7 @@ public class HeirarchicalTableGenerator  {
   }
   
   public class Cell {
-    private List<Piece> pieces = new ArrayList<HeirarchicalTableGenerator.Piece>();
+    private List<Piece> pieces = new ArrayList<HierarchicalTableGenerator.Piece>();
 
     public Cell() {
       
@@ -197,8 +197,8 @@ public class HeirarchicalTableGenerator  {
   }
   
   public class Row {
-    private List<Row> subRows = new ArrayList<HeirarchicalTableGenerator.Row>();
-    private List<Cell> cells = new ArrayList<HeirarchicalTableGenerator.Cell>();
+    private List<Row> subRows = new ArrayList<HierarchicalTableGenerator.Row>();
+    private List<Cell> cells = new ArrayList<HierarchicalTableGenerator.Cell>();
     private String icon;
     private String anchor;
     private String hint;
@@ -237,8 +237,8 @@ public class HeirarchicalTableGenerator  {
   }
 
   public class TableModel {
-    private List<Title> titles = new ArrayList<HeirarchicalTableGenerator.Title>();
-    private List<Row> rows = new ArrayList<HeirarchicalTableGenerator.Row>();
+    private List<Title> titles = new ArrayList<HierarchicalTableGenerator.Title>();
+    private List<Row> rows = new ArrayList<HierarchicalTableGenerator.Row>();
     private String docoRef;
     private String docoImg;
     public List<Title> getTitles() {
@@ -274,7 +274,7 @@ public class HeirarchicalTableGenerator  {
   private boolean inLineGraphics;
   
   
-  public HeirarchicalTableGenerator(String dest, boolean inlineGraphics) {
+  public HierarchicalTableGenerator(String dest, boolean inlineGraphics) {
     super();
     this.dest = dest;
     this.inLineGraphics = inlineGraphics;
@@ -317,7 +317,7 @@ public class HeirarchicalTableGenerator  {
     if (model.getDocoRef() != null) {
       tr = table.addTag("tr");
       tc = tr.addTag("td");
-      tc.setAttribute("class", "heirarchy");
+      tc.setAttribute("class", "hierarchy");
       tc.setAttribute("colspan", Integer.toString(model.getTitles().size()));
       tc.addTag("br");
       XhtmlNode a = tc.addTag("a").setAttribute("title", "Legend for this format").setAttribute("href", model.getDocoRef());
@@ -357,26 +357,26 @@ public class HeirarchicalTableGenerator  {
 
   private XhtmlNode renderCell(XhtmlNode tr, Cell c, String name, String icon, String hint, List<Boolean> indents, boolean hasChildren, String anchor, String color, String corePrefix) throws Exception {
     XhtmlNode tc = tr.addTag(name);
-    tc.setAttribute("class", "heirarchy");
+    tc.setAttribute("class", "hierarchy");
     if (indents != null) {
-      tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_spacer.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
+      tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_spacer.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "hierarchy").setAttribute("alt", ".");
       tc.setAttribute("style", "vertical-align: top; text-align : left; background-color: "+color+"; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url("+corePrefix+checkExists(indents, hasChildren)+")");
       for (int i = 0; i < indents.size()-1; i++) { 
         if (indents.get(i))
-          tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_blank.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
+          tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_blank.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "hierarchy").setAttribute("alt", ".");
         else
-          tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_vline.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
+          tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_vline.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "hierarchy").setAttribute("alt", ".");
       }
       if (!indents.isEmpty())
         if (indents.get(indents.size()-1))
-          tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_vjoin_end.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
+          tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_vjoin_end.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "hierarchy").setAttribute("alt", ".");
         else
-          tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_vjoin.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "heirarchy").setAttribute("alt", ".");
+          tc.addTag("img").setAttribute("src", srcFor(corePrefix, "tbl_vjoin.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "hierarchy").setAttribute("alt", ".");
     }
     else
       tc.setAttribute("style", "vertical-align: top; text-align : left; background-color: "+color+"; padding:0px 4px 0px 4px");
     if (!Utilities.noString(icon)) {
-      XhtmlNode img = tc.addTag("img").setAttribute("src", srcFor(corePrefix, icon)).setAttribute("class", "heirarchy").setAttribute("style", "background-color: "+color+"; background-color: inherit").setAttribute("alt", ".");
+      XhtmlNode img = tc.addTag("img").setAttribute("src", srcFor(corePrefix, icon)).setAttribute("class", "hierarchy").setAttribute("style", "background-color: "+color+"; background-color: inherit").setAttribute("alt", ".");
       if (hint != null)
         img.setAttribute("title", hint);
       tc.addText(" ");

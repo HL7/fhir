@@ -235,7 +235,7 @@
   Summary = y
   Type = dateTime
   Short Label = Date for this version of the Implementation Guide
-  Definition = The date that this version of the Implementation Guide was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the implementation guide changes
+  Definition = The date that this version of the Implementation Guide was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
 

@@ -126,12 +126,12 @@
  -- Row 1 -----------------------------------
   Name = validate
   Use = Resource | Instance
-  Documentation = The validate interaction checks whether the attached content would be acceptable either generally, or as a create, or an update or delete to an existing resource.  The action the server takes depends on the mode parameter:  \n\n* [mode not provided]: The server checks the content of the resource against any schema, constraint rules, and other general terminology rules \n* create: The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not violate any uniqueness constraints) \n* update: The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change, and checking version integrity if appropriate) \n* delete: The server ignores the content, and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules)  \n\nModes update and delete can only be used when the operation is invoked at the resource instance level.   The return from this operation is an OperationOutcome
+  Documentation = The validate operation checks whether the attached content would be acceptable either generally, as a create, an update or as a delete to an existing resource.  The action the server takes depends on the mode parameter:  \n\n* [mode not provided]: The server checks the content of the resource against any schema, constraint rules, and other general terminology rules \n* create: The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not violate any uniqueness constraints) \n* update: The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change, and checking version integrity if appropriate) \n* delete: The server ignores the content, and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules)  \n\nModes update and delete can only be used when the operation is invoked at the resource instance level.   The return from this operation is an [[[OperationOutcome]]]
   Type = operation
   Example.Request = $validate-request.txt
   Example.Response = $validate-response.txt
   Title = Validate a resource
-  Footer = This operation may be used during design and development to validate application design. It can also be used at run-time. One possible use might be that a client asks the server whether a proposed update is valid as the user is editing a dialog, and displays an updated error to the user. The operation can be used as part of a light-weight two phase commit protocol but there is no expectation that the server will hold the content of the resource after this operation is used, or that the server guarantees to succesfully perform an actual create, update or delete after the validation operation completes.
+  Footer = This operation may be used during design and development to validate application design. It can also be used at run-time. One possible use might be that a client asks the server whether a proposed update is valid as the user is editing a dialog and displays an updated error to the user. The operation can be used as part of a light-weight two phase commit protocol but there is no expectation that the server will hold the content of the resource after this operation is used, or that the server guarantees to successfully perform an actual create, update or delete after the validation operation completes.
 
  -- Row 2 -----------------------------------
   Name = validate.resource
@@ -145,7 +145,7 @@
  -- Row 3 -----------------------------------
   Name = validate.mode
   Use = in
-  Documentation = Default is \'no action; (e.g. general validation)
+  Documentation = Default is \'no action\'; (e.g. general validation)
   Type = code
   Title = What kind of validation to perform
   Min = 0
@@ -173,12 +173,12 @@
  -- Row 6 -----------------------------------
   Name = meta
   Use = System | Resource | Instance
-  Documentation = This operation retrieves a summary of the profiles, tags, and security labels for the given scope. E.g. for each scope:  \n\n* system-wide: a list of all profiles, tags and security labels in use by the system \n* resource-type level: A list of all profiles, tags, and security labels for the resource type \n* individual resource level: A list of all profiles, tags, and security labels for the current version of the resource.  Also, as a special case, this operation (and other meta operations) can be performed on a historical version of a resource)
+  Documentation = This operation retrieves a summary of the profiles, tags, and security labels for the given scope; e.g. for each scope:  \n\n* system-wide: a list of all profiles, tags and security labels in use by the system \n* resource-type level: A list of all profiles, tags, and security labels for the resource type \n* individual resource level: A list of all profiles, tags, and security labels for the current version of the resource.  Also, as a special case, this operation (and other meta operations) can be performed on a historical version of a resource)
   Type = operation
   Example.Request = $meta-request.txt
   Example.Response = $meta-response.txt
   Title = Access a list of profiles, tags, and security labels
-  Footer = At the system and type levels, the $meta operation is used to get a summary of all the labels that are in use across the system. The principle use for this operation is to support search e.g. what tags can be searched for. At these levels, the meta will not contain versionId, lastUpdated etc. Systems are not obligated to implement the operation at this level (and should return a 4xx error if they don\'t)  At the resource and historical entry level, the $meta operation returns the same meta as would be returned by accessing the resource directly. This can be used to allow a system to get access to the meta-information for the resource without accessing the resource itself, e.g. for security reasons
+  Footer = At the system and type levels, the $meta operation is used to get a summary of all the labels that are in use across the system. The principle use for this operation is to support search e.g. what tags can be searched for. At these levels, the meta will not contain versionId, lastUpdated etc. Systems are not obligated to implement the operation at this level (and should return a 4xx error if they don\'t). At the resource and historical entry level, the $meta operation returns the same meta as would be returned by accessing the resource directly. This can be used to allow a system to get access to the meta-information for the resource without accessing the resource itself, e.g. for security reasons
 
  -- Row 7 -----------------------------------
   Name = meta.return
@@ -192,7 +192,7 @@
  -- Row 8 -----------------------------------
   Name = meta-add
   Use = Instance
-  Documentation = This operation takes a meta, and either adds the profiles, tags, and security labels found in it to the nominated resource.   This operation can also be used on historical entries - to update them without creating a different historical version
+  Documentation = This operation takes a meta, and adds the profiles, tags, and security labels found in it to the nominated resource.   This operation can also be used on historical entries - to update them without creating a different historical version
   Type = operation
   Example.Request = $meta-add-request.txt
   Example.Response = $meta-add-response.txt
@@ -202,7 +202,7 @@
  -- Row 9 -----------------------------------
   Name = meta-add.meta
   Use = in
-  Documentation = Profiles, tags, and security labels to add to the existing resource. Note that profiles, tags, and security labels are sets, and duplicates are not created.  The identity of a tag or security label is the system+code. When matching existing tags during adding, version and display are ignored. For profiles matching is based on the full URL
+  Documentation = Profiles, tags, and security labels to add to the existing resource. Note that profiles, tags, and security labels are sets, and duplicates are not created.  The identity of a tag or security label is the system+code. When matching existing tags during adding, version and display are ignored. For profiles, matching is based on the full URL
   Type = Meta
   Title = Profiles, tags, and security labels to add
   Min = 1
@@ -220,7 +220,7 @@
  -- Row 11 -----------------------------------
   Name = meta-delete
   Use = Instance
-  Documentation = This operation takes a meta, and either deletes the profiles, tags, and security labels found in it from the nominated resource.   This operation can also be used on historical entries
+  Documentation = This operation takes a meta, and deletes the profiles, tags, and security labels found in it from the nominated resource.   This operation can also be used on historical entries
   Type = operation
   Example.Request = $meta-delete-request.txt
   Example.Response = $meta-delete-response.txt
@@ -230,7 +230,7 @@
  -- Row 12 -----------------------------------
   Name = meta-delete.meta
   Use = in
-  Documentation = Profiles, tags, and security labels to add delete from the existing resource. It is not an error if these tags, profiles, and labels do not exist.  The identity of a tag or security label is the system+code. When matching existing tags during deletion, version and display are ignored. For profiles matching is based on the full URL
+  Documentation = Profiles, tags, and security labels to delete from the existing resource. It is not an error if these tags, profiles, and labels do not exist.  The identity of a tag or security label is the system+code. When matching existing tags during deletion, version and display are ignored. For profiles, matching is based on the full URL
   Type = Meta
   Title = Profiles, tags, and security labels to delete
   Min = 1

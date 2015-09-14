@@ -103,7 +103,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = A request for information to be sent to a receiver
-  Definition = A request to convey information. E.g., the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
+  Definition = A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
@@ -128,7 +128,7 @@
   Card. = 0..1
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Message sender
-  Definition = The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication
+  Definition = The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication
   w5 = who.actor
 
  -- Row 5 -----------------------------------
@@ -136,7 +136,7 @@
   Card. = 0..*
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Message recipient
-  Definition = The entity (e.g., person, organization, clinical information system, or device) which is the intended target of the communication
+  Definition = The entity (e.g. person, organization, clinical information system, or device) which is the intended target of the communication
   w5 = who.focus
 
  -- Row 6 -----------------------------------
@@ -166,7 +166,7 @@
   Card. = 0..1
   Type = Reference(Practitioner|Patient|RelatedPerson)
   Short Label = An individual who requested a communication
-  Definition = The responsible person who authorizes this order, e.g., physician. This may be different than the author of the order statement, e.g., clerk, who may have entered the statement into the order entry application.
+  Definition = The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.
   w5 = who.cause
 
  -- Row 10 -----------------------------------

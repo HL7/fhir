@@ -677,11 +677,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
          */
         NOTIN, 
         /**
-         * The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or heirarchical relationships)
+         * The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships)
          */
         BELOW, 
         /**
-         * The search parameter tests whether the value in a resource subsumes the specified value (is-a, or heirarchical relationships)
+         * The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships)
          */
         ABOVE, 
         /**
@@ -756,8 +756,8 @@ public class Conformance extends DomainResource implements IBaseConformance {
             case TEXT: return "The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, or Identifier.type.text";
             case IN: return "The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set.";
             case NOTIN: return "The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set";
-            case BELOW: return "The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or heirarchical relationships)";
-            case ABOVE: return "The search parameter tests whether the value in a resource subsumes the specified value (is-a, or heirarchical relationships)";
+            case BELOW: return "The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships)";
+            case ABOVE: return "The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships)";
             case TYPE: return "The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc)";
             default: return "?";
           }

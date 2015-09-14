@@ -2107,17 +2107,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean commentS = false;
     boolean deprecated = false;
     boolean display = false;
-    boolean heirarchy = false;
+    boolean hierarchy = false;
     for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
       deprecated = deprecated || conceptsHaveDeprecated(c);
       display = display || conceptsHaveDisplay(c);
-      heirarchy = heirarchy || c.hasConcept();
+      hierarchy = hierarchy || c.hasConcept();
       scanLangs(c, langs);
     }
-    addMapHeaders(addTableHeaderRowStandard(t, heirarchy, display, true, commentS, deprecated), mymaps);
+    addMapHeaders(addTableHeaderRowStandard(t, hierarchy, display, true, commentS, deprecated), mymaps);
     for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-      hasExtensions = addDefineRowToTable(t, c, 0, heirarchy, display, commentS, deprecated, mymaps, vs.getCodeSystem().getSystem()) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, mymaps, vs.getCodeSystem().getSystem()) || hasExtensions;
     }
     if (langs.size() > 0) {
       Collections.sort(langs);
@@ -2213,9 +2213,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
 
-  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean hasHeirarchy, boolean hasDisplay, boolean definitions, boolean comments, boolean deprecated) {
+  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean hasHierarchy, boolean hasDisplay, boolean definitions, boolean comments, boolean deprecated) {
     XhtmlNode tr = t.addTag("tr");
-    if (hasHeirarchy)
+    if (hasHierarchy)
       tr.addTag("td").addTag("b").addText("Lvl");
     tr.addTag("td").addTag("b").addText("Code");
     if (hasDisplay)
@@ -2278,11 +2278,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHeirarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, String system) {
+  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, String system) {
     boolean hasExtensions = false;
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
-    if (hasHeirarchy) {
+    if (hasHierarchy) {
       td.addText(Integer.toString(i+1));
       td = tr.addTag("td");
       String s = Utilities.padLeft("", '\u00A0', i*2);
@@ -2359,7 +2359,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       a.addText(c.getCode());
     }
     for (ConceptDefinitionComponent cc : c.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHeirarchy, hasDisplay, comment, deprecated, maps, system) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHierarchy, hasDisplay, comment, deprecated, maps, system) || hasExtensions;
     }
     return hasExtensions;
   }

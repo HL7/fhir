@@ -110,7 +110,7 @@
   Card. = 0..1
   Type = Period
   Short Label = Transaction window
-  Definition = Identifies the period of time the account applies to.  E.g. accounts created per fiscal year, quarter, etc.
+  Definition = Identifies the period of time the account applies to; e.g. accounts created per fiscal year, quarter, etc.
   Comments = It is possible for transactions relevant to a coverage period to be posted to the account before or after the coverage period.
   To Do = Better name?
 

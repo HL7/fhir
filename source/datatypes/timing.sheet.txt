@@ -329,7 +329,7 @@
   Card. = 0..1
   Type = decimal
   Short Label = Event occurs frequency times per period
-  Definition = Indicates the duration of time over which repetitions are to occur.  E.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period
+  Definition = Indicates the duration of time over which repetitions are to occur; e.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period
   RIM Mapping = PIVL.phase
 
  -- Row 12 -----------------------------------

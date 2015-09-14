@@ -270,7 +270,7 @@
   Card. = 0..*
   UML = down
   Short Label = A list of events of interest in the lifecycle
-  Definition = A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed
+  Definition = A summary of the events of interest that have occurred as the request is processed; e.g. when the order was made, various processing steps (specimens received), when it was completed
   Comments = This is not the same as an audit trail - it is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events
   RIM Mapping = .inboundRelationship[typeCode=FLFS].source
 

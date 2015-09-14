@@ -150,7 +150,7 @@ definitions include:
   above and beyond the name.</li>
   <li>The definition should be more than one or two words.</li>
   <li>Ideally, the definition should be phrased in a manner such that the definition could be substituted for the data element
-  name in a sentence.  E.g. "gender" might be defined as "the sexual identity of a person as used for administrative purposes"</li>
+  name in a sentence; e.g. "gender" might be defined as "the sexual identity of a person as used for administrative purposes"</li>
   <li>If the data element does not have a value set and does not make use of a simple type such as date, integer or boolean,
   it should list several example values as part of the definition.</li>
   <li>Information about the rationale for the element or additional usage notes should not be conveyed as part of the definition

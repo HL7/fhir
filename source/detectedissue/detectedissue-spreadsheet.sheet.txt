@@ -5,14 +5,14 @@
   Binding Name = DetectedIssueCategory
   Binding = value set
   Reference = valueset-detectedissue-category
-  Definition = Codes identifying the general type of detected issue. E.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc.
+  Definition = Codes identifying the general type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc.
   Conformance = preferred
 
  -- Row 2 -----------------------------------
   Binding Name = DetectedIssueMitigationAction
   Binding = value set
   Reference = valueset-detectedissue-mitigation-action
-  Definition = Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue.  E.g. \'added concurrent therapy\', \'prior therapy documented\', etc.
+  Definition = Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. \'added concurrent therapy\', \'prior therapy documented\', etc.
   Conformance = preferred
 
  -- Row 3 -----------------------------------
@@ -55,7 +55,7 @@
   Aliases = DDI, drug-drug interaction, Contraindication, Alert
   Type = DomainResource
   Short Label = Clinical issue with action
-  Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
+  Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
   v2 Mapping = N/A
   RIM Mapping = Observation[classCode=ALRT, moodCode=EVN)
   w5 = clinical.general
@@ -103,7 +103,7 @@
   Type = Reference(Any)
   Short Label = Problem resource
   Definition = Indicates the resource representing the current activity or proposed activity that is potentially problematic
-  Comments = There\'s an implicit constraint on the number of implicated resources based on DetectedIssue.type.  E.g. For drug-drug, there would be more than one.  For timing, there would typically only be one.
+  Comments = There\'s an implicit constraint on the number of implicated resources based on DetectedIssue.type; e.g. For drug-drug, there would be more than one.  For timing, there would typically only be one.
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[moodCode=EVN, INT]
 
  -- Row 6 -----------------------------------
@@ -143,7 +143,7 @@
   Summary = y
   Type = Identifier
   Short Label = Unique id for the detected issue
-  Definition = Business identifier associated with the detected issuerecord
+  Definition = Business identifier associated with the detected issue record
   Requirements = Allows linking instances of the same detected issue found on different servers
   RIM Mapping = .id
   w5 = id

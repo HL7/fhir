@@ -91,7 +91,7 @@ references to value sets can either be logical or literal URL.
 A value set has 3 identifiers:
 </p>
 <ul>
- <li>ValueSet.id: the local identifier on the system that holds it - this changes as it moves from server to server (this, the the server address prepended, is called the 'literal identity' of the resource)</li>
+ <li>ValueSet.id: the local identifier on the system that holds it - this changes as it moves from server to server (this, the server address prepended, is called the 'literal identity' of the resource)</li>
  <li>ValueSet.url: the master identifier that never changes for this value set - the same in every copy (this is called the 'logical identity' of the resource)</li>
  <li>ValueSet.identifier: A system/value pair that is used to identify the value set in other contexts (such as an OID in an <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specification)</li>
 </ul>

@@ -366,7 +366,7 @@
     <concept>
       <code value="MCD"/>
       <display value="Media Creation Device"/>
-      <definition value="A device that creates DICOM PS3.10 interchange media. E.g., a CD creator that is managed by the Media Creation Management Service Class"/>
+      <definition value="A device that creates DICOM PS3.10 interchange media; e.g. a CD creator that is managed by the Media Creation Management Service Class"/>
     </concept>
     <concept>
       <code value="MEDIM"/>
@@ -1055,7 +1055,7 @@
     <concept>
       <code value="109083"/>
       <display value="Paced"/>
-      <definition value="There is a constant RR interval, which makes thresholding not required; see Cardiac Synchronization Technique (0018,9037). E.g., Pacemaker"/>
+      <definition value="There is a constant RR interval, which makes thresholding not required; see Cardiac Synchronization Technique (0018,9037); e.g. Pacemaker"/>
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
@@ -1120,17 +1120,17 @@
     <concept>
       <code value="109101"/>
       <display value="Acquisition Equipment"/>
-      <definition value="Equipment that originally acquired the data stored within composite instances. E.g., a CT, MR or Ultrasound modality"/>
+      <definition value="Equipment that originally acquired the data stored within composite instances; e.g. a CT, MR or Ultrasound modality"/>
     </concept>
     <concept>
       <code value="109102"/>
       <display value="Processing Equipment"/>
-      <definition value="Equipment that has processed composite instances to create new composite instances. E.g., a 3D Workstation"/>
+      <definition value="Equipment that has processed composite instances to create new composite instances; e.g. a 3D Workstation"/>
     </concept>
     <concept>
       <code value="109103"/>
       <display value="Modifying Equipment"/>
-      <definition value="Equipment that has modified existing composite instances (without creating new composite instances). E.g., a QA Station or Archive"/>
+      <definition value="Equipment that has modified existing composite instances (without creating new composite instances); e.g. a QA Station or Archive"/>
     </concept>
     <concept>
       <code value="109104"/>
@@ -1199,7 +1199,7 @@
     <concept>
       <code value="109120"/>
       <display value="On admission to unit"/>
-      <definition value="The occasion on which a procedure was performed on admission to a specialist unit. E.g., intensive care"/>
+      <definition value="The occasion on which a procedure was performed on admission to a specialist unit; e.g. intensive care"/>
     </concept>
     <concept>
       <code value="109121"/>
@@ -1209,7 +1209,7 @@
     <concept>
       <code value="109122"/>
       <display value="On discharge from unit"/>
-      <definition value="The occasion on which a procedure was performed on discharge from a specialist unit. E.g., intensive care"/>
+      <definition value="The occasion on which a procedure was performed on discharge from a specialist unit; e.g. intensive care"/>
     </concept>
     <concept>
       <code value="109123"/>
@@ -2559,7 +2559,7 @@
     <concept>
       <code value="110706"/>
       <display value="Perilesional White Matter"/>
-      <definition value="White matter that surrounds a lesion of interest. E.g., to identify the otherwise unclassified white matetr that surrounds a tumor to be surgically resected"/>
+      <definition value="White matter that surrounds a lesion of interest; e.g. to identify the otherwise unclassified white matetr that surrounds a tumor to be surgically resected"/>
     </concept>
     <concept>
       <code value="110800"/>
@@ -2689,12 +2689,12 @@
     <concept>
       <code value="110825"/>
       <display value="Hemodynamic Resistance"/>
-      <definition value="Measured resistance to the flow of blood. E.g., through the vasculature or through a heart value"/>
+      <definition value="Measured resistance to the flow of blood; e.g. through the vasculature or through a heart value"/>
     </concept>
     <concept>
       <code value="110826"/>
       <display value="Indexed Hemodynamic Resistance"/>
-      <definition value="Measured resistance to the flow of blood. E.g., through the vasculature or through a heart value, normalized to a particular indexed scale"/>
+      <definition value="Measured resistance to the flow of blood; e.g. through the vasculature or through a heart value, normalized to a particular indexed scale"/>
     </concept>
     <concept>
       <code value="110827"/>
@@ -3034,7 +3034,7 @@
     <concept>
       <code value="111004"/>
       <display value="Analysis Performed"/>
-      <definition value="The type of correlation applied to detection results. E.g., temporal, spatial"/>
+      <definition value="The type of correlation applied to detection results; e.g. temporal, spatial"/>
     </concept>
     <concept>
       <code value="111005"/>
@@ -3377,7 +3377,7 @@
     <concept>
       <code value="111069"/>
       <display value="Crosstable"/>
-      <definition value="A radiographic projection that has been with the patient lying on a table with the X-Ray source on one side of the table and the detector on the other. E.g., may describe a cross-table cervical spine, chest or pelvis X-Ray image"/>
+      <definition value="A radiographic projection that has been with the patient lying on a table with the X-Ray source on one side of the table and the detector on the other; e.g. may describe a cross-table cervical spine, chest or pelvis X-Ray image"/>
     </concept>
     <concept>
       <code value="111071"/>
@@ -4868,7 +4868,7 @@
     <concept>
       <code value="111364"/>
       <display value="Hypoechoic"/>
-      <definition value="Defined relative to fat; masses are characterized by low-level echoes throughout. E.g., appearance of a complicated cyst or fibroadenoma"/>
+      <definition value="Defined relative to fat; masses are characterized by low-level echoes throughout; e.g. appearance of a complicated cyst or fibroadenoma"/>
     </concept>
     <concept>
       <code value="111365"/>
@@ -5103,7 +5103,7 @@
     <concept>
       <code value="111413"/>
       <display value="Overall Assessment"/>
-      <definition value="A title for a report section that summarizes all interpretation results for a report with one overriding assessment. E.g., benign or negative"/>
+      <definition value="A title for a report section that summarizes all interpretation results for a report with one overriding assessment; e.g. benign or negative"/>
     </concept>
     <concept>
       <code value="111414"/>
@@ -5193,22 +5193,22 @@
     <concept>
       <code value="111432"/>
       <display value="Inferolateral to superomedial"/>
-      <definition value="The line within the anatomy from the lower outer to the upper inner aspect. E.g., through which a needle or instrument passes in an interventional procedure"/>
+      <definition value="The line within the anatomy from the lower outer to the upper inner aspect; e.g. through which a needle or instrument passes in an interventional procedure"/>
     </concept>
     <concept>
       <code value="111433"/>
       <display value="Inferomedial to superolateral"/>
-      <definition value="The line within the anatomy from the lower inner to the upper outer aspect. E.g., through which a needle or instrument passes in an interventional procedure"/>
+      <definition value="The line within the anatomy from the lower inner to the upper outer aspect; e.g. through which a needle or instrument passes in an interventional procedure"/>
     </concept>
     <concept>
       <code value="111434"/>
       <display value="Superolateral to inferomedial"/>
-      <definition value="The line within the anatomy from the upper outer to the lower inner aspect. E.g., through which a needle or instrument passes in an interventional procedure"/>
+      <definition value="The line within the anatomy from the upper outer to the lower inner aspect; e.g. through which a needle or instrument passes in an interventional procedure"/>
     </concept>
     <concept>
       <code value="111435"/>
       <display value="Superomedial to inferolateral"/>
-      <definition value="The line within the anatomy from the upper inner to the lower outer aspect. E.g., through which a needle or instrument passes in an interventional procedure"/>
+      <definition value="The line within the anatomy from the upper inner to the lower outer aspect; e.g. through which a needle or instrument passes in an interventional procedure"/>
     </concept>
     <concept>
       <code value="111436"/>
@@ -5368,7 +5368,7 @@
     <concept>
       <code value="111465"/>
       <display value="Needle Gauge"/>
-      <definition value="Needle size (diameter) characterization. E.g., of a biopsy needle"/>
+      <definition value="Needle size (diameter) characterization; e.g. of a biopsy needle"/>
     </concept>
     <concept>
       <code value="111466"/>
@@ -5768,7 +5768,7 @@
     <concept>
       <code value="111542"/>
       <display value="Unspecified gynecological hormone"/>
-      <definition value="A gynecological hormone for which the specific type is not specified. E.g., contraceptive, estrogen, Tamoxifen"/>
+      <definition value="A gynecological hormone for which the specific type is not specified; e.g. contraceptive, estrogen, Tamoxifen"/>
     </concept>
     <concept>
       <code value="111543"/>
@@ -5918,7 +5918,7 @@
     <concept>
       <code value="111572"/>
       <display value="History of multiple fetuses"/>
-      <definition value="History of at least one pregnancy that contained more than one fetus. E.g., twins, triplets, etc."/>
+      <definition value="History of at least one pregnancy that contained more than one fetus; e.g. twins, triplets, etc."/>
     </concept>
     <concept>
       <code value="111573"/>
@@ -6193,7 +6193,7 @@
     <concept>
       <code value="111635"/>
       <display value="X-Ray Grid"/>
-      <definition value="An anti-scatter device based on radiation absorbing strips above the detector. E.g., in the patient support"/>
+      <definition value="An anti-scatter device based on radiation absorbing strips above the detector; e.g. in the patient support"/>
     </concept>
     <concept>
       <code value="111636"/>
@@ -6208,7 +6208,7 @@
     <concept>
       <code value="111638"/>
       <display value="Patient Equivalent Thickness"/>
-      <definition value="Value of the control variable used to parametrize the Automatic Exposure Control (AEC) closed loop. E.g., &quot;Water Value&quot;"/>
+      <definition value="Value of the control variable used to parametrize the Automatic Exposure Control (AEC) closed loop; e.g. &quot;Water Value&quot;"/>
     </concept>
     <concept>
       <code value="111641"/>
@@ -6448,7 +6448,7 @@
     <concept>
       <code value="111723"/>
       <display value="Visual Marking of Specimen"/>
-      <definition value="Description of visual distinguishing identifiers. E.g., ink, or a particular shape of the specimen"/>
+      <definition value="Description of visual distinguishing identifiers; e.g. ink, or a particular shape of the specimen"/>
     </concept>
     <concept>
       <code value="111724"/>
@@ -6678,7 +6678,7 @@
     <concept>
       <code value="111792"/>
       <display value="Surface contour mapping"/>
-      <definition value="Mapping from 2D image pixels to 3D Cartesian coordinates based on measurements of the retinal surface. E.g., of the retina, derived via a measurement technology such as Optical Coherence Tomography, Ultrasound etc"/>
+      <definition value="Mapping from 2D image pixels to 3D Cartesian coordinates based on measurements of the retinal surface; e.g. of the retina, derived via a measurement technology such as Optical Coherence Tomography, Ultrasound etc"/>
     </concept>
     <concept>
       <code value="111800"/>
@@ -7118,7 +7118,7 @@
     <concept>
       <code value="111930"/>
       <display value="Absolute ophthalmic thickness"/>
-      <definition value="Thickness of a component of the posterior segment of the eye. E.g., thickness of retina, choroid, etc"/>
+      <definition value="Thickness of a component of the posterior segment of the eye; e.g. thickness of retina, choroid, etc"/>
     </concept>
     <concept>
       <code value="111931"/>
@@ -7203,7 +7203,7 @@
     <concept>
       <code value="111947"/>
       <display value="Interferometry-based corneal tomographer"/>
-      <definition value="An Interference-based device that projects a beam of light onto and through the cornea. Light reflected from within the cornea is combined with a reference beam giving rise to an interference pattern. Appropriately scanned, this imaging is used to construct 3-dimensional images of the cornea from anterior to posterior surfaces. E.g., swept source OCT"/>
+      <definition value="An Interference-based device that projects a beam of light onto and through the cornea. Light reflected from within the cornea is combined with a reference beam giving rise to an interference pattern. Appropriately scanned, this imaging is used to construct 3-dimensional images of the cornea from anterior to posterior surfaces; e.g. swept source OCT"/>
     </concept>
     <concept>
       <code value="112000"/>
@@ -7368,7 +7368,7 @@
     <concept>
       <code value="112032"/>
       <display value="Threshold Attenuation Coefficient"/>
-      <definition value="An X-Ray attenuation coefficient that is used as a threshold. E.g., in calcium scoring"/>
+      <definition value="An X-Ray attenuation coefficient that is used as a threshold; e.g. in calcium scoring"/>
     </concept>
     <concept>
       <code value="112033"/>
@@ -7463,7 +7463,7 @@
     <concept>
       <code value="112051"/>
       <display value="Measurement of Response"/>
-      <definition value="A measured or calculated evaluation of response. E.g., according to a method such as RECIST, the value would be the calculated sum of the lengths of the longest axes of a set of target lesions"/>
+      <definition value="A measured or calculated evaluation of response; e.g. according to a method such as RECIST, the value would be the calculated sum of the lengths of the longest axes of a set of target lesions"/>
     </concept>
     <concept>
       <code value="112052"/>
@@ -7998,7 +7998,7 @@
     <concept>
       <code value="112158"/>
       <display value="Lobar"/>
-      <definition value="Of or relating to a lobe (a curved or rounded projection or division). E.g., involving an entire lobe of the lung"/>
+      <definition value="Of or relating to a lobe (a curved or rounded projection or division); e.g. involving an entire lobe of the lung"/>
     </concept>
     <concept>
       <code value="112159"/>
@@ -8598,7 +8598,7 @@
     <concept>
       <code value="112365"/>
       <display value="Related Implantation Reports"/>
-      <definition value="Implantation Reports that are somehow related. E.g., contemporaneous implantations that are independent"/>
+      <definition value="Implantation Reports that are somehow related; e.g. contemporaneous implantations that are independent"/>
     </concept>
     <concept>
       <code value="112366"/>
@@ -8858,7 +8858,7 @@
     <concept>
       <code value="113013"/>
       <display value="Best In Set"/>
-      <definition value="A selection that represents the &quot;best&quot; chosen from a larger set of items. E.g., the best images within a Study or Series. The criteria against which &quot;best&quot; is measured is not defined. Contrast this with the more specific term &quot;Best illustration of finding&quot;"/>
+      <definition value="A selection that represents the &quot;best&quot; chosen from a larger set of items; e.g. the best images within a Study or Series. The criteria against which &quot;best&quot; is measured is not defined. Contrast this with the more specific term &quot;Best illustration of finding&quot;"/>
     </concept>
     <concept>
       <code value="113014"/>
@@ -8893,7 +8893,7 @@
     <concept>
       <code value="113021"/>
       <display value="For Litigation"/>
-      <definition value="List of objects that are related to litigation and should be specially handled. E.g., may apply if a complaint has been received regarding a patient, or a specific set of images has been the subject of a subpoena, and needs to be sequestered or excluded from automatic purging according to retention policy"/>
+      <definition value="List of objects that are related to litigation and should be specially handled; e.g. may apply if a complaint has been received regarding a patient, or a specific set of images has been the subject of a subpoena, and needs to be sequestered or excluded from automatic purging according to retention policy"/>
     </concept>
     <concept>
       <code value="113026"/>
@@ -8938,7 +8938,7 @@
     <concept>
       <code value="113037"/>
       <display value="Rejected for Patient Safety Reasons"/>
-      <definition value="List of objects whose use is potentially harmful to the patient. E.g., an improperly labeled image could lead to dangerous surgical decisions"/>
+      <definition value="List of objects whose use is potentially harmful to the patient; e.g. an improperly labeled image could lead to dangerous surgical decisions"/>
     </concept>
     <concept>
       <code value="113038"/>
@@ -9103,7 +9103,7 @@
     <concept>
       <code value="113070"/>
       <display value="Velocity encoded"/>
-      <definition value="Values are derived by calculating values based on velocity encoded. E.g., phase contrast"/>
+      <definition value="Values are derived by calculating values based on velocity encoded; e.g. phase contrast"/>
     </concept>
     <concept>
       <code value="113071"/>
@@ -9273,27 +9273,27 @@
     <concept>
       <code value="113107"/>
       <display value="Retain Longitudinal Temporal Information Modified Dates Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that any dates and times be modified in a manner that preserves temporal relationships. E.g., Study Date and Time"/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that any dates and times be modified in a manner that preserves temporal relationships; e.g. Study Date and Time"/>
     </concept>
     <concept>
       <code value="113108"/>
       <display value="Retain Patient Characteristics Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained. E.g., Patient&#39;s Age, Sex, Size (height) and Weight"/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained; e.g. Patient&#39;s Age, Sex, Size (height) and Weight"/>
     </concept>
     <concept>
       <code value="113109"/>
       <display value="Retain Device Identity Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that any information that identifies a device be retained. E.g., Device Serial Number"/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that any information that identifies a device be retained; e.g. Device Serial Number"/>
     </concept>
     <concept>
       <code value="113110"/>
       <display value="Retain UIDs Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that UIDs be retained. E.g., SOP Instance UID"/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that UIDs be retained; e.g. SOP Instance UID"/>
     </concept>
     <concept>
       <code value="113111"/>
       <display value="Retain Safe Private Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that private attributes that are known not to contain identity information be retained. E.g., private SUV scale factor"/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that private attributes that are known not to contain identity information be retained; e.g. private SUV scale factor"/>
     </concept>
     <concept>
       <code value="113500"/>
@@ -9618,7 +9618,7 @@
     <concept>
       <code value="113653"/>
       <display value="Flat filter"/>
-      <definition value="Filter with uniform thickness that is for spectral filtering only. E.g., filter out low energy portion of the X-Ray that would only contribute to skin dose, but not to image"/>
+      <definition value="Filter with uniform thickness that is for spectral filtering only; e.g. filter out low energy portion of the X-Ray that would only contribute to skin dose, but not to image"/>
     </concept>
     <concept>
       <code value="113661"/>
@@ -9738,7 +9738,7 @@
     <concept>
       <code value="113702"/>
       <display value="Accumulated X-Ray Dose Data"/>
-      <definition value="X-Ray dose data accumulated over multiple irradiation events. E.g., for a study or a performed procedure step"/>
+      <definition value="X-Ray dose data accumulated over multiple irradiation events; e.g. for a study or a performed procedure step"/>
     </concept>
     <concept>
       <code value="113704"/>
@@ -10028,7 +10028,7 @@
     <concept>
       <code value="113772"/>
       <display value="X-Ray Filter Type"/>
-      <definition value="Type of filter(s) inserted into the X-Ray beam. E.g., wedges"/>
+      <definition value="Type of filter(s) inserted into the X-Ray beam; e.g. wedges"/>
     </concept>
     <concept>
       <code value="113773"/>
@@ -10108,7 +10108,7 @@
     <concept>
       <code value="113805"/>
       <display value="Constant Angle Acquisition"/>
-      <definition value="The CT acquisition was performed by holding the source at a constant angle and moving the table to obtain a projection image. E.g., localizer"/>
+      <definition value="The CT acquisition was performed by holding the source at a constant angle and moving the table to obtain a projection image; e.g. localizer"/>
     </concept>
     <concept>
       <code value="113806"/>
@@ -10118,7 +10118,7 @@
     <concept>
       <code value="113807"/>
       <display value="Free Acquisition"/>
-      <definition value="The CT acquisition was performed while rotating the source about the gantry while the table movement is under direct control of a human operator or under the control of an analysis application. E.g., fluoro"/>
+      <definition value="The CT acquisition was performed while rotating the source about the gantry while the table movement is under direct control of a human operator or under the control of an analysis application; e.g. fluoro"/>
     </concept>
     <concept>
       <code value="113808"/>
@@ -10138,7 +10138,7 @@
     <concept>
       <code value="113811"/>
       <display value="CT Accumulated Dose Data"/>
-      <definition value="X-Ray dose accumulated over multiple CT irradiation events. E.g., for a study or a performed procedure step"/>
+      <definition value="X-Ray dose accumulated over multiple CT irradiation events; e.g. for a study or a performed procedure step"/>
     </concept>
     <concept>
       <code value="113812"/>
@@ -10323,7 +10323,7 @@
     <concept>
       <code value="113852"/>
       <display value="Irradiation Event"/>
-      <definition value="An irradiation event is the loading of X-Ray equipment caused by a single continuous actuation of the equipment&#39;s irradiation switch, from the start of the loading time of the first pulse until the loading time trailing edge of the final pulse. Any automatic on-off switching of the irradiation source during the event is not treated as separate events, rather the event includes the time between start and stop of irradiation as triggered by the user. E.g., a pulsed fluoro X-Ray acquisition shall be treated as a single irradiation event"/>
+      <definition value="An irradiation event is the loading of X-Ray equipment caused by a single continuous actuation of the equipment&#39;s irradiation switch, from the start of the loading time of the first pulse until the loading time trailing edge of the final pulse. Any automatic on-off switching of the irradiation source during the event is not treated as separate events, rather the event includes the time between start and stop of irradiation as triggered by the user; e.g. a pulsed fluoro X-Ray acquisition shall be treated as a single irradiation event"/>
     </concept>
     <concept>
       <code value="113853"/>
@@ -10393,17 +10393,17 @@
     <concept>
       <code value="113866"/>
       <display value="Copied From Image Attributes"/>
-      <definition value="The data is copied from information present in the image attributes. E.g., dose attributes such as CTDIvol (0018,9345)"/>
+      <definition value="The data is copied from information present in the image attributes; e.g. dose attributes such as CTDIvol (0018,9345)"/>
     </concept>
     <concept>
       <code value="113867"/>
       <display value="Computed From Image Attributes"/>
-      <definition value="The data is computed from information present in the image attributes. E.g., by using dosimetry information for the specific irradiating device make and model, applied to technique information such as KVP and mAs"/>
+      <definition value="The data is computed from information present in the image attributes; e.g. by using dosimetry information for the specific irradiating device make and model, applied to technique information such as KVP and mAs"/>
     </concept>
     <concept>
       <code value="113868"/>
       <display value="Derived From Human-Readable Reports"/>
-      <definition value="The data is derived from human-readable reports. E.g., by natural language parsing of text reports, or optical character recognition from reports saved as images by the irradiating device"/>
+      <definition value="The data is derived from human-readable reports; e.g. by natural language parsing of text reports, or optical character recognition from reports saved as images by the irradiating device"/>
     </concept>
     <concept>
       <code value="113870"/>
@@ -10673,7 +10673,7 @@
     <concept>
       <code value="113947"/>
       <display value="Detector Type"/>
-      <definition value="Type of Detector used to acquire data. E.g., Images"/>
+      <definition value="Type of Detector used to acquire data; e.g. Images"/>
     </concept>
     <concept>
       <code value="113948"/>
@@ -10683,12 +10683,12 @@
     <concept>
       <code value="113949"/>
       <display value="Indirect Detector"/>
-      <definition value="Detector that transforms an intermediate signal into pixel values. E.g., a scintillator-based detector"/>
+      <definition value="Detector that transforms an intermediate signal into pixel values; e.g. a scintillator-based detector"/>
     </concept>
     <concept>
       <code value="113950"/>
       <display value="Storage Detector"/>
-      <definition value="Storage detector that stores a signal that is later transformed by a reader into pixel values. E.g., a phosphor-based detector"/>
+      <definition value="Storage detector that stores a signal that is later transformed by a reader into pixel values; e.g. a phosphor-based detector"/>
     </concept>
     <concept>
       <code value="113951"/>
@@ -10703,7 +10703,7 @@
     <concept>
       <code value="113953"/>
       <display value="Unmounted Detector"/>
-      <definition value="The cassette/detector is not mounted.. E.g., a cassette placed underneath the patient"/>
+      <definition value="The cassette/detector is not mounted.; e.g. a cassette placed underneath the patient"/>
     </concept>
     <concept>
       <code value="113954"/>
@@ -10733,7 +10733,7 @@
     <concept>
       <code value="113959"/>
       <display value="Cassette-based Projection Radiography System"/>
-      <definition value="A projection radiography system where the X-Ray detector, X-Ray Source and gantry components are not integrated. E.g., cassette-based CR and DR systems"/>
+      <definition value="A projection radiography system where the X-Ray detector, X-Ray Source and gantry components are not integrated; e.g. cassette-based CR and DR systems"/>
     </concept>
     <concept>
       <code value="113961"/>
@@ -11152,12 +11152,12 @@
     <concept>
       <code value="121045"/>
       <display value="Language"/>
-      <definition value="The language of the content, being a language that is primarily used for human communication. E.g., English, French"/>
+      <definition value="The language of the content, being a language that is primarily used for human communication; e.g. English, French"/>
     </concept>
     <concept>
       <code value="121046"/>
       <display value="Country of Language"/>
-      <definition value="The country-specific variant of language. E.g., Canada for Candadian French"/>
+      <definition value="The country-specific variant of language; e.g. Canada for Candadian French"/>
     </concept>
     <concept>
       <code value="121047"/>
@@ -11430,7 +11430,7 @@
     <concept>
       <code value="121080"/>
       <display value="Best illustration of finding"/>
-      <definition value="A selection of composite instances that best illustrates a particular finding. E.g., an image slice at the location of the largest extent of a tumor"/>
+      <definition value="A selection of composite instances that best illustrates a particular finding; e.g. an image slice at the location of the largest extent of a tumor"/>
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
@@ -11526,7 +11526,7 @@
     <concept>
       <code value="121088"/>
       <display value="Fellow"/>
-      <definition value="A medical practitioner undergoing sub-specialty training. E.g., during the period after specialty training (residency)"/>
+      <definition value="A medical practitioner undergoing sub-specialty training; e.g. during the period after specialty training (residency)"/>
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
@@ -11741,12 +11741,12 @@
     <concept>
       <code value="121116"/>
       <display value="Proximal Finding Site"/>
-      <definition value="Proximal Anatomic Location for a differential measurement; may be considered subtype of term (G-C0E3, SRT, &quot;Finding Site&quot;). E.g., distance or pressure gradient"/>
+      <definition value="Proximal Anatomic Location for a differential measurement; may be considered subtype of term (G-C0E3, SRT, &quot;Finding Site&quot;); e.g. distance or pressure gradient"/>
     </concept>
     <concept>
       <code value="121117"/>
       <display value="Distal Finding Site"/>
-      <definition value="Distal Anatomic Location for a differential measurement; may be considered subtype of term (G-C0E3, SRT, &quot;Finding Site&quot;). E.g., distance or pressure gradient"/>
+      <definition value="Distal Anatomic Location for a differential measurement; may be considered subtype of term (G-C0E3, SRT, &quot;Finding Site&quot;); e.g. distance or pressure gradient"/>
     </concept>
     <concept>
       <code value="121118"/>
@@ -12114,7 +12114,7 @@
     <concept>
       <code value="121208"/>
       <display value="Inter-Marker Distance"/>
-      <definition value="Distance between marks on a device of calibrated size. E.g., a ruler"/>
+      <definition value="Distance between marks on a device of calibrated size; e.g. a ruler"/>
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
@@ -12302,7 +12302,7 @@
     <concept>
       <code value="121317"/>
       <display value="Spectroscopy"/>
-      <definition value="Image where signals are identified and separated according to their frequencies. E.g., to identify individual chemicals, or individual nuclei in a chemical compound"/>
+      <definition value="Image where signals are identified and separated according to their frequencies; e.g. to identify individual chemicals, or individual nuclei in a chemical compound"/>
     </concept>
     <concept>
       <code value="121318"/>
@@ -12512,7 +12512,7 @@
     <concept>
       <code value="121382"/>
       <display value="Quantity administered"/>
-      <definition value="Number of units of substance administered to a patient. E.g., tablets"/>
+      <definition value="Number of units of substance administered to a patient; e.g. tablets"/>
     </concept>
     <concept>
       <code value="121383"/>
@@ -12522,7 +12522,7 @@
     <concept>
       <code value="121401"/>
       <display value="Derivation"/>
-      <definition value="Method of deriving or calculating a measured value. E.g., mean, or maximum of set"/>
+      <definition value="Method of deriving or calculating a measured value; e.g. mean, or maximum of set"/>
     </concept>
     <concept>
       <code value="121402"/>
@@ -12622,7 +12622,7 @@
     <concept>
       <code value="121425"/>
       <display value="Index"/>
-      <definition value="Factor (divisor or multiplicand) for normalizing a measurement. E.g., body surface area used for normalizing hemodynamic measurements"/>
+      <definition value="Factor (divisor or multiplicand) for normalizing a measurement; e.g. body surface area used for normalizing hemodynamic measurements"/>
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
@@ -13392,7 +13392,7 @@
     <concept>
       <code value="122111"/>
       <display value="Primary Intervention Device"/>
-      <definition value="Indication that device is the primary (first and/or most significant) device used for interventional therapy of a particular pathology. E.g., lesion"/>
+      <definition value="Indication that device is the primary (first and/or most significant) device used for interventional therapy of a particular pathology; e.g. lesion"/>
     </concept>
     <concept>
       <code value="122112"/>
@@ -14462,7 +14462,7 @@
     <concept>
       <code value="122382"/>
       <display value="Site of Lumen Minimum"/>
-      <definition value="Site of the smallest lumen in a vessel. E.g., due to a stenotic lesion"/>
+      <definition value="Site of the smallest lumen in a vessel; e.g. due to a stenotic lesion"/>
     </concept>
     <concept>
       <code value="122383"/>
@@ -14547,7 +14547,7 @@
     <concept>
       <code value="122402"/>
       <display value="Same Indication"/>
-      <definition value="Information acquired for the same indication. E.g., to elucidate the same diagnostic question"/>
+      <definition value="Information acquired for the same indication; e.g. to elucidate the same diagnostic question"/>
     </concept>
     <concept>
       <code value="122403"/>
@@ -14772,7 +14772,7 @@
     <concept>
       <code value="122476"/>
       <display value="Long Axis Based"/>
-      <definition value="End Systolic contour realigned to End Diastolic contour based on the mid point of the long axis. The long axis end points are defined as the posterior and apex"/>
+      <definition value="End Systolic contour realigned to End Diastolic contour based on the mid point of the long axis. The long axis end-points are defined as the posterior and apex"/>
     </concept>
     <concept>
       <code value="122477"/>
@@ -14812,7 +14812,7 @@
     <concept>
       <code value="122488"/>
       <display value="Calibration Object Used"/>
-      <definition value="Object used for calibration. E.g., sphere"/>
+      <definition value="Object used for calibration; e.g. sphere"/>
     </concept>
     <concept>
       <code value="122489"/>
@@ -15117,7 +15117,7 @@
     <concept>
       <code value="122619"/>
       <display value="Peak Filling Time"/>
-      <definition value="Time interval until time of peak filling from a given reference point. E.g., end systole"/>
+      <definition value="Time interval until time of peak filling from a given reference point; e.g. end systole"/>
     </concept>
     <concept>
       <code value="122620"/>
@@ -15517,7 +15517,7 @@
     <concept>
       <code value="122748"/>
       <display value="False positive defect finding"/>
-      <definition value="Finding of a defect is incorrect. E.g., from automated analysis"/>
+      <definition value="Finding of a defect is incorrect; e.g. from automated analysis"/>
     </concept>
     <concept>
       <code value="122750"/>
@@ -15966,7 +15966,7 @@
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-        <valueString value="E.g., background of an image (that which might be encoded with Pixel Padding Value, or a Segmentation Property Type."/>
+        <valueString value="E.g. background of an image (that which might be encoded with Pixel Padding Value, or a Segmentation Property Type."/>
       </extension>
       <code value="125040"/>
       <display value="Background"/>
@@ -15975,7 +15975,7 @@
     <concept>
       <code value="125041"/>
       <display value="Registration Input"/>
-      <definition value="A segment for use as an input to an image registration process. E.g., to specify the bounding region for determining a Frame of Reference Transformation Matrix"/>
+      <definition value="A segment for use as an input to an image registration process; e.g. to specify the bounding region for determining a Frame of Reference Transformation Matrix"/>
     </concept>
     <concept>
       <code value="125100"/>
@@ -15995,7 +15995,7 @@
     <concept>
       <code value="125105"/>
       <display value="Measurement Orientation"/>
-      <definition value="A modifier to a 2D distance measurement to describe its orientation. E.g., a vascular distance measurement for a vessel plague could have a modifier Transverse or Longitudinal"/>
+      <definition value="A modifier to a 2D distance measurement to describe its orientation; e.g. a vascular distance measurement for a vessel plague could have a modifier Transverse or Longitudinal"/>
     </concept>
     <concept>
       <code value="125106"/>
@@ -16435,12 +16435,12 @@
     <concept>
       <code value="126032"/>
       <display value="Metabolic Volume"/>
-      <definition value="The volume of a lesion (e.g., a tumor) ascertained through information about its metabolic activity (e.g., SUV on PET). Abbreviated &quot;MV&quot;. Synonymous with Metabolic Tumor Volume (MTV)"/>
+      <definition value="The volume of a lesion (e.g. a tumor) ascertained through information about its metabolic activity (e.g. SUV on PET). Abbreviated &quot;MV&quot;. Synonymous with Metabolic Tumor Volume (MTV)"/>
     </concept>
     <concept>
       <code value="126033"/>
       <display value="Total Lesion Glycolysis"/>
-      <definition value="The total activity of a lesion obtained as the product of its volume and its glycolytic activity (on FDG-PET). The volume may be defined on the same modality (e.g., the MV on FDG-PET by some thresholding or other technique) or on another spatially registered modality (e.g., the lesion outline segmented on CT or MR). Does not apply to other radiopharmaceuticals than those involved in glucose metabolism. Abbreviated TLG. Synonymnous with &quot;Tumor Lesion Glycolysis&quot;"/>
+      <definition value="The total activity of a lesion obtained as the product of its volume and its glycolytic activity (on FDG-PET). The volume may be defined on the same modality (e.g. the MV on FDG-PET by some thresholding or other technique) or on another spatially registered modality (e.g. the lesion outline segmented on CT or MR). Does not apply to other radiopharmaceuticals than those involved in glucose metabolism. Abbreviated TLG. Synonymnous with &quot;Tumor Lesion Glycolysis&quot;"/>
     </concept>
     <concept>
       <code value="126034"/>
@@ -16450,7 +16450,7 @@
     <concept>
       <code value="126035"/>
       <display value="Total Lesion Proliferation"/>
-      <definition value="The total activity of a lesion obtained as the product of its volume and its proliferative activity (on FLT-PET). The volume may be defined on the same modality (e.g., the MV on FDG-PET by some thresholding or other technique) or on another spatially registered modality (e.g., the lesion outline segmented on CT or MR). Does not apply to other radiopharmaceuticals than those involved in cellular proliferation. Abbreviated TLP. Synonymnous with &quot;Tumor Lesion Proliferation&quot;"/>
+      <definition value="The total activity of a lesion obtained as the product of its volume and its proliferative activity (on FLT-PET). The volume may be defined on the same modality (e.g. the MV on FDG-PET by some thresholding or other technique) or on another spatially registered modality (e.g. the lesion outline segmented on CT or MR). Does not apply to other radiopharmaceuticals than those involved in cellular proliferation. Abbreviated TLP. Synonymnous with &quot;Tumor Lesion Proliferation&quot;"/>
     </concept>
     <concept>
       <code value="126036"/>
@@ -16694,7 +16694,7 @@
     <concept>
       <code value="126342"/>
       <display value="Model-free concentration-time quantitification"/>
-      <definition value="A semiquantitative analysis of the contrast-enhancement concentration versus time curve that avoids the use of a pharmacokinetic model. E.g., integration to compute the initial area under the curve"/>
+      <definition value="A semiquantitative analysis of the contrast-enhancement concentration versus time curve that avoids the use of a pharmacokinetic model; e.g. integration to compute the initial area under the curve"/>
     </concept>
     <concept>
       <code value="126343"/>
@@ -16754,7 +16754,7 @@
     <concept>
       <code value="126370"/>
       <display value="Time of Peak Concentration"/>
-      <definition value="The time at which the concentration-time curve achieves its peak for the first time. Used as a concept name for a value or as a method. E.g., used as a method of calculation for BAT. See Shpilfoygel Med Phys 2008. doi: 10.1118/1.1288669"/>
+      <definition value="The time at which the concentration-time curve achieves its peak for the first time. Used as a concept name for a value or as a method; e.g. used as a method of calculation for BAT. See Shpilfoygel Med Phys 2008. doi: 10.1118/1.1288669"/>
     </concept>
     <concept>
       <code value="126371"/>
@@ -16764,7 +16764,7 @@
     <concept>
       <code value="126372"/>
       <display value="Time of Leading Half-Peak Concentration"/>
-      <definition value="The time at which the concentration-time curve achieves half of its peak density for the first time. Used as a concept name for a value or as a method. E.g., used as a method of calculation for BAT. See Shpilfoygel Med Phys 2008. doi: 10.1118/1.1288669"/>
+      <definition value="The time at which the concentration-time curve achieves half of its peak density for the first time. Used as a concept name for a value or as a method; e.g. used as a method of calculation for BAT. See Shpilfoygel Med Phys 2008. doi: 10.1118/1.1288669"/>
     </concept>
     <concept>
       <code value="126373"/>
@@ -16774,7 +16774,7 @@
     <concept>
       <code value="126374"/>
       <display value="Temporal Derivative Threshold"/>
-      <definition value="A threshold applied to the temporal derivative of the concentration-time curve. E.g., used to establish BAT. See Shpilfoygel Med Phys 2008. doi: 10.1118/1.1288669"/>
+      <definition value="A threshold applied to the temporal derivative of the concentration-time curve; e.g. used to establish BAT. See Shpilfoygel Med Phys 2008. doi: 10.1118/1.1288669"/>
     </concept>
     <concept>
       <code value="126375"/>
@@ -16789,7 +16789,7 @@
     <concept>
       <code value="126377"/>
       <display value="Tracer Concentration"/>
-      <definition value="Tracer concentration in tissue. E.g., in a DCE-MR experiment, the concentration of contrast agent in mmol/l"/>
+      <definition value="Tracer concentration in tissue; e.g. in a DCE-MR experiment, the concentration of contrast agent in mmol/l"/>
     </concept>
     <concept>
       <code value="126380"/>

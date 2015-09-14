@@ -221,7 +221,7 @@
   Type = CodeableConcept
   Binding = ObservationCategory
   Short Label = Classification of  type of observation
-  Definition = A code that classifies the the general type of observation being made.  This is used  for searching, sorting and display purposes.
+  Definition = A code that classifies the general type of observation being made.  This is used  for searching, sorting and display purposes.
   Comments = The level of granularity is defined by the category concepts in the value set.   More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in Observation.code.
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   Committee Notes = #7879

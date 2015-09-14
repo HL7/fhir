@@ -106,7 +106,7 @@
   Type = Identifier
   Short Label = Master Version Specific Identifier
   Definition = Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document
-  Requirements = The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g., for a DICOM standard document a 64 character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form oid^extension, where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the \'^\' character shall not be included.)
+  Requirements = The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g. for a DICOM standard document a 64 character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form oid^extension, where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the \'^\' character shall not be included.)
   Comments = CDA Document Id extension and root.
   XDS Mapping = DocumentEntry.uniqueId
   v2 Mapping = TXA-12-Unique Document Number

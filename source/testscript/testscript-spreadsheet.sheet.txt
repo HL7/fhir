@@ -425,7 +425,7 @@
   Summary = y
   Type = dateTime
   Short Label = Date for this version of the TestScript
-  Definition = The date that this version of the TestScript was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the test cases change
+  Definition = The date that this version of the TestScript was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the test cases change
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
 
@@ -738,7 +738,7 @@
   Type = string
   Short Label = Explicitly defined path parameters
   Definition = Path plus parameters after [type].  Used to set parts of the request URL explicitly.
-  Comments = If \"url\" element is specified, then \"targetId\", \"params\", and \"resource\" elements will be ignored as \"url\" element will have everything needed for constructing the request url.  If \"params\" element is specified, then \"targetId\" element is ignored.  For FHIR operations that require a resource (e.g. \"read\" and \"vread\" operations), the \"resource\" element must be specified when \"params\" element is specified.  If \"url\" and \"params\" elements are absent, then the request url will be constructed from \"targetId\" fixture if present.  For \"read\" operation, the resource and id values will be extracted from \"targetId\" fixture and used to construct the url.  For \"vread\" and \"history\" operations, the versionId value will also be used.   Test engines would append whatever is specified for \"params\" to the URL after the resource type without tampering with the string (beyond encoding the URL for HTTP).  The \"params\" element does not correspond exactly to \"search parameters\".  Nor is it the \"path\".  It corresponds to the part of the URL that comes after the [type] (when \"resource\" element is specified). e.g. It corresponds to \"/[id]/_history/[vid] {?_format=[mime-type]}\" in the following operation: GET [base]/[type]/[id]/_history/[vid] {?_format=[mime-type]}  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
+  Comments = If \"url\" element is specified, then \"targetId\", \"params\", and \"resource\" elements will be ignored as \"url\" element will have everything needed for constructing the request url.  If \"params\" element is specified, then \"targetId\" element is ignored.  For FHIR operations that require a resource (e.g. \"read\" and \"vread\" operations), the \"resource\" element must be specified when \"params\" element is specified.  If \"url\" and \"params\" elements are absent, then the request url will be constructed from \"targetId\" fixture if present.  For \"read\" operation, the resource and id values will be extracted from \"targetId\" fixture and used to construct the url.  For \"vread\" and \"history\" operations, the versionId value will also be used.   Test engines would append whatever is specified for \"params\" to the URL after the resource type without tampering with the string (beyond encoding the URL for HTTP).  The \"params\" element does not correspond exactly to \"search parameters\".  Nor is it the \"path\".  It corresponds to the part of the URL that comes after the [type] (when \"resource\" element is specified); e.g. It corresponds to \"/[id]/_history/[vid] {?_format=[mime-type]}\" in the following operation: GET [base]/[type]/[id]/_history/[vid] {?_format=[mime-type]}  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
 
  -- Row 52 -----------------------------------
   Element = TestScript.setup.action.operation.requestHeader
@@ -884,7 +884,7 @@
   Binding = AssertionOperatorType
   Short Label = equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains
   Definition = The operator type
-  Comments = Operators come handy especially for negative testing.  If operator is not specified, then the \"equals\" operator is assumed.  e.g. <code>   <assert>  <operator value=\"in\" />  <responseCode value=\"200,201,204\" />    </assert>    <assert>  <operator value=\"notEquals\" />  <response value=\"okay\"/>   </assert>    <assert>  <operator value=\"greaterThan\" />    <responseHeader>     <field value=\"Content-Length\" />     <value value=\"0\" />    <responseHeader>   </assert> </code>
+  Comments = Operators come handy especially for negative testing.  If operator is not specified, then the \"equals\" operator is assumed; e.g. <code>   <assert>  <operator value=\"in\" />  <responseCode value=\"200,201,204\" />    </assert>    <assert>  <operator value=\"notEquals\" />  <response value=\"okay\"/>   </assert>    <assert>  <operator value=\"greaterThan\" />    <responseHeader>     <field value=\"Content-Length\" />     <value value=\"0\" />    <responseHeader>   </assert> </code>
 
  -- Row 70 -----------------------------------
   Element = TestScript.setup.action.assert.path
@@ -901,7 +901,7 @@
   Binding = FHIRDefinedType
   Short Label = Resource type
   Definition = The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
-  Comments = This will be expected resource type in response body e.g. in read, vread, search, etc.  See http://hl7-fhir.github.io/resourcelist.html for complete list of resource types.  e.g. <assert > <resourceType value=\"Patient\" </assert>
+  Comments = This will be expected resource type in response body e.g. in read, vread, search, etc.  See http://hl7-fhir.github.io/resourcelist.html for complete list of resource types; e.g. <assert > <resourceType value=\"Patient\" </assert>
 
  -- Row 72 -----------------------------------
   Element = TestScript.setup.action.assert.response

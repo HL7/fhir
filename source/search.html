@@ -262,7 +262,7 @@ of parameter.
 <p>Parameters are defined per resource, and their names may additionally specify a modifier as a suffix,
 separated from the parameter name by a colon. Modifiers are:</p>
 <ul>
- <li>For all parameters (except combination): <code>:missing</code>. E.g. gender:missing=true (or false).
+ <li>For all parameters (except combination): <code>:missing</code>; e.g. gender:missing=true (or false).
   Searching for <code>gender:missing=true</code> will return all the resources that don't have any value for the gender parameter (which usually
   equates to not having the relevant element in the resource). Searching for <code>gender:missing=false</code>
   will return all the resources that have a value for the <code>gender</code> parameter. </li>
@@ -414,7 +414,7 @@ The date parameter format is <code>yyyy-mm-ddThh:nn:ss(TZ)</code> (the standard 
 </p>
 <p>
 Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>, 
-and <a href="datatypes.html#instant">instant</a> data types.  e.g. Any degree of precision can be provided, but it SHALL 
+and <a href="datatypes.html#instant">instant</a> data types; e.g. Any degree of precision can be provided, but it SHALL 
 be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if 
 an hour is present, and you SHOULD provide a time zone if the time part is present. Note that the time can be 
 just hours and minutes with no seconds, unlike the XML Schema dateTime type. Some user agents may escape the <code>:</code> 
@@ -425,7 +425,7 @@ Date parameters may be used with the following data types:
 </p>
 <table class="grid">
  <tr><td><a href="datatypes.html#date">date</a></td><td>The range of the value is the day, month, or year as specified</td></tr>
- <tr><td><a href="datatypes.html#dateTime">dateTime</a></td><td>The range of the value as defined above. e.g. For example, the 
+ <tr><td><a href="datatypes.html#dateTime">dateTime</a></td><td>The range of the value as defined above; e.g. For example, the 
    date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013</td></tr>
  <tr><td><a href="datatypes.html#instant">instant</a></td><td>An instant is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0</td></tr>
  <tr><td><a href="datatypes.html#Period">Period</a></td><td>Explicit, though the upper or lower bound may not actually be specified in resources</td></tr>
@@ -691,7 +691,7 @@ In addition, searching for <code>reference=http://example.org/fhir/Patient/123</
 match both references.
 </p>
 <p>
-Some references are allowed to point to more than one type of resource. e.g. subject : Reference(Patient|Group|Device|..).
+Some references are allowed to point to more than one type of resource; e.g. subject : Reference(Patient|Group|Device|..).
 In these cases, multiple different resources may have the same logical identifier. Servers SHOULD reject a search where 
 the logical id refers to more than one matching resource across different types.
 In order to allow the client to perform a search in these situations can specify the type explicitly:
@@ -1014,7 +1014,7 @@ single page. Servers SHALL NOT return more resources than
 requested (even if they don't support paging) but are
 allowed to return less than the client asked for. The server should repeat 
 the original <code>_count</code> parameter in its returned page links so that 
-subsequent paging requests honour the original <code>_count</code>.  Note
+subsequent paging requests honor the original <code>_count</code>.  Note
 that it is at the discretion of the search engine how to
 handle ongoing updates to the resources while the search
 is proceeding.

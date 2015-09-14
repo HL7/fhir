@@ -38,7 +38,7 @@
     <concept>
       <code value="unavailable"/>
       <display value="Unavailable"/>
-      <definition value="Information to populate this list cannot be obtained.  E.g. unconscious patient."/>
+      <definition value="Information to populate this list cannot be obtained; e.g. unconscious patient."/>
     </concept>
     <concept>
       <code value="notstarted"/>

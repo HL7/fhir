@@ -4,7 +4,7 @@
  -- Row 1 -----------------------------------
   Binding Name = Tags
   Binding = unbound
-  Definition = Codes that represent various types of tags, commonly workflow-related.  E.g. \"Needs review by Dr. Jones\"
+  Definition = Codes that represent various types of tags, commonly workflow-related; e.g. \"Needs review by Dr. Jones\"
 
 === Sheet Invariants =====================================
 

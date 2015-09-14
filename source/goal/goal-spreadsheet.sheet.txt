@@ -18,7 +18,7 @@
  -- Row 3 -----------------------------------
   Binding Name = GoalOutcome
   Binding = unbound
-  Definition = The result of the goal.  E.g. \"25% increase in shoulder mobility\", \"Anxiety reduced to moderate levels\".  \"15 kg weight loss sustained over 6 months\"
+  Definition = The result of the goal; e.g. \"25% increase in shoulder mobility\", \"Anxiety reduced to moderate levels\".  \"15 kg weight loss sustained over 6 months\"
 
  -- Row 4 -----------------------------------
   Binding Name = GoalCategory
@@ -141,7 +141,7 @@
   Binding = GoalStartEvent
   Short Label = When goal pursuit begins
   Definition = The date or event after which the goal should begin being pursued
-  Requirements = Goals can be established prior to there being an intention to start pursuing them.  E.g. Goals for post-surgical recovery established prior to surgery.
+  Requirements = Goals can be established prior to there being an intention to start pursuing them; e.g. Goals for post-surgical recovery established prior to surgery.
 
  -- Row 5 -----------------------------------
   Element = Goal.target[x]

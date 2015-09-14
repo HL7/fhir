@@ -69,7 +69,7 @@ server whether to retrieve it or return an error.
 </p>
 <p>
 The operation is initiated by a named query, using _query=generate on the /DocumentReference
-end point:
+end-point:
 </p>
 <pre>
   GET [service-url]/DocumentReference/?_query=generate&amp;uri=:url&amp;...

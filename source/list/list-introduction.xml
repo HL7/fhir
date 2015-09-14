@@ -14,7 +14,7 @@ recent <a href="procedure.html">Procedures</a>, etc.).
 </p>
 <p>
 Lists will typically include references to the resources that make up the list, however in some cases the details 
-of the content of the List might be expressed in narrative only.  E.g. A text record of a family history.  The List 
+of the content of the List might be expressed in narrative only; e.g. A text record of a family history.  The List 
 resource is only needed if there is a need to filter the set of resources by a mechanism that cannot be accomplished 
 via a simple query.  I.e. There is no need to have a List for all <a href="allergyintolerance.html">AllergyIntolerances</a>
 that exist on a server for a given Patient.  However, List is an appropriate mechanism to provide a filtered list of the 
@@ -46,7 +46,7 @@ curated and have specific business meaning.
 <li>
 The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
 or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
-Groups are intended to be acted upon or observed as a whole.  E.g. performing therapy on a group, calculating risk for a group, 
+Groups are intended to be acted upon or observed as a whole; e.g. performing therapy on a group, calculating risk for a group, 
 etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
 defining a test subject pool) and similar purposes.
 </li>

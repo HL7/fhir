@@ -1676,7 +1676,7 @@
           <td>On admission to unit</td>
         
           
-          <td>The occasion on which a procedure was performed on admission to a specialist unit (e.g., intensive care).</td>
+          <td>The occasion on which a procedure was performed on admission to a specialist unit (e.g. intensive care).</td>
       
         
         </tr>  
@@ -1714,7 +1714,7 @@
           <td>On discharge from unit</td>
         
           
-          <td>The occasion on which a procedure was performed on discharge from a specialist unit (e.g., intensive care).</td>
+          <td>The occasion on which a procedure was performed on discharge from a specialist unit (e.g. intensive care).</td>
       
         
         </tr>  
@@ -6921,7 +6921,7 @@
           <td>Velocity encoded</td>
         
           
-          <td>The image is derived by calculating values based on velocity encoded (e.g., phase contrast).</td>
+          <td>The image is derived by calculating values based on velocity encoded (e.g. phase contrast).</td>
       
         
         </tr>  
@@ -7567,7 +7567,7 @@
           <td>Retain Longitudinal Temporal Information With Modified Dates Option</td>
         
           
-          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any dates and times be modified in a manner that preserves temporal relationships. E.g., Study Date and Time.</td>
+          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any dates and times be modified in a manner that preserves temporal relationships; e.g. Study Date and Time.</td>
       
         
         </tr>  
@@ -7586,7 +7586,7 @@
           <td>Retain Patient Characteristics Option</td>
         
           
-          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained. E.g., Patient&#39;s Age, Sex, Size (height) and Weight.</td>
+          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained; e.g. Patient&#39;s Age, Sex, Size (height) and Weight.</td>
       
         
         </tr>  
@@ -7605,7 +7605,7 @@
           <td>Retain Device Identity Option</td>
         
           
-          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any information that identifies a device be retained. E.g., Device Serial Number.</td>
+          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any information that identifies a device be retained; e.g. Device Serial Number.</td>
       
         
         </tr>  
@@ -7624,7 +7624,7 @@
           <td>Retain UIDs Option</td>
         
           
-          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that UIDs be retained. E.g., SOP Instance UID.</td>
+          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that UIDs be retained; e.g. SOP Instance UID.</td>
       
         
         </tr>  
@@ -7643,7 +7643,7 @@
           <td>Retain Safe Private Option</td>
         
           
-          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that private attributes that are known not to contain identity information be retained. E.g., private SUV scale factor.</td>
+          <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that private attributes that are known not to contain identity information be retained; e.g. private SUV scale factor.</td>
       
         
         </tr>  
@@ -8346,7 +8346,7 @@
           <td>Accumulated X-Ray Dose Data</td>
         
           
-          <td>X-Ray dose data accumulated over multiple irradiation events, e.g., for a study or a performed procedure step</td>
+          <td>X-Ray dose data accumulated over multiple irradiation events, e.g. for a study or a performed procedure step</td>
       
         
         </tr>  
@@ -9638,7 +9638,7 @@
           <td>CT Accumulated Dose Data</td>
         
           
-          <td>X-Ray dose accumulated over multiple CT irradiation events, e.g., for a study or a performed procedure step.</td>
+          <td>X-Ray dose accumulated over multiple CT irradiation events, e.g. for a study or a performed procedure step.</td>
       
         
         </tr>  
@@ -10341,7 +10341,7 @@
           <td>Irradiation Event</td>
         
           
-          <td>An irradiation event is the occurrence of radiation being applied to a patient in a single continuous time-frame between the start (release) and the stop (cease) of the irradiation. Any automatic on-off switching of the irradiation source during the event is not treated as separate events, rather the event includes the time between start and stop of irradiation as triggered by the user. E.g., a pulsed fluoro X-Ray acquisition shall be treated as a single irradiation event.</td>
+          <td>An irradiation event is the occurrence of radiation being applied to a patient in a single continuous time-frame between the start (release) and the stop (cease) of the irradiation. Any automatic on-off switching of the irradiation source during the event is not treated as separate events, rather the event includes the time between start and stop of irradiation as triggered by the user; e.g. a pulsed fluoro X-Ray acquisition shall be treated as a single irradiation event.</td>
       
         
         </tr>  
@@ -10607,7 +10607,7 @@
           <td>Copied From Image Attributes</td>
         
           
-          <td>The data is copied from information present in the image attributes, e.g., dose attributes such as CTDIvol (0018,9345)</td>
+          <td>The data is copied from information present in the image attributes, e.g. dose attributes such as CTDIvol (0018,9345)</td>
       
         
         </tr>  
@@ -10626,7 +10626,7 @@
           <td>Computed From Image Attributes</td>
         
           
-          <td>The data is computed from  information present in the image attributes, e.g., by using dosimetry information for the specific irradiating device make and model, applied to technique information such as KVP and mAs</td>
+          <td>The data is computed from  information present in the image attributes, e.g. by using dosimetry information for the specific irradiating device make and model, applied to technique information such as KVP and mAs</td>
       
         
         </tr>  
@@ -10645,7 +10645,7 @@
           <td>Derived From Human-Readable Reports</td>
         
           
-          <td>The data is derived from human-readable reports, e.g., by natural language parsing of text reports, or optical character recognition from reports saved as images by the irradiating device</td>
+          <td>The data is derived from human-readable reports, e.g. by natural language parsing of text reports, or optical character recognition from reports saved as images by the irradiating device</td>
       
         
         </tr>  
@@ -13168,7 +13168,7 @@
           <td>Proximal Finding Site</td>
         
           
-          <td>Proximal Anatomic Location for a differential measurement (e.g., distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)</td>
+          <td>Proximal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)</td>
       
         
         </tr>  
@@ -13187,7 +13187,7 @@
           <td>Distal Finding Site</td>
         
           
-          <td>Distal Anatomic Location for a differential measurement (e.g., distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)</td>
+          <td>Distal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)</td>
       
         
         </tr>  
@@ -14435,7 +14435,7 @@
           <td>Inter-Marker Distance</td>
         
           
-          <td>Distance between marks on a device of calibrated size (e.g., a ruler)</td>
+          <td>Distance between marks on a device of calibrated size (e.g. a ruler)</td>
       
         
         </tr>  
@@ -14968,7 +14968,7 @@
           <td>Spectroscopy</td>
         
           
-          <td>Image where signals are identified and separated according to their frequencies, e.g., to identify individual chemicals, or individual nuclei in a chemical compound.</td>
+          <td>Image where signals are identified and separated according to their frequencies, e.g. to identify individual chemicals, or individual nuclei in a chemical compound.</td>
       
         
         </tr>  
@@ -15671,7 +15671,7 @@
           <td>Quantity administered</td>
         
           
-          <td>Number of units of substance (e.g., tablets) administered to a patient</td>
+          <td>Number of units of substance (e.g. tablets) administered to a patient</td>
       
         
         </tr>  
@@ -15709,7 +15709,7 @@
           <td>Derivation</td>
         
           
-          <td>Method of deriving or calculating a measured value (e.g., mean, or maximum of set)</td>
+          <td>Method of deriving or calculating a measured value (e.g. mean, or maximum of set)</td>
       
         
         </tr>  
@@ -16089,7 +16089,7 @@
           <td>Index</td>
         
           
-          <td>Factor (divisor or multiplicand) for normalizing a measurement; e.g., body surface area used for normalizing hemodynamic measurements</td>
+          <td>Factor (divisor or multiplicand) for normalizing a measurement; e.g. body surface area used for normalizing hemodynamic measurements</td>
       
         
         </tr>  
@@ -18578,7 +18578,7 @@
           <td>Primary Intervention Device</td>
         
           
-          <td>Indication that device is the primary (first and/or most significant) device used for interventional therapy of a particular pathology (e.g., lesion)</td>
+          <td>Indication that device is the primary (first and/or most significant) device used for interventional therapy of a particular pathology (e.g. lesion)</td>
       
         
         </tr>  
@@ -22644,7 +22644,7 @@
           <td>Site of Lumen Minimum</td>
         
           
-          <td>Site of the smallest lumen in a vessel, e.g., due to a stenotic lesion.</td>
+          <td>Site of the smallest lumen in a vessel, e.g. due to a stenotic lesion.</td>
       
         
         </tr>  
@@ -23822,7 +23822,7 @@
           <td>Long Axis Based</td>
         
           
-          <td>End Systolic contour realigned to End Diastolic contour based on the mid point of the long axis. The long axis end points are defined as the posterior and apex.</td>
+          <td>End Systolic contour realigned to End Diastolic contour based on the mid point of the long axis. The long axis end-points are defined as the posterior and apex.</td>
       
         
         </tr>  
@@ -26653,7 +26653,7 @@
           <td>False positive defect finding</td>
         
           
-          <td>Finding of a defect (e.g., from automated analysis) is incorrect</td>
+          <td>Finding of a defect (e.g. from automated analysis) is incorrect</td>
       
         
         </tr>  
@@ -32293,7 +32293,7 @@
     <concept>
       <code value="109120"/>
       <display value="On admission to unit"/>
-      <definition value="The occasion on which a procedure was performed on admission to a specialist unit (e.g., intensive care)."/>
+      <definition value="The occasion on which a procedure was performed on admission to a specialist unit (e.g. intensive care)."/>
     </concept>
     <concept>
       <code value="109121"/>
@@ -32303,7 +32303,7 @@
     <concept>
       <code value="109122"/>
       <display value="On discharge from unit"/>
-      <definition value="The occasion on which a procedure was performed on discharge from a specialist unit (e.g., intensive care)."/>
+      <definition value="The occasion on which a procedure was performed on discharge from a specialist unit (e.g. intensive care)."/>
     </concept>
     <concept>
       <code value="109123"/>
@@ -33672,7 +33672,7 @@
     <concept>
       <code value="113070"/>
       <display value="Velocity encoded"/>
-      <definition value="The image is derived by calculating values based on velocity encoded (e.g., phase contrast)."/>
+      <definition value="The image is derived by calculating values based on velocity encoded (e.g. phase contrast)."/>
     </concept>
     <concept>
       <code value="113071"/>
@@ -33842,27 +33842,27 @@
     <concept>
       <code value="113107"/>
       <display value="Retain Longitudinal Temporal Information With Modified Dates Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any dates and times be modified in a manner that preserves temporal relationships. E.g., Study Date and Time."/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any dates and times be modified in a manner that preserves temporal relationships; e.g. Study Date and Time."/>
     </concept>
     <concept>
       <code value="113108"/>
       <display value="Retain Patient Characteristics Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained. E.g., Patient&#39;s Age, Sex, Size (height) and Weight."/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained; e.g. Patient&#39;s Age, Sex, Size (height) and Weight."/>
     </concept>
     <concept>
       <code value="113109"/>
       <display value="Retain Device Identity Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any information that identifies a device be retained. E.g., Device Serial Number."/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any information that identifies a device be retained; e.g. Device Serial Number."/>
     </concept>
     <concept>
       <code value="113110"/>
       <display value="Retain UIDs Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that UIDs be retained. E.g., SOP Instance UID."/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that UIDs be retained; e.g. SOP Instance UID."/>
     </concept>
     <concept>
       <code value="113111"/>
       <display value="Retain Safe Private Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that private attributes that are known not to contain identity information be retained. E.g., private SUV scale factor."/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that private attributes that are known not to contain identity information be retained; e.g. private SUV scale factor."/>
     </concept>
     <concept>
       <code value="113601"/>
@@ -34047,7 +34047,7 @@
     <concept>
       <code value="113702"/>
       <display value="Accumulated X-Ray Dose Data"/>
-      <definition value="X-Ray dose data accumulated over multiple irradiation events, e.g., for a study or a performed procedure step"/>
+      <definition value="X-Ray dose data accumulated over multiple irradiation events, e.g. for a study or a performed procedure step"/>
     </concept>
     <concept>
       <code value="113704"/>
@@ -34387,7 +34387,7 @@
     <concept>
       <code value="113811"/>
       <display value="CT Accumulated Dose Data"/>
-      <definition value="X-Ray dose accumulated over multiple CT irradiation events, e.g., for a study or a performed procedure step."/>
+      <definition value="X-Ray dose accumulated over multiple CT irradiation events, e.g. for a study or a performed procedure step."/>
     </concept>
     <concept>
       <code value="113812"/>
@@ -34572,7 +34572,7 @@
     <concept>
       <code value="113852"/>
       <display value="Irradiation Event"/>
-      <definition value="An irradiation event is the occurrence of radiation being applied to a patient in a single continuous time-frame between the start (release) and the stop (cease) of the irradiation. Any automatic on-off switching of the irradiation source during the event is not treated as separate events, rather the event includes the time between start and stop of irradiation as triggered by the user. E.g., a pulsed fluoro X-Ray acquisition shall be treated as a single irradiation event."/>
+      <definition value="An irradiation event is the occurrence of radiation being applied to a patient in a single continuous time-frame between the start (release) and the stop (cease) of the irradiation. Any automatic on-off switching of the irradiation source during the event is not treated as separate events, rather the event includes the time between start and stop of irradiation as triggered by the user; e.g. a pulsed fluoro X-Ray acquisition shall be treated as a single irradiation event."/>
     </concept>
     <concept>
       <code value="113853"/>
@@ -34642,17 +34642,17 @@
     <concept>
       <code value="113866"/>
       <display value="Copied From Image Attributes"/>
-      <definition value="The data is copied from information present in the image attributes, e.g., dose attributes such as CTDIvol (0018,9345)"/>
+      <definition value="The data is copied from information present in the image attributes, e.g. dose attributes such as CTDIvol (0018,9345)"/>
     </concept>
     <concept>
       <code value="113867"/>
       <display value="Computed From Image Attributes"/>
-      <definition value="The data is computed from  information present in the image attributes, e.g., by using dosimetry information for the specific irradiating device make and model, applied to technique information such as KVP and mAs"/>
+      <definition value="The data is computed from  information present in the image attributes, e.g. by using dosimetry information for the specific irradiating device make and model, applied to technique information such as KVP and mAs"/>
     </concept>
     <concept>
       <code value="113868"/>
       <display value="Derived From Human-Readable Reports"/>
-      <definition value="The data is derived from human-readable reports, e.g., by natural language parsing of text reports, or optical character recognition from reports saved as images by the irradiating device"/>
+      <definition value="The data is derived from human-readable reports, e.g. by natural language parsing of text reports, or optical character recognition from reports saved as images by the irradiating device"/>
     </concept>
     <concept>
       <code value="113870"/>
@@ -35305,12 +35305,12 @@
     <concept>
       <code value="121116"/>
       <display value="Proximal Finding Site"/>
-      <definition value="Proximal Anatomic Location for a differential measurement (e.g., distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)"/>
+      <definition value="Proximal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)"/>
     </concept>
     <concept>
       <code value="121117"/>
       <display value="Distal Finding Site"/>
-      <definition value="Distal Anatomic Location for a differential measurement (e.g., distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)"/>
+      <definition value="Distal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)"/>
     </concept>
     <concept>
       <code value="121118"/>
@@ -35638,7 +35638,7 @@
     <concept>
       <code value="121208"/>
       <display value="Inter-Marker Distance"/>
-      <definition value="Distance between marks on a device of calibrated size (e.g., a ruler)"/>
+      <definition value="Distance between marks on a device of calibrated size (e.g. a ruler)"/>
     </concept>
     <concept>
       <code value="121210"/>
@@ -35777,7 +35777,7 @@
     <concept>
       <code value="121317"/>
       <display value="Spectroscopy"/>
-      <definition value="Image where signals are identified and separated according to their frequencies, e.g., to identify individual chemicals, or individual nuclei in a chemical compound."/>
+      <definition value="Image where signals are identified and separated according to their frequencies, e.g. to identify individual chemicals, or individual nuclei in a chemical compound."/>
     </concept>
     <concept>
       <code value="121320"/>
@@ -35962,7 +35962,7 @@
     <concept>
       <code value="121382"/>
       <display value="Quantity administered"/>
-      <definition value="Number of units of substance (e.g., tablets) administered to a patient"/>
+      <definition value="Number of units of substance (e.g. tablets) administered to a patient"/>
     </concept>
     <concept>
       <code value="121383"/>
@@ -35972,7 +35972,7 @@
     <concept>
       <code value="121401"/>
       <display value="Derivation"/>
-      <definition value="Method of deriving or calculating a measured value (e.g., mean, or maximum of set)"/>
+      <definition value="Method of deriving or calculating a measured value (e.g. mean, or maximum of set)"/>
     </concept>
     <concept>
       <code value="121402"/>
@@ -36072,7 +36072,7 @@
     <concept>
       <code value="121425"/>
       <display value="Index"/>
-      <definition value="Factor (divisor or multiplicand) for normalizing a measurement; e.g., body surface area used for normalizing hemodynamic measurements"/>
+      <definition value="Factor (divisor or multiplicand) for normalizing a measurement; e.g. body surface area used for normalizing hemodynamic measurements"/>
     </concept>
     <concept>
       <code value="121427"/>
@@ -36727,7 +36727,7 @@
     <concept>
       <code value="122111"/>
       <display value="Primary Intervention Device"/>
-      <definition value="Indication that device is the primary (first and/or most significant) device used for interventional therapy of a particular pathology (e.g., lesion)"/>
+      <definition value="Indication that device is the primary (first and/or most significant) device used for interventional therapy of a particular pathology (e.g. lesion)"/>
     </concept>
     <concept>
       <code value="122112"/>
@@ -37797,7 +37797,7 @@
     <concept>
       <code value="122382"/>
       <display value="Site of Lumen Minimum"/>
-      <definition value="Site of the smallest lumen in a vessel, e.g., due to a stenotic lesion."/>
+      <definition value="Site of the smallest lumen in a vessel, e.g. due to a stenotic lesion."/>
     </concept>
     <concept>
       <code value="122383"/>
@@ -38107,7 +38107,7 @@
     <concept>
       <code value="122476"/>
       <display value="Long Axis Based"/>
-      <definition value="End Systolic contour realigned to End Diastolic contour based on the mid point of the long axis. The long axis end points are defined as the posterior and apex."/>
+      <definition value="End Systolic contour realigned to End Diastolic contour based on the mid point of the long axis. The long axis end-points are defined as the posterior and apex."/>
     </concept>
     <concept>
       <code value="122477"/>
@@ -38852,7 +38852,7 @@
     <concept>
       <code value="122748"/>
       <display value="False positive defect finding"/>
-      <definition value="Finding of a defect (e.g., from automated analysis) is incorrect"/>
+      <definition value="Finding of a defect (e.g. from automated analysis) is incorrect"/>
     </concept>
     <concept>
       <code value="122750"/>

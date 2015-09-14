@@ -71,7 +71,7 @@
   Type = code
   Binding = QuantityComparator
   Short Label = < | <= | >= | > - how to understand the value
-  Definition = How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is \"<\" , then the real value is < stated value
+  Definition = How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value
   Requirements = Need a framework for handling measures where the value is <5ug/L or >400mg/L due to the limitations of measuring methodology.
   Comments = This is labeled as \"Is Modifier\" because the comparator modifies the interpretation of the value significantly. If there is no comparator, then there is no modification of the value
   v2 Mapping = SN.1  / CQ.1

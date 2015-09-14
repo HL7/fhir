@@ -285,7 +285,7 @@
   Summary = y
   Type = dateTime
   Short Label = Date for this version of the StructureDefinition
-  Definition = The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the structure definition changes
+  Definition = The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
 
@@ -514,7 +514,7 @@
   Type = string
   Short Label = XPath that extracts the parameter set
   Definition = An XPath expression that returns a set of elements for the search parameter
-  Requirements = Note that the elements are sometimes complex elements where logic is required to determine quite how to handle them. E.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
+  Requirements = Note that the elements are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
   Comments = The XPath expression may use parent references, but this technique should be avoided except in the special case of an extension making rules about its use with other extensions. Parent references SHALL not refer to content outside the resouce that contains the content
 
  -- Row 40 -----------------------------------
@@ -658,7 +658,7 @@
  -- Row 1 -----------------------------------
   Name = questionnaire
   Use = Resource | Instance
-  Documentation = Generates a [[[Questionnaire]]] instance  based on a specified [[[StructureDefinition]]], creating questions for each core element or extension element found in the StructureDefinition.    If the operation is not called at the instance level, one of the *identifier*, *profile* or *url* \'in\' parameters must be provided.  (If called at the instance level, these parameters will be ignored.  If more than one is specified, servers may raise an error or may resolve with the parameter of their choice.)  The response will contain a [[[Questionnaire]]] instance based on the specified [[[StructureDefinition]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.  Nested groups are used to handle complex structures and data types.  If the \'supportedOnly\' parameter is set to true, only those elements marked as \"must support\" will be included.  This operation is intended to enable auto-generation of simple interfaces for arbitrary profiles.  The \'questionnaire\' approach to data entry has limitations that will make it less optimal than custom-defined interfaces.  However, this function may be useful for simple applications or for systems that wish to support \"non-core\" resources with minimal development effort.
+  Documentation = Generates a [[[Questionnaire]]] instance  based on a specified [[[StructureDefinition]]], creating questions for each core element or extension element found in the [[[StructureDefinition]]].    If the operation is not called at the instance level, one of the *identifier*, *profile* or *url* \'in\' parameters must be provided. If more than one is specified, servers may raise an error or may resolve with the parameter of their choice. If called at the instance level, these parameters will be ignored. The response will contain a [[[Questionnaire]]] instance based on the specified [[[StructureDefinition]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.  Nested groups are used to handle complex structures and data types.  If the \'supportedOnly\' parameter is set to true, only those elements marked as \"must support\" will be included.  This operation is intended to enable auto-generation of simple interfaces for arbitrary profiles.  The \'questionnaire\' approach to data entry has limitations that will make it less optimal than custom-defined interfaces.  However, this function may be useful for simple applications or for systems that wish to support \"non-core\" resources with minimal development effort.
   Type = operation
   Example.Request = $questionnaire-request.txt
   Example.Response = $questionnaire-response.txt
@@ -684,7 +684,7 @@
  -- Row 4 -----------------------------------
   Name = questionnaire.url
   Use = in
-  Documentation = The profile\'s official url (i.e. \'StructureDefinition.url\'). The server must know the profile or be able to retrieve it from other known repositories.
+  Documentation = The profile\'s official URL (i.e. \'StructureDefinition.url\'). The server must know the profile or be able to retrieve it from other known repositories.
   Type = uri
   Min = 0
   Max = 1

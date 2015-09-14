@@ -26,8 +26,8 @@
   Type = Identifier
   Short Label = Unique Identifier for the set of documents
   Definition = A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts
-  RIM Mapping = id [need a list semantic to indicate order matters]
   XDS Mapping = SubmissionSet.uniqueId
+  RIM Mapping = id [need a list semantic to indicate order matters]
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -36,9 +36,9 @@
   Type = Identifier
   Short Label = Other identifiers for the manifest
   Definition = Other identifiers associated with the document manifest, including version independent  identifiers
+  XDS Mapping = SubmissionSet.entryUUID
   v2 Mapping = TXA-16-Unique Document File Name?
   RIM Mapping = .id / .setId
-  XDS Mapping = SubmissionSet.entryUUID
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -47,8 +47,8 @@
   Type = Reference(Patient|Practitioner|Group|Device)
   Short Label = The subject of the set of documents
   Definition = Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case)
-  RIM Mapping = .participation[typeCode=SBJ].role
   XDS Mapping = SubmissionSet.patientId
+  RIM Mapping = .participation[typeCode=SBJ].role
   w5 = who.focus
 
  -- Row 5 -----------------------------------
@@ -58,8 +58,8 @@
   Short Label = Intended to get notified about this set of documents
   Definition = A patient, practitioner, or organization for which this set of documents is intended
   Comments = How the recipient receives the document set or is notified of it is up to the implementation. This element is just a statement of intent. If the recipient is a person, and it’s not known whether the person is a patient or a practitioner, RelatedPerson would be the default choice
-  RIM Mapping = .participation[typeCode=IRCP].role
   XDS Mapping = SubmissionSet.intendedRecipient
+  RIM Mapping = .participation[typeCode=IRCP].role
   w5 = who.cause
 
  -- Row 6 -----------------------------------
@@ -67,10 +67,10 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = DocumentC80Type
-  Short Label = What kind of document set this is
+  Short Label = Kind of document set
   Definition = Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider
-  RIM Mapping = .code
   XDS Mapping = SubmissionSet.contentTypeCode
+  RIM Mapping = .code
   w5 = class
 
  -- Row 7 -----------------------------------
@@ -80,8 +80,8 @@
   Short Label = Who and/or what authored the manifest
   Definition = Identifies who is responsible for creating the manifest, and adding  documents to it
   Comments = Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant)
-  RIM Mapping = .participation[typeCode=AUT].role
   XDS Mapping = SubmissionSet.author
+  RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
  -- Row 8 -----------------------------------
@@ -91,8 +91,8 @@
   Short Label = When this document manifest created
   Definition = When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc)
   Comments = Creation time is used for tracking, organizing versions and searching. This is the creation time of the document set, not the documents on which it is based
-  RIM Mapping = .participation[typeCode=AUT].time
   XDS Mapping = SubmissionSet.submissionTime
+  RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.done
 
  -- Row 9 -----------------------------------
@@ -101,8 +101,8 @@
   Type = uri
   Short Label = The source system/application/software
   Definition = Identifies the source system, application, or software that produced the document manifest
-  RIM Mapping = .participation[typeCode=PFM].time
   XDS Mapping = SubmissionSet.sourceId
+  RIM Mapping = .participation[typeCode=PFM].time
 
  -- Row 10 -----------------------------------
   Element = DocumentManifest.status
@@ -112,8 +112,8 @@
   Binding = DocumentReferenceStatus
   Short Label = current | superseded | entered-in-error
   Definition = The status of this document manifest
-  RIM Mapping = .statusCode
   XDS Mapping = SubmissionSet status
+  RIM Mapping = .statusCode
   w5 = status
 
  -- Row 11 -----------------------------------
@@ -134,8 +134,8 @@
   Definition = Human-readable description of the source document. This is sometimes known as the \"title\"
   Requirements = Helps humans to assess whether the document is of interest
   Comments = What the document is about, rather than a terse summary of the document. It is commonly the case that records do not have a title and are collectively referred to by the display name of Record code (e.g. a \"consultation\" or \"progress note\").
-  RIM Mapping = .title
   XDS Mapping = SubmissionSet.title
+  RIM Mapping = .title
 
  -- Row 13 -----------------------------------
   Element = !DocumentManifest.confidentiality
@@ -164,8 +164,8 @@
   Short Label = Contents of this set of documents
   Definition = The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed
   Comments = The intended focus of the DocumentManifest is for the reference to target either DocumentReference or Media Resources, and most implementation guides will restrict to these resources. The reference is to any to support EN 13606 usage, where an extract is DocumentManifest that references  List and Composition resources
-  RIM Mapping = .outboundRelationship[typeCode=COMP].target
   XDS Mapping = SubmissionSet DocumentEntry(s)
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
  -- Row 16 -----------------------------------
   Element = DocumentManifest.related

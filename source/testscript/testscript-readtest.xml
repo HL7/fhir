@@ -74,7 +74,7 @@
 					<code value="read"/>
 				</type>
         <!-- What we really want here is an illegal type, but the validation in the build process won't that. 
-          But Parameters is a valid resoruce which doesn't have an end point so should fail. -->
+          But Parameters is a valid resource which doesn't have an end-point so should fail. -->
 				<resource value="Parameters"/>
 				<params value="/1"/>
 			</operation>

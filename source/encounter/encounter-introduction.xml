@@ -74,7 +74,7 @@ applicable to information about the actual Encounter, i.e. the patient showing u
 As such an encounter in the "planned" status is not identical to the appointment that scheduled it,
 but it is the encounter prior to its actual occurrence, with the expectation that encounter will be
 updated as it progresses to completion. Patient arrival at a location does not necessarily mean the
-start of the encounter (e.g., a patient arrives an hour earlier than he is actually seen by a practitioner).
+start of the encounter (e.g. a patient arrives an hour earlier than he is actually seen by a practitioner).
 </p>
 <p>
 An appointment is normally used for the planning stage of an appointment, searching, locating an available time, then

@@ -731,7 +731,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">codesystem</Data></Cell>
-    <Cell><Data ss:Type="String">The namespace is used to define concepts and symbols to represent those concepts.  E.g. UCUM, LOINC, NDC code, local lab codes, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">The namespace is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -868,7 +868,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">oid</Data></Cell>
-    <Cell><Data ss:Type="String">An ISO object identifier.  E.g. 1.2.3.4.5</Data></Cell>
+    <Cell><Data ss:Type="String">An ISO object identifier; e.g. 1.2.3.4.5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -878,12 +878,12 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">uri</Data></Cell>
-    <Cell><Data ss:Type="String">A uniform resource identifier (ideally a URL - uniform resource locator).  E.g. http://unitsofmeasure.org</Data></Cell>
+    <Cell><Data ss:Type="String">A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">ruid</Data></Cell>
-    <Cell><Data ss:Type="String">HL7-assigned reserved string.  E.g. LN for LOINC</Data></Cell>
+    <Cell><Data ss:Type="String">HL7-assigned reserved string; e.g. LN for LOINC</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

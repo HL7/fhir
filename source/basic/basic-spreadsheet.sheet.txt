@@ -50,7 +50,7 @@
   Card. = 0..1
   Type = Reference(Any)
   Short Label = Identifies the focus of this resource
-  Definition = Identifies the patient, practitioner, device or any other resource that is the \"focus\" of this resoruce.
+  Definition = Identifies the patient, practitioner, device or any other resource that is the \"focus\" of this resource.
   Requirements = Needed for partitioning the resource by Patient.
   Comments = Optional as not all resources potential resources will have subjects.  Resources associated with multiple subjects can handle this via extension.
   RIM Mapping = ./participation[typeCode=\'SBJ\'] (possibly through a ControlAct and Role)

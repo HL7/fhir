@@ -11,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="USLab Specimen Type: Codes to describe the Specimen. This value set includes all SNOMED CT concepts that are descendents of the Specimen Heirarchy (123038009)"/>
+  <description value="USLab Specimen Type: Codes to describe the Specimen. This value set includes all SNOMED CT concepts that are descendents of the Specimen Hierarchy (123038009)"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <compose>
   <!--     EH remove for draft

@@ -8,7 +8,7 @@
   Profile Name = ConsentDirective
   Type = DomainResource
   Short Label = Consent Directive
-  Definition = A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:   • To one or more identified entities in a defined role   • To perform one or more operations (e.g., collect, access, use, disclose, amend, or delete)   • On an instance or type of individually identifiable health information [IIHI]  • For a purpose such as treatment, payment, operations, research, public health, quality measures, health status evaluation by third parties, or marketing   • Under certain conditions, e.g., when unconscious   • For specified time period, e.g., effective and expiration dates   • In certain context, e.g., in an emergency   A consent directive is an instance of governing jurisdictional and organization privacy policies, which may or may not be backed up by a signed document (paper or electronic). [HITSP TP30]
+  Definition = A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:   • To one or more identified entities in a defined role   • To perform one or more operations (e.g. collect, access, use, disclose, amend, or delete)   • On an instance or type of individually identifiable health information [IIHI]  • For a purpose such as treatment, payment, operations, research, public health, quality measures, health status evaluation by third parties, or marketing   • Under certain conditions, e.g. when unconscious   • For specified time period, e.g. effective and expiration dates   • In certain context, e.g. in an emergency   A consent directive is an instance of governing jurisdictional and organization privacy policies, which may or may not be backed up by a signed document (paper or electronic). [HITSP TP30]
   To Do = FinancialContract
 
  -- Row 2 -----------------------------------
@@ -60,7 +60,7 @@
   Element = Contract.domain
   Profile Name = ConsentDirective.domain
   Card. = 0..*
-  Aliases = scope of governance jurisdication
+  Aliases = scope of governance jurisdiction
   Type = Reference(Location)
   Short Label = Domain in which this Consent Directive applies
   Definition = Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to privacy protection and control of the collection, access, use and disclosure of resources.
@@ -71,7 +71,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Short Label = Consent Directive Type
-  Definition = Specific type of patient privacy Consent Directive reflecting the range of patient discretion over granting of rights to patient information and actions that may be taken on that information.  E.g., Opt-in, opt-out, Share All (such as authorization to disclose to payer for payment purposes or benefit eligibility), Share Partial(such as Title 38 Section 7332 and 42 CFR Part 2), Implied Consent, such as a HIPAA Notice of Privacy Practices.
+  Definition = Specific type of patient privacy Consent Directive reflecting the range of patient discretion over granting of rights to patient information and actions that may be taken on that information; e.g. Opt-in, opt-out, Share All (such as authorization to disclose to payer for payment purposes or benefit eligibility), Share Partial(such as Title 38 Section 7332 and 42 CFR Part 2), Implied Consent, such as a HIPAA Notice of Privacy Practices.
   To Do = CNTRCT
 
  -- Row 9 -----------------------------------
@@ -81,7 +81,7 @@
   Type = CodeableConcept
   Short Label = Consent Directive Subtype
   Definition = A specialized type of an overarching or more general Consent Directive, such as a patient\'s right to opt-out of a Patient Directory under HIPAA or a multiparty 42 CFR Part 2 consent used in a health information exchange context by a Qualified Service Organization.
-  To Do = e.g., RECOV
+  To Do = e.g. RECOV
 
  -- Row 10 -----------------------------------
   Element = Contract.action
@@ -90,7 +90,7 @@
   Type = CodeableConcept
   Short Label = Consent Directive Action
   Definition = Action stipulated by this Consent Directive.
-  To Do = e.g., JURISPOL
+  To Do = e.g. JURISPOL
 
  -- Row 11 -----------------------------------
   Element = Contract.actionReason
@@ -99,7 +99,7 @@
   Type = CodeableConcept
   Short Label = Consent Directive Action Reason
   Definition = Reason for action stipulated by this Consent Directive.
-  To Do = e.g., QUALIMP
+  To Do = e.g. QUALIMP
 
  -- Row 12 -----------------------------------
   Element = Contract.actor
@@ -221,7 +221,7 @@
   Card. = 1..1
   Type = Coding
   Short Label = Consent Directive Signer Type
-  Definition = Role of this Consent Directive signer, e.g., patient who is Consent Directive Grantee, the Substitute Decision Maker such as a person with Power of Attorney to whom the patient has granted or delegated rights to execute a Consent Directive on the patient\'s behalf, a notary public or witness.
+  Definition = Role of this Consent Directive signer, e.g. patient who is Consent Directive Grantee, the Substitute Decision Maker such as a person with Power of Attorney to whom the patient has granted or delegated rights to execute a Consent Directive on the patient\'s behalf, a notary public or witness.
 
  -- Row 26 -----------------------------------
   Element = Contract.signer.party
@@ -276,7 +276,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Short Label = Consent Directive Term Type
-  Definition = Type of Consent Directive Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g., life time maximum benefit.
+  Definition = Type of Consent Directive Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
 
  -- Row 33 -----------------------------------
   Element = Contract.term.subType
@@ -284,7 +284,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Short Label = Consent Directive Term Subtype
-  Definition = Subtype of this Consent Directive Provision, e.g., life time maximum payment for a contract term for specific valued item, e.g., disability payment.
+  Definition = Subtype of this Consent Directive Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.
 
  -- Row 34 -----------------------------------
   Element = Contract.term.subject

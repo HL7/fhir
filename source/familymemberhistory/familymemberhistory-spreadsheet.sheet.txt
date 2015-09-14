@@ -12,7 +12,7 @@
   Binding Name = ConditionOutcome
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/condition-outcome
-  Definition = The result of the condition for the patient.  E.g. death, permanent disability, temporary disability, etc.
+  Definition = The result of the condition for the patient; e.g. death, permanent disability, temporary disability, etc.
   Conformance = example
 
  -- Row 3 -----------------------------------
@@ -127,7 +127,7 @@
   Summary = y
   Type = string
   Short Label = The family member described
-  Definition = This will either be a name or a description.  E.g. \"Aunt Susan\", \"my cousin with the red hair\"
+  Definition = This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\"
   Requirements = Allows greater ease in ensuring the same person is being talked about
   RIM Mapping = name
 

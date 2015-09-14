@@ -18,7 +18,7 @@ A flag has a subject representing the resource that will trigger its display. Th
 <p>
     
 A flag is typically presented as a label in a prominent location in the record to notify the clinician of the potential issues, 
-though it may also appear in other contexts.  E.g. notes applicable to a radiology technician, or to a clinician performing a home visit. 
+though it may also appear in other contexts; e.g. notes applicable to a radiology technician, or to a clinician performing a home visit. 
 
 For patients, the information in the flag will often be derived from the record, and therefore, for a thorough and careful clinician, who has the time to review the
 notes will be redundant.  
@@ -54,7 +54,7 @@ or to practitioners in particular system.
 <p>
 Note that we include "latex allergy" in the "in scope" list, and "allergy" in the "not in scope" list. The Flag resource is not 
 designed to replace the normal order checking process, and one should not expect to see all allergies in Flags. However, if there 
-is an activity that might occur prior to careful evaluation of the record (e.g., donning of latex gloves) and that activity might 
+is an activity that might occur prior to careful evaluation of the record (e.g. donning of latex gloves) and that activity might 
 pose a risk to the patient, that is the sort of eventuality the Flag is intended to support.
 </p>
 <p>

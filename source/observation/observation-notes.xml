@@ -115,7 +115,7 @@ If the value was "NaN"  (i.e. an error)  the Observation.valueCodeableConcept wo
 	In the case of an observation using a specimen, this represents the start and 
     end of the specimen collection (e.g. 24 hour Urine Sodium), but if the collection time is 
     sufficiently short, this is reported as a point in time value (e.g. normal venipuncture). 
-    In the case of an observation obtained directly from a subject (e.g., BP, 
+    In the case of an observation obtained directly from a subject (e.g. BP, 
     Chest X-ray), this is the start and end time of the observation process, which again, is 
     often reported as a single point in time.</p>
 	<h3>Reference Range</h3>

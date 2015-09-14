@@ -93,7 +93,7 @@
   Must Support = Y
   Binding = USLabSpecimenType
   Comments = Systems SHALL be capable of sending/consuming the local code if one exists.
-  Committee Notes = SPM.4:Specimen Type:CWE_CRE:R::[1..1]:::Specimen Type Value Set  limit to Snomed Ct specimen heirarchy for draft
+  Committee Notes = SPM.4:Specimen Type:CWE_CRE:R::[1..1]:::Specimen Type Value Set  limit to Snomed Ct specimen hierarchy for draft
 
  -- Row 9 -----------------------------------
   Element = Specimen.type.coding

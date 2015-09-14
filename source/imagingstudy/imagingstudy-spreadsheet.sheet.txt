@@ -63,7 +63,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = A set of images produced in single study (one or more series of references images)
-  Definition = Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
+  Definition = Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
   DICOM Mapping = Reference IHE radiology TF vol 2 table 4.14-1
   RIM Mapping = Act[classCode=COMPOSITION, moodCode=EVN]
   w5 = clinical.diagnostics
@@ -134,7 +134,7 @@
   Type = Reference(DiagnosticOrder)
   Short Label = Order(s) that caused this study to be performed
   Definition = A list of the diagnostic orders that resulted in this imaging study being performed
-  Requirements = To support grouped procedures (one imaging study supporting multiple ordered procedures, e.g., chest/abdomen/pelvis CT)
+  Requirements = To support grouped procedures (one imaging study supporting multiple ordered procedures, e.g. chest/abdomen/pelvis CT)
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=DGIMG, moodCode=RQO]
 
  -- Row 8 -----------------------------------
@@ -407,7 +407,7 @@
   Card. = 0..*
   UML = 620;70
   Short Label = A single SOP instance from the series
-  Definition = A single SOP Instance within the series, e.g., an image, or presentation state.
+  Definition = A single SOP Instance within the series, e.g. an image, or presentation state.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DGIMG, moodCode=EVN]
 
  -- Row 36 -----------------------------------
@@ -449,7 +449,7 @@
   Type = string
   Short Label = Type of instance (image etc)
   Definition = A human-friendly SOP Class name
-  Comments = E.g., \'CT image\', \'MR multi-frame\', \'blending presentation\'.
+  Comments = E.g. \'CT image\', \'MR multi-frame\', \'blending presentation\'.
   DICOM Mapping = (0004,1430)
   RIM Mapping = .code
 
@@ -530,6 +530,86 @@
   Card. = 0..*
   Type = Attachment
   Short Label = Content of the instance
-  Definition = Content of the instance or a rendering thereof (e.g., a JPEG of an image, or an XML of a structured report). May be represented for example by inline encoding; by a URL reference to a WADO-RS service that makes the instance available; or to a FHIR Resource (e.g., Media, Document, etc.). Multiple content attachments may be used for alternate representations of the instance.
+  Definition = Content of the instance or a rendering thereof (e.g. a JPEG of an image, or an XML of a structured report). May be represented for example by inline encoding; by a URL reference to a WADO-RS service that makes the instance available; or to a FHIR Resource (e.g. Media, Document, etc.). Multiple content attachments may be used for alternate representations of the instance.
   Comments = Use of Attachment.data is discouraged.
   RIM Mapping = .text.binary
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Who the study is about
+  Path = ImagingStudy.patient
+
+ -- Row 2 -----------------------------------
+  Name = started
+  Type = date
+  Description = When the study was started
+  Path = ImagingStudy.started
+
+ -- Row 3 -----------------------------------
+  Name = accession
+  Type = token
+  Description = The accession identifier for the study
+  Path = ImagingStudy.accession
+
+ -- Row 4 -----------------------------------
+  Name = study
+  Type = string
+  Description = The study identifier for the image
+  Path = ImagingStudy.uid
+
+ -- Row 5 -----------------------------------
+  Name = series
+  Type = string
+  Description = The identifier of the series of images
+  Path = ImagingStudy.series.uid
+
+ -- Row 6 -----------------------------------
+  Name = modality
+  Type = token
+  Description = The modality of the series
+  Path = ImagingStudy.series.modality
+
+ -- Row 7 -----------------------------------
+  Name = bodysite
+  Type = token
+  Description = The body site studied
+  Path = ImagingStudy.series.bodySite
+
+ -- Row 8 -----------------------------------
+  Name = uid
+  Type = uri
+  Description = The instance unique identifier
+  Path = ImagingStudy.series.instance.uid
+
+ -- Row 9 -----------------------------------
+  Name = dicom-class
+  Type = string
+  Description = The type of the instance
+  Path = ImagingStudy.series.instance.sopClass
+
+ -- Row 10 -----------------------------------
+  Name = order
+  Type = reference
+  Description = The order for the image
+  Path = ImagingStudy.order
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = imagingstudy-extensions
+  IG Name = core
+  Filename = imagingstudy-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = Example of imagingstudy
+  Filename = imagingstudy-example.xml
+
+=== Sheet Examples =====================================

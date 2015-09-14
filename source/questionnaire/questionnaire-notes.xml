@@ -23,7 +23,7 @@ Observations to model Questionnaires. Such use cases should now utilize the Ques
 There is considerable overlap between the information covered by <b>Questionnaires</b> and other Resources (especially <a href="familymemberhistory.html">FamilyMemberHistory</a>,
 <a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.): 
 <b>Questionnaire's</b> flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using <b>Questionnaires</b> or separate 
-Resources may be dictated by the procedure of collection and recording. E.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 
+Resources may be dictated by the procedure of collection and recording; e.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 
 distill separate resources from it and capturing the data in a <b>Questionnaire</b> would be most appropriate.
 </p> 
 
@@ -57,7 +57,7 @@ A Questionnaire is built out of three components:</p>
   This way, any form containing sections or subsections can be represented, down to the actual questions.</li>
   <li>The Questions themselves may be simple questions with a prompt text and one expected answer, but they may also contain nested groups, 
 each containing sets of nested questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
-depending on the answers of a parent question. E.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
+depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
 group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from 
 the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian New South Wales blue book</a></li>
 <li>Specific controls on dynamic display of groups, questions, etc. based on the answers to other questions is outside the scope of the base resource and
@@ -101,7 +101,7 @@ or use the Questionnaire.
 <p>
 If an external reference (<code>concept</code> or <code>deReference</code> extension) is included along with question information such as question text, data type or
 value set, it is expected that the content for the question and the referenced definition would be in alignment.  However, FHIR does not dictate what degree of
-alignment is required.  E.g. Does the question text need to match exactly?  Is it legitimate for a question to constrain the allowed value set of possible answers?
+alignment is required; e.g. Does the question text need to match exactly?  Is it legitimate for a question to constrain the allowed value set of possible answers?
 These rules will need to be established within implementation environments.
 </p>
 

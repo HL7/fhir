@@ -40,7 +40,7 @@ Detected issues are typically identified by decision support systems.  However, 
 </p>
 <ol>
   <li>A clinician wishes to communicate an issue to another clinician whose responsibility it would be to resolve it (e.g. a pharmacist identifying an issue with a prescription prior to putting it on hold)</li>
-  <li>A clinician wishes to pre-emptively identify that an issue is known and being managed (to avoid red flags being raised as part of downstream workflow).  E.g. Submitting a new order and including a link to 
+  <li>A clinician wishes to pre-emptively identify that an issue is known and being managed (to avoid red flags being raised as part of downstream workflow); e.g. Submitting a new order and including a link to 
   a "duplicate therapy" issue with mitigation indicating that the therapy is not considered to be duplicate.</li>
 </ol>
 <p>

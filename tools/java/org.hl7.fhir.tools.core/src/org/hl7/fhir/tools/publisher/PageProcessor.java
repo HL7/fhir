@@ -170,10 +170,10 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Piece;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -804,7 +804,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("vsxref"))
         src = s1 + xreferencesForFhir(name) + s3;      
       else if (com[0].equals("vsexpansion"))
-        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : ((ValueSet) resource)) + s3;
+        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : ((ValueSet) resource), genlevel(level)) + s3;
       else if (com[0].equals("vscld"))
         src = s1 + vsCLD(Utilities.fileTitle(file), resource == null ? null : ((ValueSet) resource), genlevel(level)) + s3;
       else if (com[0].equals("vsexpansionig"))
@@ -2105,7 +2105,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
 
   private String genIgToc(ImplementationGuideDefn ig) throws Exception {
-    HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(folders.dstDir, false);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false);
     return new XhtmlComposer().compose(gen.generate(ig.genToc(gen), "../"));
   }
   
@@ -2117,7 +2117,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     entries.addAll(toc.keySet());
     Collections.sort(entries, new SectionSorter());
     Set<String> pages = new HashSet<String>();
-    HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(folders.dstDir, false);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false);
     TableModel model = gen.new TableModel();
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "ToC Part "+Integer.toString(part)+" : "+title, "Table of Contents", null, 0));
     Deque<TocItem> stack = new ArrayDeque<TocItem>();
@@ -3592,12 +3592,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return "This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(error);
   }
 
-  private String expandValueSet(String fileTitle, ValueSet vs) throws Exception {
+  private String expandValueSet(String fileTitle, ValueSet vs, String prefix) throws Exception {
     if (vs == null) 
       throw new Exception("no vs?");
     if (hasUnfixedContent(vs)) {
       String s = "<p>&nbsp;</p>\r\n<a name=\"expansion\"> </a>\r\n<h2>Expansion</h2>\r\n<p>This expansion generated "+new SimpleDateFormat("dd MMM yyyy").format(genDate.getTime())+"</p>\r\n";
-      return s + expandVS(vs, "", "");
+      return s + expandVS(vs, prefix, "");
     } else
       return "";
   }
@@ -3884,7 +3884,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsexpansion"))
-        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : (ValueSet) resource) + s3;
+        src = s1 + expandValueSet(Utilities.fileTitle(file), resource == null ? null : (ValueSet) resource, genlevel(level)) + s3;
       else if (com[0].equals("vsexpansionig"))
         src = s1 + expandValueSetIG((ValueSet) resource) + s3;
       else if (com[0].equals("vsdef"))

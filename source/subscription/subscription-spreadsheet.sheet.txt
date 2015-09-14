@@ -169,8 +169,8 @@
   Card. = 0..1
   Type = uri
   Short Label = Where the channel points to
-  Definition = The uri that describes tha actual end point to send messages to
-  Comments = For rest-hook, and websocket, the end point must be an http: or https URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
+  Definition = The uri that describes tha actual end-point to send messages to
+  Comments = For rest-hook, and websocket, the end-point must be an http: or https URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
 
  -- Row 10 -----------------------------------
   Element = Subscription.channel.payload

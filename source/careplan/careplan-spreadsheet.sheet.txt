@@ -12,7 +12,7 @@
   Binding Name = CarePlanParticipantRole
   Binding = value set
   Reference = valueset-participant-role
-  Definition = Indicates specific responsibility of an individual within the care plan.  E.g. \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+  Definition = Indicates specific responsibility of an individual within the care plan; e.g. \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
   Conformance = example
 
  -- Row 3 -----------------------------------
@@ -26,7 +26,7 @@
   Binding Name = CarePlanActivityType
   Binding = value set
   Reference = valueset-care-plan-activity
-  Definition = Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.
+  Definition = Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.
   Conformance = example
 
  -- Row 5 -----------------------------------
@@ -40,14 +40,14 @@
   Binding Name = CarePlanActivityStatusReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/goal-status-reason
-  Definition = Describes why the current activity has the status it does.  E.g. \"Recovering from injury\" as a reason for non-started or on-hold, \"Patient does not enjoy activity\" as a reason for cancelling a planned activity
+  Definition = Describes why the current activity has the status it does; e.g. \"Recovering from injury\" as a reason for non-started or on-hold, \"Patient does not enjoy activity\" as a reason for cancelling a planned activity
   Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = CarePlanCategory
   Binding = value set
   Reference = valueset-care-plan-category
-  Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans.  E.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", etc.
+  Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", etc.
   Conformance = example
 
  -- Row 8 -----------------------------------
@@ -268,7 +268,7 @@
   Type = CodeableConcept
   Binding = CarePlanCategory
   Short Label = Type of plan
-  Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans.  E.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.
+  Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.
   Requirements = Used for filtering what plan(s) are retrieved and displayed to different types of users
   Comments = There may be multiple axis of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.
   To Do = Need a value set for this
@@ -316,7 +316,7 @@
   Binding = CarePlanRelationship
   Short Label = includes | replaces | fulfills
   Definition = Identifies the type of relationship this plan has to the target plan.
-  Comments = Read the relationship as \"this plan\" [relatedPlan.code] \"relatedPlan.plan\".  E.g. This plan includes Plan B\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
+  Comments = Read the relationship as \"this plan\" [relatedPlan.code] \"relatedPlan.plan\"; e.g. This plan includes Plan B\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
 
  -- Row 15 -----------------------------------
   Element = CarePlan.relatedPlan.plan
@@ -342,7 +342,7 @@
   Type = CodeableConcept
   Binding = CarePlanParticipantRole
   Short Label = Type of involvement
-  Definition = Indicates specific responsibility of an individual within the care plan.  E.g. \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+  Definition = Indicates specific responsibility of an individual within the care plan; e.g. \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
   Comments = Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care plan.  General relationships should be handled as properties of the Patient resource directly.
   v2 Mapping = REL.2 (or PRT-4-participation?)
   RIM Mapping = .functionCode
@@ -435,7 +435,7 @@
   Type = CodeableConcept
   Binding = CarePlanActivityType
   Short Label = Detail type of activity
-  Definition = Detailed description of the type of planned activity.  E.g. What lab test, what procedure, what kind of encounter.
+  Definition = Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.
   Requirements = Allows matching performed to planned as well as validation against protocols
   Comments = Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use \"prohibited\" instead.
   v2 Mapping = OBR-4-universal service ID / RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code
@@ -515,7 +515,7 @@
   Card. = 0..1
   Type = Reference(Location)
   Short Label = Where it should happen
-  Definition = Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.
+  Definition = Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.
   Requirements = Helps in planning of activity
   Comments = May reference a specific clinical location or may just identify a type of location.
   v2 Mapping = OBR-24-diagnostic service section ID (???!!)

@@ -523,7 +523,7 @@ GET [base]/[type]/_history{?[parameters]&amp;_format=[mime-type]}
 </li>
 <li>
 GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
-<p>Here neither the resource type nor the the resource id is required in the url.  In the following example, no more than 50 history entries would be returned by server:</p>
+<p>Here neither the resource type nor the resource id is required in the url.  In the following example, no more than 50 history entries would be returned by server:</p>
 <div class="xmlCode"><xmp>
 <action>
   <operation>

@@ -73,7 +73,7 @@
   Card. = !1..1
   Type = !CodeableConcept
   Short Label = XDSDocumentEntry.typeCode
-  Definition = The code specifying the particular kind of document (e.g., Prescription, Discharge Summary, Report). It is suggested that the XDS Affinity Domain draws these values from a coding scheme providing a coarse level of granularity (about 10 to 100 entries). Shall have a single value
+  Definition = The code specifying the particular kind of document (e.g. Prescription, Discharge Summary, Report). It is suggested that the XDS Affinity Domain draws these values from a coding scheme providing a coarse level of granularity (about 10 to 100 entries). Shall have a single value
 
  -- Row 6 -----------------------------------
   Element = DocumentReference.class

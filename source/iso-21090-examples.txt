@@ -190,7 +190,7 @@ not a complete unique identifier, and the extension is not known, then the  II s
 root is populated.
 7.6.7.3.3  identifierName : String: This is a human-readable name for the namespace represented in the 
 root.
-NOTE  It is a descriptive name for the actual namespace. e.g. "California, U.S. Driver's License Number, 1970 -".
+NOTE  It is a descriptive name for the actual namespace; e.g. "California, U.S. Driver's License Number, 1970 -".
 IdentifierName does  not  refer to the organization which  issued the identifier (e.g. California Dept. of Motor 
 Vehicles). It is intended for use as a human-readable label when an identifier  is to  be displayed to a human 
 user where an OID would not be meaningful.
@@ -203,7 +203,7 @@ claiming direct or indirect conformance  may  choose not to implement  identifie
 instances because identifierName is present.
 NOTE  In general, it should only be used when an extension is present, allowing for a display such as "California, U.S. 
 Driver's License Number, 1970-: 123456789". There are absolutely no guidelines for the contents of this text other than it 
-should be completely descriptive of the namespace. E.g. "Driver's License" or even "California Driver's License" would not 
+should be completely descriptive of the namespace; e.g. "Driver's License" or even "California Driver's License" would not 
 be ideal. However, formatting, capitalization, whitepace, language, etc. are completely up to the sender.
 7.6.7.3.4  displayable : Boolean: If the identifier is intended for human display and data entry (displayable 
 = true) as opposed to pure machine interoperation (displayable = false).
@@ -279,7 +279,7 @@ another system that has verified the identifier.
 Unverified by 
 system
 The identifier was provided to the system that constructed the 
-instance, but has not been verified. e.g. a driving licence 
+instance, but has not been verified; e.g. a driving licence 
 entered manually into a system by a user.
 ISO/IEC 11404 syntax for identifierReliability attribute 
 type IdentifierReliability = enumeration (ISS, VRF, UNV)
@@ -431,7 +431,7 @@ A part that may have a type-tag signifying its role in the address. Typical part
 address are street, house number or post box, postal code, city, country but other roles may be defined 
 regionally, nationally, or on an enterprise level (e.g. in military addresses).
 Addresses are usually broken up into lines, which may be indicated by special line-breaking delimiter 
-elements (e.g., DEL).
+elements (e.g. DEL).
 7.7.3.2  ISO/IEC 11404 Syntax
 type ADXP = class (
 nullFlavor : NullFlavor,
@@ -458,10 +458,10 @@ Additional
 locator
 This can be a unit designator, such as apartment number, 
 suite number or floor. There may be several unit designators 
-in an address (e.g., "3rd floor, Appt. 342"). This can also be a 
+in an address (e.g. "3rd floor, Appt. 342"). This can also be a 
 designator pointing away from the location, rather than 
 specifying a smaller location within some larger one 
-(e.g., Dutch "t.o." means "opposite to" for house boats located 
+(e.g. Dutch "t.o." means "opposite to" for house boats located 
 across the street facing houses).
 3    UNID  Unit identifier
 The number or name of a specific unit contained within a 
@@ -486,7 +486,7 @@ installation
 type
 Indicates the type of delivery installation (the facility to which 
 the mail will be delivered prior to final shipping via the delivery 
-mode) e.g., post office, letter carrier depot, community mail 
+mode) e.g. post office, letter carrier depot, community mail 
 centre, station, etc.
 3    DINSTA
 Delivery 
@@ -502,10 +502,10 @@ Delivery
 installation 
 qualifier
 A number, letter or name identifying a delivery installation,
-e.g., for Station A, the delivery installation qualifier would be 
+e.g. for Station A, the delivery installation qualifier would be 
 "A".
 3    DMOD  Delivery mode
-Indicates the type of service offered, method of delivery, e.g., 
+Indicates the type of service offered, method of delivery, e.g. 
 post office box, rural route, general delivery, etc.
 3      DMODID
 Delivery mode 
@@ -545,7 +545,7 @@ municipality (excluding street type and direction).
 4    STTYP  Street type
 The designation given to the street. (e.g. Street, Avenue, 
 Crescent, etc.).
-3    DIR  Direction  Direction (e.g., N, S, W, E).
+3    DIR  Direction  Direction (e.g. N, S, W, E).
 2    INT  Intersection
 Denotes that the actual address is located at or close to the 
 intersection of two or more streets.
@@ -610,7 +610,7 @@ may specify bindings for other part types or restrict the choice of codes for co
 Specializes ANY.
 Mailing and home or office addresses. AD is primarily used to communicate data that will allow printing mail 
 labels, or that will allow a pers on to physically visit that address. The postal address datatype is not supposed 
-to be a container for additional information that might be useful for finding geographic locations (e.g., GPS 
+to be a container for additional information that might be useful for finding geographic locations (e.g. GPS 
 coordinates) or for performing epidemiological studies. Such additional information should be captured by 
 other, more appropriate data structures. 
 ISO/FDIS 21090:2009(E)
@@ -682,10 +682,10 @@ representation may affect how the address is used ( e.g. use of ideographic for 
 communications).
 2    ABC  Alphabetic  Alphabetic transcription of name (Japanese: romaji).
 2    IDE  Ideographic
-Ideographic representation of name (e.g., Japanese kanji, 
+Ideographic representation of name (e.g. Japanese kanji, 
 Chinese characters).
 2    SYL  Syllabic
-Syllabic transcription of name (e.g., Japanese kana, Korean 
+Syllabic transcription of name (e.g. Japanese kana, Korean 
 hangul).
 1   SRCH  Search type uses  A name intended for use in searching or matching.
 2    SNDX  Soundex  An address spelled according to the SoundEx algorithm.
@@ -854,7 +854,7 @@ If populated, the values contained in this attribute  shall be taken from the HL
 system. The current values are: 
 EntityNamePartQualifier Enumeration. OID: 2.16.840.1.113883.5.1122 
 1   LS  Legal status
-For organizations a suffix indicating the legal status, e.g., 
+For organizations a suffix indicating the legal status, e.g. 
 "Inc.", "Co.", "AG", "GmbH", "B.V." "S.A.", "Ltd." Etc.
 1  TitleStyles: Extra information about the style of a title
 2    AC  Academic
@@ -909,7 +909,7 @@ ISO/FDIS 21090:2009(E)
 1   IN  Initial
 Indicates that a name part is just an initial. Initials do not imply 
 a trailing period since this would not work with non-Latin 
-scripts. Initials may consist of more than one letter, e.g., "Ph." 
+scripts. Initials may consist of more than one letter, e.g. "Ph." 
 could stand for "Philippe" or "Th." for "Thomas".
 1   PFX  Prefix
 A prefix has a strong association to the immediately following 
@@ -1008,10 +1008,10 @@ RepresentationUse. Identifies the different representations of a name. The repre
 affect how the name is used. (E.g. use of Ideographic for formal communications)
 2    ABC  Alphabetic  Alphabetic transcription of name (Japanese: romaji).
 2    IDE  Ideographic
-Ideographic representation of name (e.g., Japanese kanji, 
+Ideographic representation of name (e.g. Japanese kanji, 
 Chinese characters).
 2    SYL  Syllabic
-Syllabic transcription of name (e.g., Japanese kana, Korean 
+Syllabic transcription of name (e.g. Japanese kana, Korean 
 hangul).
 1   C  Customary  Known as/conventional/the one you normally use.
 1   OR
@@ -1041,7 +1041,7 @@ EXAMPLES: Continuing to use a maiden name in a professional
 context, or using a stage performing name (some of these names are 
 also pseudonyms).
 2    R  Religious
-A name assumed as part of a religious vocation. e.g. Sister 
+A name assumed as part of a religious vocation; e.g. Sister 
 Mary Francis, Brother John 
 1   OLD  No longer in use
 This name is no longer in use.
@@ -1495,7 +1495,7 @@ The original text shall be an excerpt of the relevant information in the origina
 exact reproduction. Thus the original text  shall  be represented in plain text form. In specific circumstances, 
 when clearly descirbed  in  the context of use, the originalText may be a reference to some other text artifact 
 for which the resolution scope is clearly described.
-NOTE  The details of the link in the originalText.reference between different artifacts of medical information (e.g., 
+NOTE  The details of the link in the originalText.reference between different artifacts of medical information (e.g. 
 document and coded result) is outside the scope of  this International Standard  and may be further proscribed in 
 specifications that use this International Standard.
 7.8.2.3.3  uncertainty : QTY:  The uncertainty of the quantity using a distribution function and its 
@@ -1644,7 +1644,7 @@ are:
 4)].
 1  B  ? (Beta)
 The beta-distribution is used for data that are bounded on both sides and 
-may or may not be skewed (e.g., occurs when probabilities are 
+may or may not be skewed (e.g. occurs when probabilities are 
 estimated.) Two parameters a and ß are available to adjust the curve. The 
 mean µ and variance s
 2
@@ -1656,11 +1656,11 @@ relate as follows: µ = a/(a   ß) and
 (a   ß   1)]. 
 ISO/FDIS 21090:2009(E)
 80  © ISO 2009 – All rights reserved
-Many distribution types are defined in terms of special parameters (e.g., the parameters  a  and  ß  for the  ?-distribution, number of degrees of freedom for the  t-distribution, etc.). For all distribution types, however, the 
+Many distribution types are defined in terms of special parameters (e.g. the parameters  a  and  ß  for the  ?-distribution, number of degrees of freedom for the  t-distribution, etc.). For all distribution types, however, the 
 mean and standard deviation are defined.
 If no value (null) is provided for distributionType, then  the mean is estimated without any closer consideration 
 of its probability distribution. In this case, the meaning of the standard deviation is not crisply defined. 
-However, interpretation should be along the lines of the normal distribution, e.g., the interval covered by the 
+However, interpretation should be along the lines of the normal distribution, e.g. the interval covered by the 
 mean  1 standard deviation should be at the level of about two thirds confidence.
 The three distribution-types  unknown (null), uniform and normal  shall  be supported by every system that 
 claims to support uncertainty. All other distribution types are optional. W hen a system interpreting a 
@@ -1986,7 +1986,7 @@ Note that uncertainty will always need an xsi:type.
 Specializes QTY.
 A quantity constructed as the quotient of a numerator quantity divided by a denominator quantity.
 Common factors in the numerator and denominator are not automatically cancelled out.
-The RTO datatype supports titers (e.g., "1:128") and other quantities produced by laboratories  that truly 
+The RTO datatype supports titers (e.g. "1:128") and other quantities produced by laboratories  that truly 
 represent ratios. Ratios are not simply "structured numerics", particularly blood pressure measurements 
 (e.g. "120/60") are not ratios.
 NOTE 1  Ratios are different from rational numbers, i.e., in ratios common factors in the numerator and denominator 
@@ -3228,7 +3228,7 @@ ISO/FDIS 21090:2009(E)
 © ISO 2009 – All rights reserved  121
 NOTE  The convex hull of a  QSET  can less formally be called the "outer bound interval". Thus the  convex hull of a 
 QSET  describes the absolute beginning and end of a schedule. For some set specifications, where there is infinite 
-repetition  [e.g., a PIVL(TS)]  the convex hull has infinite bounds. The term  "schedule"  is used throughout this section in its
+repetition  [e.g. a PIVL(TS)]  the convex hull has infinite bounds. The term  "schedule"  is used throughout this section in its
 general sense, that of an organized series of values. The more common meaning of the term  "schedule", that of a time-based plan of events, is exactly a QSET(TS).
 7.10.2.7  Examples
 7.10.2.7.1  QSET(TS)
@@ -3529,7 +3529,7 @@ NOTE 2  Holidays are locale-specific. Exactly which religious holidays are subsu
 and other tradition. For global interoperability, using constructed QSET expressions is  safer than named holidays. 
 ISO/FDIS 21090:2009(E)
 128  © ISO 2009 – All rights reserved
-However, some holidays that depend on moon phases (e.g., Easter, Ramadan) or ad-hoc decree cannot be easily 
+However, some holidays that depend on moon phases (e.g. Easter, Ramadan) or ad-hoc decree cannot be easily 
 expressed in a QSET other than by using QSC.
 NOTE 3  Information processing entities might define their own set of codes to be supported by creating an appropriate 
 value set. The value set can be referenced in the QSC code if required.
@@ -3581,7 +3581,7 @@ The high limit shall not be negative infinity, and shall be higher than the low 
 7.10.9.3.4  highClosed : Boolean: Whether high is included in the IVL (is closed) or excluded from the IVL 
 (is open).
 7.10.9.3.5  width : QTY: The difference between high and low boundary. Width is used when the size of the 
-Interval is known, but the actual start and end points are not known. The actual type QTY will be dictated by 
+Interval is known, but the actual start and end-points are not known. The actual type QTY will be dictated by 
 the type of T.
 7.10.9.3.6  any : T: Specifies that some particular value lies within the interval.
 This should be used when it is not known when something started, or will end, but it is known that it was 
@@ -3719,7 +3719,7 @@ PIVL repeats.
 Only one of period and frequency should be specified. The form chosen should be the form that most naturally 
 conveys the idea to humans, i.e. every 10 min (period) or twice a day (frequency).
 7.10.13.3.4  alignment : CalendarCycle:  If and how the repetitions are aligned to the cycles of the underlying 
-calendar (e.g., to distinguish every 30 d from "the 5th of every month".) A non-aligned PIVL recurs 
+calendar (e.g. to distinguish every 30 d from "the 5th of every month".) A non-aligned PIVL recurs 
 independently from the calendar. An aligned PIVL is synchronized with the calendar.  
 ISO/FDIS 21090:2009(E)
 © ISO 2009 – All rights reserved  133
@@ -3747,7 +3747,7 @@ ISO/IEC 11404 Syntax for alignment attribute
 type CalendarCycle = enumeration (CY, MY, CM, CW, WY, DM, CD, DY, DW, 
 HD, CH, NH, CN, SN, CS)
 7.10.13.3.5  isFlexible : Boolean: Indicates whether the exact timing is up to the party executing the schedule 
-e.g., to distinguish "every 8 h" from "3 times a day".
+e.g. to distinguish "every 8 h" from "3 times a day".
 NOTE  This is sometimes referred to as "institution specified timing".
 7.10.13.3.6  count : INT.POS: The number of times the period repeats in total. If count is null or nullFlavored, 
 then the period repeats indefinitely both before and after the anchor implici t in the phase.
@@ -4594,13 +4594,13 @@ and may be rendered by user agents when appropriate  in place of the cell‘s cont
 should be short since user agents may render them repeatedly.
 7.12.24.2.2  axis : String:  This attribute may be used to place a cell into conceptual categories that can be 
 considered to form axes in an n-dimensional space. User agents may give users access to these categories 
-(e.g., the user may query the user agent for all cells that belong to certain categories, the user agent may 
+(e.g. the user may query the user agent for all cells that belong to certain categories, the user agent may 
 present a table in the form of a table of contents, etc.). Please consult the HTML specification for more 
 information. The value of this attribute is a comma-separated list of category names
 7.12.24.2.3  headers : Set(String)  «XMLIDREF»:  This attribute specifies the list of header cells that provide 
 header information for the current data cell. The value  of this attribute is a space-separated list of ID 
 references to header cells; those cells SHALL be named by setting their id attribute. Authors generally use the 
-headers attribute to help non-visual user agents render header information about data cells (e.g., header 
+headers attribute to help non-visual user agents render header information about data cells (e.g. header 
 information is spoken prior to the cell data), but the attribute may also be used in conjunction with style sheets. 
 See also the scope attribute.
 Refer to Clause A.2 for the meaning of the XMLIDREF stereotype.
@@ -4960,7 +4960,7 @@ The rules for which digits are significant are as follows:
 3)  When all digits in the number are zero the zero-digit immediately left to the decimal point is 
 significant (and because of rule 2, all following zeroes are thus also significant).
 NOTE 3  These rules of significance differ slightly from the more casual rules taught  at  school. Notably trailing zeroes 
-before the decimal point are consistently regarded significant here. Elsewhere, e.g., 2000 is ambiguous as to whether the 
+before the decimal point are consistently regarded significant here. Elsewhere, e.g. 2000 is ambiguous as to whether the 
 zeroes are significant. This deviation from the common custom is warranted for the purpose of unambiguous 
 communication. 
 ISO/FDIS 21090:2009(E)

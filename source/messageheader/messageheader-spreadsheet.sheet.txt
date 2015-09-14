@@ -404,7 +404,7 @@
  -- Row 1 -----------------------------------
   Name = process-message
   Use = System
-  Documentation = This operation that accept a messages, processes it according to the definition of the event in the message header, and returns a one or more response messages.  This  operation is described in detail [on the messaging page](messaging.html#process)
+  Documentation = This operation accepts a message, processes it according to the definition of the event in the message header, and returns a one or more response messages.  This  operation is described in detail [on the messaging page](messaging.html#process)
   Type = operation
   Example.Request = $process-message-request.txt
   Example.Response = $process-message-response.txt

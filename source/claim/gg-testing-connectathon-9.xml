@@ -46,7 +46,7 @@
   <item> 
     <sequence value="1"/>
     <type>
-      <sstem value="http://hl7.org/fhir/actinvoicegroupcode"/>
+      <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
       <code value="service"/>
     </type>
     <provider>
@@ -67,7 +67,7 @@
   <item> 
     <sequence value="2"/>
     <type>
-      <sstem value="http://hl7.org/fhir/actinvoicegroupcode"/>
+      <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
       <code value="service"/>
     </type>
     <provider>
@@ -96,7 +96,7 @@
   <item> 
     <sequence value="3"/>
     <type>
-      <sstem value="http://hl7.org/fhir/actinvoicegroupcode"/>
+      <system value="http://hl7.org/fhir/actinvoicegroupcode"/>
       <code value="service"/>
     </type>
     <provider>

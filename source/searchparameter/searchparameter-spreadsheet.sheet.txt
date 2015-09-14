@@ -147,7 +147,7 @@
   Summary = y
   Type = dateTime
   Short Label = Publication Date(/time)
-  Definition = The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the search parameter changes
+  Definition = The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
 
@@ -202,7 +202,7 @@
   Type = string
   Short Label = XPath that extracts the values
   Definition = An XPath expression that returns a set of elements for the search parameter
-  Comments = Note that the elements returned by the XPath are sometimes complex elements where logic is required to determine quite how to handle them. E.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
+  Comments = Note that the elements returned by the XPath are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
 
  -- Row 17 -----------------------------------
   Element = SearchParameter.xpathUsage

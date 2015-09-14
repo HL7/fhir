@@ -4,17 +4,17 @@
  -- Row 1 -----------------------------------
   Binding Name = GroupKind
   Binding = unbound
-  Definition = Kind of particular resource.  E.g. cow, syringe, lake, etc.
+  Definition = Kind of particular resource; e.g. cow, syringe, lake, etc.
 
  -- Row 2 -----------------------------------
   Binding Name = GroupCharacteristicKind
   Binding = unbound
-  Definition = List of characteristics used to describe group members.  E.g. gender, age, owner, location, etc.
+  Definition = List of characteristics used to describe group members; e.g. gender, age, owner, location, etc.
 
  -- Row 3 -----------------------------------
   Binding Name = GroupCharacteristicValue
   Binding = unbound
-  Definition = Value of descriptive member characteristic.  E.g. red, male, pneumonia, caucasian, etc.
+  Definition = Value of descriptive member characteristic; e.g. red, male, pneumonia, caucasian, etc.
 
  -- Row 4 -----------------------------------
   Binding Name = GroupType
@@ -75,7 +75,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = Group of multiple entities
-  Definition = Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn\'t an Organization
+  Definition = Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn\'t an Organization
   RIM Mapping = Entity[determinerCode=\"GRP\" or determinerCode=\"GRP_KIND\"]
   To Do = We need determiner codes that indicate we\'re talking about a group even when we haven\'t specified a specific quantity
   w5 = administrative.group
@@ -123,7 +123,7 @@
   Type = CodeableConcept
   Binding = GroupKind
   Short Label = Kind of Group members
-  Definition = Provides a specific type of resource the group includes.  E.g. \"cow\", \"syringe\", etc.
+  Definition = Provides a specific type of resource the group includes; e.g. \"cow\", \"syringe\", etc.
   Comments = This would generally be omitted for Person resources
   RIM Mapping = ./code
 
@@ -195,7 +195,7 @@
   Card. = 0..1
   Type = Period
   Short Label = Period over which characteristic is tested
-  Definition = The period over which the characteristic is tested. E.g. the patient had an operation during the month of June
+  Definition = The period over which the characteristic is tested; e.g. the patient had an operation during the month of June
 
  -- Row 13 -----------------------------------
   Element = Group.member

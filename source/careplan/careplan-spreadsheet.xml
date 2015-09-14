@@ -1230,7 +1230,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Type of plan</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans.  E.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Used for filtering what plan(s) are retrieved and displayed to different types of users</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1395,7 +1395,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the type of relationship this plan has to the target plan.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Read the relationship as &quot;this plan&quot; [relatedPlan.code] &quot;relatedPlan.plan&quot;.  E.g. This plan includes Plan B&#10;&#10;Additional relationship types can be proposed for future releases or handled as extensions.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Read the relationship as &quot;this plan&quot; [relatedPlan.code] &quot;relatedPlan.plan&quot;; e.g. This plan includes Plan B&#10;&#10;Additional relationship types can be proposed for future releases or handled as extensions.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1488,7 +1488,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Type of involvement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates specific responsibility of an individual within the care plan.  E.g. &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates specific responsibility of an individual within the care plan; e.g. &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care plan.  General relationships should be handled as properties of the Patient resource directly.</Data><NamedCell
@@ -1788,7 +1788,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Detail type of activity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Detailed description of the type of planned activity.  E.g. What lab test, what procedure, what kind of encounter.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Allows matching performed to planned as well as validation against protocols</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2052,7 +2052,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Where it should happen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the facility where the activity will occur.  E.g. home, hospital, specific clinic, etc.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Helps in planning of activity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3987,7 +3987,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Context</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur.  E.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">English</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -4495,7 +4495,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Path</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element.  E.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Description</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -5396,7 +5396,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s101"><Data ss:Type="String">Event Code</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event.  E.g. patient-link  </Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event; e.g. patient-link  </Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Category</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -6017,7 +6017,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Filename</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file.  E.g. resource-example-file-name.xml</Font>       </ss:Data></Comment><NamedCell
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file; e.g. resource-example-file-name.xml</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Profile</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -6514,7 +6514,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s145"><Data ss:Type="String">CarePlanParticipantRole</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates specific responsibility of an individual within the care plan.  E.g. &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates specific responsibility of an individual within the care plan; e.g. &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s115"/>
@@ -6546,7 +6546,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s145"><Data ss:Type="String">CarePlanActivityType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s115"/>
@@ -6578,7 +6578,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s145"><Data ss:Type="String">CarePlanActivityStatusReason</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Describes why the current activity has the status it does.  E.g. &quot;Recovering from injury&quot; as a reason for non-started or on-hold, &quot;Patient does not enjoy activity&quot; as a reason for cancelling a planned activity</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Describes why the current activity has the status it does; e.g. &quot;Recovering from injury&quot; as a reason for non-started or on-hold, &quot;Patient does not enjoy activity&quot; as a reason for cancelling a planned activity</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s115"/>
@@ -6594,7 +6594,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s145"><Data ss:Type="String">CarePlanCategory</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans.  E.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, etc.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, etc.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s115"/>

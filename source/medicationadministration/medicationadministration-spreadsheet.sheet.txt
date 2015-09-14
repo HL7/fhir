@@ -233,7 +233,7 @@
   Card. = 0..*
   Type = Reference(Device)
   Short Label = Device used to administer
-  Definition = The device used in administering the medication to the patient.  E.g. a particular infusion pump
+  Definition = The device used in administering the medication to the patient; e.g. a particular infusion pump
   v2 Mapping = PRT-10 Participation Device / RXR-3 Administrative Device
   RIM Mapping = device->Access  OR device->AssignedDevice
 
@@ -266,7 +266,7 @@
   Type = CodeableConcept | Reference(BodySite)
   Binding = MedicationAdministrationSite
   Short Label = Body site administered to
-  Definition = A coded specification of the anatomic site where the medication first entered the body.  E.g. \"left arm\"
+  Definition = A coded specification of the anatomic site where the medication first entered the body; e.g. \"left arm\"
   v2 Mapping = RXR-2 Administration Site / RXR-6 Administration Site Modifier
   RIM Mapping = approachSiteCode
 
