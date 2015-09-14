@@ -108,10 +108,20 @@ public class SchematronGenerator {
 	    genChildren(section, path, null, ed, definitions, parents);
 	  } else {
 	    for (TypeRef tr : ed.typeCode().equals("*") ? allTypes() : ed.getTypes()) {
-	      String en = name.replace("[x]", Utilities.capitalize(tr.summary()));
+	      String en = name;
+	      if (en.endsWith("[x]")) {
+	        if (definitions.getConstraints().containsKey(tr.getName()))
+            en = en.replace("[x]", definitions.getConstraints().get(tr.getName()).getBaseType());
+	        else
+	          en = en.replace("[x]", Utilities.capitalize(tr.summary()));
+	      }
 	      if (en.contains("("))
 	        en = en.substring(0, en.indexOf("("));
-	      String sPath = path == null ? "f:"+en : path + "/f:"+en;
+	      if (en.equals("div"))
+	        en = "h:"+en;
+	      else
+          en = "f:"+en;	        
+	      String sPath = path == null ? en : path + "/"+en;
 	      genInvs(section, sPath, ed);
 	      ElementDefn td = getType(tr, definitions);
 	      if (td != null) {
