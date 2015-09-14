@@ -71,9 +71,10 @@ func (m *MongoSearcher) createParamObjects(resource string, params []SearchParam
 }
 
 func panicOnUnsupportedFeatures(p SearchParam) {
-	// No prefixes are supported except EQ (the default)
+	// No prefixes are supported except EQ (the default) and date prefixes
+	_, isDate := p.(*DateParam)
 	prefix := p.getInfo().Prefix
-	if prefix != "" && prefix != EQ {
+	if prefix != "" && prefix != EQ && !isDate {
 		panic(UnsupportedError("search prefix: " + prefix))
 	}
 
@@ -92,43 +93,14 @@ func (m *MongoSearcher) createCompositeQueryObject(resource string, c *Composite
 }
 
 func (m *MongoSearcher) createDateQueryObject(d *DateParam) bson.M {
-	if d.Prefix != "" && d.Prefix != EQ {
-		panic(UnsupportedError(fmt.Sprintf("date search prefix: %s", d.Prefix)))
-	}
-
 	single := func(p SearchParamPath) bson.M {
 		switch p.Type {
-		// TODO: Fix for date (as opposed to dateTime/instant)
 		case "date", "dateTime", "instant":
-			return buildBSON(p.Path, bson.M{
-				"time": bson.M{
-					"$gte": d.Date.RangeLowIncl(),
-					"$lt":  d.Date.RangeHighExcl(),
-				},
-			})
+			return buildBSON(p.Path, dateSelector(d.Date, d.Prefix))
 		case "Period":
-			return buildBSON(p.Path, bson.M{
-				"start.time": bson.M{
-					"$lt": d.Date.RangeHighExcl(),
-				},
-				"$or": []bson.M{
-					bson.M{
-						"end.time": bson.M{
-							"$gte": d.Date.RangeLowIncl(),
-						},
-					},
-					bson.M{
-						"end": nil,
-					},
-				},
-			})
+			return buildBSON(p.Path, periodSelector(d.Date, d.Prefix))
 		case "Timing":
-			return buildBSON(p.Path, bson.M{
-				"event.time": bson.M{
-					"$gte": d.Date.RangeLowIncl(),
-					"$lt":  d.Date.RangeHighExcl(),
-				},
-			})
+			return buildBSON(p.Path+".event", dateSelector(d.Date, d.Prefix))
 		default:
 			return bson.M{}
 		}
@@ -137,11 +109,135 @@ func (m *MongoSearcher) createDateQueryObject(d *DateParam) bson.M {
 	return orPaths(single, d.Paths)
 }
 
-func (m *MongoSearcher) createNumberQueryObject(n *NumberParam) bson.M {
-	if n.Prefix != "" && n.Prefix != EQ {
-		panic(UnsupportedError(fmt.Sprintf("number search prefix: %s", n.Prefix)))
+// Note that this solution is not 100% correct because we don't represent dates as ranges in the
+// database -- but the FHIR spec calls for this sort of behavior to correctly implement these
+// searches.  An easy example is that while 2012-01-01 should be compared as the range from
+// 00:00:00.000 to 23:59:59.999, we currently only compare against 00:00:00.000 -- so some things
+// that should match, might not.
+// TODO: Fix this via more complex search criteria or by a different representation in the database.
+func dateSelector(date *Date, prefix Prefix) bson.M {
+	var timeCriteria bson.M
+	switch prefix {
+	case EQ:
+		timeCriteria = bson.M{
+			"$gte": date.RangeLowIncl(),
+			"$lt":  date.RangeHighExcl(),
+		}
+	case GT:
+		timeCriteria = bson.M{
+			"$gte": date.RangeHighExcl(),
+		}
+	case LT:
+		timeCriteria = bson.M{
+			"$lt": date.RangeLowIncl(),
+		}
+	case GE:
+		timeCriteria = bson.M{
+			"$gte": date.RangeLowIncl(),
+		}
+	case LE:
+		timeCriteria = bson.M{
+			"$lt": date.RangeHighExcl(),
+		}
+	default:
+		panic(UnsupportedError(fmt.Sprintf("search prefix: %s", prefix)))
 	}
 
+	return bson.M{"time": timeCriteria}
+}
+
+// Note that this solution is not 100% correct because we don't represent dates as ranges in the
+// database -- but the FHIR spec calls for this sort of behavior to correctly implement these
+// searches.  An easy example is that while 2012-01-01 should be compared as the range from
+// 00:00:00.000 to 23:59:59.999, we currently only compare against 00:00:00.000 -- so some things
+// that should match, might not.
+// TODO: Fix this via more complex search criteria or by a different representation in the database.
+func periodSelector(date *Date, prefix Prefix) bson.M {
+	switch prefix {
+	case EQ:
+		return bson.M{
+			"start.time": bson.M{
+				"$gte": date.RangeLowIncl(),
+			},
+			"end.time": bson.M{
+				"$lt": date.RangeHighExcl(),
+			},
+		}
+	case GT:
+		return bson.M{
+			"$or": []bson.M{
+				bson.M{
+					"end.time": bson.M{
+						"$gte": date.RangeHighExcl(),
+					},
+				},
+				// Also support instances where period exists, but end is null (ongoing)
+				bson.M{
+					"$ne": nil,
+					"end": nil,
+				},
+			},
+		}
+	case LT:
+		return bson.M{
+			"$or": []bson.M{
+				bson.M{
+					"start.time": bson.M{
+						"$lt": date.RangeLowIncl(),
+					},
+				},
+				// Also support instances where period exists, but start is null
+				bson.M{
+					"$ne":   nil,
+					"start": nil,
+				},
+			},
+		}
+	case GE:
+		return bson.M{
+			"$or": []bson.M{
+				bson.M{
+					"start.time": bson.M{
+						"$gte": date.RangeLowIncl(),
+					},
+				},
+				bson.M{
+					"end.time": bson.M{
+						"$gte": date.RangeHighExcl(),
+					},
+				},
+				// Also support instances where period exists, but end is null (ongoing)
+				bson.M{
+					"$ne": nil,
+					"end": nil,
+				},
+			},
+		}
+	case LE:
+		return bson.M{
+			"$or": []bson.M{
+				bson.M{
+					"end.time": bson.M{
+						"$lt": date.RangeHighExcl(),
+					},
+				},
+				bson.M{
+					"start.time": bson.M{
+						"$lt": date.RangeLowIncl(),
+					},
+				},
+				// Also support instances where period exists, but start is null
+				bson.M{
+					"$ne":   nil,
+					"start": nil,
+				},
+			},
+		}
+	}
+	panic(UnsupportedError(fmt.Sprintf("search prefix: %s", prefix)))
+}
+
+func (m *MongoSearcher) createNumberQueryObject(n *NumberParam) bson.M {
 	single := func(p SearchParamPath) bson.M {
 		l, _ := n.Number.RangeLowIncl().Float64()
 		h, _ := n.Number.RangeHighExcl().Float64()
@@ -155,10 +251,6 @@ func (m *MongoSearcher) createNumberQueryObject(n *NumberParam) bson.M {
 }
 
 func (m *MongoSearcher) createQuantityQueryObject(q *QuantityParam) bson.M {
-	if q.Prefix != "" && q.Prefix != EQ {
-		panic(UnsupportedError(fmt.Sprintf("quantity search prefix: %s", q.Prefix)))
-	}
-
 	single := func(p SearchParamPath) bson.M {
 		l, _ := q.Number.RangeLowIncl().Float64()
 		h, _ := q.Number.RangeHighExcl().Float64()
@@ -458,7 +550,16 @@ func cisw(s string) bson.RegEx {
 func orPaths(objFunc func(SearchParamPath) bson.M, paths []SearchParamPath) bson.M {
 	results := make([]bson.M, 0, len(paths))
 	for i := range paths {
-		results = append(results, objFunc(paths[i]))
+		result := objFunc(paths[i])
+		// If the bson is just an $or, then bring the components up to the top-level $or
+		if len(result) == 1 && result["$or"] != nil {
+			nestedOrs := result["$or"].([]bson.M)
+			for j := range nestedOrs {
+				results = append(results, nestedOrs[j])
+			}
+		} else {
+			results = append(results, objFunc(paths[i]))
+		}
 	}
 
 	if len(results) == 1 {
