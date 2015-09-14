@@ -75,7 +75,7 @@
   QDM Mapping = reason (DiagnosticReport.request.clinicalNotes)
 
  -- Row 10 -----------------------------------
-  Element = DiagnosticReport.category
+  Element = !DiagnosticReport.category
 
  -- Row 11 -----------------------------------
   Element = DiagnosticReport.effective[x]

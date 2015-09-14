@@ -119,7 +119,7 @@
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | \nReference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
 
  -- Row 17 -----------------------------------
-  Element = Procedure.performer.role
+  Element = !Procedure.performer.role
   Binding = !QICorePractitionerRole
 
  -- Row 18 -----------------------------------

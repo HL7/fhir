@@ -47,7 +47,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-volumeFuzzy}
 
  -- Row 8 -----------------------------------
-  Element = Specimen.collection.quantity
+  Element = !Specimen.collection.quantity
 
  -- Row 9 -----------------------------------
   Element = !Specimen.collection.quantity.extension
