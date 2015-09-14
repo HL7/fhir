@@ -84,14 +84,16 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Appointment)
-  Short Label = Parent appointment that this response is replying to
+  Short Label = Appointment this response relates to
+  Definition = Appointment that this response is replying to
 
  -- Row 4 -----------------------------------
   Element = AppointmentResponse.start
   Card. = 0..1
   Type = instant
-  Short Label = Date/Time that the appointment is to take place, or requested new start time
-  Definition = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time.
+  Short Label = Time from appointment, or requested new start time
+  Definition = Date/Time that the appointment is to take place, or requested new start time
+  Comments = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time.
   Committee Notes = Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.
   w5 = when.init
 
@@ -99,7 +101,7 @@
   Element = AppointmentResponse.end
   Card. = 0..1
   Type = instant
-  Short Label = Date/Time that the appointment is to conclude, or requested new end time
+  Short Label = Time from appointment, or requested new end time
   Definition = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.
   Committee Notes = Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.
   w5 = when.done
@@ -111,6 +113,7 @@
   Type = CodeableConcept
   Binding = ParticipantType
   Short Label = Role of participant in the appointment
+  Definition = Role of participant in the appointment
   Comments = The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.\n\nIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\n\nThis value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
   iCal Mapping = n/a
 
@@ -119,7 +122,8 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
-  Short Label = A Person, Location/HealthcareService or Device that is participating in the appointment
+  Short Label = Person, Location/HealthcareService or Device
+  Definition = A Person, Location/HealthcareService or Device that is participating in the appointment
   iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)
   v2 Mapping = PID-3-Patient ID List
   w5 = who
@@ -139,22 +143,25 @@
   Element = AppointmentResponse.comment
   Card. = 0..1
   Type = string
-  Short Label = Additional comments about the appointment
-  Definition = This comment is particularly important when the responder is declining, tentative or requesting another time to indicate the reasons why.
+  Short Label = Additional comments
+  Definition = Additional comments about the appointment
+  Comments = This comment is particularly important when the responder is declining, tentative or requesting another time to indicate the reasons why.
   iCal Mapping = COMMENT
 
  -- Row 10 -----------------------------------
   Element = !AppointmentResponse.schedule
   Card. = 0..1
   Type = Schedule
-  Short Label = The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment
+  Short Label = When (if) appointment repeats
+  Definition = The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment
 
  -- Row 11 -----------------------------------
   Element = !AppointmentResponse.timezone
   Card. = 0..1
   Type = string
-  Short Label = The timezone that the times are to be converted to. Required for recurring appointments to remain accurate where the schedule makes the appointment cross a daylight saving boundry
-  Definition = The timezone should be a value referenced from a timezone database
+  Short Label = For when schedule crosses a daylight saving boundary
+  Definition = The timezone that the times are to be converted to. Required for recurring appointments to remain accurate where the schedule makes the appointment cross a daylight saving boundary
+  Comments = The timezone should be a value referenced from a timezone database
 
  -- Row 12 -----------------------------------
   Element = !AppointmentResponse.lastModifiedBy

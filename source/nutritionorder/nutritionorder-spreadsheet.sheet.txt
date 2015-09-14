@@ -190,7 +190,7 @@
   Element = NutritionOrder.encounter
   Card. = 0..1
   Type = Reference(Encounter)
-  Short Label = The encounter associated with that this nutrition order
+  Short Label = The encounter associated with this nutrition order
   Definition = An encounter that provides additional information about the healthcare context in which this request is made
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
@@ -214,7 +214,7 @@
   Binding = NutritionOrderStatus
   Short Label = proposed | draft | planned | requested | active | on-hold | completed | cancelled
   Definition = The workflow status of the nutrition order/request.
-  Comments = Typically the system placing the order sets the status to \"requested\". There after, the order is maintained by the receiver that updates the status as the request is handled.
+  Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.
   RIM Mapping = .statusCode
   Committee Notes = [#3720]
   w5 = status
@@ -224,7 +224,7 @@
   Card. = 0..*
   Type = Reference(AllergyIntolerance)
   Short Label = List of the patient\'s food and nutrition-related allergies and intolerances
-  Definition = A link to a record of allergies or Intolerances  which should be included in the nutrition order.
+  Definition = A link to a record of allergies or intolerances  which should be included in the nutrition order.
   Comments = Information on a patient\'s food allergies and intolerances, inform healthcare personnel about the type of foods that the patient should receive or consume.
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]
   Committee Notes = resource reference
@@ -236,7 +236,7 @@
   Binding = PatientDiet
   Short Label = Order-specific modifier about the type of food that should be given
   Definition = This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
-  Comments = Information on a patient\'s food preferences inform healthcare personnel about the food that the patient should receive or consume.
+  Comments = Information on a patient\'s food preferences that inform healthcare personnel about the food that the patient should receive or consume.
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=NutritionModificationType]
   Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
 
@@ -487,7 +487,7 @@
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Amount of energy per specified volume that is required
-  Definition = The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula the provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.
+  Definition = The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.
   RIM Mapping = .quantity (caloricDensity)
 
  -- Row 37 -----------------------------------
@@ -496,7 +496,7 @@
   Type = CodeableConcept
   Binding = EnteralRouteOfAdministration
   Short Label = How the formula should enter the patient\'s gastrointestinal tract
-  Definition = The route or physiological path of administration into the patient \'s gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube.
+  Definition = The route or physiological path of administration into the patient\'s gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube.
   RIM Mapping = .routeCode
 
  -- Row 38 -----------------------------------

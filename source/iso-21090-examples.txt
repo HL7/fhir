@@ -487,7 +487,7 @@ type
 Indicates the type of delivery installation (the facility to which 
 the mail will be delivered prior to final shipping via the delivery 
 mode) e.g. post office, letter carrier depot, community mail 
-centre, station, etc.
+center, station, etc.
 3    DINSTA
 Delivery 
 installation 
@@ -569,7 +569,7 @@ ISO/FDIS 21090:2009(E)
 56  © ISO 2009 – All rights reserved
 1   CTY  Municipality
 The name of the city, town, village, or other community or 
-delivery centre.
+delivery center.
 1   DEL  Delimiter
 Delimiters are printed without framing white space. If no value 
 component is provided, the delimiter appears as a line break.
@@ -4540,9 +4540,9 @@ StrucDoc.CellAlign Enumeration
 The content is left aligned. This long paragraph 
 serves as an example of left aligned content in a 
 table cell.
-1  centre  centre
-The content is centre aligned. This long 
-paragraph serves as an example of centre
+1  center  center
+The content is center aligned. This long 
+paragraph serves as an example of center
 aligned content in a table cell.
 1  right  right
 The content is right aligned. This long 

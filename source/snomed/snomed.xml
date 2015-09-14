@@ -838,8 +838,8 @@
   <concept id="20078004" display="Substance abuse treatment center (environment)">
     <display value="Substance abuse treatment center"/>
     <display value="Drug abuse treatment center"/>
-    <display value="Substance abuse treatment centre"/>
-    <display value="Drug abuse treatment centre"/>
+    <display value="Substance abuse treatment center"/>
+    <display value="Drug abuse treatment center"/>
     <display value="Substance abuse treatment center (environment)"/>
   </concept>
   <concept id="20233005" display="Scrotal structure (body structure)">
@@ -2296,7 +2296,7 @@
     <display value="Hospital-based outpatient immunology clinic (environment)"/>
   </concept>
   <concept id="36125001" display="Trauma center (environment)">
-    <display value="Trauma centre"/>
+    <display value="Trauma center"/>
     <display value="Trauma center"/>
     <display value="Trauma center (environment)"/>
   </concept>
@@ -3033,16 +3033,16 @@
   </concept>
   <concept id="405607001" display="Ambulatory surgery center (environment)">
     <display value="Ambulatory surgery center (environment)"/>
-    <display value="Ambulatory surgery centre"/>
+    <display value="Ambulatory surgery center"/>
     <display value="Ambulatory surgery center"/>
     <display value="Outpatient surgery center"/>
     <display value="Same day surgery center"/>
-    <display value="Outpatient surgery centre"/>
-    <display value="Same day surgery centre"/>
+    <display value="Outpatient surgery center"/>
+    <display value="Same day surgery center"/>
   </concept>
   <concept id="405608006" display="Academic medical center (environment)">
     <display value="Academic medical center (environment)"/>
-    <display value="Academic medical centre"/>
+    <display value="Academic medical center"/>
     <display value="Academic medical center"/>
     <display value="Teaching Hospital"/>
     <display value="Teaching hospital"/>
@@ -3330,7 +3330,7 @@
   <concept id="413456002" display="Adult day care center (environment)">
     <display value="Adult day care center (environment)"/>
     <display value="Adult day care center"/>
-    <display value="Adult day care centre"/>
+    <display value="Adult day care center"/>
   </concept>
   <concept id="413651001" display="Bioptics (procedure)">
     <display value="Bioptics (procedure)"/>
@@ -3339,7 +3339,7 @@
   <concept id="413817003" display="Child day care center (environment)">
     <display value="Child day care center (environment)"/>
     <display value="Child day care center"/>
-    <display value="Child day care centre"/>
+    <display value="Child day care center"/>
   </concept>
   <concept id="414135002" display="Estimated (qualifier value)">
     <display value="Estimated (qualifier value)"/>
@@ -4297,7 +4297,7 @@
     <display value="Presence of"/>
   </concept>
   <concept id="52668009" display="Hospital-based birthing center (environment)">
-    <display value="Hospital-based birthing centre"/>
+    <display value="Hospital-based birthing center"/>
     <display value="Hospital-based birthing center (environment)"/>
     <display value="Hospital-based birthing center"/>
   </concept>
@@ -4541,7 +4541,7 @@
   </concept>
   <concept id="6827000" display="Local community health center">
     <display value="Local community health center"/>
-    <display value="Local community health centre"/>
+    <display value="Local community health center"/>
     <display value="Local community health center (environment)"/>
   </concept>
   <concept id="6853008" display="Nasogastric tube aspiration (procedure)">
@@ -4651,7 +4651,7 @@
   <concept id="73770003" display="Hospital-based outpatient emergency care center (environment)">
     <display value="Hospital-based outpatient emergency care center"/>
     <display value="Hospital-based outpatient emergency room"/>
-    <display value="Hospital-based outpatient emergency care centre"/>
+    <display value="Hospital-based outpatient emergency care center"/>
     <display value="Hospital-based outpatient emergency care center (environment)"/>
   </concept>
   <concept id="74040009" display="Protein measurement (procedure)">
@@ -4714,7 +4714,7 @@
   <concept id="77931003" display="Rural health center (environment)">
     <display value="Rural health center"/>
     <display value="Rural health clinic"/>
-    <display value="Rural health centre"/>
+    <display value="Rural health center"/>
     <display value="Rural health center (environment)"/>
   </concept>
   <concept id="7800008" display="Punctate (qualifier value)">
@@ -4932,7 +4932,7 @@
   </concept>
   <concept id="91154008" display="Free-standing birthing center">
     <display value="Free-standing birthing center"/>
-    <display value="Free-standing birthing centre"/>
+    <display value="Free-standing birthing center"/>
     <display value="Free-standing birthing center (environment)"/>
   </concept>
   <concept id="9454009" display="Structure of subclavian vein (body structure)">

@@ -204,7 +204,7 @@
   Short Label = DateTime this version was released
   Definition = The date and time that this version of the report was released from the source diagnostic service
   Requirements = Clinicians need to be able to check the date that the report was released
-  Comments = May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report .
+  Comments = May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report
   v2 Mapping = OBR-22-Results Rpt/Status Chng - Date/Time
   RIM Mapping = participation[typeCode=VRF or AUT].time
   Committee Notes = #7500
@@ -219,7 +219,7 @@
   Short Label = Responsible Diagnostic Service
   Definition = The diagnostic service that is responsible for issuing the report
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
-  Comments = This is not necessarily the source of the atomic data items - it is the entity that takes responsibility for the clinical report.
+  Comments = This is not necessarily the source of the atomic data items. It is the entity that takes responsibility for the clinical report.
   v2 Mapping = PRT-8-Participation Organization (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
   w5 = who.witness
@@ -241,18 +241,18 @@
   Short Label = Specimens this report is based on
   Definition = Details about the specimens on which this diagnostic report is based
   Requirements = Need to be able to report information about the collected specimens on which the report is based
-  Comments = If the specimen is sufficiently specified with a code in the Test result name, then this additional data may be redundant. If there are multiple specimens, these may be represented per Observation or group.
+  Comments = If the specimen is sufficiently specified with a code in the test result name, then this additional data may be redundant. If there are multiple specimens, these may be represented per Observation or group.
   v2 Mapping = SPM
   RIM Mapping = participation[typeCode=SBJ]
 
  -- Row 13 -----------------------------------
   Element = DiagnosticReport.result
   Card. = 0..*
-  Aliases = Data, Atomic Value, Result, Atomic result, Data, Test, Analyte,Battery, Organiser
+  Aliases = Data, Atomic Value, Result, Atomic result, Data, Test, Analyte,Battery, Organizer
   Type = Reference(Observation)
   Short Label = Observations - simple, or complex nested groups
   Definition = Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").
-  Requirements = Need to be able to individual results, or report groups of results, where the result grouping is arbitrary, but meaningful. This structure is recursive - observations can contain observations
+  Requirements = Need to support individual results, or report groups of results, where the result grouping is arbitrary, but meaningful. This structure is recursive - observations can contain observations
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
  -- Row 14 -----------------------------------
@@ -320,10 +320,10 @@
   Element = DiagnosticReport.presentedForm
   Card. = 0..*
   Type = Attachment
-  Short Label = Entire Report as issued
+  Short Label = Entire report as issued
   Definition = Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.
   Requirements = Gives Laboratory the ability to provide its own fully formatted report for clinical fidelity
-  Comments = Application/pdf is recommended as the most reliable and interoperable in this context.
+  Comments = \"application/pdf\" is recommended as the most reliable and interoperable in this context.
   v2 Mapping = OBX
   RIM Mapping = text (type=ED)
 

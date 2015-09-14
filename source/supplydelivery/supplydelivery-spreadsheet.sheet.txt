@@ -41,7 +41,7 @@
   Element = SupplyDelivery
   Type = DomainResource
   Short Label = Delivery of Supply
-  Definition = Record of delivery of what is supply
+  Definition = Record of delivery of what is in the supply
   RIM Mapping = Supply[moodCode=RQO]
   w5 = workflow.order
 
@@ -148,7 +148,7 @@
   Card. = 0..1
   Type = Reference(Medication|Substance|Device)
   Short Label = Medication, Substance, or Device supplied
-  Definition = Identifies the medication or substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.
+  Definition = Identifies the medication, substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.
   RIM Mapping = .participation[typeCode=PRD].role
 
  -- Row 14 -----------------------------------

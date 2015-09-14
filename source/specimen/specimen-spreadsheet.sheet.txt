@@ -137,8 +137,8 @@
   Card. = 0..*
   Type = Reference(Specimen)
   Short Label = Specimen from which this specimen originated
-  Definition = Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of a another specimen.
-  Comments = The parent specimen could be the source from which the current specimen is derived by some processing step (e.g.  an aliquot or isolate or extracted nucleic acids from clinical samples) or one of many specimens that were combined to create a pooled sample.
+  Definition = Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.
+  Comments = The parent specimen could be the source from which the current specimen is derived by some processing step (e.g. an aliquot or isolate or extracted nucleic acids from clinical samples) or one of many specimens that were combined to create a pooled sample.
   RIM Mapping = .scoper (if parent) .player.scopesRole[classCode=SPEC].player (if child)
   Committee Notes = [#3862]
 
@@ -353,7 +353,7 @@
   Type = CodeableConcept|Reference(Substance)
   Binding = SpecimenContainerAdditive
   Short Label = Additive associated with container
-  Definition = Introduced substance to preserve, maintain or enhance the specimen. examples: Formalin, Citrate, EDTA
+  Definition = Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA
   v2 Mapping = SAC-27
   RIM Mapping = .scopesRole[classCode=ADTV].player
   Committee Notes = #3634

@@ -165,13 +165,13 @@
  -- Row 2 -----------------------------------
   Id = 6
   Context = Observation
-  English = Shall only be present if Observation.value[x] is not present
+  English = SHALL only be present if Observation.value[x] is not present
   XPath = not(exists(f:dataAbsentReason)) or (not(exists(*[starts-with(local-name(.), \'value\')])))
 
  -- Row 3 -----------------------------------
   Id = 7
   Context = Observation
-  English = Component code Shall not be same as observation code
+  English = Component code SHALL not be same as observation code
   XPath = not(exists(f:component.code/@value)) or (f:code/@value !=  f:component/f:code/@value)
 
 === Sheet Data Elements =====================================
@@ -183,7 +183,7 @@
   Short Label = Measurements and simple assertions
   Definition = Measurements and simple assertions made about a patient, device or other subject
   Requirements = Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.
-  Comments = Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as Lab reports, etc.
+  Comments = Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as lab reports, etc.
   v2 Mapping = OBX
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
   w5 = clinical.diagnostics
@@ -209,7 +209,7 @@
   Binding = ObservationStatus
   Short Label = registered | preliminary | final | amended +
   Definition = The status of the result value
-  Requirements = Need to track the status of individual results - some results are finalized before the whole report is finalized
+  Requirements = Need to track the status of individual results. Some results are finalized before the whole report is finalized
   v2 Mapping = OBX-11-observation result status
   RIM Mapping = status  Amended & Final are differentiated by whether it is the subject of a ControlAct event with a type of \"revise\"
   Display Hint = default: final
@@ -271,7 +271,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime | Period
-  Short Label = Clinically Relevant time/time-period for observation
+  Short Label = Clinically relevant time/time-period for observation
   Definition = The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself
   Requirements = Knowing when an observation was deemed true is important to its relevance as well as determining trends
   Comments = At least a date should be present unless this observation is a historical report
@@ -312,7 +312,7 @@
   Short Label = Actual result
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or it represents a group of observations
-  Comments = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar store) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).\r\r\rIf the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.  For boolean values use valueCodeableConcept and select codes from [HL7 Version 2 Table 0136](v2/0136/index.html). These \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed.   For further discussion and examples see the  [notes section](observation.html#4.20.4) below.
+  Comments = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).\r\r\rIf the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.  For boolean values use valueCodeableConcept and select codes from [HL7 Version 2 Table 0136](v2/0136/index.html). These \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed.   For further discussion and examples see the  [notes section](observation.html#4.20.4) below.
   v2 Mapping = OBX.2, OBX.5, OBX.6
   RIM Mapping = value
   Committee Notes = [#3125],[#3505],[#5853],8479
@@ -374,7 +374,7 @@
   Type = CodeableConcept
   Binding = BodySite
   Short Label = Observed body part
-  Definition = Indicates the site on the subject\'s body where the observation was made ( i.e. the target site).
+  Definition = Indicates the site on the subject\'s body where the observation was made (i.e. the target site).
   Requirements = Knowing where the observation is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in code found in Observation.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately) then use the standard extension[ body-site-instance](extension-body-site-instance.html).
   v2 Mapping = OBX-20-observation site
@@ -388,7 +388,7 @@
   Binding = ObservationMethod
   Short Label = How it was done
   Definition = Indicates the mechanism used to perform the observation
-  Requirements = In some cases, method can impact results and is thus for determining whether results can be compared or determining significance of results
+  Requirements = In some cases, method can impact results and is thus used for determining whether results can be compared or determining significance of results
   Comments = Only used if not implicit in code for Observation.code
   v2 Mapping = OBX-17-observation method
   RIM Mapping = methodCode
@@ -442,7 +442,7 @@
   Inv. = 3
   Type = SimpleQuantity
   Short Label = Low Range, if relevant
-  Definition = The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the low bound is omitted,  it is assumed to be meaningless. (e.g. reference range is <=2.3).
+  Definition = The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3).
   v2 Mapping = OBX-7-references range
   RIM Mapping = value:IVL_PQ.low
   Committee Notes = [#3882]
@@ -453,7 +453,7 @@
   Inv. = 3
   Type = SimpleQuantity
   Short Label = High Range, if relevant
-  Definition = The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the high bound is omitted,  it is assumed to be meaningless. (e.g. reference range is >= 2.3).
+  Definition = The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3).
   v2 Mapping = OBX-7-references range
   RIM Mapping = value:IVL_PQ.high
 
@@ -503,8 +503,8 @@
   Summary = Y
   UML = 400;300
   Short Label = Resource related to this observation
-  Definition = A  reference to another resource ( usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.
-  Requirements = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar store) may have both a value and a set of related observations or sometimes QuestionnaireResponse  from which the measure is derived.
+  Definition = A  reference to another resource (usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.
+  Requirements = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes QuestionnaireResponse  from which the measure is derived.
   Comments = For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).
   v2 Mapping = Relationships established by OBX-4 usage
   RIM Mapping = outBoundRelationship
@@ -527,7 +527,7 @@
   Card. = 1..1
   Type = Reference(Observation|QuestionnaireResponse)
   Short Label = Resource that is related to this one
-  Definition = A reference to the observation or questionnaireanswer resource that is related to this observation
+  Definition = A reference to the observation or [[[QuestionnaireaResponse]]] resource that is related to this observation
   RIM Mapping = .targetObservation
   Committee Notes = can an invariant be made to limit code when referencing a resource type?
 
@@ -537,8 +537,8 @@
   Summary = Y
   UML = 400;150
   Short Label = Component results
-  Definition = Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for for genetics observations.
-  Requirements = Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation ( they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.
+  Definition = Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
+  Requirements = Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.
   Comments = For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).
   RIM Mapping = outBoundRelationship[typeCode=COMP]
   Committee Notes = 5/15/2015:#7517
@@ -565,7 +565,7 @@
   Short Label = Actual component result
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or it represents a group of observations
-  Comments = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar store) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (These \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed\").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).
+  Comments = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (These \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed\").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).
   v2 Mapping = OBX.2, OBX.5, OBX.6
   RIM Mapping = value
   Committee Notes = [#3125],[#3505],[#5853]

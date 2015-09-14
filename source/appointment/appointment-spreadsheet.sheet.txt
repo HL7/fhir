@@ -185,7 +185,7 @@
   Binding = AppointmentStatus
   Short Label = proposed | pending | booked | arrived | fulfilled | cancelled | noshow
   Definition = The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status
-  Comments = If the Appointment\'s status is \"cancelled\" then all participants are expected to have their calendars released for the appointment period, and as such any Slot\'s that were marked as BUSY can be re-set to FREE
+  Comments = If the Appointment\'s status is \"cancelled\" then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE
   v2 Mapping = SCH-25
   RIM Mapping = .statusCode
   w5 = status
@@ -207,7 +207,8 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ApptReason
-  Short Label = The reason that this appointment is being scheduled, this is more clinical than administrative
+  Short Label = Reason this appointment is scheduled
+  Definition = The reason that this appointment is being scheduled. This is more clinical than administrative
   v2 Mapping = AIS-3, ARQ-7, SCH-7
   RIM Mapping = (encounter appointment).reason
 
@@ -215,7 +216,8 @@
   Element = Appointment.priority
   Card. = 0..1
   Type = unsignedInt
-  Short Label = The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority)
+  Short Label = Used to make informed decisions if needing to re-prioritize
+  Definition = The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority)
   Comments = Seeking implementer feedback on this property and how interoperable it is.\n\nUsing an extension to record a codeableconcept for named values may be tested at a future connectathon
   iCal Mapping = PRIORITY
   v2 Mapping = ARQ-12, SCH-11.6 / TQ1-9
@@ -226,7 +228,8 @@
   Element = Appointment.description
   Card. = 0..1
   Type = string
-  Short Label = The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field
+  Short Label = Shown on a subject line in a meeting request, or appointment list
+  Definition = The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field
   iCal Mapping = DESCRIPTION
   v2 Mapping = NTE-3
   RIM Mapping = .text
@@ -236,7 +239,8 @@
   Card. = 0..1
   Summary = Y
   Type = instant
-  Short Label = Date/Time that the appointment is to take place
+  Short Label = When appointment is to take place
+  Definition = Date/Time that the appointment is to take place
   v2 Mapping = ARQ-11.1, SCH-11.4 / TQ1-7
   RIM Mapping = .effectiveTime.low
   w5 = when.init
@@ -246,7 +250,8 @@
   Card. = 0..1
   Summary = Y
   Type = instant
-  Short Label = Date/Time that the appointment is to conclude
+  Short Label = When appointment is to conclude
+  Definition = Date/Time that the appointment is to conclude
   v2 Mapping = ARQ-11.2, SCH-11.5 / TQ1-8
   RIM Mapping = .effectiveTime.high
   w5 = when.done
@@ -255,34 +260,39 @@
   Element = Appointment.minutesDuration
   Card. = 0..1
   Type = positiveInt
-  Short Label = Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request)
+  Short Label = Can be less than start/end (e.g. estimate)
+  Definition = Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request)
   Committee Notes = Removed when taking out the recurrence fields
 
  -- Row 11 -----------------------------------
   Element = !Appointment.recurrence
   Card. = 0..1
   Type = Schedule
-  Short Label = The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment
+  Short Label = When (if) appointment repeats
+  Definition = The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment
 
  -- Row 12 -----------------------------------
   Element = !Appointment.timezone
   Card. = 0..1
   Type = string
-  Short Label = The timezone that the times are to be converted to. Required for recurring appointments to remain accurate where the schedule makes the appointment cross a daylight saving boundry
-  Definition = The timezone should be a value referenced from a timezone database
+  Short Label = For when schedule crosses a daylight saving boundary
+  Definition = The timezone that the times are to be converted to. Required for recurring appointments to remain accurate where the schedule makes the appointment cross a daylight saving boundary
+  Comments = The timezone should be a value referenced from a timezone database
 
  -- Row 13 -----------------------------------
   Element = Appointment.slot
   Card. = 0..*
   Type = Reference(Slot)
-  Short Label = The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot
+  Short Label = If provided, then no schedule and start/end values MUST match slot
+  Definition = The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot
   RIM Mapping = Schedule-Slot (classCode=ACT, moodCode = SLOT)
 
  -- Row 14 -----------------------------------
   Element = !Appointment.location
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = The primary location that this appointment is to take place
+  Short Label = Primary location
+  Definition = The primary location that this appointment is to take place
   RIM Mapping = .location
   w5 = where
 
@@ -290,7 +300,8 @@
   Element = Appointment.comment
   Card. = 0..1
   Type = string
-  Short Label = Additional comments about the appointment
+  Short Label = Additional comments
+  Definition = Additional comments about the appointment
   Comments = Additional text to aid in facilitating the appointment. For instance, a comment might be, “patient should proceed immediately to infusion room upon arrival”\n\nWhere this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.
   iCal Mapping = COMMENT
   v2 Mapping = NTE-3
@@ -300,6 +311,7 @@
   Card. = 0..1
   Type = Reference(Order)
   Short Label = An Order that lead to the creation of this appointment
+  Definition = An Order that lead to the creation of this appointment
   v2 Mapping = ARQ-24, SCH-26
   RIM Mapping = .referencedOrder
   Committee Notes = The Supply Order from the HL7 v3 DMIM was discussed and decided outside 80%, permit via extensions where required
@@ -308,7 +320,8 @@
   Element = Appointment.participant
   Card. = 1..*
   UML = right
-  Short Label = List of participants involved in the appointment
+  Short Label = Participants involved in appointment
+  Definition = List of participants involved in the appointment
   iCal Mapping = ATTENDEE component to be created
   v2 Mapping = PID, AIP, AIG, AIL
 
@@ -319,6 +332,7 @@
   Type = CodeableConcept
   Binding = ParticipantType
   Short Label = Role of participant in the appointment
+  Definition = Role of participant in the appointment
   Comments = The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.\n\nIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\n\nThis value MUST be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
   iCal Mapping = n/a
   v2 Mapping = AIP-4, AIG-4
@@ -328,7 +342,8 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
-  Short Label = A Person, Location/HealthcareService or Device that is participating in the appointment
+  Short Label = Person, Location/HealthcareService or Device
+  Definition = A Person, Location/HealthcareService or Device that is participating in the appointment
   iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource) where the participant type is not \"information-only\"
   v2 Mapping = PID-3-Patient ID List | AIL-3 | AIG-3 | AIP-3
   RIM Mapping = performer | reusableDevice | subject | location
@@ -359,7 +374,7 @@
   Element = !Appointment.participant.observation
   Card. = 0..*
   Type = Reference(Observation)
-  Short Label = Observations that lead to the creation of this appointment. (Is this 80%)
+  Definition = Observations that lead to the creation of this appointment. (Is this 80%)
   Comments = PA discussed, concerms that this was part of HL7 v2 and v3, but not sure that is should be in 80%
   v2 Mapping = OBX-21-Observation Instance Identifier (Subject to Ch7 caveats)
 
