@@ -7,12 +7,12 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient @qicore</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition">
-    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-condition">
+    <extension url="condition">
       <valueReference>
         <reference value="Condition/qicore"/>
       </valueReference>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/encounter-conditionRole">
+    <extension url="role">
       <valueCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>
