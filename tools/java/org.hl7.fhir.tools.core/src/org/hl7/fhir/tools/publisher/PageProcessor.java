@@ -4356,7 +4356,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String getDraftNote(Profile pack, String prefix) {
-    if ("draft".equals(pack.metadata("status")))
+    if ("draft".equals(pack.metadata("publication.status")))
       return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This profile is <a href=\""+prefix+"timelines.html#levels\">marked as a draft</a>.</p>";
     else
       return "";

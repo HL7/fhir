@@ -556,13 +556,13 @@
 
  -- Row 4 -----------------------------------
   Name = study
-  Type = string
+  Type = uri
   Description = The study identifier for the image
   Path = ImagingStudy.uid
 
  -- Row 5 -----------------------------------
   Name = series
-  Type = string
+  Type = uri
   Description = The identifier of the series of images
   Path = ImagingStudy.series.uid
 
@@ -586,7 +586,7 @@
 
  -- Row 9 -----------------------------------
   Name = dicom-class
-  Type = string
+  Type = uri
   Description = The type of the instance
   Path = ImagingStudy.series.instance.sopClass
 

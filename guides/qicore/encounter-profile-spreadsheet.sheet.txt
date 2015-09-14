@@ -75,7 +75,7 @@
   Element = Encounter.extension.extension
   Profile Name = Encounter.relatedCondition.condition
   Card. = 1..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-condition}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition#condition}
 
  -- Row 6 -----------------------------------
   Element = Encounter.extension.extension.valueReference
@@ -85,9 +85,9 @@
 
  -- Row 7 -----------------------------------
   Element = Encounter.extension.extension
-  Profile Name = Encounter.relatedCondition.conditionRole
+  Profile Name = Encounter.relatedCondition.role
   Card. = 1..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-conditionRole}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/encounter-relatedCondition#role}
   Binding = QICoreEncounterConditionRole
 
  -- Row 8 -----------------------------------
