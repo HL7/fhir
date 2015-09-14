@@ -376,7 +376,7 @@
   Short Label = Observed body part
   Definition = Indicates the site on the subject\'s body where the observation was made ( i.e. the target site).
   Requirements = Knowing where the observation is made is important for tracking if multiple sites are possible.
-  Comments = Only used if not implicit in code found in Observation.code.  If the use case requires BodySite to be be handled as a separate resource instead of an inline coded element ( e.g. to identify and track separately) then use the standard extension[ body-site-instance](extension-body-site-instance.html).
+  Comments = Only used if not implicit in code found in Observation.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately) then use the standard extension[ body-site-instance](extension-body-site-instance.html).
   v2 Mapping = OBX-20-observation site
   RIM Mapping = targetSiteCode
   Committee Notes = Is this in the 80%?

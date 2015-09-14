@@ -23,7 +23,7 @@ provide a clinical or workflow context for a set of observations. Expected uses 
   <li>Social history: tobacco use, family supports, cognitive status</li>
   <li>Core characteristics: pregnancy status, death assertion</li>
 </ul>
-<p>Normally, an observation will have either a value (e.g. a blood glucose measurement) or a set of related observations ( e.g. an electrolyte panel) and not both. A few observations (e.g. Apgar store) may have both a value and related observations (for Apgar, a numeric total score and the five variables whose scores are tallied to derive the total score).</p>
+<p>Normally, an observation will have either a value (e.g. a blood glucose measurement) or a set of related observations (e.g. an electrolyte panel) and not both. A few observations (e.g. Apgar store) may have both a value and related observations (for Apgar, a numeric total score and the five variables whose scores are tallied to derive the total score).</p>
 </div>
 
 

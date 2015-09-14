@@ -261,7 +261,7 @@
   Binding = DiagnosticOrderPriority
   Short Label = routine | urgent | stat | asap
   Definition = The clinical priority associated with this order
-  Comments = The Order resource also has a priority. Generally, these should be the same, but they can be different, for instance in the case where the clinician indicates that the order is urgent, but the subsequent workflow process overrule this priority for some reason. The effective default value is \"normal\"
+  Comments = The Order resource also has a priority. Generally, these should be the same, but they can be different. For instance, where the clinician indicates the order is urgent, but the subsequent workflow process overrules the priority for some reason. The effective default value is \"normal\"
   RIM Mapping = .priorityCode
   w5 = grade
 
@@ -271,7 +271,7 @@
   UML = down
   Short Label = A list of events of interest in the lifecycle
   Definition = A summary of the events of interest that have occurred as the request is processed; e.g. when the order was made, various processing steps (specimens received), when it was completed
-  Comments = This is not the same as an audit trail - it is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events
+  Comments = This is not the same as an audit trail. It is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events
   RIM Mapping = .inboundRelationship[typeCode=FLFS].source
 
  -- Row 12 -----------------------------------
@@ -309,7 +309,7 @@
   Card. = 0..1
   Type = Reference(Practitioner|Device)
   Short Label = Who recorded or did this
-  Definition = The person who was responsible for performing or recording the action
+  Definition = The person responsible for performing or recording the action
   RIM Mapping = .participation[AUT or PFM]
 
  -- Row 16 -----------------------------------
@@ -350,7 +350,7 @@
   Binding = BodySite
   Short Label = Location of requested test (if applicable)
   Definition = Anatomical location where the request test should be performed.  This is the target site.
-  Comments = If the use case requires BodySite to be be handled as a separate resource instead of an inline coded element ( e.g. to identify and track separately)  then use the standard extension [body-site-instance](extension-body-site-instance.html).
+  Comments = If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [body-site-instance](extension-body-site-instance.html).
   RIM Mapping = targetSiteCode
 
  -- Row 20 -----------------------------------
@@ -379,7 +379,7 @@
   Card. = 0..*
   Type = Annotation
   Short Label = Other notes and comments
-  Definition = Any other notes associated with this patient or specimen or order (e.g. \"patient hates needles\")
+  Definition = Any other notes associated with this patient, specimen or order (e.g. \"patient hates needles\")
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
   Committee Notes = 7134,8147
 

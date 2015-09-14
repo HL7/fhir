@@ -45,7 +45,7 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = SearchParameter
-  English = If an xpath is present, there SHALL be be an xpathUsage
+  English = If an xpath is present, there SHALL be an xpathUsage
   XPath = not(exists(f:xpath)) or exists(f:xpathUsage)
   Severity = error
 

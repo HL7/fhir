@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="72ac8493-52ac-41bd-8d5d-7258c289b5ea"/>
   <meta>
@@ -17,521 +16,177 @@
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
-            
-            
             <table>
-              
-              
               <tr>
-                
-                
                 <td>Sodium</td>
-                
-                
                 <td>140</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>137-147</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Serum Potassium</td>
-                
-                
                 <td>4.2</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>3.5-5.0</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Chloride</td>
-                
-                
                 <td>105</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>96-109</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Bicarbonate</td>
-                
-                
                 <td>26</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>25-33</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Other Anions</td>
-                
-                
                 <td>13</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>4-17</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Glucose</td>
-                
-                
                 <td>7.4</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>3.0-7.7</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Urea</td>
-                
-                
                 <td>4.7</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>2.0-7.0</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Serum Creatinine</td>
-                
-                
                 <td>0.09</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>0.04-0.11</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Serum Uric Acid</td>
-                
-                
                 <td>0.39</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>0.14-0.35</td>
-                
-                
                 <td>
-                  
-                  
                   <b>+</b>
-                
-                
                 </td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Total Bilirubin</td>
-                
-                
                 <td>7</td>
-                
-                
                 <td>umol/L</td>
-                
-                
                 <td>2-20</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Direct Bilirubin</td>
-                
-                
                 <td>3</td>
-                
-                
                 <td>umol/L</td>
-                
-                
                 <td>0-8</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma</td>
-                
-                
                 <td>108</td>
-                
-                
                 <td>U/L</td>
-                
-                
                 <td>30-115</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Gamma G.T.</td>
-                
-                
                 <td>35</td>
-                
-                
                 <td>U/L</td>
-                
-                
                 <td>0-45</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>ALT</td>
-                
-                
                 <td>54</td>
-                
-                
                 <td>U/L</td>
-                
-                
                 <td>0-45</td>
-                
-                
                 <td>
-                  
-                  
                   <b>+</b>
-                
-                
                 </td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>AST</td>
-                
-                
                 <td>30</td>
-                
-                
                 <td>U/L</td>
-                
-                
                 <td>0-41</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>LD</td>
-                
-                
                 <td>131</td>
-                
-                
                 <td>U/L</td>
-                
-                
                 <td>80-250</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Serum Calcium</td>
-                
-                
                 <td>2.38</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>2.25-2.65</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Corrected Calcium</td>
-                
-                
                 <td>2.39</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>2.25-2.65</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Serum Phosphate</td>
-                
-                
                 <td>1.5</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>0.8-1.5</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Total Protein</td>
-                
-                
                 <td>67</td>
-                
-                
                 <td>g/L</td>
-                
-                
                 <td>60-82</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Serum Albumin</td>
-                
-                
                 <td>42</td>
-                
-                
                 <td>g/L</td>
-                
-                
                 <td>35-50</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Globulins</td>
-                
-                
                 <td>25</td>
-                
-                
                 <td>g/L</td>
-                
-                
                 <td>20-40</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Iron</td>
-                
-                
                 <td>5</td>
-                
-                
                 <td>umol/L</td>
-                
-                
                 <td>10-33</td>
-                
-                
                 <td>
-                  
-                  
                   <b>--</b>
-                
-                
                 </td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Cholesterol</td>
-                
-                
                 <td>3.8</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>3.6-6.7</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td> </td>
-                
-                
                 <td colspan="4">Revised NHF cholesterol guidelines (Nov.,2001): Target below 4.0 mmol/L if high risk patient. Consider lipid lowering treatment if cholesterol above 6.0 mmol/L, and no other risk factor of CHD.</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>Triglycerides</td>
-                
-                
                 <td>0.9</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>0.3-4.0</td>
-              
-              
               </tr>
-              
-              
               <tr>
-                
-                
                 <td>HDL Cholesterol</td>
-                
-                
                 <td>1.2</td>
-                
-                
                 <td>mmol/L</td>
-                
-                
                 <td>1.0-2.0</td>
-              
-              
               </tr>
-            
-            
             </table>
-          
-          
           </div>
         </text>
         <contained>
@@ -1650,11 +1305,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -2750,11 +2400,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -3839,11 +3484,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -4922,11 +4562,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -5981,11 +5616,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -7046,11 +6676,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -8111,11 +7736,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -9186,11 +8806,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -10286,11 +9901,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -11375,11 +10985,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -12458,11 +12063,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -13517,11 +13117,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -14582,11 +14177,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -15647,11 +15237,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -16281,11 +15866,6 @@
         <meta>
           <lastUpdated value="2012-04-14T10:35:23Z"/>
         </meta>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-          </div>
-        </text>
         <contained>
           <Observation>
             <id value="o1"/>
@@ -16346,32 +15926,14 @@
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
-            
-            
             <table>
-              
-              
               <tr>
-                
-                
                 <td>hsCRP</td>
-                
-                
                 <td>2.8</td>
-                
-                
                 <td>mg/L</td>
-                
-                
                 <td>1.0-3.0</td>
-              
-              
               </tr>
-            
-            
             </table>
-          
-          
           </div>
         </text>
         <contained>
