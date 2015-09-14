@@ -12,28 +12,28 @@
   Binding Name = SlicingRules
   Binding = code list
   Reference = #resource-slicing-rules
-  Definition = How slices are interpreted when evaluating an instance
+  Definition = How slices are interpreted when evaluating an instance.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = AggregationMode
   Binding = code list
   Reference = #resource-aggregation-mode
-  Definition = How resource references can be aggregated
+  Definition = How resource references can be aggregated.
   Conformance = required
 
  -- Row 4 -----------------------------------
   Binding Name = PropertyRepresentation
   Binding = code list
   Reference = #property-representation
-  Definition = How a property is represented on the wire
+  Definition = How a property is represented on the wire.
   Conformance = required
 
  -- Row 5 -----------------------------------
   Binding Name = ElementDefinitionCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/observation-codes
-  Definition = Codes that indicate the meaning of a data element
+  Definition = Codes that indicate the meaning of a data element.
   Conformance = example
 
 === Sheet constraint-severity =====================================
@@ -42,7 +42,7 @@
   Id = 1
   Code = error
   Display = Error
-  Definition = If the constraint is violated, the resource is not conformant
+  Definition = If the constraint is violated, the resource is not conformant.
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -56,19 +56,19 @@
   Id = 1
   Code = closed
   Display = Closed
-  Definition = No additional content is allowed other than that described by the slices in this profile
+  Definition = No additional content is allowed other than that described by the slices in this profile.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = open
   Display = Open
-  Definition = Additional content is allowed anywhere in the list
+  Definition = Additional content is allowed anywhere in the list.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = openAtEnd
   Display = Open at End
-  Definition = Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be ordered, which makes it hard to share uses. This should only be done where absolutely required
+  Definition = Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be ordered, which makes it hard to share uses. This should only be done where absolutely required.
 
 === Sheet resource-aggregation-mode =====================================
 
@@ -76,19 +76,19 @@
   Id = 1
   Code = contained
   Display = Contained
-  Definition = The reference is a local reference to a contained resource
+  Definition = The reference is a local reference to a contained resource.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = referenced
   Display = Referenced
-  Definition = The reference to a resource that has to be resolved externally to the resource that includes the reference
+  Definition = The reference to a resource that has to be resolved externally to the resource that includes the reference.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = bundled
   Display = Bundled
-  Definition = The resource the reference points to will be found in the same bundle as the resource that includes the reference
+  Definition = The resource the reference points to will be found in the same bundle as the resource that includes the reference.
   Parent = #2
 
 === Sheet property-representation =====================================
@@ -97,7 +97,7 @@
   Id = 1
   Code = xmlAttr
   Display = XML Attirbute
-  Definition = In XML, this property is represented as an attribute not an element
+  Definition = In XML, this property is represented as an attribute not an element.
 
 === Sheet Invariants =====================================
 
@@ -711,7 +711,7 @@
   Type = uri | Reference(ValueSet)
   Short Label = Source of value set
   Definition = Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used
-  Comments = For value sets,the referenceResource, the display can contain the value set description.  The reference may be version-specific or not
+  Comments = For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not
   IHE DEX mapping = valueDomain.valueSet
   LOINC Code = CODE_TABLE
   RIM Mapping = N/A (MIF territory)

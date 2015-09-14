@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-31T21:34:29Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5447,7 +5447,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6502,7 +6501,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s113" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s113" ss:Width="114.75"/>
+   <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="176.25"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s113" ss:Width="51" ss:Span="1"/>
    <Column ss:Index="5" ss:StyleID="s113" ss:Width="146.25"/>
@@ -6567,7 +6566,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">QuestionnaireGroupConcept</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Codes for groupings of questionnaire questions</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Codes for groupings of questionnaire questions.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-questionnaire-questions</Data></Cell>
@@ -6582,7 +6581,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s148"><Data ss:Type="String">QuestionConcept</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes corresponding to individual questions</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes corresponding to individual questions.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">valueset-questionnaire-questions</Data></Cell>
@@ -6597,7 +6596,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s148"><Data ss:Type="String">QuestionnaireStatus</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Lifecycle status of the questionnaire</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Lifecycle status of the questionnaire.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">#questionnaire-status</Data></Cell>
@@ -6612,7 +6611,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s148"><Data ss:Type="String">AnswerFormat</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The expected format of an answer</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The expected format of an answer.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">#answer-format</Data></Cell>
@@ -6627,7 +6626,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s148"><Data ss:Type="String">QuestionnaireQuestionOption</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Allowed values to answer questions</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Allowed values to answer questions.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">valueset-questionnaire-answers</Data></Cell>
@@ -6999,6 +6998,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7018,8 +7018,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7648,8 +7647,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7716,7 +7714,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Answer is a yes/no answer</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Answer is a yes/no answer.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s141"/>
@@ -7727,7 +7725,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a floating point number</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a floating point number.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7738,7 +7736,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is an integer</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is an integer.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7749,7 +7747,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a date</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a date.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7760,7 +7758,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a date and time</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a date and time.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7771,7 +7769,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a system timestamp</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a system timestamp.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7782,7 +7780,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a time (hour/minute/second) independent of date</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a time (hour/minute/second) independent of date.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7793,7 +7791,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a short (few words to short sentence) free-text entry</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a short (few words to short sentence) free-text entry.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7804,7 +7802,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a long (potentially multi-paragram) free-text entry (still captured as a string)</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a long (potentially multi-paragraph) free-text entry (still captured as a string).</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7815,7 +7813,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a url (website, FTP site, etc.)</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a url (website, FTP site, etc.).</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7826,7 +7824,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a Coding drawn from a list of options</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a Coding drawn from a list of options.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7859,7 +7857,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a reference to another resource (practitioner, organization, etc.)</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a reference to another resource (practitioner, organization, etc.).</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7870,7 +7868,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a combination of a numeric value and unit, potentially with a comparator (&lt;, &gt;, etc.)</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Answer is a combination of a numeric value and unit, potentially with a comparator (&lt;, &gt;, etc.).</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -8288,8 +8286,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

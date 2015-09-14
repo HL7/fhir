@@ -120,41 +120,36 @@
   Binding = DAFRoute
 
  -- Row 18 -----------------------------------
-  Element = MedicationOrder.dosageInstruction.method
-  Card. = 0..1
-  Must Support = Y
-
- -- Row 19 -----------------------------------
   Element = MedicationOrder.dosageInstruction.dose[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationOrder.dosageInstruction.rate[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationOrder.dispenseRequest
   Card. = 0..1
   Must Support = Y
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationOrder.dispenseRequest.validityPeriod
   Card. = 0..1
   Must Support = Y
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
   Card. = 0..1
   Must Support = Y
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationOrder.dispenseRequest.quantity
   Card. = 0..1
   Must Support = Y
 
- -- Row 25 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationOrder.dispenseRequest.expectedSupplyDuration
   Card. = 0..1
   Must Support = Y

@@ -5,13 +5,13 @@
   Binding Name = DeviceUseRequestStatus
   Binding = code list
   Reference = #device-use-request-status
-  Definition = Codes representing the status of the request
+  Definition = Codes representing the status of the request.
 
  -- Row 2 -----------------------------------
   Binding Name = DeviceUseRequestPriority
   Binding = code list
   Reference = #device-use-request-priority
-  Definition = Codes representing the priority of the request
+  Definition = Codes representing the priority of the request.
 
 === Sheet device-use-request-status =====================================
 
@@ -19,61 +19,61 @@
   Id = 1
   Code = proposed
   Display = Proposed
-  Definition = The request has been proposed
+  Definition = The request has been proposed.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = planned
   Display = Planned
-  Definition = The request has been planned
+  Definition = The request has been planned.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = requested
   Display = Requested
-  Definition = The request has been placed
+  Definition = The request has been placed.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = received
   Display = Received
-  Definition = The receiving system has received the request but not yet decided whether it will be performed
+  Definition = The receiving system has received the request but not yet decided whether it will be performed.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = accepted
   Display = Accepted
-  Definition = The receiving system has accepted the request but work has not yet commenced
+  Definition = The receiving system has accepted the request but work has not yet commenced.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = in-progress
   Display = In Progress
-  Definition = The work to fulfill the order is happening
+  Definition = The work to fulfill the order is happening.
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = completed
   Display = Completed
-  Definition = The work has been complete, the report(s) released, and no further work is planned
+  Definition = The work has been complete, the report(s) released, and no further work is planned.
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = suspended
   Display = Suspended
-  Definition = The request has been held by originating system/user request
+  Definition = The request has been held by originating system/user request.
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = rejected
   Display = Rejected
-  Definition = The receiving system has declined to fulfill the request
+  Definition = The receiving system has declined to fulfill the request.
 
  -- Row 10 -----------------------------------
   Id = 10
   Code = aborted
   Display = Aborted
-  Definition = The request was attempted, but due to some procedural error, it could not be completed
+  Definition = The request was attempted, but due to some procedural error, it could not be completed.
 
 === Sheet device-use-request-priority =====================================
 

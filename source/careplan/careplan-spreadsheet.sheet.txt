@@ -33,14 +33,14 @@
   Binding Name = CarePlanActivityStatus
   Binding = code list
   Reference = #care-plan-activity-status
-  Definition = Indicates where the activity is at in its overall life cycle
+  Definition = Indicates where the activity is at in its overall life cycle.
   Conformance = required
 
  -- Row 6 -----------------------------------
   Binding Name = CarePlanActivityStatusReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/goal-status-reason
-  Definition = Describes why the current activity has the status it does; e.g. \"Recovering from injury\" as a reason for non-started or on-hold, \"Patient does not enjoy activity\" as a reason for cancelling a planned activity
+  Definition = Describes why the current activity has the status it does; e.g. \"Recovering from injury\" as a reason for non-started or on-hold, \"Patient does not enjoy activity\" as a reason for cancelling a planned activity.
   Conformance = example
 
  -- Row 7 -----------------------------------
@@ -68,7 +68,7 @@
   Binding Name = CarePlanProduct
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/medication-codes
-  Definition = A product supplied or administered as part of a care plan activity
+  Definition = A product supplied or administered as part of a care plan activity.
   Conformance = example
 
 === Sheet care-plan-status =====================================
@@ -77,7 +77,7 @@
   Id = 0
   Code = proposed
   Display = Proposed
-  Definition = The plan has been suggested but no commitment to it has yet been made
+  Definition = The plan has been suggested but no commitment to it has yet been made.
 
  -- Row 2 -----------------------------------
   Id = 1
@@ -89,19 +89,19 @@
   Id = 2
   Code = active
   Display = Active
-  Definition = The plan is intended to be followed and used as part of patient care
+  Definition = The plan is intended to be followed and used as part of patient care.
 
  -- Row 4 -----------------------------------
   Id = 3
   Code = completed
   Display = Completed
-  Definition = The plan is no longer in use and is not expected to be followed or used in patient care
+  Definition = The plan is no longer in use and is not expected to be followed or used in patient care.
 
  -- Row 5 -----------------------------------
   Id = 4
   Code = cancelled
   Display = Cancelled
-  Definition = The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan)
+  Definition = The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan).
 
 === Sheet care-plan-activity-status =====================================
 
@@ -109,19 +109,19 @@
   Id = 1
   Code = not-started
   Display = Not Started
-  Definition = Activity is planned but no action has yet been taken
+  Definition = Activity is planned but no action has yet been taken.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = scheduled
   Display = Scheduled
-  Definition = Appointment or other booking has occurred but activity has not yet begun
+  Definition = Appointment or other booking has occurred but activity has not yet begun.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = in-progress
   Display = In Progress
-  Definition = Activity has been started but is not yet complete
+  Definition = Activity has been started but is not yet complete.
 
  -- Row 4 -----------------------------------
   Id = 4
@@ -133,13 +133,13 @@
   Id = 5
   Code = completed
   Display = Completed
-  Definition = The activities have been completed (more or less) as planned
+  Definition = The activities have been completed (more or less) as planned.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = cancelled
   Display = Cancelled
-  Definition = The activities have been ended prior to completion (perhaps even before they were started)
+  Definition = The activities have been ended prior to completion (perhaps even before they were started).
 
 === Sheet care-plan-relationship =====================================
 
@@ -147,19 +147,19 @@
   Id = 1
   Code = includes
   Display = Includes
-  Definition = The referenced plan is considered to be part of this plan
+  Definition = The referenced plan is considered to be part of this plan.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = replaces
   Display = Replaces
-  Definition = This plan takes the places of the referenced plan
+  Definition = This plan takes the places of the referenced plan.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = fulfills
   Display = Fulfills
-  Definition = This plan provides details about how to perform activities defined at a higher level by the referenced plan
+  Definition = This plan provides details about how to perform activities defined at a higher level by the referenced plan.
 
 === Sheet Invariants =====================================
 
@@ -414,7 +414,7 @@
   UML = 350;200
   Inv. = 3
   Short Label = In-line definition of activity
-  Definition = A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn\'t know about specific resources such as procedure etc
+  Definition = A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn\'t know about specific resources such as procedure etc.
   Requirements = Details in a simple form for generic care plan systems
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target
 

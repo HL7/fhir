@@ -5,44 +5,44 @@
   Binding Name = AppointmentStatus
   Binding = code list
   Reference = #appointmentstatus
-  Definition = The free/busy status of an appointment
+  Definition = The free/busy status of an appointment.
 
  -- Row 2 -----------------------------------
   Binding Name = ParticipationStatus
   Binding = code list
   Reference = #participationstatus
-  Definition = The Participation status of an appointment
+  Definition = The Participation status of an appointment.
 
  -- Row 3 -----------------------------------
   Binding Name = ParticipantRequired
   Binding = code list
   Reference = #participantrequired
-  Definition = Is the Participant required to attend the appointment
+  Definition = Is the Participant required to attend the appointment.
 
  -- Row 4 -----------------------------------
   Binding Name = ActStatus
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ActStatus
-  Definition = The status of the appointment
+  Definition = The status of the appointment.
 
  -- Row 5 -----------------------------------
   Binding Name = ApptReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/encounter-reason
-  Definition = The Reason for the appointment to take place
+  Definition = The Reason for the appointment to take place.
 
  -- Row 6 -----------------------------------
   Binding Name = DocumentC80PracticeSetting
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
-  Definition = Additional details about where the content was created (e.g. clinical specialty)
+  Definition = Additional details about where the content was created (e.g. clinical specialty).
   Conformance = Preferred
 
  -- Row 7 -----------------------------------
   Binding Name = ParticipantType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/encounter-participant-type
-  Definition = Role of participant in encounter
+  Definition = Role of participant in encounter.
 
 === Sheet appointmentstatus =====================================
 
@@ -50,43 +50,43 @@
   Id = 1
   Code = proposed
   Display = Proposed
-  Definition = None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet
+  Definition = None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = pending
   Display = Pending
-  Definition = Some or all of the participant(s) have not finalized their acceptance of the appointment request
+  Definition = Some or all of the participant(s) have not finalized their acceptance of the appointment request.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = booked
   Display = Booked
-  Definition = All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified
+  Definition = All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = arrived
   Display = Arrived
-  Definition = Some of the patients have arrived
+  Definition = Some of the patients have arrived.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = fulfilled
   Display = Fulfilled
-  Definition = This appointment has completed and may have resulted in an encounter
+  Definition = This appointment has completed and may have resulted in an encounter.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = cancelled
   Display = Cancelled
-  Definition = The appointment has been cancelled
+  Definition = The appointment has been cancelled.
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = noshow
   Display = No Show
-  Definition = Some or all of the participant(s) have not/did not appear for the appointment (usually the patient)
+  Definition = Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).
 
 === Sheet participationstatus =====================================
 
@@ -94,25 +94,25 @@
   Id = 1
   Code = accepted
   Display = Accepted
-  Definition = The participant has accepted the appointment
+  Definition = The participant has accepted the appointment.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = declined
   Display = Declined
-  Definition = The participant has declined the appointment and will not participate in the appointment
+  Definition = The participant has declined the appointment and will not participate in the appointment.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = tentative
   Display = Tentative
-  Definition = The participant has  tentatively accepted the appointment. This could be automatically created by a system and requires further processing before it can be accepted. There is no commitment that attendance will occur
+  Definition = The participant has  tentatively accepted the appointment. This could be automatically created by a system and requires further processing before it can be accepted. There is no commitment that attendance will occur.
 
  -- Row 4 -----------------------------------
   Id = 6
   Code = needs-action
   Display = Needs Action
-  Definition = The participant needs to indicate if they accept the appointment by changing this status to one of the other statuses
+  Definition = The participant needs to indicate if they accept the appointment by changing this status to one of the other statuses.
 
 === Sheet participantrequired =====================================
 
@@ -120,19 +120,19 @@
   Id = 1
   Code = required
   Display = Required
-  Definition = The participant is required to attend the appointment
+  Definition = The participant is required to attend the appointment.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = optional
   Display = Optional
-  Definition = The participant may optionally attend the appointment
+  Definition = The participant may optionally attend the appointment.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = information-only
   Display = Information Only
-  Definition = The participant is excluded from the appointment, and may not be informed of the appointment taking place. (appointment is about them, not for them - such as 2 doctors discussing results about a patient\'s test)
+  Definition = The participant is excluded from the appointment, and may not be informed of the appointment taking place. (appointment is about them, not for them - such as 2 doctors discussing results about a patient\'s test).
 
 === Sheet Invariants =====================================
 

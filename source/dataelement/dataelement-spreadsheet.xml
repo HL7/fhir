@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-26T03:03:14Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3826,7 +3826,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
@@ -6464,7 +6463,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s150"><Data ss:Type="String">DataElementStringency</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the degree of precision of the data element definition</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the degree of precision of the data element definition.</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">#dataelement-stringency</Data></Cell>
@@ -6881,6 +6880,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6900,7 +6900,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -6980,7 +6979,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">comparable</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Fully Specified</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The data element is fully specified down to a single value set, single unit of measure, single data type, etc.  Multiple pieces of data associated with this data element are fully compareable</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The data element is fully specified down to a single value set, single unit of measure, single data type, etc.  Multiple pieces of data associated with this data element are fully comparable.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>
@@ -7002,7 +7001,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">comparable</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Convertable</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The data element allows multiple units of measure that are convertable between each other (e.g. Inches and centimeters) and/or allows data to be captured in multiple value sets for which a known mapping exists allowing conversion of meaning</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The data element allows multiple units of measure that are convertable between each other (e.g. Inches and centimeters) and/or allows data to be captured in multiple value sets for which a known mapping exists allowing conversion of meaning.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>
@@ -7013,7 +7012,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">convertable</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Scaleable</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">A convertable data element where unit conversions are different only by a power of 10; e.g. g, mg, kg</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">A convertable data element where unit conversions are different only by a power of 10; e.g. g, mg, kg.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>
@@ -7530,8 +7529,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

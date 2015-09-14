@@ -5,7 +5,7 @@
   Binding Name = DocumentC80Type
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/c80-doc-typecodes
-  Definition = Precice type of clinical document
+  Definition = Precice type of clinical document.
   Conformance = Preferred
 
 === Sheet Invariants =====================================
@@ -190,7 +190,7 @@
   Type = Reference(Any)
   Short Label = Related Resource
   Definition = Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
-  Comments = Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc
+  Comments = Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.
 
 === Sheet Search =====================================
 

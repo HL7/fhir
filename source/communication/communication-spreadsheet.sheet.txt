@@ -5,7 +5,7 @@
   Binding Name = CommunicationStatus
   Binding = code list
   Reference = #communication-status
-  Definition = The status of the communication
+  Definition = The status of the communication.
 
  -- Row 2 -----------------------------------
   Binding Name = CommunicationCategory
@@ -22,7 +22,7 @@
  -- Row 4 -----------------------------------
   Binding Name = CommunicationReason
   Binding = unbound
-  Definition = Codes for describing reasons for the occurrence of a communication
+  Definition = Codes for describing reasons for the occurrence of a communication.
   Conformance = example
 
 === Sheet communication-status =====================================

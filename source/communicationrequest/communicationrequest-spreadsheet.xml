@@ -10,7 +10,7 @@
   <LastAuthor>Iryna Roy</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-31T17:14:22Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>8</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -6301,7 +6302,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s145"><Data ss:Type="String">CommunicationRequestStatus</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The status of the communication</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The status of the communication.</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"><Data ss:Type="String">#communication-request-status</Data></Cell>
@@ -6346,7 +6347,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">CommunicationReason</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for describing reasons for the occurrence of a communication</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for describing reasons for the occurrence of a communication.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"/>
@@ -6361,7 +6362,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s146"><Data ss:Type="String">CommunicationPriority</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating the relative importance of a communication request</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating the relative importance of a communication request.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/diagnostic-order-priority</Data></Cell>
@@ -6768,8 +6769,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6839,7 +6839,7 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Proposed</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The request has been proposed</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The request has been proposed.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
@@ -6850,7 +6850,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Planned</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The request has been planned</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The request has been planned.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6861,7 +6861,7 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Requested</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The request has been placed</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The request has been placed.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6872,7 +6872,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Received</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The receiving system has received the request but not yet decided whether it will be performed</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The receiving system has received the request but not yet decided whether it will be performed.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6883,7 +6883,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Accepted</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The receiving system has accepted the order, but work has not yet commenced</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The receiving system has accepted the order, but work has not yet commenced.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6894,7 +6894,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">In Progress</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The work to fulfill the order is happening</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The work to fulfill the order is happening.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6905,7 +6905,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The work has been complete, the report(s) released, and no further work is planned</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The work has been complete, the report(s) released, and no further work is planned.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6916,7 +6916,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Suspended</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The request has been held by originating system/user request</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The request has been held by originating system/user request.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6938,7 +6938,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Failed</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The communication was attempted, but due to some procedural error, it could not be completed</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The communication was attempted, but due to some procedural error, it could not be completed.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7394,8 +7394,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

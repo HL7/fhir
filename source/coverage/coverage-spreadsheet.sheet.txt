@@ -5,7 +5,7 @@
   Binding Name = CoverageType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode
-  Definition = The type of insurance: public health, worker compensation; private accident, auto, private health, etc.)
+  Definition = The type of insurance: public health, worker compensation; private accident, auto, private health, etc.).
   Conformance = example
 
 === Sheet Invariants =====================================

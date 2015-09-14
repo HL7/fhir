@@ -9,7 +9,7 @@
   Element = Binary
   Type = Resource
   Short Label = Pure binary content defined by some other format than FHIR
-  Definition = A binary resource can contain any content, whether text, image, pdf, zip archive, etc
+  Definition = A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
   Requirements = There are situations where it is useful or required to handle pure binary content using the same framework as other resources
   Comments = Typically, Binary resources are used for handling content such as:  * CDA Documents (i.e. with XDS) * PDF Documents * Images (the Media resource is preferred for handling images, but not possible when the content is already binary - e.g. XDS)
   RIM Mapping = N/A

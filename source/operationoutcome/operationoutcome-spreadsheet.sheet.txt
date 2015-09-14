@@ -311,7 +311,7 @@
   Type = string
   Short Label = Additional diagnostic information about the issue
   Definition = Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stack dump to help trace the issue.
-  Comments = typically this field is used to provide troubleshooting information about the error
+  Comments = Typically this field is used to provide troubleshooting information about the error
   v2 Mapping = ERR-8
   RIM Mapping = ./text[parent::AcknowledgmentDetail]
 

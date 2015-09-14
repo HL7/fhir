@@ -11,7 +11,7 @@
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-31T17:17:00Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">c26dd4a7-2981-4f50-a70f-ca756580388c</WorkbookGuid>
@@ -24,7 +24,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3688,7 +3688,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6288,7 +6287,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s146"><Data ss:Type="String">DetectedIssueSeverity</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the potential degree of impact of the identified issue on the patient</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the potential degree of impact of the identified issue on the patient.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">#detectedissue-severity</Data></Cell>
@@ -6705,6 +6704,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6724,7 +6724,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -6792,7 +6791,7 @@
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s149"/>
     <Cell ss:StyleID="s114"><Data ss:Type="String">High</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Indicates the issue may be life-threatening or has the potential to cause permanent injury</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Indicates the issue may be life-threatening or has the potential to cause permanent injury.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String" x:Ticked="1">=ObservationValue.H</Data></Cell>
     <Cell ss:StyleID="s139"/>
@@ -6802,7 +6801,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s151"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Moderate</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Indicates the issue may result in noticable adverse adverse consequences but is unlikely to be life-threatening or cause permanent injury</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Indicates the issue may result in noticable adverse adverse consequences but is unlikely to be life-threatening or cause permanent injury.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String" x:Ticked="1">=ObservationValue.M</Data></Cell>
     <Cell ss:StyleID="s141"/>
@@ -6812,7 +6811,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s151"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Low</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the situation of the subjec</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the situation of the subject.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String" x:Ticked="1">=ObservationValue.L</Data></Cell>
     <Cell ss:StyleID="s141"/>
@@ -7357,8 +7356,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

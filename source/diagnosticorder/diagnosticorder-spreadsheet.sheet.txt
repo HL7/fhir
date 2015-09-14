@@ -5,21 +5,21 @@
   Binding Name = DiagnosticOrderStatus
   Binding = code list
   Reference = #diagnostic-order-status
-  Definition = The status of a diagnostic order
+  Definition = The status of a diagnostic order.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = DiagnosticOrderPriority
   Binding = code list
   Reference = #diagnostic-order-priority
-  Definition = The clinical priority of a diagnostic order
+  Definition = The clinical priority of a diagnostic order.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = DiagnosticRequests
   Binding = value set
   Reference = valueset-diagnostic-requests
-  Definition = Codes for tests/services that can be performed by diagnostic services
+  Definition = Codes for tests/services that can be performed by diagnostic services.
   Description = LOINC Order Codes
   Conformance = preferred
 
@@ -27,14 +27,14 @@
   Binding Name = DiagnosticOrderEventDescription
   Binding = value set
   Reference = valueset-diagnostic-order-event
-  Definition = Additional information about an event that occurred to a diagnostic order - e.g. if the status remained unchanged
+  Definition = Additional information about an event that occurred to a diagnostic order - e.g. if the status remained unchanged.
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = Codes describing anatomical locations. May include laterality
+  Definition = Codes describing anatomical locations. May include laterality.
   Description = SNOMED CT Body site concepts
   Conformance = example
 
@@ -42,7 +42,7 @@
   Binding Name = DiagnosticOrderReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/condition-code
-  Definition = Diagnosis or problem codes justifying the reason for requesting the diagnostic investigation
+  Definition = Diagnosis or problem codes justifying the reason for requesting the diagnostic investigation.
   Description = SNOMED CT Condition/Problem/Diagnosis Codes
   Conformance = example
 
@@ -52,79 +52,79 @@
   Id = 1
   Code = proposed
   Display = Proposed
-  Definition = The request has been proposed
+  Definition = The request has been proposed.
 
  -- Row 2 -----------------------------------
   Id = 13
   Code = draft
   Display = Draft
-  Definition = the request is in preliminary form prior to being sent
+  Definition = the request is in preliminary form prior to being sent.
 
  -- Row 3 -----------------------------------
   Id = 2
   Code = planned
   Display = Planned
-  Definition = The request has been planned
+  Definition = The request has been planned.
 
  -- Row 4 -----------------------------------
   Id = 3
   Code = requested
   Display = Requested
-  Definition = The request has been placed
+  Definition = The request has been placed.
 
  -- Row 5 -----------------------------------
   Id = 4
   Code = received
   Display = Received
-  Definition = The receiving system has received the order, but not yet decided whether it will be performed
+  Definition = The receiving system has received the order, but not yet decided whether it will be performed.
 
  -- Row 6 -----------------------------------
   Id = 5
   Code = accepted
   Display = Accepted
-  Definition = The receiving system has accepted the order, but work has not yet commenced
+  Definition = The receiving system has accepted the order, but work has not yet commenced.
 
  -- Row 7 -----------------------------------
   Id = 6
   Code = in-progress
   Display = In-Progress
-  Definition = The work to fulfill the order is happening
+  Definition = The work to fulfill the order is happening.
 
  -- Row 8 -----------------------------------
   Id = 7
   Code = review
   Display = Review
-  Definition = The work is complete, and the outcomes are being reviewed for approval
+  Definition = The work is complete, and the outcomes are being reviewed for approval.
 
  -- Row 9 -----------------------------------
   Id = 8
   Code = completed
   Display = Completed
-  Definition = The work has been complete, the report(s) released, and no further work is planned
+  Definition = The work has been complete, the report(s) released, and no further work is planned.
 
  -- Row 10 -----------------------------------
   Id = 12
   Code = cancelled
   Display = Cancelled
-  Definition = the request has been withdrawn
+  Definition = the request has been withdrawn.
 
  -- Row 11 -----------------------------------
   Id = 9
   Code = suspended
   Display = Suspended
-  Definition = The request has been held by originating system/user request
+  Definition = The request has been held by originating system/user request.
 
  -- Row 12 -----------------------------------
   Id = 10
   Code = rejected
   Display = Rejected
-  Definition = The receiving system has declined to fulfill the request
+  Definition = The receiving system has declined to fulfill the request.
 
  -- Row 13 -----------------------------------
   Id = 11
   Code = failed
   Display = Failed
-  Definition = The diagnostic investigation was attempted, but due to some procedural error, it could not be completed
+  Definition = The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
 
 === Sheet diagnostic-order-priority =====================================
 
@@ -132,25 +132,25 @@
   Id = 1
   Code = routine
   Display = Routine
-  Definition = The order has a normal priority
+  Definition = The order has a normal priority .
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = urgent
   Display = Urgent
-  Definition = The order should be urgently
+  Definition = The order should be urgently.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = stat
   Display = Stat
-  Definition = The order is time-critical
+  Definition = The order is time-critical.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = asap
   Display = ASAP
-  Definition = The order should be acted on as soon as possible
+  Definition = The order should be acted on as soon as possible.
 
 === Sheet Invariants =====================================
 

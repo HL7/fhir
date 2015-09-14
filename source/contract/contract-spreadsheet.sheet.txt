@@ -5,56 +5,56 @@
   Binding Name = ContractType
   Binding = value set
   Reference = valueset-contract-type
-  Definition = List of overall contract codes
+  Definition = List of overall contract codes.
   Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = ContractSubtype
   Binding = value set
   Reference = valueset-contract-subtype
-  Definition = Detailed codes within the above
+  Definition = Detailed codes within the above.
   Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = ContractTermType
   Binding = value set
   Reference = valueset-contract-term-type
-  Definition = Detailed codes for the types of contract provisions
+  Definition = Detailed codes for the types of contract provisions.
   Conformance = example
 
  -- Row 4 -----------------------------------
   Binding Name = ContractTermSubType
   Binding = value set
   Reference = valueset-contract-term-subtype
-  Definition = Detailed codes for the subtypes of contract provisions
+  Definition = Detailed codes for the subtypes of contract provisions.
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = ContractSignerType
   Binding = value set
   Reference = valueset-contract-signer-type
-  Definition = List of parties who may be signing
+  Definition = List of parties who may be signing.
   Conformance = preferred
 
  -- Row 6 -----------------------------------
   Binding Name = ContractAction
   Binding = value set
   Reference = valueset-contract-action
-  Definition = Detailed codes for the contract action
+  Definition = Detailed codes for the contract action.
   Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = ContractActionReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
-  Definition = Detailed codes for the contract action reason
+  Definition = Detailed codes for the contract action reason.
   Conformance = example
 
  -- Row 8 -----------------------------------
   Binding Name = ContractActorRole
   Binding = value set
   Reference = valueset-contract-actorrole
-  Definition = Detailed codes for the contract actor role
+  Definition = Detailed codes for the contract actor role.
   Conformance = example
 
 === Sheet Invariants =====================================

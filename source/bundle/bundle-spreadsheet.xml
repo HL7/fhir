@@ -10,17 +10,17 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-13T11:58:53Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3911,7 +3911,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6558,7 +6557,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s149"><Data ss:Type="String">BundleType</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Indicates the purpose of a bundle - how it was intended to be used</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Indicates the purpose of a bundle - how it was intended to be used.</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"><Data ss:Type="String">#bundle-type</Data></Cell>
@@ -6573,7 +6572,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">SearchEntryMode</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Why an entry is in the result set - whether it's included as a match or because of an _include requirement</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Why an entry is in the result set - whether it's included as a match or because of an _include requirement.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">#search-entry-mode</Data></Cell>
@@ -6588,7 +6587,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s150"><Data ss:Type="String">HTTPVerb</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">HTTP verbs (in the HTTP command line)</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">HTTP verbs (in the HTTP command line).</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">#http-verb</Data></Cell>
@@ -6979,9 +6978,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7049,7 +7046,7 @@
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Document</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The bundle is a document. The first resource is a Composition</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The bundle is a document. The first resource is a Composition.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s143"/>
@@ -7060,7 +7057,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Message</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a message. The first resource is a MessageHeader</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a message. The first resource is a MessageHeader.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7071,7 +7068,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Transaction</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a transaction - intended to be processed by a server as an atomic commit</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a transaction - intended to be processed by a server as an atomic commit.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7082,7 +7079,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Transaction Response</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a transaction response. Because the response is a transaction response, the transactionhas succeeded, and all responses are error free</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a transaction response. Because the response is a transaction response, the transactionhas succeeded, and all responses are error free.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7093,7 +7090,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Batch</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a transaction - intended to be processed by a server as a group of actions</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a transaction - intended to be processed by a server as a group of actions.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7104,7 +7101,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Batch Response</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a batch response. Note that as a batch, some responses may indicate failure and others success</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a batch response. Note that as a batch, some responses may indicate failure and others success.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7115,7 +7112,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">History List</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a list of resources from a _history interaction on a server</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a list of resources from a history interaction on a server.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7126,7 +7123,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Search Results</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a list of resources returned as a result of a search/query interaction, operation, or message</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a list of resources returned as a result of a search/query interaction, operation, or message.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7137,7 +7134,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Collection</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a set of resources collected into a single document for ease of distribution</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The bundle is a set of resources collected into a single document for ease of distribution.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7613,6 +7610,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7632,8 +7630,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7700,7 +7697,7 @@
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Create</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">Transaction: perform a create operation on this resource</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Transaction: perform a create operation on this resource.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s143"/>
@@ -7711,7 +7708,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Update</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">Transaction: perform an update operation on this resource</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Transaction: perform an update operation on this resource.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7722,7 +7719,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Match</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">Transaction: look for this resource using the search url provided. If there's no match, create it. Search: this resource is returned because it matches the search criteria</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Transaction: look for this resource using the search url provided. If there's no match, create it. Search: this resource is returned because it matches the search criteria.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7733,7 +7730,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Include</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">Search: this resource is returned because it meets an _include criteria</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Search: this resource is returned because it meets an _include criteria.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -8317,7 +8314,7 @@
     <Cell ss:StyleID="s144"><Data ss:Type="String">match</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">Match</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">This resource matched the search specification</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">This resource matched the search specification.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -8326,7 +8323,7 @@
     <Cell ss:StyleID="s144"><Data ss:Type="String">include</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">Include</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">This resource is returned because it is referred to from another resource in the search set</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">This resource is returned because it is referred to from another resource in the search set.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -8335,7 +8332,7 @@
     <Cell ss:StyleID="s144"><Data ss:Type="String">outcome</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Outcome</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">An OperationOutcome that provides additional information about the processing of a search</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">An OperationOutcome that provides additional information about the processing of a search.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -8755,8 +8752,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9384,8 +9380,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

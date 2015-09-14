@@ -5,14 +5,14 @@
   Binding Name = InvestigationGroupType
   Binding = value set
   Reference = valueset-investigation-sets
-  Definition = A name/code for a set of investigations
+  Definition = A name/code for a set of investigations.
   Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = ClinicalFindings
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/clinical-findings
-  Definition = Clinical Findings that may cause an clinical evaluation
+  Definition = Clinical Findings that may cause an clinical evaluation.
   Description = SNOMED CT Clinical Findings
   Conformance = example
 
@@ -20,7 +20,7 @@
   Binding Name = ClinicalImpressionStatus
   Binding = code list
   Reference = #clinical-impression-status
-  Definition = The workflow state of a clinical impression
+  Definition = The workflow state of a clinical impression.
 
  -- Row 4 -----------------------------------
   Binding Name = ConditionKind
@@ -41,13 +41,13 @@
   Id = 2
   Code = completed
   Display = Completed
-  Definition = The assessment is done and the results are final
+  Definition = The assessment is done and the results are final.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = entered-in-error
   Display = Entered in Error
-  Definition = This assessment was never actually done and the record is erroneous (e.g. Wrong patient)
+  Definition = This assessment was never actually done and the record is erroneous (e.g. Wrong patient).
 
 === Sheet Invariants =====================================
 

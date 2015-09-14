@@ -10,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-22T01:59:46Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3821,7 +3821,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6390,7 +6389,7 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"><Data ss:Type="String">#address-use</Data></Cell>
-    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">The use of an address (home / work / etc.).</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -6405,7 +6404,7 @@
     <Cell ss:StyleID="s114"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"><Data ss:Type="String">#address-type</Data></Cell>
-    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">The type of an address (physical / postal).</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -6833,6 +6832,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6853,8 +6853,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6922,7 +6921,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Home</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">A communication address at a home</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">A communication address at a home.</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">~0190.H</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">=AddressUse.H</Data></Cell>
     <Cell ss:StyleID="s139"/>
@@ -6933,7 +6932,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Work</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">An office address. First choice for business related contacts during business hours</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">An office address. First choice for business related contacts during business hours.</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">~0190.O</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">=AddressUse.WP</Data></Cell>
     <Cell ss:StyleID="s141"/>
@@ -6944,7 +6943,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Temporary</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">A temporary address. The period can provide more detailed information</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">A temporary address. The period can provide more detailed information.</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">~0190.C</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">=AddressUse.TMP</Data></Cell>
     <Cell ss:StyleID="s141"/>
@@ -6955,7 +6954,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Old / Incorrect</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">This address is no longer in use (or was never correct, but retained for records)</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">This address is no longer in use (or was never correct, but retained for records).</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">&gt;0190.BA (unclear about old addresses)</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">&gt;AddressUse.OLD(Bad or Old),&gt;AddressUse.BAD(Bad or Old)</Data></Cell>
     <Cell ss:StyleID="s141"/>
@@ -7483,8 +7482,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7551,7 +7549,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Postal</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">Mailing addresses - PO Boxes and care-of addresses</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Mailing addresses - PO Boxes and care-of addresses.</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String" x:Ticked="1">=0617.M</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String" x:Ticked="1">=AddressUse.PHYS</Data></Cell>
     <Cell ss:StyleID="s139"/>
@@ -7562,7 +7560,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Physical</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">A physical address that can be visited</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">A physical address that can be visited.</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String" x:Ticked="1">=0617.V</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String" x:Ticked="1">=AddressUse.PST</Data></Cell>
     <Cell ss:StyleID="s141"/>
@@ -7573,7 +7571,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Postal &amp; Physical</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">An address that is both physical and postal</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">An address that is both physical and postal.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -8101,8 +8099,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

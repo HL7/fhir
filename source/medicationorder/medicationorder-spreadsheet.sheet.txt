@@ -242,7 +242,7 @@
   UML = 420;0
   Short Label = How medication should be taken
   Definition = Indicates how the medication is to be used by the patient
-  Comments = When the dose or rate is intended to change over the entire administration period, eg. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates. Another common example in institutional settings is \'titration\' of an IV medication dose to maintain a specific stated hemodynamic value or range e.g. durg x to be administered to maintain AM (arterial mean) greater than 65.
+  Comments = When the dose or rate is intended to change over the entire administration period, e.g. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates. Another common example in institutional settings is \'titration\' of an IV medication dose to maintain a specific stated hemodynamic value or range e.g. durg x to be administered to maintain AM (arterial mean) greater than 65.
   RIM Mapping = component.substanceAdministrationRequest
 
  -- Row 14 -----------------------------------

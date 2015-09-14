@@ -5,56 +5,56 @@
   Binding Name = AllergyIntoleranceStatus
   Binding = code list
   Reference = #allergy-intolerance-status
-  Definition = Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified Substance
+  Definition = Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified Substance.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = AllergyIntoleranceCriticality
   Binding = code list
   Reference = #allergy-intolerance-criticality
-  Definition = Estimate of the potential clinical harm, or seriousness, of a reaction to an identified Substance
+  Definition = Estimate of the potential clinical harm, or seriousness, of a reaction to an identified Substance.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = AllergyIntoleranceType
   Binding = code list
   Reference = #allergy-intolerance-type
-  Definition = Identification of the underlying physiological mechanism for a Reaction Risk
+  Definition = Identification of the underlying physiological mechanism for a Reaction Risk.
   Conformance = required
 
  -- Row 4 -----------------------------------
   Binding Name = AllergyIntoleranceCategory
   Binding = code list
   Reference = #allergy-intolerance-category
-  Definition = Category of an identified Substance
+  Definition = Category of an identified Substance.
   Conformance = required
 
  -- Row 5 -----------------------------------
   Binding Name = AllergyIntoleranceCertainty
   Binding = code list
   Reference = #reaction-event-certainty
-  Definition = Statement about the degree of clinical certainty that a Specific Substance was the cause of the Manifestation in an reaction event
+  Definition = Statement about the degree of clinical certainty that a Specific Substance was the cause of the Manifestation in an reaction event.
   Conformance = required
 
  -- Row 6 -----------------------------------
   Binding Name = Manifestation
   Binding = value set
   Reference = valueset-manifestation-codes
-  Definition = Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event
+  Definition = Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event.
   Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = AllergyIntoleranceSeverity
   Binding = code list
   Reference = #reaction-event-severity
-  Definition = Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations
+  Definition = Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.
   Conformance = required
 
  -- Row 8 -----------------------------------
   Binding Name = AllergyIntoleranceSubstance
   Binding = value set
   Reference = valueset-allergyintolerance-substance-code
-  Definition = Type of the substance and Negation codes for reporting No Known Allergies
+  Definition = Type of the substance and Negation codes for reporting no known allergies.
   Conformance = example
 
  -- Row 9 -----------------------------------
@@ -68,7 +68,7 @@
   Binding Name = SubstanceCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/substance-code
-  Definition = Type of the substance
+  Definition = Codes defining the type of the substance.
   Conformance = example
 
 === Sheet allergy-intolerance-status =====================================
@@ -117,7 +117,7 @@
   Id = 7
   Code = entered-in-error
   Display = Entered In Error
-  Definition = The statement was entered in error and is not valid
+  Definition = The statement was entered in error and is not valid.
   v3 = ActStatus.nullified
   Parent = #2
 
@@ -139,7 +139,7 @@
   Id = 3
   Code = CRITU
   Display = Unable to determine
-  Definition = Unable to assess the potential clinical impact with the information available
+  Definition = Unable to assess the potential clinical impact with the information available.
 
 === Sheet allergy-intolerance-type =====================================
 
@@ -161,25 +161,25 @@
   Id = 1
   Code = food
   Display = Food
-  Definition = Any substance consumed to provide nutritional support for the body
+  Definition = Any substance consumed to provide nutritional support for the body.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = medication
   Display = Medication
-  Definition = Substances administered to achieve a physiological effect
+  Definition = Substances administered to achieve a physiological effect.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = environment
   Display = Environment
-  Definition = Substances that are encountered in the environment
+  Definition = Substances that are encountered in the environment.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = other
   Display = Other
-  Definition = Other substances that are not covered by any other category
+  Definition = Other substances that are not covered by any other category.
 
 === Sheet reaction-event-certainty =====================================
 
@@ -207,19 +207,19 @@
   Id = 1
   Code = mild
   Display = Mild
-  Definition = Causes mild physiological effects
+  Definition = Causes mild physiological effects.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = moderate
   Display = Moderate
-  Definition = Causes moderate physiological effects
+  Definition = Causes moderate physiological effects.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = severe
   Display = Severe
-  Definition = Causes severe physiological effects
+  Definition = Causes severe physiological effects.
 
 === Sheet Invariants =====================================
 

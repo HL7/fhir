@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-31T20:48:47Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6562,7 +6563,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s145"><Data ss:Type="String">CarePlanActivityStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates where the activity is at in its overall life cycle</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates where the activity is at in its overall life cycle.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s115"/>
@@ -6578,7 +6579,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s145"><Data ss:Type="String">CarePlanActivityStatusReason</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Describes why the current activity has the status it does; e.g. &quot;Recovering from injury&quot; as a reason for non-started or on-hold, &quot;Patient does not enjoy activity&quot; as a reason for cancelling a planned activity</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Describes why the current activity has the status it does; e.g. &quot;Recovering from injury&quot; as a reason for non-started or on-hold, &quot;Patient does not enjoy activity&quot; as a reason for cancelling a planned activity.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s115"/>
@@ -6640,9 +6641,9 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s116"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s145"><Data ss:Type="String">CarePlanProduct</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A product supplied or administered as part of a care plan activity</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A product supplied or administered as part of a care plan activity.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s115"/>
@@ -6978,8 +6979,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7047,7 +7047,7 @@
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Proposed</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The plan has been suggested but no commitment to it has yet been made</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">The plan has been suggested but no commitment to it has yet been made.</Data></Cell>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s138"/>
@@ -7069,7 +7069,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Active</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The plan is intended to be followed and used as part of patient care</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The plan is intended to be followed and used as part of patient care.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -7080,7 +7080,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The plan is no longer in use and is not expected to be followed or used in patient care</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The plan is no longer in use and is not expected to be followed or used in patient care.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -7091,7 +7091,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Cancelled</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan)</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan).</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -7619,7 +7619,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -7687,7 +7686,7 @@
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Not Started</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">Activity is planned but no action has yet been taken</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Activity is planned but no action has yet been taken.</Data></Cell>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s138"/>
@@ -7698,7 +7697,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Scheduled</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Appointment or other booking has occurred but activity has not yet begun</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Appointment or other booking has occurred but activity has not yet begun.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -7709,7 +7708,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">In Progress</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Activity has been started but is not yet complete</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Activity has been started but is not yet complete.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -7731,7 +7730,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The activities have been completed (more or less) as planned</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The activities have been completed (more or less) as planned.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -7742,7 +7741,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Cancelled</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The activities have been ended prior to completion (perhaps even before they were started)</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The activities have been ended prior to completion (perhaps even before they were started).</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -8248,9 +8247,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R1:R1048576</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8304,7 +8301,7 @@
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Includes</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The referenced plan is considered to be part of this plan</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">The referenced plan is considered to be part of this plan.</Data></Cell>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s138"/>
@@ -8315,7 +8312,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Replaces</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">This plan takes the places of the referenced plan</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">This plan takes the places of the referenced plan.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -8326,7 +8323,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Fulfills</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">This plan provides details about how to perform activities defined at a higher level by the referenced plan</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">This plan provides details about how to perform activities defined at a higher level by the referenced plan.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -8816,8 +8813,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>1</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

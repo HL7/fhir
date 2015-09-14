@@ -34,82 +34,82 @@
   Binding Name = AuditEventObjectType
   Binding = code list
   Reference = #object-type
-  Definition = Code for the object type involved audited
+  Definition = Code for the object type involved audited.
   Conformance = extensible
 
  -- Row 6 -----------------------------------
   Binding Name = AuditEventObjectRole
   Binding = code list
   Reference = #object-role
-  Definition = Code representing the role the Object played in the event
+  Definition = Code representing the role the Object played in the event.
   Conformance = extensible
 
  -- Row 7 -----------------------------------
   Binding Name = AuditEventObjectLifecycle
   Binding = code list
   Reference = #object-lifecycle
-  Definition = Identifier for the data life-cycle stage for the object
+  Definition = Identifier for the data life-cycle stage for the object.
   Conformance = extensible
 
  -- Row 8 -----------------------------------
   Binding Name = AuditEventType
   Binding = value set
   Reference = valueset-audit-event-type
-  Definition = Type of event
+  Definition = Type of event.
   Conformance = extensible
 
  -- Row 9 -----------------------------------
   Binding Name = AuditEventSubType
   Binding = value set
   Reference = valueset-audit-event-sub-type
-  Definition = Sub-type of event
+  Definition = Sub-type of event.
   Conformance = extensible
 
  -- Row 10 -----------------------------------
   Binding Name = DICOMRoleId
   Binding = value set
   Reference = valueset-dicm-402-roleid
-  Definition = Role(s) the user plays (from RBAC)
+  Definition = Role(s) the user plays (from RBAC).
   Conformance = extensible
 
  -- Row 11 -----------------------------------
   Binding Name = DICOMMediaType
   Binding = value set
   Reference = valueset-dicm-405-mediatype
-  Definition = Used when the event is about exporting/importing onto media
+  Definition = Used when the event is about exporting/importing onto media.
   Conformance = extensible
 
  -- Row 12 -----------------------------------
   Binding Name = AuditEventSourceType
   Binding = value set
   Reference = valueset-audit-source-type
-  Definition = Code specifying the type of system that detected and recorded the event
+  Definition = Code specifying the type of system that detected and recorded the event.
   Conformance = extensible
 
  -- Row 13 -----------------------------------
   Binding Name = !DICOMAlertType
   Binding = value set
   Reference = valueset-dicm-403-alerttype
-  Definition = The type of source where event originated
+  Definition = The type of source where event originated.
 
  -- Row 14 -----------------------------------
   Binding Name = !DICOMObjectIdType
   Binding = value set
   Reference = valueset-dicm-404-objectidtype
-  Definition = Describes the identifier
+  Definition = Describes the identifier.
 
  -- Row 15 -----------------------------------
   Binding Name = !AuditEventObjectSensitivity
   Binding = value set
   Reference = valueset-audit-event-sensitivity
-  Definition = The sensitivity of an object. May also encompass confidentiality and rudimentary access control (e.g. HCS)
+  Definition = The sensitivity of an object. May also encompass confidentiality and rudimentary access control (e.g. HCS).
   Conformance = example
 
  -- Row 16 -----------------------------------
   Binding Name = AuditPurposeOfUse
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
-  Definition = The reason the activity took place
+  Definition = The reason the activity took place.
   Conformance = extensible
 
 === Sheet audit-event-action =====================================
@@ -118,31 +118,31 @@
   Id = 1
   Code = C
   Display = Create
-  Definition = Create a new database object, such as Placing an Order.
+  Definition = Create a new database object, such as placing an order.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = R
   Display = Read/View/Print
-  Definition = Display or print data, such as a Doctor Census
+  Definition = Display or print data, such as a doctor census.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = U
   Display = Update
-  Definition = Update data, such as Revise Patient Information
+  Definition = Update data, such as revise patient information.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = D
   Display = Delete
-  Definition = Delete items, such as a doctor master file record
+  Definition = Delete items, such as a doctor master file record.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = E
   Display = Execute
-  Definition = Perform a system or application function such as log-on, program execution or use of an object\'s method, or perform a query/search operation
+  Definition = Perform a system or application function such as log-on, program execution or use of an object\'s method, or perform a query/search operation.
 
 === Sheet audit-event-outcome =====================================
 
@@ -150,25 +150,25 @@
   Id = 1
   Code = 0
   Display = Success
-  Definition = The operation completed successfully (whether with warnings or not)
+  Definition = The operation completed successfully (whether with warnings or not).
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = 4
   Display = Minor failure
-  Definition = The action was not successful due to some kind of catered for error (often equivalent to an HTTP 400 response)
+  Definition = The action was not successful due to some kind of catered for error (often equivalent to an HTTP 400 response).
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = 8
   Display = Serious failure
-  Definition = The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response)
+  Definition = The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response).
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = 12
   Display = Major failure
-  Definition = An error of such magnitude occurred that the system is not longer available for use (i.e. the system died)
+  Definition = An error of such magnitude occurred that the system is no longer available for use (i.e. the system died).
 
 === Sheet network-type =====================================
 
@@ -176,31 +176,31 @@
   Id = 1
   Code = 1
   Display = Machine Name
-  Definition = Machine Name, including DNS name
+  Definition = The machine name, including DNS name.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = 2
   Display = IP Address
-  Definition = IP Address
+  Definition = The assigned Internet Protocol (IP) address.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = 3
   Display = Telephone Number
-  Definition = Telephone Number
+  Definition = The assigned telephone number.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = 4
   Display = Email address
-  Definition = Email address
+  Definition = The assigned email address.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = 5
   Display = URI
-  Definition = URI (User directory, HTTP-PUT, ftp, etc.)
+  Definition = URI (User directory, HTTP-PUT, ftp, etc.).
 
 === Sheet object-type =====================================
 
@@ -234,7 +234,7 @@
   Id = 1
   Code = 1
   Display = Patient
-  Definition = This object is the patient that is the subject of care related to this event.  It is identifiable by patient ID or equivalent.  The patient may be either human or animal
+  Definition = This object is the patient that is the subject of care related to this event.  It is identifiable by patient ID or equivalent.  The patient may be either human or animal.
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -251,7 +251,7 @@
  -- Row 4 -----------------------------------
   Id = 4
   Code = 4
-  Display = DomainResource
+  Display = Domain Resource
   Definition = A logical object related to a health record event.  This is any healthcare  specific resource (object) not restricted to FHIR defined Resources.
 
  -- Row 5 -----------------------------------
@@ -264,7 +264,7 @@
   Id = 6
   Code = 6
   Display = User
-  Definition = A human participant not otherwise identified by some other category
+  Definition = A human participant not otherwise identified by some other category.
 
  -- Row 7 -----------------------------------
   Id = 7
@@ -330,7 +330,7 @@
   Id = 17
   Code = 17
   Display = Data Repository
-  Definition = A source or destination for data transfer, that acts as an archive, database, or similar role.
+  Definition = A source or destination for data transfer that acts as an archive, database, or similar role.
 
  -- Row 18 -----------------------------------
   Id = 18

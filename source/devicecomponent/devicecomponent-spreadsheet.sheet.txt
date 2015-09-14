@@ -5,7 +5,7 @@
   Binding Name = ComponentType
   Binding = reference
   Reference = https://rtmms.nist.gov/rtmms/index.htm#!hrosetta
-  Definition = Describes the type of the component
+  Definition = Describes the type of the component.
   Description = IEEE 11073-10101
   Conformance = preferred
 
@@ -13,13 +13,13 @@
   Binding Name = Measmnt-Principle
   Binding = code list
   Reference = #measurement-principle
-  Definition = Different measurement principle supported by the device
+  Definition = Different measurement principle supported by the device.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = DeviceComponentOperationalStatus
   Binding = unbound
-  Definition = Codes representing the current status of the device - on, off, suspended, etc
+  Definition = Codes representing the current status of the device - on, off, suspended, etc.
 
  -- Row 4 -----------------------------------
   Binding Name = DeviceSpecificationSpecType
@@ -29,7 +29,7 @@
  -- Row 5 -----------------------------------
   Binding Name = DeviceComponentParameterGroup
   Binding = unbound
-  Definition = Codes identifying groupings of parameters; e.g. Cardiovascular
+  Definition = Codes identifying groupings of parameters; e.g. Cardiovascular.
 
 === Sheet measurement-principle =====================================
 
@@ -37,67 +37,67 @@
   Id = 1
   Code = other
   Display = MSP Other
-  Definition = Measurement principle isn\'t in the list
+  Definition = Measurement principle isn\'t in the list.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = chemical
   Display = MSP Chemical
-  Definition = Measurement is done using chemical
+  Definition = Measurement is done using chemical.
 
  -- Row 3 -----------------------------------
   Id = 4
   Code = electrical
   Display = MSP Electrical
-  Definition = Measurement is done using electrical
+  Definition = Measurement is done using electrical.
 
  -- Row 4 -----------------------------------
   Id = 8
   Code = impedance
   Display = MSP Impedance
-  Definition = Measurement is done using impedance
+  Definition = Measurement is done using impedance.
 
  -- Row 5 -----------------------------------
   Id = 16
   Code = nuclear
   Display = MSP Nuclear
-  Definition = Measurement is done using nuclear
+  Definition = Measurement is done using nuclear.
 
  -- Row 6 -----------------------------------
   Id = 32
   Code = optical
   Display = MSP Optical
-  Definition = Measurement is done using optical
+  Definition = Measurement is done using optical.
 
  -- Row 7 -----------------------------------
   Id = 64
   Code = thermal
   Display = MSP Thermal
-  Definition = Measurement is done using thermal
+  Definition = Measurement is done using thermal.
 
  -- Row 8 -----------------------------------
   Id = 128
   Code = biological
   Display = MSP Biological
-  Definition = Measurement is done using biological
+  Definition = Measurement is done using biological.
 
  -- Row 9 -----------------------------------
   Id = 256
   Code = mechanical
   Display = MSP Mechanical
-  Definition = Measurement is done using mechanical
+  Definition = Measurement is done using mechanical.
 
  -- Row 10 -----------------------------------
   Id = 512
   Code = acoustical
   Display = MSP Acoustical
-  Definition = Measurement is done using acoustical
+  Definition = Measurement is done using acoustical.
 
  -- Row 11 -----------------------------------
   Id = 65536
   Code = manual
   Display = MSP Manual
-  Definition = Measurement is done using manual
+  Definition = Measurement is done using manual.
 
 === Sheet Invariants =====================================
 

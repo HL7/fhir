@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-25T06:39:36Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4603,7 +4603,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6380,11 +6379,11 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s148"><Data ss:Type="String">DeviceKind</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Defines the nature of the device and the kind of functionality/services/behavior that may be expected from it</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Defines the nature of the device and the kind of functionality/services/behavior that may be expected from it.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">https://www.gmdnagency.org/Info.aspx?pageid=1091</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Global Medical Device Nomenclature (GMDN&amp;reg;)</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Global Medical Device Nomenclature (GMDN&amp;reg;).</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">https://www.gmdnagency.org/Info.aspx?pageid=1091</Data></Cell>
@@ -6395,7 +6394,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s151"><Data ss:Type="String">DeviceStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The availability status of the device</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The availability status of the device.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">#devicestatus</Data></Cell>
@@ -6827,12 +6826,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6840,15 +6840,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6918,7 +6916,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s140"><Data ss:Type="String">Available</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The Device is available for use</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The Device is available for use.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s141"/>
@@ -6929,7 +6927,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s142"><Data ss:Type="String">Not Available</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The Device is no longer available for use ( e.g. lost, expired, damaged)</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The Device is no longer available for use (e.g. lost, expired, damaged).</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -6940,7 +6938,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s142"><Data ss:Type="String">Entered in Error</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">The Device was entered in error and voided</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">The Device was entered in error and voided.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7484,7 +7482,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

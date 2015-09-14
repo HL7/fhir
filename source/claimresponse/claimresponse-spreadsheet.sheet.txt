@@ -5,21 +5,21 @@
   Binding Name = Adjudication
   Binding = value set
   Reference = valueset-adjudication
-  Definition = The adjudication codes
+  Definition = The adjudication codes.
   Conformance = extensible
 
  -- Row 2 -----------------------------------
   Binding Name = AdjustmentReason
   Binding = value set
   Reference = valueset-adjustment-reason
-  Definition = Adjustment reason codes
+  Definition = Adjustment reason codes.
   Conformance = extensible
 
  -- Row 3 -----------------------------------
   Binding Name = ServiceProduct
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/service-uscls
-  Definition = Allowable service and product codes
+  Definition = Allowable service and product codes.
   Conformance = example
 
 === Sheet Invariants =====================================
@@ -628,7 +628,7 @@
   Type = string
   Short Label = Pre-Authorization/Determination Reference
   Definition = A list of references from the Insurer to which these services pertain.
-  Requirements = To provide any pre=determination or prior authorization reference.
+  Requirements = To provide any pre-determination or prior authorization reference.
   CDAnet v4 Mapping = F03
 
  -- Row 85 -----------------------------------

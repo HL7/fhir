@@ -388,7 +388,7 @@
   Card. = 0..*
   UML = -190;280
   Short Label = Additional representations for the concept
-  Definition = Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc
+  Definition = Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
   Requirements = many concept definition systems support mltiple representations, in multiple languages, and for mltiple purposes
 
  -- Row 30 -----------------------------------
@@ -521,7 +521,7 @@
   Card. = 0..*
   Type = @ValueSet.codeSystem.concept.designation
   Short Label = Additional representations for this valueset
-  Definition = Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc
+  Definition = Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.
 
  -- Row 44 -----------------------------------
   Element = ValueSet.compose.include.filter

@@ -5,19 +5,19 @@
   Binding Name = EpisodeOfCareStatus
   Binding = code list
   Reference = #episode-of-care-status
-  Definition = The status of the encounter
+  Definition = The status of the encounter.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = EpisodeOfCareType
   Binding = unbound
-  Definition = The type of the encounter
+  Definition = The type of the encounter.
 
  -- Row 3 -----------------------------------
   Binding Name = EpisodeOfCareTeamRole
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/participant-role
-  Definition = Type of participation expected by a team member
+  Definition = Type of participation expected by a team member.
   Conformance = example
 
 === Sheet episode-of-care-status =====================================
@@ -26,37 +26,37 @@
   Id = 1
   Code = planned
   Display = Planned
-  Definition = This episode of care is planned to start at the date specified in the period.start. During this status an organization may perform assessments to determine if they are eligible to receive services, or be organizing to make resources available to provide care services
+  Definition = This episode of care is planned to start at the date specified in the period.start. During this status an organization may perform assessments to determine if they are eligible to receive services, or be organizing to make resources available to provide care services.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = waitlist
   Display = Waitlist
-  Definition = This episode has been placed on a waitlist, pending the episode being made active (or cancelled)
+  Definition = This episode has been placed on a waitlist, pending the episode being made active (or cancelled).
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = active
   Display = Active
-  Definition = This episode of care is current
+  Definition = This episode of care is current.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = onhold
   Display = On Hold
-  Definition = This episode of care is on hold, the organization has limited responsibility for the patient (such as while on respite)
+  Definition = This episode of care is on hold, the organization has limited responsibility for the patient (such as while on respite).
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = finished
   Display = Finished
-  Definition = This episode of care is finished at the organization is not expecting to be providing care to the patient. Can also be known as \"closed\", \"completed\" or other similar terms
+  Definition = This episode of care is finished at the organization is not expecting to be providing care to the patient. Can also be known as \"closed\", \"completed\" or other similar terms.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = cancelled
   Display = Cancelled
-  Definition = The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow
+  Definition = The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow.
 
 === Sheet Invariants =====================================
 

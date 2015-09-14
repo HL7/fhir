@@ -113,21 +113,16 @@
   Binding = DAFRoute
 
  -- Row 16 -----------------------------------
-  Element = MedicationDispense.dosageInstruction.method
-  Card. = 0..1
-  Must Support = Y
-
- -- Row 17 -----------------------------------
   Element = MedicationDispense.dosageInstruction.dose[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationDispense.dosageInstruction.rate[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationDispense.dosageInstruction.maxDosePerPeriod
   Card. = 0..1
   Must Support = Y

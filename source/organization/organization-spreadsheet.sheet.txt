@@ -46,7 +46,7 @@
   Element = Organization
   Type = DomainResource
   Short Label = A grouping of people or organizations with a common purpose
-  Definition = A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc
+  Definition = A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
   v2 Mapping = (also see master files messages)
   RIM Mapping = Organization(classCode=ORG, determinerCode=INST)
   ServD Mapping = Organization

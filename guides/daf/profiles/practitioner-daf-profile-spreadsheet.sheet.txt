@@ -46,6 +46,9 @@
   Card. = 1..1
   Must Support = Y
   Type = uri
+  Short Label = NPI could be used as the identifier system in the US.
+  Comments = NPI could be used as the identifier system in the US.
+  Example = NPI could be used as the identifier system in the US.
 
  -- Row 6 -----------------------------------
   Element = Practitioner.identifier.value
@@ -91,23 +94,30 @@
   Type = ContactPoint
 
  -- Row 13 -----------------------------------
+  Element = Practitioner.telecom.extension
+  Profile Name = directAddressInd
+  Card. = 0..*
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-direct}
+
+ -- Row 14 -----------------------------------
   Element = Practitioner.telecom.system
   Card. = 1..1
   Must Support = Y
   Type = code
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Practitioner.telecom.value
   Card. = 1..1
   Must Support = Y
   Type = string
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Practitioner.practitionerRole
   Card. = 0..*
   Must Support = Y
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Practitioner.practitionerRole.managingOrganization
   Card. = 0..1
   Must Support = Y

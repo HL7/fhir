@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines the set of codes that can be used to indicate the administrative gender of a person"/>
+  <description value="This value set defines the set of codes that can be used to indicate the administrative gender of a person."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>

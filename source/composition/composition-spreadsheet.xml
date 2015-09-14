@@ -21,8 +21,8 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>622</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3655,7 +3655,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6269,7 +6268,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">CompositionSectionType</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Classification of a section of a composition / document</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Classification of a section of a composition / document.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s116"/>
@@ -6285,7 +6284,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s93"><Data ss:Type="String">CompositionAttestationMode</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The way in which a person authenticated a composition</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The way in which a person authenticated a composition.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -6301,7 +6300,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">DocumentType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Type of a composition</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Type of a composition.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -6317,7 +6316,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s93"><Data ss:Type="String">DocumentConfidentiality</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes specifying the level of confidentiality of the composition</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes specifying the level of confidentiality of the composition.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -6333,7 +6332,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s93"><Data ss:Type="String">CompositionStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The workflow/clinical status of the composition</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The workflow/clinical status of the composition.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -6349,7 +6348,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s93"><Data ss:Type="String">DocumentEventType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">This list of codes represents the main clinical acts being documented</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">This list of codes represents the main clinical acts being documented.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -6365,7 +6364,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">DocumentClass</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">High-level kind of a clinical document at a macro level</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">High-level kind of a clinical document at a macro level.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -6385,7 +6384,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">SectionMode</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The processing mode that applies to this section</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The processing mode that applies to this section.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -6401,7 +6400,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">SectionEmptyReason</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">If a section is empty, why it is empty</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">If a section is empty, why it is empty.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -6417,7 +6416,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">SectionEntryOrder</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">What order applies to the items in the entry</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">What order applies to the items in the entry.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -6733,6 +6732,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6752,8 +6752,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6821,7 +6820,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Personal</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The person authenticated the content in their personal capacity</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The person authenticated the content in their personal capacity.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s141"/>
@@ -6832,7 +6831,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Professional</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The person authenticated the content in their professional capacity</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The person authenticated the content in their professional capacity.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -6843,7 +6842,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Legal</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The person authenticated the content and accepted legal responsibility for its content</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The person authenticated the content and accepted legal responsibility for its content.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -6854,7 +6853,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Official</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The organization authenticated the content as consistent with their policies and procedures</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The organization authenticated the content as consistent with their policies and procedures.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7382,8 +7381,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7450,7 +7448,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Preliminary</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"><Data ss:Type="String">~ActStatus.active</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">Compositions are sometimes shared prior to being finalised</Data></Cell>
@@ -7472,7 +7470,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Amended</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as &quot;final&quot; and the composition is complete and verified by an authorized person</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as &quot;final&quot; and the composition is complete and verified by an authorized person.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
     <Cell ss:StyleID="s143"/>
@@ -7483,7 +7481,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Entered in Error</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">~ActStatus.nullified</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">Usually this is because some major error has been detected in the workflow that created the composition or document, or the content was associated with the wrong patient/author etc.</Data></Cell>
@@ -8000,8 +7998,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

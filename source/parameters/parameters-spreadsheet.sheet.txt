@@ -63,7 +63,7 @@
   Type = @Parameters.parameter
   Short Label = Named part of a parameter (e.g. Tuple)
   Definition = A named part of a parameter. In many implementation context, a set of named parts is known as a \"Tuple\"
-  Comments = Only one level of tuples is allowed
+  Comments = Only one level of Tuples is allowed
 
  -- Row 7 -----------------------------------
   Element = !Parameters.parameter.part.name

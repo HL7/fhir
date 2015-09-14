@@ -5,7 +5,7 @@
   Binding Name = AdjunctDiagnosis
   Binding = value set
   Reference = valueset-clinical-findings
-  Definition = Diagnoses codes provided as adjuncts to the report
+  Definition = Diagnoses codes provided as adjuncts to the report.
   Description = SNOMED CT Clinical Findings
   Conformance = example
 
@@ -13,7 +13,7 @@
   Binding Name = DiagnosticReportCodes
   Binding = value set
   Reference = valueset-report-codes
-  Definition = Codes that describe Diagnostic Reports
+  Definition = Codes that describe Diagnostic Reports.
   Description = LOINC Codes for Diagnostic Reports
   Conformance = preferred
 
@@ -21,7 +21,7 @@
   Binding Name = DiagnosticServiceSection
   Binding = value set
   Reference = valueset-diagnostic-service-sections
-  Definition = Codes for diagnostic service sections
+  Definition = Codes for diagnostic service sections.
   Description = HL7 v2 table 0074
   Conformance = example
 
@@ -29,7 +29,7 @@
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = Codes describing anatomical locations. May include laterality
+  Definition = Codes describing anatomical locations. May include laterality.
   Description = SNOMED CT Body site concepts
   Conformance = example
 
@@ -37,7 +37,7 @@
   Binding Name = DiagnosticReportStatus
   Binding = code list
   Reference = #diagnostic-report-status
-  Definition = The status of the diagnostic report as a whole
+  Definition = The status of the diagnostic report as a whole.
   Conformance = required
 
 === Sheet diagnostic-report-status =====================================
@@ -46,43 +46,43 @@
   Id = 1
   Code = registered
   Display = Registered
-  Definition = The existence of the report is registered, but there is nothing yet available
+  Definition = The existence of the report is registered, but there is nothing yet available.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = partial
   Display = Partial
-  Definition = This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified
+  Definition = This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = final
   Display = Final
-  Definition = The report is complete and verified by an authorized person
+  Definition = The report is complete and verified by an authorized person.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = corrected
   Display = Corrected
-  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person
+  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn\'t changed
 
  -- Row 5 -----------------------------------
   Id = 6
   Code = appended
   Display = Appended
-  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn\'t changed
+  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn\'t changed.
 
  -- Row 6 -----------------------------------
   Id = 7
   Code = cancelled
   Display = Cancelled
-  Definition = The report is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\")
+  Definition = The report is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").
 
  -- Row 7 -----------------------------------
   Id = 8
   Code = entered-in-error
   Display = Entered in Error
-  Definition = The report has been withdrawn following previous Final release
+  Definition = The report has been withdrawn following previous Final release.
 
 === Sheet Invariants =====================================
 

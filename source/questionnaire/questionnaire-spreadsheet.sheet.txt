@@ -5,35 +5,35 @@
   Binding Name = QuestionnaireGroupConcept
   Binding = value set
   Reference = valueset-questionnaire-questions
-  Definition = Codes for groupings of questionnaire questions
+  Definition = Codes for groupings of questionnaire questions.
   Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = QuestionConcept
   Binding = value set
   Reference = valueset-questionnaire-questions
-  Definition = Codes corresponding to individual questions
+  Definition = Codes corresponding to individual questions.
   Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = QuestionnaireStatus
   Binding = code list
   Reference = #questionnaire-status
-  Definition = Lifecycle status of the questionnaire
+  Definition = Lifecycle status of the questionnaire.
   Conformance = required
 
  -- Row 4 -----------------------------------
   Binding Name = AnswerFormat
   Binding = code list
   Reference = #answer-format
-  Definition = The expected format of an answer
+  Definition = The expected format of an answer.
   Conformance = required
 
  -- Row 5 -----------------------------------
   Binding Name = QuestionnaireQuestionOption
   Binding = value set
   Reference = valueset-questionnaire-answers
-  Definition = Allowed values to answer questions
+  Definition = Allowed values to answer questions.
   Conformance = example
 
 === Sheet questionnaire-status =====================================
@@ -61,57 +61,57 @@
  -- Row 1 -----------------------------------
   Id = 1
   Code = boolean
-  Definition = Answer is a yes/no answer
+  Definition = Answer is a yes/no answer.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = decimal
-  Definition = Answer is a floating point number
+  Definition = Answer is a floating point number.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = integer
-  Definition = Answer is an integer
+  Definition = Answer is an integer.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = date
-  Definition = Answer is a date
+  Definition = Answer is a date.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = dateTime
-  Definition = Answer is a date and time
+  Definition = Answer is a date and time.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = instant
-  Definition = Answer is a system timestamp
+  Definition = Answer is a system timestamp.
 
  -- Row 7 -----------------------------------
   Id = 8
   Code = time
-  Definition = Answer is a time (hour/minute/second) independent of date
+  Definition = Answer is a time (hour/minute/second) independent of date.
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = string
-  Definition = Answer is a short (few words to short sentence) free-text entry
+  Definition = Answer is a short (few words to short sentence) free-text entry.
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = text
-  Definition = Answer is a long (potentially multi-paragram) free-text entry (still captured as a string)
+  Definition = Answer is a long (potentially multi-paragraph) free-text entry (still captured as a string).
 
  -- Row 10 -----------------------------------
   Id = 16
   Code = url
-  Definition = Answer is a url (website, FTP site, etc.)
+  Definition = Answer is a url (website, FTP site, etc.).
 
  -- Row 11 -----------------------------------
   Id = 10
   Code = choice
-  Definition = Answer is a Coding drawn from a list of options
+  Definition = Answer is a Coding drawn from a list of options.
 
  -- Row 12 -----------------------------------
   Id = 11
@@ -126,12 +126,12 @@
  -- Row 14 -----------------------------------
   Id = 13
   Code = reference
-  Definition = Answer is a reference to another resource (practitioner, organization, etc.)
+  Definition = Answer is a reference to another resource (practitioner, organization, etc.).
 
  -- Row 15 -----------------------------------
   Id = 14
   Code = quantity
-  Definition = Answer is a combination of a numeric value and unit, potentially with a comparator (<, >, etc.)
+  Definition = Answer is a combination of a numeric value and unit, potentially with a comparator (<, >, etc.).
 
 === Sheet Invariants =====================================
 

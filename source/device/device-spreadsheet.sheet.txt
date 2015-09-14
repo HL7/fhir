@@ -5,8 +5,8 @@
   Binding Name = DeviceKind
   Binding = reference
   Reference = https://www.gmdnagency.org/Info.aspx?pageid=1091
-  Definition = Defines the nature of the device and the kind of functionality/services/behavior that may be expected from it
-  Description = Global Medical Device Nomenclature (GMDN&reg;)
+  Definition = Defines the nature of the device and the kind of functionality/services/behavior that may be expected from it.
+  Description = Global Medical Device Nomenclature (GMDN&reg;).
   Conformance = preferred
   Copyright = ‘GMDN’ is a registered trade mark owned by GMDN Agency Ltd.
 
@@ -14,7 +14,7 @@
   Binding Name = DeviceStatus
   Binding = code list
   Reference = #devicestatus
-  Definition = The availability status of the device
+  Definition = The availability status of the device.
   Conformance = required
 
 === Sheet devicestatus =====================================
@@ -23,19 +23,19 @@
   Id = 1
   Code = available
   Display = Available
-  Definition = The Device is available for use
+  Definition = The Device is available for use.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = not-available
   Display = Not Available
-  Definition = The Device is no longer available for use ( e.g. lost, expired, damaged)
+  Definition = The Device is no longer available for use (e.g. lost, expired, damaged).
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = entered-in-error
   Display = Entered in Error
-  Definition = The Device was entered in error and voided
+  Definition = The Device was entered in error and voided.
 
 === Sheet Invariants =====================================
 

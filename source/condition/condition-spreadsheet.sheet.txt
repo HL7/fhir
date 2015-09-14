@@ -19,7 +19,7 @@
   Binding Name = ConditionClinicalStatus
   Binding = value set
   Reference = valueset-condition-clinical
-  Definition = The clinical status of the Condition or diagnosis
+  Definition = The clinical status of the Condition or diagnosis.
   Conformance = preferred
 
  -- Row 4 -----------------------------------
@@ -33,7 +33,7 @@
   Binding Name = !ConditionCertainty
   Binding = value set
   Reference = valueset-condition-certainty
-  Definition = The degree of confidence that this condition is correct
+  Definition = The degree of confidence that this condition is correct.
   Conformance = example
 
  -- Row 6 -----------------------------------
@@ -54,7 +54,7 @@
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = Codes describing anatomical locations. May include laterality
+  Definition = Codes describing anatomical locations. May include laterality.
   Description = SNOMED CT Body site concepts
   Conformance = example
 
@@ -62,7 +62,7 @@
   Binding Name = ConditionStage
   Binding = value set
   Reference = valueset-condition-stage
-  Definition = Codes describing condition stages (e.g. Cancer stages)
+  Definition = Codes describing condition stages (e.g. Cancer stages).
   Conformance = example
 
 === Sheet condition-ver-status =====================================
@@ -71,38 +71,38 @@
   Id = 1
   Code = provisional
   Display = Provisional
-  Definition = This is a tentative diagnosis - still a candidate that is under consideration
+  Definition = This is a tentative diagnosis - still a candidate that is under consideration.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = differential
   Display = Differential
-  Definition = One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment
+  Definition = One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = confirmed
   Display = Confirmed
-  Definition = There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition
+  Definition = There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = refuted
   Display = Refuted
-  Definition = This condition has been ruled out by diagnostic and clinical evidence
+  Definition = This condition has been ruled out by diagnostic and clinical evidence.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = entered-in-error
   Display = Entered In Error
-  Definition = The statement was entered in error and Is not valid
+  Definition = The statement was entered in error and Is not valid.
   v3 = ActStatus.nullified
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = unknown
   Display = Unknown
-  Definition = The condition status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\"
+  Definition = The condition status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".
 
 === Sheet Invariants =====================================
 

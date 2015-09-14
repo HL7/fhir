@@ -124,16 +124,11 @@
   Binding = DAFRoute
 
  -- Row 18 -----------------------------------
-  Element = MedicationAdministration.dosage.method
-  Card. = 0..1
-  Must Support = Y
-
- -- Row 19 -----------------------------------
   Element = MedicationAdministration.dosage.quantity
   Card. = 0..1
   Must Support = Y
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationAdministration.dosage.rate[x]
   Card. = 0..1
   Must Support = Y

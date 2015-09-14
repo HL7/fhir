@@ -5,87 +5,87 @@
   Binding Name = RestfulConformanceMode
   Binding = code list
   Reference = #restful-conformance-mode
-  Definition = The mode of a RESTful conformance statement
+  Definition = The mode of a RESTful conformance statement.
 
  -- Row 2 -----------------------------------
   Binding Name = RestfulSecurityService
   Binding = code list
   Reference = #restful-security-service
-  Definition = Types of security services used with FHIR
+  Definition = Types of security services used with FHIR.
   Conformance = extensible
 
  -- Row 3 -----------------------------------
   Binding Name = TypeRestfulInteraction
   Binding = code list
   Reference = #type-restful-interaction
-  Definition = Operations supported by REST at the type or instance level
+  Definition = Operations supported by REST at the type or instance level.
 
  -- Row 4 -----------------------------------
   Binding Name = SystemRestfulInteraction
   Binding = code list
   Reference = #system-restful-interaction
-  Definition = Operations supported by REST at the system level
+  Definition = Operations supported by REST at the system level.
 
  -- Row 5 -----------------------------------
   Binding Name = ConformanceEventMode
   Binding = code list
   Reference = #message-conformance-event-mode
-  Definition = The mode of a message conformance statement
+  Definition = The mode of a message conformance statement.
 
  -- Row 6 -----------------------------------
   Binding Name = MessageTransport
   Binding = code list
   Reference = #message-transport
-  Definition = The protocol used for message transport
+  Definition = The protocol used for message transport.
   Conformance = extensible
 
  -- Row 7 -----------------------------------
   Binding Name = DocumentMode
   Binding = code list
   Reference = #document-mode
-  Definition = Whether the application produces or consumes documents
+  Definition = Whether the application produces or consumes documents.
 
  -- Row 8 -----------------------------------
   Binding Name = MessageSignificanceCategory
   Binding = code list
   Reference = #message-significance-category
-  Definition = The impact of the content of a message
+  Definition = The impact of the content of a message.
 
  -- Row 9 -----------------------------------
   Binding Name = ResourceVersionPolicy
   Binding = code list
   Reference = #versioning-policy
-  Definition = How the system supports versioning for a resource
+  Definition = How the system supports versioning for a resource.
 
  -- Row 10 -----------------------------------
   Binding Name = TransactionMode
   Binding = code list
   Reference = #transaction-mode
-  Definition = A code that indicates how transactions are supported
+  Definition = A code that indicates how transactions are supported.
 
  -- Row 11 -----------------------------------
   Binding Name = ConditionalDeleteStatus
   Binding = code list
   Reference = #conditional-delete-status
-  Definition = A code that indicates how the server supports conditional delete
+  Definition = A code that indicates how the server supports conditional delete.
 
  -- Row 12 -----------------------------------
   Binding Name = SearchModifierCode
   Binding = code list
   Reference = #search-modifier-code
-  Definition = A supported modifier for a search parameter
+  Definition = A supported modifier for a search parameter.
 
  -- Row 13 -----------------------------------
   Binding Name = UnknownContentCode
   Binding = code list
   Reference = #unknown-content-code
-  Definition = A code that indicates whether an application accepts unknown elements or extensions when reading resources
+  Definition = A code that indicates whether an application accepts unknown elements or extensions when reading resources.
 
  -- Row 14 -----------------------------------
   Binding Name = ConformanceStatementKind
   Binding = code list
   Reference = #conformance-statement-kind
-  Definition = How a conformance statement is intended to be used
+  Definition = How a conformance statement is intended to be used.
 
 === Sheet restful-conformance-mode =====================================
 
@@ -93,13 +93,13 @@
   Id = 1
   Code = client
   Display = Client
-  Definition = The application acts as a client for this resource
+  Definition = The application acts as a client for this resource.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = server
   Display = Server
-  Definition = The application acts as a server for this resource
+  Definition = The application acts as a server for this resource.
 
 === Sheet restful-security-service =====================================
 
@@ -107,37 +107,37 @@
   Id = 1
   Code = OAuth
   Display = OAuth
-  Definition = Oauth (unspecified version see oauth.net)
+  Definition = Oauth (unspecified version see oauth.net).
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = SMART-on-FHIR
   Display = SMART-on-FHIR
-  Definition = OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org/)
+  Definition = OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org/).
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = NTLM
   Display = NTLM
-  Definition = Microsoft NTLM Authentication
+  Definition = Microsoft NTLM Authentication.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = Basic
   Display = Basic
-  Definition = Basic authentication defined in HTTP specification
+  Definition = Basic authentication defined in HTTP specification.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = Kerberos
   Display = Kerberos
-  Definition = see http://www.ietf.org/rfc/rfc4120.txt
+  Definition = see http://www.ietf.org/rfc/rfc4120.txt.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = Certificates
   Display = Certificates
-  Definition = SSL where client must have a certificate registered with the server
+  Definition = SSL where client must have a certificate registered with the server.
 
 === Sheet type-restful-interaction =====================================
 
@@ -197,13 +197,13 @@
   Id = 1
   Code = sender
   Display = Sender
-  Definition = The application sends requests and receives responses
+  Definition = The application sends requests and receives responses.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = receiver
   Display = Receiver
-  Definition = The application receives requests and sends responses
+  Definition = The application receives requests and sends responses.
 
 === Sheet message-transport =====================================
 
@@ -211,19 +211,19 @@
   Id = 1
   Code = http
   Display = HTTP
-  Definition = The application sends or receives messages using HTTP POST (may be over http or https)
+  Definition = The application sends or receives messages using HTTP POST (may be over http: or https:).
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = ftp
   Display = FTP
-  Definition = The application sends or receives messages using File Transfer Protocol
+  Definition = The application sends or receives messages using File Transfer Protocol.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = mllp
   Display = MLLP
-  Definition = The application sends or receivers messages using HL7\'s Minimal Lower Level Protocol
+  Definition = The application sends or receivers messages using HL7\'s Minimal Lower Level Protocol.
 
 === Sheet document-mode =====================================
 
@@ -231,13 +231,13 @@
   Id = 1
   Code = producer
   Display = Producer
-  Definition = The application produces documents of the specified type
+  Definition = The application produces documents of the specified type.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = consumer
   Display = Consumer
-  Definition = The application consumes documents of the specified type
+  Definition = The application consumes documents of the specified type.
 
 === Sheet message-significance-category =====================================
 
@@ -245,19 +245,19 @@
   Id = 1
   Code = Consequence
   Display = Consequence
-  Definition = The message represents/requests a change that should not be processed more than once; e.g. Making a booking for an appointment
+  Definition = The message represents/requests a change that should not be processed more than once; e.g. Making a booking for an appointment.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = Currency
   Display = Currency
-  Definition = The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful
+  Definition = The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = Notification
   Display = Notification
-  Definition = The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications
+  Definition = The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.
 
 === Sheet versioning-policy =====================================
 
@@ -265,19 +265,19 @@
   Id = 1
   Code = no-version
   Display = No VersionId Support
-  Definition = VersionId meta-property is not suppoerted (server) or used (client)
+  Definition = VersionId meta-property is not suppoerted (server) or used (client).
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = versioned
   Display = Versioned
-  Definition = VersionId meta-property is suppoerted (server) or used (client)
+  Definition = VersionId meta-property is suppoerted (server) or used (client).
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = versioned-update
   Display = VersionId tracked fully
-  Definition = VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client)
+  Definition = VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client).
 
 === Sheet transaction-mode =====================================
 
@@ -285,25 +285,25 @@
   Id = 1
   Code = not-supported
   Display = None
-  Definition = Neither Batch or Transaction supported
+  Definition = Neither batch or transaction is supported.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = batch
   Display = Batches supported
-  Definition = Batches supported
+  Definition = Batches are  supported.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = transaction
   Display = Transactions Supported
-  Definition = Transactions Supported
+  Definition = Transactions are supported.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = both
   Display = Batches & Transactions
-  Definition = Both Batches and Transactions Supported
+  Definition = Both batches and transactions are supported.
 
 === Sheet conditional-delete-status =====================================
 
@@ -311,19 +311,19 @@
   Id = 1
   Code = not-supported
   Display = Not Supported
-  Definition = No support for conditional deletes
+  Definition = No support for conditional deletes.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = single
   Display = Single Deletes Supported
-  Definition = Conditional deletes are supported, but only single resources at a time
+  Definition = Conditional deletes are supported, but only single resources at a time.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = multiple
   Display = Multiple Deletes Supported
-  Definition = Conditional deletes are supported, and multiple resources can be deleted in a single interaction
+  Definition = Conditional deletes are supported, and multiple resources can be deleted in a single interaction.
 
 === Sheet search-modifier-code =====================================
 
@@ -331,31 +331,31 @@
   Id = 1
   Code = missing
   Display = Missing
-  Definition = The search parameter returns resources that have a value or not
+  Definition = The search parameter returns resources that have a value or not.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = exact
   Display = Exact
-  Definition = The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents)
+  Definition = The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents).
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = contains
   Display = Contains
-  Definition = The search parameter returns resources that include the supplied parameter value anywhere within the field being searched
+  Definition = The search parameter returns resources that include the supplied parameter value anywhere within the field being searched.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = not
   Display = Not
-  Definition = The search parameter returns resources that do not contain a match
+  Definition = The search parameter returns resources that do not contain a match .
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = text
   Display = Text
-  Definition = The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, or Identifier.type.text
+  Definition = The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, or Identifier.type.text.
 
  -- Row 6 -----------------------------------
   Id = 6
@@ -367,25 +367,25 @@
   Id = 7
   Code = not-in
   Display = Not In
-  Definition = The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set
+  Definition = The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set.
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = below
   Display = Below
-  Definition = The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships)
+  Definition = The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships).
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = above
   Display = Above
-  Definition = The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships)
+  Definition = The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships).
 
  -- Row 10 -----------------------------------
   Id = 10
   Code = type
   Display = Type
-  Definition = The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.)
+  Definition = The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.).
 
 === Sheet unknown-content-code =====================================
 
@@ -393,32 +393,32 @@
   Id = 1
   Code = no
   Display = Neither Elements or Extensions
-  Definition = The application does not accept either unknown elements or extensions
+  Definition = The application does not accept either unknown elements or extensions.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = extensions
   Display = Unknown Extensions
-  Definition = The application accepts unknown extensions, but not unknown elements
+  Definition = The application accepts unknown extensions, but not unknown elements.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = elements
   Display = Unknown Elements
-  Definition = The application accepts unknown elements, but not unknown extensions
+  Definition = The application accepts unknown elements, but not unknown extensions.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = both
   Display = Unknown Elements and Extensions
-  Definition = The application accepts unknown elements and extensions
+  Definition = The application accepts unknown elements and extensions.
 
 === Sheet conformance-statement-kind =====================================
 
  -- Row 1 -----------------------------------
   Code = instance
   Display = Instance
-  Definition = The Conformance instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point
+  Definition = The Conformance instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
 
  -- Row 2 -----------------------------------
   Code = capability
@@ -429,7 +429,7 @@
  -- Row 3 -----------------------------------
   Code = requirements
   Display = Requirements
-  Definition = The Conformance instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or \'request for proposal\'
+  Definition = The Conformance instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or \'request for proposal\'.
 
 === Sheet Invariants =====================================
 
@@ -1041,7 +1041,7 @@
   Type = @Conformance.rest.resource.searchParam
   Short Label = Search params for searching all resources
   Definition = Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation
-  Comments = Typically, the only search parameters supported for all parameters are search parameters that apply to all resources - tags, profiles, text search etc
+  Comments = Typically, the only search parameters supported for all parameters are search parameters that apply to all resources - tags, profiles, text search etc.
 
  -- Row 64 -----------------------------------
   Element = Conformance.rest.operation

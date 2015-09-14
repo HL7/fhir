@@ -5,7 +5,7 @@
   Binding Name = DataElementStringency
   Binding = code list
   Reference = #dataelement-stringency
-  Definition = Indicates the degree of precision of the data element definition
+  Definition = Indicates the degree of precision of the data element definition.
 
 === Sheet dataelement-stringency =====================================
 
@@ -19,7 +19,7 @@
   Id = 2
   Code = fully-specified
   Display = Fully Specified
-  Definition = The data element is fully specified down to a single value set, single unit of measure, single data type, etc.  Multiple pieces of data associated with this data element are fully compareable
+  Definition = The data element is fully specified down to a single value set, single unit of measure, single data type, etc.  Multiple pieces of data associated with this data element are fully comparable.
   Parent = comparable
 
  -- Row 3 -----------------------------------
@@ -33,14 +33,14 @@
   Id = 4
   Code = convertable
   Display = Convertable
-  Definition = The data element allows multiple units of measure that are convertable between each other (e.g. Inches and centimeters) and/or allows data to be captured in multiple value sets for which a known mapping exists allowing conversion of meaning
+  Definition = The data element allows multiple units of measure that are convertable between each other (e.g. Inches and centimeters) and/or allows data to be captured in multiple value sets for which a known mapping exists allowing conversion of meaning.
   Parent = comparable
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = scaleable
   Display = Scaleable
-  Definition = A convertable data element where unit conversions are different only by a power of 10; e.g. g, mg, kg
+  Definition = A convertable data element where unit conversions are different only by a power of 10; e.g. g, mg, kg.
   Parent = convertable
 
  -- Row 6 -----------------------------------
@@ -301,7 +301,7 @@
   Element = DataElement.mapping.comments
   Card. = 0..1
   Type = string
-  Short Label = Versions, Issues, Scope limitations etc
+  Short Label = Versions, Issues, Scope limitations etc.
   Definition = Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage
   RIM Mapping = N/A (MIF)
 

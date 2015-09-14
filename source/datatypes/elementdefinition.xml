@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-09-09T22:13:15Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,8 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -6985,7 +6986,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s145"><Data ss:Type="String">SlicingRules</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">How slices are interpreted when evaluating an instance</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">How slices are interpreted when evaluating an instance.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">#resource-slicing-rules</Data></Cell>
@@ -7000,7 +7001,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s145"><Data ss:Type="String">AggregationMode</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">How resource references can be aggregated</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">How resource references can be aggregated.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">#resource-aggregation-mode</Data></Cell>
@@ -7015,7 +7016,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s145"><Data ss:Type="String">PropertyRepresentation</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">How a property is represented on the wire </Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">How a property is represented on the wire.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">#property-representation</Data></Cell>
@@ -7028,9 +7029,9 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s118"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s145"><Data ss:Type="String">ElementDefinitionCode</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes that indicate the meaning of a data element</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes that indicate the meaning of a data element.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/observation-codes</Data></Cell>
@@ -7407,8 +7408,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7476,7 +7476,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Error</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">If the constraint is violated, the resource is not conformant</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">If the constraint is violated, the resource is not conformant.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
@@ -8037,8 +8037,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8105,7 +8104,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Closed</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">No additional content is allowed other than that described by the slices in this profile</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">No additional content is allowed other than that described by the slices in this profile.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
@@ -8116,7 +8115,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Open</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Additional content is allowed anywhere in the list</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Additional content is allowed anywhere in the list.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -8127,7 +8126,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Open at End</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be ordered, which makes it hard to share uses. This should only be done where absolutely required</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be ordered, which makes it hard to share uses. This should only be done where absolutely required.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">This can only be used where the slice list is ordered</Data></Cell>
@@ -8666,8 +8665,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8734,7 +8732,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Contained</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The reference is a local reference to a contained resource</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">The reference is a local reference to a contained resource.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
@@ -8745,7 +8743,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Referenced</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The reference to a resource that has to be resolved externally to the resource that includes the reference</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The reference to a resource that has to be resolved externally to the resource that includes the reference.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -8756,7 +8754,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">#2</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Bundled</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The resource the reference points to will be found in the same bundle as the resource that includes the reference</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The resource the reference points to will be found in the same bundle as the resource that includes the reference.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">This can only be used if the profile is specifying a bundle</Data></Cell>
@@ -9295,8 +9293,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9363,7 +9360,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">XML Attirbute</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">In XML, this property is represented as an attribute not an element</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">In XML, this property is represented as an attribute not an element.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"><Data ss:Type="String">This is only used for extension.url</Data></Cell>
@@ -9924,8 +9921,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

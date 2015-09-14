@@ -19,7 +19,7 @@
   Binding Name = DetectedIssueSeverity
   Binding = code list
   Reference = #detectedissue-severity
-  Definition = Indicates the potential degree of impact of the identified issue on the patient
+  Definition = Indicates the potential degree of impact of the identified issue on the patient.
   Conformance = required
   v3 = http://hl7.org/fhir/ValueSet/v3-SeverityObservation
 
@@ -29,21 +29,21 @@
   Id = 1
   Code = high
   Display = High
-  Definition = Indicates the issue may be life-threatening or has the potential to cause permanent injury
+  Definition = Indicates the issue may be life-threatening or has the potential to cause permanent injury.
   v3 = =ObservationValue.H
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = moderate
   Display = Moderate
-  Definition = Indicates the issue may result in noticable adverse adverse consequences but is unlikely to be life-threatening or cause permanent injury
+  Definition = Indicates the issue may result in noticable adverse adverse consequences but is unlikely to be life-threatening or cause permanent injury.
   v3 = =ObservationValue.M
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = low
   Display = Low
-  Definition = Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the situation of the subjec
+  Definition = Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the situation of the subject.
   v3 = =ObservationValue.L
 
 === Sheet Invariants =====================================

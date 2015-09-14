@@ -5,7 +5,7 @@
   Binding Name = FamilialRelationship
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-FamilyMember
-  Definition = The nature of the relationship between the patient and the related person being described in the family member history
+  Definition = The nature of the relationship between the patient and the related person being described in the family member history.
   Conformance = example
 
  -- Row 2 -----------------------------------
@@ -19,7 +19,7 @@
   Binding Name = FamilyHistoryStatus
   Binding = code list
   Reference = #history-status
-  Definition = A code that identifies the status of the family history record
+  Definition = A code that identifies the status of the family history record.
 
  -- Row 4 -----------------------------------
   Binding Name = ConditionCode
@@ -34,28 +34,28 @@
   Id = 1
   Code = partial
   Display = Partial
-  Definition = Some health information is known and captured, but not complete - see notes for details
+  Definition = Some health information is known and captured, but not complete - see notes for details.
   v3 = ActStatus.active
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = completed
   Display = Completed
-  Definition = All relevant health information is known and captured
+  Definition = All relevant health information is known and captured.
   v3 = ActStatus.completed
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = entered-in-error
   Display = Entered in error
-  Definition = This instance should not have been part of this patient\'s medical record
+  Definition = This instance should not have been part of this patient\'s medical record.
   v3 = ActStatus.nullified
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = health-unknown
   Display = Health unknown
-  Definition = Health information for this individual is unavailable/unknown
+  Definition = Health information for this individual is unavailable/unknown.
 
 === Sheet Invariants =====================================
 

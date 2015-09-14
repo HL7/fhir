@@ -48,21 +48,21 @@
   Binding Name = PatientDiet
   Binding = value set
   Reference = valueset-encounter-diet
-  Definition = Medical, cultural or ethical food preferences to help with catering requirements
+  Definition = Medical, cultural or ethical food preferences to help with catering requirements.
   Conformance = example
 
  -- Row 8 -----------------------------------
   Binding Name = Priority
   Binding = value set
   Reference = valueset-encounter-priority
-  Definition = Indicates the urgency of the encounter
+  Definition = Indicates the urgency of the encounter.
   Conformance = example
 
  -- Row 9 -----------------------------------
   Binding Name = AdmitSource
   Binding = value set
   Reference = valueset-encounter-admit-source
-  Definition = From where the patient was admitted
+  Definition = From where the patient was admitted.
   Conformance = preferred
 
  -- Row 10 -----------------------------------
@@ -76,20 +76,20 @@
   Binding Name = EncounterReason
   Binding = value set
   Reference = valueset-encounter-reason
-  Definition = Reason why the encounter takes place
+  Definition = Reason why the encounter takes place.
   Conformance = example
 
  -- Row 12 -----------------------------------
   Binding Name = EncounterLocationStatus
   Binding = code list
   Reference = #encounter-location-status
-  Definition = The status of the location
+  Definition = The status of the location.
   Conformance = required
 
  -- Row 13 -----------------------------------
   Binding Name = ReAdmissionType
   Binding = unbound
-  Definition = The reason for re-admission of this hospitalization encounter
+  Definition = The reason for re-admission of this hospitalization encounter.
 
 === Sheet encounter-state =====================================
 
@@ -97,37 +97,37 @@
   Id = 1
   Code = planned
   Display = Planned
-  Definition = The Encounter has not yet started
+  Definition = The Encounter has not yet started.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = arrived
   Display = Arrived
-  Definition = The Patient is present for the encounter, however is not currently meeting with a practitioner
+  Definition = The Patient is present for the encounter, however is not currently meeting with a practitioner.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = in-progress
   Display = in Progress
-  Definition = The Encounter has begun and the patient is present / the practitioner and the patient are meeting
+  Definition = The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = onleave
   Display = On Leave
-  Definition = The Encounter has begun, but the patient is temporarily on leave
+  Definition = The Encounter has begun, but the patient is temporarily on leave.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = finished
   Display = Finished
-  Definition = The Encounter has ended
+  Definition = The Encounter has ended.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = cancelled
   Display = Cancelled
-  Definition = The Encounter has ended before it has begun
+  Definition = The Encounter has ended before it has begun.
 
 === Sheet encounter-class =====================================
 
@@ -135,55 +135,55 @@
   Id = 1
   Code = inpatient
   Display = Inpatient
-  Definition = An encounter during which the patient is hospitalized and stays overnight
+  Definition = An encounter during which the patient is hospitalized and stays overnight.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = outpatient
   Display = Outpatient
-  Definition = An encounter during which the patient is not hospitalized overnight
+  Definition = An encounter during which the patient is not hospitalized overnight.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = ambulatory
   Display = Ambulatory
-  Definition = An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit
+  Definition = An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = emergency
   Display = Emergency
-  Definition = An encounter in the Emergency Care Department
+  Definition = An encounter in the Emergency Care Department.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = home
   Display = Home
-  Definition = An encounter where the practitioner visits the patient at his/her home
+  Definition = An encounter where the practitioner visits the patient at his/her home.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = field
   Display = Field
-  Definition = An encounter taking place outside the regular environment for giving care
+  Definition = An encounter taking place outside the regular environment for giving care.
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = daytime
   Display = Daytime
-  Definition = An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight
+  Definition = An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = virtual
   Display = Virtual
-  Definition = An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact
+  Definition = An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = other
   Display = Other
-  Definition = Any other encounter type that is not described by one of the other values. Where this is used it is expected that an implementer will include an extension value to define what the actual other type is
+  Definition = Any other encounter type that is not described by one of the other values. Where this is used it is expected that an implementer will include an extension value to define what the actual other type is.
 
 === Sheet encounter-location-status =====================================
 
@@ -191,25 +191,25 @@
   Id = 1
   Code = planned
   Display = Planned
-  Definition = The patient is planned to be moved to this location at some point in the future
+  Definition = The patient is planned to be moved to this location at some point in the future.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = active
   Display = Active
-  Definition = The patient is currently at this location, or was between the period specified\n\nA system may update these records when the patient leaves the location to either reserved, or completed
+  Definition = The patient is currently at this location, or was between the period specified.\n\nA system may update these records when the patient leaves the location to either reserved, or completed
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = reserved
   Display = Reserved
-  Definition = This location is held empty for this patient
+  Definition = This location is held empty for this patient.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = completed
   Display = Completed
-  Definition = The patient was at this location during the period specified\n\nNot to be used when the patient is currently at the location
+  Definition = The patient was at this location during the period specified.\n\nNot to be used when the patient is currently at the location
 
 === Sheet Invariants =====================================
 
@@ -348,7 +348,7 @@
   Type = CodeableConcept
   Binding = ParticipantType
   Short Label = Role of participant in encounter
-  Comments = The Participant Type indicates how an individual parcitipates in an encounter. It includes non practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the Practitioner Roles which are functional roles, derived from terms of employment, education, licensing, etc
+  Comments = The Participant Type indicates how an individual parcitipates in an encounter. It includes non practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the Practitioner Roles which are functional roles, derived from terms of employment, education, licensing, etc.
   v2 Mapping = ROL-3
   RIM Mapping = .functionCode
 
@@ -542,7 +542,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = Arrangements
-  Short Label = Wheelchair, translator, stretcher, etc
+  Short Label = Wheelchair, translator, stretcher, etc.
   v2 Mapping = PV1-15-ambulatory status / OBR-30-transportation mode / OBR-43-planned patient transport comment
   RIM Mapping = .specialArrangementCode
 

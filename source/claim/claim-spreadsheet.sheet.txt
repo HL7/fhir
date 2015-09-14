@@ -26,28 +26,28 @@
   Binding Name = ICD10
   Binding = value set
   Reference = valueset-icd-10
-  Definition = ICD10 Diagnostic codes
+  Definition = ICD10 diagnostic codes.
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = Intervention
   Binding = value set
   Reference = valueset-intervention
-  Definition = Intervention and exception codes (Pharm)
+  Definition = Intervention and exception codes (Pharm).
   Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = MissingReason
   Binding = value set
   Reference = valueset-missing-tooth-reason
-  Definition = Reason codes for the missing teeth
+  Definition = Reason codes for the missing teeth.
   Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = Modifiers
   Binding = value set
   Reference = valueset-claim-modifiers
-  Definition = Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
+  Definition = Item type or modifiers codes, e.g. for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
   Conformance = example
 
  -- Row 8 -----------------------------------
@@ -61,7 +61,7 @@
   Binding Name = OralSites
   Binding = value set
   Reference = valueset-tooth
-  Definition = The code for the teeth, quadrant, sextant and arch
+  Definition = The code for the teeth, quadrant, sextant and arch.
   Conformance = example
 
  -- Row 10 -----------------------------------
@@ -75,21 +75,21 @@
   Binding Name = ServiceProduct
   Binding = value set
   Reference = valueset-service-uscls
-  Definition = Allowable service and product codes
+  Definition = Allowable service and product codes.
   Conformance = example
 
  -- Row 12 -----------------------------------
   Binding Name = Use
   Binding = code list
   Reference = #claim-use-link
-  Definition = Complete, proposed, exploratory, other
+  Definition = Complete, proposed, exploratory, other.
   Conformance = required
 
  -- Row 13 -----------------------------------
   Binding Name = Surface
   Binding = value set
   Reference = valueset-surface
-  Definition = The code for the tooth surface and surface combinations
+  Definition = The code for the tooth surface and surface combinations.
   Conformance = example
 
  -- Row 14 -----------------------------------
@@ -103,14 +103,14 @@
   Binding Name = Tooth
   Binding = value set
   Reference = valueset-teeth
-  Definition = The codes for the teeth, subset of OralSites
+  Definition = The codes for the teeth, subset of OralSites.
   Conformance = example
 
  -- Row 16 -----------------------------------
   Binding Name = ProcessPriority
   Binding = value set
   Reference = valueset-process-priority
-  Definition = The timeliness with which processing is required: STAT, normal, Deferred
+  Definition = The timeliness with which processing is required: STAT, Normal, Deferred.
   Conformance = example
 
  -- Row 17 -----------------------------------
@@ -124,28 +124,28 @@
   Binding Name = Conditions
   Binding = value set
   Reference = valueset-fm-conditions
-  Definition = Patient conditions and symptoms
+  Definition = Patient conditions and symptoms.
   Conformance = example
 
  -- Row 19 -----------------------------------
   Binding Name = ClaimType
   Binding = code list
   Reference = #claim-type-link
-  Definition = The type or discipline-style of the claim
+  Definition = The type or discipline-style of the claim.
   Conformance = required
 
  -- Row 20 -----------------------------------
   Binding Name = MedServiceProduct
   Binding = value set
   Reference = valueset-service-product
-  Definition = Allowable service and product codes
+  Definition = Allowable service and product codes.
   Conformance = example
 
  -- Row 21 -----------------------------------
   Binding Name = PharmacyServiceProduct
   Binding = value set
   Reference = valueset-service-pharmacy
-  Definition = Allowable service and product codes
+  Definition = Allowable service and product codes.
   Conformance = example
 
 === Sheet claim-use-link =====================================
@@ -204,7 +204,7 @@
   Id = 5
   Code = vision
   Display = Vision
-  Definition = A claim for Vision (Opthamologist, Optometrist and Optician) goods and services.
+  Definition = A claim for Vision (Ophthamologist, Optometrist and Optician) goods and services.
 
 === Sheet Invariants =====================================
 
@@ -530,7 +530,7 @@
   Card. = 0..1
   Type = string
   Short Label = Name of School
-  Definition = Name of school for over-aged dependants.
+  Definition = Name of school for over-aged dependents.
   Requirements = Often required for over-age dependents
 
  -- Row 47 -----------------------------------
@@ -539,7 +539,7 @@
   Type = date
   Short Label = Accident Date
   Definition = Date of an accident which these services are addressing.
-  Requirements = Coverage may be dependant on accidents.
+  Requirements = Coverage may be dependent on accidents.
 
  -- Row 48 -----------------------------------
   Element = Claim.accidentType
@@ -548,7 +548,7 @@
   Binding = AccidentType
   Short Label = Accident Type
   Definition = Type of accident: work, auto, etc.
-  Requirements = Coverage may be dependant on the type of accident.
+  Requirements = Coverage may be dependent on the type of accident.
 
  -- Row 49 -----------------------------------
   Element = Claim.interventionException
@@ -649,7 +649,7 @@
   Card. = 0..1
   Type = Money
   Short Label = Total item cost
-  Definition = The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+  Definition = The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
   Requirements = If a fee is present the associated product/service code must be present
 
  -- Row 63 -----------------------------------
@@ -675,7 +675,7 @@
   Type = Coding
   Binding = Surface
   Short Label = Service Sub-location
-  Definition = A region or surface of the site, eg. limb region or tooth surface(s).
+  Definition = A region or surface of the site, e.g. limb region or tooth surface(s).
 
  -- Row 66 -----------------------------------
   Element = Claim.item.modifier
@@ -683,7 +683,7 @@
   Type = Coding
   Binding = Modifiers
   Short Label = Service/Product billing modifiers
-  Definition = Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
+  Definition = Item typification or modifiers codes, e.g. for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
   Requirements = May impact on adjudication.
 
  -- Row 67 -----------------------------------
@@ -756,7 +756,7 @@
   Card. = 0..1
   Type = Money
   Short Label = Total additional item cost
-  Definition = The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+  Definition = The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
   Requirements = If a fee is present the associated product/service code must be present
 
  -- Row 77 -----------------------------------
@@ -800,7 +800,7 @@
   Type = Coding
   Binding = ServiceProduct
   Short Label = Additional item codes
-  Definition = The fee for an additional  service or product or charge.
+  Definition = The fee for an additional service or product or charge.
 
  -- Row 83 -----------------------------------
   Element = Claim.item.detail.subDetail.quantity
@@ -814,7 +814,7 @@
   Card. = 0..1
   Type = Money
   Short Label = Fee, charge or cost per point
-  Definition = The fee for an additional  service or product or charge.
+  Definition = The fee for an additional service or product or charge.
   Requirements = If a fee is present the associated product/service code must be present
 
  -- Row 85 -----------------------------------
@@ -838,7 +838,7 @@
   Card. = 0..1
   Type = Money
   Short Label = Net additional item cost
-  Definition = The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+  Definition = The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
   Requirements = If a fee is present the associated product/service code must be present
 
  -- Row 88 -----------------------------------

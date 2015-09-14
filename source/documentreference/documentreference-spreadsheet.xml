@@ -10,17 +10,17 @@
   <LastAuthor>Moehrke, John (GE Healthcare)</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-28T21:20:54Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3660,7 +3660,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6227,7 +6226,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s94"><Data ss:Type="String">DocumentC80Type</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Precice type of clinical document</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Precice type of clinical document.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell><Data ss:Type="String">Preferred</Data></Cell>
@@ -6243,7 +6242,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s94"><Data ss:Type="String">DocumentC80Class</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">High-level kind of a clinical document at a macro level</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">High-level kind of a clinical document at a macro level.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell><Data ss:Type="String">example</Data></Cell>
@@ -6259,7 +6258,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s94"><Data ss:Type="String">DocumentC80FacilityType</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">XDS Facility Type</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">XDS Facility Type.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell><Data ss:Type="String">example</Data></Cell>
@@ -6275,7 +6274,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s94"><Data ss:Type="String">ReferredDocumentStatus</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Status of the underlying document</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Status of the underlying document.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell><Data ss:Type="String">Required</Data></Cell>
@@ -6292,7 +6291,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s94"><Data ss:Type="String">DocumentRelationshipType</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of relationship between documents</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of relationship between documents.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell><Data ss:Type="String">Required</Data></Cell>
@@ -6308,7 +6307,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s88"><Data ss:Type="String">DocumentC80PracticeSetting</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Additional details about where the content was created (e.g. clinical specialty)</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Additional details about where the content was created (e.g. clinical specialty).</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell><Data ss:Type="String">example</Data></Cell>
@@ -6324,7 +6323,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s94"><Data ss:Type="String">DocumentFormat</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Document Format Codes</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Document Format Codes.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell><Data ss:Type="String">Preferred</Data></Cell>
@@ -6340,7 +6339,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s94"><Data ss:Type="String">DocumentEventType</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">This list of codes represents the main clinical acts being documented</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">This list of codes represents the main clinical acts being documented.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActCode</Data></Cell>
@@ -6693,8 +6692,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6762,7 +6760,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Replaces</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">This document logically replaces or supersedes the target document</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">This document logically replaces or supersedes the target document.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">~ActRelationship.RPLC</Data></Cell>
     <Cell ss:StyleID="s140"/>
@@ -6773,7 +6771,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Transforms</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">This document was generated by transforming the target document (e.g. format or language conversion)</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This document was generated by transforming the target document (e.g. format or language conversion).</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">~ActRelationship.XFRM</Data></Cell>
     <Cell ss:StyleID="s142"/>
@@ -6784,7 +6782,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Signs</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">This document is a signature of the target document</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This document is a signature of the target document.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6795,7 +6793,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Appends</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">This document adds additional information to the target document</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This document adds additional information to the target document.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">~ActRelationship.APND</Data></Cell>
     <Cell ss:StyleID="s142"/>
@@ -7304,6 +7302,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7323,8 +7322,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>35</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

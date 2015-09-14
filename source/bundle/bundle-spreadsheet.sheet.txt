@@ -5,19 +5,19 @@
   Binding Name = BundleType
   Binding = code list
   Reference = #bundle-type
-  Definition = Indicates the purpose of a bundle - how it was intended to be used
+  Definition = Indicates the purpose of a bundle - how it was intended to be used.
 
  -- Row 2 -----------------------------------
   Binding Name = SearchEntryMode
   Binding = code list
   Reference = #search-entry-mode
-  Definition = Why an entry is in the result set - whether it\'s included as a match or because of an _include requirement
+  Definition = Why an entry is in the result set - whether it\'s included as a match or because of an _include requirement.
 
  -- Row 3 -----------------------------------
   Binding Name = HTTPVerb
   Binding = code list
   Reference = #http-verb
-  Definition = HTTP verbs (in the HTTP command line)
+  Definition = HTTP verbs (in the HTTP command line).
 
 === Sheet bundle-type =====================================
 
@@ -25,55 +25,55 @@
   Id = 1
   Code = document
   Display = Document
-  Definition = The bundle is a document. The first resource is a Composition
+  Definition = The bundle is a document. The first resource is a Composition.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = message
   Display = Message
-  Definition = The bundle is a message. The first resource is a MessageHeader
+  Definition = The bundle is a message. The first resource is a MessageHeader.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = transaction
   Display = Transaction
-  Definition = The bundle is a transaction - intended to be processed by a server as an atomic commit
+  Definition = The bundle is a transaction - intended to be processed by a server as an atomic commit.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = transaction-response
   Display = Transaction Response
-  Definition = The bundle is a transaction response. Because the response is a transaction response, the transactionhas succeeded, and all responses are error free
+  Definition = The bundle is a transaction response. Because the response is a transaction response, the transactionhas succeeded, and all responses are error free.
 
  -- Row 5 -----------------------------------
   Id = 8
   Code = batch
   Display = Batch
-  Definition = The bundle is a transaction - intended to be processed by a server as a group of actions
+  Definition = The bundle is a transaction - intended to be processed by a server as a group of actions.
 
  -- Row 6 -----------------------------------
   Id = 9
   Code = batch-response
   Display = Batch Response
-  Definition = The bundle is a batch response. Note that as a batch, some responses may indicate failure and others success
+  Definition = The bundle is a batch response. Note that as a batch, some responses may indicate failure and others success.
 
  -- Row 7 -----------------------------------
   Id = 5
   Code = history
   Display = History List
-  Definition = The bundle is a list of resources from a _history interaction on a server
+  Definition = The bundle is a list of resources from a history interaction on a server.
 
  -- Row 8 -----------------------------------
   Id = 6
   Code = searchset
   Display = Search Results
-  Definition = The bundle is a list of resources returned as a result of a search/query interaction, operation, or message
+  Definition = The bundle is a list of resources returned as a result of a search/query interaction, operation, or message.
 
  -- Row 9 -----------------------------------
   Id = 7
   Code = collection
   Display = Collection
-  Definition = The bundle is a set of resources collected into a single document for ease of distribution
+  Definition = The bundle is a set of resources collected into a single document for ease of distribution.
 
 === Sheet search-entry-mode =====================================
 
@@ -81,19 +81,19 @@
   Id = 1
   Code = match
   Display = Match
-  Definition = This resource matched the search specification
+  Definition = This resource matched the search specification.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = include
   Display = Include
-  Definition = This resource is returned because it is referred to from another resource in the search set
+  Definition = This resource is returned because it is referred to from another resource in the search set.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = outcome
   Display = Outcome
-  Definition = An OperationOutcome that provides additional information about the processing of a search
+  Definition = An OperationOutcome that provides additional information about the processing of a search.
 
 === Sheet http-verb =====================================
 

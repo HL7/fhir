@@ -10,7 +10,7 @@
   <LastAuthor>Richard J. Ettema (AEGIS.net)</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-31T16:43:24Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,8 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>673</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6264,7 +6265,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8007,7 +8007,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s155"><Data ss:Type="String">!FHIRDefinedType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">FHIR Defined Types</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The FHIR defined types.</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">http://hl7.org/fhir/defined-types</Data></Cell>
@@ -8424,6 +8424,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8513,7 +8514,7 @@
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">response</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">Default value. Assertion is evaluated on the response.</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">The assertion is evaluated on the response. This is the default value.</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s159"/>
@@ -8524,7 +8525,7 @@
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">request</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Not equals comparison.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">The assertion is evaluated on the request.</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s150"/>
@@ -10132,7 +10133,7 @@
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">xml</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">XML content-type corresponding to the application/xml+fhir mime-type</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">XML content-type corresponding to the application/xml+fhir mime-type.</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s159"/>
@@ -10143,7 +10144,7 @@
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">json</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">JSON content-type corresponding to the application/json+fhir mime-type</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">JSON content-type corresponding to the application/json+fhir mime-type.</Data></Cell>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s150"/>

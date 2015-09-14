@@ -6,6 +6,7 @@
   Binding = code list
   Reference = #address-use
   Definition = The use of an address
+  Description = The use of an address (home / work / etc.).
   v2 = http://hl7.org/fhir/ValueSet/v2-0190
   v3 = AddressUse
 
@@ -14,6 +15,7 @@
   Binding = code list
   Reference = #address-type
   Definition = The type of an address (physical / postal)
+  Description = The type of an address (physical / postal).
   v3 = AddressUse
 
 === Sheet address-use =====================================
@@ -22,7 +24,7 @@
   Id = 1
   Code = home
   Display = Home
-  Definition = A communication address at a home
+  Definition = A communication address at a home.
   v2 = ~0190.H
   v3 = =AddressUse.H
 
@@ -30,7 +32,7 @@
   Id = 2
   Code = work
   Display = Work
-  Definition = An office address. First choice for business related contacts during business hours
+  Definition = An office address. First choice for business related contacts during business hours.
   v2 = ~0190.O
   v3 = =AddressUse.WP
 
@@ -38,7 +40,7 @@
   Id = 3
   Code = temp
   Display = Temporary
-  Definition = A temporary address. The period can provide more detailed information
+  Definition = A temporary address. The period can provide more detailed information.
   v2 = ~0190.C
   v3 = =AddressUse.TMP
 
@@ -46,7 +48,7 @@
   Id = 4
   Code = old
   Display = Old / Incorrect
-  Definition = This address is no longer in use (or was never correct, but retained for records)
+  Definition = This address is no longer in use (or was never correct, but retained for records).
   v2 = >0190.BA (unclear about old addresses)
   v3 = >AddressUse.OLD(Bad or Old),>AddressUse.BAD(Bad or Old)
 
@@ -56,7 +58,7 @@
   Id = 1
   Code = postal
   Display = Postal
-  Definition = Mailing addresses - PO Boxes and care-of addresses
+  Definition = Mailing addresses - PO Boxes and care-of addresses.
   v2 = =0617.M
   v3 = =AddressUse.PHYS
 
@@ -64,7 +66,7 @@
   Id = 2
   Code = physical
   Display = Physical
-  Definition = A physical address that can be visited
+  Definition = A physical address that can be visited.
   v2 = =0617.V
   v3 = =AddressUse.PST
 
@@ -72,7 +74,7 @@
   Id = 3
   Code = both
   Display = Postal & Physical
-  Definition = An address that is both physical and postal
+  Definition = An address that is both physical and postal.
 
 === Sheet Invariants =====================================
 
@@ -134,7 +136,7 @@
   Element = Address.line
   Card. = 0..*
   Type = string
-  Short Label = Street name, number, direction & P.O. Box etc
+  Short Label = Street name, number, direction & P.O. Box etc.
   Definition = This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information
   Requirements = home | work | temp | old - purpose of this address
   vCard Mapping = street

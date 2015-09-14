@@ -5,35 +5,35 @@
   Binding Name = CompositionSectionType
   Binding = value set
   Reference = valueset-doc-section-codes
-  Definition = Classification of a section of a composition / document
+  Definition = Classification of a section of a composition / document.
   Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = CompositionAttestationMode
   Binding = code list
   Reference = #composition-attestation-mode
-  Definition = The way in which a person authenticated a composition
+  Definition = The way in which a person authenticated a composition.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = DocumentType
   Binding = value set
   Reference = valueset-doc-typecodes
-  Definition = Type of a composition
+  Definition = Type of a composition.
   Conformance = preferred
 
  -- Row 4 -----------------------------------
   Binding Name = DocumentConfidentiality
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-Confidentiality
-  Definition = Codes specifying the level of confidentiality of the composition
+  Definition = Codes specifying the level of confidentiality of the composition.
   Conformance = required
 
  -- Row 5 -----------------------------------
   Binding Name = CompositionStatus
   Binding = code list
   Reference = #composition-status
-  Definition = The workflow/clinical status of the composition
+  Definition = The workflow/clinical status of the composition.
   Conformance = required
   v3 = ActStatus
 
@@ -41,35 +41,35 @@
   Binding Name = DocumentEventType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ActCode
-  Definition = This list of codes represents the main clinical acts being documented
+  Definition = This list of codes represents the main clinical acts being documented.
   Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = DocumentClass
   Binding = value set
   Reference = valueset-doc-classcodes
-  Definition = High-level kind of a clinical document at a macro level
+  Definition = High-level kind of a clinical document at a macro level.
   Conformance = example
 
  -- Row 8 -----------------------------------
   Binding Name = SectionMode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/list-mode
-  Definition = The processing mode that applies to this section
+  Definition = The processing mode that applies to this section.
   Conformance = required
 
  -- Row 9 -----------------------------------
   Binding Name = SectionEmptyReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/list-empty-reason
-  Definition = If a section is empty, why it is empty
+  Definition = If a section is empty, why it is empty.
   Conformance = preferred
 
  -- Row 10 -----------------------------------
   Binding Name = SectionEntryOrder
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/list-order
-  Definition = What order applies to the items in the entry
+  Definition = What order applies to the items in the entry.
   Conformance = preferred
 
 === Sheet composition-attestation-mode =====================================
@@ -78,25 +78,25 @@
   Id = 1
   Code = personal
   Display = Personal
-  Definition = The person authenticated the content in their personal capacity
+  Definition = The person authenticated the content in their personal capacity.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = professional
   Display = Professional
-  Definition = The person authenticated the content in their professional capacity
+  Definition = The person authenticated the content in their professional capacity.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = legal
   Display = Legal
-  Definition = The person authenticated the content and accepted legal responsibility for its content
+  Definition = The person authenticated the content and accepted legal responsibility for its content.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = official
   Display = Official
-  Definition = The organization authenticated the content as consistent with their policies and procedures
+  Definition = The organization authenticated the content as consistent with their policies and procedures.
 
 === Sheet composition-status =====================================
 
@@ -104,7 +104,7 @@
   Id = 1
   Code = preliminary
   Display = Preliminary
-  Definition = This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified
+  Definition = This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.
   v3 = ~ActStatus.active
 
  -- Row 2 -----------------------------------
@@ -118,14 +118,14 @@
   Id = 4
   Code = amended
   Display = Amended
-  Definition = The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as \"final\" and the composition is complete and verified by an authorized person
+  Definition = The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as \"final\" and the composition is complete and verified by an authorized person.
   v3 = <ActStatus.completed
 
  -- Row 4 -----------------------------------
   Id = 5
   Code = entered-in-error
   Display = Entered in Error
-  Definition = The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid
+  Definition = The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.
   v3 = ~ActStatus.nullified
 
 === Sheet Invariants =====================================

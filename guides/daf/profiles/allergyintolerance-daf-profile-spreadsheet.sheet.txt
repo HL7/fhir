@@ -90,13 +90,9 @@
   Binding = manifestation-ccda-codes
 
  -- Row 15 -----------------------------------
-  Element = AllergyIntolerance.reaction.severity
-  Must Support = Y
-
- -- Row 16 -----------------------------------
   Element = !AllergyIntolerance.reaction.exposureRoute
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = !AllergyIntolerance.reaction.notes
 
 === Sheet Search =====================================

@@ -5,7 +5,7 @@
   Binding Name = ActionList
   Binding = code list
   Reference = #actionlist
-  Definition = List of allowable action which this resource can request
+  Definition = List of allowable action which this resource can request.
 
 === Sheet actionlist =====================================
 
@@ -13,13 +13,13 @@
   Id = 1
   Code = cancel
   Display = Cancel, Reverse or Nullify
-  Definition = Cancel, Reverse or nullify the target resource.
+  Definition = Cancel, reverse or nullify the target resource.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = poll
   Display = Poll
-  Definition = Check for previously un-read/ not-retrieved resources
+  Definition = Check for previously un-read/ not-retrieved resources.
 
  -- Row 3 -----------------------------------
   Id = 3
