@@ -9,7 +9,7 @@
   Conformance = preferred
 
  -- Row 2 -----------------------------------
-  Binding Name = QICorePractitionerSpecialty
+  Binding Name = !QICorePractitionerSpecialty
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/practitioner-specialty
   Conformance = example
@@ -50,7 +50,7 @@
  -- Row 5 -----------------------------------
   Element = ReferralRequest.specialty
   Must Support = Y
-  Binding = QICorePractitionerSpecialty
+  Binding = !QICorePractitionerSpecialty
   QDM Mapping = primary code
 
  -- Row 6 -----------------------------------

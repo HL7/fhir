@@ -12,8 +12,7 @@
   Binding Name = QICoreReasonRejected
   Binding = value set
   Reference = valueset-goal-reason-rejected
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = QICoreObservationName
