@@ -124,7 +124,7 @@
   Short Label = If this document manifest replaces another
   Definition = Whether this document manifest replaces another
   RIM Mapping = .outboundRelationship[typeCode=RPLC].target
-  To Do = is this 80%? Specifically how is this to be used? How is it diffeent than normal resource versioning?
+  To Do = is this 80%? Specifically how is this to be used? How is it different than normal resource versioning?
 
  -- Row 12 -----------------------------------
   Element = DocumentManifest.description
@@ -147,7 +147,7 @@
   Definition = A code specifying the level of confidentiality of this set of Documents
   Comments = The document set is at least as confidential as the most confidential of the documents in it
   RIM Mapping = .confidentialityCode
-  To Do = is this 80%? Specifically how is this to be used? How is it diffeent than the security tags in the Base Resource Definition.
+  To Do = is this 80%? Specifically how is this to be used? How is it different than the security tags in the Base Resource Definition.
 
  -- Row 14 -----------------------------------
   Element = DocumentManifest.content

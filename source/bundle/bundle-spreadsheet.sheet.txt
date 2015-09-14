@@ -334,7 +334,7 @@
   Type = uri
   Short Label = URL for HTTP equivalent of this entry
   Definition = The URL for this entry, relative to the root (the address to which the request is posted)
-  Comments = E.g. for a Patient Create, the method would be \"POST\" and the url would be \"Patient\". For a Patient Update, the method would be PUT, and the url would be \"Patient/[id]\"
+  Comments = E.g. for a Patient Create, the method would be \"POST\" and the URL would be \"Patient\". For a Patient Update, the method would be PUT, and the URL would be \"Patient/[id]\"
 
  -- Row 17 -----------------------------------
   Element = Bundle.entry.request.ifNoneMatch

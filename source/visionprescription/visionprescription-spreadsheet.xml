@@ -945,7 +945,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Prescription for Vision correction products for a patient</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Prescription for vision correction products for a patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">An authorization for the supply of glasses and/or contact lenses to a patient.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1043,7 +1043,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Who prescription is for</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A link to a resource representing the person to whom the Vision products will be supplied.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A link to a resource representing the person to whom the vision products will be supplied.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1073,7 +1073,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Who authorizes the Vision product</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Who authorizes the vision product</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The healthcare professional responsible for authorizing the prescription</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1203,7 +1203,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Product to be supplied</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the type of Vision correction product which is required for the patient.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the type of vision correction product which is required for the patient.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1445,7 +1445,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Contact Lens power</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Contact lens power</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Contact lens power measured in diopters (0.25 units).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1477,7 +1477,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Contact lens back curvature</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Back Curvature measured in millimeters.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Back curvature measured in millimeters.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1505,7 +1505,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Contact Lens diameter</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Contact lens diameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Contact lens diameter measured in millimeters.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5553,7 +5553,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s145"><Data ss:Type="String">VisionProduct</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A coded concept describing the Vision products.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A coded concept describing the vision products.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">valueset-vision-product</Data></Cell>

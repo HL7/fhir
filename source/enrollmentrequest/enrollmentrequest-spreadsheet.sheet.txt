@@ -20,7 +20,7 @@
   Card. = 0..*
   Type = Identifier
   Short Label = Business Identifier
-  Definition = The Response Business Identifier
+  Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
   Element = EnrollmentRequest.ruleset
@@ -97,7 +97,7 @@
   Binding = Relationship
   Short Label = Patient relationship to subscriber
   Definition = The relationship of the patient to the subscriber
-  Requirements = To determine relationship between the patient and the subscriber
+  Requirements = To determine the relationship between the patient and the subscriber
   CDAnet v4 Mapping = C03
 
 === Sheet Search =====================================

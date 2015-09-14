@@ -1226,7 +1226,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The workflow status of the nutrition order/request.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Typically the system placing the order sets the status to requested. There after, the order is maintained by the receiver that updates the status as the request is handled.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Typically the system placing the order sets the status to "requested". There after, the order is maintained by the receiver that updates the status as the request is handled.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">.statusCode </Data><NamedCell

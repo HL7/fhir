@@ -167,7 +167,7 @@
   Card. = 0..1
   Type = dateTime
   Short Label = Date for this version of the operation definition
-  Definition = The date that this version of the profile was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes
+  Definition = The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
 

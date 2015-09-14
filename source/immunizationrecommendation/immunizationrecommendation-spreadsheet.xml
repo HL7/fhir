@@ -1603,7 +1603,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">OBX If OBX is associated with ( RXA : RXA-5-administered code = '998^No vaccine administered^CVX' ), could contain the reason the vaccine was not administered </Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBX If OBX is associated with ( RXA : RXA-5-administered code = '998^No vaccine administered^CVX'), could contain the reason the vaccine was not administered </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -240,7 +240,7 @@ Notes:
 <ul>
   <li><b>HTTP/1.1 201</b> (line 1) - the operation was successful. Note that HTTP/1.1 is strongly recommended but not required</li>
   <li><b>ETag</b> (line 5) - used in the <a href="http.html#update">version aware update</a> pattern</li>
-  <li><b>Location</b> (line 6) - the id the server assigned to the resource. The id in the url must match the id in the resource when it is subsequently returned</li>
+  <li><b>Location</b> (line 6) - the id the server assigned to the resource. The id in the URL must match the id in the resource when it is subsequently returned</li>
   <li><b>operationOutcome</b> (line 9) - OperationOutcome resources in this context have no id or meta element (they have no managed identity)</li>
 </ul>
 
@@ -467,7 +467,7 @@ Here is an example of updating a patient:
 Notes:
 </p>
 <ul>
-  <li><b>resourceType</b> (line 1) - "Patient" in the url must match the resource type in the resource (line 9)</li>
+  <li><b>resourceType</b> (line 1) - "Patient" in the URL must match the resource type in the resource (line 9)</li>
   <li><b>resource id</b> (line 1, "347") - This must match the id in the resource (line 10)</li>
   <li><b>If-Match</b> (line 6) - if this is provided, it must match the value in meta.versionId (line 12), and the server must check the version integrity, or return 412 if it doesn't support versions</li>
   <li><b>meta.lastUpdated</b> (line 10) - This value is ignored, and will be updated by the server</li>

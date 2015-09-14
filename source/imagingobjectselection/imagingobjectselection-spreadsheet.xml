@@ -1210,7 +1210,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">Author (human or machine)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attached in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Track the selection decision maker. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1245,7 +1245,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Authoring time of the selection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Date and time when the selection of the referenced instances were made. It is (typically) diffeent from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image). </Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image). </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Date and time when the selection was made can be important to understand the content of selection.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1452,7 +1452,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Reference to the Imaging Study in FHIR form.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">used to retrieve the ImagingStudy that contain the images refenced in the Imaging ObjectSelection.study</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Used to retrieve the ImagingStudy that contain the images referenced in the Imaging ObjectSelection.study</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1482,11 +1482,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Series identity of the selected instances</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Series indentity and locating information of the DICOM SOP instances in the selection</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Series identity and locating information of the DICOM SOP instances in the selection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. In addition, the locator at the series level provide a means of retrieving the entire series</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Series component represents the series level indentity and locator information of the DICOM SOP instances in the selection.</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Series component represents the series level identity and locator information of the DICOM SOP instances in the selection.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1657,7 +1657,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. This is the instance level identity of the instance in the selection.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">SOP Instance component identify the instance selected in the selection, along with the study and series identities to form the DICOM identity hierachy.</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">SOP Instance component identify the instance selected, along with the study and series identities to form the DICOM identity hierachy.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1863,7 +1863,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Identity and location information of the frames in the selected instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">The specific set of frames referenced in this imaging object selection. The url retrieves the pixel data, and is encapsulated in a multipart MIME response.</Data><NamedCell
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The specific set of frames referenced in this imaging object selection. The URL retrieves the pixel data, and is encapsulated in a multipart MIME response.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">This component may be used if the referenced image SOP Instance is a multi-frame image.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1896,7 +1896,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">The frame numbers in the frame set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">one or more non-duplicate frame numbers in the selected instance.</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">One or more non-duplicate frame numbers in the selected instance.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>

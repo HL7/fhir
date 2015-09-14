@@ -54,14 +54,14 @@
   Type = code
   Binding = ActionList
   Short Label = cancel | poll | reprocess | status
-  Definition = The type of procesing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest
+  Definition = The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest
 
  -- Row 4 -----------------------------------
   Element = ProcessRequest.identifier
   Card. = 0..*
   Type = Identifier
   Short Label = Business Identifier
-  Definition = The ProcessRequest Business Identifier
+  Definition = The ProcessRequest business identifier
 
  -- Row 5 -----------------------------------
   Element = ProcessRequest.ruleset
@@ -92,7 +92,7 @@
   Card. = 0..1
   Type = Reference(Organization)
   Short Label = Target of the request
-  Definition = The organization which is target  of the request.
+  Definition = The organization which is the target of the request.
 
  -- Row 9 -----------------------------------
   Element = ProcessRequest.provider

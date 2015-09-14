@@ -74,7 +74,7 @@
   Aliases = StudyDate, StudyTime
   Type = dateTime
   Short Label = When the study was started
-  Definition = Date and Time the study started. Timezone Offset From UTC
+  Definition = Date and Time the study started
   DICOM Mapping = (0008,0020)+(0008,0030)
   RIM Mapping = .effectiveTime
   Example = 2011-01-01T11:01:20+03:00
@@ -111,7 +111,7 @@
   Aliases = AccessionNumber
   Type = Identifier
   Short Label = Related workflow identifier (\"Accession Number\")
-  Definition = Accession Number is an identifier related to some aspect of imaging workflow and data management, and usage may vary across different institutions.  See for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf)
+  Definition = Accession Number is an identifier related to some aspect of imaging workflow and data management. Usage may vary across different institutions.  See for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf)
   DICOM Mapping = (0008,0050)
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ACSN, moodCode=EVN].id
   Committee Notes = future consideration may address adding reference to encounter to ImagingStudy resource.
@@ -143,7 +143,7 @@
   Aliases = ModalitiesInStudy
   Type = Coding
   Binding = ImagingModality
-  Short Label = All series.modality if actual acquisition modalities
+  Short Label = All series modality if actual acquisition modalities
   Definition = A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)
   DICOM Mapping = (0008,0061)
   RIM Mapping = .code
@@ -391,7 +391,7 @@
   Type = Coding
   Binding = Laterality
   Short Label = Body part laterality
-  Definition = Laterality if bodySite is paired anatomic structure and laterality is not pre-coordinated in bodySite code.
+  Definition = Laterality if body site is paired anatomic structure and laterality is not pre-coordinated in body site code.
   DICOM Mapping = (0020,0060)
 
  -- Row 34 -----------------------------------
@@ -399,7 +399,7 @@
   Card. = 0..1
   Type = dateTime
   Short Label = When the series started
-  Definition = The date and time when the series was started.
+  Definition = The date and time the series was started.
   RIM Mapping = .effectiveTime
 
  -- Row 35 -----------------------------------

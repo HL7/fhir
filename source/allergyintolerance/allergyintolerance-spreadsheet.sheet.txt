@@ -153,7 +153,7 @@
   Id = 2
   Code = intolerance
   Display = Intolerance
-  Definition = Adverse reaction to a substance, not judged to be immune-mediated (non-allergic).  This can include (but is not limited to) pseudoallergic reactions, side effects, drug toxicities (eg to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions.
+  Definition = Adverse reaction to a substance, not judged to be immune-mediated (non-allergic).  This can include (but is not limited to) pseudoallergic reactions, side effects, drug toxicities (e.g. to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions.
 
 === Sheet allergy-intolerance-category =====================================
 

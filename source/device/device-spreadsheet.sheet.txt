@@ -44,8 +44,8 @@
  -- Row 1 -----------------------------------
   Element = Device
   Type = DomainResource
-  Short Label = An instance of a manufactured thing that is used in the provision of healthcare
-  Definition = This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non medical devices may includes things such as a machine, a cellphone, a computer, an application, etc.
+  Short Label = An instance of a manufactured te that is used in the provision of healthcare
+  Definition = This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
   Requirements = Allows institutions to track their devices.
   RIM Mapping = Device
   Committee Notes = 6209
@@ -56,8 +56,8 @@
   Card. = 0..*
   Type = Identifier
   Short Label = Instance id from manufacturer, owner, and others
-  Definition = Unique instance identifiers assigned to a device by organizations like manufacturers or owners .   If the identifier identifies the type of device, Device.type should be used.
-  Comments = Often fixed to the device as a barcode and may include names given to the device in local usage.  Note that some of the barcodes affixed to the device identify its type, not its instance.  For the FDA Mandated Unique Device Identifier (UDI) use  the Device.udi element.
+  Definition = Unique instance identifiers assigned to a device by organizations like manufacturers or owners. If the identifier identifies the type of device, Device.type should be used.
+  Comments = Often fixed to the device as a barcode and may include names given to the device in local usage.  Note that some of the barcodes affixed to the device identify its type, not its instance.  For the FDA mandated Unique Device Identifier (UDI) use  the Device.udi element.
   RIM Mapping = .id
   w5 = id
 
@@ -68,7 +68,7 @@
   Binding = DeviceKind
   Short Label = What kind of device this is
   Definition = Code or identifier to identify a kind of device.
-  Comments = For the FDA Mandated Unique Device Identifier (UDI) use  the Device.udi element.
+  Comments = For the FDA mandated Unique Device Identifier (UDI) use  the Device.udi element.
   RIM Mapping = .code
   Committee Notes = 7590
   w5 = class
@@ -106,7 +106,7 @@
   Card. = 0..1
   Type = string
   Short Label = Model id assigned by the manufacturer
-  Definition = The \"model\" - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
+  Definition = The \"model\" is an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
   RIM Mapping = .playedRole[typeCode=MANU].code
   w5 = what
 
@@ -123,7 +123,7 @@
   Card. = 0..1
   Type = dateTime
   Short Label = Manufacture date
-  Definition = The Date and time when the device was manufactured.
+  Definition = The date and time when the device was manufactured.
   RIM Mapping = .existenceTime.low
 
  -- Row 10 -----------------------------------
@@ -139,9 +139,9 @@
   Element = Device.udi
   Card. = 0..1
   Type = string
-  Short Label = FDA Mandated Unique Device Identifier
+  Short Label = FDA mandated Unique Device Identifier
   Definition = United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm
-  Comments = The unique identifier may identify an instance of a device uniquely, or it may just identify the type of the device. A portion of the UDI - the DI part - can be extracted from the UDI when required, and used to look up information about the device through the GUDID.
+  Comments = The unique identifier may identify an instance of a device uniquely, or it may only identify the type of the device. A portion of the UDI - the DI part - can be extracted from the UDI when required, and used to look up information about the device through the GUDID.
   RIM Mapping = .id[where root is root for UDI]
   w5 = id
 
@@ -255,7 +255,7 @@
  -- Row 8 -----------------------------------
   Name = udi
   Type = string
-  Description = FDA Mandated Unique Device Identifier
+  Description = FDA mandated Unique Device Identifier
   Path = Device.udi
 
  -- Row 9 -----------------------------------

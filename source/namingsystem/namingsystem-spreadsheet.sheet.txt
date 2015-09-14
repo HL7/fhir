@@ -5,12 +5,12 @@
   Binding Name = NamingSystemType
   Binding = code list
   Reference = #namingsystem-type
-  Definition = Identifies the purpose of the namingsystem
+  Definition = Identifies the purpose of the naming system
 
  -- Row 2 -----------------------------------
   Binding Name = NamingSystemCategory
   Binding = unbound
-  Definition = Identifies the general purpose of the namingsystem identifiers provided; e.g. Driver, Provider, Patient, Bank, etc.
+  Definition = Identifies the general purpose of the naming system identifiers provided; e.g. Driver, Provider, Patient, Bank, etc.
 
  -- Row 3 -----------------------------------
   Binding Name = Country
@@ -31,19 +31,19 @@
   Id = 1
   Code = codesystem
   Display = Code System
-  Definition = The namingsystem is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.
+  Definition = The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = identifier
   Display = Identifier
-  Definition = The namingsystem is used to manage identifiers (e.g. license numbers, order numbers, etc.)
+  Definition = The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.)
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = root
   Display = Root
-  Definition = The namingsystem is used as the root for other identifiers and namingsystems
+  Definition = The naming system is used as the root for other identifiers and naming systems
 
 === Sheet namingsystem-identifier-type =====================================
 
@@ -88,7 +88,7 @@
  -- Row 3 -----------------------------------
   Id = 3
   Context = NamingSystem
-  English = Can only have replacedBy if namingsystem is retired
+  English = Can only have replacedBy if naming system is retired
   XPath = not(f:replacedBy) or f:status/@value=\'retired\'
 
 === Sheet Data Elements =====================================
@@ -118,7 +118,7 @@
   Type = code
   Binding = ConformanceResourceStatus
   Short Label = draft | active | retired
-  Definition = Indicates whether the namingsystem is \"ready for use\" or not.
+  Definition = Indicates whether the naming system is \"ready for use\" or not.
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -127,7 +127,7 @@
   Type = code
   Binding = NamingSystemType
   Short Label = codesystem | identifier | root
-  Definition = Indicates the purpose for the namingsystem - what kinds of things does it make unique?
+  Definition = Indicates the purpose for the naming system - what kinds of things does it make unique?
   w5 = class
 
  -- Row 5 -----------------------------------
@@ -191,15 +191,15 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = IdentifierType
-  Short Label = e.g. driver,  provider,  patient, bank etc
-  Definition = Categorizes a namingsystem for easier search by grouping related namingsystems.
+  Short Label = e.g. driver,  provider,  patient, bank etc.
+  Definition = Categorizes a naming system for easier search by grouping related naming systems.
   Comments = This will most commonly be used for identifier namespaces, but categories could potentially be useful for code systems and authorities as well.
 
  -- Row 12 -----------------------------------
   Element = NamingSystem.description
   Card. = 0..1
   Type = string
-  Short Label = What does namingsystem identify?
+  Short Label = What does naming system identify?
   Definition = Details about what the namespace identifies including scope, granularity, version labeling, etc.
 
  -- Row 13 -----------------------------------
@@ -258,7 +258,7 @@
   Card. = 0..1
   Type = Period
   Short Label = When is identifier valid?
-  Definition = Identifies the period of time over which this identifier is considered appropriate to refer to the namingsystem.  Outside of this window, the identifier might be non-deterministic
+  Definition = Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic
   Comments = Within a registry, a given identifier should only be \"active\" for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time)
 
  -- Row 20 -----------------------------------
@@ -267,7 +267,7 @@
   Inv. = 3
   Type = Reference(NamingSystem)
   Short Label = Use this instead
-  Definition = For namingsystems that are retired, indicates the namingsystem that should be used in their place (if any)
+  Definition = For naming systems that are retired, indicates the naming system that should be used in their place (if any)
 
 === Sheet Search =====================================
 

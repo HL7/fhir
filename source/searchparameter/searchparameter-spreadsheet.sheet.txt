@@ -68,7 +68,7 @@
   Card. = 1..1
   Summary = y
   Type = uri
-  Short Label = Literal URL used to reference this search parameter
+  Short Label = Absolute URL used to reference this search parameter
   Definition = An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published
   Requirements = To allow referencing and reusing search parameter definitions under other names on operational systems (in case of name clash)
   w5 = id

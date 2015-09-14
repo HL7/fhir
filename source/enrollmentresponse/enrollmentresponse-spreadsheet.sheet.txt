@@ -20,7 +20,7 @@
   Card. = 0..*
   Type = Identifier
   Short Label = Business Identifier
-  Definition = The Response Business Identifier
+  Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
   Element = EnrollmentResponse.request

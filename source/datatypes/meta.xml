@@ -697,7 +697,7 @@
     <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Version specific identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">The server assigns this value, and ignores what the client specifies, except in the case that the server is imposing version integrity on updates/deletes</Data><NamedCell

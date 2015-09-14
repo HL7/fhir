@@ -145,7 +145,7 @@
   Binding = ConformanceResourceStatus
   Short Label = draft | active | retired
   Definition = The status of the data element
-  Requirements = Allows filtering of data elements that are appropriate for use vs. not
+  Requirements = Allows filtering of data elements that are appropriate for use
   LOINC Code = STATUS
   v2 Mapping = MFE.1
   RIM Mapping = ./status (draft = new  active = active  retired = aborted)
@@ -158,7 +158,7 @@
   Summary = y
   Type = boolean
   Short Label = If for testing purposes, not real usage
-  Definition = A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Definition = A flag to indicate that this search data element definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
   Comments = Allows filtering of search data element definitions that are appropriate for use vs. not
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"experimental\"].value[type=BL]
   w5 = class
@@ -217,8 +217,8 @@
   Summary = y
   Type = dateTime
   Short Label = Date for this version of the data element
-  Definition = The date that this version of the Data Element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element  changes
-  Comments = This refers to the \"business\" version - the DataElement.version which changes based on business processes.  It does not refer to the date of the RESTful version which is part of the resource metadata. Additional specific dates may be added as extensions
+  Definition = The date this version of the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element  changes
+  Comments = This refers to the \"business\" version, the DataElement.version which changes based on business processes.  It does not refer to the date of the RESTful version which is part of the resource metadata. Additional specific dates may be added as extensions
   IHE DEX mapping = revisionDate
   LOINC Code = DATE_LAST_CHANGED
   v2 Mapping = OM1.21
@@ -244,7 +244,7 @@
   Card. = 0..1
   Aliases = License,Restrictions
   Type = string
-  Short Label = Use and/or Publishing restrictions
+  Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element
   Comments = The copyright statement does not apply to values for the data element, only to its definition
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=CONTRACT,moodCode=EVN].text
@@ -257,7 +257,7 @@
   Binding = DataElementStringency
   Short Label = comparable | fully-specified | equivalent | convertable | scaleable | flexible
   Definition = Identifies how precise the data element is in its definition
-  Requirements = Allows determining whether the degree of comparability of data element instances - less granular data elements result in data that is less comparable (or at least requires more work to compare)
+  Requirements = Allows determining the degree of comparability of data element instances. Less granular data elements result in data that is less comparable (or at least requires more work to compare)
   v2 Mapping = N/A
   RIM Mapping = ./target[typeCode=SUBJ]/source[classCode=OBS, moodCode=EVN, code=\"granularity\"]/value
   To Do = Should this be an extension?
@@ -267,7 +267,7 @@
   Card. = 0..*
   UML = 400;140
   Short Label = External specification mapped to
-  Definition = Identifies a specification (other than a terminology) that the elements that make up the DataElement hav some correspondance with
+  Definition = Identifies a specification (other than a terminology) that the elements which make up the DataElement have some correspondence with
   IHE DEX mapping = 100;0
   RIM Mapping = N/A (MIF)
 
@@ -276,7 +276,7 @@
   Card. = 1..1
   Type = id
   Short Label = Internal id when this mapping is used
-  Definition = An Internal id that is used to identify this mapping set when specific mappings are made on a per-element basis
+  Definition = An internal id that is used to identify this mapping set when specific mappings are made on a per-element basis
   Comments = The specification is described once, with general comments, and then specific mappings are made that reference this declaration
   RIM Mapping = N/A (MIF)
 

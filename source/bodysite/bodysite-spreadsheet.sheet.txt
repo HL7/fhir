@@ -82,7 +82,7 @@
   Type = CodeableConcept
   Binding = BodySite
   Short Label = Named anatomical location
-  Definition = Named anatomical location - ideally would be coded where possible.
+  Definition = Named anatomical location - ideally coded where possible.
   OpenEHR mapping = Name of location
 
  -- Row 6 -----------------------------------
@@ -110,7 +110,7 @@
   Aliases = number
   Type = positiveInt
   Short Label = Which instance of many
-  Definition = Identify the specific anatomical site out of multiple eg tenth rib; fourth vertebra; second toe.
+  Definition = Identify the specific anatomical site out of multiple e.g. tenth rib; fourth vertebra; second toe.
   OpenEHR mapping = Numerical identifier
 
  -- Row 9 -----------------------------------
@@ -127,7 +127,7 @@
   Card. = 0..*
   UML = right
   Short Label = Relative anatomical location(s)
-  Definition = Qualifiers to identify non-specific location eg 5cm (distance) inferior (aspect) to the tibial tuberosity (landmark). There may be more than one relative location required to provide a cross reference.
+  Definition = Qualifiers to identify non-specific location e.g. 5cm (distance) inferior (aspect) to the tibial tuberosity (landmark). There may be more than one relative location required to provide a cross reference.
   OpenEHR mapping = Relative location Cluster Optional, repeating (0..*) Cardinality: Mandatory, repeating, unordered (1..*)
 
  -- Row 11 -----------------------------------

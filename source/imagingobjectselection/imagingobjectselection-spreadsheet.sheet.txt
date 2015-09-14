@@ -203,7 +203,7 @@
   Card. = 0..1
   Type = Reference(Practitioner|Device|Organization|Patient|RelatedPerson)
   Short Label = Author (human or machine)
-  Definition = Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attached in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.
+  Definition = Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.
   Requirements = Track the selection decision maker.
   DICOM Mapping = (0040,A730) - Content Sequence TID 1002 - Observer Context
   w5 = who.author
@@ -214,7 +214,7 @@
   Aliases = ObservationDateTime
   Type = dateTime
   Short Label = Authoring time of the selection
-  Definition = Date and time when the selection of the referenced instances were made. It is (typically) diffeent from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
+  Definition = Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
   Requirements = Date and time when the selection was made can be important to understand the content of selection.
   DICOM Mapping = (0040,A032) - Observation Date Time
   RIM Mapping = .effectiveTime
@@ -277,7 +277,7 @@
   Type = Reference(ImagingStudy)
   Short Label = Reference to ImagingStudy
   Definition = Reference to the Imaging Study in FHIR form.
-  Requirements = used to retrieve the ImagingStudy that contain the images refenced in the Imaging ObjectSelection.study
+  Requirements = Used to retrieve the ImagingStudy that contain the images referenced in the Imaging ObjectSelection.study
 
  -- Row 14 -----------------------------------
   Element = ImagingObjectSelection.study.series
@@ -285,9 +285,9 @@
   UML = 480;200
   Type = =Series
   Short Label = Series identity of the selected instances
-  Definition = Series indentity and locating information of the DICOM SOP instances in the selection
+  Definition = Series identity and locating information of the DICOM SOP instances in the selection
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. In addition, the locator at the series level provide a means of retrieving the entire series
-  Comments = Series component represents the series level indentity and locator information of the DICOM SOP instances in the selection.
+  Comments = Series component represents the series level identity and locator information of the DICOM SOP instances in the selection.
 
  -- Row 15 -----------------------------------
   Element = ImagingObjectSelection.study.series.uid
@@ -338,7 +338,7 @@
   Short Label = The selected instance
   Definition = Identity and locating information of the selected DICOM SOP instances
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. This is the instance level identity of the instance in the selection.
-  Comments = SOP Instance component identify the instance selected in the selection, along with the study and series identities to form the DICOM identity hierachy.
+  Comments = SOP Instance component identify the instance selected, along with the study and series identities to form the DICOM identity hierachy.
 
  -- Row 20 -----------------------------------
   Element = ImagingObjectSelection.study.series.instance.sopClass
@@ -401,7 +401,7 @@
   Type = =Frames
   Short Label = The frame set
   Definition = Identity and location information of the frames in the selected instance
-  Requirements = The specific set of frames referenced in this imaging object selection. The url retrieves the pixel data, and is encapsulated in a multipart MIME response.
+  Requirements = The specific set of frames referenced in this imaging object selection. The URL retrieves the pixel data, and is encapsulated in a multipart MIME response.
   Comments = This component may be used if the referenced image SOP Instance is a multi-frame image.
 
  -- Row 26 -----------------------------------
@@ -410,7 +410,7 @@
   Type = unsignedInt
   Short Label = Frame numbers
   Definition = The frame numbers in the frame set
-  Requirements = one or more non-duplicate frame numbers in the selected instance.
+  Requirements = One or more non-duplicate frame numbers in the selected instance.
 
  -- Row 27 -----------------------------------
   Element = ImagingObjectSelection.study.series.instance.frames.url

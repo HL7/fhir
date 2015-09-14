@@ -129,7 +129,7 @@
   Summary = y
   Type = dateTime
   Short Label = Date for given status
-  Definition = The date that this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes
+  Definition = The date this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes
   Requirements = Need to know when a concept map was first legal for use or became withdrawn or replaced.
   Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the concept map. Additional specific dates may be added as extensions
   RIM Mapping = N/A
@@ -169,7 +169,7 @@
   Element = ConceptMap.copyright
   Card. = 0..1
   Type = string
-  Short Label = Use and/or Publishing restrictions
+  Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the concept map and/or its contents
   Comments = Frequently, the copyright differs between the concept map, and codes that are included. The copyright statement should clearly differentiate between these when required
 
@@ -299,7 +299,7 @@
  -- Row 1 -----------------------------------
   Name = url
   Type = uri
-  Description = The url of the concept map
+  Description = The URL of the concept map
   Path = ConceptMap.url
 
  -- Row 2 -----------------------------------

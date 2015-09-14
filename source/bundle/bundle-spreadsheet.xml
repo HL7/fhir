@@ -1491,7 +1491,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The URL for this entry, relative to the root (the address to which the request is posted)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">E.g. for a Patient Create, the method would be &quot;POST&quot; and the url would be &quot;Patient&quot;. For a Patient Update, the method would be PUT, and the url would be &quot;Patient/[id]&quot;</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">E.g. for a Patient Create, the method would be &quot;POST&quot; and the URL would be &quot;Patient&quot;. For a Patient Update, the method would be PUT, and the URL would be &quot;Patient/[id]&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -5,7 +5,7 @@
   Binding Name = VisionProduct
   Binding = value set
   Reference = valueset-vision-product
-  Definition = A coded concept describing the Vision products.
+  Definition = A coded concept describing the vision products.
   Conformance = example
 
  -- Row 2 -----------------------------------
@@ -76,7 +76,7 @@
  -- Row 1 -----------------------------------
   Element = VisionPrescription
   Type = DomainResource
-  Short Label = Prescription for Vision correction products for a patient
+  Short Label = Prescription for vision correction products for a patient
   Definition = An authorization for the supply of glasses and/or contact lenses to a patient.
   RIM Mapping = CombinedVisionRequest
   w5 = clinical.careprovision
@@ -104,7 +104,7 @@
   Card. = 0..1
   Type = Reference(Patient)
   Short Label = Who prescription is for
-  Definition = A link to a resource representing the person to whom the Vision products will be supplied.
+  Definition = A link to a resource representing the person to whom the vision products will be supplied.
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = subject.role
 
@@ -112,7 +112,7 @@
   Element = VisionPrescription.prescriber
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = Who authorizes the Vision product
+  Short Label = Who authorizes the vision product
   Definition = The healthcare professional responsible for authorizing the prescription
   v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
   RIM Mapping = author.role
@@ -149,7 +149,7 @@
   Type = Coding
   Binding = VisionProduct
   Short Label = Product to be supplied
-  Definition = Identifies the type of Vision correction product which is required for the patient.
+  Definition = Identifies the type of vision correction product which is required for the patient.
   v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code
   RIM Mapping = consumable.role
 
@@ -208,7 +208,7 @@
   Element = VisionPrescription.dispense.power
   Card. = 0..1
   Type = decimal
-  Short Label = Contact Lens power
+  Short Label = Contact lens power
   Definition = Contact lens power measured in diopters (0.25 units).
 
  -- Row 18 -----------------------------------
@@ -216,13 +216,13 @@
   Card. = 0..1
   Type = decimal
   Short Label = Contact lens back curvature
-  Definition = Back Curvature measured in millimeters.
+  Definition = Back curvature measured in millimeters.
 
  -- Row 19 -----------------------------------
   Element = VisionPrescription.dispense.diameter
   Card. = 0..1
   Type = decimal
-  Short Label = Contact Lens diameter
+  Short Label = Contact lens diameter
   Definition = Contact lens diameter measured in millimeters.
 
  -- Row 20 -----------------------------------

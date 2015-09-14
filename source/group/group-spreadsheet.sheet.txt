@@ -14,7 +14,7 @@
  -- Row 3 -----------------------------------
   Binding Name = GroupCharacteristicValue
   Binding = unbound
-  Definition = Value of descriptive member characteristic; e.g. red, male, pneumonia, caucasian, etc.
+  Definition = Value of descriptive member characteristic; e.g. red, male, pneumonia, Caucasian, etc.
 
  -- Row 4 -----------------------------------
   Binding Name = GroupType

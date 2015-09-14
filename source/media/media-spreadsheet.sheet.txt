@@ -138,7 +138,7 @@
   Type = Reference(Practitioner)
   Short Label = Who asked that this image be collected
   Definition = Who requested that this image be collected
-  Comments = Helps connect to workflow etc
+  Comments = Helps connect to workflow etc.
   DICOM Mapping = 0008,0090
   RIM Mapping = .participation[typeCode=\"REFB\"]???
   w5 = who.init
@@ -181,8 +181,8 @@
   Summary = y
   Inv. = 1
   Type = positiveInt
-  Short Label = Height of the image in pixels(photo/video)
-  Definition = Height of the image in pixels(photo/video)
+  Short Label = Height of the image in pixels (photo/video)
+  Definition = Height of the image in pixels (photo/video)
   DICOM Mapping = 0028,0010
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
 

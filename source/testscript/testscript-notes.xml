@@ -489,7 +489,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 <ol>
 <li>
 <p>GET [base]/[type]/[id]/_history{?[parameters]&amp;_format=[mime-type]}</p>
-<p>Here the resource id is required in the url.  This is similar to read operation if targetId elemet is used.  See <a href="#howToTestReadOperation">Test read operation</a> for details.</p>
+<p>Here the resource id is required in the URL.  This is similar to read operation if targetId elemet is used.  See <a href="#howToTestReadOperation">Test read operation</a> for details.</p>
 <div class="xmlCode"><xmp>
 <action>
   <operation>
@@ -508,7 +508,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 </li>
 <li>
 GET [base]/[type]/_history{?[parameters]&amp;_format=[mime-type]}
-<p>Here the resource id is not required in the url.</p>
+<p>Here the resource id is not required in the URL.</p>
 <p>Instead of <a href="testscript-definitions.html#TestScript.setup.action.operation.targetId">targetId</a> element, the <a href="testscript-definitions.html#TestScript.setup.action.operation.params">params</a> element can be used to specify the search criteria for the history operation.</p>
 <p>In the following example, all history entries for John Doe patient would be returned by server:</p>
 <div class="xmlCode"><xmp>

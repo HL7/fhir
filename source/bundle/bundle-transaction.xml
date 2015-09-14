@@ -83,7 +83,7 @@
     <!--  a simple update operation  -->
     <!--  first, the resource  -->
       <Patient>
-      <!--  the id here and in the url have to match  -->
+      <!--  the id here and in the URL have to match  -->
         <id value="123"/>
       <!--  and no metadata on this resource, though it would be valid  -->
         <text>

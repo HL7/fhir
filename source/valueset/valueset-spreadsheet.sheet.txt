@@ -295,7 +295,7 @@
   Card. = 0..1
   Aliases = License,Restrictions
   Type = string
-  Short Label = Use and/or Publishing restrictions
+  Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set
   Comments = Frequently, the copyright differs between the value set, and codes that are included. The copyright statement should clearly differentiate between these when required
 

@@ -44,7 +44,7 @@
   Card. = 0..*
   Type = Identifier
   Short Label = Response  number
-  Definition = The Response Business Identifier
+  Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
   Element = ClaimResponse.request
@@ -433,21 +433,21 @@
   Card. = 0..1
   Type = positiveInt
   Short Label = Item sequence number
-  Definition = The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.
+  Definition = The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere.
 
  -- Row 59 -----------------------------------
   Element = ClaimResponse.error.detailSequenceLinkId
   Card. = 0..1
   Type = positiveInt
   Short Label = Detail sequence number
-  Definition = The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.
+  Definition = The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
 
  -- Row 60 -----------------------------------
   Element = ClaimResponse.error.subdetailSequenceLinkId
   Card. = 0..1
   Type = positiveInt
   Short Label = Subdetail sequence number
-  Definition = The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.
+  Definition = The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
 
  -- Row 61 -----------------------------------
   Element = ClaimResponse.error.code
@@ -564,7 +564,7 @@
   Element = ClaimResponse.note.text
   Card. = 0..1
   Type = string
-  Short Label = Note explanitory text
+  Short Label = Note explanatory text
   Definition = The note text.
   CDAnet v4 Mapping = G32
 
@@ -619,7 +619,7 @@
   Binding = Relationship
   Short Label = Patient relationship to subscriber
   Definition = The relationship of the patient to the subscriber
-  Requirements = To determine relationship between the patient and the subscriber
+  Requirements = To determine the relationship between the patient and the subscriber
   CDAnet v4 Mapping = C03
 
  -- Row 84 -----------------------------------

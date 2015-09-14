@@ -259,7 +259,7 @@
   Card. = 0..1
   Type = Reference(Encounter)
   Short Label = Healthcare event during which this observation is made
-  Definition = The healthcare event  ( e.g. a patient and healthcare provider interaction ) during which this observation is made
+  Definition = The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made
   Requirements = For some observations it may be important to know the link between an observation and a particular encounter.
   v2 Mapping = PV1
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]

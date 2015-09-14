@@ -197,7 +197,7 @@
   Type = Reference(Observation | AllergyIntolerance)
   Short Label = Patient observations supporting recommendation
   Definition = Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.
-  v2 Mapping = OBX If OBX is associated with ( RXA : RXA-5-administered code = \'998^No vaccine administered^CVX\' ), could contain the reason the vaccine was not administered
+  v2 Mapping = OBX If OBX is associated with ( RXA : RXA-5-administered code = \'998^No vaccine administered^CVX\'), could contain the reason the vaccine was not administered
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]
 
 === Sheet Search =====================================

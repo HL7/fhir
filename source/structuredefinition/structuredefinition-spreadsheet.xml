@@ -1509,7 +1509,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Date for this version of the StructureDefinition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Additional specific dates may be added as extensions</Data><NamedCell
@@ -1649,7 +1649,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Use and/or Publishing restrictions </Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Use and/or publishing restrictions </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4461,7 +4461,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure describes a base Resource or Type, the url has to start with &quot;http://hl7.org/fhir/StructureDefinition/&quot; and the tail must match the name</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure describes a base Resource or Type, the URL has to start with &quot;http://hl7.org/fhir/StructureDefinition/&quot; and the tail must match the name</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(constrainedType)) or f:url/@value=concat('http://hl7.org/fhir/StructureDefinition/', f:name/@value)</Data></Cell>
    </Row>

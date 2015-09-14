@@ -1371,7 +1371,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Healthcare event during which this observation is made</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The healthcare event  ( e.g. a patient and healthcare provider interaction ) during which this observation is made</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">For some observations it may be important to know the link between an observation and a particular encounter.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

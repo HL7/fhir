@@ -4523,7 +4523,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Fixed value may only be specified if there is one type</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'fixed')])) or (count(f:type)=1 )</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'fixed')])) or (count(f:type)=1)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">7</Data><NamedCell
@@ -4533,7 +4533,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pattern may only be specified if there is one type</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'pattern')])) or (count(f:type)=1 )</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'pattern')])) or (count(f:type)=1)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">8</Data><NamedCell

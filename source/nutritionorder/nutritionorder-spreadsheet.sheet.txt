@@ -214,7 +214,7 @@
   Binding = NutritionOrderStatus
   Short Label = proposed | draft | planned | requested | active | on-hold | completed | cancelled
   Definition = The workflow status of the nutrition order/request.
-  Comments = Typically the system placing the order sets the status to requested. There after, the order is maintained by the receiver that updates the status as the request is handled.
+  Comments = Typically the system placing the order sets the status to \"requested\". There after, the order is maintained by the receiver that updates the status as the request is handled.
   RIM Mapping = .statusCode
   Committee Notes = [#3720]
   w5 = status

@@ -135,13 +135,13 @@
   Id = 6
   Context = ElementDefinition
   English = Fixed value may only be specified if there is one type
-  XPath = not(exists(f:*[starts-with(local-name(.), \'fixed\')])) or (count(f:type)=1 )
+  XPath = not(exists(f:*[starts-with(local-name(.), \'fixed\')])) or (count(f:type)=1)
 
  -- Row 7 -----------------------------------
   Id = 7
   Context = ElementDefinition
   English = Pattern may only be specified if there is one type
-  XPath = not(exists(f:*[starts-with(local-name(.), \'pattern\')])) or (count(f:type)=1 )
+  XPath = not(exists(f:*[starts-with(local-name(.), \'pattern\')])) or (count(f:type)=1)
 
  -- Row 8 -----------------------------------
   Id = 8

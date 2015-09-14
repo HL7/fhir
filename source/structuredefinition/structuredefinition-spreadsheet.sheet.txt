@@ -109,7 +109,7 @@
  -- Row 7 -----------------------------------
   Id = 7
   Context = StructureDefinition
-  English = If the structure describes a base Resource or Type, the url has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the name
+  English = If the structure describes a base Resource or Type, the URL has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the name
   XPath = not(exists(constrainedType)) or f:url/@value=concat(\'http://hl7.org/fhir/StructureDefinition/\', f:name/@value)
 
  -- Row 8 -----------------------------------
@@ -285,7 +285,7 @@
   Summary = y
   Type = dateTime
   Short Label = Date for this version of the StructureDefinition
-  Definition = The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes
+  Definition = The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
 
@@ -323,7 +323,7 @@
   Card. = 0..1
   Aliases = License,Restrictions
   Type = string
-  Short Label = Use and/or Publishing restrictions
+  Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings
 
  -- Row 18 -----------------------------------

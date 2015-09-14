@@ -192,7 +192,7 @@
   Type = Identifier
   Short Label = Identifiers assigned to this order
   Definition = Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.
-  Comments = The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the \'Placer\' in HL7 v2 ) and the producer of the observations in response to the order ( known the \'Filler\' in HL7 v2) .    For further discussion and examples see the [notes section](diagnosticorder.html#4.22.4) below.
+  Comments = The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the \'Placer\' in HL7 v2) and the producer of the observations in response to the order (known as the \'Filler\' in HL7 v2). For further discussion and examples see the [notes section](diagnosticorder.html#4.22.4) below.
   RIM Mapping = .id
   Committee Notes = 7331
   w5 = id
@@ -248,7 +248,7 @@
   Binding = DiagnosticOrderStatus
   Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed
   Definition = The status of the order
-  Comments = Typically the system placing the order sets the status to requested. Thereafter, the order is maintained by the receiver that updates the status as the request is handled
+  Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled
   RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
   Committee Notes = [#3720]
   w5 = status

@@ -752,7 +752,7 @@ public class ValueSetImporterV2 {
         String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl.html");
         ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v2-"+id);
         String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null);
-        sf = sects.addSectionNumbers("v2" + File.separator + id + ".html", "template-v2", sf, iid, 2, null, null);
+        sf = sects.addSectionNumbers("v2" + File.separator + id + File.separator +  "index.html", "template-v2", sf, iid, 2, null, null);
         TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + "index.html");
         page.getEpub().registerExternal("v2" + File.separator + id + File.separator + "index.html");        
       }

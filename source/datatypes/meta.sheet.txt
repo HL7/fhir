@@ -21,7 +21,7 @@
   Card. = 0..1
   Type = id
   Short Label = Version specific identifier
-  Definition = The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted
+  Definition = The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted
   Comments = The server assigns this value, and ignores what the client specifies, except in the case that the server is imposing version integrity on updates/deletes
 
  -- Row 3 -----------------------------------

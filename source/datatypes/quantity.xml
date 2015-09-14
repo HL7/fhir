@@ -4097,7 +4097,7 @@
     <Cell><Data ss:Type="String">Count</Data></Cell>
     <Cell><Data ss:Type="String">A count of a discrete element (no unit)</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code with a value of &quot;1&quot; if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.  If present, the value SHALL a whole number.</Data></Cell>
-    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or (f:system/@value='http://unitsofmeasure.org' and f:code/@value='1' )) and not(contains(f:value/@value, '.')) </Data></Cell>
+    <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or (f:system/@value='http://unitsofmeasure.org' and f:code/@value='1')) and not(contains(f:value/@value, '.')) </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Money</Data></Cell>

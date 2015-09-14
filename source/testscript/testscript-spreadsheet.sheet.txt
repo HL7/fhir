@@ -13,7 +13,7 @@
   Binding Name = !FHIRDefinedType
   Binding = value set
   Reference = http://hl7.org/fhir/defined-types
-  Definition = FHIR Defined Types
+  Definition = The FHIR defined types.
   Description = FHIR Defined Types
   Conformance = example
   Uri = http://hl7.org/fhir/defined-types
@@ -56,13 +56,13 @@
   Id = 1
   Code = xml
   Display = xml
-  Definition = XML content-type corresponding to the application/xml+fhir mime-type
+  Definition = XML content-type corresponding to the application/xml+fhir mime-type.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = json
   Display = json
-  Definition = JSON content-type corresponding to the application/json+fhir mime-type
+  Definition = JSON content-type corresponding to the application/json+fhir mime-type.
 
 === Sheet assert-direction-codes =====================================
 
@@ -70,13 +70,13 @@
   Id = 1
   Code = response
   Display = response
-  Definition = Default value. Assertion is evaluated on the response.
+  Definition = The assertion is evaluated on the response. This is the default value.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = request
   Display = request
-  Definition = Not equals comparison.
+  Definition = The assertion is evaluated on the request.
 
 === Sheet assert-operator-codes =====================================
 
@@ -328,7 +328,7 @@
   Aliases = url, authoritative-url, destination, identity
   Summary = Y
   Type = uri
-  Short Label = Literal URL used to reference this TestScript
+  Short Label = Absolute URL used to reference this TestScript
   Definition = An absolute URL that is used to identify this Test Script. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this Test Script is (or will be) published
   w5 = id
 
@@ -425,7 +425,7 @@
   Summary = y
   Type = dateTime
   Short Label = Date for this version of the TestScript
-  Definition = The date that this version of the TestScript was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the test cases change
+  Definition = The date this version of the test tcript was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the test cases change
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
 
@@ -462,7 +462,7 @@
   Card. = 0..1
   Aliases = License,Restrictions
   Type = string
-  Short Label = Use and/or Publishing restrictions
+  Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings
 
  -- Row 17 -----------------------------------
@@ -470,7 +470,7 @@
   Card. = 0..1
   UML = 300;0
   Short Label = Required capability that is assumed to function correctly on the FHIR server being tested
-  Definition = The required capability must exist and is assumed to function correctly on the FHIR server being tested.
+  Definition = The required capability must exist and are assumed to function correctly on the FHIR server being tested.
 
  -- Row 18 -----------------------------------
   Element = TestScript.metadata.link
@@ -498,7 +498,7 @@
   Card. = 1..*
   UML = 500;0
   Short Label = Capabilities  that are assumed to function correctly on the FHIR server being tested
-  Definition = Capabilities that must exist and is assumed to function correctly on the FHIR server being tested.
+  Definition = Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
   Comments = When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The \"metadata.capabilities.required\" and \"metadata.capabilities.validated\" elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose \"metadata.capabilities.validated\" flag is true are the primary focus of the test script.
 
  -- Row 22 -----------------------------------
@@ -645,7 +645,7 @@
   Card. = 0..1
   Type = @TestScript.metadata
   Short Label = Capabilities  that are assumed to function correctly on the FHIR server being tested
-  Definition = Capabilities that must exist and is assumed to function correctly on the FHIR server being tested.
+  Definition = Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
 
  -- Row 41 -----------------------------------
   Element = TestScript.setup.action
@@ -801,7 +801,7 @@
   UML = 0;480
   Short Label = The assertion to perform
   Definition = Evaluates the results of previous operations to determine if the server under test behaves appropriately.
-  Comments = In order to evaluate an assertion the request, response, and results of the most recently executed operation must always be maintained by the test engine.
+  Comments = In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
 
  -- Row 60 -----------------------------------
   Element = TestScript.setup.action.assert.label
@@ -965,7 +965,7 @@
   Card. = 0..1
   Type = string
   Short Label = Tracking/logging name of this test
-  Definition = The name of this testused for tracking/logging purposes by test engines.
+  Definition = The name of this test used for tracking/logging purposes by test engines.
 
  -- Row 80 -----------------------------------
   Element = TestScript.test.description
@@ -979,7 +979,7 @@
   Card. = 0..1
   Type = @TestScript.metadata
   Short Label = Capabilities  that are expected to function correctly on the FHIR server being tested
-  Definition = Capabilities that must exist and is assumed to function correctly on the FHIR server being tested.
+  Definition = Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
 
  -- Row 82 -----------------------------------
   Element = TestScript.test.action
@@ -1002,7 +1002,7 @@
   Type = @TestScript.setup.action.assert
   Short Label = The setup assertion to perform
   Definition = Evaluates the results of previous operations to determine if the server under test behaves appropriately.
-  Comments = In order to evaluate an assertion the request, response, and results of the most recently executed operation must always be maintained by the test engine.
+  Comments = In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
 
  -- Row 85 -----------------------------------
   Element = TestScript.teardown

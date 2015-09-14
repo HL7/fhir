@@ -81,7 +81,7 @@
   Element = Attachment.hash
   Card. = 0..1
   Type = base64Binary
-  Short Label = Hash of the data (sha-1, base64ed )
+  Short Label = Hash of the data (sha-1, base64ed)
   Definition = The calculated hash of the data using SHA-1. Represented using base64
   Requirements = Included so that applications can verify that the contents of a location have not changed and so that a signature of the content can implicitly sign the content of an image without having to include the data in the instance or reference the url in the signature
   RIM Mapping = .integrityCheck[parent::ED/integrityCheckAlgorithm=\"SHA-1\"]

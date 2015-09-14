@@ -1354,7 +1354,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Date for given status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The date that this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The date this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Need to know when a concept map was first legal for use or became withdrawn or replaced.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1494,7 +1494,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Use and/or Publishing restrictions </Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Use and/or publishing restrictions </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A copyright statement relating to the concept map and/or its contents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4504,7 +4504,7 @@
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">ConceptMap.url</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">The url of the concept map</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">The URL of the concept map</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">identifier</Data></Cell>
