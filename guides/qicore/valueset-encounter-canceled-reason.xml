@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="encounter-canceled-reason"/>
   <name value="Reasons for canceled or refused encounter codes"/>
   <status value="draft"/>
   <experimental value="true"/>

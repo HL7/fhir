@@ -17,11 +17,10 @@
   Conformance = example
 
  -- Row 3 -----------------------------------
-  Binding Name = QICoreActReason
+  Binding Name = QICoreReasonRejected
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
+  Reference = valueset-deviceuserequest-reason-rejected
+  Conformance = example
 
 === Sheet QICore-DeviceUseRequest =====================================
 
@@ -36,7 +35,7 @@
   Profile Name = DeviceUseRequest.reasonRejected
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/deviceuserequest-reasonRejected}
-  Binding = QICoreActReason
+  Binding = QICoreReasonRejected
   QDM Mapping = negation rationale (when DeviceUseRequest.status=\"rejected\")
 
  -- Row 3 -----------------------------------

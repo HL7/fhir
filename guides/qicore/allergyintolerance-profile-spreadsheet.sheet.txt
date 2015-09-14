@@ -14,11 +14,10 @@
   Conformance = preferred
 
  -- Row 3 -----------------------------------
-  Binding Name = QICoreActReason
+  Binding Name = QICoreReasonRefuted
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
+  Reference = valueset-allergyintolerance-reason-refuted
+  Conformance = example
 
  -- Row 4 -----------------------------------
   Binding Name = DAFManifestation
@@ -63,7 +62,7 @@
   Card. = 0..1
   Inv. = 1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted}
-  Binding = QICoreActReason
+  Binding = QICoreReasonRefuted
   QDM Mapping = negation rationale (when status=\"refuted\")
 
  -- Row 4 -----------------------------------
@@ -82,6 +81,7 @@
  -- Row 7 -----------------------------------
   Element = AllergyIntolerance.substance
   Must Support = Y
+  Type = !CodeableConcept
   Binding = DAFSubstance
   QDM Mapping = primary code
 
