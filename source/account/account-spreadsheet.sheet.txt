@@ -5,19 +5,19 @@
   Binding Name = AccountStatus
   Binding = code list
   Reference = #account-status
-  Definition = Indicates whether the account is available to be used
+  Definition = Indicates whether the account is available to be used.
   Conformance = Preferred
 
  -- Row 2 -----------------------------------
   Binding Name = AccountType
   Binding = unbound
-  Definition = The usage type of this account, permits categorization of accounts
+  Definition = The usage type of this account, permits categorization of accounts.
 
  -- Row 3 -----------------------------------
   Binding Name = AccountCurrency
   Binding = reference
   Reference = http://www.iso.org/iso/home/standards/currency_codes
-  Definition = The monetary currency that this account records values in
+  Definition = The monetary currency in which this account records values.
   Description = Currency codes - ISO 4217
   Conformance = example
 
@@ -27,13 +27,13 @@
   Id = 1
   Code = active
   Display = Active
-  Definition = This account is active and may be used
+  Definition = This account is active and may be used.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = inactive
   Display = Inactive
-  Definition = This account is inactive and should not be used to track financial information
+  Definition = This account is inactive and should not be used to track financial information.
 
 === Sheet Invariants =====================================
 
@@ -51,7 +51,7 @@
   Card. = 0..*
   Type = Identifier
   Short Label = Account number
-  Definition = Unique identifier used to reference the account.  May or may not be intended for human use.  (E.g. credit card number)
+  Definition = Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number)
 
  -- Row 3 -----------------------------------
   Element = Account.name

@@ -2206,21 +2206,36 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (!definitions.dataTypeIsSharedInfo(e.getName()))
         scanForUsage(b, vs, e, "datatypes.html#"+e.getName(), prefix);
 
+    
+    for (String n : workerContext.getExtensionDefinitions().keySet()) {
+      if (n.startsWith("http:")) {
+        StructureDefinition exd = workerContext.getExtensionDefinitions().get(n); 
+        scanForUsage(b, vs, exd, exd.getUserString("path"), prefix);
+      }
+    }
+    
     for (ValueSet vsi : valueSets.values()) {
       String path = (String) vsi.getUserData("path");
       if (vs.hasCompose()) {
         for (UriType t : vs.getCompose().getImport()) {
           if (t.getValue().equals(vs.getUrl())) 
-            b.append(" <li>Imported into Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
+            b.append(" <li>Imported into Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
         }
         for (ConceptSetComponent t : vsi.getCompose().getInclude()) {
           if (vs.hasCodeSystem() && t.getSystem().equals(vs.getCodeSystem().getSystem())) 
-            b.append(" <li>Included in Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
+            b.append(" <li>Included in Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
         }
         for (ConceptSetComponent t : vsi.getCompose().getExclude()) {
           if (vs.hasCodeSystem() && t.getSystem().equals(vs.getCodeSystem().getSystem())) 
-            b.append(" <li>Excluded in Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>");
+            b.append(" <li>Excluded in Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
         }
+      }
+    }
+    if (ini.getPropertyNames(vs.getUrl()) != null) {
+      for (String n : ini.getPropertyNames(vs.getUrl())) {
+        b.append(" <li>");
+        b.append(ini.getStringProperty(vs.getUrl(), n));
+        b.append("</li>\r\n");
       }
     }
     if (b.length() == 0)
@@ -2229,12 +2244,22 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "<p>\r\nThis value set is used in the following places:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
   }
 
+  private void scanForUsage(StringBuilder b, ValueSet vs, StructureDefinition exd, String path, String prefix) {
+    for (ElementDefinition ed : exd.getSnapshot().getElement()) {
+      if (ed.hasBinding()) {
+        if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
+          b.append(" <li><a href=\"").append(path).append("\">Extension ")
+          .append(exd.getUrl()).append(": ").append(Utilities.escapeXml(exd.getName())).append("</a> (").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
+      }
+    }
+  }
+
   private void scanForOperationUsage(StringBuilder b, ValueSet vs, ResourceDefn r, String page, String prefix) {
     for (Operation op : r.getOperations()) {
       for (OperationParameter p : op.getParameters()) {
         if (p.getBs() != null && p.getBs().getValueSet() == vs) {
           b.append(" <li><a href=\"").append(prefix+page).append(op.getName()).append("\">Operation Parameter $")          
-          .append(op.getName()).append(".").append(p.getName()).append("</a> ").append("</li>\r\n");
+          .append(op.getName()).append(".").append(p.getName()).append("</a> (").append(getBindingTypeDesc(p.getBs(), prefix)).append(")</li>\r\n");
         }
       }
     }    
@@ -2247,7 +2272,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           if (ed.hasBinding()) {
             if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
               b.append(" <li><a href=\"").append(prefix+p.getId()).append(".html\">StructureDefinition ")
-              .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ").append(getBindingTypeDesc(ed.getBinding())).append("</li>\r\n");
+              .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> (").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
           }
         }
       }
@@ -2262,11 +2287,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return ((Reference) ref).hasReference() && ((Reference) ref).getReference().endsWith("/"+vs.getId());
   }
 
-  private String getBindingTypeDesc(ElementDefinitionBindingComponent binding) {
+  private String getBindingTypeDesc(ElementDefinitionBindingComponent binding, String prefix) {
     if (binding.getStrength() == null)
       return "";
     else
-      return binding.getStrength().getDisplay();
+      return "(<a href=\""+prefix+"terminologies.html#"+binding.getStrength().toCode()+"\">"+binding.getStrength().getDisplay()+"</a>)";
+  }
+
+  private String getBindingTypeDesc(BindingSpecification binding, String prefix) {
+    if (binding.getStrength() == null)
+      return "";
+    else
+      return "(<a href=\""+prefix+"terminologies.html#"+binding.getStrength().toCode()+"\">"+binding.getStrength().getDisplay()+"</a>)";
   }
 
   private void scanForUsage(StringBuilder b, ValueSet vs, ElementDefn e, String ref, String prefix) {

@@ -5,7 +5,7 @@
   Binding Name = CommunicationRequestStatus
   Binding = code list
   Reference = #communication-request-status
-  Definition = The status of the communication
+  Definition = The status of the communication.
 
  -- Row 2 -----------------------------------
   Binding Name = CommunicationCategory
@@ -22,14 +22,14 @@
  -- Row 4 -----------------------------------
   Binding Name = CommunicationReason
   Binding = unbound
-  Definition = Codes for describing reasons for the occurrence of a communication
+  Definition = Codes for describing reasons for the occurrence of a communication.
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = CommunicationPriority
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/diagnostic-order-priority
-  Definition = Codes indicating the relative importance of a communication request
+  Definition = Codes indicating the relative importance of a communication request.
   Conformance = example
 
 === Sheet communication-request-status =====================================
@@ -38,49 +38,49 @@
   Id = 1
   Code = proposed
   Display = Proposed
-  Definition = The request has been proposed
+  Definition = The request has been proposed.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = planned
   Display = Planned
-  Definition = The request has been planned
+  Definition = The request has been planned.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = requested
   Display = Requested
-  Definition = The request has been placed
+  Definition = The request has been placed.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = received
   Display = Received
-  Definition = The receiving system has received the request but not yet decided whether it will be performed
+  Definition = The receiving system has received the request but not yet decided whether it will be performed.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = accepted
   Display = Accepted
-  Definition = The receiving system has accepted the order, but work has not yet commenced
+  Definition = The receiving system has accepted the order, but work has not yet commenced.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = in-progress
   Display = In Progress
-  Definition = The work to fulfill the order is happening
+  Definition = The work to fulfill the order is happening.
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = completed
   Display = Completed
-  Definition = The work has been complete, the report(s) released, and no further work is planned
+  Definition = The work has been complete, the report(s) released, and no further work is planned.
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = suspended
   Display = Suspended
-  Definition = The request has been held by originating system/user request
+  Definition = The request has been held by originating system/user request.
 
  -- Row 9 -----------------------------------
   Id = 9
@@ -92,7 +92,7 @@
   Id = 10
   Code = failed
   Display = Failed
-  Definition = The communication was attempted, but due to some procedural error, it could not be completed
+  Definition = The communication was attempted, but due to some procedural error, it could not be completed.
 
 === Sheet Invariants =====================================
 
