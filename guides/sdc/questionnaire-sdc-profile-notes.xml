@@ -30,29 +30,4 @@ the translations to be maintained independently of the resource which has both p
 <b>Open Issue:</b> Should this profile define such an extension and/or a resource for managing such translations?
 </p>
 
-<a name="ihe-interop"/>
-<h3>Interoperability with the IHE SDC specification</h3>
-<p>
-This FHIR profile is partially based on the IHE <a href="http://ihe.net/uploadedFiles/Documents/QRPH/IHE_QRPH_Suppl_SDC_Rev1.0_PC_2014-06-06.pdf">Structured Data Capture</a> 
-Technical Framework Supplement.  While largely aligned, there are differences between them, driven in part by their different technologies.
-(FHIR tends to nail things down and only include those data elements that are essential to the use-case, while the IHE specification is somewhat looser in the content it 
-supports.  As the content of both specifications stabilizes, the project team intends to develop a set of XSLT transforms to support translation between the two syntaxes.  
-These transforms should provide seamless conversion in the majority of circumstances and will be designed to raise warning messages where some content could not be safely 
-converted.
-</p>
-<p>
-Another source of difference is in the data types.  The IHE specification supports arbitrary data types, though it enumerates a specific list of allowed types for text_field.
-Of these, most map cleanly to FHIR, though there are some exceptions:
-</p>
-<ul>
-  <li>Date and time: In FHIR there's no ability to transmit different date formats - formatting control is handled by an extension, but all dates and
-times are conveyed according to the w3c schema standard over the wire.  As well, partial-precision times are not supported in FHIR and must be zero-filled down to the second</li>
-  <li>Durations in FHIR are limited to a single value and unit.  E.g. "3.5 days" or "84 hours".  There is no ability to convey "3d12h" as a single question answer</li>
-  <li>The Attachment data type in FHIR supports conveying attachments both embedded within the answer or as references (possibly to a <a href="../http.html#binary">Binary</a>
-  resource in a bundle or to some external location.</li>
-  <li>FHIR introduces a 'boolean' data type. (The IHE specification presumes this would be captured using a code.)</li>
-</ul>
-<p>
-  <b>Open Issue:</b> Should FHIR also support an open-ended set of data types?  Why?
-</p>
 </div>

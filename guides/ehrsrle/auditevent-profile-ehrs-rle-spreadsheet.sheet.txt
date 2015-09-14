@@ -49,7 +49,7 @@
   Card. = !0..1
 
  -- Row 9 -----------------------------------
-  Element = AuditEvent.purposeOfEvent
+  Element = AuditEvent.event.purposeOfEvent
   Card. = !0..*
   Must Support = Y
 

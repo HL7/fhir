@@ -160,8 +160,8 @@
   Short Label = Instance UID
   Definition = Instance UID of the DICOM KOS SOP Instances represented in this resource.
   Requirements = DICOM SOP Instance is always assigned with a unique identifier (UID).
-  DICOM Mapping = (0008,0018) - SOP Instance UID (of the Key Object Selection SOP Class)
   RIM Mapping = .id
+  DICOM Mapping = (0008,0018) - SOP Instance UID (of the Key Object Selection SOP Class)
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -172,8 +172,8 @@
   Definition = A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingObjectSelection.
   Requirements = SOP Instances in ImagingObjectSelection must be from the same patient.
   Comments = SOP instances selected in the ImagingObjectSelection can be from different studies, but must be of the same patient.
-  DICOM Mapping = (0010,0010) - Patient Name (0010,0020) - Patient ID (0010,0021) - Issuer of Patient ID
   RIM Mapping = .participation[typeCode=SBJ].role
+  DICOM Mapping = (0010,0010) - Patient Name (0010,0020) - Patient ID (0010,0021) - Issuer of Patient ID
   w5 = who.focus
 
  -- Row 4 -----------------------------------
@@ -216,8 +216,8 @@
   Short Label = Authoring time of the selection
   Definition = Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
   Requirements = Date and time when the selection was made can be important to understand the content of selection.
-  DICOM Mapping = (0040,A032) - Observation Date Time
   RIM Mapping = .effectiveTime
+  DICOM Mapping = (0040,A032) - Observation Date Time
   w5 = when.recorded
 
  -- Row 8 -----------------------------------
@@ -426,7 +426,7 @@
 
  -- Row 1 -----------------------------------
   Name = identifier
-  Type = string
+  Type = uri
   Description = UID of key DICOM object selection
   Path = ImagingObjectSelection.uid
 
@@ -456,7 +456,7 @@
 
  -- Row 6 -----------------------------------
   Name = selected-study
-  Type = string
+  Type = uri
   Description = Study selected in key DICOM object selection
   Path = ImagingObjectSelection.study.uid
 

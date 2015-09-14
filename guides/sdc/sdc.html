@@ -162,6 +162,76 @@ questionnaires, data elements and other components used as part of their impleme
 data captured using this implementation guide may be shared with.
 </p>
 
+<a name="ihe-interop"/>
+<h3>Interoperability with the IHE SDC specification</h3>
+<p>
+This FHIR profile is partially based on the IHE <a href="http://ihe.net/uploadedFiles/Documents/QRPH/IHE_QRPH_Suppl_SDC_Rev1.0_PC_2014-06-06.pdf">Structured Data Capture</a> 
+Technical Framework Supplement.  While largely aligned, there are differences between them, driven in part by their different technologies and scopes.  A summary of the
+differences is as follows:
+</p>
+<ul>
+<li>
+This FHIR specification does not deal with forms rendered as HTML or as redirects to a website for completion by a browser.  It only addresses the sharing of forms and responses 
+using the <a href="questionnaire.html">Questionnaire</a> and <a href="questionnaireresponse.html">QuestionnaireResponse</a> resources.  The additional capabilities described
+in the IHE version of the specification could be met through FHIR operations and may be introduced in a future version of this specification.
+</li>
+<li>
+This FHIR specification doesn't describe the notion of auto-population (where a Form Filler answers questions based on data that it stores locally) as this function requires
+no external interface.
+</li>
+<li>
+This specification defines a specific syntax for data element definition, while the IHE specification does not.
+</li>
+<li>
+This specification allows the use of the FHIR <a href="securityevent.html">SecurityEvent</a> resource as an alternative to ATNA for performing audit.
+</li>
+<li>
+This specification uses FHIR resources rather than custom XML to define the structures for forms (Questionnaires) and completed forms (QuestionnaireResponses).  While
+more or less aligned in scope, there are differences.  In general, the FHIR specification is tighter than the IHE specification as with FHIR, the extension mechanism
+can be used to introduce new capabilities while the IHE schema needed to leave certain aspects loosely defined to support future evolution.  A summary of some of the 
+more significant differences is as follows:
+  <ul>
+  <li>
+  The IHE specification supports arbitrary data types for questions, though it enumerates a specific list of allowed types for text_field.
+Of these, most map cleanly to FHIR, though there are some exceptions:
+    <ul>
+      <li>Date and time: In FHIR there's no ability to transmit different date formats - formatting control is handled by an extension, but all dates and
+    times are conveyed according to the w3c schema standard over the wire.  As well, partial-precision times are not supported in FHIR and must be zero-filled down to the second</li>
+      <li>Durations in FHIR are limited to a single value and unit.  E.g. "3.5 days" or "84 hours".  There is no ability to convey "3d12h" as a single question answer</li>
+      <li>The Attachment data type in FHIR supports conveying attachments both embedded within the answer or as references (possibly to a <a href="../http.html#binary">Binary</a>
+      resource in a bundle or to some external location.</li>
+      <li>FHIR introduces a 'boolean' data type. (The IHE specification presumes this would be captured using a code.)</li>
+    </ul>  
+  </li>
+  <li>
+  The IHE syntax provides a generic "rules" structure.  FHIR provides explicit capabilities around conditional questions and groups.  Additional rules can be introduced
+  through the use of extensions
+  </li>
+  <li>
+  The IHE syntax provides a packaging mechanism in which forms, data and metadata can all be packaged together.  FHIR supports this same notion through the
+  <a href="bundle.html">Bundle</a> resource, however this specification doesn't specifically envision Questionnaires and QuestionnaireResponses being bundled together
+  </li>
+  <li>
+  </li>
+  The FHIR resources explicitly link Questionnaires and Questionnaire responses to other resources (Pracitioner, Patient, etc.).  These linkages are not explicit
+  in the IHE specification and are presumably managed either through context or through questions within the form.
+  </ul>
+</li>
+</ul>
+
+<p>
+As the content of both the FHIR and IHE specification stabilize, the project team intends to develop a set of XSLT transforms to support translation between the IHE and
+FHIR syntaxes for forms and completed forms.  
+These transforms should provide seamless conversion in the majority of circumstances and will be designed to raise warning messages where some content could not be safely 
+converted.
+</p>
+<p>
+</p>
+<p>
+  <b>Open Issue:</b> Should FHIR also support an open-ended set of data types?  Why?
+</p>
+
+
 </div>
 
 [%file newfooter%]
