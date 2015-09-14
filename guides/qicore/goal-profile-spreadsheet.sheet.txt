@@ -2,7 +2,7 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QICoreGoalCategory
+  Binding Name = !QICoreGoalCategory
   Binding = value set
   Reference = valueset-goal-category
   Definition = SHOULD contain a code from SNOMED CT
@@ -73,7 +73,6 @@
  -- Row 7 -----------------------------------
   Element = Goal.category
   Must Support = Y
-  Binding = !QICoreGoalCategory
   QDM Mapping = primary code
 
  -- Row 8 -----------------------------------

@@ -10,7 +10,7 @@
   Conformance = preferred
 
  -- Row 2 -----------------------------------
-  Binding Name = QICoreActReason
+  Binding Name = !QICoreActReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
   Definition = Reason for why the medication is being/was taken

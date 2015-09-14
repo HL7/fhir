@@ -16,12 +16,13 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13056</WindowHeight>
-  <WindowWidth>24948</WindowWidth>
+  <WindowHeight>7980</WindowHeight>
+  <WindowWidth>17472</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1086,6 +1087,10 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s195">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1527,7 +1532,7 @@
     <Cell ss:StyleID="s128"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/diagnosticorder-reasonRejected}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreActReason</Data><NamedCell
+    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreReasonRejected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3501,13 +3506,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3522,8 +3526,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6151,20 +6155,20 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s157"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><Data ss:Type="String">QICoreActReason</Data></Cell>
-    <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActReason</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">A set of codes specifying the motivation, cause, or rationale of an Act.</Data></Cell>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s157"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s195">
+    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreReasonRejected</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">valueset-diagnosticorder-reason-rejected</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s159"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s125"><Data ss:Type="String">QICoreObservationName</Data></Cell>
@@ -6525,6 +6529,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6544,8 +6549,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

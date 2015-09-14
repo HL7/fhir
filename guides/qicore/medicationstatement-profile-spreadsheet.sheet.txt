@@ -2,27 +2,19 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QICoreActReason
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
-  Definition = Reason for why the medication is being/was take
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
-
- -- Row 2 -----------------------------------
   Binding Name = QICoreMedicationCodes
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/daf-medication-codes
   Definition = The set of RxNorm codes to represent medications
   Conformance = preferred
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Binding Name = DAFBodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/daf-bodysite
   Conformance = preferred
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = DAFRoute
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/daf-medication-route
@@ -62,7 +54,6 @@
  -- Row 7 -----------------------------------
   Element = MedicationStatement.reasonForUse[x]
   Type = CodeableConcept | Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}
-  Binding = QICoreActReason
 
  -- Row 8 -----------------------------------
   Element = MedicationStatement.effective[x]

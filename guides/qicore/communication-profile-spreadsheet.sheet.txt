@@ -15,14 +15,6 @@
   Definition = Reason communication was not performed
   Conformance = example
 
- -- Row 3 -----------------------------------
-  Binding Name = QICoreCommunicationReason
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
-  Definition = Reason for the communication
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = example
-
 === Sheet QICore-Communication =====================================
 
  -- Row 1 -----------------------------------
@@ -90,7 +82,6 @@
 
  -- Row 13 -----------------------------------
   Element = Communication.reason
-  Binding = QICoreCommunicationReason
   QDM Mapping = reason
 
 === Sheet Search =====================================

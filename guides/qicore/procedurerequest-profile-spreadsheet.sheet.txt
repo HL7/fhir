@@ -2,11 +2,10 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QICoreActReason
+  Binding Name = QICoreReasonRefused
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
+  Reference = http://hl7.org/fhir/ValueSet/procedure-not-performed-reason
+  Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = !QICoreBodySite
@@ -108,7 +107,7 @@
   Profile Name = ProcedureRequest.reasonRefused
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused}
-  Binding = QICoreActReason
+  Binding = QICoreReasonRefused
   QDM Mapping = negation rationale (when ProcedureRequest.status=\"rejected\")
 
  -- Row 6 -----------------------------------

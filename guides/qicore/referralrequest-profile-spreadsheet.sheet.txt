@@ -2,11 +2,10 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QICoreActReason
+  Binding Name = QICoreRefusalReason
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
+  Reference = valueset-referralrequest-reason-rejected
+  Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = !QICorePractitionerSpecialty
@@ -35,7 +34,7 @@
   Profile Name = ReferralRequest.refusalReason
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/referralrequest-reasonRefused}
-  Binding = QICoreActReason
+  Binding = QICoreRefusalReason
   QDM Mapping = negation rationale (when ReferralRequest.status=\"refused\")
 
  -- Row 3 -----------------------------------
@@ -87,7 +86,6 @@
  -- Row 12 -----------------------------------
   Element = ReferralRequest.reason
   Must Support = Y
-  Binding = QICoreActReason
   QDM Mapping = reason
 
  -- Row 13 -----------------------------------

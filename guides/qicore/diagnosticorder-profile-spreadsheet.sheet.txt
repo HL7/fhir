@@ -24,11 +24,10 @@
   Conformance = preferred
 
  -- Row 4 -----------------------------------
-  Binding Name = QICoreActReason
+  Binding Name = QICoreReasonRejected
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
-  Description = A set of codes specifying the motivation, cause, or rationale of an Act.
-  Conformance = preferred
+  Reference = valueset-diagnosticorder-reason-rejected
+  Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = QICoreObservationName
@@ -85,7 +84,7 @@
   Profile Name = DiagnosticOrder.reasonRejected
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/diagnosticorder-reasonRejected}
-  Binding = QICoreActReason
+  Binding = QICoreReasonRejected
   Short Label = Reason order rejected
   Definition = The coded reason why the order was rejected
   QDM Mapping = negation rationale (when DiagnosticOrder.status=\"rejected\")
