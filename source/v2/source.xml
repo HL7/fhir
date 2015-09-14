@@ -47658,7 +47658,7 @@ les">
       <item code="SKN" desc="Skin"/>
       <item code="TZANC" desc="Smear, Tzanck"/>
       <item code="GSOL" desc="Solution, Gastrostomy"/>
-      <item code="ILLEG" desc="Source of Specimen Is Illegible"/>
+      <item code="ILLEG" desc="Source of Specimen Is Illigible"/>
       <item code="OTH" desc="Source, Other"/>
       <item code="UDENT" desc="Source, Unidentified"/>
       <item code="USPEC" desc="Source, Unspecified"/>
@@ -47928,7 +47928,7 @@ les">
       <item code="SKN" desc="Skin"/>
       <item code="TZANC" desc="Smear, Tzanck"/>
       <item code="GSOL" desc="Solution, Gastrostomy"/>
-      <item code="ILLEG" desc="Source of Specimen Is Illegible"/>
+      <item code="ILLEG" desc="Source of Specimen Is Illigible"/>
       <item code="OTH" desc="Source, Other"/>
       <item code="UDENT" desc="Source, Unidentified"/>
       <item code="USPEC" desc="Source, Unspecified"/>
@@ -48200,7 +48200,7 @@ les">
       <item code="SKN" desc="Skin"/>
       <item code="TZANC" desc="Smear, Tzanck"/>
       <item code="GSOL" desc="Solution, Gastrostomy"/>
-      <item code="ILLEG" desc="Source of Specimen Is Illegible"/>
+      <item code="ILLEG" desc="Source of Specimen Is Illigible"/>
       <item code="OTH" desc="Source, Other"/>
       <item code="UDENT" desc="Source, Unidentified"/>
       <item code="USPEC" desc="Source, Unspecified"/>
@@ -48473,7 +48473,7 @@ les">
       <item code="SKN" desc="Skin"/>
       <item code="TZANC" desc="Smear, Tzanck"/>
       <item code="GSOL" desc="Solution, Gastrostomy" comments="Product"/>
-      <item code="ILLEG" desc="Source of Specimen Is Illegible"/>
+      <item code="ILLEG" desc="Source of Specimen Is Illigible"/>
       <item code="OTH" desc="Source, Other"/>
       <item code="UDENT" desc="Source, Unidentified"/>
       <item code="USPEC" desc="Source, Unspecified"/>
@@ -48746,7 +48746,7 @@ les">
       <item code="SKN" desc="Skin"/>
       <item code="TZANC" desc="Smear, Tzanck"/>
       <item code="GSOL" desc="Solution, Gastrostomy" comments="Product"/>
-      <item code="ILLEG" desc="Source of Specimen Is Illegible"/>
+      <item code="ILLEG" desc="Source of Specimen Is Illigible"/>
       <item code="OTH" desc="Source, Other"/>
       <item code="UDENT" desc="Source, Unidentified"/>
       <item code="USPEC" desc="Source, Unspecified"/>
@@ -49019,7 +49019,7 @@ les">
       <item code="SKN" desc="Skin"/>
       <item code="TZANC" desc="Smear, Tzanck"/>
       <item code="GSOL" desc="Solution, Gastrostomy" comments="Product"/>
-      <item code="ILLEG" desc="Source of Specimen Is Illegible"/>
+      <item code="ILLEG" desc="Source of Specimen Is Illigible"/>
       <item code="OTH" desc="Source, Other"/>
       <item code="UDENT" desc="Source, Unidentified"/>
       <item code="USPEC" desc="Source, Unspecified"/>
@@ -49292,7 +49292,7 @@ les">
       <item code="SKN" desc="Skin"/>
       <item code="TZANC" desc="Smear, Tzanck"/>
       <item code="GSOL" desc="Solution, Gastrostomy" comments="Product"/>
-      <item code="ILLEG" desc="Source of Specimen Is Illegible"/>
+      <item code="ILLEG" desc="Source of Specimen Is Illigible"/>
       <item code="OTH" desc="Source, Other"/>
       <item code="UDENT" desc="Source, Unidentified"/>
       <item code="USPEC" desc="Source, Unspecified"/>
@@ -49483,7 +49483,7 @@ les">
       <item code="IDC" desc="Catheter Tip, Indwelling" comments="Device"/>
       <item code="IHG" desc="Gas, Inhaled"/>
       <item code="ILEO" desc="Drainage, Ileostomy" comments="Condition"/>
-      <item code="ILLEG" desc="Source of Specimen Is Illegible"/>
+      <item code="ILLEG" desc="Source of Specimen Is Illigible"/>
       <item code="IMP" desc="Implant" comments="Device"/>
       <item code="INCI" desc="Site, Incision/Surgical" comments="Site"/>
       <item code="INFIL" desc="Infiltrate" comments="Condition"/>

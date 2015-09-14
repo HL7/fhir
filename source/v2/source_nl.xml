@@ -34155,7 +34155,7 @@
             <item id="62" code="IDC" desc="Catheter Tip, Indwelling"/>
             <item id="150" code="IHG" desc="Gas, inhaled"/>
             <item id="94" code="ILEO" desc="Drainage, Ileostomy"/>
-            <item id="221" code="ILLEG" desc="Source of Specimen Is Illegible"/>
+            <item id="221" code="ILLEG" desc="Source of Specimen Is Illigible"/>
             <item id="157" code="IMP" desc="Implant"/>
             <item id="208" code="INCI" desc="Site, Incision/Surgical"/>
             <item id="158" code="INFIL" desc="Infiltrate"/>
@@ -34424,7 +34424,7 @@
             <item id="62" code="IDC" desc="Catheter Tip, Indwelling"/>
             <item id="150" code="IHG" desc="Gas, Inhaled"/>
             <item id="94" code="ILEO" desc="Drainage, Ileostomy"/>
-            <item id="221" code="ILLEG" desc="Source of Specimen Is Illegible"/>
+            <item id="221" code="ILLEG" desc="Source of Specimen Is Illigible"/>
             <item id="157" code="IMP" desc="Implant"/>
             <item id="208" code="INCI" desc="Site, Incision/Surgical"/>
             <item id="158" code="INFIL" desc="Infiltrate"/>
@@ -34696,7 +34696,7 @@
             <item id="62" code="IDC" desc="Catheter Tip, Indwelling"/>
             <item id="150" code="IHG" desc="Gas, Inhaled"/>
             <item id="94" code="ILEO" desc="Drainage, Ileostomy"/>
-            <item id="221" code="ILLEG" desc="Source of Specimen Is Illegible"/>
+            <item id="221" code="ILLEG" desc="Source of Specimen Is Illigible"/>
             <item id="157" code="IMP" desc="Implant"/>
             <item id="208" code="INCI" desc="Site, Incision/Surgical"/>
             <item id="158" code="INFIL" desc="Infiltrate"/>
@@ -34969,7 +34969,7 @@
             <item id="62" code="IDC" desc="Catheter Tip, Indwelling"/>
             <item id="149" code="IHG" desc="Gas, Inhaled"/>
             <item id="93" code="ILEO" desc="Drainage, Ileostomy"/>
-            <item id="220" code="ILLEG" desc="Source of Specimen Is Illegible"/>
+            <item id="220" code="ILLEG" desc="Source of Specimen Is Illigible"/>
             <item id="156" code="IMP" desc="Implant"/>
             <item id="207" code="INCI" desc="Site, Incision/Surgical"/>
             <item id="157" code="INFIL" desc="Infiltrate"/>

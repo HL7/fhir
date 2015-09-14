@@ -176,20 +176,20 @@
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
-  Definition = Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
+  Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
  -- Row 23 -----------------------------------
   Element = ClaimResponse.item.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
-  Definition = Monitory amount associated with the code
+  Definition = Monetary amount associated with the code
 
  -- Row 24 -----------------------------------
   Element = ClaimResponse.item.adjudication.value
   Card. = 0..1
   Type = decimal
-  Short Label = Non-monitory value
+  Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
  -- Row 25 -----------------------------------
@@ -226,20 +226,20 @@
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
-  Definition = Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
+  Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
  -- Row 30 -----------------------------------
   Element = ClaimResponse.item.detail.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
-  Definition = Monitory amount associated with the code.
+  Definition = Monetary amount associated with the code.
 
  -- Row 31 -----------------------------------
   Element = ClaimResponse.item.detail.adjudication.value
   Card. = 0..1
   Type = decimal
-  Short Label = Non-monitory value
+  Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
  -- Row 32 -----------------------------------
@@ -276,20 +276,20 @@
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
-  Definition = Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
+  Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
  -- Row 37 -----------------------------------
   Element = ClaimResponse.item.detail.subDetail.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
-  Definition = Monitory amount associated with the code.
+  Definition = Monetary amount associated with the code.
 
  -- Row 38 -----------------------------------
   Element = ClaimResponse.item.detail.subDetail.adjudication.value
   Card. = 0..1
   Type = decimal
-  Short Label = Non-monitory value
+  Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
  -- Row 39 -----------------------------------
@@ -347,20 +347,20 @@
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
-  Definition = Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
+  Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
  -- Row 47 -----------------------------------
   Element = ClaimResponse.addItem.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
-  Definition = Monitory amount associated with the code
+  Definition = Monetary amount associated with the code
 
  -- Row 48 -----------------------------------
   Element = ClaimResponse.addItem.adjudication.value
   Card. = 0..1
   Type = decimal
-  Short Label = Non-monitory value
+  Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
  -- Row 49 -----------------------------------
@@ -400,20 +400,20 @@
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
-  Definition = Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
+  Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
  -- Row 54 -----------------------------------
   Element = ClaimResponse.addItem.detail.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
-  Definition = Monitory amount associated with the code
+  Definition = Monetary amount associated with the code
 
  -- Row 55 -----------------------------------
   Element = ClaimResponse.addItem.detail.adjudication.value
   Card. = 0..1
   Type = decimal
-  Short Label = Non-monitory value
+  Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
  -- Row 56 -----------------------------------
@@ -470,18 +470,18 @@
   Requirements = This is a check value that the receiver calculates and returns.
 
  -- Row 64 -----------------------------------
-  Element = ClaimResponse.unallocDeductable
+  Element = ClaimResponse.unallocDeductible
   Card. = 0..1
   Type = Money
-  Short Label = Unallocated deductable
-  Definition = The amount of deductable applied which was not allocated to any particular service line.
+  Short Label = Unallocated deductible
+  Definition = The amount of deductible applied which was not allocated to any particular service line.
 
  -- Row 65 -----------------------------------
   Element = ClaimResponse.totalBenefit
   Card. = 0..1
   Type = Money
   Short Label = Total benefit payable for the Claim
-  Definition = Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable)
+  Definition = Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible)
 
  -- Row 66 -----------------------------------
   Element = ClaimResponse.paymentAdjustment
