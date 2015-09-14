@@ -25,6 +25,7 @@
             <code value="SB"/>
           </coding>
         </type>
+        <description value="The SSN is represented in resources with dashes removed"/>
         <useContext>
           <coding>
             <system value="urn:iso:std:iso:3166"/>
