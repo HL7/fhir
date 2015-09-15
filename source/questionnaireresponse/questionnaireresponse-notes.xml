@@ -1,12 +1,12 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="notes"> </a>
 <h2>
 Notes
 </h2>
 <ul>
-<li>Questionnaires can be authored by clinicians, the patient his/herself or a patient's relatives (or even owner in the case of animals). Clinicians
-may author questionnaires, where the answers are provided by others on behalf of the patient his/herself. Additionally, information gathered for the
+<li>Questionnaires can be authored by clinicians, the patient himself/herself or a patient's relatives (or even the owner in the case of animals). Clinicians
+may author questionnaires, where the answers are provided by others on behalf of the patient himself/herself. Additionally, information gathered for the
 purpose of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, Questionnaire makes a distinction between the author,
 the subject and the source of information.</li>
 <li>A QuestionnaireResponse may be stand-alone or may point to the form that defines the questions in <a href="questionnaire.html">Questionnaire</a>.  In
@@ -27,8 +27,8 @@ Refer to additional guidance provided in the <a href="questionnaire.html">Questi
 Security
 </h2>
 <p>
-QuestionnaireResponse can have answers with values of type Attachment.  These attachments will typically be selected by the user answering the questionnaire and
-this selection may be done in an uncontrolled environment.  Systems should ensure that the attachment is of the desired type and take precautions before
+QuestionnaireResponse resources can have answers with values of type Attachment.  These attachments will typically be selected by the user answering the questionnaire and
+this selection may be done in an uncontrolled environment.  Systems should ensure that the attachment is of the desired type and should take precautions before
 rendering or executing any attached content.
 </p>
 
@@ -37,9 +37,9 @@ rendering or executing any attached content.
 Access Control
 </h2>
 <p>
-For most resources, the type of information that can be conveyed in the resource is determined by the resource and the key attributes that
-determine the sensitvity level of the information are also known; e.g. drug, observation type, clinical trial randomaization status, etc.  However, for QuestionnaireResponse, the
-sensitivity of an instance is dependent on what type of Questionnaire it's associated with.  And the data elements that determine that
+For most resources, the type of information that can be conveyed in the resource is determined by the resource, and the key attributes that
+determine the sensitivity level of the information are also known; e.g., drug, observation type, clinical trial randomization status, etc.  However, for QuestionnaireResponse, the
+sensitivity of an instance is dependent on what type of Questionnaire it is associated with.  And the data elements that determine that
 sensitivity could be the answers to any of the questions.  This makes automatically enforcing access control rules more challenging.  Designers
 should take these challenges into account and may need to place stricter access controls around QuestionnaireResponse to ensure that access to
 information is not granted improperly.

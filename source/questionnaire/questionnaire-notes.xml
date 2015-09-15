@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="notes"> </a>
 <h2>
@@ -107,7 +107,7 @@ These rules will need to be established within implementation environments.
 
 <h3>Question types</h3>
 <p>
-The codes for the data type for each question is slightly different than the data types allowed in the <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
+The codes for the data type for each question are slightly different than the data types allowed in the <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
 Where the names are the same (ignoring case), the "answer" must use the specified type.  Where the names are different, the mappings are as follows:
 </p>
 <table>
@@ -145,7 +145,7 @@ questionnaires having a simple list of strings as choices for a question, but pr
 <ul>
   <li>Questionnaires that reference codes from externally defined code systems have a means of doing so</li>
   <li>Answer sets can be shared across questions (and there are many questionnaires where this capability is useful)</li>
-  <li>The full capability of value sets can be brought into play, including the ability to use ConceptMap to link to translate from questionnaire-specific codes to
+  <li>The full capability of value sets can be brought into play, including the ability to use ConceptMap to link and translate from questionnaire-specific codes to
   other codes, the use of multiple display names (e.g. different languages), the ability to use coded ordinals, the ability to allow choices from larger value sets
   (e.g. "all SNOMED CT procedure codes")</li>
   <li>etc.</li>

@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <p>
 This resource covers the administration of all medications and vaccines.  Please refer to the <a href="immunization.html">Immunization</a> Resource/Profile for the treatment of vaccines.
-It will principally be used within care settings (including inpatient) to record the capture of medication administrations including self-administrations of oral medications, injections, intra-venous adjustments, etc.  It can also be used in out-patient settings to record allergy shots and other non-immunization administrations.  In some
+It will principally be used within care settings (including inpatient) to record the capture of medication administrations, including self-administrations of oral medications, injections, intra-venous adjustments, etc.  It can also be used in out-patient settings to record allergy shots and other non-immunization administrations.  In some
 cases it might be used for home-health reporting, such as recording self-administered or even device-administered insulin.
 </p>
 </div>
@@ -31,8 +31,8 @@ cases it might be used for home-health reporting, such as recording self-adminis
     </tr>
     <tr>
         <td><a href="medicationstatement.html">MedicationStatement</a></td>
-        <td>This is a record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient, or another clinician. 
-          A medication statement is not a part of the prescribe->dispense->administer sequence but is a report that such a sequence (or at least a part of it) did take place resulting in a belief that the patient has received a particular medication.
+        <td>This is a record of medication being taken by a patient or that the medication has been given to a patient, where the record is the result of a report from the patient or another clinician. 
+          A medication statement is not a part of the prescribe->dispense->administer sequence, but is a report that such a sequence (or at least a part of it) did take place, resulting in a belief that the patient has received a particular medication.
         </td>
     </tr>
 </table>
