@@ -147,13 +147,13 @@
   Id = 1
   Code = allergy
   Display = Allergy
-  Definition = Immune-mediated hypersensitivity reaction.
+  Definition = A propensity for hypersensitivity reaction(s) to a substance.  These reactions are most typically type I hypersensitivity, plus other \"allergy-like\" reactions, including pseudoallergy.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = intolerance
   Display = Intolerance
-  Definition = Adverse reaction to a substance, not judged to be immune-mediated (non-allergic).  This can include (but is not limited to) pseudoallergic reactions, side effects, drug toxicities (e.g. to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions.
+  Definition = A propensity for adverse reactions to a substance that is not judged to be allergic or \"allergy-like\".  These reactions are typically (but not necessarily) non-immune.  They are to some degree idiosyncratic and/or individually specific (i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances).
 
 === Sheet allergy-intolerance-category =====================================
 
@@ -342,7 +342,7 @@
   Binding = AllergyIntoleranceType
   Short Label = allergy | intolerance - Underlying mechanism (if known)
   Definition = Identification of the underlying physiological mechanism for the reaction risk.
-  Comments = Allergic (immune-mediated) responses have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be allergic (immune-mediated) are, in fact, non-immune, but in some cases can still pose a life threatening risk.  It is acknowledged that many clinicians may not be in a position to distinguish the mechanism of a particular reaction.  Often the term \"allergy\" is used rather generically and may overlap with the use of \"intolerance\" - in practice the boundaries between these two concepts may not be well-defined or understood.  This data element is included nevertheless because many legacy systems have captured this attribute.  Immunological testing may provide supporting evidence for the basis and causative substance , but no tests are 100% sensitive or specific for sensitivity to a particular substance.  If, as is commonly the case, it is unclear whether the reaction is an allergy or an intolerance, then the type element should be omitted.
+  Comments = Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians may not be in a position to distinguish the mechanism of a particular reaction. Often the term \"allergy\" is used rather generically and may overlap with the use of \"intolerance\" - in practice the boundaries between these two concepts may not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource.
   w5 = class
 
  -- Row 12 -----------------------------------

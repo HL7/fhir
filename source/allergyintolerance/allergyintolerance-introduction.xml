@@ -59,13 +59,11 @@ Use to record information about adverse reactions to a broad range of substances
 Adverse reactions may be:
 </p>
 		<ul>
-			<li>an allergy (immune mediated reaction - most commonly type I hypersensitivity)</li>
-			<li>an intolerance (non-immune mediated reaction) - including pseudoallergic reactions, side effects, drug 
-  toxicities (e.g. to gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions</li>
+			<li>an allergy (typically type I hypersensitivity, plus other "allergy-like" reactions, including pseudoallergy)</li>
+			<li>an intolerance (typically non-immune adverse reactions that are not determined or perceived to be allergic or "allergy-like", and are to some degree idiosyncratic and/or individually specific [i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances])</li>
 		</ul>
 		<p>
-In clinical practice distinguishing between allergic (immune-mediated) and intolerance (non-immune mediated) reactions is difficult and may 
-not be practical. Often the term "allergy" is used in a rather generic sense which may overlap with the use of "intolerance" - in practice the boundaries between these two concepts may not be well-defined or understood. The term "intolerance" should be generally applied to reactions and to the propensity for future reactions where either the sensitivity is felt to not be on an immunologic basis or when the mechanism is unknown. Identification of the type of reaction is not a proxy for seriousness or risk of harm to the patient, which is better expressed by the manifestation in clinical practice.</p>
+In clinical practice distinguishing between allergy and intolerance is difficult and may not be practical. Often the term "allergy" is used rather generically and may overlap with "intolerance", and the boundaries between these concepts may not be well-defined or understood. As noted above, the term "intolerance" should generally be applied to a propensity for adverse reactions which is either determined (to the extent that is possible) or perceived to not be allergic or "allergy-like".  If it is not possible to determine whether a particular propensity condition is an allergy or an intolerance, then the type element should be omitted from the resource.  Identification of the type of reaction is not a proxy for seriousness or risk of harm to the patient, which is better expressed in the documentation of the clinical manifestation and the assessment of criticality.</p>
 		<p>
 The sensitivity in the case of either an allergy or intolerance is unique to the individual, and is distinguished from those reactions that are a property of the circumstance, such as toxicity of a food or drug, overdose, drug-drug, drug-food, or drug-disease interaction (which are reactions that would be expected to occur for any individual given the same circumstances). </p>
 		<p>
