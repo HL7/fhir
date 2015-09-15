@@ -49,7 +49,7 @@ For example, if a <a href="condition.html">Condition</a> resource references a p
 <a href="patient.html">Patient</a> as its subject, and references a <a href="procedure.html">Procedure</a>
 resource as its cause, there is no automatic rule or implication that the procedure
 has the same patient for its subject. Instead, the subject of the procedure must be established
-directly in the procedure itself. Another way to state this is that the context of the subject
+directly in the Procedure resource itself. Another way to state this is that the context of the subject
 is not "inherited", nor does it "conduct" along the relationship to procedure.
 The only exception to this is the case of contained resources (see below). Note that in
 practice, the relationships do need to describe a logical and coherent record, and in the
@@ -77,7 +77,7 @@ The actual reference looks like this:
 
 <p>Notes:</p>
 <ul>
- <li>The <i>reference</i> element contains a url that is either
+ <li>The <code>reference</code> element contains a url that is either
    <ul>
      <li>an absolute URL</li>
      <li>a relative URL, which is relative to the <a href="http.html#root">Service Base URL</a>, or, in a bundle the <code>Bundle.entry.fullUrl</code> (see <a href="bundle.html#references">Resolving References in Bundles</a></li>
@@ -97,18 +97,18 @@ The actual reference looks like this:
    However conformance with this regex is no guarantee that the end-point is a FHIR server
    </li>
  <li>URLs are always considered to be case-sensitive</li>
- <li>The <i>display</i>, if populated, does generally not have identical content to the Resource.text of the referenced resource.  The purpose is to
+ <li>The <code>display</code>, if populated, does generally not have identical content to the Resource.text of the referenced resource.  The purpose is to
    identify what's being referenced, not to more fully describe it</li>
 </ul>
 
 <div class="example">
-<p>A relative reference to the <a href="patient.html">patient</a> "034AB16" in an element named "context" on a FHIR RESTful server:</p>
+<p>A relative reference to the <a href="patient.html">patient</a> "034AB16" in an element named <code>context</code> on a FHIR RESTful server:</p>
 <pre class="xml" fragment="Reference">
   &lt;context&gt;
     &lt;reference value="Patient/034AB16" /&gt;
   &lt;/context&gt;
 </pre>
-<p>An absolute reference to a <a href="structuredefinition.html">Structure Definition</a> in an element named "profile":</p>
+<p>An absolute reference to a <a href="structuredefinition.html">Structure Definition</a> in an element named <code>profile</code>:</p>
 <pre class="xml" fragment="Reference">
   &lt;profile&gt;
     &lt;reference value="http://fhir.hl7.org/svc/StructureDefinition/c8973a22-2b5b-4e76-9c66-00639c99e61b" /&gt;
@@ -130,8 +130,8 @@ This text can be used by a system that is unable to resolve the reference to an 
 </div>
 
 <p>
-Note that some elements have the type "<a href="datatypes.html#uri">uri</a>" instead of "Reference".
-URIs may point to either resources, elements inside a resource by their "id" property, or (most often)
+Note that some elements have the type <a href="datatypes.html#uri"><code>uri</code></a> instead of <code>Reference</code>.
+URIs may point to either resources, elements inside a resource by their <code>id</code> property, or (most often)
 some other content that is not a resource. The Reference type is only used to refer to resources
 directly, by their logical id.
 </p>
@@ -227,7 +227,7 @@ Some notes about use and interpretation of contained resources:
 </p>
 
 <ul>
-  <li>The "contained" element SHALL NOT have extensions on it (though contained resources can still contain extensions)</li>
+  <li>The <code>contained</code> element SHALL NOT have extensions on it (though contained resources can still contain extensions)</li>
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below)</li>
   <li>Contained resources SHALL NOT contain additional contained resources</li>
   <li>Contained resources SHALL NOT contain any narrative</li>
