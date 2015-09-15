@@ -111,7 +111,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Description of the Location, which helps in finding or referencing the place
+  Short Label = Description of the location
   Definition = Description of the Location, which helps in finding or referencing the place
   Requirements = Humans need additional information to verify a correct location has been identified
   RIM Mapping = .playingEntity[classCode=PLC determinerCode=INSTANCE].desc
@@ -135,7 +135,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = LocationType
-  Short Label = Indicates the type of function performed at the location
+  Short Label = Type of function performed
   Definition = Indicates the type of function performed at the location
   RIM Mapping = .code
   w5 = class
@@ -174,7 +174,7 @@
   Card. = 0..1
   UML = right
   Short Label = The absolute geographic location
-  Definition = The absolute geographic location of the Location, expressed in with the WGS84 datum (This is the same co-ordinate system used in KML)
+  Definition = The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML)
   Requirements = For mobile applications and automated route-finding knowing the exact location of the Location is required
   RIM Mapping = .playingEntity [classCode=PLC determinerCode=INSTANCE].positionText
 
@@ -207,7 +207,8 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = The organization that is responsible for the provisioning and upkeep of the location
+  Short Label = Organization responsible for provisioning and upkeep
+  Definition = The organization responsible for the provisioning and upkeep of the location
   Requirements = Need to know who manages the location
   Comments = This can also be used as the part of the organization hierarchy where this location provides services. These services can be defined through the HealthcareService resource.
   RIM Mapping = .scopingEntity[classCode=ORG determinerKind=INSTANCE]
@@ -216,7 +217,8 @@
   Element = Location.partOf
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = Another Location which this Location is physically part of
+  Short Label = Another Location this one is physically part of
+  Definition = Another Location which this Location is physically part of
   Requirements = For purposes of location, display and identification, knowing which locations are located within other locations is important
   RIM Mapping = .inboundLink[typeCode=PART].source[classCode=SDLC]
 

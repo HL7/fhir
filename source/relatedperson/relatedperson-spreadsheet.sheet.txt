@@ -27,7 +27,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = A Human identifier for this person
+  Short Label = A human identifier for this person
   Definition = Identifier for a person within a particular scope.
   Requirements = People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the patient. Examples are national person identifier and local identifier
   v2 Mapping = NK1-33
@@ -42,7 +42,7 @@
   Type = Reference(Patient)
   Short Label = The patient this person is related to
   Definition = The patient this person is related to
-  Requirements = We need to know which Patient this RelatedPerson is related to.
+  Requirements = We need to know which patient this RelatedPerson is related to.
   v2 Mapping = PID-3
   RIM Mapping = scoper[classCode=PSN|ANM and determinerCode=\'INSTANCE\']/playedRole[classCode=\'PAT\']/id
   Committee Notes = This rather complicated HL7 v3 mapping traverses the same path that the Patient resource has for contact but in opposite direction

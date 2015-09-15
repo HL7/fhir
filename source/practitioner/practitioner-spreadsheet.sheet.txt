@@ -60,7 +60,7 @@
   Short Label = Whether this practitioner\'s record is in active use
   Definition = Whether this practitioner\'s record is in active use
   Requirements = Need to be able to mark a practitioner record as not to be used because it was created in error
-  Comments = Default is true. \n\nIf the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another Role.
+  Comments = Default is true. \n\nIf the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role.
   RIM Mapping = ./StatusCode
   Default Value = True
   w5 = status
@@ -153,14 +153,16 @@
   Element = Practitioner.practitionerRole
   Card. = 0..*
   UML = 400;20
-  Short Label = The list of Roles/Organizations that the Practitioner is associated with
+  Short Label = Roles/organizations the practitioner is associated with
+  Definition = The list of roles/organizations that the practitioner is associated with
   RIM Mapping = .(Role)
 
  -- Row 12 -----------------------------------
   Element = Practitioner.practitionerRole.managingOrganization
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = The Organization where the Practitioner performs the roles associated
+  Short Label = Organization where the roles are performed
+  Definition = The organization where the Practitioner performs the roles associated
   RIM Mapping = scopingOrganization
 
  -- Row 13 -----------------------------------

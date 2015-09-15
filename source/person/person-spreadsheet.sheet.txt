@@ -44,7 +44,7 @@
   Short Label = A generic person record
   Definition = Demographics and administrative information about a person independent of a specific health-related context
   Requirements = Need to track persons potentially across multiple roles
-  Comments = The Person resource does justice to Person registries that keep track of Persons regardless of their role. The Person resource is also a primary resource to point to for people acting in a particular role such as SubjectofCare, Practitioner, and Agent. Very few attributes are specific to any role and so Person is kept lean. Most attributes are expected to be tied to the role the Person plays rather than the Person himself. Examples of that are Guardian (SubjectofCare), ContactParty (SubjectOfCare, Practitioner), and multipleBirthInd (SubjectofCare)
+  Comments = The Person resource does justice to person registries that keep track of persons regardless of their role. The Person resource is also a primary resource to point to for people acting in a particular role such as SubjectofCare, Practitioner, and Agent. Very few attributes are specific to any role and so Person is kept lean. Most attributes are expected to be tied to the role the Person plays rather than the Person himself. Examples of that are Guardian (SubjectofCare), ContactParty (SubjectOfCare, Practitioner), and multipleBirthInd (SubjectofCare)
   RIM Mapping = Person(classCode=\"PSN\" and determinerCode=\"INST\" and quantity=\"1\")
   w5 = administrative.entity
 
@@ -52,7 +52,7 @@
   Element = Person.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = A Human identifier for this person
+  Short Label = A human identifier for this person
   Definition = Identifier for a person within a particular scope.
   Requirements = People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the person. Examples are national person identifier and local identifier
   v2 Mapping = PID-3
@@ -108,7 +108,7 @@
   Short Label = The date on which the person was born
   Definition = The birth date for the person.
   Requirements = Age of person drives many clinical processes, and is often used in performing identification of the person. Times are not included so as to not confuse things with potential timezone issues.
-  Comments = At least an estimated year should be provided as a guess if the real dob is unknown
+  Comments = At least an estimated year should be provided as a guess if the real DOB is unknown
   v2 Mapping = PID-7
   RIM Mapping = ./birthTime
   Committee Notes = renamed from dob, because the abbreviation is not obvious to non-English speakers
@@ -131,7 +131,7 @@
   Type = Address
   Short Label = One or more addresses for the person
   Definition = One or more addresses for the person
-  Requirements = May need to keep track of persons addresses for contacting, billing or reporting requirements and also to help with identification
+  Requirements = May need to keep track of person\'s addresses for contacting, billing or reporting requirements and also to help with identification
   Comments = Person may have multiple addresses with different uses or applicable periods
   v2 Mapping = PID-11
   RIM Mapping = ./addr
@@ -140,7 +140,7 @@
   Element = Person.photo
   Card. = 0..1
   Type = Attachment
-  Short Label = Image of the Person
+  Short Label = Image of the person
   Definition = An image that can be displayed as a thumbnail of the person to enhance the identification of the individual
   v2 Mapping = OBX-5 - needs a profile
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/desc
@@ -207,8 +207,8 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = The Organization that is the custodian of the person record
-  Definition = The Organization that is the custodian of the person record
+  Short Label = The organization that is the custodian of the person record
+  Definition = The organization that is the custodian of the person record
   Requirements = Need to know who recognizes this person record, manages and updates it
   RIM Mapping = scoper
 
