@@ -153,7 +153,7 @@
   Summary = y
   Type = Identifier
   Short Label = External Ids for this procedure
-  Definition = This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  Definition = This records identifiers associated with this procedure that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
   RIM Mapping = .id
   w5 = id

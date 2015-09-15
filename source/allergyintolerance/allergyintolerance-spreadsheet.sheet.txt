@@ -241,7 +241,7 @@
   Summary = y
   Type = Identifier
   Short Label = External ids for this item
-  Definition = This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  Definition = This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   RIM Mapping = .id
   w5 = id
 
@@ -304,8 +304,8 @@
   Type = CodeableConcept
   Binding = AllergyIntoleranceSubstance
   Short Label = Substance, (or class) considered to be responsible for risk
-  Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk
-  Comments = It is strongly recommended that Substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
+  Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk
+  Comments = It is strongly recommended that the substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
   w5 = what
 
  -- Row 9 -----------------------------------
@@ -330,7 +330,7 @@
   Binding = AllergyIntoleranceCriticality
   Short Label = CRITL | CRITH | CRITU
   Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance
-  Comments = The default criticality value for any propensity to an Adverse Reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
+  Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
   w5 = grade
 
  -- Row 11 -----------------------------------
@@ -372,14 +372,14 @@
   Type = Annotation
   Short Label = Additional text not captured in other fields
   Definition = Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
-  Comments = For example: including reason for flagging a Seriousness of \'High Risk\'; and instructions related to future exposure or administration of the Substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.
+  Comments = For example: including reason for flagging a seriousness of \'High Risk\'; and instructions related to future exposure or administration of the Substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.
 
  -- Row 15 -----------------------------------
   Element = AllergyIntolerance.reaction
   Card. = 0..*
   UML = right
   Short Label = Adverse Reaction Events linked to exposure to substance
-  Definition = Details about each Adverse Reaction Event linked to exposure to the identified Substance
+  Definition = Details about each adverse reaction event linked to exposure to the identified Substance
 
  -- Row 16 -----------------------------------
   Element = AllergyIntolerance.reaction.substance
@@ -389,7 +389,7 @@
   Binding = SubstanceCode
   Short Label = Specific substance considered to be responsible for event
   Definition = Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance
-  Comments = Coding of the Specific Substance with a terminology capable of triggering decision support should be used wherever possible.  The Substance field allows for the use of a specific substance or a group or class of substances, for example \"Penicillins\". The specific Substance field could be used for Amoxycillin. Duplication is acceptable when a specific substance has been recorded in the \'Substance\' field.
+  Comments = Coding of the specific substance with a terminology capable of triggering decision support should be used wherever possible.  The substance field allows for the use of a specific substance or a group or class of substances, for example \"Penicillins\". The specific substance field could be used for Amoxycillin. Duplication is acceptable when a specific substance has been recorded in the \'substance\' field.
 
  -- Row 17 -----------------------------------
   Element = AllergyIntolerance.reaction.certainty
@@ -399,7 +399,7 @@
   Type = code
   Binding = AllergyIntoleranceCertainty
   Short Label = unlikely | likely | confirmed - clinical certainty about the specific substance
-  Definition = Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event
+  Definition = Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event
 
  -- Row 18 -----------------------------------
   Element = AllergyIntolerance.reaction.manifestation
@@ -409,8 +409,8 @@
   Type = CodeableConcept
   Binding = Manifestation
   Short Label = Clinical symptoms/signs associated with the Event
-  Definition = Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event
-  Comments = Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that Manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10.
+  Definition = Clinical symptoms and/or signs that are observed or associated with the adverse reaction event
+  Comments = Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10.
 
  -- Row 19 -----------------------------------
   Element = AllergyIntolerance.reaction.description
@@ -418,7 +418,7 @@
   Aliases = Narrative; Text
   Type = string
   Short Label = Description of the event as a whole
-  Definition = Text description about the Reaction as a whole, including details of the manifestation if required
+  Definition = Text description about the reaction as a whole, including details of the manifestation if required
   Comments = Use the description to provide any details of a particular event of the occurred reaction such as circumstances, reaction specifics, what happened before/after. Information, related to the event, but not describing a particular care should be captured in the comment field. For example: at the age of four, the patient was given penicillin for strep throat and subsequently developed severe hives.
 
  -- Row 20 -----------------------------------
@@ -447,14 +447,14 @@
   Binding = RouteOfAdministration
   Short Label = How the subject was exposed to the substance
   Definition = Identification of the route by which the subject was exposed to the substance.
-  Comments = Coding of the Route of Exposure with a terminology should be used wherever possible.
+  Comments = Coding of the Rroute of exposure with a terminology should be used wherever possible.
 
  -- Row 23 -----------------------------------
   Element = AllergyIntolerance.reaction.note
   Card. = 0..1
   Type = Annotation
   Short Label = Text about event not captured in other fields
-  Definition = Additional text about the Adverse Reaction event not captured in other fields
+  Definition = Additional text about the adverse reaction event not captured in other fields
   Comments = Use this field to record information indirectly related to a particular event and not captured in the description. For example: Clinical records are no longer available, recorded based on information provided to the patient by her mother and her mother is deceased.
 
 === Sheet Search =====================================

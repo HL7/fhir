@@ -170,7 +170,7 @@
   Summary = Y
   Type = Identifier
   Short Label = External Ids for this item
-  Definition = This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  Definition = This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   iCal Mapping = UID
   v2 Mapping = SCH-1, SCH-2, ARQ-1, ARQ-2
   RIM Mapping = .id
