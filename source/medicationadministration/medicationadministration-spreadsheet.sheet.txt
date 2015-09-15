@@ -89,20 +89,20 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = MedicationAdministration.dosage
-  English = SHALL have at least one of dosage.quantity and dosage.rate
-  XPath = exists(f:quantity) or exists(f:rate)
+  English = SHALL have at least one of dosage.quantity and dosage.rate[x]
+  XPath = exists(f:quantity) or exists(f:rateRatio) or exists(f:rateRange)
 
  -- Row 2 -----------------------------------
   Id = 2
-  Context = MedicationAdministration.reasonNotGiven
+  Context = MedicationAdministration
   English = Reason not given is only permitted if wasNotGiven is true
-  XPath = not(exists(f:reasonNotGiven) and f:wasNotGiven/@value=\'false\')
+  XPath = not(exists(f:reasonNotGiven) and f:wasNotGiven/@value=false())
 
  -- Row 3 -----------------------------------
   Id = 3
-  Context = MedicationAdministration.reasonGiven
+  Context = MedicationAdministration
   English = Reason given is only permitted if wasNotGiven is false
-  XPath = not(exists(f:reasonGiven) and f:wasNotGiven/@value=\'true\')
+  XPath = not(exists(f:reasonGiven) and f:wasNotGiven/@value=true())
 
 === Sheet Data Elements =====================================
 

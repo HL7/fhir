@@ -455,7 +455,7 @@
   Id = 7
   Context = Conformance
   English = The set of documents must be unique by the combination of profile & mode
-  XPath = count(f:document[f:mode=\'producer\'])=count(distinct-values(f:document[f:mode=\'producer\']/f:profile/@value)) and count(f:document[f:mode=\'consumer\'])=count(distinct-values(f:document[f:mode=\'consumer\']/f:profile/@value))
+  XPath = count(f:document[f:mode/@value=\'producer\'])=count(distinct-values(f:document[f:mode/@value=\'producer\']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=\'consumer\'])=count(distinct-values(f:document[f:mode/@value=\'consumer\']/f:profile/f:reference/@value))
 
  -- Row 5 -----------------------------------
   Id = 8
@@ -470,36 +470,30 @@
   XPath = count(f:resource)=count(distinct-values(f:resource/f:type/@value))
 
  -- Row 7 -----------------------------------
-  Id = 10
+  Id = !10
   Context = Conformance.rest
-  English = A given query can only be described once per RESTful mode
-  XPath = count(f:query)=count(distinct-values(f:query/f:name/@value))
+  English = A given operation can only be described once per RESTful mode
+  XPath = count(f:operation)=count(distinct-values(f:operation/f:name/@value))
 
  -- Row 8 -----------------------------------
-  Id = 11
-  Context = Conformance.rest.resource
-  English = Operation codes must be unique in the context of a resource
-  XPath = count(f:operation)=count(distinct-values(f:operation/f:code/@value))
-
- -- Row 9 -----------------------------------
   Id = 12
   Context = Conformance.rest.resource
   English = Search parameter names must be unique in the context of a resource
   XPath = count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Id = 13
   Context = Conformance.rest.resource.searchParam
   English = Search parameters can only have chain names when the search parameter type is \'reference\'
   XPath = not(exists(f:chain)) or (f:type/@value = \'reference\')
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Id = 14
   Context = Conformance
   English = Conformance statements of kind \'requirements\' do not have software or implementation elements
   XPath = not(exists(f:software) or exists(f:implementation)) or (f:kind/@value != \'requirements\')
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Id = 15
   Context = Conformance
   English = Conformance statements of kind \'software\' do not have implementation elements
@@ -636,7 +630,7 @@
   Card. = 0..1
   Aliases = License,Restrictions
   Type = string
-  Short Label = Use and/or Publishing restrictions
+  Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement
 
  -- Row 15 -----------------------------------

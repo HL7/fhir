@@ -151,7 +151,7 @@
   Id = 3
   Context = Questionnaire
   English = If root group must be \"required\"
-  XPath = f:group/f:required/@value=\'true\'
+  XPath = f:group/f:required/@value=true()
 
  -- Row 4 -----------------------------------
   Id = 4

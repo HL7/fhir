@@ -222,13 +222,13 @@
   Id = 6
   Context = Timing.repeat
   English = If there\'s a periodMax, there must be a period
-  XPath = not(exists(f:periodMax)) or exists(period)
+  XPath = not(exists(f:periodMax)) or exists(f:period)
 
  -- Row 7 -----------------------------------
   Id = 7
   Context = Timing.repeat
   English = If there\'s a durationMax, there must be a duration
-  XPath = not(exists(f:durationMax)) or exists(duration)
+  XPath = not(exists(f:durationMax)) or exists(f:duration)
 
 === Sheet Data Elements =====================================
 

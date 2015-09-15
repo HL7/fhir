@@ -105,13 +105,13 @@
   Id = 1
   Context = ElementDefinition.slicing
   English = If there are no discriminators, there must be a definition
-  XPath = (f:discriminator) or (f:definition)
+  XPath = (f:discriminator) or (f:description)
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = ElementDefinition
   English = Min <= Max
-  XPath = not(exists(f:min)) or not(exists(f:max)) or (not(f:max/@value) and not(f:min/@value)) or (f:max/@value = \'*\') or (f:max/@value >= f:min/@value)
+  XPath = not(exists(f:min)) or not(exists(f:max)) or (not(f:max/@value) and not(f:min/@value)) or (f:max/@value = \'*\') or (number(f:max/@value) >= f:min/@value)
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -150,48 +150,42 @@
   XPath = not(exists(f:*[starts-with(local-name(.), \'pattern\')])) or not(exists(f:*[starts-with(local-name(.), \'value\')]))
 
  -- Row 9 -----------------------------------
-  Id = 9
-  Context = ElementDefinition.binding
-  English = Example value sets are always extensible
-  XPath = not(f:conformance/@value=\'example\' and f:isExtensible/@value=\'false\')
-
- -- Row 10 -----------------------------------
   Id = 10
   Context = ElementDefinition.binding
   English = provide either a reference or a description (or both)
   XPath = (exists(f:valueSetUri) or exists(f:valueSetReference)) or exists(f:description)
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Id = 11
   Context = ElementDefinition
   English = Binding can only be present for coded elements, string, and uri
   XPath = not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=(\'code\',\'Coding\',\'CodeableConcept\',\'Quantity\',\'Extension\', \'string\', \'uri\')
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Id = 12
   Context = ElementDefinition.binding.valueSetUri
   English = uri SHALL start with http:// or https://
-  XPath = starts-with(@value, \'http:\') or starts-with(@value, \'https:\')
+  XPath = starts-with(string(@value), \'http:\') or starts-with(string(@value), \'https:\')
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Id = 13
   Context = ElementDefinition
   English = Types must be unique by the combination of code and profile
   XPath = not(exists(for $type in f:type return $type/preceding-sibling::f:type[f:code/@value=$type/f:code/@value and f:profile/@value = $type/f:profile/@value]))
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Id = 14
   Context = ElementDefinition
   English = Constraints must be unique by key
   XPath = count(f:constraint) = count(distinct-values(f:constraint/f:key/@value))
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Id = 15
   Context = ElementDefinition
   English = default value and meaningWhenMissing are mutually exclusive
   XPath = not(exists(f:*[starts-with(local-name(.), \'fixed\')])) or not(exists(f:meaningWhenMissing))
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Id = !16
   Context = ElementDefinition
   English = min[x] and max[x] only when the type is appropriate

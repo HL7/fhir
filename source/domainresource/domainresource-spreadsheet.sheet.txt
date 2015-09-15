@@ -25,7 +25,7 @@
   Id = 4
   Context = DomainResource
   English = If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated
-  XPath = not(exists(f:contained/f:meta/f:versionId)) and not(exists(f:contained/f:meta/f:lastUpdated))
+  XPath = not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))
 
 === Sheet Data Elements =====================================
 

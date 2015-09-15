@@ -85,14 +85,14 @@
  -- Row 3 -----------------------------------
   Id = 3
   Context = StructureDefinition.snapshot
-  English = If a structure is a snapshot, then each element definition must have a formal definition, and cardinalities
-  XPath = exists(f:base) or (count(f:element) = count(f:element[exists(f:definition) and exists(f:min) and exists(f:max)]))
+  English = Each element definition in a snapshot must have a formal definition and cardinalities
+  XPath = count(f:element) = count(f:element[exists(f:definition) and exists(f:min) and exists(f:max)])
 
  -- Row 4 -----------------------------------
   Id = 4
   Context = StructureDefinition
   English = A structure must have a base unless abstract = true
-  XPath = (f:abstract/@value = \'true\') or exists(f:base)
+  XPath = (f:abstract/@value =true()) or exists(f:base)
 
  -- Row 5 -----------------------------------
   Id = 5
@@ -109,8 +109,8 @@
  -- Row 7 -----------------------------------
   Id = 7
   Context = StructureDefinition
-  English = If the structure describes a base Resource or Type, the URL has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the name
-  XPath = not(exists(constrainedType)) or f:url/@value=concat(\'http://hl7.org/fhir/StructureDefinition/\', f:name/@value)
+  English = If the structure describes a base Resource or Type, the URL has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the id
+  XPath = not(exists(f:constrainedType)) or f:url/@value=concat(\'http://hl7.org/fhir/StructureDefinition/\', f:id/@value)
 
  -- Row 8 -----------------------------------
   Id = 8
@@ -130,7 +130,7 @@
   Requirements = Ensure that there\'s a base unless the type is abstract and there\'s no constrainedType
   Context = StructureDefinition
   English = If the structure is not abstract, or there\'s a constrained type, then there SHALL be a base
-  XPath = (f:abstract/@value=\'true\') or not(exists(f:constrainedType)) or exists(f:base)
+  XPath = (f:abstract/@value=true()) or not(exists(f:constrainedType)) or exists(f:base)
 
  -- Row 11 -----------------------------------
   Id = 11

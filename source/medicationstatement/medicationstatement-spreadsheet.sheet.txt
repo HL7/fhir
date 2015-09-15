@@ -82,13 +82,13 @@
   Id = 1
   Context = MedicationStatement
   English = Reason not taken is only permitted if wasNotTaken is true
-  XPath = not(exists(f:reasonNotTaken) and f:wasNotTaken/@value=\'false\')
+  XPath = not(exists(f:reasonNotTaken) and f:wasNotTaken/@value=false())
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = MedicationStatement
   English = Reason for use is only permitted if wasNotTaken is false
-  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUse\')]) and f:wasNotTaken/@value=\'true\')
+  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUse\')]) and f:wasNotTaken/@value=true())
 
 === Sheet Data Elements =====================================
 

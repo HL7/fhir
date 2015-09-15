@@ -92,7 +92,7 @@
   Id = 2
   Context = List
   English = The deleted flag can only be used if the mode of the list is \"changes\"
-  XPath = (f:mode/@value = \'changes\') or not(exists(f:entry/f:item/f:deleted))
+  XPath = (f:mode/@value = \'changes\') or not(exists(f:entry/f:deleted))
 
 === Sheet Data Elements =====================================
 

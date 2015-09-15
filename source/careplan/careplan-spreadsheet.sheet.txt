@@ -165,9 +165,9 @@
 
  -- Row 1 -----------------------------------
   Id = 3
-  Context = CarePlan.activity.detail
-  English = Only provide a detail reference, or a simple detail summary
-  XPath = not(exists(f:detail)) or not(exists(f:simple))
+  Context = CarePlan.activity
+  English = Provide a reference or detail, not both
+  XPath = not(exists(f:detail)) or not(exists(f:reference))
 
 === Sheet Data Elements =====================================
 

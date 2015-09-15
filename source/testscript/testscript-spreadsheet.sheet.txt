@@ -300,18 +300,6 @@
   English = Test action assert shall contain both compareToSourceId and compareToSourcePath or neither.
   XPath = (f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourcePath)
 
- -- Row 15 -----------------------------------
-  Id = 15
-  Context = TestScript
-  English = Operations SHALL be present in TestScript.setup.action, TestScript.test.action and TestScript.teardown.action only.
-  XPath = not(f:operation)
-
- -- Row 16 -----------------------------------
-  Id = 16
-  Context = TestScript
-  English = Assertions SHALL be present in TestScript.setup.action and TestScript.test.action only.
-  XPath = not(f:assert)
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------

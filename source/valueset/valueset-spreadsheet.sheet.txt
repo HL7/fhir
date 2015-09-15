@@ -87,8 +87,8 @@
  -- Row 6 -----------------------------------
   Id = 7
   Context = ValueSet
-  English = A defined code system (if present) SHALL have a different identifier to the value set itself
-  XPath = not(f:codeSystem/f:system/@value = f:identifier/@value)
+  English = A defined code system (if present) SHALL have a different url than the value set url
+  XPath = not(f:codeSystem/f:system/@value = f:url/@value)
 
  -- Row 7 -----------------------------------
   Id = 8
@@ -100,7 +100,7 @@
   Id = 9
   Context = ValueSet.expansion.contains
   English = Must have a code if not abstract
-  XPath = exists(f:code) or (f:abstract/@value = \'true\')
+  XPath = exists(f:code) or (f:abstract/@value = true())
 
  -- Row 9 -----------------------------------
   Id = 10

@@ -77,13 +77,13 @@
   Id = 1
   Context = NamingSystem
   English = Root systems cannot have uuid or sid identifiers
-  XPath = not(f:type/@value=\'root\' and f:uniqueId/f:type=(\'uuid\', \'ruid\'))
+  XPath = not(f:kind/@value=\'root\' and f:uniqueId/f:type/@value=(\'uuid\', \'ruid\'))
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = NamingSystem
   English = Can\'t have more than one preferred identifier for a type
-  XPath = not(exists(for $type in distinct-values(f:uniqueId/f:type) return if (count(f:uniqueId[f:type/@value=$type and f:primary/@value=\'true\'])>1) then $type else ()))
+  XPath = not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:preferred/@value=true()])>1) then $type else ()))
 
  -- Row 3 -----------------------------------
   Id = 3
