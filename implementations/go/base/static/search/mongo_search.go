@@ -125,7 +125,7 @@ func dateSelector(date *Date, prefix Prefix) bson.M {
 		}
 	case GT:
 		timeCriteria = bson.M{
-			"$gte": date.RangeHighExcl(),
+			"$gt": date.RangeLowIncl(),
 		}
 	case LT:
 		timeCriteria = bson.M{
@@ -168,7 +168,7 @@ func periodSelector(date *Date, prefix Prefix) bson.M {
 			"$or": []bson.M{
 				bson.M{
 					"end.time": bson.M{
-						"$gte": date.RangeHighExcl(),
+						"$gt": date.RangeLowIncl(),
 					},
 				},
 				// Also support instances where period exists, but end is null (ongoing)
@@ -203,7 +203,7 @@ func periodSelector(date *Date, prefix Prefix) bson.M {
 				},
 				bson.M{
 					"end.time": bson.M{
-						"$gte": date.RangeHighExcl(),
+						"$gt": date.RangeLowIncl(),
 					},
 				},
 				// Also support instances where period exists, but end is null (ongoing)
