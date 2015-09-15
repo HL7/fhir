@@ -69,7 +69,7 @@
   Must Support = Y
 
  -- Row 10 -----------------------------------
-  Element = FamilyMemberHistory.status
+  Element = !FamilyMemberHistory.status
 
  -- Row 11 -----------------------------------
   Element = FamilyMemberHistory.age[x]
