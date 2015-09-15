@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="org.hl7.fhir.tools" default="SchematronCheck">
+  <property name="dir.saxon" value="/Program Files/SaxonEE"/>
+  <property name="xsl.invariants" value="../../../temp/fhir-invariants.xslt"/>
+
+  <path id="saxon.path">
+    <fileset dir="../../../tools/java/imports">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <path id="saxonee.path">
+    <fileset dir="${dir.saxon}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <property name="saxon.classname" value="net.sf.saxon.TransformerFactoryImpl"/>
+
+  <target name="SchematronCheck">
+    <xslt in="../../../publish/fhir-invariants.sch" out="${xsl.invariants}" style="../iso_svrl_for_xslt3.xsl" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    
+    <delete file="../../../temp/bundle-validate.txt"/>
+    
+    <replace file="${xsl.invariants}" token="match=&quot;//" value="match=&quot;"/>
+    <replace file="${xsl.invariants}" token="match=&quot;f:extension[" value="match=&quot;*/f:extension["/>
+    
+    <java jar="${dir.saxon}/saxon9ee.jar" fork="true">
+      <arg value="-s:emptybundle.xml"/>
+      <arg value="-o:t.txt"/>
+      <arg value="-val:strict"/>
+      <arg value="-xsl:${xsl.invariants}"/>
+      <arg value="-xsd:../../../schema/fhir-single.xsd"/>
+    </java>
+<!--    
+    <xslt in="emptybundle.xml" out="../../../temp/bundle-validate.txt" style="../../../temp/fhir-invariants.xslt" classpathref="saxonee.path">
+      <factory name="${saxon.classname}">
+        <attribute name="http://saxon.sf.net/feature/schema-validation-mode" value="strict"/>
+      </factory>
+    </xslt>-->
+  </target>
+
+</project>
