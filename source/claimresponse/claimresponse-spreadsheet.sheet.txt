@@ -470,7 +470,7 @@
   Requirements = This is a check value that the receiver calculates and returns.
 
  -- Row 64 -----------------------------------
-  Element = ClaimResponse.unallocDeductible
+  Element = ClaimResponse.unallocDeductable
   Card. = 0..1
   Type = Money
   Short Label = Unallocated deductible

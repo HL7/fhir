@@ -205,7 +205,7 @@ Type
     A FHIR request.
 
     The request may have been received over a FHIR RESTful interface, or by receiving
-    a resource or an atom feed directly from some other kind of interface.
+    a resource or an atom bundle directly from some other kind of interface.
 
     The request may be modified by a script. HL7Connect will ignore changes to the following
     properties: url, baseURL, resourceType, and format. These properties should be treated as read-only,
@@ -248,8 +248,8 @@ Type
     procedure SetResource(const Value: TFhirResource);
     procedure SetSource(const Value: TAdvBuffer);
     procedure SetSession(const Value: TFhirSession);
-    function GetFeed: TFhirBundle;
-    procedure SetFeed(const Value: TFhirBundle);
+    function GetBundle: TFhirBundle;
+    procedure SetBundle(const Value: TFhirBundle);
     procedure SetMeta(const Value: TFhirMeta);
     procedure SetProvenance(const Value: TFhirProvenance);
     procedure processParams;
@@ -339,7 +339,7 @@ Type
       part of the FHIR specification
     }
     Property Resource : TFhirResource read FResource write SetResource;
-    Property Feed : TFhirBundle read GetFeed write SetFeed;
+    Property Bundle : TFhirBundle read GetBundle write SetBundle;
     property meta : TFhirMeta read FMeta write SetMeta;
 
     {@member Tags
@@ -404,7 +404,7 @@ Type
     A response may have only one of
       * a body
       * a resource
-      * a feed
+      * a bundle
 
     The string body is used for error messages, or to return xhtml or schema etc.
 
@@ -431,8 +431,8 @@ Type
     FId: String;
     FMeta: TFhirMeta;
     procedure SetResource(const Value: TFhirResource);
-    function GetFeed: TFhirBundle;
-    procedure SetFeed(const Value: TFhirBundle);
+    function GetBundle: TFhirBundle;
+    procedure SetBundle(const Value: TFhirBundle);
     procedure SetMeta(const Value: TFhirMeta);
   public
     Constructor Create; Override;
@@ -477,7 +477,7 @@ Type
       part of the FHIR specification
     }
     Property Resource : TFhirResource read FResource write SetResource;
-    Property Feed : TFhirBundle read GetFeed write SetFeed;
+    Property Bundle : TFhirBundle read GetBundle write SetBundle;
 
     {@member Format
       The format for the response, if known and identified (xml, or json). Derived
@@ -488,7 +488,7 @@ Type
     {@member ContentType
       The content type of the response. if left blank, this will be determined
       automatically (text/plain for body, and type as specifed in the FHIR
-      specification for resources and feeds.
+      specification for resources and bundles.
     }
     Property ContentType : String read FContentType write FContentType;
 
@@ -819,7 +819,7 @@ begin
   inherited;
 end;
 
-function TFHIRRequest.GetFeed: TFhirBundle;
+function TFHIRRequest.GetBundle: TFhirBundle;
 begin
   if not (Resource is TFHIRBundle) then
     raise Exception.Create('Found a '+resource.FhirType+' expecting a Bundle');
@@ -884,7 +884,7 @@ begin
     Summary := soFull;
 end;
 
-procedure TFHIRRequest.SetFeed(const Value: TFhirBundle);
+procedure TFHIRRequest.SetBundle(const Value: TFhirBundle);
 begin
   setresource(value);
 end;
@@ -965,7 +965,7 @@ begin
   inherited;
 end;
 
-function TFHIRResponse.GetFeed: TFhirBundle;
+function TFHIRResponse.GetBundle: TFhirBundle;
 begin
   result := FResource as TFhirBundle;
 end;
@@ -975,7 +975,7 @@ begin
   result := TFHIRResponse(Inherited Link);
 end;
 
-procedure TFHIRResponse.SetFeed(const Value: TFhirBundle);
+procedure TFHIRResponse.SetBundle(const Value: TFhirBundle);
 begin
   SetResource(value);
 end;
