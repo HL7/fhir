@@ -5221,6 +5221,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       logError(" ...validate " + "valuesets", LogMessageType.Process);
       validateXmlFile(schema, "valuesets", validator, null);
 
+      logError(" ...validate " + "dataelements", LogMessageType.Process);
+      validateXmlFile(schema, "dataelements", validator, null);
+
       logError(" ...validate " + "conceptmaps", LogMessageType.Process);
       validateXmlFile(schema, "conceptmaps", validator, null);
 

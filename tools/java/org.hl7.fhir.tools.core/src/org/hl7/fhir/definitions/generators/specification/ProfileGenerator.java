@@ -59,6 +59,7 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.TypeParser;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.DataElement;
@@ -145,6 +146,12 @@ public class ProfileGenerator {
     this.genDate = genDate;
     this.version = version;
     this.dataElements = dataElements;
+    if (dataElements != null) {
+      for (BundleEntryComponent be : dataElements.getEntry()) {
+        if (be.getResource() instanceof DataElement)
+          des.put(be.getResource().getId(), (DataElement) be.getResource());
+      }
+    }
   }
 
   private Map<String, DataElement> des = new HashMap<String, DataElement>();
@@ -173,24 +180,28 @@ public class ProfileGenerator {
         dataElements.addEntry().setResource(de).setFullUrl(de.getUrl());
     }
     
+    if (ed.hasBase())
+      throw new Exception("attempt to add derived element to data elements");
+      
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
     de.setName(ed.getName());
     de.setStatus(ConformanceResourceStatus.DRAFT);
     de.setExperimental(true);
     de.setStringency(DataElementStringency.FULLYSPECIFIED);
-    if (parent != null) {
-      Extension ext = de.addExtension();
-      ext.setUrl("http://hl7.org/fhir/StructureDefinition/dataelement-relationship");
-      Extension ext2 = ext.addExtension();
-      ext2.setUrl("type");
-      ext2.setValue(new CodeType("composed"));
-      ext2 = ext.addExtension();
-      ext2.setUrl("cardinality");
-      ext2.setValue(new StringType("1"));
-      ext2 = ext.addExtension();
-      ext2.setUrl("target");
-      ext2.setValue(new UriType("http://hl7.org/fhir/DataElement/"+parent.getPath()));
-    }
+    // re-enable this when the extension is defined post DSTU-2
+//    if (parent != null) {
+//      Extension ext = de.addExtension();
+//      ext.setUrl("http://hl7.org/fhir/StructureDefinition/dataelement-relationship");
+//      Extension ext2 = ext.addExtension();
+//      ext2.setUrl("type");
+//      ext2.setValue(new CodeType("composed"));
+//      ext2 = ext.addExtension();
+//      ext2.setUrl("cardinality");
+//      ext2.setValue(new StringType("1"));
+//      ext2 = ext.addExtension();
+//      ext2.setUrl("target");
+//      ext2.setValue(new UriType("http://hl7.org/fhir/DataElement/"+parent.getPath()));
+//    }
     de.addElement(ed);
   }
 
@@ -399,7 +410,7 @@ public class ProfileGenerator {
     ecB.getFormatCommentsPre().add("Schema Type: "+type.getSchema());
     if (!Utilities.noString(type.getRegex()))
       ecB.getFormatCommentsPre().add("Regex: "+type.getRegex());
-    generateElementDefinition(ecB, ecA);
+//    generateElementDefinition(ecB, ecA);
 
     containedSlices.clear();
 
@@ -542,8 +553,8 @@ public class ProfileGenerator {
 
     // now, the snapshot
     new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType(), p.getName(), pkp, issues);
-    for (ElementDefinition ed : p.getSnapshot().getElement())
-      generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
+//    for (ElementDefinition ed : p.getSnapshot().getElement())
+//      generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
 
     p.getDifferential().getElement().get(0).getType().clear();
     p.getDifferential().getElement().get(0).addType().setCode(pt.getBaseType());
