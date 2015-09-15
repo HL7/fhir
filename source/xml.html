@@ -44,7 +44,7 @@ Using this format:
  <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
  <li>Elements must always appear in the order documented</li>
  <li>When an element is allowed to repeat, the elements are ordered, and implementations must preserve order (note: the meaning of the order may not be known)</li>
- <li>A few properties are represented as attributes: primitive values in the "value" attribute, extension URLs in the "url" attribute on an extension, and the "id" property</li>
+ <li>A few properties are represented as attributes: primitive values in the <code>value</code> attribute, extension URLs in the <code>url</code> attribute on an extension, and the <code>id</code> property</li>
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#id">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
    The only other namespace that occurs in FHIR resources is the XHTML namespace (<a href="narrative.html">XHTML is found in most resources)</a></li>
@@ -59,10 +59,10 @@ Using this format:
  <li>Implementers SHOULD trim leading and trailing whitespace before writing and SHOULD trim leading and trailing whitespace when reading attribute values</li>
  <li>The lock icon (<img alt="??" src="lock.png"/>) denotes that an element defines or is affected by <a href="conformance-rules.html#constraints">additional rules</a> that control its presence and/or content</li>
  <li>XML comments, processing instructions and formatting are not part of the contents of a resource</li>
- <li>XML resources SHALL be exchanged using UTF-8 encoding. Specifying the character encoding using a &lt;?xml encoding="UTF-8" ?&gt; processing instruction is optional but recommended</li>
+ <li>XML resources SHALL be exchanged using UTF-8 encoding. Specifying the character encoding using a <code>&lt;?xml encoding="UTF-8" ?&gt;</code> processing instruction is optional but recommended</li>
  <li>Other processing instructions SHOULD not be included, and SHALL NOT be required in order to properly understand and/or present the data or narrative of the resource. 
   Applications MAY preserve processing instructions when handling resources, but are not required to do so</li>
- <li>The MIME-type for this format is application/xml+fhir.</li>
+ <li>The MIME-type for this format is <code>application/xml+fhir</code>.</li>
 </ul>
 
 <a name="schema"> </a>
@@ -110,7 +110,7 @@ the same XML syntax, but apply less validation in order to create a
 schema that works with more code generation tooling. 
 </p>
 <p>
-Specifically, these schemas are generated without any xs:choice elements, 
+Specifically, these schemas are generated without any <code>xsd:choice</code> elements, 
 for code generators that don't deal with choices well. Implementers that 
 use these schemas will need to enforce the correct usage of the 
 <a href="formats.html#choice">choice elements</a> without schema
@@ -122,12 +122,12 @@ to consider how to handle the <a href="datatypes.html#decimal">decimal</a>
 data type. The decimal data type is defined to be precision aware - that 
 is, that implementers need to preserve the difference between "2.0" and
 "2.00" - this is ubiquitiously considered important in handling observed
-data in healthcare. Both schemas map this data type to xsd:decimal, but
+data in healthcare. Both schemas map this data type to <code>xsd:decimal</code>, but
 the base <a href="http://www.w3.org/TR/xmlschema-2/#decimal">W3C schema decimal type</a> is specified not to be precision aware. Schema
 driven implementations vary as to how precision is handled, and implementers
 will need to determine how their generated code handles decimals, and 
-consider changing the type for decimal in the schema from xsd:decimal
-to xsd:string. Specifically, implementers may wish to change 
+consider changing the type for decimal in the schema from <code>xsd:decimal</code>
+to <code>xsd:string</code>. Specifically, implementers may wish to change 
 </p>
 <pre>
   &lt;xs:simpleType name=&quot;decimal-primitive&quot;&gt;
@@ -171,8 +171,8 @@ xml:
  <li>Use default namespaces for the FHIR and XHTML namespaces</li>
  <li>Omit all elements that have a default value, if a default value is defined</li>
  <li>Omit all comments</li>
- <li>Always use the unicode character representation for any XML entities (e.g. &amp;#39; instead of &amp;quot;)</li>
- <li>Include the XML processing instruction &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</li>
+ <li>Always use the unicode character representation for any XML entities (e.g. <code>&amp;#39;</code> instead of <code>&amp;quot;</code>)</li>
+ <li>Include the XML processing instruction <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></li>
  <li>Using the XML canonical method <a href="http://www.w3.org/TR/xmldsig-core1/#sec-Canonical">Canonical XML 1.1</a> (<code>http://www.w3.org/2006/12/xml-c14n11</code>)</li>
 </ul>
 <p>

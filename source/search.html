@@ -117,8 +117,8 @@ detailing the cause of the failure. Note that an empty search result is not a fa
 In some cases, some of the parameters may have problems. For instance:
 </p>
 <ul>
- <li>A parameter may refer to a non-existent resource e.g. <code>GET [base]/Observation?subject=101</code>, where <code>101</code> does not exist</li>
- <li>A parameter may refer to an unknown code e.g. <code>GET [base]/Observation?code=loinc|1234-1</code>, where the LOINC code <code>1234-1</code> is not known to the server</li>
+ <li>A parameter may refer to a non-existent resource e.g. <code>GET [base]/Observation?subject=101</code>, where "101" does not exist</li>
+ <li>A parameter may refer to an unknown code e.g. <code>GET [base]/Observation?code=loinc|1234-1</code>, where the LOINC code "1234-1" is not known to the server</li>
  <li>A parameter may refer to a time that is out of scope e.g. <code>GET [base]/Condition?onset=le1995</code>, where the system only has data going back to 2001</li>
  <li>A parameter may use an illegal or unaaceptable modifier e.g. <code>GET [base]/Condition?onset:text=1995</code>, where the modifier cannot be processed by the server</li>
  <li>A data time parameter may have incorrect format e.g. <code>GET [base]/Condition?onset=23%20May%202009</code></li>
@@ -588,7 +588,7 @@ Token search parameters are used for the following data types:
  </tr>
 </table>
 <p>
-Note about the use of token search parameters for boolean fields: the boolean values 'true' and 'false' are also represented
+Note about the use of token search parameters for boolean fields: the boolean values "true" and "false" are also represented
 as formal codes in the <a href="valueset-special-values.html">Special Values</a> code system, which is useful when boolean values 
 need to be represented in a <a href="datatypes.html#coding">Coding</a> data type. The namespace for these codes is 
 http://hl7.org/fhir/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
@@ -757,16 +757,16 @@ using the syntax in the second example above).
 <a name="combining" />
 <h4>Composite Search Parameters</h4>
 <p>
-Composite search parameters supports joining single values with a "$". For example, the result 
+Composite search parameters supports joining single values with a <code>$</code>. For example, the result 
 of the search operation is the intersection of the resources that match the criteria specified by each
-individual search parameter. If a parameter repeats, such as /Patient?language=FR&amp;language=NL, then
+individual search parameter. If a parameter repeats, such as <code>/Patient?language=FR&amp;language=NL</code>, then
 this matches a patient who speaks both languages. This is known as an AND search parameter, since the
 server is expected to respond only with results which match both values.
 </p>
 <p>
 If, instead, the search is to find patients that speak either
-language, then this is a single parameter with multiple values, separated by a ','.
-For example: "/Patient?language=FR,NL". This is known as an OR search parameter,
+language, then this is a single parameter with multiple values, separated by a <code>,</code>.
+For example: <code>/Patient?language=FR,NL</code>. This is known as an OR search parameter,
 since the server is expected to respond with results which match either value.
 </p>
 <p>
@@ -809,7 +809,7 @@ Examples of using composite parameters:
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
  <tr><td><pre> GET [base]/DiagnosticReport?result.code-value-quantity=http://loinc.org|2823-3$gt5.5|http://unitsofmeasure.org|mmol/L</pre></td><td>Search for all diagnostic reports that contain on observation with a potassium value of >5.4 mmol/L (UCUM)</td></tr>
  <tr><td><pre> GET [base]/Observation?component-code-value-quantity=http://loinc.org|8480-6$lt60</pre></td><td>Search for all the observations with a systolic blood pressure &lt; 60. Note that in this case, the unit is assumed (eveyone uses mmHg)</td></tr>
- <tr><td><pre> GET [base]/Group?characteristic-value=gender$mixed</pre></td>Search for all groups that have a characteristic 'gender' with a text value of 'mixed'<td></td></tr>
+ <tr><td><pre> GET [base]/Group?characteristic-value=gender$mixed</pre></td>Search for all groups that have a characteristic "gender" with a text value of "mixed"<td></td></tr>
 </table>
 
 
@@ -1284,8 +1284,8 @@ The <code>_summary</code> parameter requests the server to return only a subset 
 resource. It can have one of the following values:
 </p>
 <table class="codes">
- <tr><td><a href="#summary-true">true</a></td><td>Return only those elements marked as 'summary' in the base definition of the resource(s)</td></tr>
- <tr><td><a href="#summary-text">text</a></td><td>Return only the 'text' element, and any mandatory elements</td></tr>
+ <tr><td><a href="#summary-true">true</a></td><td>Return only those elements marked as "summary" in the base definition of the resource(s)</td></tr>
+ <tr><td><a href="#summary-text">text</a></td><td>Return only the "text" element, and any mandatory elements</td></tr>
  <tr><td><a href="#summary-data">data</a></td><td>Remove the text element</td></tr>
  <tr><td><a href="#summary-count">count</a></td><td>Search only: just return a count of the matching resources, without returning the actual matches</td></tr>
  <tr><td><a href="#summary-false">false</a></td><td>Return all parts of the resource(s)</td></tr>

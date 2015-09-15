@@ -57,9 +57,9 @@ Using this format:
  <li>Objects are never empty. If an element is present in the resource, it SHALL have properties as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>String property values can never be empty. Either the property is absent, or it is present with at least one character of content</li>
  <li>The <span style="color: brown"><b>R!</b></span> denotes that an element is mandatory - it must be present (or in an array, at least one item must be present)</li>
- <li>In this format, // is used for comments but these can't be in the JSON instances</li>
+ <li>In this format, <code>//</code> is used for comments but these can't be in the JSON instances</li>
  <li>The character encoding is always UTF-8</li>
- <li>The MIME-type for this format is application/json+fhir.</li>
+ <li>The MIME-type for this format is <code>application/json+fhir</code>.</li>
 </ul>
 
 <p>
@@ -87,12 +87,12 @@ The JSON format is similar to the XML format:
 <p>There are differences to XML:</p>
 <ul>
  <li>There are no namespaces in the JSON representation</li>
- <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property "resourceType"</li>
+ <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property <code>resourceType</code></li>
  <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
- <li>JSON does not have a notion of attributes versus elements, so attributes (id, value) are handled differently (see below)</li>
+ <li>JSON does not have a notion of attributes versus elements, so attributes (e.g. <code>id</code>, <code>value</code>) are handled differently (see below)</li>
  <li>JSON has the array notation, which is used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
- <li>The XHTML &lt;div&gt; element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
- <li>There is no inherent support in JSON for a comment syntax. As a convention, content that would be comments in an XML representation is represented in a property with the name "fhir_comments", which is an array of strings, which can appear on any JSON object.
+<li>The XHTML <code>&lt;div&gt;</code> element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
+ <li>There is no inherent support in JSON for a comment syntax. As a convention, content that would be comments in an XML representation is represented in a property with the name <code>fhir_comments</code>, which is an array of strings, which can appear on any JSON object.
   This is heavily used in example instances, e.g. in this specification, but not usually used in production systems (and production systems may choose to reject resources with comments in them)</li>
 </ul>
 
@@ -109,7 +109,7 @@ provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHI
 <h3>JSON Representation for repeating elements</h3>
 
 <p>
-An element that has a maximum cardinality of >1 (e.g. x..* in the definitions) may occur more than once in the instance.
+An element that has a maximum cardinality of >1 (e.g. <code>x..*</code> in the definitions) may occur more than once in the instance.
 In XML, this is simply done by repeating the XML element multiple times. In JSON, this is
 done by using an array type. Note that:
 </p>
@@ -148,7 +148,7 @@ FHIR elements with primitive values are represented in two parts:
 </p>
 <ul>
  <li>A JSON property with the name of the element, which has a JSON type of number, boolean, or string</li>
- <li>a JSON property with "_" prepended to the name of the element, which, if present, contains the value's id and/or extensions (and comments, if there are any)</li>
+ <li>a JSON property with <code>_</code> prepended to the name of the element, which, if present, contains the value's id and/or extensions (and comments, if there are any)</li>
 </ul>
 <p>
 The FHIR types <a href="datatypes.html#integer">integer</a> and <a href="datatypes.html#decimal">decimal</a> are represented as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
@@ -199,7 +199,7 @@ If the value has an id attribute, or extensions, then this is represented as fol
    }]
  }
 </pre>
-<p>Note: If the primitive has an id attribute or extension, but no value, only the property with the "_" is rendered.</p>
+<p>Note: If the primitive has an id attribute or extension, but no value, only the property with the <code>_</code> is rendered.</p>
 <p>
 In the case where the primitive element may repeat, it is represented
 in two arrays. JSON null values are used to fill out both arrays so
@@ -279,8 +279,8 @@ converted to JSON member values, in the same manner as described for primitives.
 <p>Things to note here are:</p>
 <ul>
 <li>Both given and family are repeating XML elements, so they are serialised as an Array whether or not they repeat in this instance</li>
-<li>In the family part of 'name', the 'id' is added represented in _family as described above</li>
-<li>The XHTML content in the 'div' element which is in the Narrative element 'text' is represented
+<li>In the family part of <code>name</code>, the <code>id</code> is added represented in <code>_family</code> as described above</li>
+<li>The XHTML content in the <code>div</code> element which is in the Narrative element <code>text</code> is represented
   as an escaped string in the value property in JSON. The xhtml's root element needs to be a &lt;div&gt; in the xhtml namespace</li>
 </ul>
 
@@ -288,7 +288,7 @@ converted to JSON member values, in the same manner as described for primitives.
 
 <h3>JSON representation of Resources</h3>
 <p>
-A resource is a JSON object with a property "resourceType" which informs the
+A resource is a JSON object with a property <code>resourceType</code> which informs the
 parser which resource type this is:
 </p>
 <pre class="json">
@@ -336,7 +336,7 @@ JSON:
  <li>No whitespace other than single spaces in property values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
  <li>Order properties alphabetically</li>
  <li>Omit all properties that have a default value, if a default value is defined</li>
- <li>Omit all comments (fhir_comments property as defined above)</li>
+ <li>Omit all comments (<code>fhir_comments</code> property as defined above)</li>
 </ul>
 <p>
 This canonicalization method is identified by the URL <code>http://hl7.org/fhir/canonicalization/json</code>. The
