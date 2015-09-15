@@ -447,7 +447,7 @@
   Binding = RouteOfAdministration
   Short Label = How the subject was exposed to the substance
   Definition = Identification of the route by which the subject was exposed to the substance.
-  Comments = Coding of the Rroute of exposure with a terminology should be used wherever possible.
+  Comments = Coding of the route of exposure with a terminology should be used wherever possible.
 
  -- Row 23 -----------------------------------
   Element = AllergyIntolerance.reaction.note
