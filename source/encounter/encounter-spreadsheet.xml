@@ -10,18 +10,18 @@
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-07T04:39:46Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6630</WindowHeight>
-  <WindowWidth>21690</WindowWidth>
+  <WindowHeight>16575</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>655</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1101,12 +1101,13 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">List of Encounter statuses</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">List of past encounter statuses</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The current status is always found in the current version of the resource. This status history permits the encounter resource to contain the status history without the needing to read through the historical versions of the resource, or even have the server store them.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The current status is always found in the current version of the resource, not the status history</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1340,7 +1341,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Episode(s) of care that this encounter should be recorded against</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as govt reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1370,9 +1371,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The Referral that initiated this encounter</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The ReferralRequest that initiated this encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The referral request that this encounter satisfies (incoming referral)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The referral request this encounter satisfies (incoming referral)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1439,9 +1440,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Role of participant in encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Role of participant in encounter</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The Participant Type indicates how an individual parcitipates in an encounter. It includes non practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the Practitioner Roles which are functional roles, derived from terms of employment, education, licensing, etc.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The participant type indicates how an individual partitipates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.functionCode</Data><NamedCell
@@ -1714,7 +1716,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Details about the admission to a healthcare service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16" ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This admission does not just include the inpatient context, but also other contexts such as outpatients and community clinics, and potentially aged care facilities.&#10;&#10;The duation recorded in the period of this encounter covers the entire scope of this hospitalization record.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.&#10;&#10;The duration recorded in the period of this encounter covers the entire scope of this hospitalization record.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]</Data><NamedCell
@@ -1872,9 +1874,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The admitting Diagnosis as reported by admitting practitioner</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The admitting diagnosis as reported by admitting practitioner</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The admitting Diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2262,12 +2264,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">List of locations the patient has been at</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">List of locations where the patient has been</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">List of locations at which the patient has been during this encounter</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">List of locations where  the patient has been during this encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Virtual encounters can be recorded in the ancounter by specifying a location reference to a location of type &quot;kind&quot; such as &quot;client's home&quot; and an ecnounter.class = &quot;virtual&quot;</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type &quot;kind&quot; such as &quot;client's home&quot; and an encounter.class = &quot;virtual&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.participation[typeCode=LOC]</Data><NamedCell
@@ -2333,7 +2335,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">planned | active | reserved | completed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The status of the participants presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">When the patient is no longer active at a location, then the period end date is entered, and the status may be changed to completed</Data><NamedCell
@@ -4093,10 +4095,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>38</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4113,8 +4116,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>42</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7165,7 +7168,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

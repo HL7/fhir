@@ -252,8 +252,9 @@
   Card. = 0..*
   UML = 20;300
   Type = event
-  Short Label = List of Encounter statuses
-  Definition = The current status is always found in the current version of the resource. This status history permits the encounter resource to contain the status history without the needing to read through the historical versions of the resource, or even have the server store them.
+  Short Label = List of past encounter statuses
+  Definition = The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them
+  Comments = The current status is always found in the current version of the resource, not the status history
 
  -- Row 5 -----------------------------------
   Element = Encounter.statusHistory.status
@@ -320,7 +321,7 @@
   Summary = Y
   Type = Reference(EpisodeOfCare)
   Short Label = Episode(s) of care that this encounter should be recorded against
-  Definition = Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as govt reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years)
+  Definition = Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years)
   v2 Mapping = PV1-54, PV1-53
   w5 = context
 
@@ -328,8 +329,8 @@
   Element = Encounter.incomingReferral
   Card. = 0..*
   Type = Reference(ReferralRequest)
-  Short Label = The Referral that initiated this encounter
-  Definition = The referral request that this encounter satisfies (incoming referral)
+  Short Label = The ReferralRequest that initiated this encounter
+  Definition = The referral request this encounter satisfies (incoming referral)
 
  -- Row 13 -----------------------------------
   Element = Encounter.participant
@@ -348,7 +349,8 @@
   Type = CodeableConcept
   Binding = ParticipantType
   Short Label = Role of participant in encounter
-  Comments = The Participant Type indicates how an individual parcitipates in an encounter. It includes non practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the Practitioner Roles which are functional roles, derived from terms of employment, education, licensing, etc.
+  Definition = Role of participant in encounter
+  Comments = The participant type indicates how an individual partitipates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc.
   v2 Mapping = ROL-3
   RIM Mapping = .functionCode
 
@@ -431,7 +433,7 @@
   Card. = 0..1
   UML = 350;200
   Short Label = Details about the admission to a healthcare service
-  Comments = This admission does not just include the inpatient context, but also other contexts such as outpatients and community clinics, and potentially aged care facilities.\n\nThe duation recorded in the period of this encounter covers the entire scope of this hospitalization record.
+  Comments = An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.\n\nThe duration recorded in the period of this encounter covers the entire scope of this hospitalization record.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]
 
  -- Row 23 -----------------------------------
@@ -471,8 +473,8 @@
   Element = Encounter.hospitalization.admittingDiagnosis
   Card. = 0..*
   Type = Reference(Condition)
-  Short Label = The admitting Diagnosis as reported by admitting practitioner
-  Definition = The admitting Diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter
+  Short Label = The admitting diagnosis as reported by admitting practitioner
+  Definition = The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter
 
  -- Row 28 -----------------------------------
   Element = Encounter.hospitalization.reAdmission
@@ -574,9 +576,9 @@
   Element = Encounter.location
   Card. = 0..*
   UML = 350;100
-  Short Label = List of locations the patient has been at
-  Definition = List of locations at which the patient has been during this encounter
-  Comments = Virtual encounters can be recorded in the ancounter by specifying a location reference to a location of type \"kind\" such as \"client\'s home\" and an ecnounter.class = \"virtual\"
+  Short Label = List of locations where the patient has been
+  Definition = List of locations where  the patient has been during this encounter
+  Comments = Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type \"kind\" such as \"client\'s home\" and an encounter.class = \"virtual\"
   RIM Mapping = .participation[typeCode=LOC]
 
  -- Row 40 -----------------------------------
@@ -595,7 +597,7 @@
   Type = code
   Binding = EncounterLocationStatus
   Short Label = planned | active | reserved | completed
-  Definition = The status of the participants presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time
+  Definition = The status of the participants\' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time
   Comments = When the patient is no longer active at a location, then the period end date is entered, and the status may be changed to completed
 
  -- Row 42 -----------------------------------
