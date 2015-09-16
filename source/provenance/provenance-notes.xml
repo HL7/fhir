@@ -3,8 +3,8 @@
 <h3>Using the Provenance Resource</h3>
 
 <p>
-The provenance resource identifies information about another resource (the <i>reference</i> element). 
-The provenance resource may be used in several different ways:
+The Provenance resource identifies information about another resource (the <i>reference</i> element). 
+The Provenance resource may be used in several different ways:
 </p>
 <ul>
  <li>As part of a <a href="documents.html">document bundle</a> where it identifies the provenance of part or all of the document</li>
@@ -15,48 +15,73 @@ When used in a document bundle, the <i>references</i> are often not explicitly v
 resource found in the document. On a RESTful system, the target resource reference should be version specific, but this
 requires special care: For new resources that need to have a corresponding Provenance resource, the version-specific
 reference is often not knowable until after the target resource has been updated. This can create an 
-integrity problem for the system - what if the provenance resource cannot be created after the target 
-resource has been updated? To avoid any such integrity problems, the target resource and the provenance resources should be submitted 
+integrity problem for the system - what if the Provenance resource cannot be created after the target 
+resource has been updated? To avoid any such integrity problems, the target resource and the Provenance resources should be submitted 
 as a pair using a <a href="http.html#transaction">transaction</a>. 
 </p>
 
 <h3>Digital Signatures</h3>
 
 <p>
-The provenance resource includes a Digital Signature element which can be used for 
-standards based integrity verification, and non-repudiation purposes. The <i>Signature</i> datatype
-provides details on use of the Signature element. The purposeOfSignature of "source" should be used
-when the signature is for simply proving that the Resource content is the same as it was when the resource
+The Provenance resource includes a <i>signature</i> element (digital signature) which can be used for 
+standards based integrity verification and non-repudiation purposes. The <i>Signature</i> datatype
+provides details on use of the <i>signature</i> element. The Signature.type coded value of "Source" should be used
+when the signature is for simply proving that the resource content is the same as it was when the resource
 was updated or created.
 </p>
 <h3>Party References</h3>
 
 <p>
 Because the Provenance resource often refers to parties that are not represented 
-as FHIR resources, Agent and Entity references are allowed to be either references 
+as FHIR resources, <i>agent</i> and <i>entity</i> references are allowed to be either references 
 to other resources, or they can refer to other entities that are not FHIR resources.
 </p>
 <p>
-The code in the <i>.type</i> element is used to differentiate between the two: if the 
-code is in the system "http://hl7.org/fhir/resource-types", then the reference is to 
-a resource, and the element <i>reference</i> functions exactly the same as in 
-a <a href="references.html#references">Resource Reference</a>. 
+For Provenance.agent, the <i>actor</i> element is used to reference an existing resource. To reference an entity that is not a FHIR resource, the <i>userId</i> element is used. 
 </p>
-
-
-
 <div class="example">
 <p>
 A version specific reference to a FHIR resource on the same server:
 </p>
 <pre class="xml">
   &lt;agent&gt;
+    &lt;actor&gt;
+      &lt;reference value="Patient/34/_history/3"/&gt;
+    &lt;/actor&gt;
+  &lt;/agent&gt;
+</pre>
+</div>
+<div class="example">
+<p>
+A reference to a user (a person) not represented by a FHIR resource:
+</p>
+<pre class="xml">
+  &lt;agent&gt;
+    &lt;userId&gt;
+      &lt;value value="http://acme.com/users/34"/&gt;
+    &lt;/userId&gt;  
+  &lt;/agent&gt;
+</pre>
+</div>
+
+<p>
+For Provenance.entity, the code in the <i>.type</i> element is used to differentiate between the two cases: if the 
+code is in the system "http://hl7.org/fhir/resource-types", then the reference is to 
+a resource, and the element <i>reference</i> functions exactly the same as in 
+a <a href="references.html#references">resource reference</a>. 
+</p>
+<div class="example">
+<p>
+A version specific reference to a FHIR resource on the same server:
+</p>
+<pre class="xml">
+  &lt;entity&gt;
     &lt;type&gt;
       &lt;system value="http://hl7.org/fhir/resource-types"/&gt;
       &lt;code value="Patient"/&gt;
     &lt;/type&gt;
     &lt;reference value="Patient/34/_history/3"/&gt;
-  &lt;/agent&gt;
+  &lt;/entity&gt;
 </pre>
 </div>
 <p>
@@ -64,28 +89,27 @@ In effect, this is the same pattern as a standard resource reference,
 but the type becomes extensible to allow referencing other kinds of 
 resources. 
 </p>
-
 <div class="example">
 <p>
-A reference to a user (a person) not represented by a FHIR resource:
+A reference to a entity (a person) not represented by a FHIR resource:
 </p>
 <pre class="xml">
-  &lt;agent&gt;
+  &lt;entity&gt;
     &lt;type&gt;
       &lt;system value="http://hl7.org/fhir/provenance-participant-type"/&gt;  
       &lt;code value="person"/&gt;
     &lt;/type&gt;  
     &lt;reference value="http://acme.com/users/34"/&gt;
-  &lt;/agent&gt;
+  &lt;/entity&gt;
 </pre>
 </div>
 
 <p>
 One subtle issue with the use of the Provenance resource is to differentiate
-between whether the reference is to the Resource itself, or whether the 
+between whether the reference is to the resource itself, or whether the 
 the reference is to the real world thing that the resource represents,
 e.g. was it the person involved in the activity, or the record of the person. 
-For Agents, it should be understood that the reference is to the real 
+For agents, it should be understood that the reference is to the real 
 world thing that the resource represents. 
 </p>
 

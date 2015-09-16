@@ -4,10 +4,10 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-The immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This includes immunization of both humans and animals but does not include the administration of non-vaccine agents, even those that may have or claim immunological effects.  
+The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This includes immunization of both humans and animals, but does not include the administration of non-vaccine agents, even those that may have or claim to have immunological effects.  
 </p>
 <p>
-Additionally, the immunization resource is expected to cover key concepts related to the creation, revision and querying of a patient's immunization history. This resource - through consultation with the PHER work group - is believed to meet key use cases and information requirements as defined in the existing <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> immunization implementation guide, <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> POIZ domain and Immunization Domain Analysis Model.
+Additionally, the Immunization resource is expected to cover key concepts related to the creation, revision and querying of a patient's immunization history. This resource - through consultation with the PHER work group - is believed to meet key use cases and information requirements as defined in the existing <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> immunization implementation guide, <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> POIZ domain and Immunization Domain Analysis Model.
 </p>
 </div>
 
@@ -33,7 +33,7 @@ Administration of vaccines is intended to be handled using the <b>Immunization</
         <b>AllergyIntolerance and Immunization.reaction</b></p>
     <p>
         <a href="immunization-definitions.html#Immunization.reaction">Immunization.reaction</a> may be an indication of an allergy or intolerance. If this is deemed to be the case, a separate 
-        <a href="allergyintolerance.html">AllergyIntolerance</a> record should be created to indicate it, as most systems will not query against past Immunization.reaction.
+        <a href="allergyintolerance.html">AllergyIntolerance</a> resource instance should be created to indicate it, as most systems will not query against past Immunization.reaction.
     </p>
     
     

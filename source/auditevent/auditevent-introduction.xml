@@ -11,8 +11,8 @@ DICOM (see <a href="http://medical.nema.org/medical/dicom/current/output/html/pa
 <li>ASTM E2147 – Setup the concept of security audit logs for healthcare including accounting of disclosures</li>
 <li>IETF RFC 3881 – Defined the Information Model (IETF rule forced this to be informative)</li>
 <li>DICOM Audit Log Message – Made the information model Normative, defined Vocabulary, Transport Binding, and Schema</li>
-<li>IHE ATNA – defines the grouping with secure transport and access controls; and defined specific audit log records for specific IHE transactions.</li>
-<li>NIST SP800-92 – shows how to do audit log management and reporting – consistent with our model</li>
+<li>IHE ATNA – Defines the grouping with secure transport and access controls; and defined specific audit log records for specific IHE transactions.</li>
+<li>NIST SP800-92 – Shows how to do audit log management and reporting – consistent with our model</li>
 <li>HL7 PASS – Defined an Audit Service with responsibilities and a query interface for reporting use</li>
 <li>ISO 27789 – Defined the subset of audit events that an EHR would need </li>
 </ul>
@@ -29,28 +29,28 @@ it can also be used for any audit logging needs and simple event-based notificat
 <a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
-Servers that provide support for Audit Event resources would not generally accept update or delete 
+Servers that provide support for AuditEvent resources would not generally accept update or delete 
 operations on the resources, as this would compromise the integrity of the audit record. Access of the AuditEvent
-would typically be limited to Security office, Privacy office, or other Systems Administration purposes. The AuditEvent 
-is not intended to be used directly by Providers or Patients, although reports generated from the raw data would 
-be useful. An example is a Patient centric Accounting of Disclosures or an Access Report.
+would typically be limited to security office, privacy office, or other systems administration purposes. The AuditEvent 
+is not intended to be used directly by providers or patients, although reports generated from the raw data would 
+be useful. An example is a patient-centric Accounting of Disclosures or an Access Report.
 </p>
 <p>
 All actors involved in an auditable event should record an AuditEvent (See Audit Event Sub-Type vocabulary for guidance on 
-some security relevant events). This would result in duplicate AuditEvent entries which show the properly working system 
-of systems. Thus it is typical to get an auditable event recorded by both the application, and server. I this way duplicate 
-entries are expected, this is helpful because detecting when only one actor records that an auditable event is an indication 
-of a security problem.  There may be non-participaing actors that also detect a security relevant event and thus would record 
-an AuditEvent, such as a trusted intermediary.
+some security relevant events) resource. This would result in duplicate AuditEvent resource entries which show the properly working system 
+of systems. Thus it is typical to get an auditable event recorded by both the application and the server. In this way duplicate 
+entries are expected, and this is helpful because detecting when only one actor records that an auditable event has occurred is an indication 
+of a security problem.  There may be non-participating actors that also detect a security relevant event and thus would record 
+an AuditEvent resource, such as a trusted intermediary.
 </p>
 <p>
-Security Relevant events are not limited to communications or RESTful events. They include software startup and shutdown; 
+Security relevant events are not limited to communications or RESTful events. They include software startup and shutdown; 
 user login and logout; access control decisions; configuration events; software installation; policy rules changes; 
 and manipulation of data that exposes the data to users.
 </p>
 <p>
-Audit Event resources are often (though not exclusively) 
-created by the application responding to the create/read/query/update/delete/execute etc. event. 
+AuditEvent resources are often (though not exclusively) 
+created by the application responding to the create/read/query/update/delete/execute, etc., event. 
 A <a href="provenance.html">Provenance resource</a> contains overlapping information, but is a 
 record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
 Provenance resources are prepared by the application that initiates the create/update of the resource.
