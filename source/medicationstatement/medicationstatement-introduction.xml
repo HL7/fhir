@@ -12,9 +12,9 @@ Common usage includes:
  <li>the summarization of a patient's "active medications" in a patient profile</li>
 </ul>
 <p>
-This resource does not produce a medication list, but it does produce individual medication statements that may be used in the List resource to construct various types of medication lists.  Note that other medication lists can also be constructed from the other Pharmacy resources e.g. Medication Order, Medication Administration.  
+This resource does not produce a medication list, but it does produce individual medication statements that may be used in the List resource to construct various types of medication lists.  Note that other medication lists can also be constructed from the other Pharmacy resources (e.g., MedicationOrder, MedicationAdministration).  
 </p><p>
-A medication statement is not a part of the prescribe –> dispense -> administer sequence, but is a report by a patient, significant other or a clinician that one or more of the prescribe, dispense or administer actions has occurred, resulting is a belief that the patient is, has, or will be using a particular medication.
+A medication statement is not a part of the prescribe -> dispense -> administer sequence, but is a report by a patient, significant other or a clinician that one or more of the prescribe, dispense or administer actions has occurred, resulting is a belief that the patient is, has, or will be using a particular medication.
 </p>
 </div>
 
@@ -39,8 +39,8 @@ A medication statement is not a part of the prescribe –> dispense -> administe
     </tr>
     <tr>
         <td>MedicationStatement</td>
-        <td>This is a record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient, or another clinician. 
-          A medication statement is not a part of the prescribe->dispense->administer sequence but is a report that such a sequence (or at least a part of it) did take place resulting in a belief that the patient has received a particular medication.
+        <td>This is a record of a medication being taken by a patient or that a medication has been given to a patient, where the record is the result of a report from the patient or another clinician. 
+          A medication statement is not a part of the prescribe->dispense->administer sequence, but is a report that such a sequence (or at least a part of it) did take place, resulting in a belief that the patient has received a particular medication.
         </td>
     </tr>
 </table>
@@ -49,8 +49,8 @@ A medication statement is not a part of the prescribe –> dispense -> administe
     This resource is distinct from <a href="medicationorder.html">MedicationOrder</a>, <a href="medicationdispense.html">MedicationDispense</a> 
 and <a href="medicationadministration.html">MedicationAdministration</a>.  Each of those resources refer to specific events - an individual 
 order, an individual provisioning of medication or an individual dosing.  MedicationStatement is a broader assertion covering a wider 
-timespan and independent of specific events.  The existence of resource instances of any of the preceding three types may be used to infer 
-a Medication statement.  However, medication statements can also be captured on the basis of other information including an assertion by the 
+timespan and is independent of specific events.  The existence of resource instances of any of the preceding three types may be used to infer 
+a medication statement.  However, medication statements can also be captured on the basis of other information, including an assertion by the 
 patient or a care-giver, the results of a lab test, etc.
 </p>
 </div>
