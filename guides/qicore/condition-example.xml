@@ -20,7 +20,7 @@
   </patient>
   <code>
     <coding>
-      <system value="http://hl7.org/fhir/ValueSet/daf-problem"/>
+      <system value="http://snomed.info/sct"/>
       <code value="39065001"/>
       <display value="Burn of ear"/>
     </coding>
