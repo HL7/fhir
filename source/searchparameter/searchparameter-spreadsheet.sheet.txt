@@ -5,7 +5,7 @@
   Binding Name = XPathUsageType
   Binding = code list
   Reference = #search-xpath-usage
-  Definition = How a search parameter relates to the set of elements returned by evaluating the its xpath query
+  Definition = How a search parameter relates to the set of elements returned by evaluating the its xpath query.
   Conformance = required
 
 === Sheet search-xpath-usage =====================================
@@ -14,31 +14,31 @@
   Id = 1
   Code = normal
   Display = Normal
-  Definition = The search parameter is derived directly from the selected nodes based on the type definitions
+  Definition = The search parameter is derived directly from the selected nodes based on the type definitions.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = phonetic
   Display = Phonetic
-  Definition = The search parameter is derived by a phonetic transform from the selected nodes
+  Definition = The search parameter is derived by a phonetic transform from the selected nodes.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = nearby
   Display = Nearby
-  Definition = The search parameter is based on a spatial transform of the selected nodes
+  Definition = The search parameter is based on a spatial transform of the selected nodes.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = distance
   Display = Distance
-  Definition = The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle
+  Definition = The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = other
   Display = Other
-  Definition = The interpretation of the xpath statement is unknown (and can\'t be automated)
+  Definition = The interpretation of the xpath statement is unknown (and can\'t be automated).
 
 === Sheet Invariants =====================================
 

@@ -10,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-03T20:32:09Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,9 @@
   <WindowWidth>19170</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -398,6 +400,16 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s106">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
@@ -796,16 +808,6 @@
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s155">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -3807,7 +3809,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">XPath 2 expression.  See wiki or make Lloyd do it :&gt;</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s105"><Data ss:Type="Number">1</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3817,10 +3819,10 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">Root systems cannot have uuid or sid identifiers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">not(f:kind/@value='root' and f:uniqueId/f:type/@value=('uuid', 'ruid'))</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">not(f:kind/@value='root' and f:uniqueId/f:type/@value=('uuid', 'ruid'))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">2</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
@@ -4268,7 +4270,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6231,7 +6232,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s113" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s113" ss:Width="114.75"/>
+   <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="153.75"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s113" ss:Width="51"/>
    <Column ss:StyleID="s113" ss:Width="45"/>
@@ -6299,7 +6300,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s148"><Data ss:Type="String">NamingSystemType</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Identifies the purpose of the naming system</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Identifies the purpose of the naming system.</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"><Data ss:Type="String">#namingsystem-type</Data></Cell>
@@ -6329,7 +6330,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s149"><Data ss:Type="String">Country</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for identifying countries</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for identifying countries.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">http://www.iso.org/iso/country_codes</Data></Cell>
@@ -6344,7 +6345,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s149"><Data ss:Type="String">NamingSystemIdentifierType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifies the style of unique identifier used to identify a namepace</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifies the style of unique identifier used to identify a namespace.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">#namingsystem-identifier-type</Data></Cell>
@@ -6731,6 +6732,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6750,9 +6752,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6831,7 +6831,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.)</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.).</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -6842,7 +6842,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Root</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The naming system is used as the root for other identifiers and naming systems</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The naming system is used as the root for other identifiers and naming systems.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7381,8 +7381,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7449,7 +7448,7 @@
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">OID</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">An ISO object identifier; e.g. 1.2.3.4.5</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">An ISO object identifier; e.g. 1.2.3.4.5.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s142"/>
@@ -7460,7 +7459,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">UUID</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7471,7 +7470,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">URI</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7482,7 +7481,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Other</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">Some other type of unique identifier.  E.g. HL7-assigned reserved string such as LN for LOINC</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -8010,8 +8009,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

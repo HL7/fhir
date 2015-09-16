@@ -5,7 +5,7 @@
   Binding Name = NamingSystemType
   Binding = code list
   Reference = #namingsystem-type
-  Definition = Identifies the purpose of the naming system
+  Definition = Identifies the purpose of the naming system.
 
  -- Row 2 -----------------------------------
   Binding Name = NamingSystemCategory
@@ -16,14 +16,14 @@
   Binding Name = Country
   Binding = reference
   Reference = http://www.iso.org/iso/country_codes
-  Definition = Codes for identifying countries
+  Definition = Codes for identifying countries.
   Description = The complete set of ISO country codes, as maintained form time to time
 
  -- Row 4 -----------------------------------
   Binding Name = NamingSystemIdentifierType
   Binding = code list
   Reference = #namingsystem-identifier-type
-  Definition = Identifies the style of unique identifier used to identify a namepace
+  Definition = Identifies the style of unique identifier used to identify a namespace.
 
 === Sheet namingsystem-type =====================================
 
@@ -37,13 +37,13 @@
   Id = 2
   Code = identifier
   Display = Identifier
-  Definition = The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.)
+  Definition = The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.).
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = root
   Display = Root
-  Definition = The naming system is used as the root for other identifiers and naming systems
+  Definition = The naming system is used as the root for other identifiers and naming systems.
 
 === Sheet namingsystem-identifier-type =====================================
 
@@ -51,25 +51,25 @@
   Id = 1
   Code = oid
   Display = OID
-  Definition = An ISO object identifier; e.g. 1.2.3.4.5
+  Definition = An ISO object identifier; e.g. 1.2.3.4.5.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = uuid
   Display = UUID
-  Definition = A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11
+  Definition = A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = uri
   Display = URI
-  Definition = A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org
+  Definition = A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = other
   Display = Other
-  Definition = Some other type of unique identifier.  E.g. HL7-assigned reserved string such as LN for LOINC
+  Definition = Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC.
 
 === Sheet Invariants =====================================
 

@@ -5,7 +5,7 @@
   Binding Name = QuestionnaireResponseStatus
   Binding = code list
   Reference = #questionnaire-answers-status
-  Definition = Lifecycle status of the questionnaire response
+  Definition = Lifecycle status of the questionnaire response.
   Conformance = required
   Oid = required
 

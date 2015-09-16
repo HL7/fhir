@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-06-11T11:37:50Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4460,7 +4460,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6222,7 +6221,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"><Data ss:Type="String">OrderStatus</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The status of the response to an order</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The status of the response to an order.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"><Data ss:Type="String">#order-status</Data></Cell>
@@ -6669,6 +6668,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6688,7 +6688,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6800,7 +6800,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Accepted</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The order has been accepted, and work is in progress</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The order has been accepted, and work is in progress.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6811,7 +6811,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Cancelled</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Processing the order was halted at the initiators request</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Processing the order was halted at the initiators request.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6822,7 +6822,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">#6</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Replaced</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The order has been cancelled and replaced by another</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The order has been cancelled and replaced by another.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6833,7 +6833,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Aborted</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Processing the order was stopped because of some workflow/business logic reason</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Processing the order was stopped because of some workflow/business logic reason.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6844,7 +6844,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The order has been completed</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The order has been completed.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -7318,7 +7318,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

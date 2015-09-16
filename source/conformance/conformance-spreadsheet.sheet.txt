@@ -223,7 +223,7 @@
   Id = 3
   Code = mllp
   Display = MLLP
-  Definition = The application sends or receivers messages using HL7\'s Minimal Lower Level Protocol.
+  Definition = The application sends or receives messages using HL7\'s Minimal Lower Level Protocol.
 
 === Sheet document-mode =====================================
 

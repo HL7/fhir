@@ -10,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-23T09:48:50Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,8 @@
   <WindowWidth>19170</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4984,7 +4985,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6853,7 +6853,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="29" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s118" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s118" ss:Width="114.75"/>
+   <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="172.5"/>
    <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s118" ss:Width="51"/>
    <Column ss:StyleID="s118" ss:Width="45"/>
@@ -7338,6 +7338,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9959,7 +9960,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">MLLP</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">The application sends or receivers messages using HL7's Minimal Lower Level Protocol.</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The application sends or receives messages using HL7's Minimal Lower Level Protocol.</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s148"/>

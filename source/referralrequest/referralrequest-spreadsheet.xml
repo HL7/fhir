@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-09-10T03:55:09Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>8</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -6304,7 +6305,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s145"><Data ss:Type="String">ReferralStatus</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The status of the referral</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The status of the referral.</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">#referralstatus</Data></Cell>
@@ -6319,7 +6320,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s146"><Data ss:Type="String">RequestedService</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating the types of services that might be requested as part of a referral</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating the types of services that might be requested as part of a referral.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/c80-practice-codes</Data></Cell>
@@ -6334,7 +6335,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ReferralType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for types of referral; e.g. Consult, transfer, temporary transfer</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for types of referral; e.g. consult, transfer, temporary transfer.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -6349,7 +6350,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ReferralSpecialty</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating the types of capability the referred to service provider must have</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating the types of capability the referred to service provider must have.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/practitioner-specialty</Data></Cell>
@@ -6364,7 +6365,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ReferralPriority</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating the relative priority of the referral</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating the relative priority of the referral.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/diagnostic-order-priority</Data></Cell>
@@ -6379,7 +6380,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ReferralReason</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating why the referral is being requested</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes indicating why the referral is being requested.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"/>
@@ -6771,8 +6772,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6842,7 +6842,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Draft</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">A draft referral that has yet to be send</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">A draft referral that has yet to be send.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
@@ -6853,7 +6853,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Requested</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been transmitted, but not yet acknowledged by the recipient</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been transmitted, but not yet acknowledged by the recipient.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">For consistency, please change to &quot;requested&quot;</Data></Cell>
@@ -6864,7 +6864,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Active</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been acknowledged by the recipient, and is in the process of being actioned</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been acknowledged by the recipient, and is in the process of being actioned.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">For consistency, please change to &quot;in-progress&quot;</Data></Cell>
@@ -6875,7 +6875,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Cancelled</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been cancelled without being completed. For example it is no longer needed</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been cancelled without being completed. For example it is no longer needed.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6886,7 +6886,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Accepted</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The recipient has agreed to deliver the care requested by the referral</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The recipient has agreed to deliver the care requested by the referral.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6897,7 +6897,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Rejected</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The recipient has declined to accept the referral</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The recipient has declined to accept the referral.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6908,7 +6908,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been completely actioned</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The referral has been completely actioned.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7419,8 +7419,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

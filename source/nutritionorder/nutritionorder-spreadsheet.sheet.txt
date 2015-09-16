@@ -91,25 +91,25 @@
   Id = 1
   Code = proposed
   Display = Proposed
-  Definition = The request has been proposed
+  Definition = The request has been proposed.
 
  -- Row 2 -----------------------------------
   Id = 12
   Code = draft
   Display = Draft
-  Definition = The request is in preliminary form prior to being sent
+  Definition = The request is in preliminary form prior to being sent.
 
  -- Row 3 -----------------------------------
   Id = 2
   Code = planned
   Display = Planned
-  Definition = The request has been planned
+  Definition = The request has been planned.
 
  -- Row 4 -----------------------------------
   Id = 1
   Code = requested
   Display = Requested
-  Definition = The request has been placed
+  Definition = The request has been placed.
 
  -- Row 5 -----------------------------------
   Id = 2

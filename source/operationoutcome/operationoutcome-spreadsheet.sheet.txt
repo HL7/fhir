@@ -5,21 +5,21 @@
   Binding Name = IssueSeverity
   Binding = code list
   Reference = #issue-severity
-  Definition = How the issue affects the success of the action
+  Definition = How the issue affects the success of the action.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = IssueType
   Binding = code list
   Reference = #issue-type
-  Definition = A code that describes the type of issue
+  Definition = A code that describes the type of issue.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = IssueDetails
   Binding = special
   Reference = #operation-outcome
-  Definition = A code that provides details as the exact issue
+  Definition = A code that provides details as the exact issue.
   Conformance = example
 
 === Sheet issue-severity =====================================
@@ -28,25 +28,25 @@
   Id = 4
   Code = fatal
   Display = Fatal
-  Definition = The issue caused the action to fail, and no further checking could be performed
+  Definition = The issue caused the action to fail, and no further checking could be performed.
 
  -- Row 2 -----------------------------------
   Id = 1
   Code = error
   Display = Error
-  Definition = The issue is sufficiently important to cause the action to fail
+  Definition = The issue is sufficiently important to cause the action to fail.
 
  -- Row 3 -----------------------------------
   Id = 2
   Code = warning
   Display = Warning
-  Definition = The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired
+  Definition = The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired.
 
  -- Row 4 -----------------------------------
   Id = 3
   Code = information
   Display = Information
-  Definition = The issue has no relation to the degree of success of the action
+  Definition = The issue has no relation to the degree of success of the action.
 
 === Sheet issue-type =====================================
 
@@ -54,199 +54,199 @@
   Id = 1
   Code = invalid
   Display = Invalid Content
-  Definition = Content invalid against the Specification or a Profile
+  Definition = Content invalid against the specification or a profile.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = structure
   Display = Structural Issue
-  Definition = A structural issue in the content such as wrong namespace, or unable to parse the content completely, or invalid json syntax
+  Definition = A structural issue in the content such as wrong namespace, or unable to parse the content completely, or invalid json syntax.
   Parent = #1
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = required
   Display = Required element missing
-  Definition = A required element is missing
+  Definition = A required element is missing.
   Parent = #1
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = value
   Display = Element value invalid
-  Definition = element value invalid
+  Definition = An element value is invalid.
   Parent = #1
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = invariant
   Display = Validation rule failed
-  Definition = A content validation rule failed - e.g. a schematron rule
+  Definition = A content validation rule failed - e.g. a schematron rule.
   Parent = #1
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = security
   Display = Security Problem
-  Definition = An authentication/authorization/permissions issueof some kind
+  Definition = An authentication/authorization/permissions issue of some kind.
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = login
   Display = Login Required
-  Definition = the client needs to initiate an authentication process
+  Definition = The client needs to initiate an authentication process.
   Parent = #6
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = unknown
   Display = Unknown User
-  Definition = The user or system was not able to be authenticated (either there is no process, or the proferred token is unacceptable)
+  Definition = The user or system was not able to be authenticated (either there is no process, or the proferred token is unacceptable).
   Parent = #6
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = expired
   Display = Session Expired
-  Definition = User session expired; a login may be required
+  Definition = User session expired; a login may be required.
   Parent = #6
 
  -- Row 10 -----------------------------------
   Id = 10
   Code = forbidden
   Display = Forbidden
-  Definition = The user does not have the rights to perform this action
+  Definition = The user does not have the rights to perform this action.
   Parent = #6
 
  -- Row 11 -----------------------------------
   Id = 27
   Code = suppressed
   Display = Information  Suppressed
-  Definition = Some information was not or may not have been returned due to business rules, consent or privacy rules, or access permission constraints.  This information may be accessible through alternate processes
+  Definition = Some information was not or may not have been returned due to business rules, consent or privacy rules, or access permission constraints.  This information may be accessible through alternate processes.
   Parent = #6
 
  -- Row 12 -----------------------------------
   Id = 11
   Code = processing
   Display = Processing Failure
-  Definition = Processing issues. These are expected to be final e.g. there is no point resubmitting the same content unchanged
+  Definition = Processing issues. These are expected to be final e.g. there is no point resubmitting the same content unchanged.
 
  -- Row 13 -----------------------------------
   Id = 12
   Code = not-supported
   Display = Content not supported
-  Definition = The resource or profile is not supported
+  Definition = The resource or profile is not supported.
   Parent = #11
 
  -- Row 14 -----------------------------------
   Id = 13
   Code = duplicate
   Display = Duplicate
-  Definition = An attempt was made to create a duplicate record
+  Definition = An attempt was made to create a duplicate record.
   Parent = #11
 
  -- Row 15 -----------------------------------
   Id = 14
   Code = not-found
   Display = Not Found
-  Definition = The reference provided was not found. In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the content is not found further into the application architecture
+  Definition = The reference provided was not found. In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the content is not found further into the application architecture.
   Parent = #11
 
  -- Row 16 -----------------------------------
   Id = 15
   Code = too-long
   Display = Content Too Long
-  Definition = Provided content is too long (typically, this is a denial of service protection type of error)
+  Definition = Provided content is too long (typically, this is a denial of service protection type of error).
   Parent = #11
 
  -- Row 17 -----------------------------------
   Id = 16
   Code = code-invalid
   Display = Invalid Code
-  Definition = The code or system could not be understood, or it was not valid in the context of a particular ValueSet
+  Definition = The code or system could not be understood, or it was not valid in the context of a particular ValueSet.code.
   Parent = #11
 
  -- Row 18 -----------------------------------
   Id = 17
   Code = extension
   Display = Unacceptable Extension
-  Definition = An extension was found that was not acceptable, or that could not be resolved, or a modifierExtension that was not recognised
+  Definition = An extension was found that was not acceptable, could not be resolved, or a modifierExtension was not recognized.
   Parent = #11
 
  -- Row 19 -----------------------------------
   Id = 18
   Code = too-costly
   Display = Operation Too Costly
-  Definition = The operation was stopped to protect server resources; e.g. a request for a value set expansion on all of SNOMED CT
+  Definition = The operation was stopped to protect server resources; e.g. a request for a value set expansion on all of SNOMED CT.
   Parent = #11
 
  -- Row 20 -----------------------------------
   Id = 19
   Code = business-rule
   Display = Business Rule Violation
-  Definition = The content/operation failed to pass some business rule, and so could not proceed
+  Definition = The content/operation failed to pass some business rule, and so could not proceed.
   Parent = #11
 
  -- Row 21 -----------------------------------
   Id = 26
   Code = conflict
   Display = Edit Version Conflict
-  Definition = content could not be accepted because of an edit conflict (i.e. version aware updates) (In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the conflict is discovered further into the application architecture)
+  Definition = Content could not be accepted because of an edit conflict (i.e. version aware updates) (In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the conflict is discovered further into the application architecture.)
   Parent = #11
 
  -- Row 22 -----------------------------------
   Id = 27
   Code = incomplete
   Display = Incomplete Results
-  Definition = Not all data sources typically accessed could be reached, or responded in time, so the returned information may not be complete
+  Definition = Not all data sources typically accessed could be reached, or responded in time, so the returned information may not be complete.
   Parent = #11
 
  -- Row 23 -----------------------------------
   Id = 20
   Code = transient
   Display = Transient Issue
-  Definition = Transient processing issues. The system receiving the error may be able to resubmit the same content once an underlying issue is resolved
+  Definition = Transient processing issues. The system receiving the error may be able to resubmit the same content once an underlying issue is resolved.
 
  -- Row 24 -----------------------------------
   Id = 21
   Code = lock-error
   Display = Lock Error
-  Definition = A resource/record locking failure (usually in an underlying database)
+  Definition = A resource/record locking failure (usually in an underlying database).
   Parent = #20
 
  -- Row 25 -----------------------------------
   Id = 22
   Code = no-store
   Display = No Store Available
-  Definition = The persistent store unavailable; e.g. the database is down for maintenance or similar
+  Definition = The persistent store is unavailable; e.g. the database is down for maintenance or similar action.
   Parent = #20
 
  -- Row 26 -----------------------------------
   Id = 23
   Code = exception
   Display = Exception
-  Definition = An unexpected internal error
+  Definition = An unexpected internal error has occurred.
   Parent = #20
 
  -- Row 27 -----------------------------------
   Id = 24
   Code = timeout
   Display = Timeout
-  Definition = An internal timeout occurred
+  Definition = An internal timeout has occurred.
   Parent = #20
 
  -- Row 28 -----------------------------------
   Id = 25
   Code = throttled
   Display = Throttled
-  Definition = The system is not prepared to handle this request due to load management
+  Definition = The system is not prepared to handle this request due to load management.
   Parent = #20
 
  -- Row 29 -----------------------------------
   Id = 28
   Code = informational
   Display = Informational Note
-  Definition = A message unrelated to the processing success of the completed operation (Examples of the latter include things like reminders of password expiry, system maintenance times, etc.)
+  Definition = A message unrelated to the processing success of the completed operation (examples of the latter include things like reminders of password expiry, system maintenance times, etc.).
 
 === Sheet Invariants =====================================
 

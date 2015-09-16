@@ -10,17 +10,18 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-01-16T06:15:20Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6017,7 +6018,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6122,7 +6122,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s145"><Data ss:Type="String">SubscriptionChannelType</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The type of method used to execute a subscription</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The type of method used to execute a subscription.</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">#subscription-channel-type</Data></Cell>
@@ -6137,7 +6137,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"><Data ss:Type="String">SubscriptionStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The status of a subscription</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The status of a subscription.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">#subscription-status</Data></Cell>
@@ -6152,7 +6152,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">SubscriptionTag</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Tags to put on a resource after subscriptions sent</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Tags to put on a resource after subscriptions sent.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">#subscription-tag</Data></Cell>
@@ -6569,6 +6569,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6588,7 +6589,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6656,7 +6657,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Rest Hook</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
@@ -6667,7 +6668,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Websocket</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6678,7 +6679,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Email</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:)</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:).</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6689,7 +6690,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">SMS</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The channel is executed by sending an SMS message to the phone number identified in the URL (tel:)</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The channel is executed by sending an SMS message to the phone number identified in the URL (tel:).</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -6700,7 +6701,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Message</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7217,8 +7218,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7285,7 +7285,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Requested</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The client has requested the subscription, and the server has not yet set it up</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The client has requested the subscription, and the server has not yet set it up.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
@@ -7296,7 +7296,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Active</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The subscription is active</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The subscription is active.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7307,7 +7307,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Error</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The server has an error executing the notification</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The server has an error executing the notification.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7318,7 +7318,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Off</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">Too many errors have occurred or the subscription has expired</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Too many errors have occurred or the subscription has expired.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7846,8 +7846,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7914,7 +7913,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Queued</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The message has been queued for processing on a destination systems</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The message has been queued for processing on a destination systems.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
@@ -7925,7 +7924,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Delivered</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The message has been delivered to its intended recipient</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The message has been delivered to its intended recipient.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -8475,8 +8474,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

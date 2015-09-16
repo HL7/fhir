@@ -5,21 +5,21 @@
   Binding Name = SubscriptionChannelType
   Binding = code list
   Reference = #subscription-channel-type
-  Definition = The type of method used to execute a subscription
+  Definition = The type of method used to execute a subscription.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = SubscriptionStatus
   Binding = code list
   Reference = #subscription-status
-  Definition = The status of a subscription
+  Definition = The status of a subscription.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = SubscriptionTag
   Binding = code list
   Reference = #subscription-tag
-  Definition = Tags to put on a resource after subscriptions sent
+  Definition = Tags to put on a resource after subscriptions sent.
   Conformance = example
 
 === Sheet subscription-channel-type =====================================
@@ -28,31 +28,31 @@
   Id = 1
   Code = rest-hook
   Display = Rest Hook
-  Definition = The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made
+  Definition = The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = websocket
   Display = Websocket
-  Definition = The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL
+  Definition = The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = email
   Display = Email
-  Definition = The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:)
+  Definition = The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:).
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = sms
   Display = SMS
-  Definition = The channel is executed by sending an SMS message to the phone number identified in the URL (tel:)
+  Definition = The channel is executed by sending an SMS message to the phone number identified in the URL (tel:).
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = message
   Display = Message
-  Definition = The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI
+  Definition = The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI.
 
 === Sheet subscription-status =====================================
 
@@ -60,25 +60,25 @@
   Id = 1
   Code = requested
   Display = Requested
-  Definition = The client has requested the subscription, and the server has not yet set it up
+  Definition = The client has requested the subscription, and the server has not yet set it up.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = active
   Display = Active
-  Definition = The subscription is active
+  Definition = The subscription is active.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = error
   Display = Error
-  Definition = The server has an error executing the notification
+  Definition = The server has an error executing the notification.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = off
   Display = Off
-  Definition = Too many errors have occurred or the subscription has expired
+  Definition = Too many errors have occurred or the subscription has expired.
 
 === Sheet subscription-tag =====================================
 
@@ -86,13 +86,13 @@
   Id = 1
   Code = queued
   Display = Queued
-  Definition = The message has been queued for processing on a destination systems
+  Definition = The message has been queued for processing on a destination systems.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = delivered
   Display = Delivered
-  Definition = The message has been delivered to its intended recipient
+  Definition = The message has been delivered to its intended recipient.
 
 === Sheet Invariants =====================================
 

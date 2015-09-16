@@ -21,7 +21,7 @@
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = Codes describing anatomical locations. May include laterality
+  Definition = Codes describing anatomical locations. May include laterality.
   Description = SNOMED CT Body site concepts
   Conformance = example
 
@@ -29,7 +29,7 @@
   Binding Name = Laterality
   Binding = value set
   Reference = valueset-bodysite-laterality
-  Definition = Codes describing body site laterality (left, right, etc.)
+  Definition = Codes describing body site laterality (left, right, etc.).
   Conformance = example
 
 === Sheet instance-availability =====================================
@@ -37,17 +37,17 @@
  -- Row 1 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = ONLINE
-  Definition = Resources are immediately available,
+  Definition = Resources are immediately available.
 
  -- Row 2 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = OFFLINE
-  Definition = Resources need to be retrieved by manual intervention
+  Definition = Resources need to be retrieved by manual intervention.
 
  -- Row 3 -----------------------------------
   System = http://nema.org/dicom/dicm
   Code = NEARLINE
-  Definition = Resources need to be retrieved from relatively slow media
+  Definition = Resources need to be retrieved from relatively slow media.
 
  -- Row 4 -----------------------------------
   System = http://nema.org/dicom/dicm

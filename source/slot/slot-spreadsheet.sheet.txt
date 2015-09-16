@@ -5,13 +5,13 @@
   Binding Name = SlotStatus
   Binding = code list
   Reference = #slotstatus
-  Definition = The free/busy status of a slot
+  Definition = The free/busy status of a slot.
 
  -- Row 2 -----------------------------------
   Binding Name = DocumentC80PracticeSetting
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
-  Definition = Additional details about where the content was created (e.g. clinical specialty)
+  Definition = Additional details about where the content was created (e.g. clinical specialty).
   Conformance = Preferred
 
 === Sheet slotstatus =====================================
@@ -38,7 +38,7 @@
   Id = 4
   Code = busy-tentative
   Display = Busy (Tentative)
-  Definition = Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval
+  Definition = Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.
 
 === Sheet Invariants =====================================
 

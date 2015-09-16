@@ -6757,7 +6757,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Chemical</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using chemical.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the chemical principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6768,7 +6768,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Electrical</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using electrical.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the electrical principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6779,7 +6779,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Impedance</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using impedance.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the impedance principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6790,7 +6790,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Nuclear</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using nuclear.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the nuclear principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6801,7 +6801,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Optical</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using optical.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the optical principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6812,7 +6812,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Thermal</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using thermal.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the thermal principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6823,7 +6823,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Biological</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using biological.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the biological principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6834,7 +6834,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Mechanical</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using mechanical.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the mechanical principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6845,7 +6845,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Acoustical</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using acoustical.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the acoustical principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6856,7 +6856,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">MSP Manual</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using manual.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Measurement is done using the manual principle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>

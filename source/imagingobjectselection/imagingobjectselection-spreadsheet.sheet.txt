@@ -8,7 +8,7 @@
   Definition = The document title code of key object selection
   Conformance = required
   Oid = 1.2.840.10008.6.1.7010
-  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association
+  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association.
 
 === Sheet kos-title =====================================
 

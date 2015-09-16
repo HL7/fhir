@@ -5,19 +5,19 @@
   Binding Name = ProcedureRequestStatus
   Binding = code list
   Reference = #procedure-request-status
-  Definition = The status of the request
+  Definition = The status of the request.
 
  -- Row 2 -----------------------------------
   Binding Name = ProcedureRequestPriority
   Binding = code list
   Reference = #procedure-request-priority
-  Definition = The priority of the request
+  Definition = The priority of the request.
 
  -- Row 3 -----------------------------------
   Binding Name = ProcedureCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/procedure-code
-  Definition = A code to identify a specific procedure
+  Definition = A code to identify a specific procedure .
   Conformance = example
 
  -- Row 4 -----------------------------------
@@ -36,7 +36,7 @@
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = A code that identifies anatomical location
+  Definition = A code that identifies anatomical location.
   Conformance = example
 
 === Sheet procedure-request-status =====================================
@@ -45,61 +45,61 @@
   Id = 1
   Code = proposed
   Display = Proposed
-  Definition = The request has been proposed
+  Definition = The request has been proposed.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = draft
   Display = Draft
-  Definition = The request is in preliminary form, prior to being requested
+  Definition = The request is in preliminary form, prior to being requested.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = requested
   Display = Requested
-  Definition = The request has been placed
+  Definition = The request has been placed.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = received
   Display = Received
-  Definition = The receiving system has received the request but not yet decided whether it will be performed
+  Definition = The receiving system has received the request but not yet decided whether it will be performed.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = accepted
   Display = Accepted
-  Definition = The receiving system has accepted the request, but work has not yet commenced
+  Definition = The receiving system has accepted the request, but work has not yet commenced.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = in-progress
   Display = In Progress
-  Definition = The work to fulfill the request is happening
+  Definition = The work to fulfill the request is happening.
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = completed
   Display = Completed
-  Definition = The work has been complete, the report(s) released, and no further work is planned
+  Definition = The work has been completed, the report(s) released, and no further work is planned.
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = suspended
   Display = Suspended
-  Definition = The request has been held by originating system/user request
+  Definition = The request has been held by originating system/user request.
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = rejected
   Display = Rejected
-  Definition = The receiving system has declined to fulfill the request
+  Definition = The receiving system has declined to fulfill the request.
 
  -- Row 10 -----------------------------------
   Id = 10
   Code = aborted
   Display = Aborted
-  Definition = The request was attempted, but due to some procedural error, it could not be completed
+  Definition = The request was attempted, but due to some procedural error, it could not be completed.
 
 === Sheet procedure-request-priority =====================================
 

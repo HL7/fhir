@@ -5,7 +5,7 @@
   Binding Name = OrderStatus
   Binding = code list
   Reference = #order-status
-  Definition = The status of the response to an order
+  Definition = The status of the response to an order.
 
 === Sheet order-status =====================================
 
@@ -37,32 +37,32 @@
   Id = 5
   Code = accepted
   Display = Accepted
-  Definition = The order has been accepted, and work is in progress
+  Definition = The order has been accepted, and work is in progress.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = cancelled
   Display = Cancelled
-  Definition = Processing the order was halted at the initiators request
+  Definition = Processing the order was halted at the initiators request.
 
  -- Row 7 -----------------------------------
   Id = 9
   Code = replaced
   Display = Replaced
-  Definition = The order has been cancelled and replaced by another
+  Definition = The order has been cancelled and replaced by another.
   Parent = #6
 
  -- Row 8 -----------------------------------
   Id = 7
   Code = aborted
   Display = Aborted
-  Definition = Processing the order was stopped because of some workflow/business logic reason
+  Definition = Processing the order was stopped because of some workflow/business logic reason.
 
  -- Row 9 -----------------------------------
   Id = 8
   Code = completed
   Display = Completed
-  Definition = The order has been completed
+  Definition = The order has been completed.
 
 === Sheet Invariants =====================================
 

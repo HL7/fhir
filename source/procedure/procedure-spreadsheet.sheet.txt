@@ -5,54 +5,54 @@
   Binding Name = ProcedureRelationshipType
   Binding = code list
   Reference = #procedure-relationship-type
-  Definition = The nature of the relationship with this procedure
+  Definition = The nature of the relationship with this procedure.
 
  -- Row 2 -----------------------------------
   Binding Name = DeviceActionKind
   Binding = value set
   Reference = valueset-device-action
-  Definition = A kind of change that happened to the device during the procedure
+  Definition = A kind of change that happened to the device during the procedure.
 
  -- Row 3 -----------------------------------
   Binding Name = ProcedureStatus
   Binding = code list
   Reference = #procedure-status
-  Definition = A code specifying the state of the procedure record
+  Definition = A code specifying the state of the procedure record.
   v3 = ActStatus
 
  -- Row 4 -----------------------------------
   Binding Name = ProcedureCode
   Binding = value set
   Reference = valueset-procedure-code
-  Definition = A code to identify a specific procedure
+  Definition = A code to identify a specific procedure .
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = ProcedureOutcome
   Binding = value set
   Reference = valueset-procedure-outcome
-  Definition = An outcome of a procedure - whether it resolved the reasons why the procedure was performed
+  Definition = An outcome of a procedure - whether it resolved the reasons why the procedure was performed.
   Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = ProcedureFollowUp
   Binding = value set
   Reference = valueset-procedure-followup
-  Definition = Specific follow up required for a procedure e.g. removal of sutures
+  Definition = Specific follow up required for a procedure e.g. removal of sutures.
   Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = ProcedureCategory
   Binding = value set
   Reference = valueset-procedure-category
-  Definition = A code that classifies a procedure for searching, sorting and display purposes
+  Definition = A code that classifies a procedure for searching, sorting and display purposes.
   Conformance = example
 
  -- Row 8 -----------------------------------
   Binding Name = ProcedureNegationReason
   Binding = value set
   Reference = valueset-procedure-not-performed-reason
-  Definition = A code that explains a reason why a procedure was not performed
+  Definition = A code that explains a reason why a procedure was not performed.
   Conformance = example
 
  -- Row 9 -----------------------------------
@@ -66,14 +66,14 @@
   Binding Name = ProcedurePerformerRole
   Binding = value set
   Reference = valueset-performer-role
-  Definition = A code that identifies a role of a performer in a procedure process
+  Definition = A code that identifies a role of a performer in a procedure process.
   Conformance = example
 
  -- Row 11 -----------------------------------
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = Codes describing anatomical locations. May include laterality
+  Definition = Codes describing anatomical locations. May include laterality.
   Description = SNOMED CT Body site concepts
   Conformance = example
 
@@ -81,7 +81,7 @@
   Binding Name = ProcedureComplication
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/condition-code
-  Definition = Codes describing complications that resulted from a procedure
+  Definition = Codes describing complications that resulted from a procedure.
   Conformance = example
 
 === Sheet procedure-relationship-type =====================================
@@ -90,13 +90,13 @@
   Id = 1
   Code = caused-by
   Display = Caused By
-  Definition = This procedure had to be performed because of the related one
+  Definition = This procedure had to be performed because of the related one.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = because-of
   Display = Because Of
-  Definition = This procedure caused the related one to be performed
+  Definition = This procedure caused the related one to be performed.
 
 === Sheet procedure-status =====================================
 
@@ -104,28 +104,28 @@
   Id = 1
   Code = in-progress
   Display = In Progress
-  Definition = The procedure is still occurring
+  Definition = The procedure is still occurring.
   v3 = ActStatus.active
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = aborted
   Display = Aboted
-  Definition = The procedure was terminated without completing successfully
+  Definition = The procedure was terminated without completing successfully.
   v3 = ActStatus.aborted
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = completed
   Display = Completed
-  Definition = All actions involved in the procedure have taken place
+  Definition = All actions involved in the procedure have taken place.
   v3 = ActStatus.completed
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = entered-in-error
   Display = Entered in Error
-  Definition = The statement was entered in error and Is not valid
+  Definition = The statement was entered in error and Is not valid.
   v3 = ActStatus.nullified
 
 === Sheet Invariants =====================================

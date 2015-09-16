@@ -5,7 +5,7 @@
   Binding Name = MedicationIntendedSubstitutionType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode
-  Definition = A coded concept describing whether a different medicinal product may be dispensed other than the product as specified exactly in the prescription
+  Definition = A coded concept describing whether a different medicinal product may be dispensed other than the product as specified exactly in the prescription.
   Description = ActSubstanceAdminSubstitutionCode
   Conformance = example
 
@@ -26,13 +26,13 @@
   Binding Name = MedicationAdministrationSite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/approach-site-codes
-  Definition = A coded concept describing the site location the medicine enters into or onto the body
+  Definition = A coded concept describing the site location the medicine enters into or onto the body.
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = MedicationAdministrationMethod
   Binding = unbound
-  Definition = A coded concept describing the technique by which the medicine is administered
+  Definition = A coded concept describing the technique by which the medicine is administered.
 
  -- Row 6 -----------------------------------
   Binding Name = MedicationOrderStatus
@@ -58,18 +58,18 @@
   Binding Name = OrderReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/condition-code
-  Definition = Codes indicating why the medication was ordered
+  Definition = Codes indicating why the medication was ordered.
   Conformance = example
 
  -- Row 10 -----------------------------------
   Binding Name = MedicationCode
   Binding = unbound
-  Definition = Codes identifying substance that can be administered
+  Definition = Codes identifying substance that can be administered.
 
  -- Row 11 -----------------------------------
   Binding Name = AdditionalInstructions
   Binding = unbound
-  Definition = Codes identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\"
+  Definition = Codes identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
 
 === Sheet medication-order-status =====================================
 
@@ -112,7 +112,7 @@
   Id = 6
   Code = draft
   Display = Draft
-  Definition = The prescription is not yet \'actionable\', i.e. it is a work in progress, requires sign-off or verification, needs to be run through decision support process.
+  Definition = The prescription is not yet \'actionable\', i.e. it is a work in progress, requires sign-off or verification, and needs to be run through decision support process.
   v3 = ActStatus.new
 
 === Sheet Invariants =====================================

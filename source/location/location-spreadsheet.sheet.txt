@@ -12,21 +12,21 @@
   Binding Name = LocationType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType
-  Definition = Indicates the type of function performed at the location
+  Definition = Indicates the type of function performed at the location.
   Conformance = extensible
 
  -- Row 3 -----------------------------------
   Binding Name = LocationMode
   Binding = code list
   Reference = #location-mode
-  Definition = Indicates whether a resource instance represents a specific location or a class of locations
+  Definition = Indicates whether a resource instance represents a specific location or a class of locations.
   Conformance = required
 
  -- Row 4 -----------------------------------
   Binding Name = LocationStatus
   Binding = code list
   Reference = #location-status
-  Definition = Indicates whether the location is still in use
+  Definition = Indicates whether the location is still in use.
   Conformance = required
 
 === Sheet location-mode =====================================
@@ -35,13 +35,13 @@
   Id = 1
   Code = instance
   Display = Instance
-  Definition = The Location resource represents a specific instance of a Location (e.g. Operating Theatre 1A)
+  Definition = The Location resource represents a specific instance of a location (e.g. Operating Theatre 1A).
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = kind
   Display = Kind
-  Definition = The Location represents a class of Locations (e.g. Any Operating Theatre). Although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc.)
+  Definition = The Location represents a class of locations (e.g. Any Operating Theatre) although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc.).
 
 === Sheet location-status =====================================
 
@@ -49,19 +49,19 @@
   Id = 1
   Code = active
   Display = Active
-  Definition = The location is operational
+  Definition = The location is operational.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = suspended
   Display = Suspended
-  Definition = The location is temporarily closed
+  Definition = The location is temporarily closed.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = inactive
   Display = Inactive
-  Definition = The location is no longer used
+  Definition = The location is no longer used.
 
 === Sheet Invariants =====================================
 

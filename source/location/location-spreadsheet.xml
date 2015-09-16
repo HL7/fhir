@@ -10,17 +10,17 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-21T05:19:24Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3692,7 +3692,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6338,7 +6337,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s147"><Data ss:Type="String">LocationType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the type of function performed at the location</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the type of function performed at the location.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType</Data></Cell>
@@ -6353,7 +6352,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s147"><Data ss:Type="String">LocationMode</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates whether a resource instance represents a specific location or a class of locations</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates whether a resource instance represents a specific location or a class of locations.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">#location-mode</Data></Cell>
@@ -6368,7 +6367,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s147"><Data ss:Type="String">LocationStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates whether the location is still in use</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates whether the location is still in use.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">#location-status</Data></Cell>
@@ -6770,6 +6769,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6789,8 +6789,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6860,7 +6859,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Instance</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The Location resource represents a specific instance of a Location (e.g. Operating Theatre 1A)</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The Location resource represents a specific instance of a location (e.g. Operating Theatre 1A).</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6871,7 +6870,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Kind</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The Location represents a class of Locations (e.g. Any Operating Theatre). Although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc.)</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The Location represents a class of locations (e.g. Any Operating Theatre) although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc.).</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -7426,7 +7425,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7495,7 +7494,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Active</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The location is operational</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The location is operational.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"><Data ss:Type="String">This does not suggest the Location is occupied, just that the Location can be used to provide healthcare. Resource management is not part of the Location resource.</Data></Cell>
@@ -7506,7 +7505,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Suspended</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The location is temporarily closed</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The location is temporarily closed.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -7517,7 +7516,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Inactive</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The location is no longer used</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The location is no longer used.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -8056,8 +8055,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

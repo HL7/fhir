@@ -96,7 +96,7 @@
  -- Row 1 -----------------------------------
   Id = 1
   Code = xmlAttr
-  Display = XML Attirbute
+  Display = XML Attribute
   Definition = In XML, this property is represented as an attribute not an element.
 
 === Sheet Invariants =====================================

@@ -5,7 +5,7 @@
   Binding Name = MPIMatch
   Binding = code list
   Reference = #patient-mpi-match
-  Definition = A Master Patient Index (MPI) assessment of whether a candidate patient record is a match or not
+  Definition = A Master Patient Index (MPI) assessment of whether a candidate patient record is a match or not.
   Conformance = required
 
 === Sheet patient-mpi-match =====================================
@@ -14,25 +14,25 @@
   Id = 1
   Code = certain
   Display = Certain Match
-  Definition = This record meets the MPI criteria to be automatically considered as a full match
+  Definition = This record meets the MPI criteria to be automatically considered as a full match.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = probable
   Display = Probable Match
-  Definition = This record is a close match, but not a certain match. Additional review (e.g. by a human) may be required before using this as a match
+  Definition = This record is a close match, but not a certain match. Additional review (e.g. by a human) may be required before using this as a match.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = possible
   Display = Possible Match
-  Definition = This record may be a matching one. Additional review (e.g. by a human) SHOULD be performed before using this as a match
+  Definition = This record may be a matching one. Additional review (e.g. by a human) SHOULD be performed before using this as a match.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = certainly-not
   Display = Certainly Not a Match
-  Definition = This record is known not to be a match. Note that usually non-matching records are not returned, but in some cases records previously or likely considered as a match may specifically be negated by the MPI
+  Definition = This record is known not to be a match. Note that usually non-matching records are not returned, but in some cases records previously or likely considered as a match may specifically be negated by the MPI.
 
 === Sheet Search =====================================
 

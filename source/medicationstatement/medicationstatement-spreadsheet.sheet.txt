@@ -5,7 +5,7 @@
   Binding Name = MedicationStatementStatus
   Binding = code list
   Reference = #medication-statement-status
-  Definition = A set of codes indicating the current status of a MedicationStatement
+  Definition = A set of codes indicating the current status of a MedicationStatement.
   Conformance = required
   v3 = ActStatus
 
@@ -13,20 +13,20 @@
   Binding Name = MedicationAdministrationSite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/approach-site-codes
-  Definition = A coded concept describing the site location the medicine enters into or onto the body
+  Definition = A coded concept describing the site location the medicine enters into or onto the body.
   Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = RouteOfAdministration
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/route-codes
-  Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject
+  Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
   Conformance = example
 
  -- Row 4 -----------------------------------
   Binding Name = MedicationAdministrationMethod
   Binding = unbound
-  Definition = A coded concept describing the technique by which the medicine is administered
+  Definition = A coded concept describing the technique by which the medicine is administered.
 
  -- Row 5 -----------------------------------
   Binding Name = MedicationAsNeededReason
@@ -37,14 +37,14 @@
   Binding Name = MedicationAdministrationNegationReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes
-  Definition = A set of codes indicating the reason why the MedicationAdministration is negated
+  Definition = A set of codes indicating the reason why the MedicationAdministration is negated.
   Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = MedicationReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/condition-code
-  Definition = Codes identifying why the medication is being taken
+  Definition = Codes identifying why the medication is being taken.
   Conformance = example
 
 === Sheet medication-statement-status =====================================

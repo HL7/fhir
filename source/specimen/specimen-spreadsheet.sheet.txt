@@ -47,7 +47,7 @@
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = Codes describing anatomical locations. May include laterality
+  Definition = Codes describing anatomical locations. May include laterality.
   Description = SNOMED CT Body site concepts
   Conformance = example
 
@@ -55,7 +55,7 @@
   Binding Name = SpecimenStatus
   Binding = code list
   Reference = #specimen-status
-  Definition = Codes providing the status/availability of a specimen
+  Definition = Codes providing the status/availability of a specimen.
   Conformance = required
 
 === Sheet specimen-status =====================================

@@ -5,7 +5,7 @@
   Binding Name = QuantityComparator
   Binding = code list
   Reference = #quantity-comparator
-  Definition = How the Quantity should be understood and represented
+  Definition = How the Quantity should be understood and represented.
 
 === Sheet quantity-comparator =====================================
 
@@ -13,25 +13,25 @@
   Id = 1
   Code = <
   Display = Less than
-  Definition = The actual value is less than the given value
+  Definition = The actual value is less than the given value.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = <=
   Display = Less or Equal to
-  Definition = The actual value is less than or equal to the given value
+  Definition = The actual value is less than or equal to the given value.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = >=
   Display = Greater or Equal to
-  Definition = The actual value is greater than or equal to the given value
+  Definition = The actual value is greater than or equal to the given value.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = >
   Display = Greater than
-  Definition = The actual value is greater than the given value
+  Definition = The actual value is greater than the given value.
 
 === Sheet Invariants =====================================
 

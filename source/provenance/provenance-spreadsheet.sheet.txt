@@ -5,27 +5,27 @@
   Binding Name = ProvenanceAgentRole
   Binding = value set
   Reference = valueset-provenance-agent-role
-  Definition = The role that a provenance agent played with respect to the activity
+  Definition = The role that a provenance agent played with respect to the activity.
   Conformance = extensible
 
  -- Row 2 -----------------------------------
   Binding Name = ProvenanceAgentType
   Binding = value set
   Reference = valueset-provenance-agent-type
-  Definition = The type of a provenance agent
+  Definition = The type of a provenance agent.
   Conformance = extensible
 
  -- Row 3 -----------------------------------
   Binding Name = ProvenanceEntityRole
   Binding = code list
   Reference = #provenance-entity-role
-  Definition = How an entity was used in an activity
+  Definition = How an entity was used in an activity.
 
  -- Row 4 -----------------------------------
   Binding Name = ProvenanceEntityType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/resource-types
-  Definition = The type of an entity used in an activity
+  Definition = The type of an entity used in an activity.
   Conformance = extensible
 
  -- Row 5 -----------------------------------
@@ -39,14 +39,14 @@
   Binding Name = ProvenanceActivity
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ProvenanceEventCurrentState
-  Definition = The activity took place.
+  Definition = The activity that took place.
   Conformance = extensible
 
  -- Row 7 -----------------------------------
   Binding Name = RelatedAgentType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-RoleLinkType
-  Definition = Type of relationship between two provenance agents
+  Definition = Type of relationship between two provenance agents.
   Conformance = example
 
 === Sheet provenance-entity-role =====================================
@@ -55,7 +55,7 @@
   Id = 1
   Code = derivation
   Display = Derivation
-  Definition = A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity
+  Definition = A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity.
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -68,7 +68,7 @@
   Id = 3
   Code = quotation
   Display = Quotation
-  Definition = The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author
+  Definition = The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author.
   Parent = derivation
 
  -- Row 4 -----------------------------------

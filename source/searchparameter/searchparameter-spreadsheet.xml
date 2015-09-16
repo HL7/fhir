@@ -10,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-21T23:20:55Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3867,7 +3867,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6448,7 +6447,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s88"><Data ss:Type="String">XPathUsageType</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">How a search parameter relates to the set of elements returned by evaluating the its xpath query</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">How a search parameter relates to the set of elements returned by evaluating the its xpath query.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">#search-xpath-usage</Data></Cell>
@@ -6895,6 +6894,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6914,7 +6914,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6982,7 +6982,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Normal</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The search parameter is derived directly from the selected nodes based on the type definitions</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The search parameter is derived directly from the selected nodes based on the type definitions.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6993,7 +6993,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Phonetic</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The search parameter is derived by a phonetic transform from the selected nodes</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The search parameter is derived by a phonetic transform from the selected nodes.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -7004,7 +7004,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Nearby</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The search parameter is based on a spatial transform of the selected nodes</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The search parameter is based on a spatial transform of the selected nodes.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -7015,7 +7015,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Distance</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -7026,7 +7026,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Other</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The interpretation of the xpath statement is unknown (and can't be automated)</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The interpretation of the xpath statement is unknown (and can't be automated).</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -7521,8 +7521,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

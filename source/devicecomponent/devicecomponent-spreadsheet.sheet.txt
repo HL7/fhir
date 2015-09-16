@@ -43,61 +43,61 @@
   Id = 2
   Code = chemical
   Display = MSP Chemical
-  Definition = Measurement is done using chemical.
+  Definition = Measurement is done using the chemical principle.
 
  -- Row 3 -----------------------------------
   Id = 4
   Code = electrical
   Display = MSP Electrical
-  Definition = Measurement is done using electrical.
+  Definition = Measurement is done using the electrical principle.
 
  -- Row 4 -----------------------------------
   Id = 8
   Code = impedance
   Display = MSP Impedance
-  Definition = Measurement is done using impedance.
+  Definition = Measurement is done using the impedance principle.
 
  -- Row 5 -----------------------------------
   Id = 16
   Code = nuclear
   Display = MSP Nuclear
-  Definition = Measurement is done using nuclear.
+  Definition = Measurement is done using the nuclear principle.
 
  -- Row 6 -----------------------------------
   Id = 32
   Code = optical
   Display = MSP Optical
-  Definition = Measurement is done using optical.
+  Definition = Measurement is done using the optical principle.
 
  -- Row 7 -----------------------------------
   Id = 64
   Code = thermal
   Display = MSP Thermal
-  Definition = Measurement is done using thermal.
+  Definition = Measurement is done using the thermal principle.
 
  -- Row 8 -----------------------------------
   Id = 128
   Code = biological
   Display = MSP Biological
-  Definition = Measurement is done using biological.
+  Definition = Measurement is done using the biological principle.
 
  -- Row 9 -----------------------------------
   Id = 256
   Code = mechanical
   Display = MSP Mechanical
-  Definition = Measurement is done using mechanical.
+  Definition = Measurement is done using the mechanical principle.
 
  -- Row 10 -----------------------------------
   Id = 512
   Code = acoustical
   Display = MSP Acoustical
-  Definition = Measurement is done using acoustical.
+  Definition = Measurement is done using the acoustical principle.
 
  -- Row 11 -----------------------------------
   Id = 65536
   Code = manual
   Display = MSP Manual
-  Definition = Measurement is done using manual.
+  Definition = Measurement is done using the manual principle.
 
 === Sheet Invariants =====================================
 

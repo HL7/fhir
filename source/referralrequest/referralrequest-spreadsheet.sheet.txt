@@ -5,39 +5,39 @@
   Binding Name = ReferralStatus
   Binding = code list
   Reference = #referralstatus
-  Definition = The status of the referral
+  Definition = The status of the referral.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = RequestedService
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
-  Definition = Codes indicating the types of services that might be requested as part of a referral
+  Definition = Codes indicating the types of services that might be requested as part of a referral.
   Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = ReferralType
   Binding = unbound
-  Definition = Codes for types of referral; e.g. Consult, transfer, temporary transfer
+  Definition = Codes for types of referral; e.g. consult, transfer, temporary transfer.
 
  -- Row 4 -----------------------------------
   Binding Name = ReferralSpecialty
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/practitioner-specialty
-  Definition = Codes indicating the types of capability the referred to service provider must have
+  Definition = Codes indicating the types of capability the referred to service provider must have.
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = ReferralPriority
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/diagnostic-order-priority
-  Definition = Codes indicating the relative priority of the referral
+  Definition = Codes indicating the relative priority of the referral.
   Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = ReferralReason
   Binding = unbound
-  Definition = Codes indicating why the referral is being requested
+  Definition = Codes indicating why the referral is being requested.
   Conformance = example
 
 === Sheet referralstatus =====================================
@@ -46,43 +46,43 @@
   Id = 1
   Code = draft
   Display = Draft
-  Definition = A draft referral that has yet to be send
+  Definition = A draft referral that has yet to be send.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = requested
   Display = Requested
-  Definition = The referral has been transmitted, but not yet acknowledged by the recipient
+  Definition = The referral has been transmitted, but not yet acknowledged by the recipient.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = active
   Display = Active
-  Definition = The referral has been acknowledged by the recipient, and is in the process of being actioned
+  Definition = The referral has been acknowledged by the recipient, and is in the process of being actioned.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = cancelled
   Display = Cancelled
-  Definition = The referral has been cancelled without being completed. For example it is no longer needed
+  Definition = The referral has been cancelled without being completed. For example it is no longer needed.
 
  -- Row 5 -----------------------------------
   Id = 7
   Code = accepted
   Display = Accepted
-  Definition = The recipient has agreed to deliver the care requested by the referral
+  Definition = The recipient has agreed to deliver the care requested by the referral.
 
  -- Row 6 -----------------------------------
   Id = 5
   Code = rejected
   Display = Rejected
-  Definition = The recipient has declined to accept the referral
+  Definition = The recipient has declined to accept the referral.
 
  -- Row 7 -----------------------------------
   Id = 6
   Code = completed
   Display = Completed
-  Definition = The referral has been completely actioned
+  Definition = The referral has been completely actioned.
 
 === Sheet Invariants =====================================
 

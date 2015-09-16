@@ -5,21 +5,21 @@
   Binding Name = OperationKind
   Binding = code list
   Reference = #operation-kind
-  Definition = Whether an operation is a normal operation or a query
+  Definition = Whether an operation is a normal operation or a query.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = OperationParameterUse
   Binding = code list
   Reference = #operation-parameter-use
-  Definition = Whether an operation parameter is an input or an output parameter
+  Definition = Whether an operation parameter is an input or an output parameter.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = OperationParameterType
   Binding = value set
   Reference = valueset-operation-parameter-type
-  Definition = The type of a parameter
+  Definition = The type of a parameter.
   Conformance = required
 
 === Sheet operation-kind =====================================
@@ -28,13 +28,13 @@
   Id = 1
   Code = operation
   Display = Operation
-  Definition = This operation is invoked as an operation
+  Definition = This operation is invoked as an operation.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = query
   Display = Query
-  Definition = This operation is a named query, invoked using the search mechanism
+  Definition = This operation is a named query, invoked using the search mechanism.
 
 === Sheet operation-parameter-use =====================================
 
@@ -42,13 +42,13 @@
   Id = 1
   Code = in
   Display = In
-  Definition = This is an input parameter
+  Definition = This is an input parameter.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = out
   Display = Out
-  Definition = This is an output parameter
+  Definition = This is an output parameter.
 
 === Sheet Invariants =====================================
 
