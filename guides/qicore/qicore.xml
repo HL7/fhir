@@ -115,7 +115,7 @@
       <valueUri value="substance-profile-spreadsheet.xml"/>
     </extension>
     <name value="base"/>
-    <!--resource>
+	<resource>
       <purpose value="example"/>
       <name value="QICore AdverseEvent"/>
       <description value="Example of QICore AdverseEvent"/>
@@ -123,7 +123,7 @@
       <exampleFor>
         <reference value="StructureDefinition/qicore-adverseevent"/>
       </exampleFor>
-    </resource-->
+    </resource>
     <resource>
       <purpose value="example"/>
       <name value="QICore AllergyIntolerance"/>
