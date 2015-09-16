@@ -983,6 +983,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
               ids.add(id);
               map.put(id, r);
             }
+            Example ex = (Example) r.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
+            if (ex != null && ex.getResourceName().equals(type)) {
+              String id = ex.getId();
+              ids.add(id);
+              map.put(id, r);
+            }
           }
         }
         if (ids.size() > 0) {

@@ -5,7 +5,7 @@
   Binding Name = CarePlanStatus
   Binding = code list
   Reference = #care-plan-status
-  Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.
+  Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
   Conformance = required
 
  -- Row 2 -----------------------------------
@@ -54,7 +54,7 @@
   Binding Name = CarePlanActivityReason
   Binding = value set
   Reference = valueset-activity-reason
-  Definition = Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as \"general wellness\", prohylaxis, surgical preparation, etc.
+  Definition = Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as \"general wellness\", prophylaxis, surgical preparation, etc.
   Conformance = example
 
  -- Row 9 -----------------------------------
@@ -210,7 +210,7 @@
   Type = code
   Binding = CarePlanStatus
   Short Label = proposed | draft | active | completed | cancelled
-  Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.
+  Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
   Requirements = Allows clinicians to determine whether the plan is actionable or not
   v2 Mapping = PTH-5-pathway life cycle status
   RIM Mapping = .statusCode planned = new active = active completed = completed
@@ -222,7 +222,7 @@
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
   Short Label = Created in context of
-  Definition = Identifiers the context in which this particular CarePlan is defined.
+  Definition = Identifies the context in which this particular CarePlan is defined.
   Comments = Activities conducted as a result of the care plan may well occur as part of other encounters/episodes
   v2 Mapping = Associated PV1
   RIM Mapping = .
@@ -316,7 +316,7 @@
   Binding = CarePlanRelationship
   Short Label = includes | replaces | fulfills
   Definition = Identifies the type of relationship this plan has to the target plan.
-  Comments = Read the relationship as \"this plan\" [relatedPlan.code] \"relatedPlan.plan\"; e.g. This plan includes Plan B\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
+  Comments = Read the relationship as \"this plan\" [relatedPlan.code] \"relatedPlan.plan\"; e.g. This plan includes Plan B.\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
 
  -- Row 15 -----------------------------------
   Element = CarePlan.relatedPlan.plan
@@ -362,7 +362,7 @@
   Card. = 0..*
   Type = Reference(Goal)
   Short Label = Desired outcome of plan
-  Definition = Describes the intended objective(s) of carrying out the Care Plan.
+  Definition = Describes the intended objective(s) of carrying out the care plan.
   Requirements = Provides context for plan.  Allows plan effectiveness to be evaluated by clinicians.
   Comments = Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
   v2 Mapping = GOL.1
@@ -375,7 +375,7 @@
   UML = 350;0
   Short Label = Action to occur as part of plan
   Definition = Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
-  Requirements = Allows systems to prompt for performance of planned activities, validate plans against best practice.
+  Requirements = Allows systems to prompt for performance of planned activities, and validate plans against best practice.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
  -- Row 21 -----------------------------------
@@ -476,7 +476,7 @@
   Short Label = not-started | scheduled | in-progress | on-hold | completed | cancelled
   Definition = Identifies what progress is being made for the specific activity.
   Requirements = Indicates progress against the plan, whether the activity is still relevant for the plan
-  Comments = Some aspects of Status can be inferred based on the resources linked in actionTaken.  Note that \"status\" is only as current as the plan was most recently updated.
+  Comments = Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that \"status\" is only as current as the plan was most recently updated.
   v2 Mapping = ORC-5-order status?
   RIM Mapping = .statusCode not-started = new scheduled = not-started (and fulfillment relationship to appointent) in-progress = active on-hold = suspended completed = completed cancelled = aborted
 
@@ -487,7 +487,7 @@
   Binding = CarePlanActivityStatusReason
   Short Label = Reason for current status
   Definition = Provides reason why the activity isn\'t yet started, is on hold, was cancelled, etc.
-  Comments = Will generally not be present it status is \"complete\".  Be sure to prompt to update this (or at least remove the existing value) if the status is changed.
+  Comments = Will generally not be present if status is \"complete\".  Be sure to prompt to update this (or at least remove the existing value) if the status is changed.
   To Do = Need a proper value set
 
  -- Row 32 -----------------------------------
@@ -517,7 +517,7 @@
   Short Label = Where it should happen
   Definition = Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.
   Requirements = Helps in planning of activity
-  Comments = May reference a specific clinical location or may just identify a type of location.
+  Comments = May reference a specific clinical location or may identify a type of location.
   v2 Mapping = OBR-24-diagnostic service section ID (???!!)
   RIM Mapping = .participation[typeCode=LOC].role
 
@@ -558,7 +558,7 @@
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = How much to administer/supply/consume
-  Definition = Identifies the quantity expected to be supplied, addministered or consumed by the subject
+  Definition = Identifies the quantity expected to be supplied, administered or consumed by the subject
   v2 Mapping = RXO-11-requested dispense amount / RXE-10-dispense amount / RXD-4-actual dispense amount / RXG-5-give amount-minumum / RXA-6-administered amount /  TQ1-2.1-quantity.quantity  *and*  RXO-12-requested dispense units /  RXE-11-dispense units / RXD-5-actual dispense units / RXG-7-give units / RXA-7-administered units / TQ1-2.2-quantity.units
   RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SPLY].quantity
 
