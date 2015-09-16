@@ -984,7 +984,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
               map.put(id, r);
             }
             Example ex = (Example) r.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
-            if (ex != null && ex.getResourceName().equals(type)) {
+            if (ex != null && ex.getResourceName().equals(type) && r.getPurpose() == purpose) {
               String id = ex.getId();
               ids.add(id);
               map.put(id, r);
@@ -997,7 +997,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             usedPurpose = true;
           }
           Collections.sort(ids);
-          b.append("<tr><td colspan=\"3\" style=\"background: #EFEFEF\">"+Utilities.pluralizeMe(type)+"</td></tr>\r\n");
+          b.append("<tr><td colspan=\"3\" style=\"background: #EFEFEF\">"+getTypePluralDesc(type)+"</td></tr>\r\n");
           for (String id : ids) {
             ImplementationGuidePackageResourceComponent r = map.get(id);
             b.append("<tr><td><a href=\""+Utilities.changeFileExt(r.getSourceUriType().asStringValue(), ".html")+"\">"+id+"</a></td><td>"+Utilities.escapeXml(r.getName())+"</td><td>"+Utilities.escapeXml(r.getDescription())+"</td></tr>\r\n");
@@ -1007,6 +1007,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     b.append("</table>\r\n");
     return b.toString();
+  }
+
+  private String getTypePluralDesc(String type) {
+    if (type.equals("Conformance"))
+      return "Conformance Statements";
+    return Utilities.pluralizeMe(type);
   }
 
   private String vsWarning(ValueSet resource) throws Exception {
