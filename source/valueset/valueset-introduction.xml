@@ -11,8 +11,8 @@ The FHIR terminology specification is based two key concepts, originally defined
 <li> <b>value set</b> - selects a set of codes from those defined by one or more code systems</li>
 </ul>
 <p>
-Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value Sets 
-select a set of codes from code systems to specify which codes can be used in a particular context.
+Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value sets 
+select a set of codes from one or more code systems to specify which codes can be used in a particular context.
 </p>
 <p>
 Value sets may be constructed in one of two ways:
@@ -24,28 +24,28 @@ Value sets may be constructed in one of two ways:
 <p>
 A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes.
 This operation is performed to produce a collection of codes that are ready to use for data entry or 
-validation. An expanded value set may also contain the original definition as well. 
+validation. An expanded value set may also contain the original definition. 
 </p>
 <p>
 Value sets that contain inline code systems are intended for small, simple code systems that are 
-found throughout the implementation context (e.g. lists of wards, status codes, enumerations). 
+found throughout the implementation context (e.g., lists of wards, status codes, enumerations). 
 The inline code system definition is not intended to represent large publically defined terminologies 
-such as LOINC etc.- these have their own distribution formats .
+such as LOINC, etc. - these terminologies have their own distribution formats.
 </p>
 </div>
 <div>
 <a name="relationships"> </a>
 <h2>Boundaries and Relationships</h2>
 <ul>
- <li>Value sets are used in <a href="structuredefinition.html">StructureDefinitions</a>, and <a href="questionnaire.html">Questionnaires</a> to specify the allowable contents for coded elements</li>
+ <li>Value sets are used in <a href="structuredefinition.html">StructureDefinition</a> and <a href="questionnaire.html">Questionnaire</a> resources to specify the allowable contents for coded elements</li>
  <li>In addition, a specific <a href="datatypes.html#Coding">Coding</a> can reference the value set it was picked from</li>
  <li><a href="conceptmap.html">Concept Maps</a> describe mappings between value sets</li>
  <li>The ValueSet resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification, along 
  with metadata in the HL7 Value Set Definition specification. Value set resources can be converted to CTS2 
- value set and code system resources</li>
+ value set and code system resources.</li>
  <li>The value set resource is aligned with the <a href="http://wiki.hl7.org/index.php?title=Value_Set_Definition_Standard_Project">Value Set Definition</a> (VSD) project. 
- Not all the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
- In the ValueSet resource, the <code>lockedDate</code>, <code>compose</code> and <code>codeSystem</code> elements make up the VSD Content Logical definition</li>
+ Not all of the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
+ In the ValueSet resource, the <code>lockedDate</code>, <code>compose</code> and <code>codeSystem</code> elements make up the VSD Content Logical definition.</li>
 </ul>
 </div>
 
@@ -59,8 +59,8 @@ This is one very common area where significant clinical safety risks occur in pr
 should be familiar with the content in <a href="terminologies.html">Using Codes in resources</a>.
 </p>
 <p>
-Each value set has 2 different URLs that can be used to reference it, its logical identifier, and 
-its location. 
+Each value set has 2 different URLs that can be used to reference it - its logical identifier, and 
+its location.
 </p>
 <p>
 The location of the value set is a URL by which it may be retrieved, usually from a FHIR 
@@ -81,7 +81,7 @@ specification.
 </p>
 <p>
 Because it is common practice to copy (cache) value sets locally, most 
-references to value sets can either be logical or literal URL. 
+references to value sets can be either a logical or a literal URL. 
 </p>
 
 </blockquote>
@@ -91,8 +91,8 @@ references to value sets can either be logical or literal URL.
 A value set has 3 identifiers:
 </p>
 <ul>
- <li>ValueSet.id: the local identifier on the system that holds it - this changes as it moves from server to server (this, the server address prepended, is called the 'literal identity' of the resource)</li>
- <li>ValueSet.url: the master identifier that never changes for this value set - the same in every copy (this is called the 'logical identity' of the resource)</li>
+ <li>ValueSet.id: the local identifier on the system that holds it - this changes as it moves from server to server (this id, with the server address prepended, is called the 'literal identity' of the resource)</li>
+ <li>ValueSet.url: the master identifier that never changes for this value set - it is the same in every copy (this is called the 'logical identity' of the resource)</li>
  <li>ValueSet.identifier: A system/value pair that is used to identify the value set in other contexts (such as an OID in an <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specification)</li>
 </ul>
 <p>
