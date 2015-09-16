@@ -449,7 +449,7 @@
   Id = 3
   Context = Conformance
   English = Messaging end-point is required (and is only permitted) when statement is for an implementation
-  XPath = exists(f:messaging/f:endpoint) = (f:kind/@value = \'instance\')
+  XPath = not(exists(f:messaging/f:endpoint)) or f:kind/@value = \'instance\'
 
  -- Row 4 -----------------------------------
   Id = 7

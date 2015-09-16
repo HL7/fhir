@@ -4089,7 +4089,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return wg == null ? "?"+ig.getCommittee()+"?" : wg.getUrl();
   }
 
-  private String pipeResources() {
+  public String pipeResources() {
     StringBuilder b = new StringBuilder();
     boolean first = true;
     for (String n : definitions.sortedResourceNames()) {

@@ -313,21 +313,53 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   public static class ExampleReference {
-    private final String type;
-    private final String id;
+    private final String ref;
     private final String path;
 
-    public ExampleReference(String type, String id, String path) {
+    private boolean exempt;
+    private String id;
+    private String type;
+    
+    public ExampleReference(String ref, String path) {
       super();
-      this.type = type;
-      this.id = id;
+      this.ref = ref;
       this.path = path;
+      exempt = false;
+      if (ref.startsWith("#")) {
+        type = null;
+        id = ref;
+        exempt = true;
+      } else if (isExemptUrl(ref)) {
+        type = null;
+        id = null;
+        exempt = true;
+      } else {
+        String[] parts = ref.split("\\/");
+        if (ref.contains("_history") && parts.length >= 4) {
+          type = parts[parts.length-4];
+          id = parts[parts.length-3];
+        } else if (parts.length >= 2) {
+          type = parts[parts.length-2];
+          id = parts[parts.length-1];
+        }
+      }
     }
 
-    public String describe() {
-      return type + "|" + id;
+    private boolean isExemptUrl(String url) {
+      if (url.startsWith("urn:"))
+        return true;
+      if (url.startsWith("http:") && !url.startsWith("http://hl7.org/fhir"))
+        return true;
+      return false;
     }
 
+    public String getPath() {
+      return path;
+    }
+
+    public boolean hasType() {
+      return type != null;  
+    }
     public String getType() {
       return type;
     }
@@ -336,8 +368,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       return id;
     }
 
-    public String getPath() {
-      return path;
+    public boolean isExempt() {
+      return exempt;
+    }
+
+    public String getRef() {
+      return ref;
     }
 
   }
@@ -1559,12 +1595,28 @@ public class Publisher implements URIResolver, SectionNumberer {
           List<ExampleReference> refs = new ArrayList<ExampleReference>();
           listLinks(e.getXml().getDocumentElement(), refs);
           for (ExampleReference ref : refs) {
-            if (!ref.getId().startsWith("cid:") && !ref.getId().startsWith("urn:") && !ref.getId().startsWith("http:") && !resolveLink(ref, e)) {
+            if (!ref.isExempt() && !resolveLink(ref, e)) {
               String path = ref.getPath().replace("/f:", ".").substring(1)+" (example "+e.getTitle()+")";
-              errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, path,
-                  "Unable to resolve example reference to " + ref.describe() + " in " + e.getTitle() + " (Possible Ids: " + listTargetIds(ref.getType())+")",
-                  "Unable to resolve example reference to " + ref.describe() + " in <a href=\""+e.getTitle() + ".html"+"\">" + e.getTitle() + "</a> (Possible Ids: " + listTargetIds(ref.getType())+")",
-                  IssueSeverity.INFORMATION/*WARNING*/));
+              if (ref.hasType() && page.getDefinitions().hasResource(ref.getType())) {
+                errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, path,
+                    "Unable to resolve example reference to " + ref.getRef() + " in " + e.getTitle() + " (Possible Ids: " + listTargetIds(ref.getType())+")",
+                    "Unable to resolve example reference to " + ref.getRef() + " in <a href=\""+e.getTitle() + ".html"+"\">" + e.getTitle() + "</a> (Possible Ids: " + listTargetIds(ref.getType())+")",
+                    IssueSeverity.INFORMATION/*WARNING*/));
+              } else {
+                String regex = "((http|https)://([A-Za-z0-9\\\\\\/\\.\\:\\%\\$])*)?("+page.pipeResources()+")\\/"+FormatUtilities.ID_REGEX+"(\\/_history\\/"+FormatUtilities.ID_REGEX+")?";
+                if (ref.getRef().matches(regex)) {
+                  errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, path,
+                      "Unable to resolve example reference " + ref.getRef() + " in " + e.getTitle(),
+                      "Unable to resolve example reference " + ref.getRef() + " in <a href=\""+e.getTitle() + ".html"+"\">" + e.getTitle() + "</a>",
+                      IssueSeverity.INFORMATION/*WARNING*/));
+                } else {
+                  errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, path,
+                      "Unable to resolve invalid example reference " + ref.getRef() + " in " + e.getTitle(),
+                      "Unable to resolve invalid example reference " + ref.getRef() + " in <a href=\""+e.getTitle() + ".html"+"\">" + e.getTitle() + "</a>",
+                      IssueSeverity.INFORMATION/*WARNING*/));
+                }
+              }
+//            System.out.println("unresolved reference "+ref.getRef()+" at "+path);
             }
           }
         }
@@ -1601,13 +1653,15 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private boolean resolveLink(ExampleReference ref, Example src) throws Exception {
-    if (ref.getId().startsWith("#"))
+    if (!ref.hasType() && ref.getId() == null)
+      return false;
+    if (!ref.hasType() && ref.getId().startsWith("#"))
       return true;
-    if (!page.getDefinitions().hasResource(ref.getType()))
+    if (!ref.hasType() || !page.getDefinitions().hasResource(ref.getType()))
       return false;
     if (ref.getId().startsWith("#"))
       return false;
-    String id = ref.getId(); // extractId(ref.getId(), ref.getType());
+    String id = ref.getId(); 
     ResourceDefn r = page.getDefinitions().getResourceByName(ref.getType());
     for (Example e : r.getExamples()) {
       if (id.equals(e.getId())) {
@@ -1704,10 +1758,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (d.typeCode().startsWith("Reference")) {
       for (Element m : set) {
         if (XMLUtil.getNamedChild(m, "reference") != null) {
-          String[] parts = XMLUtil.getNamedChildValue(m, "reference").split("\\/");
-          if (parts.length > 0 && page.getDefinitions().hasResource(parts[0])) {
-            refs.add(new ExampleReference(parts[0], parts[1], path));
-          }
+          refs.add(new ExampleReference(XMLUtil.getNamedChildValue(m, "reference"), path));
         }
       }
     }
