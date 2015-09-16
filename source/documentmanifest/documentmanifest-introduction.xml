@@ -4,12 +4,12 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p> 
-A document manifest gathers a set of <a href="documentreference.html">Document Reference</a> resources 
+A document manifest gathers a set of <a href="documentreference.html">DocumentReference</a> resources 
 into a single package that may be the subject of workflow such as access control, auditing, and 
 targeted delivery. 
 </p>
 <p>
-Typically, Document Manifest Resources are used in document indexing systems, such as <a href="http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing">IHE XDS</a> (see the <a href="xds.html">XDS specific profile</a>).
+Typically, DocumentManifest resources are used in document indexing systems, such as <a href="http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing">IHE XDS</a> (see the <a href="xds.html">XDS specific profile</a>).
 </p>
 </div>
 

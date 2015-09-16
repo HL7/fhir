@@ -4,20 +4,20 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p> 
-A document reference resource is used to describe a document that is made available to a healthcare system. 
-A document is some sequence of bytes that is identifiable, establishes its own context (e.g. what subject, 
-author etc.), can be displayed to the user, and has defined update management. The DocumentReference resource can be 
-used with any document format that has a recognized mime type, and that conforms to this definition.
+A DocumentReference resource is used to describe a document that is made available to a healthcare system. 
+A document is some sequence of bytes that is identifiable, establishes its own context (e.g., what subject, 
+author, etc. can be displayed to the user), and has defined update management. The DocumentReference resource can be 
+used with any document format that has a recognized mime type and that conforms to this definition.
 </p>
 <p>
-Typically, Document Reference Resources are used in document indexing systems, such as <a href="http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing">IHE XDS</a> (see the <a href="xds.html">XDS specific profile</a>),
+Typically, DocumentReference resources are used in document indexing systems, such as <a href="http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing">IHE XDS</a> (see the <a href="xds.html">XDS specific profile</a>),
 and are used to refer to:
 </p>
 <ul>
  <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> documents in FHIR systems</li>
  <li><a href="documents.html">FHIR documents</a> stored elsewhere (i.e. registry/repository following the XDS model)</li>
  <li><a href="http://en.wikipedia.org/wiki/Portable_Document_Format">PDF documents</a>, and even digital records of faxes where sufficient information is available</li>
- <li>Other kinds of documents, such as records of prescriptions.</li> 
+ <li>Other kinds of documents, such as records of prescriptions</li> 
 </ul>
 </div>
 
@@ -33,14 +33,14 @@ that are authored and assembled in FHIR. This resource is mainly intended for ge
 The document that is a target of the reference can be a reference to a FHIR document served by another server, or 
 the target can be stored in the special <a href="http.html#binary">FHIR Binary Resource</a>, or the target can be 
 stored on some other server system. The document reference is also able to address documents that are retrieved 
-by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message query, though 
+by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message query - though 
 the way each of these service calls works must be specified in some external standard or other documentation.
 </p>
 <p>
 A <code>DocumentReference</code> describes some other document. This means that there are two sets of 
 provenance information relevant here: the provenance of the document, and the provenance of the document
 reference. Sometimes, the provenance information is closely related, as when the document producer also 
-produces the DocumentReference, but in other workflows, the document reference is generated later by
+produces the document reference, but in other workflows, the document reference is generated later by
 other actors. In the <code>DocumentReference</code> resource, the <a href="resource.html#Meta">meta</a>
 content refers to the provenance of the reference itself, while the content described below concerns
 the document it references. Like all resources, there is overlap between the information in the 
