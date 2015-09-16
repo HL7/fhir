@@ -5,21 +5,21 @@
   Binding Name = GuideDependencyType
   Binding = code list
   Reference = #guide-dependency-type
-  Definition = How a dependency is represented when the guide is published
+  Definition = How a dependency is represented when the guide is published.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = GuidePageKind
   Binding = code list
   Reference = #guide-page-kind
-  Definition = The kind of an included page
+  Definition = The kind of an included page.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = GuideResourcePurpose
   Binding = code list
   Reference = #guide-resource-purpose
-  Definition = Why a resource is included in the guide
+  Definition = Why a resource is included in the guide.
   Conformance = required
 
 === Sheet guide-dependency-type =====================================
@@ -28,13 +28,13 @@
   Id = 1
   Code = reference
   Display = Reference
-  Definition = The guide is referred to by URL
+  Definition = The guide is referred to by URL.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = inclusion
   Display = Inclusion
-  Definition = The guide is embedded in this guide when published
+  Definition = The guide is embedded in this guide when published.
 
 === Sheet guide-page-kind =====================================
 
@@ -42,50 +42,50 @@
   Id = 1
   Code = page
   Display = Page
-  Definition = This is a page of content that is included in the implementation guide. It has no particular function
+  Definition = This is a page of content that is included in the implementation guide. It has no particular function.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = example
   Display = Example
-  Definition = This is a page that represents a human readable rendering of an example
+  Definition = This is a page that represents a human readable rendering of an example.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = list
   Display = List
-  Definition = This is a page that represents a list of resources of one or more types
+  Definition = This is a page that represents a list of resources of one or more types.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = include
   Display = Include
-  Definition = This is a page that is where an included guide is injected
+  Definition = This is a page showing where an included guide is injected.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = directory
   Display = Directory
-  Definition = This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section
+  Definition = This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = dictionary
   Display = Dictionary
-  Definition = This is a page that creates the listed resources as a dictionary
+  Definition = This is a page that creates the listed resources as a dictionary.
   Parent = #5
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = toc
   Display = Table Of Contents
-  Definition = This is a generated page that contains the table of contents
+  Definition = This is a generated page that contains the table of contents.
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = resource
   Display = Resource
-  Definition = This is a page that represents a presented resource. This is typically used for generated conformance resource presentations
+  Definition = This is a page that represents a presented resource. This is typically used for generated conformance resource presentations.
 
 === Sheet guide-resource-purpose =====================================
 
@@ -93,37 +93,37 @@
   Id = 1
   Code = example
   Display = Example
-  Definition = The resource is intended as an example
+  Definition = The resource is intended as an example.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = terminology
   Display = Terminology
-  Definition = The resource defines a value set or concept map used in the Implementation Guide
+  Definition = The resource defines a value set or concept map used in the implementation guide.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = profile
   Display = Profile
-  Definition = The resource defines a profile (StructureDefinition) that is used in the implementation guide
+  Definition = The resource defines a profile (StructureDefinition) that is used in the implementation guide.
 
  -- Row 4 -----------------------------------
   Id = 6
   Code = extension
   Display = Extension
-  Definition = The resource defines an extension (StructureDefinition) that is used in the implementation guide
+  Definition = The resource defines an extension (StructureDefinition) that is used in the implementation guide.
 
  -- Row 5 -----------------------------------
   Id = 4
   Code = dictionary
   Display = Dictionary
-  Definition = The resource contains a dictionary that is part of the implementation guide
+  Definition = The resource contains a dictionary that is part of the implementation guide.
 
  -- Row 6 -----------------------------------
   Id = 5
   Code = logical
   Display = Logical Model
-  Definition = The resource defines a logical model (in a StructureDefinition) that is used in the implementation guide
+  Definition = The resource defines a logical model (in a StructureDefinition) that is used in the implementation guide.
 
 === Sheet Invariants =====================================
 

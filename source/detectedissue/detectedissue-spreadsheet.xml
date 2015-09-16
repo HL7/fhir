@@ -6801,7 +6801,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s151"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Moderate</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Indicates the issue may result in noticable adverse adverse consequences but is unlikely to be life-threatening or cause permanent injury.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Indicates the issue may result in noticeable adverse consequences but is unlikely to be life-threatening or cause permanent injury.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String" x:Ticked="1">=ObservationValue.M</Data></Cell>
     <Cell ss:StyleID="s141"/>

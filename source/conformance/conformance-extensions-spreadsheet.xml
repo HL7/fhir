@@ -10,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-07-27T20:40:22Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1976,7 +1976,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2356,7 +2355,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s123"><Data ss:Type="String">ConformanceExpectation</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Indicates the degree of adherence to a specified behavior or capability expected in order for a system to be deemed conformant with a specification</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Indicates the degree of adherence to a specified behavior or capability expected in order for a system to be deemed conformant with a specification.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">#conformance-expectation</Data></Cell>
@@ -2803,6 +2802,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2822,8 +2822,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2890,8 +2889,8 @@
     <Cell ss:StyleID="s128"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"><Data ss:Type="String">Support for the specified capability is required to be considered conformant</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">SHALL</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">Support for the specified capability is required to be considered conformant.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s131"/>
@@ -2901,8 +2900,8 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is strongly encouraged and failure to support it should only occur after careful consideration</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">SHOULD</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is strongly encouraged and failure to support it should only occur after careful consideration.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s135"/>
@@ -2912,8 +2911,8 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is not necessary to be considered conformant and the requirement should be considered strictly optional</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">MAY</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is not necessary to be considered conformant and the requirement should be considered strictly optional.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s135"/>
@@ -2923,8 +2922,8 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is strongly discouraged and should occur only after careful consideration</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">SHOULD-NOT</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is strongly discouraged and should occur only after careful consideration.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s135"/>
@@ -3441,9 +3440,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R6</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

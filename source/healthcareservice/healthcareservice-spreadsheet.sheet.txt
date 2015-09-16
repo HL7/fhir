@@ -5,48 +5,48 @@
   Binding Name = ReferralMethod
   Binding = code list
   Reference = #service-referral-method
-  Definition = The methods of referral can be used when referring to a specific HealthCareService resource
+  Definition = The methods of referral can be used when referring to a specific HealthCareService resource.
   Conformance = Example
 
  -- Row 2 -----------------------------------
   Binding Name = DaysOfWeek
   Binding = code list
   Reference = #days-of-week
-  Definition = The days of the week
+  Definition = The days of the week.
 
  -- Row 3 -----------------------------------
   Binding Name = ServiceProvisionConditions
   Binding = code list
   Reference = #service-provision-conditions
-  Definition = The code(s) that detail the conditions under which the healthcare service is available/offered
+  Definition = The code(s) that detail the conditions under which the healthcare service is available/offered.
   Conformance = Example
 
  -- Row 4 -----------------------------------
   Binding Name = DocumentC80PracticeSetting
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
-  Definition = Additional details about where the content was created (e.g. clinical specialty)
+  Definition = Additional details about where the content was created (e.g. clinical specialty).
   Conformance = Preferred
 
  -- Row 5 -----------------------------------
   Binding Name = ServiceSpecialty
   Binding = unbound
-  Definition = A specialty that a healthcare service may provide
+  Definition = A specialty that a healthcare service may provide.
 
  -- Row 6 -----------------------------------
   Binding Name = ServiceCategory
   Binding = unbound
-  Definition = A category of the service(s) that could be provided
+  Definition = A category of the service(s) that could be provided.
 
  -- Row 7 -----------------------------------
   Binding Name = ServiceCharacteristic
   Binding = unbound
-  Definition = A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)
+  Definition = A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy).
 
  -- Row 8 -----------------------------------
   Binding Name = ServiceEligibility
   Binding = unbound
-  Definition = Coded values underwhich a specific service is made available
+  Definition = Coded values underwhich a specific service is made available.
 
 === Sheet service-referral-method =====================================
 
@@ -54,13 +54,13 @@
   Id = 1
   Code = fax
   Display = Fax
-  Definition = Referrals may be accepted by fax
+  Definition = Referrals may be accepted by fax.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = phone
   Display = Phone
-  Definition = Referrals may be accepted over the phone from a Practitioner
+  Definition = Referrals may be accepted over the phone from a practitioner.
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -78,7 +78,7 @@
   Id = 5
   Code = mail
   Display = Mail
-  Definition = Referrals may be accepted via regular postage (or hand delivered)
+  Definition = Referrals may be accepted via regular postage (or hand delivered).
 
 === Sheet days-of-week =====================================
 
@@ -130,19 +130,19 @@
   Id = 1
   Code = free
   Display = Free
-  Definition = This service is available for no patient cost
+  Definition = This service is available for no patient cost.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = disc
   Display = Discounts Available
-  Definition = There are discounts available on this service for qualifying patients
+  Definition = There are discounts available on this service for qualifying patients.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = cost
   Display = Fees apply
-  Definition = Fees apply for this service
+  Definition = Fees apply for this service.
 
 === Sheet Invariants =====================================
 

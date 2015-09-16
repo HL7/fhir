@@ -20,7 +20,7 @@
   <WindowWidth>20535</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>4095</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1287,7 +1287,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The status of the order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Typically the system placing the order sets the status to "requested". Thereafter, the order is maintained by the receiver that updates the status as the request is handled</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Typically the system placing the order sets the status to &quot;requested&quot;. Thereafter, the order is maintained by the receiver that updates the status as the request is handled</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists</Data><NamedCell
@@ -6844,7 +6844,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6945,7 +6944,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Draft</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">the request is in preliminary form prior to being sent.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The request is in preliminary form prior to being sent.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7022,7 +7021,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The work has been complete, the report(s) released, and no further work is planned.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The work has been completed, the report(s) released, and no further work is planned.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7033,7 +7032,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Cancelled</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">the request has been withdrawn.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The request has been withdrawn.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -8155,6 +8154,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

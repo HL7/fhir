@@ -5,7 +5,7 @@
   Binding Name = IdentifierUse
   Binding = code list
   Reference = #identifier-use
-  Definition = Identifies the purpose for this identifier, if known
+  Definition = Identifies the purpose for this identifier, if known .
 
 === Sheet identifier-use =====================================
 
@@ -13,25 +13,25 @@
   Id = 1
   Code = usual
   Display = Usual
-  Definition = the identifier recommended for display and use in real-world interactions
+  Definition = The identifier recommended for display and use in real-world interactions.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = official
   Display = Official
-  Definition = the identifier considered to be most trusted for the identification of this item
+  Definition = The identifier considered to be most trusted for the identification of this item.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = temp
   Display = Temp
-  Definition = A temporary identifier
+  Definition = A temporary identifier.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = secondary
   Display = Secondary
-  Definition = An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context
+  Definition = An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
 
 === Sheet Invariants =====================================
 

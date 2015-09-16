@@ -10,18 +10,19 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-09-15T00:31:20Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>661</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3862,7 +3863,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6431,7 +6431,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">ReferralMethod</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The methods of referral can be used when referring to a specific HealthCareService resource</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The methods of referral can be used when referring to a specific HealthCareService resource.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">#service-referral-method</Data></Cell>
@@ -6446,7 +6446,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">DaysOfWeek</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The days of the week</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The days of the week.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">#days-of-week</Data></Cell>
@@ -6461,7 +6461,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">ServiceProvisionConditions</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The code(s) that detail the conditions under which the healthcare service is available/offered</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The code(s) that detail the conditions under which the healthcare service is available/offered.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">#service-provision-conditions</Data></Cell>
@@ -6476,7 +6476,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">DocumentC80PracticeSetting</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Additional details about where the content was created (e.g. clinical specialty)</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Additional details about where the content was created (e.g. clinical specialty).</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">Preferred</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/c80-practice-codes</Data></Cell>
@@ -6495,7 +6495,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ServiceSpecialty</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A specialty that a healthcare service may provide</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A specialty that a healthcare service may provide.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
@@ -6510,7 +6510,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">ServiceCategory</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A category of the service(s) that could be provided</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A category of the service(s) that could be provided.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
@@ -6525,7 +6525,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">ServiceCharacteristic</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy).</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
@@ -6540,7 +6540,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">ServiceEligibility</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Coded values underwhich a specific service is made available</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Coded values underwhich a specific service is made available.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
@@ -6867,6 +6867,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6886,7 +6887,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7583,7 +7584,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Fax</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Referrals may be accepted by fax</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Referrals may be accepted by fax.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s150"/>
@@ -7594,7 +7595,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Phone</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Referrals may be accepted over the phone from a Practitioner</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Referrals may be accepted over the phone from a practitioner.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s141"/>
@@ -7627,7 +7628,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Mail</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Referrals may be accepted via regular postage (or hand delivered)</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Referrals may be accepted via regular postage (or hand delivered).</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s141"/>
@@ -8133,8 +8134,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8201,7 +8201,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Free</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">This service is available for no patient cost</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">This service is available for no patient cost.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s150"/>
@@ -8212,7 +8212,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Discounts Available</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">There are discounts available on this service for qualifying patients</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">There are discounts available on this service for qualifying patients.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s141"/>
@@ -8223,7 +8223,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Fees apply</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Fees apply for this service</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Fees apply for this service.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s141"/>
@@ -8762,8 +8762,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

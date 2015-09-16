@@ -26,14 +26,14 @@
   Id = 3
   Code = equivalent
   Display = Equivalent
-  Definition = The data element allows multiple units of measure having equivalent meaning; e.g. \"cc\" (cubic centimeter) and \"mL\".
+  Definition = The data element allows multiple units of measure having equivalent meaning; e.g. \"cc\" (cubic centimeter) and \"mL\" (milliliter).
   Parent = comparable
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = convertable
   Display = Convertable
-  Definition = The data element allows multiple units of measure that are convertable between each other (e.g. Inches and centimeters) and/or allows data to be captured in multiple value sets for which a known mapping exists allowing conversion of meaning.
+  Definition = The data element allows multiple units of measure that are convertable between each other (e.g. inches and centimeters) and/or allows data to be captured in multiple value sets for which a known mapping exists allowing conversion of meaning.
   Parent = comparable
 
  -- Row 5 -----------------------------------

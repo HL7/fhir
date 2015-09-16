@@ -6990,7 +6990,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">comparable</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Equivalent</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The data element allows multiple units of measure having equivalent meaning; e.g. &quot;cc&quot; (cubic centimeter) and &quot;mL&quot;.</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The data element allows multiple units of measure having equivalent meaning; e.g. &quot;cc&quot; (cubic centimeter) and &quot;mL&quot; (milliliter).</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>
@@ -7001,7 +7001,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">comparable</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Convertable</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The data element allows multiple units of measure that are convertable between each other (e.g. Inches and centimeters) and/or allows data to be captured in multiple value sets for which a known mapping exists allowing conversion of meaning.</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The data element allows multiple units of measure that are convertable between each other (e.g. inches and centimeters) and/or allows data to be captured in multiple value sets for which a known mapping exists allowing conversion of meaning.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>

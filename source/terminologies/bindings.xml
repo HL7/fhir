@@ -3265,7 +3265,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Narrower</Data></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.</Data></Cell>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Narrower relationships are transitive</Data></Cell>
@@ -3289,7 +3289,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Inexact</Data></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.</Data></Cell>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Inexact relationships are symmetric</Data></Cell>

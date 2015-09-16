@@ -10,18 +10,18 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-06-11T11:38:47Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>786</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3529,7 +3529,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6144,7 +6143,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s146"><Data ss:Type="String">IdentityAssuranceLevel</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The level of confidence that this link represents the same actual person, based on NIST Authentication Levels</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">#identity-assuranceLevel</Data></Cell>
@@ -6550,7 +6549,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7166,6 +7165,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>598</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7185,8 +7185,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

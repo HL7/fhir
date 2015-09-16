@@ -36,21 +36,21 @@
   Id = 3
   Code = email
   Display = Email
-  Definition = The value is an email address
+  Definition = The value is an email address.
   v2 = <0202.Internet(for email addresses)
 
  -- Row 4 -----------------------------------
   Id = 5
   Code = pager
   Display = Pager
-  Definition = The value is a pager number. These may be local pager numbers that are only usable on a particular pager system
+  Definition = The value is a pager number. These may be local pager numbers that are only usable on a particular pager system.
   v2 = ~0202.BP
 
  -- Row 5 -----------------------------------
   Id = 4
   Code = other
   Display = URL
-  Definition = A contact that is not a phone, fax, or email address. The format of the value SHOULD be a URL. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses. If this is not a URL, then it will require human interpretation
+  Definition = A contact that is not a phone, fax, or email address. The format of the value SHOULD be a URL. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses. If this is not a URL, then it will require human interpretation.
   v2 = <0202.Internet(for non-email kinds of addresses)
 
 === Sheet contact-point-use =====================================
@@ -82,14 +82,14 @@
   Id = 4
   Code = old
   Display = Old
-  Definition = This contact point is no longer in use (or was never correct, but retained for records)
+  Definition = This contact point is no longer in use (or was never correct, but retained for records).
   v3 = >AddressUse.OLD(Old and Bad),>AddressUse.BAD(Old and Bad)
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = mobile
   Display = Mobile
-  Definition = A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business
+  Definition = A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business.
   v2 = ~0201.PRS
   v3 = =AddressUse.MC
 
@@ -107,7 +107,7 @@
   Element = ContactPoint
   Type = Structure
   Short Label = Details of a Technology mediated contact point (phone, fax, email, etc.)
-  Definition = Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
+  Definition = Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
   Requirements = Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.
   v2 Mapping = XTN
   RIM Mapping = TEL

@@ -6163,7 +6163,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s147"><Data ss:Type="String">ConditionKind</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Identification of the Condition or diagnosis. </Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Identification of the condition or diagnosis. </Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-condition-code</Data></Cell>
@@ -6193,7 +6193,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s148"><Data ss:Type="String">ConditionClinicalStatus</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The clinical status of the Condition or diagnosis.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The clinical status of the condition or diagnosis.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">valueset-condition-clinical</Data></Cell>
@@ -6208,7 +6208,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s148"><Data ss:Type="String">ConditionVerificationStatus</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The verification status to support or decline the clinical status of the Condition or diagnosis.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The verification status to support or decline the clinical status of the condition or diagnosis.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">#condition-ver-status</Data></Cell>
@@ -6730,7 +6730,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Entered In Error</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The statement was entered in error and Is not valid.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The statement was entered in error and is not valid.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">ActStatus.nullified</Data></Cell>
     <Cell ss:StyleID="s143"/>

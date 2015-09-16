@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-11-17T05:30:16Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,6 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -975,7 +974,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Details of a Technology mediated contact point (phone, fax, email, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3647,7 +3646,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
      <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
@@ -6762,7 +6760,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Old</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">This contact point is no longer in use (or was never correct, but retained for records)</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This contact point is no longer in use (or was never correct, but retained for records).</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"><Data ss:Type="String">&gt;AddressUse.OLD(Old and Bad),&gt;AddressUse.BAD(Old and Bad)</Data></Cell>
     <Cell ss:StyleID="s141"/>
@@ -6773,7 +6771,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Mobile</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business.</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">~0201.PRS</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">=AddressUse.MC</Data></Cell>
     <Cell ss:StyleID="s141"/>
@@ -7290,8 +7288,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7380,7 +7377,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Email</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The value is an email address</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The value is an email address.</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">&lt;0202.Internet(for email addresses)</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7391,7 +7388,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Pager</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The value is a pager number. These may be local pager numbers that are only usable on a particular pager system</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The value is a pager number. These may be local pager numbers that are only usable on a particular pager system.</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">~0202.BP</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7402,7 +7399,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">URL</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">A contact that is not a phone, fax, or email address. The format of the value SHOULD be a URL. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses. If this is not a URL, then it will require human interpretation</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">A contact that is not a phone, fax, or email address. The format of the value SHOULD be a URL. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses. If this is not a URL, then it will require human interpretation.</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">&lt;0202.Internet(for non-email kinds of addresses)</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7930,8 +7927,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -5,21 +5,21 @@
   Binding Name = StructureDefinitionKind
   Binding = code list
   Reference = #structure-definition-kind
-  Definition = Defines the type of structure that a definition is describing
+  Definition = Defines the type of structure that a definition is describing.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = ExtensionContext
   Binding = code list
   Reference = #extension-context
-  Definition = How an extension context is interpreted
+  Definition = How an extension context is interpreted.
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = StructureDefinitionCode
   Binding = value set
   Reference = valueset-profile-code
-  Definition = Codes for the meaning of the defined structure (SNOMED CT and LOINC codes, as an example)
+  Definition = Codes for the meaning of the defined structure (SNOMED CT and LOINC codes, as an example).
   Conformance = example
 
 === Sheet structure-definition-kind =====================================
@@ -28,19 +28,19 @@
   Id = 1
   Code = datatype
   Display = Data Type
-  Definition = A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions
+  Definition = A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = resource
   Display = Resource
-  Definition = A resource defined by the FHIR specification
+  Definition = A resource defined by the FHIR specification.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = logical
   Display = Logical Model
-  Definition = A logical model - a conceptual package of data that will be mapped to resources for implementation
+  Definition = A logical model - a conceptual package of data that will be mapped to resources for implementation.
 
 === Sheet extension-context =====================================
 
@@ -48,25 +48,25 @@
   Id = 1
   Code = resource
   Display = Resource
-  Definition = The context is all elements matching a particular resource element path
+  Definition = The context is all elements matching a particular resource element path.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = datatype
   Display = Datatype
-  Definition = The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name)
+  Definition = The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = mapping
   Display = Mapping
-  Definition = The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used
+  Definition = The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = extension
   Display = Extension
-  Definition = The context is a particular extension from a particular profile, a uri that identifies the extension definition
+  Definition = The context is a particular extension from a particular profile, a uri that identifies the extension definition.
 
 === Sheet Invariants =====================================
 

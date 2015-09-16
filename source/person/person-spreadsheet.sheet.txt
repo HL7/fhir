@@ -5,7 +5,7 @@
   Binding Name = IdentityAssuranceLevel
   Binding = code list
   Reference = #identity-assuranceLevel
-  Definition = The level of confidence that this link represents the same actual person, based on NIST Authentication Levels
+  Definition = The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.
 
 === Sheet identity-assuranceLevel =====================================
 

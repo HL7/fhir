@@ -5,7 +5,7 @@
   Binding Name = ConditionKind
   Binding = value set
   Reference = valueset-condition-code
-  Definition = Identification of the Condition or diagnosis.
+  Definition = Identification of the condition or diagnosis.
   Conformance = example
 
  -- Row 2 -----------------------------------
@@ -19,14 +19,14 @@
   Binding Name = ConditionClinicalStatus
   Binding = value set
   Reference = valueset-condition-clinical
-  Definition = The clinical status of the Condition or diagnosis.
+  Definition = The clinical status of the condition or diagnosis.
   Conformance = preferred
 
  -- Row 4 -----------------------------------
   Binding Name = ConditionVerificationStatus
   Binding = code list
   Reference = #condition-ver-status
-  Definition = The verification status to support or decline the clinical status of the Condition or diagnosis.
+  Definition = The verification status to support or decline the clinical status of the condition or diagnosis.
   Conformance = required
 
  -- Row 5 -----------------------------------
@@ -95,7 +95,7 @@
   Id = 5
   Code = entered-in-error
   Display = Entered In Error
-  Definition = The statement was entered in error and Is not valid.
+  Definition = The statement was entered in error and is not valid.
   v3 = ActStatus.nullified
 
  -- Row 6 -----------------------------------

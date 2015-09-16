@@ -58,7 +58,7 @@
   Id = 13
   Code = draft
   Display = Draft
-  Definition = the request is in preliminary form prior to being sent.
+  Definition = The request is in preliminary form prior to being sent.
 
  -- Row 3 -----------------------------------
   Id = 2
@@ -100,13 +100,13 @@
   Id = 8
   Code = completed
   Display = Completed
-  Definition = The work has been complete, the report(s) released, and no further work is planned.
+  Definition = The work has been completed, the report(s) released, and no further work is planned.
 
  -- Row 10 -----------------------------------
   Id = 12
   Code = cancelled
   Display = Cancelled
-  Definition = the request has been withdrawn.
+  Definition = The request has been withdrawn.
 
  -- Row 11 -----------------------------------
   Id = 9

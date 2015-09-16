@@ -82,7 +82,7 @@
   Id = 8
   Code = entered-in-error
   Display = Entered in Error
-  Definition = The report has been withdrawn following previous Final release.
+  Definition = The report has been withdrawn following a previous final release.
 
 === Sheet Invariants =====================================
 
