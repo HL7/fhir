@@ -873,10 +873,11 @@ public class ProfileGenerator {
       return null;
 
     ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
-    dst.setStrength(src.getStrength());    
     dst.setDescription(src.getDefinition());
-    if (src.getBinding() != BindingMethod.Unbound)
+    if (src.getBinding() != BindingMethod.Unbound) {
+      dst.setStrength(src.getStrength());    
       dst.setValueSet(buildReference(src));    
+    }
     return dst;
   }
 
