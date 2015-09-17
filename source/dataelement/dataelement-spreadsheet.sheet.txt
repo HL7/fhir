@@ -89,6 +89,7 @@
   Short Label = Globally unique logical id for data element
   Definition = An absolute URL that is used to identify this data element when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this data element is (or will be) published
   RIM Mapping = ./id[use=INSTANCE]
+  11179 Mapping = (Identified_Item).identifier  As assigned by registering authority
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -103,7 +104,7 @@
   LOINC Code = LOINC_NUM (the code is the identifier)
   v2 Mapping = OM1.2
   RIM Mapping = ./id[use=BUS]
-  11179 Mapping = (Identified_Item).identifier  As assigned by registering authority
+  11179 Mapping = (Identified_Item).identifier
   w5 = id
 
  -- Row 4 -----------------------------------

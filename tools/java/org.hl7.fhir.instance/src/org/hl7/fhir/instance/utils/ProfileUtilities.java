@@ -1226,7 +1226,8 @@ public class ProfileUtilities {
     StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
     List<ElementDefinition> children = getChildren(all, element);
-    if (!snapshot && extensions != null && extensions != (s.equals("extension") || s.equals("modifierExtension")))
+    boolean isExtension = (s.equals("extension") || s.equals("modifierExtension"));
+    if (!snapshot && extensions != null && extensions != isExtension)
       return;
 
     if (!onlyInformationIsMapping(all, element)) {
@@ -1336,7 +1337,7 @@ public class ProfileUtilities {
       } else{
         for (ElementDefinition child : children)
           if (!child.getPath().endsWith(".id"))
-            genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, false, snapshot, corePath);
+            genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, isExtension, snapshot, corePath);
         if (!snapshot && (extensions == null || !extensions))
           for (ElementDefinition child : children)
             if (child.getPath().endsWith(".extension"))

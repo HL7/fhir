@@ -275,7 +275,7 @@
   Short Label = Number of times to repeat
   Definition = A total count of the desired number of repetitions
   Requirements = Repetitions may be limited by end time or total occurrences
-  Comments = If you have both bounds and count, then this should be understand as within the bounds period, until count times happens
+  Comments = If you have both bounds and count, then this should be understood as within the bounds period, until count times happens
   RIM Mapping = PIVL.count
 
  -- Row 6 -----------------------------------
@@ -365,6 +365,6 @@
   Type = CodeableConcept
   Binding = TimingAbbreviation
   Short Label = QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +
-  Definition = A code for the timing pattern. Some codes such as BID are ubiquitious, but many institutions define their own additional codes
+  Definition = A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes
   Comments = A repeat should always be defined except for the common codes BID, TID, QID, AM and PM, which all systems are required to understand
   RIM Mapping = QSC.code

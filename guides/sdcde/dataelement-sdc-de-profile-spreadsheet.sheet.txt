@@ -52,6 +52,7 @@
   Element = DataElement
   Profile Name = SDCDataElement
   Type = Resource
+  11179 Mapping = Data_Element
 
  -- Row 2 -----------------------------------
   Element = DataElement.extension
@@ -59,6 +60,7 @@
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-de-effective-period}
+  11179 Mapping = start = (Administered_Item).Registration.state.effective_date\nend = (Administered_Item).Registration.state.until_date
 
  -- Row 3 -----------------------------------
   Element = DataElement.extension
@@ -66,6 +68,7 @@
   Card. = 0..*
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-de-document-reference}
+  11179 Mapping = (Registered_Item).document_reference
 
  -- Row 4 -----------------------------------
   Element = DataElement.extension
@@ -73,6 +76,7 @@
   Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-de-administrative-status}
+  11179 Mapping = (Administered_Item).Registration.state.administrative_status
 
  -- Row 5 -----------------------------------
   Element = DataElement.extension
@@ -80,6 +84,7 @@
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-de-change-description}
+  11179 Mapping = (Administered_Item).change_description
 
  -- Row 6 -----------------------------------
   Element = DataElement.extension
@@ -87,6 +92,7 @@
   Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-de-submitter-org}
+  11179 Mapping = (Registered_Item).submission_record.organization
 
  -- Row 7 -----------------------------------
   Element = DataElement.extension
@@ -94,53 +100,62 @@
   Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-de-registry-org}
+  11179 Mapping = (Administered_Item).authority
 
  -- Row 8 -----------------------------------
   Element = DataElement.url
   Card. = 1..1
   Must Support = Y
   Type = !uri
+  11179 Mapping = (Identified_Item).identifier  As assigned by registering authority
 
  -- Row 9 -----------------------------------
   Element = DataElement.identifier
   Card. = 1..1
   Must Support = Y
   Type = !Identifier
+  11179 Mapping = (Identified_Item).identifier
 
  -- Row 10 -----------------------------------
   Element = DataElement.version
   Card. = 1..1
   Must Support = Y
   Type = !string
+  11179 Mapping = (Identified_Item).identifier.version
 
  -- Row 11 -----------------------------------
   Element = DataElement.name
   Card. = 1..1
   Must Support = Y
   Type = !string
+  11179 Mapping = (Designatable_Item).designation.sign  acceptability=preferred in default context
 
  -- Row 12 -----------------------------------
   Element = DataElement.status
   Card. = !1..1
   Must Support = Y
   Type = !code
+  11179 Mapping = (Administered_item).registration.state  new = Incomplete, Candidate, Recorded, Qualified  active = Standard, Preferred Standard, Application  retired = Retired, Superseded, Historical
 
  -- Row 13 -----------------------------------
   Element = DataElement.experimental
   Card. = !0..1
   Must Support = Y
   Type = !boolean
+  11179 Mapping = N/A
 
  -- Row 14 -----------------------------------
   Element = DataElement.publisher
   Card. = 1..1
   Must Support = Y
   Type = string
+  11179 Mapping = (Administered_Item).stewardship_record.organization.name
 
  -- Row 15 -----------------------------------
   Element = DataElement.contact
   Card. = 1..*
   Must Support = Y
+  11179 Mapping = (Administered_Item).stewardship_record.organization
 
  -- Row 16 -----------------------------------
   Element = DataElement.contact.extension
@@ -148,30 +163,35 @@
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-de-contact-address}
+  11179 Mapping = .mail_address
 
  -- Row 17 -----------------------------------
   Element = DataElement.contact.name
   Card. = 1..1
   Must Support = Y
   Type = !string
+  11179 Mapping = .name
 
  -- Row 18 -----------------------------------
   Element = DataElement.contact.telecom
   Card. = 1..1
   Must Support = Y
   Type = !ContactPoint
+  11179 Mapping = .email_address, .phone_number, .uri
 
  -- Row 19 -----------------------------------
   Element = DataElement.date
   Card. = !0..1
   Must Support = Y
   Type = !dateTime
+  11179 Mapping = (Administered_item).last_change_date
 
  -- Row 20 -----------------------------------
   Element = DataElement.useContext
   Card. = !0..*
   Must Support = Y
   Type = !CodeableConcept
+  11179 Mapping = (Classifiable_Item).classifier (if classificationOrContext = classification)
 
  -- Row 21 -----------------------------------
   Element = DataElement.useContext.extension
@@ -185,12 +205,14 @@
   Card. = !0..1
   Must Support = Y
   Type = !string
+  11179 Mapping = (Identified_Item).slot.value
 
  -- Row 23 -----------------------------------
   Element = DataElement.stringency
   Card. = 1..1
   Must Support = Y
   Type = code
+  11179 Mapping = (Identified_Item).slot.value
   Value = comparable
 
  -- Row 24 -----------------------------------
@@ -261,6 +283,7 @@
   Card. = !1..*
   Must Support = Y
   Type = !ElementDefinition{http://hl7.org/fhir/StructureDefinition/elementdefinition-de}
+  11179 Mapping = (ignored nesting)
 
  -- Row 35 -----------------------------------
   Element = DataElement.element.extension
@@ -269,6 +292,7 @@
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/elementdefinition-question}
   Comments = ...Need at least one primary question and one alternate question
+  11179 Mapping = (Registered_Item).document_reference
 
  -- Row 36 -----------------------------------
   Element = DataElement.element.extension
@@ -276,6 +300,7 @@
   Card. = !0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits}
+  11179 Mapping = .domain.unit_of_measure (if a single unit)
 
  -- Row 37 -----------------------------------
   Element = DataElement.element.extension
@@ -283,6 +308,7 @@
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/minLength}
+  11179 Mapping = Could be a slot
 
  -- Row 38 -----------------------------------
   Element = DataElement.element.extension
@@ -290,6 +316,7 @@
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/regex}
+  11179 Mapping = Could be a slot
 
  -- Row 39 -----------------------------------
   Element = DataElement.element.extension
@@ -297,6 +324,7 @@
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/entryFormat}
+  11179 Mapping = .domain.format
 
  -- Row 40 -----------------------------------
   Element = DataElement.element.extension
@@ -304,24 +332,28 @@
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/maxDecimalPlaces}
+  11179 Mapping = Could be a slot
 
  -- Row 41 -----------------------------------
   Element = DataElement.element.path
   Card. = !1..1
   Must Support = Y
   Type = !string
+  11179 Mapping = N/A
 
  -- Row 42 -----------------------------------
   Element = DataElement.element.name
   Card. = !0..1
   Must Support = Y
   Type = !string
+  11179 Mapping = (Identified_Item).designation
 
  -- Row 43 -----------------------------------
   Element = DataElement.element.label
   Card. = !0..1
   Must Support = Y
   Type = !string
+  11179 Mapping = (Identified_Item).designation
 
  -- Row 44 -----------------------------------
   Element = DataElement.element.code
@@ -329,6 +361,7 @@
   Must Support = Y
   Type = !Coding
   Binding = SDCDEC
+  11179 Mapping = .meaning (if isDataElementConcept = true)
 
  -- Row 45 -----------------------------------
   Element = DataElement.element.code.extension
@@ -342,69 +375,81 @@
   Card. = 1..1
   Must Support = Y
   Type = !string
+  11179 Mapping = (Designatable_Item).definition.text
 
  -- Row 47 -----------------------------------
   Element = DataElement.element.comments
   Card. = !0..1
   Must Support = Y
   Type = !string
+  11179 Mapping = Could be a slot
 
  -- Row 48 -----------------------------------
   Element = DataElement.element.requirements
   Card. = !0..1
   Must Support = Y
   Type = !string
+  11179 Mapping = Could be a slot
 
  -- Row 49 -----------------------------------
   Element = DataElement.element.alias
   Card. = !0..*
   Must Support = Y
   Type = !string
+  11179 Mapping = (Designatable_Item).designation
 
  -- Row 50 -----------------------------------
   Element = DataElement.element.min
   Card. = !0..1
   Must Support = Y
   Type = !integer
+  11179 Mapping = Could be a slot
 
  -- Row 51 -----------------------------------
   Element = DataElement.element.max
   Card. = !0..1
   Must Support = Y
   Type = !string
+  11179 Mapping = Could be a slot
 
  -- Row 52 -----------------------------------
   Element = DataElement.element.type
   Card. = 0..1
   Must Support = Y
+  11179 Mapping = (ignored nesting)
 
  -- Row 53 -----------------------------------
   Element = DataElement.element.type.code
   Card. = !1..1
   Must Support = Y
   Type = !code
+  11179 Mapping = domain.data_type
 
  -- Row 54 -----------------------------------
   Element = DataElement.element.defaultValue[x]
   Card. = !0..1
   Type = !*
+  11179 Mapping = Could be a slot
 
  -- Row 55 -----------------------------------
   Element = DataElement.element.meaningWhenMissing
   Card. = !0..1
   Type = !string
+  11179 Mapping = Could be a slot
 
  -- Row 56 -----------------------------------
   Element = DataElement.element.example[x]
   Card. = !0..1
   Must Support = Y
   Type = !*
+  11179 Mapping = Could be a slot
 
  -- Row 57 -----------------------------------
   Element = DataElement.element.minValue[x]
   Card. = !0..1
   Must Support = Y
   Type = !*
+  11179 Mapping = Could be a slot
 
  -- Row 58 -----------------------------------
   Element = DataElement.element.maxValue[x]
@@ -412,81 +457,95 @@
   Card. = !0..1
   Must Support = Y
   Type = !*
+  11179 Mapping = Could be a slot
 
  -- Row 59 -----------------------------------
   Element = DataElement.element.maxLength
   Card. = !0..1
   Must Support = Y
   Type = !integer
+  11179 Mapping = domain.maximum_character_quantity
 
  -- Row 60 -----------------------------------
   Element = DataElement.element.condition
   Card. = !0..*
   Must Support = Y
   Type = !id
+  11179 Mapping = Could be a slot
 
  -- Row 61 -----------------------------------
   Element = DataElement.element.constraint
   Card. = !0..*
   Must Support = Y
+  11179 Mapping = Could be a slot
 
  -- Row 62 -----------------------------------
   Element = DataElement.element.constraint.key
   Card. = !1..1
   Must Support = Y
   Type = !id
+  11179 Mapping = Could be a slot
 
  -- Row 63 -----------------------------------
   Element = DataElement.element.constraint.requirements
   Card. = !0..1
   Must Support = Y
   Type = !string
+  11179 Mapping = Could be a slot
 
  -- Row 64 -----------------------------------
   Element = DataElement.element.constraint.severity
   Card. = !1..1
   Must Support = Y
   Type = !code
+  11179 Mapping = Could be a slot
 
  -- Row 65 -----------------------------------
   Element = DataElement.element.constraint.human
   Card. = !1..1
   Must Support = Y
   Type = !string
+  11179 Mapping = Could be a slot
 
  -- Row 66 -----------------------------------
   Element = DataElement.element.constraint.xpath
   Card. = !1..1
   Must Support = Y
   Type = !string
+  11179 Mapping = Could be a slot
 
  -- Row 67 -----------------------------------
   Element = DataElement.element.mustSupport
   Card. = 0..0
   Type = !boolean
+  11179 Mapping = Could be a slot
 
  -- Row 68 -----------------------------------
   Element = DataElement.element.binding
   Card. = !0..1
   Must Support = Y
+  11179 Mapping = (ignored nesting)
 
  -- Row 69 -----------------------------------
   Element = DataElement.element.binding.strength
   Card. = !1..1
   Must Support = Y
   Type = !code
+  11179 Mapping = Could be a slot
 
  -- Row 70 -----------------------------------
   Element = DataElement.element.binding.description
   Card. = !0..1
   Must Support = Y
   Type = !string
+  11179 Mapping = .domain(Described_Value_Domain).description
 
  -- Row 71 -----------------------------------
   Element = DataElement.element.binding.valueSetReference
   Card. = 1..1
   Must Support = Y
   Type = Reference(ValueSet) {http://hl7.org/fhir/StructureDefinition/sdcde-valueset}
+  11179 Mapping = .domain(Described_Value_Domain).description
 
  -- Row 72 -----------------------------------
   Element = DataElement.element.binding.valueSetReference.extension
@@ -495,6 +554,7 @@
   Must Support = Y
   Inv. = 3
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset}
+  11179 Mapping = .meaning.domain(EnumeratedConceptualDomain)
 
  -- Row 73 -----------------------------------
   Element = DataElement.element.binding.valueSetReference.extension
@@ -503,6 +563,7 @@
   Must Support = Y
   Inv. = 3
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap}
+  11179 Mapping = .domain(Enumerated_ValueDomain)
 
  -- Row 74 -----------------------------------
   Element = DataElement.element.mapping
@@ -512,6 +573,7 @@
   Must Support = Y
   Inv. = 2
   Definition = A mapping that defines the data element in terms of the SDC project\'s ObjectClass and Property value sets.
+  11179 Mapping = provides meaning/representation link between Permissible_Values and Value_Meanings
 
  -- Row 75 -----------------------------------
   Element = DataElement.element.mapping.extension
@@ -520,6 +582,7 @@
   Must Support = Y
   Inv. = 1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-objectClass}
+  11179 Mapping = .meaning.object_class
 
  -- Row 76 -----------------------------------
   Element = DataElement.element.mapping.extension.valueCoding
@@ -535,6 +598,7 @@
   Must Support = Y
   Inv. = 1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/11179-objectClassProperty}
+  11179 Mapping = .meaning.property
 
  -- Row 78 -----------------------------------
   Element = DataElement.element.mapping.extension.valueCoding

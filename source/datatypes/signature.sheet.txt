@@ -29,7 +29,7 @@
   Binding = SignatureType
   Short Label = Indication of the reason the entity signed the object(s)
   Definition = An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.
-  Comments = Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a “Commitment Type Indication”
+  Comments = Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a &quot;Commitment Type Indication&quot;
 
  -- Row 3 -----------------------------------
   Element = Signature.when
