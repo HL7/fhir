@@ -27,7 +27,6 @@
 package models
 
 type Reference struct {
-	Id           string `json:"-" bson:"_id"`
 	Reference    string `bson:"reference,omitempty" json:"reference,omitempty"`
 	Display      string `bson:"display,omitempty" json:"display,omitempty"`
 	Type         string `bson:"type,omitempty" json:"type,omitempty"`
