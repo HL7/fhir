@@ -11,7 +11,7 @@
 This clinical statement identifies a set of cognitive status result observations. It 
 contains information applicable to all of the contained cognitive status result 
 observations. A result organizer may be used to group questions in a Patient 
-Health Questionaire (PHQ).  
+Health Questionnaire (PHQ).  
 An appropriate nullFlavor can be used when the organizer/code or 
 organizer/id is unknown.  		</p>
 	</div>

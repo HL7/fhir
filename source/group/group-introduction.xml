@@ -20,7 +20,7 @@
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-There are four mechanisms in FHIR for communicating collections of resources:
+There are five mechanisms in FHIR for communicating collections of resources:
 </p>
 <ul>
 <li>
@@ -30,7 +30,7 @@ is dynamic – items are added and removed over time.  The list resource referen
 curated and have specific business meaning.
 </li>
 <li>
-The Group resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
+This Group resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
 or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
 Groups are intended to be acted upon or observed as a whole; e.g. performing therapy on a group, calculating risk for a group, 
 etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
@@ -47,6 +47,13 @@ together into a single logical document that provides a single coherent statemen
 that has clinical attestation with regard to who is making the statement. The composition resource provides the basic structure 
 of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a bundle.  Compositions will 
 often reference Lists as the focus of particular sections.
+</li>
+<li>
+The <a href="domainresource.html">DomainResource</a>.<code>contained</code> element - allows multiple resources to be nested
+inside any DomainResource.  This is a special type of grouping where the grouped resources lose independent existence - they
+no longer have their own identifiers, can't easily be queried independently, etc.  Use of this grouping is a technical 
+mechanism for managing the independence of resources and has no impact on meaning.  Contained, bundles and remotely referenced
+resources convey the same meaning.
 </li>
 </ul>
 
