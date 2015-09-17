@@ -9,7 +9,7 @@
  <extension url="http://hl7.org/fhir/StructureDefinition/condition-criticality">
    <valueCodeableConcept>
      <coding>
-       <system value="http://hl7.org/fhir/ValueSet/condition-severity"/>
+       <system value="http://snomed.info/sct"/>
        <code value="399166001" />
        <display value="Fatal"/>
      </coding>

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Basic xmlns="http://hl7.org/fhir">
-  <id value="basic-adverseevent-example"/>
-  
+  <id value="basic-adverseevent-example"/>  
   <extension url="http://hl7.org/fhir/StructureDefinition/qicore-adverseevent-cause">
-		<extension url="http://hl7.org/fhir/StructureDefinition/qicore-adverseevent-cause#item">
-			<valueReference>
-				<reference value="Medication/qicore"/>
-			</valueReference>
-		</extension>	
-		<extension url="http://hl7.org/fhir/StructureDefinition/qicore-adverseevent-cause#certainty">
-			<valueCodeableConcept>
-			  <coding>
-				  <system value="http://snomed.info/sct"/>
-					<code value="410605003"/> <!-- Confirmed present -->
-			  </coding>
-			</valueCodeableConcept>
-		</extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/qicore-adverseevent-cause#item">
+      <valueReference>
+        <reference value="Medication/qicore"/>
+      </valueReference>
+    </extension>	
+    <extension url="http://hl7.org/fhir/StructureDefinition/qicore-adverseevent-cause#certainty">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="410605003"/> <!-- Confirmed present -->
+        </coding>
+      </valueCodeableConcept>
+    </extension>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/qicore-adverseevent-type">
     <valueCodeableConcept>
@@ -35,7 +34,7 @@
   </extension>  
   <code>
     <coding>
-      <system value="http://hl7.org/fhir/ValueSet/basic-resource-type"/>
+      <system value="http://hl7.org/fhir/basic-resource-type"/>
       <code value="advevent"/>
     </coding>
   </code>
