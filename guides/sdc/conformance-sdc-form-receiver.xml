@@ -28,7 +28,7 @@
             <b>Security:</b>
          </p>
          <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.</p>
-         <h3>Summary</h3>
+         <h3>Resource summary</h3>
          <table class="grid">
             <thead>
                <tr>
@@ -38,7 +38,6 @@
                   <th>Read Version</th>
                   <th>Instance History</th>
                   <th>Resource History</th>
-                  <th>Validate</th>
                   <th>Create</th>
                   <th>Update</th>
                   <th>Delete</th>
@@ -46,7 +45,7 @@
             </thead>
             <tbody>
                <tr>
-                  <th>QuestionnaireResponse</th>
+                  <th>QuestionnaireResponse (<a href="http://hl7.org/fhir/StructureDefinition/sdc-element">Profile</a>)</th>
                   <td>
                      <a title="Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update."
                         href="#QuestionnaireResponse-search-type">SHALL</a>
@@ -58,10 +57,6 @@
                         href="#QuestionnaireResponse-history-instance">SHALL</a>
                   </td>
                   <td/>
-                  <td>
-                     <a title="Allows checking an answer set for validity against submission rules without persisting any data"
-                        href="#QuestionnaireResponse-validate">SHALL</a>
-                  </td>
                   <td>
                      <a title="Allows recording a completed or partially-completed form"
                         href="#QuestionnaireResponse-create">SHALL</a>
@@ -80,7 +75,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="questionnaireresponse.html">QuestionnaireResponse</a>
+            <a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -208,6 +203,14 @@
    </text>
    
    
+   
+   
+   
+   
+   
+   
+   
+   
   
   
   <name value="SDC Form Receiver"/>
@@ -234,7 +237,7 @@
       <resource>
          <type value="QuestionnaireResponse"/>
          <profile>
-            <reference value="http://hl7.org/fhir/StructureDefinition/dataelement-sdc"/>
+            <reference value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
          </profile>
          <interaction>
             <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">

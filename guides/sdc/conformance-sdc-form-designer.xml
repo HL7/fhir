@@ -9,7 +9,7 @@
          <p>Published: 2014-07-06 (draft)</p>
          <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
          </p>
-         <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
+         <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="../questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="../dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
          <h2>General</h2>
          <table>
             <tbody>
@@ -24,12 +24,12 @@
             </tbody>
          </table>
          <h2>REST  behavior</h2>
-         <p>The <a href="questionnaire.html">Questionnaire</a> resource is used to create and maintain SDC-compliant forms.  The <a href="dataelement.html">DataElement</a> resource is used to look-up existing data elements that can be referenced in forms.  Optionally, <a href="dataelement.html">DataElement</a>s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The <a href="valueset.html">ValueSet</a> resource is used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets will be handled as 'contained' resources, meaning the value set exists only in the context of the <a href="questionnaire.html">Questionnaire</a> and cannot be referenced or maintained without also updating the form.  However, systems should support value set re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="questionnaire.html">Questionnaire</a>.)</p>
+         <p>The <a href="../questionnaire.html">Questionnaire</a> resource is used to create and maintain SDC-compliant forms.  The <a href="../dataelement.html">DataElement</a> resource is used to look-up existing data elements that can be referenced in forms.  Optionally, <a href="../dataelement.html">DataElement</a>s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The <a href="../valueset.html">ValueSet</a> resource is used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets will be handled as 'contained' resources, meaning the value set exists only in the context of the <a href="../questionnaire.html">Questionnaire</a> and cannot be referenced or maintained without also updating the form.  However, systems should support value set re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="../questionnaire.html">Questionnaire</a>.)</p>
          <p>
             <b>Security:</b>
          </p>
          <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.</p>
-         <h3>Summary</h3>
+         <h3>Resource summary</h3>
          <table class="grid">
             <thead>
                <tr>
@@ -39,7 +39,6 @@
                   <th>Read Version</th>
                   <th>Instance History</th>
                   <th>Resource History</th>
-                  <th>Validate</th>
                   <th>Create</th>
                   <th>Update</th>
                   <th>Delete</th>
@@ -47,7 +46,7 @@
             </thead>
             <tbody>
                <tr>
-                  <th>Questionnaire</th>
+                  <th>Questionnaire (<a href="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire">Profile</a>)</th>
                   <td>
                      <a title="Allows discovery of existing questionnaires for editing"
                         href="#Questionnaire-search-type">SHALL</a>
@@ -66,10 +65,6 @@
                   </td>
                   <td/>
                   <td>
-                     <a title="Allows verification that form is valid prior to submission - useful for some workflows."
-                        href="#Questionnaire-validate">MAY</a>
-                  </td>
-                  <td>
                      <a title="Allows submission of a new form design" href="#Questionnaire-create">SHALL</a>
                   </td>
                   <td>
@@ -82,7 +77,7 @@
                   </td>
                </tr>
                <tr>
-                  <th>ValueSet</th>
+                  <th>ValueSet (<a href="http://hl7.org/fhir/StructureDefinition/sdc-valueset">Profile</a>)</th>
                   <td>
                      <a title="Allows discovery of existing value sets for use by questions in a form"
                         href="#ValueSet-search-type">SHALL</a>
@@ -100,10 +95,6 @@
                   </td>
                   <td/>
                   <td>
-                     <a title="Allows verification that a value set is valid prior to submission - useful for some workflows."
-                        href="#ValueSet-validate">MAY</a>
-                  </td>
-                  <td>
                      <a title="Allows definition of a new value set used by one or more questions"
                         href="#ValueSet-create">SHALL</a>
                   </td>
@@ -117,7 +108,7 @@
                   </td>
                </tr>
                <tr>
-                  <th>DataElement</th>
+                  <th>DataElement (<a href="http://hl7.org/fhir/StructureDefinition/sdc-element">Profile</a>)</th>
                   <td>
                      <a title="Allows a user to search for existing data elements for re-use in a form design"
                         href="#DataElement-search-type">SHALL</a>
@@ -136,10 +127,6 @@
                   </td>
                   <td/>
                   <td>
-                     <a title="Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission"
-                        href="#DataElement-validate">MAY</a>
-                  </td>
-                  <td>
                      <a title="Allows defining new data elements for subsequent re-use while creating and editing forms"
                         href="#DataElement-create">MAY</a>
                   </td>
@@ -157,7 +144,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="questionnaire.html">Questionnaire</a>
+            <a href="[%fhir-path%]questionnaire.html">Questionnaire</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -254,7 +241,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="valueset.html">ValueSet</a>
+            <a href="[%fhir-path%]valueset.html">ValueSet</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -351,7 +338,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="dataelement.html">DataElement</a>
+            <a href="[%fhir-path%]dataelement.html">DataElement</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -449,6 +436,14 @@
    </text>
    
    
+   
+   
+   
+   
+   
+   
+   
+   
   
   
   <name value="SDC Form Designer"/>
@@ -540,7 +535,7 @@
     <resource>
          <type value="ValueSet"/>
          <profile>
-            <reference value="http://hl7.org/fhir/StructureDefinition/valueset-sdc"/>
+            <reference value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
          </profile>
          <interaction>
             <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
@@ -604,7 +599,7 @@
     <resource>
          <type value="DataElement"/>
          <profile>
-            <reference value="http://hl7.org/fhir/StructureDefinition/dataelement-sdc"/>
+            <reference value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
          </profile>
          <interaction>
             <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 [%settitle Resource Index%]
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd">
 <head>
 [%file newheader%]
 </head>
@@ -27,7 +27,7 @@ Support pre-population and auto-population of EHR data into forms/questionnaires
 </ul>
 <p>
 A third component – defining standards for the sharing of common data element definitions between registries to enable broader and more consistent data element use is addressed in a
-<a href="../sdcde/sdcde.html">second companion implementation guide</a>.
+<a href="[%fhir-path%]sdcde/sdcde.html">second companion implementation guide</a>.
 </p>
 <p>
 This implementation guide is prepared as a U.S. Realm Specification on behalf of the 
@@ -36,68 +36,244 @@ However, much of the content is likely to be useable in other jurisdictions.  Th
 jurisdictions are the bindings to terminologies such as SNOMED CT and RxNorm.  The workflow, constraints and extensions used should all have broad applicability.
 </p>
 
+<a name="toc"/>
+<h3>Navigation</h3>
+<p>
+This implementation guide follows the FHIR pattern of being published as a web-based specification.  This
+allows easy navigation between the SDC-specific portion of the implementation guide and the resources,
+data types, value sets and other specification components leveraged from the FHIR core specification.  This
+approach also allows implementers to easily navigate to the information needed to perform a particular task.
+</p>
+<p>
+A <a href="registry.html">Table of Contents</a> page is provided that lists all of the pages and artifacts
+defined as part of this implementation guide.  (Do be aware that some pages have multiple tabs.)  A
+table of contents is also available for the full <a href="[%fhir-path%]toc.html">FHIR specification</a> if
+you really want to read absolutely everything.  Tooling may provide support for a PDF or other document-approach
+representation of this implementation guide in a future release.
+</p>
+<p>
+Bread-crumb navigation is provided in the gray bar just below the menu at the top of each page, allowing
+easy navigation back to the main SDC page.
+</p>
+<p>This implementation guide has a number of sections:</p>
+<ul>
+<li><a href="#fhir">Understanding FHIR</a> should be read by those who are not familiar with FHIR as a pre-requisite to reading the rest of the implementation guide</li>
+<li><a href="#background">Background</a> provides links to background and implementation information including security guidelines, the SDC wiki and the use-cases driving the implementation guide</li>
+<li><a href="#workflow">Workflow</a> describes the primary workflow associated with the SDC implementation guide</li>
+<li><a href="#conformance">Conformance Statements</a> describes the different roles systems wishing to conform to this implementation guide can take on and summarizes how those roles interact.</li>
+<li><a href="#resources">Resources</a> describes the resources used as part of this implementation guide, including profiles placed on those resources to constrain and extend their capabilities.</li>
+<li><a href="#population">Pre-population Service</a> describes in detail how the pre-population mechanism is intended to work</li>
+<li><a href="#ip">Intellectual Property Considerations</a> provides information about intellectual property referenced by this implementation guide</li>
+</ul>
+<br/>
+
+
+<a name="fhir"> </a>
+<h3>Understanding FHIR</h3>
+<p>This implementation guide is based on the HL7 <a href="[%fhir-path%]index.html">FHIR</a> standard.  It uses terminology, notations and design principles that are
+specific to FHIR.  Before reading this implementation guide, it's important to be familiar with some of the basic principles of FHIR as well 
+as general guidance on how to read FHIR specifications.  Readers who are unfamiliar with FHIR are encouraged to read (or at least skim) the following 
+prior to reading the rest of this implementation guide.
+</p>
+<ul>
+<li>
+<a href="[%fhir-path%]overview.html">FHIR overview</a>
+</li>
+<li>
+<a href="[%fhir-path%]overview-dev.html">Developer's introduction</a>
+</li>
+<li>
+(or <a href="[%fhir-path%]overview-clinical.html">Clinical introduction</a>)
+</li>
+<li>
+<a href="[%fhir-path%]datatypes.html">FHIR data types</a>
+</li>
+<li>
+<a href="[%fhir-path%]terminologies.html">Using codes</a>
+</li>
+<li>
+<a href="[%fhir-path%]references.html">References between resources</a>
+</li>
+<li>
+<a href="[%fhir-path%]formats.html">How to read resource &amp; profile definitions</a>
+</li>
+<li>
+<a href="[%fhir-path%]resource.html">Base resource</a>
+</li>
+<li>
+<a href="[%fhir-path%]http.html">RESTful operations</a>
+</li>
+<li>
+<a href="[%fhir-path%]search.html">Search</a>
+</li>
+</ul>
+<p>
+Feel free to explore other aspects of the FHIR specification that you feel may be relevant or of interest.
+</p>
+
+
+<a name="background"> </a>
 <h3>Background</h3>
+<p>
+The following links provide additional context for the SDC specification.
+</p>
 <ul>
   <li><a href="sdc-intro.html">Introduction</a> - How this project came to be and what it is trying to achieve</li>
   <li><a href="sdc-security.html">Security</a> - Security and privacy rules and considerations</li>
   <li><a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">Project wiki containing development materials and discussions (for additional background)</a></li>
 </ul>
 
-<h3>Specification</h3>
+
+<a name="workflows"> </a>
+<h3>Workflows</h3>
 <p>
-The <i>SDC FHIR Implementation Guide</i> is based on the <a href="[%fhir-path%]index.html">HL7 FHIR</a> standard.  
-Readers of this specification should familiarize themselves with the FHIR specification, including its notions around the use of resources, extensions, bundles,
-conformance rules, etc.  The <a href="[%fhir-path%]overview.html">Overview</a> is probably a good place to start.
+  The generic SDC workflow is pictured in Figure 1.
 </p>
 <p>
-This specific profile makes use of the following resources:
+  <b>Figure 1: Generic Workflow</b>
+</p>
+<img alt="Generic Workflow" src="sdc-generic-workflow.png"/>
+
+<p><i>
+  <u>Note</u>: The diagram depicts the optional storage of the completed form by the EHR. This can occur when the EHR stores a copy of 
+  the form as they send it to the External Data Repository or by the external data repository returning a copy of the form to 
+  the sender who can store an internal version of the form.
+</i></p>
+<p>
+The fundamental workflow in FHIR is to complete (and potentially submit) a completed questionnaire response.  The driver of this workflow is the
+<a href="conformance-sdc-form-filler.html">Form Filler</a> system.  It retrieves a form (Questionnaire) from the
+<a href="conformance-sdc-form-manager.html">Form Manager</a>.  It may also request that the Form Manager generate an initial QuestionnaireResponse,
+potentially partially populated with information known by the Form Manager or supplied by the Form Filler.  The Form Filler could generate the
+QuestionnaireResponse itself without the assistance of the Form Manager and in either case could partially fill in the response based on information
+known by the form filler.  When as much of the questionnaire response as possible has been filled in by automated means, the form is displayed to
+an end-user who reviews and edits the automatically populated content as well as completing those portions of the form that were not populated
+automatically.  Finally, the form filler submits the form to one or more target repositories 
+(<a href="conformance-sdc-form-receiver.html">Form Receiver</a> allows the completed form to be subsequently retrieved,
+<a href="conformance-sdc-form-archiver.html">Form Archiver</a> does not) and/or stores the completed form itself.
+</p>
+<p>
+The pre-population process (done by the Form Manager) and the auto-population process (done by the Form Filler itself) can be done by
+a variety of means.  If using data elements referenced directly within the questionnaire or mapped via <a href="conceptmap.html">ConceptMap</a>,
+those may need to be retrieved from a <a href="[%fhir-path%]sdcde/conformance-sdc-de-registry.html"> Data Element Registry</a> in order to look
+up what mappings the data element has to other resources.
+</p>
+
+<h3>SDC Specification</h3>
+<p>The following sections describe the artifacts that set expectations for systems wishing to be conformant to the FHIR SDC implementation guide.</p>
+
+<a href="conformance"> </a>
+<h4>Conformance Statements</h4>
+<p>
+FHIR Conformance statements define the expectations for particular system "roles" within an SDC environment.  To be considered SDC-conformant, a system 
+must adhere to the requirements defined by at least one of these statements.  Some systems might choose to comply with more than one.
 </p>
 <ul>
-  <li><a href="[%fhir-path%]dataelement.html">DataElement</a> is used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</li>
-  <li><a href="[%fhir-path%]questionnaire.html">Questionnaire</a> is used to define form definitions that may be downloaded for manual and/or automatic population</li>
-  <li><a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a> is used to share instance data captured using questionnaire forms</li>
-  <li><a href="[%fhir-path%]valueset.html">ValueSet</a> is used to define allowed values for data elements and for questions in questionnaires</li>
+  <li><a href="conformance-sdc-form-designer.html">SDC Form Designer</a> - System responsible for creating and editing form designs</li>
+  <li><a href="conformance-sdc-form-filler.html">SDC Form Filler</a> - System responsible for capturing user form input to produce partially or fully completed forms</li>
+  <li><a href="conformance-sdc-form-manager.html">SDC Form Manager</a> - Repository for form definitions.  May also perform pre-population</li>
+  <li><a href="conformance-sdc-form-receiver.html">SDC Form Receiver</a> - Repository for completed forms which support their subsequent retrieval</li>
+  <li><a href="conformance-sdc-form-archiver.html">SDC Form Archiver</a> - System responsible for archiving and retrieving of completed forms</li>
 </ul>
 <p>
-Additional resources such as <a href="[%fhir-path%]patient.html">Patient</a>, <a href="[%fhir-path%]practitioner.html">Practitioner</a>, <a href="[%fhir-path%]provenance.html">Provenance</a>, 
-<a href="[%fhir-path%]auditevent.html">AuditEvent</a> and others are also likely to be used in SDC solutions, though
-no SDC-specific profiles have been created for them.    Basic aspects of the FHIR protocol, including <a href="[%fhir-path%]http.html">RESTful operations</a>, 
-<a href="[%fhir-path%]datatypes.html">data types</a>, <a href="[%fhir-path%]search.html">search</a>, etc. also apply.
+In addition to the above, there's another relevant role:<br/>
+When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="[%fhir-path%]sdcde/conformance-sdc-de-registry.html">SDC Data Element Registry</a>,
+which is defined in the <a href="[%fhir-path%]sdcde/sdcde.html">SDC Data Element Exchange</a> implementation guide.
+</p>
+<p>
+A summary of how these roles interact can be seen in Figure 2 and Figure 3 below:
+</p>
+<p>
+<b>Figure 2: Form Curation</b>
+</p>
+<p>
+<img alt="Diagram showing interaction between Form Designer, Form Manager and Data Element Registry" src="sdc-form-curation.png"/>
+</p>
+<br/>
+<p>
+<b>Figure 3: Form Population</b>
+</p>
+<p>
+<img alt="Diagram showing interaction between Form Filler, Form Manager, Form Receiver, Form Archiver and Data Element Registry" src="sdc-form-population.png"/>
+</p>
+<br/>
+
+<a href="resources"> </a>
+<h4>Resources</h4>
+<p>
+This implementation guide defines profiles on several resources.  Implementations are expected to be conformant with these profiles in order
+to be conformant with this implementation guide.
+</p>
+<table>
+<body>
+<tr>
+<th>Resource</th>
+<th>SDC Profile</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>
+<a href="[%fhir-path%]dataelement.html">DataElement</a> 
+</td>
+<td>
+<a href="dataelement-sdc.html">SDC Data Element (DE) Profile</a>
+</td>
+<td>
+Used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data
+</td>
+</tr>
+<tr>
+<td>
+<a href="[%fhir-path%]questionnaire.html">Questionnaire</a>
+</td>
+<td>
+<a href="questionnaire-sdc.html">SDC Questionnaire Profile</a>
+</td>
+<td>
+Used to define form definitions that may be downloaded for manual and/or automatic population
+</td>
+</tr>
+<tr>
+<td>
+<a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a>
+</td>
+<td>
+<a href="questionnaireresponse-sdc.html">SDC Questionnaire Response Profile</a>
+</td>
+<td>
+Used to share instance data captured using questionnaire forms
+</td>
+</tr>
+<tr>
+<td>
+<a href="[%fhir-path%]valueset.html">ValueSet</a>
+</td>
+<td>
+<a href="valueset-sdc.html">SDC Value Set Profile</a>
+</td>
+<td>
+Used to define allowed values for data elements and for questions in questionnaires
+</td>
+</tr>
+</body>
+</table>
+<p>
+Additional resources such as <a href="[%fhir-path%]patient.html">Patient</a>, <a href="[%fhir-path%]practitioner.html">Practitioner</a>, <a href="[%fhir-path%]binary.html">Binary</a>, 
+<a href="[%fhir-path%]conceptmap.html">ConceptMap</a>, <a href="[%fhir-path%]provenance.html">Provenance</a>, <a href="[%fhir-path%]auditevent.html">AuditEvent</a> and others are also 
+likely to be used in SDC solutions, though no SDC-specific profiles have been created for them.    
 <!-- Todo: decide how explicit the list of relevant sections needs to be -->
 </p>
 <p>
-
-</p>
-<p>
-The SDC specification consists of the following components:
+For the purposes of this implementation guide, "must support" shall be interpreted as follows:
 </p>
 <ul>
-  <li><b>SDC profiles</b> - Profiles on the four FHIR resources used to support the IG requirements:
-    <ul>
-      <li><a href="dataelement-sdc.html">SDC Data Element (DE) Profile</a> - Constraints and extensions for capturing data elements</li>
-      <li><a href="questionnaire-sdc.html">SDC Questionnaire Profile</a> - Constraints and extensions for capturing form designs</li>
-      <li><a href="questionnaireresponse-sdc.html">SDC Questionnaire Response Profile</a> - Constraints and extensions for capturing form data instances</li>
-      <li><a href="valueset-sdc.html">SDC Value Set Profile</a> - Constraints and extensions for defining lists of allowed codes</li>
-    </ul>
-  </li>
-  <li><a href="#population">Pre-population Operation</a> - The definition of the custom service that allows pre-population of forms based on 
-  CDA and other data sources</li>
-  <li><b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved in supporting SDC functionality:
-    <ul>
-      <li><a href="conformance-sdc-form-designer.html">SDC Form Designer</a> - System responsible for creating and editing forms</li>
-      <li><a href="conformance-sdc-form-filler.html">SDC Form Filler</a> - System responsible for capturing user form input</li>
-      <li><a href="conformance-sdc-form-manager.html">SDC Form Manager</a> - Repository for form definitions.  May also perform pre-population</li>
-      <li><a href="conformance-sdc-form-receiver.html">SDC Form Receiver</a> - Repository for completed forms</li>
-    </ul>
-  </li>
-  <p>
-    When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="[%fhir-path%]sdcde/conformance-sdc-de-registry.html">SDC Data Element Registry</a>,
-    which is defined in the <a href="[%fhir-path%]sdcde/sdcde.html">SDC Data Element Exchange</a> implementation guide.
-
-  </p>
+<li>Conformant systems SHALL be capable of sending and receiving the data element</li>
+<li>When a system persists a resource instance, all "must support" elements SHALL be persisted and retrieved with other elements</li>
+<li>Where an element affects the display or validation of a Questionnaire and a system performs either or both of those operations, the behavior established by the value of the element SHALL be performed</li>
 </ul>
+
+
 <a name="population"> </a>
-<h3>Pre-population service</h3>
+<h4>Pre-population service</h4>
 <p>
 The <a href="[%fhir-path%]questionnaire.html">Questionnaire</a> resource defines a custom operation called <a href="[%fhir-path%]questionnaire-operations.html#populate">populate</a>.
 This operation supports generating a "blank" <a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a> instance based on a specified
@@ -126,8 +302,9 @@ as well as indirectly either by <code>identifier</code> or <code>questionnaire</
 <p>
 * While C-CDA is the focus for compliance with this release of the SDC specification, systems are encouraged to support additional formats.  Candidates
 for mandatory support in future versions of this implementation guide include the
-<a href="http://www.hl7.org/documentcenter/public/wg/ca/CDAR2_IG_CDP1_R1_D1_2015MAY%20V10%200%205-11-2015%20clean.pdf">Clinical Documents for Payors - SET 1</a> (CPD1)
-and <a href="http://www.ihe.net/Technical_Framework/upload/IHE_QRPH_Suppl_PRPH_Ca_Rev2-1_2011-09-02.pdf">Physician Reporting to a Public Health Repository</a>
+<a href="http://www.hl7.org/documentcenter/public/wg/ca/CDAR2_IG_CDP1_R1_D1_2015MAY%20V10%200%205-11-2015%20clean.pdf">Clinical Documents for Payers - SET 1</a> (CPD1)
+and 
+<a href="http://www.ihe.net/Technical_Framework/upload/IHE_QRPH_Suppl_PRPH_Ca_Rev2-1_2011-09-02.pdf"> Physician Reporting to a Public Health Repository</a>
 specifications.
 </p>
 <p>
@@ -153,6 +330,7 @@ exactly what piece of information should be extracted from a source system, C-CD
 <p>
 Mapping to C-CDA, where applicable, should be constrained and specific (e.g. for particular demographic sections) rather than making it open and generic.  These mappings should be per ONC's recommendations. Mapping to C-CDA is one of many options, not the only one.</p>
 
+
 <a name="ip"> </a>
 <h3>Intellectual Property Considerations</h3>
 <p>
@@ -161,76 +339,6 @@ RxNorm which have more restrictive licensing requirements.  Implementers should 
 questionnaires, data elements and other components used as part of their implementation process.  In some cases, licensing requirements may limit what systems
 data captured using this implementation guide may be shared with.
 </p>
-
-<a name="ihe-interop"/>
-<h3>Interoperability with the IHE SDC specification</h3>
-<p>
-This FHIR profile is partially based on the IHE <a href="http://ihe.net/uploadedFiles/Documents/QRPH/IHE_QRPH_Suppl_SDC_Rev1.0_PC_2014-06-06.pdf">Structured Data Capture</a> 
-Technical Framework Supplement.  While largely aligned, there are differences between them, driven in part by their different technologies and scopes.  A summary of the
-differences is as follows:
-</p>
-<ul>
-<li>
-This FHIR specification does not deal with forms rendered as HTML or as redirects to a website for completion by a browser.  It only addresses the sharing of forms and responses 
-using the <a href="questionnaire.html">Questionnaire</a> and <a href="questionnaireresponse.html">QuestionnaireResponse</a> resources.  The additional capabilities described
-in the IHE version of the specification could be met through FHIR operations and may be introduced in a future version of this specification.
-</li>
-<li>
-This FHIR specification doesn't describe the notion of auto-population (where a Form Filler answers questions based on data that it stores locally) as this function requires
-no external interface.
-</li>
-<li>
-This specification defines a specific syntax for data element definition, while the IHE specification does not.
-</li>
-<li>
-This specification allows the use of the FHIR <a href="securityevent.html">SecurityEvent</a> resource as an alternative to ATNA for performing audit.
-</li>
-<li>
-This specification uses FHIR resources rather than custom XML to define the structures for forms (Questionnaires) and completed forms (QuestionnaireResponses).  While
-more or less aligned in scope, there are differences.  In general, the FHIR specification is tighter than the IHE specification as with FHIR, the extension mechanism
-can be used to introduce new capabilities while the IHE schema needed to leave certain aspects loosely defined to support future evolution.  A summary of some of the 
-more significant differences is as follows:
-  <ul>
-  <li>
-  The IHE specification supports arbitrary data types for questions, though it enumerates a specific list of allowed types for text_field.
-Of these, most map cleanly to FHIR, though there are some exceptions:
-    <ul>
-      <li>Date and time: In FHIR there's no ability to transmit different date formats - formatting control is handled by an extension, but all dates and
-    times are conveyed according to the w3c schema standard over the wire.  As well, partial-precision times are not supported in FHIR and must be zero-filled down to the second</li>
-      <li>Durations in FHIR are limited to a single value and unit.  E.g. "3.5 days" or "84 hours".  There is no ability to convey "3d12h" as a single question answer</li>
-      <li>The Attachment data type in FHIR supports conveying attachments both embedded within the answer or as references (possibly to a <a href="../http.html#binary">Binary</a>
-      resource in a bundle or to some external location.</li>
-      <li>FHIR introduces a 'boolean' data type. (The IHE specification presumes this would be captured using a code.)</li>
-    </ul>  
-  </li>
-  <li>
-  The IHE syntax provides a generic "rules" structure.  FHIR provides explicit capabilities around conditional questions and groups.  Additional rules can be introduced
-  through the use of extensions
-  </li>
-  <li>
-  The IHE syntax provides a packaging mechanism in which forms, data and metadata can all be packaged together.  FHIR supports this same notion through the
-  <a href="bundle.html">Bundle</a> resource, however this specification doesn't specifically envision Questionnaires and QuestionnaireResponses being bundled together
-  </li>
-  <li>
-  </li>
-  The FHIR resources explicitly link Questionnaires and Questionnaire responses to other resources (Pracitioner, Patient, etc.).  These linkages are not explicit
-  in the IHE specification and are presumably managed either through context or through questions within the form.
-  </ul>
-</li>
-</ul>
-
-<p>
-As the content of both the FHIR and IHE specification stabilize, the project team intends to develop a set of XSLT transforms to support translation between the IHE and
-FHIR syntaxes for forms and completed forms.  
-These transforms should provide seamless conversion in the majority of circumstances and will be designed to raise warning messages where some content could not be safely 
-converted.
-</p>
-<p>
-</p>
-<p>
-  <b>Open Issue:</b> Should FHIR also support an open-ended set of data types?  Why?
-</p>
-
 
 </div>
 

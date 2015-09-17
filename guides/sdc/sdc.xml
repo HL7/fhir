@@ -6,6 +6,19 @@
 	<status value="draft"/>
 	<experimental value="false"/>
 	<publisher value="Health Level Seven International (Orders and Observations - Structured Data Capture)"/>
+	<contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+	</contact>
+	<description value="The SDC specification provides an infrastructure to standardize the capture and expanded use of patient-level data collected within an EHR.&lt;br/&gt;This includes two components:&lt;br/&gt;* Support more sophisticated questionnaire/form use-cases such as those needed for research, oncology, pathology and other clinical domains.&lt;br/&gt;*Support pre-population and auto-population of EHR data into forms/questionnaires for uses outside direct clinical care (patient safety, adverse event reporting, public health reporting, etc.)."/>
+	<useContext>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+	</useContext>
 	<package>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
 			<valueUri value="dataelement-sdc-profile-spreadsheet.xml"/>
@@ -46,11 +59,17 @@
 		</resource>
 		<resource>
 			<purpose value="example"/>
+			<name value="SDC Form Archiver"/>
+			<description value="SDC System for archiving and retrieving the completed forms"/>
+			<sourceUri value="conformance-sdc-form-archiver.xml"/>
+		</resource>
+		<resource>
+			<purpose value="example"/>
 			<name value="C-CDA-Gender"/>
 			<description value="FHIR Gender with mapping to C-CDA"/>
 			<sourceUri value="dataelement-sdc-profile-example.xml"/>
 			<exampleFor>
-				<reference value="StructureDefinition/sdc-element"/>
+				<reference value="dataelement-sdc-profile-spreadsheet.xml"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -59,7 +78,7 @@
 			<description value="Set of several examples - medication, AHRQ and NCI forms"/>
 			<sourceUri value="questionnaire-sdc-profile-example.xml"/>
 			<exampleFor>
-				<reference value="StructureDefinition/sdc-questionnaire"/>
+				<reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -68,7 +87,7 @@
 			<description value="Cancer pathology questionnaire with flow-control extensions"/>
 			<sourceUri value="questionnaire-sdc-profile-example-cap.xml"/>
 			<exampleFor>
-				<reference value="StructureDefinition/sdc-questionnaire"/>
+				<reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -77,7 +96,7 @@
 			<description value="LOINC perspective on the AHRQ form found in the SDC - Combination set of questionnaires"/>
 			<sourceUri value="questionnaire-sdc-profile-example-loinc.xml"/>
 			<exampleFor>
-				<reference value="StructureDefinition/sdc-questionnaire"/>
+				<reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -86,7 +105,7 @@
 			<description value="LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population"/>
 			<sourceUri value="questionnaire-sdc-profile-example-ussg-fht.xml"/>
 			<exampleFor>
-				<reference value="StructureDefinition/sdc-questionnaire"/>
+				<reference value="questionnaire-sdc-profile-spreadsheet.xml"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -95,7 +114,7 @@
 			<description value="Responses to the questionnaire found in the SDC - Combination list of questionnaires"/>
 			<sourceUri value="questionnaireresponse-sdc-profile-example.xml"/>
 			<exampleFor>
-				<reference value="StructureDefinition/sdc-response"/>
+				<reference value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -104,10 +123,12 @@
 			<description value="Example response to the SDC-LOINC USSG Family History questionnaire"/>
 			<sourceUri value="questionnaireresponse-sdc-example-ussg-fht-answers.xml"/>
 			<exampleFor>
-				<reference value="StructureDefinition/sdc-response"/>
+				<reference value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
 			</exampleFor>
 		</resource>
 	</package>
+	<binary value="sdc-form-curation.png"/>
+	<binary value="sdc-form-population.png"/>
 	<binary value="sdc-generic-workflow.png"/>
 	<page>
 		<source value="sdc.html"/>

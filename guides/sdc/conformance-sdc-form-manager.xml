@@ -24,12 +24,12 @@
             </tbody>
          </table>
          <h2>REST  behavior</h2>
-         <p>The primary focus of the repository is the definition of <a href="questionnaires.html">Questionnaires</a>.  However, <a href="valueset.html">ValueSet</a>s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="questionnaire.html">Questionnaire</a>.)</p>
+         <p>The primary focus of the repository is the definition of <a href="../questionnaires.html">Questionnaires</a>.  However, <a href="../valueset.html">ValueSet</a>s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="../questionnaire.html">Questionnaire</a>.)</p>
          <p>
             <b>Security:</b>
          </p>
          <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.</p>
-         <h3>Summary</h3>
+         <h3>Resource summary</h3>
          <table class="grid">
             <thead>
                <tr>
@@ -39,7 +39,6 @@
                   <th>Read Version</th>
                   <th>Instance History</th>
                   <th>Resource History</th>
-                  <th>Validate</th>
                   <th>Create</th>
                   <th>Update</th>
                   <th>Delete</th>
@@ -47,7 +46,7 @@
             </thead>
             <tbody>
                <tr>
-                  <th>Questionnaire</th>
+                  <th>Questionnaire (<a href="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire">Profile</a>)</th>
                   <td>
                      <a title="Allows a user to search for existing forms"
                         href="#Questionnaire-search-type">SHALL</a>
@@ -65,10 +64,6 @@
                   </td>
                   <td/>
                   <td>
-                     <a title="SHOULD. Allows a client to verify whether a particular new form or revision of an existing form would be accepted based on validation and other business rules.  Useful for some workflows"
-                        href="#Questionnaire-validate">SHOULD</a>
-                  </td>
-                  <td>
                      <a title="Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'."
                         href="#Questionnaire-create">SHALL</a>
                   </td>
@@ -82,7 +77,7 @@
                   </td>
                </tr>
                <tr>
-                  <th>ValueSet</th>
+                  <th>ValueSet (<a href="http://hl7.org/fhir/StructureDefinition/sdc-valueset">Profile</a>)</th>
                   <td>
                      <a title="Allows discovery of existing value sets for use in authoring questionnaires"
                         href="#ValueSet-search-type">SHALL</a>
@@ -100,10 +95,6 @@
                         href="#ValueSet-history-instance">SHALL</a>
                   </td>
                   <td/>
-                  <td>
-                     <a title="Allows verification that a value set is valid prior to submission - useful for some workflows."
-                        href="#ValueSet-validate">SHOULD</a>
-                  </td>
                   <td>
                      <a title="Allows definition of a new value set used by one or more questionnaires"
                         href="#ValueSet-create">SHALL</a>
@@ -126,7 +117,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="questionnaire.html">Questionnaire</a>
+            <a href="[%fhir-path%]questionnaire.html">Questionnaire</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -285,7 +276,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="valueset.html">ValueSet</a>
+            <a href="[%fhir-path%]valueset.html">ValueSet</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -457,6 +448,16 @@
    </text>
    
    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
   
   
   <name value="SDC Form Manager"/>
@@ -469,7 +470,7 @@
       </telecom>
   </contact>
   <date value="2014-07-06"/>
-  <description value="This profile defines the expected capabilities of the ''SDC Form Manager'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data."/>
+  <description value="This profile defines the expected capabilities of the ''SDC Form Manager'' role when conforming to the S&amp;I Framework's [[sdc.html|Structured Data Capture FHIR implementation guide]].  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>
   <acceptUnknown value="extensions"/>
@@ -611,7 +612,7 @@
       <resource>
          <type value="ValueSet"/>
          <profile>
-            <reference value="http://hl7.org/fhir/StructureDefinition/valueset-sdc"/>
+            <reference value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
          </profile>
          <interaction>
             <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
