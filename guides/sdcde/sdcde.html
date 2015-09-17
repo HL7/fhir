@@ -41,6 +41,81 @@ However, much of the content is likely to be useable in other jurisdictions. The
 jurisdictions are the bindings to terminologies such as SNOMED CT and RxNorm.  The constraints and extensions used should all have broad applicability.
 </p>
 
+<a name="toc"/>
+<h3>Navigation</h3>
+<p>
+This implementation guide follows the FHIR pattern of being published as a web-based specification.  This
+allows easy navigation between the SDC-specific portion of the implementation guide and the resources,
+data types, value sets and other specification components leveraged from the FHIR core specification.  This
+approach also allows implementers to easily navigate to the information needed to perform a particular task.
+</p>
+<p>
+A <a href="registry.html">Table of Contents</a> page is provided that lists all of the pages and artifacts
+defined as part of this implementation guide.  (Do be aware that some pages have multiple tabs.)  A
+table of contents is also available for the full <a href="[%fhir-path%]toc.html">FHIR specification</a> if
+you really want to read absolutely everything.  Tooling may provide support for a PDF or other document-approach
+representation of this implementation guide in a future release.
+</p>
+<p>
+Bread-crumb navigation is provided in the gray bar just below the menu at the top of each page, allowing
+easy navigation back to the main SDC page.
+</p>
+<p>This implementation guide has a number of sections:</p>
+<ul>
+<li><a href="#fhir">Understanding FHIR</a> should be read by those who are not familiar with FHIR as a pre-requisite to reading the rest of the implementation guide</li>
+<li><a href="#background">Background</a> provides links to background and implementation information including security guidelines and the SDC wiki</li>
+<li><a href="#conformance">Conformance Statements</a> describes the different roles systems wishing to conform to this implementation guide can take on and summarizes how those roles interact.</li>
+<li><a href="#resources">Resources</a> describes the resources used as part of this implementation guide, including profiles placed on those resources to constrain and extend their capabilities.</li>
+<li><a href="#iso11179">ISO 11179 relationship</a> provides an overview of how the resource profile maps to the ISO 11179 specification</li>
+<li><a href="#ip">Intellectual Property Considerations</a> provides information about intellectual property referenced by this implementation guide</li>
+</ul>
+<br/>
+
+
+<a name="fhir"> </a>
+<h3>Understanding FHIR</h3>
+<p>This implementation guide is based on the HL7 <a href="[%fhir-path%]index.html">FHIR</a> standard.  It uses terminology, notations and design principles that are
+specific to FHIR.  Before reading this implementation guide, it's important to be familiar with some of the basic principles of FHIR as well 
+as general guidance on how to read FHIR specifications.  Readers who are unfamiliar with FHIR are encouraged to read (or at least skim) the following 
+prior to reading the rest of this implementation guide.
+</p>
+<ul>
+<li>
+<a href="[%fhir-path%]overview.html">FHIR overview</a>
+</li>
+<li>
+<a href="[%fhir-path%]overview-dev.html">Developer's introduction</a>
+</li>
+<li>
+(or <a href="[%fhir-path%]overview-clinical.html">Clinical introduction</a>)
+</li>
+<li>
+<a href="[%fhir-path%]datatypes.html">FHIR data types</a>
+</li>
+<li>
+<a href="[%fhir-path%]terminologies.html">Using codes</a>
+</li>
+<li>
+<a href="[%fhir-path%]references.html">References between resources</a>
+</li>
+<li>
+<a href="[%fhir-path%]formats.html">How to read resource &amp; profile definitions</a>
+</li>
+<li>
+<a href="[%fhir-path%]resource.html">Base resource</a>
+</li>
+<li>
+<a href="[%fhir-path%]http.html">RESTful operations</a>
+</li>
+<li>
+<a href="[%fhir-path%]search.html">Search</a>
+</li>
+</ul>
+<p>
+Feel free to explore other aspects of the FHIR specification that you feel may be relevant or of interest.
+</p>
+
+<a name="background"> </a>
 <h3>Background</h3>
 <p>
 DataElement instances do not convey patient-specific information.  However, because the mappings associated with data elements can influence the
@@ -55,29 +130,82 @@ Additional information about the Structured Data Capture project can be found on
 </p>
 
 <h3>Specification</h3>
+<p>The following sections describe the artifacts that set expectations for systems wishing to be conformant to the FHIR SDC implementation guide.</p>
+
+<a href="conformance"> </a>
+<h4>Conformance Statements</h4>
 <p>
-The <i>SDC Data Element Exchange FHIR Implementation Guide</i> is based on the <a href="[%fhir-path%]index.html">HL7 FHIR</a> standard.  It defines expectations
-around the creation and use of the <a href="[%fhir-path%]dataelement.html">DataElement</a>.  It consists of two aspects:
+FHIR Conformance statements define the expectations for particular system "roles" within an SDC environment.  To be considered SDC-conformant, a system 
+must adhere to the requirements defined by at least one of these statements.  Some systems might choose to comply with more than one.
 </p>
 <ul>
-<li>A pair of resource profiles which document constraints and extensions to be supported when creating and maintaining data elements:<br/>
-  <a href="dataelement-sdc-de.html">SDC Data Element Exchange Data Element Profile</a><br/>
-  <a href="valueset-sdc-de.html">SDC Data Element Exchange Value Set Profile</a><br/>
-  ; and</li>
-<li>
-  <p>Two conformance statements that describe the behavior of systems complying with this specification:</p>
-  <ul>
-    <li><a href="conformance-sdc-de-registry.html">SDC Data Element Registry</a> - Repository for data elements</li>
-    <li><a href="conformance-sdc-de-curator.html">SDC Data Element Curator</a> - System responsible for creating and updating data elements</li>
-  </ul>
-</li>
+  <li><a href="conformance-sdc-de-registry.html">SDC Data Element Registry</a> - Repository for data elements</li>
+  <li><a href="conformance-sdc-de-curator.html">SDC Data Element Curator</a> - System responsible for creating and updating data elements</li>
 </ul>
-
 <p>
 Systems supporting the <i>SDC Data Element Registry</i> role SHALL be capable of accepting, persisting and returning all DataElement properties marked as
 "must support" in the SDC Data Element Exchange profile.  Systems supporting the <i>SDC Data Element Curator</i> role SHALL be capable of providing and
 updating those same properties.
 </p>
+
+
+<a href="resources"> </a>
+<h4>Resources</h4>
+<p>
+This implementation guide defines profiles on several resources.  Implementations are expected to be conformant with these profiles in order
+to be conformant with this implementation guide.
+</p>
+<table>
+<body>
+<tr>
+<th>Resource</th>
+<th>SDC Profile</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>
+<a href="[%fhir-path%]dataelement.html">DataElement</a> 
+</td>
+<td>
+<a href="dataelement-sdc-de.html">SDC Data Element Exchange Profile</a>
+</td>
+<td>
+Used to define data elements for exchange and maintenance within data element registries
+</td>
+</tr>
+<tr>
+<td>
+<a href="[%fhir-path%]valueset">ValueSet</a>
+</td>
+<td>
+<a href="valueset-sdc-de.html">SDC Data Element Exchange Value Set Profile</a>
+</td>
+<td>
+Used to define permitted values and meanings for data elements
+</td>
+</tr>
+</body>
+</table>
+<p>
+Additional resources such as  
+<a href="[%fhir-path%]conceptmap.html">ConceptMap</a>, <a href="[%fhir-path%]provenance.html">Provenance</a>, <a href="[%fhir-path%]auditevent.html">AuditEvent</a> and others are also 
+likely to be used in SDC solutions, though no SDC-specific profiles have been created for them.    
+<!-- Todo: decide how explicit the list of relevant sections needs to be -->
+</p>
+
+<a name="iso11179"> </a>
+<h3>ISO 11179 Relationship</h3>
+<p>
+ISO 11179 is one of the principle authorities on the notion of "Data Element".  For a complete view of the alignment between the SDC FHIR specification and ISO 11179, the FHIR profile on 
+DataElement includes <a href="sdcde-dataelement-mappings.html#iso11179">mappings</a> to the ISO 11179 specification for each of the core elements and extensions of the resource.  As a
+summary, the FHIR DataElement resource can express most (all, if additional extensions are introduced) of the notions present in 11179, however the approach differs in a few ways:
+</p>
+<ul>
+<li>FHIR does not define separate resources for the Data Element vs. the Data Element Concept.  Both notions can be represented using the same structure and both conceptual and conceptual domain and value domain aspects can be represented within a single instance.</li>
+<li>FHIR uses <a href="valueset.html">ValueSet</a>s to represent both permissible values and value meanings (and allows the sets to be defined by
+expression rather than only by enumeration)</li>
+<li>The notions of Object_Class and Property are considered to be just one possible model for defining the meaning of a given element</li>
+</ul>
 
 <a name="ip"> </a>
 <h3>Intellectual Property Considerations</h3>
