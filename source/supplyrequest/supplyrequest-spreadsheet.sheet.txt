@@ -6,18 +6,27 @@
   Binding = value set
   Reference = valueset-supplyrequest-kind
   Definition = Category of supply request
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = SupplyRequestStatus
   Binding = code list
   Reference = #supplyrequest-status
   Definition = Status of the supply request
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = SupplyRequestWhen
   Binding = value set
   Reference = valueset-supplyrequest-when
   Definition = When the request should be fulfilled
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = SupplyRequestReason
+  Binding = code list
+  Reference = #supplyrequest-reason
+  Definition = Why the supply item was requested
   Conformance = example
 
 === Sheet supplyrequest-status =====================================
@@ -45,6 +54,20 @@
   Code = cancelled
   Display = Cancelled
   Definition = The orderer of the supply cancelled the request.
+
+=== Sheet supplyrequest-reason =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = patient-care
+  Display = Patient Care
+  Definition = The supply has been requested for use in direct patient care.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = ward-stock
+  Display = Ward Stock
+  Definition = The supply has been requested for for creating or replenishing ward stock.
 
 === Sheet Invariants =====================================
 
@@ -131,6 +154,7 @@
   Element = SupplyRequest.reason[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Any)
+  Binding = SupplyRequestReason
   Short Label = Why the supply item was requested
   Definition = Why the supply item was requested
 
