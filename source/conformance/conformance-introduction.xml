@@ -4,7 +4,7 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-The Conformance Statement is a key part of the cverall conformance framework in FHIR. 
+The conformance statement is a key part of the overall conformance framework in FHIR. 
 It is used as a statement of the features of actual software, or of a set of 
 rules for an application to conform to. This statement connects to all the detailed 
 statements of functionality, such as <a href="structuredefinition.html">StructureDefinitions</a> 

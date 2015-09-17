@@ -1,12 +1,12 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h3>Notes</h3>
 <ul>
 <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
 <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels</li>
-<li>Both bundle.link and Bundle.entry.link are defined to support providing additional context when bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
+<li>Both Bundle.link and Bundle.entry.link are defined to support providing additional context when bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
   Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was <a href="http.html#read">read</a> directly.
-  This specification defines some specific uses of Bundle.link for <a href="search.html#conformance">searching</a> and <a href="http.html#paging">paging</a>, but no specific uses for Bundle.entry.link, and no defined function in a transaction. Meaning is implementation specific</li>
+  This specification defines some specific uses of Bundle.link for <a href="search.html#conformance">searching</a> and <a href="http.html#paging">paging</a>, but no specific uses for Bundle.entry.link, and no defined function in a transaction - meaning is implementation specific</li>
 </ul>
 
 <a name="using"> </a>
@@ -96,7 +96,7 @@ processing the transaction what to do with the entry. If the entry method is a '
 </p>
 <p>
 If there is no <code>transaction</code> element, then there SHALL be a resource and the server must 
-infer whether this is a create or an update from from the resource identity supplied.
+infer whether this is a create or an update from the resource identity supplied.
 </p>
 
 <p><a href="bundle-transaction.html">Example</a></p>
@@ -128,7 +128,7 @@ Each entry element SHALL contain a resource.
 <h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
 
 <p>
-Each entry in a batch must have a fullUrl which it the identity of the resource in
+Each entry in a batch must have a full Url which is the identity of the resource in
 the entry. Note that this is not a versioned reference to the resource, but it's 
 identity. Where a resource is not assigned a persistent identity that can be used
 in the bundle, a UUID should be used (urn:uuid:...).
@@ -191,7 +191,7 @@ are other kinds of resources. Those resources themselves have references to othe
 an Observation that refers to a Patient. The referenced resources may also be found
 in the bundle. For example, the system that constructed the bundle may have included both
 the observation and the patient. The content of the references between resources doesn't 
-change because of the Bundle.
+change because of the bundle.
 </p>
 <p>
 This section documents a method that resolves references correctly within a bundle. Note

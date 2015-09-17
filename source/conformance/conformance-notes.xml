@@ -29,12 +29,12 @@ Notes:
  </li>
  <li>Document conformance rules:
   <ul class="dense">
-   <li>Document Profiles should directly constrain the Document.information.class &amp; type elements so  
-    so that there is no ambiguity concerning which profile any given document conforms to</li>
+   <li>Document profiles should directly constrain the Document.information.class &amp; type elements so  
+    that there is no ambiguity concerning which profile any given document conforms to.</li>
   </ul>  
  </li>
  <li>Other service based use of resources: Due to the variability of these services, the <i>Conformance</i> resource 
-   does not attempt to describe service based use of resources. The various service specifications will need to describe this usage in their own way</li>
+   does not attempt to describe service based use of resources. The various service specifications will need to describe this usage in their own way.</li>
 </ul>  
 
 <a name="profiles"> </a>
