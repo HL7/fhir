@@ -143,7 +143,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = An action that was or is currently being performed on a patient
-  Definition = An action that is or was performed on a patient. This can be a physical \'thing\' like an operation, or less invasive like counseling or hypnotherapy
+  Definition = An action that is or was performed on a patient. This can be a physical \'thing\' like an operation, or less invasive like counseling or hypnotherapy.
   RIM Mapping = Procedure[moodCode=EVN]
   w5 = clinical.general
 

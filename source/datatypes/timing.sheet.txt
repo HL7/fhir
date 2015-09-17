@@ -5,20 +5,20 @@
   Binding Name = EventTiming
   Binding = code list
   Reference = #event-timing
-  Definition = Real world event that the schedule relates to
+  Definition = Real world event that the relating to the schedule.
 
  -- Row 2 -----------------------------------
   Binding Name = UnitsOfTime
   Binding = code list
   Reference = #units-of-time
-  Definition = A unit of time (units from UCUM)
-  Copyright = UCUM is Copyright ?? 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details
+  Definition = A unit of time (units from UCUM).
+  Copyright = These codes are excerpted from UCUM (THE UNIFIED CODE FOR UNITS OF MEASURE). UCUM is Copyright © 1989-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details.
 
  -- Row 3 -----------------------------------
   Binding Name = TimingAbbreviation
   Binding = code list
   Reference = #timing-abbreviation
-  Definition = Code for a known / defined timing pattern
+  Definition = Code for a known / defined timing pattern.
   Conformance = preferred
 
 === Sheet event-timing =====================================

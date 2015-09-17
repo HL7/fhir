@@ -16,7 +16,7 @@
   Element = DocumentManifest
   Type = DomainResource
   Short Label = A manifest that defines a set of documents
-  Definition = A manifest that defines a set of documents
+  Definition = A manifest that defines a set of documents.
   RIM Mapping = Act[classCode=FOLDER, moodCode=EVN]
   w5 = infrastructure.documents
 

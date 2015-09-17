@@ -14,19 +14,19 @@
   Id = 1
   Code = create
   Display = Validate for Create
-  Definition = The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not violate any uniqueness constraints)
+  Definition = The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not violate any uniqueness constraints).
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = update
   Display = Validate for Update
-  Definition = The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change, and checking version integrity if appropriate)
+  Definition = The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change, and checking version integrity if appropriate).
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = delete
   Display = Validate for Delete
-  Definition = The server ignores the content, and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules)
+  Definition = The server ignores the content, and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules).
 
 === Sheet Invariants =====================================
 
@@ -35,7 +35,7 @@
  -- Row 1 -----------------------------------
   Element = Resource
   Short Label = Base Resource
-  Definition = Base Resource for everything
+  Definition = This is the base resource type for everything.
   RIM Mapping = Entity. Role, or Act
 
  -- Row 2 -----------------------------------

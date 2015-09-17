@@ -21,7 +21,7 @@
   Element = Parameters
   Type = Resource
   Short Label = Operation Request or Response
-  Definition = This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.
+  Definition = This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
   Comments = The parameters that may be used are defined by the OperationDefinition resource
   v2 Mapping = n/a
   RIM Mapping = n/a

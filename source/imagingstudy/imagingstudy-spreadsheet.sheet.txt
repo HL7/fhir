@@ -63,7 +63,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = A set of images produced in single study (one or more series of references images)
-  Definition = Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
+  Definition = Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
   DICOM Mapping = Reference IHE radiology TF vol 2 table 4.14-1
   RIM Mapping = Act[classCode=COMPOSITION, moodCode=EVN]
   w5 = clinical.diagnostics

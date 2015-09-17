@@ -265,13 +265,13 @@
   Id = 1
   Code = no-version
   Display = No VersionId Support
-  Definition = VersionId meta-property is not suppoerted (server) or used (client).
+  Definition = VersionId meta-property is not supported (server) or used (client).
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = versioned
   Display = Versioned
-  Definition = VersionId meta-property is suppoerted (server) or used (client).
+  Definition = VersionId meta-property is supported (server) or used (client).
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -507,7 +507,7 @@
   UML = 230;160
   Type = DomainResource
   Short Label = A conformance statement
-  Definition = A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation
+  Definition = A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------

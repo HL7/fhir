@@ -16,7 +16,7 @@
   Element = RelatedPerson
   Type = DomainResource
   Short Label = An person that is related to a patient, but who is not a direct target of care
-  Definition = Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process
+  Definition = Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
   Requirements = Need to track persons related to the patient or the healthcare process.
   RIM Mapping = role
   Committee Notes = Patient contact is defined as a person in role. Hence RelatedPerson should also be a person in role. Struggling with HL7 v3 mappings here.

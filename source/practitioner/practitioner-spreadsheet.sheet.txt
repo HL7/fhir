@@ -30,7 +30,7 @@
   Element = Practitioner
   Type = DomainResource
   Short Label = A person with a  formal responsibility in the provisioning of healthcare or related services
-  Definition = A person who is directly or indirectly involved in the provisioning of healthcare
+  Definition = A person who is directly or indirectly involved in the provisioning of healthcare.
   Requirements = Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.
   Comments = Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?
   v2 Mapping = PRD (as one example)

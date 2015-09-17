@@ -256,7 +256,7 @@
   Element = OperationOutcome
   Type = DomainResource
   Short Label = Information about the success/failure of an action
-  Definition = A collection of error, warning or information messages that result from a system action
+  Definition = A collection of error, warning or information messages that result from a system action.
   Comments = Can result from the failure of a REST call or be part of the response message returned from a request message.  If sent with extensions overriding particular issues, might even appear as part of a request message.
   RIM Mapping = Grouping is handled through multiple repetitions from whatever context references the outcomes (no specific grouper required)
   w5 = infrastructure.exchange

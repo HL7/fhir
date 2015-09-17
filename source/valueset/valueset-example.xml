@@ -20,7 +20,7 @@
         <li>35200-5: Cholesterol [Mass Or Moles/Volume] </li>
         <li>9342-7: Cholesterol [Percentile]</li>
       </ul>
-      <p>This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</p>
+      <p>This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.</p>
     </div>
   </text>
 <!--   
@@ -65,7 +65,7 @@
     -->
   <lockedDate value="2012-06-13"/>
   <description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/>
-  <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
   <!--   you could have multiple includes, if you wanted to include codes from more than
      one code system, or include codes with different modes. we don't, in this case   -->

@@ -5,13 +5,13 @@
   Binding Name = SupplyDeliveryStatus
   Binding = code list
   Reference = #supplydelivery-status
-  Definition = Status of the Supply delivery
+  Definition = Status of the supply delivery.
 
  -- Row 2 -----------------------------------
   Binding Name = SupplyDeliveryType
   Binding = value set
   Reference = valueset-supplydelivery-type
-  Definition = The type of supply dispense
+  Definition = The type of supply dispense.
 
 === Sheet supplydelivery-status =====================================
 
@@ -19,19 +19,19 @@
   Id = 1
   Code = in-progress
   Display = In Progress
-  Definition = Supply has been requested, but not delivered
+  Definition = Supply has been requested, but not delivered.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = completed
   Display = Delivered
-  Definition = Supply has been delivered. ( \"completed\")
+  Definition = Supply has been delivered (\"completed\").
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = abandoned
   Display = Abandoned
-  Definition = Dispensing was not completed
+  Definition = Dispensing was not completed.
 
 === Sheet Invariants =====================================
 
@@ -41,7 +41,7 @@
   Element = SupplyDelivery
   Type = DomainResource
   Short Label = Delivery of Supply
-  Definition = Record of delivery of what is in the supply
+  Definition = Record of delivery of what is supplied.
   RIM Mapping = Supply[moodCode=RQO]
   w5 = workflow.order
 

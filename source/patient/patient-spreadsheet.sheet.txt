@@ -74,7 +74,7 @@
   Aliases = SubjectOfCare Client Resident
   Type = DomainResource
   Short Label = Information about an individual or animal receiving health care services
-  Definition = Demographics and other administrative information about an individual or animal receiving care or other health-related services
+  Definition = Demographics and other administrative information about an individual or animal receiving care or other health-related services.
   Requirements = Tracking patient is the center of the healthcare process
   CDA Mapping = ClinicalDocument.recordTarget.patientRole
   RIM Mapping = Patient[classCode=PAT]

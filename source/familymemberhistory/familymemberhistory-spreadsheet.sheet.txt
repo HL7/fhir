@@ -71,7 +71,7 @@
   Element = FamilyMemberHistory
   Type = DomainResource
   Short Label = Information about patient\'s relatives, relevant for patient
-  Definition = Significant health events and conditions for a person related to the patient relevant in the context of care for the patient
+  Definition = Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
   v2 Mapping = Not in scope for v2
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
   w5 = clinical.general

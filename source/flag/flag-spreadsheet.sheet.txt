@@ -51,7 +51,7 @@
   Aliases = Barriers to Care, Alert, Warning
   Type = DomainResource
   Short Label = Key information to flag to healthcare providers
-  Definition = Prospective warnings of potential issues when providing care to the patient
+  Definition = Prospective warnings of potential issues when providing care to the patient.
   RIM Mapping = Observation[classCode=ISSUE, moodCode=EVN]
   w5 = workflow.encounter
 

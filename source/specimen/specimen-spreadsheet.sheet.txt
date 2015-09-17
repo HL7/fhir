@@ -90,7 +90,7 @@
   Element = Specimen
   Type = DomainResource
   Short Label = Sample for analysis
-  Definition = Sample for analysis
+  Definition = A sample to be used for analysis.
   RIM Mapping = Role[classCode=SPEC]
   w5 = clinical.diagnostics
 

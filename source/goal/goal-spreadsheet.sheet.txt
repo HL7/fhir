@@ -105,7 +105,7 @@
   Element = Goal
   Type = DomainResource
   Short Label = Describes the intended objective(s) for a patient, group or organization
-  Definition = Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.;
+  Definition = Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
   Comments = Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
   v2 Mapping = GOL.1
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].

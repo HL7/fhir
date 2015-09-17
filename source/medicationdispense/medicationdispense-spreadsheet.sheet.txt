@@ -114,7 +114,7 @@
   Element = MedicationDispense
   Type = DomainResource
   Short Label = Dispensing a medication to a named patient
-  Definition = Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a Pharmacy system responding to a Medication Order.
+  Definition = Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
   RIM Mapping = Supply[moodCode=EVN]
   Committee Notes = Need to add confidentiality
   w5 = clinical.medication

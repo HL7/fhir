@@ -125,7 +125,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = Detailed information about conditions, problems or diagnoses
-  Definition = Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary
+  Definition = Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
   v2 Mapping = PPR message
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=ASSERTION, value<Diagnosis]
   To Do = * Age is questionable, you might well need a range of Age or even (in practice)  a text like \"in their teens\". => new ballot comment.  * Todo: discuss the applicability of assessing stages  * Change the description: it is circular

@@ -5,13 +5,13 @@
   Binding Name = FilterOperator
   Binding = code list
   Reference = #filter-operator
-  Definition = The kind of operation to perform as a part of a property based filter
+  Definition = The kind of operation to perform as a part of a property based filter.
 
  -- Row 2 -----------------------------------
   Binding Name = ConceptDesignationUse
   Binding = value set
   Reference = valueset-designation-use
-  Definition = Details of how a designation would be used
+  Definition = Details of how a designation would be used.
   Conformance = extensible
 
 === Sheet filter-operator =====================================
@@ -20,37 +20,37 @@
   Id = 1
   Code = =
   Display = Equals
-  Definition = The specified property of the code equals the provided value
+  Definition = The specified property of the code equals the provided value.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = is-a
   Display = Is A (by subsumption)
-  Definition = Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself
+  Definition = Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = is-not-a
   Display = Not (Is A) (by subsumption)
-  Definition = The specified property of the code does not have an is-a relationship with the provided value
+  Definition = The specified property of the code does not have an is-a relationship with the provided value.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = regex
   Display = Regular Expression
-  Definition = The specified property of the code  matches the regex specified in the provided value
+  Definition = The specified property of the code  matches the regex specified in the provided value.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = in
   Display = In Set
-  Definition = The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list)
+  Definition = The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = not-in
   Display = Not in Set
-  Definition = The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list)
+  Definition = The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).
 
 === Sheet Invariants =====================================
 
@@ -121,7 +121,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = A set of codes drawn from one or more code systems
-  Definition = A value set specifies a set of codes drawn from one or more code systems
+  Definition = A value set specifies a set of codes drawn from one or more code systems.
   RIM Mapping = N/A
   w5 = conformance.terminology
 

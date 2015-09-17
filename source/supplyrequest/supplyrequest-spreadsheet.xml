@@ -10,14 +10,14 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-04-14T21:34:08Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -3320,8 +3320,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6290,8 +6289,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6359,7 +6357,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Requested</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">Supply has been requested, but not dispensed</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Supply has been requested, but not dispensed.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6370,7 +6368,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Received</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Supply has been received by the requestor</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Supply has been received by the requestor.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6381,7 +6379,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Failed</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The supply will not be completed because the supplier was unable or unwilling to supply the item</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The supply will not be completed because the supplier was unable or unwilling to supply the item.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"><Data ss:Type="String">implies that the dispense status is abandoned</Data></Cell>
@@ -6392,7 +6390,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Cancelled</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The orderer of the supply cancelled the request</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The orderer of the supply cancelled the request.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6910,8 +6908,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

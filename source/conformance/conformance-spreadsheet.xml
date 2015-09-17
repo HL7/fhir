@@ -20,6 +20,7 @@
   <WindowWidth>19170</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <TabRatio>715</TabRatio>
   <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1021,7 +1022,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">A conformance statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation</Data><NamedCell
+    <Cell ss:StyleID="s81"><Data ss:Type="String">A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4476,7 +4477,7 @@
    <FrozenNoSplit/>
    <FilterOn/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>30</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4490,12 +4491,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>64</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -12450,7 +12449,7 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">No VersionId Support</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">VersionId meta-property is not suppoerted (server) or used (client).</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">VersionId meta-property is not supported (server) or used (client).</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s146"/>
@@ -12461,7 +12460,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Versioned</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">VersionId meta-property is suppoerted (server) or used (client).</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">VersionId meta-property is supported (server) or used (client).</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s148"/>

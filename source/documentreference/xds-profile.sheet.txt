@@ -5,7 +5,7 @@
   Binding Name = XDSRelationshipType
   Binding = code list
   Reference = #xds-relationship-type
-  Definition = The kind of relationship between two XDS documents
+  Definition = The kind of relationship between two XDS documents.
   Conformance = required
 
 === Sheet xds-relationship-type =====================================
@@ -13,27 +13,32 @@
  -- Row 1 -----------------------------------
   Id = 1
   Code = APND
-  Definition = A separate XDS Document that references a prior document, and may extend or  alter the observations in the prior document
+  Display = APND
+  Definition = A separate XDS document that references a prior document, and may extend or alter the observations in the prior document.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = RPLC
-  Definition = A new version of an existing document
+  Display = RPLC
+  Definition = A new version of an existing document.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = XFRM
-  Definition = A transformed document is derived by a machine translation from some other format
+  Display = XFRM
+  Definition = A transformed document is derived by a machine translation from some other format.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = XFRM_RPLC
-  Definition = Both a XFRM and a RPLC relationship
+  Display = XFRM_RPLC
+  Definition = Both a XFRM and a RPLC relationship.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = signs
-  Definition = This document signs the target document
+  Display = Signs
+  Definition = This document signs the target document.
 
 === Sheet XDSDocumentReference =====================================
 

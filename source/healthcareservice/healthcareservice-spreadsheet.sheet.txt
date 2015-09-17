@@ -153,6 +153,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = The details of a healthcare service available at a location
+  Definition = The details of a healthcare service available at a location.
   w5 = administrative.group
 
  -- Row 2 -----------------------------------

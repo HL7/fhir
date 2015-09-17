@@ -33,7 +33,7 @@
   Element = DomainResource
   Type = Resource
   Short Label = A resource with narrative, extensions, and contained resources
-  Definition = A resource that includes narrative, extensions, and contained resources
+  Definition = A resource that includes narrative, extensions, and contained resources.
   RIM Mapping = Entity. Role, or Act
 
  -- Row 2 -----------------------------------

@@ -130,7 +130,7 @@
     </telecom>
   </contact>
   <date value="2015-06-22"/>
-  <description value="This is an example value set that includes all the ACME codes for serum/plasma cholesterol from v2.36"/>
+  <description value="This is an example value set that includes all the ACME codes for serum/plasma cholesterol from v2.36."/>
 <!--   
 		This value set publishes the underlying definition of the ACME code system
 		We don't keep track of authorship etc. here - we assume that ACME has a

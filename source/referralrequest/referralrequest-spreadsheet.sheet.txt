@@ -93,7 +93,7 @@
   Aliases = ReferralRequest TransferOfCare Request
   Type = DomainResource
   Short Label = A request for referral or transfer of care
-  Definition = Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organisation
+  Definition = Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
   w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------

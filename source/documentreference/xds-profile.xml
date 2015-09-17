@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-09-10T18:40:03Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -28,8 +28,10 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <TabRatio>686</TabRatio>
+  <ActiveSheet>13</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4020,7 +4022,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -20423,7 +20424,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s110"><Data ss:Type="String">XDSRelationshipType</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">The kind of relationship between two XDS documents</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">The kind of relationship between two XDS documents.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -20883,6 +20884,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -20903,7 +20905,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -20970,8 +20971,8 @@
     <Cell ss:StyleID="s150"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">A separate XDS Document that references a prior document, and may extend or  alter the observations in the prior document</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">APND</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">A separate XDS document that references a prior document, and may extend or alter the observations in the prior document.</Data></Cell>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s163"/>
@@ -20981,8 +20982,8 @@
     <Cell ss:StyleID="s153"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">A new version of an existing document</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">RPLC</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">A new version of an existing document.</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s166"/>
@@ -20992,8 +20993,8 @@
     <Cell ss:StyleID="s153"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">A transformed document is derived by a machine translation from some other format</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">XFRM</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">A transformed document is derived by a machine translation from some other format.</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s166"/>
@@ -21003,8 +21004,8 @@
     <Cell ss:StyleID="s153"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">Both a XFRM and a RPLC relationship</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">XFRM_RPLC</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">Both a XFRM and a RPLC relationship.</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s166"/>
@@ -21014,8 +21015,8 @@
     <Cell ss:StyleID="s153"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"/>
-    <Cell ss:StyleID="s165"><Data ss:Type="String">This document signs the target document</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">Signs</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">This document signs the target document.</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s166"/>

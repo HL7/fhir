@@ -19,7 +19,7 @@
   Binding Name = SubscriptionTag
   Binding = code list
   Reference = #subscription-tag
-  Definition = Tags to put on a resource after subscriptions sent.
+  Definition = Tags to put on a resource after subscriptions have been sent.
   Conformance = example
 
 === Sheet subscription-channel-type =====================================
@@ -52,7 +52,7 @@
   Id = 5
   Code = message
   Display = Message
-  Definition = The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI.
+  Definition = The channel is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI.
 
 === Sheet subscription-status =====================================
 
@@ -103,7 +103,7 @@
   Aliases = WebHook, Hook, Routing Rule
   Type = DomainResource
   Short Label = A server push subscription criteria
-  Definition = The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined \"channel\" so that another system is able to take an appropriate action
+  Definition = The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined \"channel\" so that another system is able to take an appropriate action.
   RIM Mapping = N/A
   w5 = infrastructure.exchange
 

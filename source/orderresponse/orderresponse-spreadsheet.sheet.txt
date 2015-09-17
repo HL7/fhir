@@ -72,7 +72,7 @@
   Element = OrderResponse
   Type = DomainResource
   Short Label = A response to an order
-  Definition = A response to an order
+  Definition = A response to an order.
   Comments = There might be more than one response to an order
   RIM Mapping = ControlAct[classCode=ACTN, moodCode=EVN]
   w5 = workflow.order

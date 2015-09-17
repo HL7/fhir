@@ -10,7 +10,7 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<description value="This value set defines the set of code for identifying the reason why the expected result in Observation.value[x] is missing. "/>
+	<description value="This value set defines the set of codes for identifying the reason why the expected result in Observation.value[x] is missing."/>
   <compose>
 	  <include>
 		  <system value="http://hl7.org/fhir/data-absent-reason"/>

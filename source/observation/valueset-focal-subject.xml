@@ -12,8 +12,8 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<description value="Example VS composed from SNOMED CT and HL7 v3 codes for observation targets: donor, fetus, spouse. As uses case are discovered may add more values."/>
-	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<description value="Example VS composed from SNOMED CT and HL7 v3 codes for observation targets: donor, fetus, spouse. As use cases are discovered more values may be added."/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
 	<compose>
 		<include>
 			<system value="http://snomed.info/sct"/>

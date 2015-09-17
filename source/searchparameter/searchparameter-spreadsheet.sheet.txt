@@ -5,7 +5,7 @@
   Binding Name = XPathUsageType
   Binding = code list
   Reference = #search-xpath-usage
-  Definition = How a search parameter relates to the set of elements returned by evaluating the its xpath query.
+  Definition = How a search parameter relates to the set of elements returned by evaluating its xpath query.
   Conformance = required
 
 === Sheet search-xpath-usage =====================================
@@ -57,7 +57,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = Search Parameter for a resource
-  Definition = A Search Parameter that defines a named search item that can be used to search/filter on a resource
+  Definition = A search parameter that defines a named search item that can be used to search/filter on a resource.
   Comments = In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content
   v2 Mapping = n/a
   RIM Mapping = n/a

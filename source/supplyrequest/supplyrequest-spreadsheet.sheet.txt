@@ -19,25 +19,25 @@
   Id = 1
   Code = requested
   Display = Requested
-  Definition = Supply has been requested, but not dispensed
+  Definition = Supply has been requested, but not dispensed.
 
  -- Row 2 -----------------------------------
   Id = 3
   Code = completed
   Display = Received
-  Definition = Supply has been received by the requestor
+  Definition = Supply has been received by the requestor.
 
  -- Row 3 -----------------------------------
   Id = 4
   Code = failed
   Display = Failed
-  Definition = The supply will not be completed because the supplier was unable or unwilling to supply the item
+  Definition = The supply will not be completed because the supplier was unable or unwilling to supply the item.
 
  -- Row 4 -----------------------------------
   Id = 5
   Code = cancelled
   Display = Cancelled
-  Definition = The orderer of the supply cancelled the request
+  Definition = The orderer of the supply cancelled the request.
 
 === Sheet Invariants =====================================
 

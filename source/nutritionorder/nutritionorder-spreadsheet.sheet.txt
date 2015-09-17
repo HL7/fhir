@@ -151,7 +151,7 @@
   Aliases = Diet Order, Diet, Nutritional Supplement, Enteral Nutrition
   Type = DomainResource
   Short Label = A request for a diet, formula or nutritional supplement
-  Definition = A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident
+  Definition = A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
   Comments = Referenced by an Order Request (workflow)
   RIM Mapping = SupplyRequest
   w5 = clinical.careprovision

@@ -65,6 +65,7 @@
   Element = AppointmentResponse
   Type = DomainResource
   Short Label = A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection
+  Definition = A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
   iCal Mapping = VEVENT
   w5 = workflow.scheduling
 
@@ -75,8 +76,8 @@
   Type = Identifier
   Short Label = External Ids for this item
   Definition = This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate
-  RIM Mapping = .id
   iCal Mapping = UID
+  RIM Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -124,8 +125,8 @@
   Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
   Short Label = Person, Location/HealthcareService or Device
   Definition = A Person, Location/HealthcareService or Device that is participating in the appointment
-  v2 Mapping = PID-3-Patient ID List
   iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)
+  v2 Mapping = PID-3-Patient ID List
   w5 = who
 
  -- Row 8 -----------------------------------
@@ -176,8 +177,8 @@
   Card. = 0..1
   Type = dateTime
   Short Label = Date when the response was recorded or last updated
-  v2 Mapping = IAM-20-Statused at Date/Time
   iCal Mapping = DTSTAMP
+  v2 Mapping = IAM-20-Statused at Date/Time
   w5 = when.recorded
 
 === Sheet Search =====================================
