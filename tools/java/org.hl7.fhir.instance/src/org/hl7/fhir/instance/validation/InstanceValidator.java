@@ -1904,7 +1904,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         return true; // else don't check ICD-10 (for now)
       else {
         ValueSet vs = getValueSet(system);
-        if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "Unknown Code System "+system)) {
+        if (vs == null) {
+          if (context.hasResource(ValueSet.class, system))
+            rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Illegal Code System "+system+": this is a value set URL not a code system URL");
+          else
+            warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Unknown Code System "+system);
+        } else {
           ConceptDefinitionComponent def = getCodeDefinition(vs, code); 
           if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, def != null, "Unknown Code ("+system+"#"+code+")"))
             return warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, display == null || display.equals(def.getDisplay()), "Display should be '"+def.getDisplay()+"'");

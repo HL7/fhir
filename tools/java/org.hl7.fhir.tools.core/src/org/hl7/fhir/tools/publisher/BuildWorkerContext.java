@@ -309,7 +309,11 @@ public class BuildWorkerContext implements IWorkerContext {
 
   @Override
   public <T extends Resource> boolean hasResource(Class<T> class_, String uri) {
-    throw new Error("not done yet");
+    try {
+      return fetchResource(class_, uri) != null;
+    } catch (Exception e) {
+      return false;
+    }
   }
 
   @Override

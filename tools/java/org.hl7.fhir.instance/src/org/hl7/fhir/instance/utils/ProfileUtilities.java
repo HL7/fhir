@@ -380,8 +380,10 @@ public class ProfileUtilities {
           // first - check that the slicing is ok
           boolean closed = currentBase.getSlicing().getRules() == SlicingRules.CLOSED;
           int diffpos = 0;
+          boolean isExtension = cpath.endsWith(".extension") || cpath.endsWith(".modifierExtension");
           if (diffMatches.get(0).hasSlicing()) { // it might be null if the differential doesn't want to say anything about slicing
-            diffpos++; // if there's a slice on the first, we'll ignore any content it has
+            if (!isExtension)
+              diffpos++; // if there's a slice on the first, we'll ignore any content it has
             ElementDefinitionSlicingComponent dSlice = diffMatches.get(0).getSlicing();
             ElementDefinitionSlicingComponent bSlice = currentBase.getSlicing();
             if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()))
@@ -394,10 +396,11 @@ public class ProfileUtilities {
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           updateFromBase(outcome, currentBase);
-          if (diffMatches.get(0).hasSlicing()) {
+          if (diffMatches.get(0).hasSlicing() && !isExtension) {
             updateFromSlicing(outcome.getSlicing(), diffMatches.get(0).getSlicing());
             updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp, closed, url); // if there's no slice, we don't want to update the unsliced description
           }
+          result.getElement().add(outcome);
 
           // now, we have two lists, base and diff. we're going to work through base, looking for matches in diff.
           List<ElementDefinition> baseMatches = getSiblings(base.getElement(), currentBase);
@@ -409,10 +412,9 @@ public class ProfileUtilities {
             outcome.setSlicing(null);
             if (!outcome.getPath().startsWith(resultPathBase))
               throw new Exception("Adding wrong path");
-            result.getElement().add(outcome);
             if (diffpos < diffMatches.size() && diffMatches.get(diffpos).getName().equals(outcome.getName())) {
               // if there's a diff, we update the outcome with diff
-              updateFromDefinition(outcome, diffMatches.get(diffpos), profileName, pkp, closed, url);
+              // no? updateFromDefinition(outcome, diffMatches.get(diffpos), profileName, pkp, closed, url);
               //then process any children
               int nbl = findEndOfElement(base, baseCursor);
               int ndc = differential.getElement().indexOf(diffMatches.get(diffpos));
@@ -424,6 +426,7 @@ public class ProfileUtilities {
               diffCursor = ndl+1;
               diffpos++;
             } else {
+              result.getElement().add(outcome);
               baseCursor++;
               // just copy any children on the base
               while (baseCursor < base.getElement().size() && base.getElement().get(baseCursor).getPath().startsWith(path) && !base.getElement().get(baseCursor).getPath().equals(path)) {
