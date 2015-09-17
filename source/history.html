@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 
 <!--
@@ -34,7 +34,7 @@ notes:
 
 <p>
 This is the developmental version of FHIR. The only changes tracked here are 
-changes from after the publication of the DSTU. For changes from before this, 
+the changes made after the publication of the first DSTU release. For earlier changes, 
 see the <a href="http://hl7.org/fhir/history.html">DSTU #1 Version History</a>.
 Note that a full archive history of everything is available 
 <a href="http://wiki.hl7.org/index.php?title=FHIR">through the HL7 gForge SVN archives</a>.
@@ -45,7 +45,7 @@ Note that a full archive history of everything is available
 
 <p>
 The FHIR version policy is based on <a href="http://semver.org/">Semantic versioning</a>, but with 
-some differences due to fact that FHIR is a specification, not a software API.
+some differences due to the fact that FHIR is a specification, not a software API.
 </p>
 <p>
 There is a single development version of FHIR. This undergoes cycles of development as 
@@ -61,20 +61,20 @@ The following kinds of changes may be made to the specification:
 <ul>
  <li>Non-substantive changes do not cause changes in any conformant application. For example, section renumbering, 
    broken links, style corrections, typos, and clarifications that do not change the meaning. Some corrections may 
-   be judged not to create any expectation of change to a conformant application</li>
- <li>Substantive changes that are not breaking. These introduce new functionality - changes to the specification that create new capabilities, but would not render existing applications non-conformant if they do not change</li>
- <li>Breaking changes would mean that previously conformant applications are not longer conformant</li>
+   be judged not to create any expectation of change to a conformant application.</li>
+ <li>Substantive changes that are not breaking. These introduce new functionality - changes to the specification that create new capabilities - but would not render existing applications non-conformant if they do not change.</li>
+ <li>Breaking changes would mean that previously conformant applications are no longer conformant</li>
 </ul>
 <p>
 Note that the following are, by definition, considered non-breaking changes, even though some implementations (including the reference implementations) may not be able to handle some consequences of these changes without error:</p>
 <ul>
  <li>creation of new resources</li>
  <li>adding new elements in an existing resource</li>
- <li>defining new datatypes</li>
+ <li>defining new data types</li>
  <li>Adding new API operations</li>
 </ul>
 <p>
-Also, the examples are never substantive - every effort is made to ensure that they are correct, but changes to the examples in the specification are not considered substantive.
+Also, the examples are never substantive. Every effort is made to ensure that FHIR examples are correct, but changes to the examples in the specification are not considered substantive.
 </p>
 
 <p>
@@ -116,7 +116,7 @@ Each FHIR version is identified by a string composed from 4 parts: publication.m
    <td>
      <ul>
        <li>Incremented any time a change is made to the specification</li>
-       <li>At present, this is the SVN version number (this allows anyone to reconstruct the source from which the version was built from)</li>
+       <li>At present, this is the SVN version number (this allows anyone to reconstruct the source from which the version was built)</li>
      </ul>
    </td>
   </tr>
@@ -163,8 +163,8 @@ notes: do not list revision in the version
 		<td>1.0.0</td>
 		<td>
       <p><b>DSTU QA Preview, Aug 31, 2015</b></p>
-      <p>This version had extensive change as a result of the May DSTU ballot, ongoing testing, and the open change proposals (over 800 gForge tasks). Howe extensive the changes were is best illustrated by the size of the 
-        <a href="http://wiki.hl7.org/index.php?title=FHIR_Breaking_changes_between_DSTU_2_ballot_and_final">list of changes labelled 'breaking change'</a> - 158 changes of 1317 total tasks. This is a list of the most important changes:</p>
+      <p>This version had extensive change as a result of the May 2015 DSTU ballot, ongoing testing, and the open change proposals (over 800 gForge tasks). The extent of the changes is best illustrated by the number of the 
+        <a href="http://wiki.hl7.org/index.php?title=FHIR_Breaking_changes_between_DSTU_2_ballot_and_final">list of changes labelled 'breaking change'</a> - 158 changes of 1317 total tasks. Below is a list of the most important changes:</p>
       <ul>
         <li>General: introduced the <a href="resource.html#maturity">maturity framework</a></li>
         <li><a href="http.html">RESTful API</a>: add batch, several clarifications around versioning &amp; transactional integrity, changed Bundle URL resolution rules</li>
@@ -198,7 +198,7 @@ notes: do not list revision in the version
 		<td>0.5.0</td>
 		<td>
       <p><b>DSTU Ballot, May 2015</b></p>
-      <p>This version had extensive change as a result of the January Draft ballot, ongoing testing, and the open change proposals (over 800 gForge tasks). List here is a summary of the major changes to resource content, but this is only a small amount of the overall changes.</p>
+      <p>This version had extensive change as a result of the January 2015 Draft ballot, ongoing testing, and the open change proposals (over 800 gForge tasks). The list below is a summary of the major changes to resource content. It shows only a limited number of the overall changes.</p>
       <p><b>Enumerations</b></p>
       <ul>
         <li>All spaces removed</li>

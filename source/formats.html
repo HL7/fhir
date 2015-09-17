@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 
       
@@ -158,17 +158,18 @@ Notes:
 <a name="choice"> </a>
 <h3>Choice of Data Types</h3>
 <p>
-A few elements have a choice of more than one type for their content. All such elements have a name that 
+A few elements have a choice of more than one data type for their content. All such elements have a name that 
 takes the form <code>nnn[x]</code>. The "nnn" part of the name is constant, and the "[x]" is replaced with the title-cased 
 name of the type that is actually used. The table view shows each of these names explicitly.
 </p>
 <p>
-All elements that have a choice of data type have a maximum cardinality of 1. There can only be one 
-element for type, of one of the allowed data types. 
+Elements that have a choice of data type cannot repeat.  I.e. They must have a maximum cardinality of 1. 
+When constructing an instance of an element with a choice of types, the authoring system must create a single
+element with a data type chosen from among the list of permitted data types. 
 </p>
 <p>
 Note: In object-orientated based implementations, this is naturally represented as a polymorphic property. 
-However this is not necessary, and the correct implementation varies according to the particular features 
+However this is not necessary and the correct implementation varies according to the particular features 
 of the language. In XML schema, these become an xs:choice of element.
 </p>
 
@@ -225,13 +226,13 @@ the elements of a resource.
 </svg>
 
 <p>
-The elements and types are links to the formal definitions of the parts. The UML diagrams also show the 
-bindings, and these are hyperlinks to the value set details.
+The elements and the data types are hyperlinks to the formal definitions of the parts. The UML diagrams also show the 
+vocabulary bindings.  These are hyperlinks to the value set details.
 </p>
 <a name="umlchoice"> </a>
 <p>
 Where an element can have a choice of data types, or is a <a href="references.html">Reference</a> these are 
-represented by showing the common type (<code>Reference</code> or <code>Type</code>), and then showing the applicable type names or 
+represented by showing the common type (<code>Reference</code> or <code>Type</code>), and then showing the applicable data type names or 
 resource types in a stereotype, separated by the <code>|</code> character. <code>Type</code> is not formally otherwise defined by
 this specification, but is a super type of all the data types. 
 </p>
@@ -243,7 +244,7 @@ The actual order of the elements in XML cannot be determined from the diagram, n
 <h3>Wire Format Representations</h3>
 
 <p>
-This specification defines these ways to represent resources when they are exchanged:
+This specification defines the following ways to represent resources when they are exchanged:
 </p>
 <ul>
  <li><a href="xml.html">XML</a></li>
@@ -252,8 +253,9 @@ This specification defines these ways to represent resources when they are excha
 </ul>
 
 <p>
-Clients and servers can choose whether to implement in XML or JSON. In 
-the interests of interoperability, Servers SHOULD support both formats.
+Clients and servers can choose what syntax(s) to implement. In 
+the interests of interoperability, servers SHOULD support all formats (though support for RDF
+should best wait until it is more fully developed).
 Systems SHALL declare which format(s) they support in their <a href="conformance.html">Conformance Statement</a>. 
 If a server receives a request for its conformance statement in
 a format it does not otherwise support, it SHALL return a <code>415</code> Unsupported Media Type.

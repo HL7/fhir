@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 
       
@@ -24,7 +24,7 @@
 
 <p>
 The FHIR specification defines a set of data types that are used for the 
-resource elements. There are two categories of data type: simple / primitive types, which are single elements, and complex types, which are re-usable clusters of elements.
+resource elements. There are two categories of data types: simple / primitive types, which are single elements, and complex types, which are re-usable clusters of elements.
 This page describes the data types. See also the <a href="datatypes-examples.html">Examples</a>, <a href="datatypes-definitions.html">Detailed Descriptions</a> and 
 <a href="datatypes-mappings.html">Mappings</a>.
 </p>
@@ -194,8 +194,8 @@ The value is represented in XML as an attribute named "value":
 <p>
 For additional details, including how the internal identity and extensions are represented, see the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> formats. 
 When the value is missing, it is not represented in the instance; the XML value attribute or the JSON property are not represented at all. This means that 
-in xml, attributes are never present with a length of 0 (value=""), and properties are never a 0 length string or null in JSON ("name" : "" it not valid). 
-(note: there is one specific <a href="json.html#null">use of the null</a> in the JSON represesntation).
+in xml, attributes are never present with a length of 0 (value=""), and properties are never a 0 length string or null in JSON ("name" : "" is not valid). 
+(note: there is one specific <a href="json.html#null">use of the null</a> in the JSON representation).
 </p>
 <p>
 According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types 
@@ -224,7 +224,7 @@ In addition to the base primitive types, a few additional primitive types are de
  <tr>
    <th>FHIR Name</th><th>Base FHIR Type</th><th>Description</th>
  </tr>
- <tr><td>code</td><td>string</td><td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a> for further discussion). Technically, a code is restricted to string which has at least one character and no leading or trailing whitespace, and where there is no whitespace other than single spaces in the contents <br/>regex: [^\s]+([\s]+[^\s]+)*</td></tr>
+ <tr><td>code</td><td>string</td><td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a> for further discussion). Technically, a code is restricted to a string which has at least one character and no leading or trailing whitespace, and where there is no whitespace other than single spaces in the contents <br/>regex: [^\s]+([\s]+[^\s]+)*</td></tr>
  
  
  <tr><td>oid</td><td>uri</td><td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>); e.g. urn:oid:1.2.3.4.5  <br/>regex: urn:oid:[0-2](\.[1-9]\d*)+</td></tr>
@@ -234,7 +234,7 @@ In addition to the base primitive types, a few additional primitive types are de
  <tr><td>id</td><td>string</td><td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)  
    <br/>regex: [%id_regex%]</td></tr>
 
- <tr><td>markdown</td><td>string</td><td>A string that may contain markdown syntax for optional processing by a mark down presentation engine</td></tr>
+ <tr><td>markdown</td><td>string</td><td>A string that may contain markdown syntax for optional processing by a markdown presentation engine</td></tr>
  <tr><td>unsignedInt</td><td>int</td><td>Any non-negative integer (e.g. >= 0)<br/>regex: [0-9]+</td></tr>
  <tr><td>positiveInt</td><td>int</td><td>Any positive integer (e.g. > 0)<br/>regex: [1-9][0-9]*</td></tr>
 </table>
@@ -254,7 +254,7 @@ Some additional notes about the <code>markdown</code> datatype:
 </p>
 <ul>
  <li>Systems are not required to have markdown support, and there is considerable variation in markdown syntax, 
-   so the content of the string should be readable without markdown processing, per merkdown philosophy</li>
+   so the content of a string should be readable without markdown processing, per markdown philosophy</li>
  <li>The preferred markdown syntax is described at <a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a>
    (see tests here: <a href="http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip">http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip</a>)</li> 
 </ul>
@@ -297,7 +297,7 @@ XML elements. The JSON representation is almost exactly the same, so only the fi
 </p>
 <p>
 Complex data types may be "profiled". A <a href="structuredefinition.html">Structure Definition</a> or type "constraint" makes 
-a set of rules about which elements SHALL have values, and what the possible 
+a set of rules about which elements SHALL have values and what the possible 
 values are.
 </p>
 
@@ -320,11 +320,11 @@ See also <a href="datatypes-examples.html#Attachment">Examples</a>, <a href="dat
 This type is for containing or referencing attachments - additional data content defined in other 
 formats. The most common use of this type is to include images or reports in 
 some report format such as PDF. However it can be used for any 
-data that has a mime type. 
+data that has a MIME type. 
 </p>
 [%dt Attachment 1%] 
 <p>
-The actual content of the Attachment can be conveyed directly using the <code>data</code> element
+The actual content of an Attachment can be conveyed directly using the <code>data</code> element
 or a <code>URL</code> reference can be provided. If both are provided, the reference SHALL 
 point to the same content as found in the data. The reference can never be reused to point to
 some different data (i.e. the reference is version specific). The <code>URL</code> reference SHALL 
@@ -332,7 +332,7 @@ point to a location that resolves to actual data; some URIs such as cid: meet th
 If the URL is a relative reference, it is interpreted in the same way as a <a href="references.html#references">resource reference</a>.
 </p>
 <p>
-The <code>contentType</code> element SHALL always be populated when the attachment contains <code>data</code>, and 
+The <code>contentType</code> element SHALL always be populated when an Attachment contains <code>data</code>, and 
 MAY be populated when there is a <code>url</code>. It can include charset information 
 and other mime type extensions as appropriate. If there is no character set in the <code>contentType</code>
 then the correct course of action is undefined, though some media types may define a default
@@ -394,12 +394,12 @@ is the correct value for the system uri.
 </p>
 <p>
 A code system version may also be supplied. If the meaning of codes within the code system is consistent across releases, this is not required. 
-The version SHOULD be exchanged when this the system does not maintain consistent definitions across versions.
+The version SHOULD be exchanged when the system does not maintain consistent definitions across versions.
 Note that the following systems SHOULD always have a version specified:
 </p>
 <ul>
  <li>National releases of SNOMED CT (consistency of definitions varies amongst jurisdictions, and some jurisdictions may make their own rules on this)</li>
- <li>Various versions of ICD (note: the major releases are labelled as different code systems altogether, but there is veration within versions)</li>
+ <li>Various versions of ICD (note: the major releases are labeled as different code systems altogether, but there is variation within versions)</li>
 </ul>
 <p>
 More generally, any classification (e.g.  a code system that includes concepts with relative definitions such as "not otherwise coded"
@@ -436,7 +436,7 @@ is no suitable code in the system in which to represent the code.
 <p>
 If two codings have the same <code>system</code>, <code>version</code> and <code>code</code> then they have the same meaning.
 If the version information is missing, or the <code>system</code>, <code>version</code> or the <code>code</code> elements differ, then 
-how they codes are related can only be determined by consulting the definitions of the system(s) and any <a href="conceptmap.html">mappings</a> available.
+how the codes are related can only be determined by consulting the definitions of the system(s) and any <a href="conceptmap.html">mappings</a> available.
 </p>
 <p>
 A coding may be marked as a "userSelected" if a user selected the particular coded value 
@@ -673,13 +673,13 @@ from the period applies (e.g. "give to the patient between 2 and 4 pm on 24-Jun 
 <p>
 If the <code>start</code> element is  missing, the start of the period is not
 known. If the <code>end</code> element is missing, it means that the period is ongoing,
-or the start mey be in the past, and the end date in the future, which means that period 
+or the start may be in the past, and the end date in the future, which means that period 
 is expected/planned to end at the specified time
 </p>
 <p>
 The end value includes any matching date/time. For example, the period 
-2011-05-23 to 2011-05-27 includes all the times of 23rd May through to 
-the end of the 27th May.
+2011-05-23 to 2011-05-27 includes all the times from the start of the 23rd May through to 
+the end of the 27th of May.
 </p>
 <!--<div class="use">
 <p><b>Constraints</b></p>
@@ -745,7 +745,7 @@ or a way of making identifiers unique. The <code>value</code> SHALL be unique wi
 and have a consistent meaning wherever it appears. Both <code>system</code> and <code>value</code> are always case sensitive.
 </p>
 <p>
-In addition to the system the provides a uniqueness scope, and the value, identifiers may also have a
+In addition to the <code>system</code> (which provides a uniqueness scope) and the <code>value</code>, identifiers may also have a
 <code>type</code>, which may be useful when a system encounters identifiers with unknown system values. 
 Note, however, that the type of an identifier is not a well controlled vocabulary with wide variations
 in practice. The <code>type</code> deals only with general categories of identifiers and SHOULD not be 
@@ -815,7 +815,7 @@ For further information, including all <a href="http://www.w3.org/International/
 consult the <a href="datatypes-examples.html#HumanName">examples</a>.
 </p>
 <p>
-The multiple give and family name parts combine to form a single name. Multiple given and family names are for
+The multiple given and family name parts combine to form a single name. Multiple given and family names are for
 when a person's name has multiple given names (relatively common across cultures) and multiple surnames (less common).
 Where a person has alternate names that may be used in place of each other, these are different
 instances of <code>HumanName</code>.
@@ -900,7 +900,7 @@ Details for all kinds of technology-mediated contact points for a person or orga
 If capturing a phone, fax or similar contact point, the value should be a properly formatted telephone number according to 
 <a href="http://www.itu.int/rec/T-REC-E.123-200102-I/e">ITU-T E.123</a>. 
 However, this is frequently not possible due to legacy data and/or clerical practices when recording contact details.
-For this reason, phone, fax, page and email addresses are not handled as formal URLS. For other kinds 
+For this reason, phone, fax, page and email addresses are not handled as formal URLs. For other kinds 
 of contacts, the <code>system</code> is "other" and the <code>value</code> SHOULD be a URL so that its use can be determined automatically. Typical 
 URL schemes used in the value are http(s): for web addresses, and URL schemes for various kinds of messaging systems.
 If the value is not a URL, then human interpretation will be required.
