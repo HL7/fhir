@@ -13,6 +13,13 @@
   Reference = #supplyrequest-status
   Definition = Status of the supply request
 
+ -- Row 3 -----------------------------------
+  Binding Name = SupplyRequestWhen
+  Binding = value set
+  Reference = valueset-supplyrequest-when
+  Definition = When the request should be fulfilled
+  Conformance = example
+
 === Sheet supplyrequest-status =====================================
 
  -- Row 1 -----------------------------------
@@ -138,8 +145,9 @@
   Element = SupplyRequest.when.code
   Card. = 0..1
   Type = CodeableConcept
+  Binding = SupplyRequestWhen
   Short Label = Fulfilment code
-  Definition = Fulfilment code
+  Definition = Code indicating when the request should be fulfilled.
   Comments = Code may simply be a priority code
 
  -- Row 13 -----------------------------------
