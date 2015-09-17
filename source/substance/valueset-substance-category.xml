@@ -17,17 +17,17 @@
 		<concept>
 			<code value="allergen"/>
 			<display value="Allergen"/>
-			<definition value="A substance that causes an allergic reaction"/>
+			<definition value="A substance that causes an allergic reaction."/>
 		</concept>
 		<concept>
 			<code value="biological"/>
 			<display value="Biological Substance"/>
-			<definition value="A substance that is produced by or extracted from a biological source"/>
+			<definition value="A substance that is produced by or extracted from a biological source."/>
 		</concept>
 		<concept>
 			<code value="body"/>
 			<display value="Body Substance"/>
-			<definition value="A substance that comes directly from a human or an animal (e.g. blood, urine, feces, tears, etc.)"/>
+			<definition value="A substance that comes directly from a human or an animal (e.g. blood, urine, feces, tears, etc.)."/>
 		</concept>
 		<concept>
 			<code value="chemical"/>
@@ -37,7 +37,7 @@
 		<concept>
 			<code value="food"/>
 			<display value="Dietary Substance"/>
-			<definition value="A food, dietary ingredient, or dietary supplement for human or animal"/>
+			<definition value="A food, dietary ingredient, or dietary supplement for human or animal."/>
 		</concept>
 		<concept>
 			<code value="drug"/>
@@ -47,7 +47,7 @@
 		<concept>
 			<code value="material"/>
 			<display value="Material"/>
-			<definition value="A finished product which is not normally ingested, absorbed or injected (e.g. Steel, iron, wood, plastic and paper)."/>
+			<definition value="A finished product which is not normally ingested, absorbed or injected (e.g. steel, iron, wood, plastic and paper)."/>
 		</concept>
 	</codeSystem>
 </ValueSet>

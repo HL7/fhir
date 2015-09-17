@@ -216,7 +216,7 @@
     </telecom>
   </contact>
   <date value="2010-01-29"/>
-  <description value="This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system"/>
+  <description value="This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system."/>
   <codeSystem>
     <system value="http://healthit.gov/nhin/purposeofuse"/>
     <version value="2.0"/>
@@ -274,17 +274,17 @@
     <concept>
       <code value="FAMILY"/>
       <display value="Family"/>
-      <definition value="Disclose to a family member, other relative,  or a close personal friend of the individua"/>
+      <definition value="Disclose to a family member, other relative, or a close personal friend of the individual"/>
     </concept>
     <concept>
       <code value="PRESENT"/>
-      <display value="Prsent"/>
+      <display value="Present"/>
       <definition value="Uses and disclosures with the individual present."/>
     </concept>
     <concept>
       <code value="EMERGENCY"/>
       <display value="Emergency"/>
-      <definition value="ermission cannot practicably be provided because of the individual’s incapacity or an emergenc"/>
+      <definition value="Permission cannot practicably be provided because of the individual's incapacity or an emergency."/>
     </concept>
     <concept>
       <code value="DISASTER"/>
@@ -299,7 +299,7 @@
     <concept>
       <code value="ABUSE"/>
       <display value="Abuse"/>
-      <definition value="Disclosures about victims of abus"/>
+      <definition value="Disclosures about victims of abuse, neglect or domestic violence."/>
     </concept>
     <concept>
       <code value="OVERSIGHT"/>
@@ -344,7 +344,7 @@
     <concept>
       <code value="WORKERSCOMP"/>
       <display value="Worker&#39;s Comp"/>
-      <definition value="Disclosures for workers’ compensation."/>
+      <definition value="Disclosures for workers' compensation."/>
     </concept>
     <concept>
       <code value="COVERAGE"/>
@@ -353,7 +353,7 @@
     </concept>
     <concept>
       <code value="REQUEST"/>
-      <display value="Reqeust"/>
+      <display value="Request"/>
       <definition value="Request of the Individual"/>
     </concept>
   </codeSystem>

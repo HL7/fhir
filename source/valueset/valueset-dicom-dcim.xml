@@ -15,8 +15,8 @@
   </contact>
   <date value="2015-04-20"/>
   <description value="DICOM Code Definitions (Coding Scheme Designator &quot;DCM&quot; Coding Scheme Version &quot;01&quot;)"/>
-  <requirements value="This value is published as part of FHIR in order to make the codes available to FHIR terminology services and so implementers can easily leverage the codes"/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
+  <requirements value="This value is published as part of FHIR in order to make the codes available to FHIR terminology services and so implementers can easily leverage the codes."/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
   <codeSystem>
     <system value="http://nema.org/dicom/dicm"/>
     <caseSensitive value="true"/>
@@ -646,7 +646,7 @@
     <concept>
       <code value="109004"/>
       <display value="X-Ray Fluoroscopy On Signal"/>
-      <definition value="A signal that indicates that X-Ray source has been activated for fluoroscopy use"/>
+      <definition value="A signal that indicated that X-Ray source has been activated for fluoroscopy use"/>
     </concept>
     <concept>
       <code value="109005"/>
@@ -896,12 +896,12 @@
     <concept>
       <code value="109042"/>
       <display value="Q wave"/>
-      <definition value="The first negative deflection of the electrocardiogram cause by ventricular depolarization"/>
+      <definition value="The first negative deflection of the electrocardiogram caused by ventricular depolarization"/>
     </concept>
     <concept>
       <code value="109043"/>
       <display value="R wave"/>
-      <definition value="The first positive deflection the electrocardiogram cause by ventricular depolarization"/>
+      <definition value="The first positive deflection the electrocardiogram caused by ventricular depolarization"/>
     </concept>
     <concept>
       <code value="109044"/>
@@ -1001,7 +1001,7 @@
     <concept>
       <code value="109061"/>
       <display value="EP Procedure Phase"/>
-      <definition value="A subpart of en electrophysiological procedure"/>
+      <definition value="A subpart of an electrophysiological procedure"/>
     </concept>
     <concept>
       <code value="109063"/>
@@ -1021,6 +1021,7 @@
       </extension>
       <code value="109070"/>
       <display value="End of systole"/>
+      <definition value="End of the contraction phase of the cardiac cycle"/>
     </concept>
     <concept>
       <code value="109071"/>
@@ -1100,7 +1101,7 @@
       </extension>
       <code value="109095"/>
       <display value="Peak stress state"/>
-      <definition value="Peak Cardiac stress state"/>
+      <definition value="Peak cardiac stress state"/>
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
@@ -1214,12 +1215,12 @@
     <concept>
       <code value="109123"/>
       <display value="Pre-intervention"/>
-      <definition value="The occasion on which a procedure was performed immediately prior to non-surgical intervention. E.g, percutaneous angioplasty, biopsy"/>
+      <definition value="The occasion on which a procedure was performed immediately prior to non-surgical intervention; e.g, percutaneous angioplasty, biopsy"/>
     </concept>
     <concept>
       <code value="109124"/>
       <display value="Post-intervention"/>
-      <definition value="The occasion on which a procedure was performed immediately after to non-surgical intervention. E.g, percutaneous angioplasty, biopsy"/>
+      <definition value="The occasion on which a procedure was performed immediately after to non-surgical intervention; e.g, percutaneous angioplasty, biopsy"/>
     </concept>
     <concept>
       <code value="109125"/>
@@ -2169,7 +2170,7 @@
     <concept>
       <code value="110103"/>
       <display value="DICOM Instances Accessed"/>
-      <definition value="Audit event: DICOM Instances have been created, read, updated, or deleted -audit event"/>
+      <definition value="Audit event: DICOM Instances have been created, read, updated, or deleted"/>
     </concept>
     <concept>
       <code value="110104"/>
@@ -2544,22 +2545,22 @@
     <concept>
       <code value="110703"/>
       <display value="superior longitudinal fasciculus I"/>
-      <definition value="The dorsal component of the SLF originating from the medial and dorsal parietal cortex and ending in the dorsal and medial part of the frontal lobe. See Makris N, et al. &quot;Segmentation of Subcomponents within the Superior Longitudinal Fascicle in Humans: A Quantitative, In Vivo, DT-MRI Study.&quot; Cerebral Cortex 15, no. 6 (June 1, 2005): 854–69. doi:10.1093/cercor/bhh186"/>
+      <definition value="The dorsal component of the SLF originating from the medial and dorsal parietal cortex and ending in the dorsal and medial part of the frontal lobe. See Makris N, et al. &quot;Segmentation of Subcomponents within the Superior Longitudinal Fascicle in Humans: A Quantitative, In Vivo, DT-MRI Study.&quot; Cerebral Cortex 15, no. 6 (June 1, 2005): 854-69. doi:10.1093/cercor/bhh186"/>
     </concept>
     <concept>
       <code value="110704"/>
       <display value="superior longitudinal fasciculus II"/>
-      <definition value="The major component of the SLF, derived from the caudal–inferior parietal region corresponding to the angular gyrus in the human and terminating within the dorsolateral frontal region. See Makris N, et al. &quot;Segmentation of Subcomponents within the Superior Longitudinal Fascicle in Humans: A Quantitative, In Vivo, DT-MRI Study.&quot; Cerebral Cortex 15, no. 6 (June 1, 2005): 854–69. doi:10.1093/cercor/bhh186"/>
+      <definition value="The major component of the SLF, derived from the caudal-inferior parietal region corresponding to the angular gyrus in the human and terminating within the dorsolateral frontal region. See Makris N, et al. &quot;Segmentation of Subcomponents within the Superior Longitudinal Fascicle in Humans: A Quantitative, In Vivo, DT-MRI Study.&quot; Cerebral Cortex 15, no. 6 (June 1, 2005): 854-69. doi:10.1093/cercor/bhh186"/>
     </concept>
     <concept>
       <code value="110705"/>
       <display value="superior longitudinal fasciculus III"/>
-      <definition value="The ventral component of the SLF, originating from the supramarginal gyrus and terminating predominantly in the ventral premotor and prefrontal areas. See Makris N, et al. &quot;Segmentation of Subcomponents within the Superior Longitudinal Fascicle in Humans: A Quantitative, In Vivo, DT-MRI Study.&quot; Cerebral Cortex 15, no. 6 (June 1, 2005): 854–69. doi:10.1093/cercor/bhh186"/>
+      <definition value="The ventral component of the SLF, originating from the supramarginal gyrus and terminating predominantly in the ventral premotor and prefrontal areas. See Makris N, et al. &quot;Segmentation of Subcomponents within the Superior Longitudinal Fascicle in Humans: A Quantitative, In Vivo, DT-MRI Study.&quot; Cerebral Cortex 15, no. 6 (June 1, 2005): 854-69. doi:10.1093/cercor/bhh186"/>
     </concept>
     <concept>
       <code value="110706"/>
       <display value="Perilesional White Matter"/>
-      <definition value="White matter that surrounds a lesion of interest; e.g. to identify the otherwise unclassified white matetr that surrounds a tumor to be surgically resected"/>
+      <definition value="White matter that surrounds a lesion of interest; e.g. to identify the otherwise unclassified white matter that surrounds a tumor to be surgically resected"/>
     </concept>
     <concept>
       <code value="110800"/>
@@ -2674,17 +2675,17 @@
     <concept>
       <code value="110822"/>
       <display value="Spatial Displacement X Component"/>
-      <definition value="Spatial Displacement along axis X of a non linear deformable spatial registration image. The X axis is defined in reference to the patient&#39;s orientation, and is increasing to the left hand side of the patient"/>
+      <definition value="Spatial Displacement along axis X of a non-linear deformable spatial registration image. The X axis is defined in reference to the patient&#39;s orientation, and is increasing to the left hand side of the patient"/>
     </concept>
     <concept>
       <code value="110823"/>
       <display value="Spatial Displacement Y Component"/>
-      <definition value="Spatial Displacement along axis Y of a non linear deformable spatial registration image. The Y axis is defined in reference to the patient&#39;s orientation, and is increasing to the posterior side of the patient"/>
+      <definition value="Spatial Displacement along axis Y of a non-linear deformable spatial registration image. The Y axis is defined in reference to the patient&#39;s orientation, and is increasing to the posterior side of the patient"/>
     </concept>
     <concept>
       <code value="110824"/>
       <display value="Spatial Displacement Z Component"/>
-      <definition value="Spatial Displacement along axis Z of a Non linear deformable spatial registration image. The Z axis is defined in reference to the patient&#39;s orientation, and is increasing toward the head of the patient"/>
+      <definition value="Spatial Displacement along axis Z of a non-linear deformable spatial registration image. The Z axis is defined in reference to the patient&#39;s orientation, and is increasing toward the head of the patient"/>
     </concept>
     <concept>
       <code value="110825"/>
@@ -3100,7 +3101,7 @@
     <concept>
       <code value="111014"/>
       <display value="Clockface or region"/>
-      <definition value="A location identifier based on clockface numbering or anatomic subregion"/>
+      <definition value="A location identifier based on clock-face numbering or anatomic sub-region"/>
     </concept>
     <concept>
       <code value="111015"/>
@@ -3592,6 +3593,7 @@
       </extension>
       <code value="111137"/>
       <display value="Ultrasound"/>
+      <definition value="Use of sound waves to visualize muscles, tendons, and many internal organs, to capture their size, structure and any pathological lesions with real time tomographic images."/>
     </concept>
     <concept>
       <code value="111138"/>
@@ -3616,7 +3618,7 @@
     <concept>
       <code value="111140"/>
       <display value="Normal interval follow-up"/>
-      <definition value="Follow up study at 12 months for women ≥ 40 years of age having a prior negative study and no mitigating risk factors for breast cancer"/>
+      <definition value="Follow up study at 12 months for women 40 years of age having a prior negative study and no mitigating risk factors for breast cancer"/>
     </concept>
     <concept>
       <code value="111141"/>
@@ -4154,6 +4156,7 @@
       </extension>
       <code value="111249"/>
       <display value="Ductal hyperplasia"/>
+      <definition value="Hyperplasia is also known as epithelial hyperplasia or proliferative breast disease. It's an overgrowth of the cells that line the ducts or the lobules. Based on how the cells look under a microscope, the hyperplasia is called either ductal hyperplasia (also called duct epithelial hyperplasia) or lobular hyperplasia. Based on the pattern of the cells, hyperplasia may be called usual or atypical. In usual hyperplasia, the pattern of cells is very close to normal. Atypical hyperplasia (or hyperplasia with atypia) is a term used when the cells are more distorted. FROM: http://www.cancer.org/healthy/findcancerearly/womenshealth/non-cancerousbreastconditions/non-cancerous-breast-conditions-hyperplasia"/>
     </concept>
     <concept>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
@@ -4331,6 +4334,7 @@
       </extension>
       <code value="111273"/>
       <display value="Hyperplasia, usual"/>
+      <definition value="Hyperplasia is also known as epithelial hyperplasia or proliferative breast disease. It's an overgrowth of the cells that line the ducts or the lobules. Based on how the cells look under a microscope, the hyperplasia is called either ductal hyperplasia (also called duct epithelial hyperplasia) or lobular hyperplasia. FROM: http://www.cancer.org/healthy/findcancerearly/womenshealth/non-cancerousbreastconditions/non-cancerous-breast-conditions-hyperplasia"/>
     </concept>
     <concept>
       <code value="111277"/>
@@ -4540,6 +4544,7 @@
       </extension>
       <code value="111308"/>
       <display value="Carcinoma with metaplasia"/>
+      <definition value="Metaplastic carcinoma is cancer that begins in cells that have changed into another cell type (for example, a squamous cell of the esophagus changing to resemble a cell of the stomach). In some cases, metaplastic changes alone may mean there is an increased chance of cancer developing at the site. Metaplastic carcinoma is a relatively uncommon type of cancer with treatment generally similar to that of invasive ductal carcinoma of no special type.[1] FROM: https://en.wikipedia.org/wiki/Metaplastic_carcinoma"/>
     </concept>
     <concept>
       <code value="111309"/>
@@ -4589,6 +4594,7 @@
       </extension>
       <code value="111314"/>
       <display value="Intraductal carcinoma micro-papillary"/>
+      <definition value="Papillary and micropapillary Ductal Carcinoma In Situ (DCIS): the cancer cells arrange themselves in a fern-like pattern within the affected breast ducts; micropapillary DCIS cells are smaller than papillary DCIS cells. FROM: http://www.imaginis.com/breast-cancer-diagnosis/ductal-carcinoma-in-situ-dcis-3"/>
     </concept>
     <concept>
       <code value="111315"/>
@@ -4613,6 +4619,7 @@
       </extension>
       <code value="111317"/>
       <display value="Invasive lobular carcinoma"/>
+      <definition value="Invasive lobular carcinoma is a type of breast cancer that begins in the milk-producing glands (lobules) of the breast. Invasive cancer means the cancer cells have broken out of the lobule where they began and have the potential to spread to the lymph nodes and other areas of the body. Invasive lobular carcinoma typically doesn't form a lump, which is common in breast cancer. Instead, there is a change in the breast that feels like a thickening or fullness in one part of the breast and is different from the surrounding breast tissue. FROM: http://www.mayoclinic.org/diseases-conditions/invasive-lobular-carcinoma/basics/definition/con-20033968"/>
     </concept>
     <concept>
       <code value="111318"/>
@@ -4697,6 +4704,7 @@
       </extension>
       <code value="111331"/>
       <display value="Malignant fibrous histiocytoma"/>
+      <definition value="Pleomorphic undifferentiated sarcoma (abbreviated PUS), also undifferentiated pleomorphic sarcoma and previously malignant fibrous histiocytoma (abbreviated MFH), is a type of soft tissue sarcoma. FROM: https://en.wikipedia.org/wiki/Pleomorphic_undifferentiated_sarcoma"/>
     </concept>
     <concept>
       <code value="111332"/>
@@ -4740,6 +4748,7 @@
       </extension>
       <code value="111336"/>
       <display value="Papillary carcinoma in-situ"/>
+      <definition value="Papillary and micropapillary Ductal Carcinoma In Situ (DCIS): the cancer cells arrange themselves in a fern-like pattern within the affected breast ducts; micropapillary DCIS cells are smaller than papillary DCIS cells. FROM: http://www.imaginis.com/breast-cancer-diagnosis/ductal-carcinoma-in-situ-dcis-3"/>
     </concept>
     <concept>
       <code value="111338"/>
@@ -4769,6 +4778,7 @@
       </extension>
       <code value="111342"/>
       <display value="Invasive cribriform carcinoma"/>
+      <definition value="Invasive tumor with cribriform pattern similar to cribriform DCIS. Low grade, cribriform appearance (well defined spaces formed by arches of cells) similar to cribriform DCIS but with larger cells, more cytoplasm and more vesicular nuclei: Tumor cells are small, often have apical snouts, mild/moderate nuclear pleomorphism; Also stromal invasion by islands of cells, often angulated; May have predominantly solid appearance; Associated with cribriform DCIS; Often mixed with tubular carcinoma. FROM: http://www.pathologyoutlines.com/topic/breastmalignantcribriform.html"/>
     </concept>
     <concept>
       <code value="111343"/>
@@ -6413,17 +6423,17 @@
     <concept>
       <code value="111710"/>
       <display value="Location of sampling site X offset"/>
-      <definition value="Location of sampling site of specimen (nominal center) relative to the Position Frame of Reference"/>
+      <definition value="Location of sampling site of specimen (nominal center) relative to the Position Frame of Reference in the X dimension"/>
     </concept>
     <concept>
       <code value="111711"/>
       <display value="Location of sampling site Y offset"/>
-      <definition value="Location of sampling site of specimen (nominal center) relative to the Position Frame of Reference"/>
+      <definition value="Location of sampling site of specimen (nominal center) relative to the Position Frame of Reference in the Y dimension"/>
     </concept>
     <concept>
       <code value="111712"/>
       <display value="Location of sampling site Z offset"/>
-      <definition value="Location of sampling site of specimen (nominal center) relative to the Position Frame of Reference"/>
+      <definition value="Location of sampling site of specimen (nominal center) relative to the Position Frame of Reference in the Z dimension"/>
     </concept>
     <concept>
       <code value="111718"/>
@@ -6968,102 +6978,102 @@
     <concept>
       <code value="111900"/>
       <display value="Macula centered"/>
-      <definition value="An image of at least 15° angular subtend that is centered on the macula; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend that is centered on the macula; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111901"/>
       <display value="Disc centered"/>
-      <definition value="An image of at least 15° angular subtend that is centered on the optic disc; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend that is centered on the optic disc; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111902"/>
       <display value="Lesion centered"/>
-      <definition value="An image of any angular subtend that is centered on a lesion located in any region of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of any angular subtend that is centered on a lesion located in any region of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111903"/>
       <display value="Disc-macula centered"/>
-      <definition value="An image of at least 15° angular subtend centered midway between the disc and macula and containing at least a portion of the disc and both the disc and the macula; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend centered midway between the disc and macula and containing at least a portion of the disc and both the disc and the macula; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111904"/>
       <display value="Mid-peripheral-superior"/>
-      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator, and spanning both the superior-temporal and superior-nasal quadrants of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator, and spanning both the superior-temporal and superior-nasal quadrants of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111905"/>
       <display value="Mid-peripheral-superior temporal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator in the superior-temporal quadrant of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator in the superior-temporal quadrant of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111906"/>
       <display value="Mid-peripheral-temporal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator, and spanning both the superior-temporal and inferior-temporal quadrants of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator, and spanning both the superior-temporal and inferior-temporal quadrants of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111907"/>
       <display value="Mid-peripheral-inferior temporal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator in the inferior-temporal quadrant of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator in the inferior-temporal quadrant of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111908"/>
       <display value="Mid-peripheral-inferior"/>
-      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator, and spanning both the inferior-temporal and inferior-nasal quadrants of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator, and spanning both the inferior-temporal and inferior-nasal quadrants of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111909"/>
       <display value="Mid-peripheral-inferior nasal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator in the inferior-nasal quadrant of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator in the inferior-nasal quadrant of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111910"/>
       <display value="Mid-peripheral-nasal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator, and spanning both the superior-nasal and inferior-nasal quadrants of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator, and spanning both the superior-nasal and inferior-nasal quadrants of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111911"/>
       <display value="Mid-peripheral-superior nasal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator in the superior-nasal quadrant of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the central zone and the equator in the superior-nasal quadrant of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111912"/>
       <display value="Peripheral-superior"/>
-      <definition value="An image of at least 15° angular subtend positioned between the equator and the ora serrata, and spanning both the superior temporal and superior nasal quadrants of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the equator and the ora serrata, and spanning both the superior temporal and superior nasal quadrants of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111913"/>
       <display value="Peripheral-superior temporal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata in the superior-temporal quadrant of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata in the superior-temporal quadrant of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111914"/>
       <display value="Peripheral-temporal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata, and spanning both the superior-temporal and inferior-temporal quadrants of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata, and spanning both the superior-temporal and inferior-temporal quadrants of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111915"/>
       <display value="Peripheral-inferior temporal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata in the inferior-temporal quadrant of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata in the inferior-temporal quadrant of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111916"/>
       <display value="Peripheral-inferior"/>
-      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata, and spanning both the inferior-temporal and inferior-nasal quadrants of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata, and spanning both the inferior-temporal and inferior-nasal quadrants of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111917"/>
       <display value="Peripheral-inferior nasal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata in the inferior-nasal quadrant of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata in the inferior-nasal quadrant of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111918"/>
       <display value="Peripheral-nasal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata, and spanning both the superior-nasal and inferior-nasal quadrants of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata, and spanning both the superior-nasal and inferior-nasal quadrants of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111919"/>
       <display value="Peripheral-superior nasal"/>
-      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata in the superior-nasal quadrant of the fundus; see Section U.1.8 “Relative Image Position Definitions” in PS3.17 "/>
+      <definition value="An image of at least 15° angular subtend positioned between the equator and ora serrata in the superior-nasal quadrant of the fundus; see Section U.1.8 &quot;Relative Image Position Definitions&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111920"/>
@@ -7093,27 +7103,27 @@
     <concept>
       <code value="111925"/>
       <display value="Retinal nerve fiber layer thickness"/>
-      <definition value="Measurement approximating the distance related to the structure between the internal limiting membrane (ILM) and the outer boarder of the retinal nerve fiber layer (RNFL); see Section III.6 “Retinal Thickness Definition” in PS3.17 "/>
+      <definition value="Measurement approximating the distance related to the structure between the internal limiting membrane (ILM) and the outer boarder of the retinal nerve fiber layer (RNFL); see Section III.6 &quot;Retinal Thickness Definition&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111926"/>
       <display value="Ganglion cell complex thickness"/>
-      <definition value="Measurement approximating the distance related to the structure between the ILM and the outer border of the inner plexiform layer (IPL), called the ganglion cell complex (GCC); see Section III.6 “Retinal Thickness Definition” in PS3.17 "/>
+      <definition value="Measurement approximating the distance related to the structure between the ILM and the outer border of the inner plexiform layer (IPL), called the ganglion cell complex (GCC); see Section III.6 &quot;Retinal Thickness Definition&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111927"/>
       <display value="Total retinal thickness (ILM to IS-OS)"/>
-      <definition value="Measurement approximating the distance related to the structure between the ILM and the inner-outer segment junction (IS-OS); see Section III.6 “Retinal Thickness Definition” in PS3.17 "/>
+      <definition value="Measurement approximating the distance related to the structure between the ILM and the inner-outer segment junction (IS-OS); see Section III.6 &quot;Retinal Thickness Definition&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111928"/>
       <display value="Total retinal thickness (ILM to RPE)"/>
-      <definition value="Measurement approximating the distance related to the structure between the ILM and the retinal pigment epithelium (RPE); see Section III.6 “Retinal Thickness Definition” in PS3.17 "/>
+      <definition value="Measurement approximating the distance related to the structure between the ILM and the retinal pigment epithelium (RPE); see Section III.6 &quot;Retinal Thickness Definition&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111929"/>
       <display value="Total retinal thickness (ILM to BM)"/>
-      <definition value="Measurement approximating the distance related to the structure between the ILM and the Bruch&#39;s membrane (BM); see Section III.6 “Retinal Thickness Definition” in PS3.17 "/>
+      <definition value="Measurement approximating the distance related to the structure between the ILM and the Bruch&#39;s membrane (BM); see Section III.6 &quot;Retinal Thickness Definition&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="111930"/>
@@ -8863,17 +8873,17 @@
     <concept>
       <code value="113014"/>
       <display value="Study"/>
-      <definition value="A study is a collection of one or more series of medical images, presentation states, and/or SR documents that are logically related for the purpose of diagnosing a patient. A study may include composite instances that are created by a single modality, multiple modalities or by multiple devices of the same modality. [From Section A.1.2.2 “Study IE” in PS3.3 ]"/>
+      <definition value="A study is a collection of one or more series of medical images, presentation states, and/or SR documents that are logically related for the purpose of diagnosing a patient. A study may include composite instances that are created by a single modality, multiple modalities or by multiple devices of the same modality. [From Section A.1.2.2 &quot;Study IE&quot; in PS3.3 ]"/>
     </concept>
     <concept>
       <code value="113015"/>
       <display value="Series"/>
-      <definition value="A distinct logical set used to group composite instances. All instances within a Series are of the same modality, in the same Frame of Reference (if any), and created by the same equipment. [See Section A.1.2.3 “Series IE” in PS3.3 ]"/>
+      <definition value="A distinct logical set used to group composite instances. All instances within a Series are of the same modality, in the same Frame of Reference (if any), and created by the same equipment. [See Section A.1.2.3 &quot;Series IE&quot; in PS3.3 ]"/>
     </concept>
     <concept>
       <code value="113016"/>
       <display value="Performed Procedure Step"/>
-      <definition value="An arbitrarily defined unit of service that has actually been performed (not just scheduled). [From Section 7.3.1.9 “Modality Performed Procedure Step” in PS3.3 ]"/>
+      <definition value="An arbitrarily defined unit of service that has actually been performed (not just scheduled). [From Section 7.3.1.9 &quot;Modality Performed Procedure Step&quot; in PS3.3 ]"/>
     </concept>
     <concept>
       <code value="113017"/>
@@ -9033,7 +9043,7 @@
     <concept>
       <code value="113056"/>
       <display value="Regional Cerebral Blood Volume"/>
-      <definition value="The volume of blood perfusing a region of brain as as volume per mass"/>
+      <definition value="The volume of blood perfusing a region of brain as volume per mass"/>
     </concept>
     <concept>
       <code value="113057"/>
@@ -10273,7 +10283,7 @@
     <concept>
       <code value="113838"/>
       <display value="DLP"/>
-      <definition value="Dose Length Product (DLP), expressed in mGy-cm, is an index characterizing the product of the CTDIvol and the length scanned. For Spiral scanning, DLP = CTDIvol ✕ Scanning Length. For Sequenced scanning, DLP = CTDIvol ✕ Nominal Total Collimation Width ✕ Cumulative Exposure Time / Exposure Time per Rotation. For Stationary and Free scanning, DLP = CTDIvol ✕ Nominal Total Collimation Width"/>
+      <definition value="Dose Length Product (DLP), expressed in mGy-cm, is an index characterizing the product of the CTDIvol and the length scanned. For Spiral scanning, DLP = CTDIvol x Scanning Length. For Sequenced scanning, DLP = CTDIvol x Nominal Total Collimation Width x Cumulative Exposure Time / Exposure Time per Rotation. For Stationary and Free scanning, DLP = CTDIvol x Nominal Total Collimation Width"/>
     </concept>
     <concept>
       <code value="113839"/>
@@ -12867,7 +12877,7 @@
     <concept>
       <code value="121727"/>
       <display value="RT Treatment with External Verification"/>
-      <definition value="Radiotherapy treatment delivery using verification by a external Machine Parameter Verifier"/>
+      <definition value="Radiotherapy treatment delivery using verification by an external Machine Parameter Verifier"/>
     </concept>
     <concept>
       <code value="121728"/>
@@ -12877,7 +12887,7 @@
     <concept>
       <code value="121729"/>
       <display value="RT Treatment QA with External Verification"/>
-      <definition value="Quality assurance of a radiotherapy treatment delivery using verification by a external Machine Parameter Verifier"/>
+      <definition value="Quality assurance of a radiotherapy treatment delivery using verification by an external Machine Parameter Verifier"/>
     </concept>
     <concept>
       <code value="121730"/>
@@ -12902,7 +12912,7 @@
     <concept>
       <code value="121734"/>
       <display value="RT Treatment QA with RT Ion Plan Difference Check"/>
-      <definition value="Perform Quality Assurance on an RT Ion Plan by comparing the content of previously quality-assessed RT Ion Plans by the current RT Ion Plan"/>
+      <definition value="Perform Quality Assurance on an RT Ion Plan by comparing the content of previously quality-assessed RT Ion Plans with the current RT Ion Plan"/>
     </concept>
     <concept>
       <code value="121740"/>
@@ -14932,12 +14942,12 @@
     <concept>
       <code value="122544"/>
       <display value="Diameter Symmetry"/>
-      <definition value="Symmetry of stenosis (0 = complete asymmetry, 1 = complete symmetry); see Section T.2 “Definition of Diameter Symmetry with Arterial Plaques” in PS3.17 "/>
+      <definition value="Symmetry of stenosis (0 = complete asymmetry, 1 = complete symmetry); see Section T.2 &quot;Definition of Diameter Symmetry with Arterial Plaques&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="122545"/>
       <display value="Area Symmetry"/>
-      <definition value="Symmetry of plaque (0 = complete asymmetry, 1 = complete symmetry); see Section T.2 “Definition of Diameter Symmetry with Arterial Plaques” in PS3.17 "/>
+      <definition value="Symmetry of plaque (0 = complete asymmetry, 1 = complete symmetry); see Section T.2 &quot;Definition of Diameter Symmetry with Arterial Plaques&quot; in PS3.17"/>
     </concept>
     <concept>
       <code value="122546"/>
@@ -16045,12 +16055,12 @@
     <concept>
       <code value="125204"/>
       <display value="Area-length biplane"/>
-      <definition value="Method for calculating left ventricular volume from two orthogonal views containing the true long axis (usually the apical 4 and 2 chamber views). Volume = [pL1 / 6] * [(4A1) ¸ (pL1) ] * [(4A2) ¸ (pL2) ]"/>
+      <definition value="Method for calculating left ventricular volume from two orthogonal views containing the true long axis (usually the apical 4 and 2 chamber views). Volume = [pL1 / 6] * [(4A1) &#247; (pL1) ] * [(4A2) &#247; (pL2) ]"/>
     </concept>
     <concept>
       <code value="125205"/>
       <display value="Area-Length Single Plane"/>
-      <definition value="Method for calculating left ventricular volume from a view containing the true long axis (usually the apical 4-chamber view). Volume = [8(A)2]¸[3pL]"/>
+      <definition value="Method for calculating left ventricular volume from a view containing the true long axis (usually the apical 4-chamber view). Volume = [8(A)2]&#247;[3pL]"/>
     </concept>
     <concept>
       <code value="125206"/>
@@ -16105,17 +16115,17 @@
     <concept>
       <code value="125216"/>
       <display value="Proximal Isovelocity Surface Area"/>
-      <definition value="Utilizes aliasing velocity (by color Doppler) of flow into an orifice (often regurgitant or stenotic) to measure instantaneous flow rate, orifice area, and flow volume. The instantaneous flow rate = (2πr2vav ) * (απ) where vav is the constant velocity known as aliasing velocity at radius r, vp is the peak velocity at the orifice, and α is the angle in radians of the constant velocity surface. Estimated Orifice area = Flow rate / vp , where vp is the peak velocity at the orifice and the flow rate is the PISA peak flow rate. The volume flow is then the product of the orifice area and Velocity Time Integral"/>
+      <definition value="Utilizes aliasing velocity (by color Doppler) of flow into an orifice (often regurgitant or stenotic) to measure instantaneous flow rate, orifice area, and flow volume. The instantaneous flow rate = (2&#960;r2vav ) * (&#945; / &#960;) where vav is the constant velocity known as aliasing velocity at radius r, vp is the peak velocity at the orifice, and &#945; is the angle in radians of the constant velocity surface. Estimated Orifice area = Flow rate / vp , where vp is the peak velocity at the orifice and the flow rate is the PISA peak flow rate. The volume flow is then the product of the orifice area and Velocity Time Integral"/>
     </concept>
     <concept>
       <code value="125217"/>
       <display value="Full Bernoulli"/>
-      <definition value="ΔP = 4*(V12 - V22)"/>
+      <definition value="&#916;P = 4*(V12 - V22)"/>
     </concept>
     <concept>
       <code value="125218"/>
       <display value="Simplified Bernoulli"/>
-      <definition value="ΔP = 4*V2"/>
+      <definition value="&#916;P = 4*V2"/>
     </concept>
     <concept>
       <code value="125219"/>
@@ -16340,42 +16350,42 @@
     <concept>
       <code value="125901"/>
       <display value="CARDIOsphere"/>
-      <definition value="CARDIOsphere™ ultrasonic contrast agent produced by POINT Biomedical"/>
+      <definition value="CARDIOsphere&#153; ultrasonic contrast agent produced by POINT Biomedical"/>
     </concept>
     <concept>
       <code value="125902"/>
       <display value="Echovist"/>
-      <definition value="Echovist® ultrasonic contrast agent produced by Schering AG"/>
+      <definition value="Echovist&#174; ultrasonic contrast agent produced by Schering AG"/>
     </concept>
     <concept>
       <code value="125903"/>
       <display value="Imagify"/>
-      <definition value="Imagify™ ultrasonic contrast agent produced by Accusphere Inc"/>
+      <definition value="Imagify&#153; ultrasonic contrast agent produced by Accusphere Inc"/>
     </concept>
     <concept>
       <code value="125904"/>
       <display value="Levovist"/>
-      <definition value="Levovist® ultrasonic contrast agent produced by Schering AG"/>
+      <definition value="Levovist&#174; ultrasonic contrast agent produced by Schering AG"/>
     </concept>
     <concept>
       <code value="125905"/>
       <display value="Sonazoid"/>
-      <definition value="Sonazoid™ ultrasonic contrast agent produced by Daiichi Pharmaceutical / General Electric"/>
+      <definition value="Sonazoid&#153; ultrasonic contrast agent produced by Daiichi Pharmaceutical / General Electric"/>
     </concept>
     <concept>
       <code value="125906"/>
       <display value="SonoVue"/>
-      <definition value="SonoVue™ ultrasonic contrast agent produced by Bracco Diagnostics"/>
+      <definition value="SonoVue&#153; ultrasonic contrast agent produced by Bracco Diagnostics"/>
     </concept>
     <concept>
       <code value="125907"/>
       <display value="Targestar-B"/>
-      <definition value="Targestar™-B ultrasonic contrast agent produced by Targeson LLC"/>
+      <definition value="Targestar&#153;-B ultrasonic contrast agent produced by Targeson LLC"/>
     </concept>
     <concept>
       <code value="125908"/>
       <display value="Targestar-P"/>
-      <definition value="Targestar™-P ultrasonic contrast agent produced by Targeson LLC"/>
+      <definition value="Targestar&#153;-P ultrasonic contrast agent produced by Targeson LLC"/>
     </concept>
     <concept>
       <code value="126000"/>
@@ -16460,12 +16470,12 @@
     <concept>
       <code value="126037"/>
       <display value="Standardized Added Metabolic Activity (SAM)"/>
-      <definition value="A background-corrected, partial volume independent version of TLG. SAM is calculated by drawing a volume of interest (VOI1) around the tumour and a larger VOI (VOI2) around VOI1. Subtracting the background activity in VOI2-VOI1 from VOI1 yields SAM. See Mertens et al. &quot;Standardized added metabolic activity (SAM): a partial volume independent marker of total lesion glycolysis in liver metastases&quot;. Eur J Nucl Med Mol Imaging (2012) 39:1441–1448"/>
+      <definition value="A background-corrected, partial volume independent version of TLG. SAM is calculated by drawing a volume of interest (VOI1) around the tumour and a larger VOI (VOI2) around VOI1. Subtracting the background activity in VOI2-VOI1 from VOI1 yields SAM. See Mertens et al. &quot;Standardized added metabolic activity (SAM): a partial volume independent marker of total lesion glycolysis in liver metastases&quot;. Eur J Nucl Med Mol Imaging (2012) 39:1441-1448"/>
     </concept>
     <concept>
       <code value="126038"/>
       <display value="Standardized Added Metabolic Activity (SAM) Background"/>
-      <definition value="The background value (VOI2-VOI1) used to calculate Standardized Added Metabolic Activity (SAM). SAM is calculated by drawing a volume of interest (VOI1) around the tumour and a larger VOI (VOI2) around VOI1. Subtracting the background activity in VOI2-VOI1 from VOI1 yields SAM. See Mertens et al. &quot;Standardized added metabolic activity (SAM): a partial volume independent marker of total lesion glycolysis in liver metastases&quot;. Eur J Nucl Med Mol Imaging (2012) 39:1441–1448"/>
+      <definition value="The background value (VOI2-VOI1) used to calculate Standardized Added Metabolic Activity (SAM). SAM is calculated by drawing a volume of interest (VOI1) around the tumour and a larger VOI (VOI2) around VOI1. Subtracting the background activity in VOI2-VOI1 from VOI1 yields SAM. See Mertens et al. &quot;Standardized added metabolic activity (SAM): a partial volume independent marker of total lesion glycolysis in liver metastases&quot;. Eur J Nucl Med Mol Imaging (2012) 39:1441-1448"/>
     </concept>
     <concept>
       <code value="126039"/>
@@ -16540,7 +16550,7 @@
     <concept>
       <code value="126071"/>
       <display value="Protocol Time Point Identifier"/>
-      <definition value="An identifier of a specific time point in a continuum, which is unique within an appropriate local context (such as an entire organization, system or treatment protocol), which identifies the time point “slot” within a treatment protocol using the same value for all patients in the protocol"/>
+      <definition value="An identifier of a specific time point in a continuum, which is unique within an appropriate local context (such as an entire organization, system or treatment protocol), which identifies the time point &quot;slot&quot; within a treatment protocol using the same value for all patients in the protocol"/>
     </concept>
     <concept>
       <code value="126072"/>
@@ -16579,7 +16589,7 @@
       </extension>
       <code value="126081"/>
       <display value="RECIST 1.1"/>
-      <definition value="Response Evaluation Criteria in Solid Tumors Version 1.1. See Eisenhauer et al. &quot;New Response Evaluation Criteria in Solid Tumours: Revised RECIST Guideline (version 1.1).&quot; European Journal of Cancer 45, no. 2 (n.d.): 228–47. doi:10.1016/j.ejca.2008.10.026."/>
+      <definition value="Response Evaluation Criteria in Solid Tumors Version 1.1. See Eisenhauer et al. &quot;New Response Evaluation Criteria in Solid Tumours: Revised RECIST Guideline (version 1.1).&quot; European Journal of Cancer 45, no. 2 (n.d.): 228-47. doi:10.1016/j.ejca.2008.10.026."/>
     </concept>
     <concept>
       <code value="126100"/>
@@ -16644,52 +16654,52 @@
     <concept>
       <code value="126312"/>
       <display value="Ktrans"/>
-      <definition value="Ktrans, the volume transfer constant of a tracer diffusion kinetic model, specifically the volume transfer constant between blood plasma and extravascular extracellular space (EES) See Tofts et al, &quot;Estimating Kinetic Parameters From Dynamic Contrast-Enhanced T1-Weighted MRI of a Diffusable Tracer: Standardized Quantities and Symbols&quot;, Journal of Magnetic Resonance Imaging, vol. 10, pp. 223–232, 1999"/>
+      <definition value="Ktrans, the volume transfer constant of a tracer diffusion kinetic model, specifically the volume transfer constant between blood plasma and extravascular extracellular space (EES) See Tofts et al, &quot;Estimating Kinetic Parameters From Dynamic Contrast-Enhanced T1-Weighted MRI of a Diffusable Tracer: Standardized Quantities and Symbols&quot;, Journal of Magnetic Resonance Imaging, vol. 10, pp. 223-232, 1999"/>
     </concept>
     <concept>
       <code value="126313"/>
       <display value="kep"/>
-      <definition value="kep, the rate constant between extravascular extracellular space (EES) and blood plasma See Tofts et al, &quot;Estimating Kinetic Parameters From Dynamic Contrast-Enhanced T1-Weighted MRI of a Diffusable Tracer: Standardized Quantities and Symbols&quot;, Journal of Magnetic Resonance Imaging, vol. 10, pp. 223–232, 1999"/>
+      <definition value="kep, the rate constant between extravascular extracellular space (EES) and blood plasma See Tofts et al, &quot;Estimating Kinetic Parameters From Dynamic Contrast-Enhanced T1-Weighted MRI of a Diffusable Tracer: Standardized Quantities and Symbols&quot;, Journal of Magnetic Resonance Imaging, vol. 10, pp. 223-232, 1999"/>
     </concept>
     <concept>
       <code value="126314"/>
       <display value="ve"/>
-      <definition value="ve, the fractional (not absolute) volume of extravascular extracellular space (EES) per unit volume of tissue See Tofts et al, &quot;Estimating Kinetic Parameters From Dynamic Contrast-Enhanced T1-Weighted MRI of a Diffusable Tracer: Standardized Quantities and Symbols&quot;, Journal of Magnetic Resonance Imaging, vol. 10, pp. 223–232, 1999"/>
+      <definition value="ve, the fractional (not absolute) volume of extravascular extracellular space (EES) per unit volume of tissue See Tofts et al, &quot;Estimating Kinetic Parameters From Dynamic Contrast-Enhanced T1-Weighted MRI of a Diffusable Tracer: Standardized Quantities and Symbols&quot;, Journal of Magnetic Resonance Imaging, vol. 10, pp. 223-232, 1999"/>
     </concept>
     <concept>
       <code value="126320"/>
       <display value="IAUC"/>
-      <definition value="The intial area under the contrast agent concentration–time curve"/>
+      <definition value="The intial area under the contrast agent concentration-time curve"/>
     </concept>
     <concept>
       <code value="126321"/>
       <display value="IAUC60"/>
-      <definition value="The intial area under the contrast agent concentration–time curve at 60 seconds after the onset time"/>
+      <definition value="The intial area under the contrast agent concentration-time curve at 60 seconds after the onset time"/>
     </concept>
     <concept>
       <code value="126322"/>
       <display value="IAUC90"/>
-      <definition value="The intial area under the contrast agent concentration–time curve at 90 seconds after the onset time"/>
+      <definition value="The intial area under the contrast agent concentration-time curve at 90 seconds after the onset time"/>
     </concept>
     <concept>
       <code value="126330"/>
       <display value="tau_m"/>
-      <definition value="τm. The mean intracellular water lifetime (τi). Used in the Shutter-Speed Model (SSM) of tracer kinetics"/>
+      <definition value="&#964;m. The mean intracellular water lifetime (&#964;i). Used in the Shutter-Speed Model (SSM) of tracer kinetics"/>
     </concept>
     <concept>
       <code value="126331"/>
       <display value="vp"/>
-      <definition value="vp. The fractional (not absolute) blood plasma volume per unit volume of tissue. See Tofts et al, &quot;Estimating Kinetic Parameters From Dynamic Contrast-Enhanced T1-Weighted MRI of a Diffusable Tracer: Standardized Quantities and Symbols&quot;, Journal of Magnetic Resonance Imaging, vol. 10, pp. 223–232, 1999"/>
+      <definition value="vp. The fractional (not absolute) blood plasma volume per unit volume of tissue. See Tofts et al, &quot;Estimating Kinetic Parameters From Dynamic Contrast-Enhanced T1-Weighted MRI of a Diffusable Tracer: Standardized Quantities and Symbols&quot;, Journal of Magnetic Resonance Imaging, vol. 10, pp. 223-232, 1999"/>
     </concept>
     <concept>
       <code value="126340"/>
       <display value="Standard Tofts Model"/>
-      <definition value="A tracer diffusion kinetic model in which the permeability is assumed to be isodirectional. See P. Tofts, &quot;Modeling tracer kinetics in dynamic Gd-DTPA MR imaging&quot;, Journal of Magnetic Resonance Imaging, vol. 7, pp. 91–101, 1997"/>
+      <definition value="A tracer diffusion kinetic model in which the permeability is assumed to be isodirectional. See P. Tofts, &quot;Modeling tracer kinetics in dynamic Gd-DTPA MR imaging&quot;, Journal of Magnetic Resonance Imaging, vol. 7, pp. 91-101, 1997"/>
     </concept>
     <concept>
       <code value="126341"/>
       <display value="Extended Tofts Model"/>
-      <definition value="A tracer diffusion kinetic model in which the permeability is not assumed to be isodirectional, and which includes the contribution of tracer in the blood plasma to the total tissue concentration. See P. Tofts, &quot;Modeling tracer kinetics in dynamic Gd-DTPA MR imaging&quot;, Journal of Magnetic Resonance Imaging, vol. 7, pp. 91–101, 1997"/>
+      <definition value="A tracer diffusion kinetic model in which the permeability is not assumed to be isodirectional, and which includes the contribution of tracer in the blood plasma to the total tissue concentration. See P. Tofts, &quot;Modeling tracer kinetics in dynamic Gd-DTPA MR imaging&quot;, Journal of Magnetic Resonance Imaging, vol. 7, pp. 91-101, 1997"/>
     </concept>
     <concept>
       <code value="126342"/>
@@ -16699,12 +16709,12 @@
     <concept>
       <code value="126343"/>
       <display value="First Pass Leakage Profile (FPLP)"/>
-      <definition value="A tracer diffusion kinetic model that accounts for the tumor leakage profile during the first pass of contrast. See Li, Ka-Loh, Xiao Ping Zhu, John Waterton, and Alan Jackson. &quot;Improved 3D Quantitative Mapping of Blood Volume and Endothelial Permeability in Brain Tumors.&quot; Journal of Magnetic Resonance Imaging 12, no. 2 (2000): 347–357. doi:​10.1002/​1522-2586(200008)12:​2&lt;347::AID-JMRI19&gt;​3.0.CO;2-7"/>
+      <definition value="A tracer diffusion kinetic model that accounts for the tumor leakage profile during the first pass of contrast. See Li, Ka-Loh, Xiao Ping Zhu, John Waterton, and Alan Jackson. &quot;Improved 3D Quantitative Mapping of Blood Volume and Endothelial Permeability in Brain Tumors.&quot; Journal of Magnetic Resonance Imaging 12, no. 2 (2000): 347-357. doi:10.1002/1522-2586(200008)12:2&lt;347::AID-JMRI19&gt;3.0.CO;2-7"/>
     </concept>
     <concept>
       <code value="126344"/>
       <display value="Shutter-Speed Model (SSM)"/>
-      <definition value="A tracer diffusion kinetic model that does not assume that intercompartmental water molecule exchange is infinitely fast. See Li, Xin, Wei Huang, Thomas E. Yankeelov, Alina Tudorica, William D. Rooney, and Charles S. Springer. “Shutter-Speed Analysis of Contrast Reagent Bolus-Tracking Data: Preliminary Observations in Benign and Malignant Breast Disease.” Magnetic Resonance in Medicine 53, no. 3 (2005): 724–29. doi:10.1002/mrm.20405"/>
+      <definition value="A tracer diffusion kinetic model that does not assume that intercompartmental water molecule exchange is infinitely fast. See Li, Xin, Wei Huang, Thomas E. Yankeelov, Alina Tudorica, William D. Rooney, and Charles S. Springer. &quot;Shutter-Speed Analysis of Contrast Reagent Bolus-Tracking Data: Preliminary Observations in Benign and Malignant Breast Disease.&quot; Magnetic Resonance in Medicine 53, no. 3 (2005): 724-29. doi:10.1002/mrm.20405"/>
     </concept>
     <concept>
       <code value="126350"/>
@@ -16749,7 +16759,7 @@
     <concept>
       <code value="126364"/>
       <display value="Blind Estimation of AIF"/>
-      <definition value="A data-driven blind source separation (BSS) algorithm that estimates AIF from individuals without any presumed AIF model and initialization. See Lin, Yu-Chun, Tsung-Han Chan, Chong-Yung Chi, Shu-Hang Ng, Hao-Li Liu, Kuo-Chen Wei, Yau-Yau Wai, Chun-Chieh Wang, and Jiun-Jie Wang. &quot;Blind Estimation of the Arterial Input Function in Dynamic Contrast-Enhanced MRI Using Purity Maximization.&quot; Magnetic Resonance in Medicine 68, no. 5 (November 1, 2012): 1439–49. doi:10.1002/mrm.24144"/>
+      <definition value="A data-driven blind source separation (BSS) algorithm that estimates AIF from individuals without any presumed AIF model and initialization. See Lin, Yu-Chun, Tsung-Han Chan, Chong-Yung Chi, Shu-Hang Ng, Hao-Li Liu, Kuo-Chen Wei, Yau-Yau Wai, Chun-Chieh Wang, and Jiun-Jie Wang. &quot;Blind Estimation of the Arterial Input Function in Dynamic Contrast-Enhanced MRI Using Purity Maximization.&quot; Magnetic Resonance in Medicine 68, no. 5 (November 1, 2012): 1439-49. doi:10.1002/mrm.24144"/>
     </concept>
     <concept>
       <code value="126370"/>
@@ -16779,12 +16789,12 @@
     <concept>
       <code value="126375"/>
       <display value="Maximum Slope"/>
-      <definition value="The maximum rate of signal intensity change within a measured region of a time-activity curve. See Boonsirikamchai, Piyaporn, Harmeet Kaur, Deborah A. Kuban, Edward Jackson, Ping Hou, and Haesun Choi. “Use of Maximum Slope Images Generated From Dynamic Contrast-Enhanced MRI to Detect Locally Recurrent Prostate Carcinoma After Prostatectomy: A Practical Approach.” American Journal of Roentgenology 198, no. 3 (March 1, 2012): W228–W236. doi:10.2214/AJR.10.6387"/>
+      <definition value="The maximum rate of signal intensity change within a measured region of a time-activity curve. See Boonsirikamchai, Piyaporn, Harmeet Kaur, Deborah A. Kuban, Edward Jackson, Ping Hou, and Haesun Choi. &quot;Use of Maximum Slope Images Generated From Dynamic Contrast-Enhanced MRI to Detect Locally Recurrent Prostate Carcinoma After Prostatectomy: A Practical Approach.&quot; American Journal of Roentgenology 198, no. 3 (March 1, 2012): W228-W236. doi:10.2214/AJR.10.6387"/>
     </concept>
     <concept>
       <code value="126376"/>
       <display value="Maximum Difference"/>
-      <definition value="The maximum degree of signal intensity change within a measured region of a time-activity curve. See Boonsirikamchai, Piyaporn, Harmeet Kaur, Deborah A. Kuban, Edward Jackson, Ping Hou, and Haesun Choi. “Use of Maximum Slope Images Generated From Dynamic Contrast-Enhanced MRI to Detect Locally Recurrent Prostate Carcinoma After Prostatectomy: A Practical Approach.” American Journal of Roentgenology 198, no. 3 (March 1, 2012): W228–W236. doi:10.2214/AJR.10.6387"/>
+      <definition value="The maximum degree of signal intensity change within a measured region of a time-activity curve. See Boonsirikamchai, Piyaporn, Harmeet Kaur, Deborah A. Kuban, Edward Jackson, Ping Hou, and Haesun Choi. &quot;Use of Maximum Slope Images Generated From Dynamic Contrast-Enhanced MRI to Detect Locally Recurrent Prostate Carcinoma After Prostatectomy: A Practical Approach.&quot; American Journal of Roentgenology 198, no. 3 (March 1, 2012): W228-W236. doi:10.2214/AJR.10.6387"/>
     </concept>
     <concept>
       <code value="126377"/>
@@ -16804,12 +16814,12 @@
     <concept>
       <code value="126391"/>
       <display value="Regional Blood Volume"/>
-      <definition value="The volume of blood perfusing a region as as volume per mass"/>
+      <definition value="The volume of blood perfusing a region as volume per mass"/>
     </concept>
     <concept>
       <code value="126392"/>
       <display value="Oxygen Extraction Fraction"/>
-      <definition value="The percent of the oxygen removed from the blood by tissue during its passage through the capillary network. For example, as measured by blood oxygenation level dependent (BOLD) MR. See He, Xiang, and Dmitriy A. Yablonskiy. “Quantitative BOLD: Mapping of Human Cerebral Deoxygenated Blood Volume and Oxygen Extraction Fraction: Default State.” Magnetic Resonance in Medicine 57, no. 1 (2007): 115–26"/>
+      <definition value="The percent of the oxygen removed from the blood by tissue during its passage through the capillary network. For example, as measured by blood oxygenation level dependent (BOLD) MR. See He, Xiang, and Dmitriy A. Yablonskiy. &quot;Quantitative BOLD: Mapping of Human Cerebral Deoxygenated Blood Volume and Oxygen Extraction Fraction: Default State.&quot; Magnetic Resonance in Medicine 57, no. 1 (2007): 115-26"/>
     </concept>
     <concept>
       <code value="126393"/>
@@ -16824,7 +16834,7 @@
     <concept>
       <code value="126400"/>
       <display value="Standardized Uptake Value"/>
-      <definition value="A ratio of locally measured radioactivity concentration versus the injected radioactivity distibuted evenly throughout the whole body. This general concept encompasses all specific methods of calculating the whole body volume of distribution, such as using body weight, lean body mass, body surface area, etc"/>
+      <definition value="A ratio of locally measured radioactivity concentration versus the injected radioactivity distributed evenly throughout the whole body. This general concept encompasses all specific methods of calculating the whole body volume of distribution, such as using body weight, lean body mass, body surface area, etc"/>
     </concept>
     <concept>
       <code value="126401"/>
@@ -16884,7 +16894,7 @@
     <concept>
       <code value="126503"/>
       <display value="Flubatine F^18^"/>
-      <definition value="A nicotinic α4β2 receptor (nAChR) PET radiotracer"/>
+      <definition value="A nicotinic &#945;4&#946;2 receptor (nAChR) PET radiotracer"/>
     </concept>
     <concept>
       <code value="126510"/>

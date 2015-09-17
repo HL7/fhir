@@ -11,14 +11,14 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/"/>
     </telecom>
   </contact>
-  <description value="goal priority - indicates the level of importance associated with reaching or sustaining a goal"/>
+  <description value="Indicates the level of importance associated with reaching or sustaining a goal."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/goal-priority"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="high"/>
       <display value="high"/>
-      <definition value="Indicates that the goal is of considerable importance and should be a primary focus of care delivery"/>
+      <definition value="Indicates that the goal is of considerable importance and should be a primary focus of care delivery."/>
     </concept>
     <concept>
       <code value="medium"/>

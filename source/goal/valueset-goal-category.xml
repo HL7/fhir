@@ -10,19 +10,19 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/"/>
     </telecom>
   </contact>
-  <description value="goal category - example codes for grouping goals for filtering or presentation"/>
+  <description value="Example codes for grouping goals for filtering or presentation."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/goal-category"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="dietary"/>
       <display value="dietary"/>
-      <definition value="Goals related to the consumption of food and/or beverages"/>
+      <definition value="Goals related to the consumption of food and/or beverages."/>
     </concept>
     <concept>
       <code value="safety"/>
       <display value="safety"/>
-      <definition value="Goals related to the personal protexction of the subject."/>
+      <definition value="Goals related to the personal protection of the subject."/>
     </concept>
     <concept>
       <code value="behavioral"/>

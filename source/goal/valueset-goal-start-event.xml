@@ -9,8 +9,8 @@
 			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
 		</telecom>
 	</contact>
-	<description value="Identifies types of events that might trigger the start of a goal"/>
-	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<description value="Identifies types of events that might trigger the start of a goal."/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
 	<compose>
     <include>
       <system value="http://snomed.info/sct"/>

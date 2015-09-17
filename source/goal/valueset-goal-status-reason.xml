@@ -17,12 +17,12 @@
 		<concept>
 			<code value="surgery"/>
 			<display value="surgery"/>
-			<definition value="Goal suspended or ended because of a surgical procedure"/>
+			<definition value="Goal suspended or ended because of a surgical procedure."/>
 		</concept>
 		<concept>
 			<code value="life-event"/>
 			<display value="life event"/>
-			<definition value="Goal suspended or ended because of a significant life event (marital change, bereavement, etc.)"/>
+			<definition value="Goal suspended or ended because of a significant life event (marital change, bereavement, etc.)."/>
 		</concept>
 		<concept>
 			<code value="replaced"/>
