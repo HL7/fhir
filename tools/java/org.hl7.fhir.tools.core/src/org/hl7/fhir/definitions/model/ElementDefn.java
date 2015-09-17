@@ -76,6 +76,7 @@ public class ElementDefn {
 	private String profileName; // only in a profile, for slicing
 	private List<String> discriminator = new ArrayList<String>(); // when slicing
   private Type example;
+  private Map<Integer, Type> otherExamples = new HashMap<Integer, Type>();
   private Type defaultValue;
   private String meaningWhenMissing;
   private Type fixed; // only in a profile
@@ -868,6 +869,10 @@ public class ElementDefn {
 
   public void setPath(String path) {
     this.path = path;
+  }
+
+  public Map<Integer, Type> getOtherExamples() {
+    return otherExamples;
   }	
   
 }

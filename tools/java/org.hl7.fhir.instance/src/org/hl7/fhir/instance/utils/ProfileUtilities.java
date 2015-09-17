@@ -1226,7 +1226,7 @@ public class ProfileUtilities {
     StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
     List<ElementDefinition> children = getChildren(all, element);
-    if (!snapshot && extensions != null && extensions != (s.equals("extension") || s.equals("modifierExtension")) && children.isEmpty())
+    if (!snapshot && extensions != null && extensions != (s.equals("extension") || s.equals("modifierExtension")))
       return;
 
     if (!onlyInformationIsMapping(all, element)) {

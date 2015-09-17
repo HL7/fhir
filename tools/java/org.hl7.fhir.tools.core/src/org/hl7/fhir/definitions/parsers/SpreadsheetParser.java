@@ -38,6 +38,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -84,6 +85,7 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Base64BinaryType;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
+import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -93,10 +95,15 @@ import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.IdType;
+import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.OidType;
+import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.PositiveIntType;
+import org.hl7.fhir.instance.model.Quantity;
+import org.hl7.fhir.instance.model.Quantity.QuantityComparator;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -111,6 +118,7 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
+import org.hl7.fhir.instance.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
@@ -1789,6 +1797,7 @@ public class SpreadsheetParser {
     }
 		e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
 		e.setExample(processValue(sheet, row, "Example", e));
+		processOtherExamples(e, sheet, row);		
 		e.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
 		e.setDisplayHint(sheet.getColumn(row, "Display Hint"));
 		if (isProfile) {
@@ -1802,7 +1811,15 @@ public class SpreadsheetParser {
 		return e;
 	}
 
-	private String checkW5(String value, String path) throws Exception {
+	private void processOtherExamples(ElementDefn e, Sheet sheet, int row) throws Exception {
+	  for (int i = 1; i <= 10; i++) {
+	    String s = sheet.getColumn(row, "Example "+Integer.toString(i));
+	    if (!Utilities.noString(s))
+       e.getOtherExamples().put(i, processValue(sheet, row, "Example "+Integer.toString(i), e));
+	  }    
+  }
+
+  private String checkW5(String value, String path) throws Exception {
     if (Utilities.noString(value))
       return null;
     if (path.contains(".")) {
@@ -1829,8 +1846,16 @@ public class SpreadsheetParser {
 	  if (e.getTypes().size() != 1) 
       throw new Exception("Unable to process "+column+" unless a single type is specified (types = "+e.typeCode()+") "+getLocation(row));
     String type = e.typeCode();
-    if (definitions != null && definitions.getConstraints().containsKey(type))
-      type = definitions.getConstraints().get(type).getBaseType();
+    if (definitions != null) {
+      if (definitions.getConstraints().containsKey(type))
+        type = definitions.getConstraints().get(type).getBaseType();
+    } else {
+      StructureDefinition sd = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+type);
+      if (sd != null && sd.hasConstrainedType())
+        type = sd.getConstrainedType();
+      if (type.equals("SimpleQuantity"))
+        type = "Quantity";
+    }
     
     if (source.startsWith("{")) {
       JsonParser json = new JsonParser();
@@ -1839,6 +1864,9 @@ public class SpreadsheetParser {
       XmlParser xml = new XmlParser();
       return xml.parseType(source, type);
     } else {
+      if (source.startsWith("\"") && source.endsWith("\""))
+        source = source.substring(1, source.length()-1);
+      
       
       if (type.equals("string"))
         return new StringType(source);
@@ -1871,8 +1899,70 @@ public class SpreadsheetParser {
       if (type.equals("uuid"))
         return new UuidType(source); 
       if (type.equals("id"))
-        return new IdType(source); 
-      throw new Exception("Unable to process primitive value provided for "+column+" - unhandled type "+type+" @ " +getLocation(row));
+        return new IdType(source);
+      if (type.startsWith("Reference(")) {
+        Reference r = new Reference();
+        r.setReference(source);
+        return r;
+      }
+      if (type.equals("Period")) {
+        if (source.contains("->")) {
+          String[] parts = source.split("\\-\\>");
+          Period p = new Period();
+          p.setStartElement(new DateTimeType(parts[0].trim()));
+          if (parts.length > 1)
+            p.setEndElement(new DateTimeType(parts[1].trim()));
+          return p;
+              
+        } else 
+          throw new Exception("format not understood parsing "+source+" into a period");
+      }
+      if (type.equals("CodeableConcept")) {
+        CodeableConcept cc = new CodeableConcept();
+        if (source.contains(":")) {
+          String[] parts = source.split("\\:");
+          String system = "";
+          if (parts[0].equalsIgnoreCase("SCT"))
+            system = "http://snomed.info/sct";
+          else if (parts[0].equalsIgnoreCase("LOINC"))
+            system = "http://loinc.org";
+          else if (parts[0].equalsIgnoreCase("AMTv2"))
+            system = "http://nehta.gov.au/amtv2";
+          else 
+            system = "http://hl7.org/fhir/"+parts[0];
+          String code = parts[1];
+          String display = parts.length > 2 ? parts[2] : null;
+          cc.addCoding().setSystem(system).setCode(code).setDisplay(display);
+        } else
+          throw new Exception("format not understood parsing "+source+" into a codeable concept");
+        return cc;
+      }
+      if (type.equals("Identifier")) {
+        Identifier id = new Identifier();
+        id.setSystem("urn:ietf:rfc:3986");
+        id.setValue(source);
+        return id;
+      }
+      if (type.equals("Quantity")) {
+        int s = 0;
+        if (source.startsWith("<=") || source.startsWith("=>")) 
+          s = 2;
+        else if (source.startsWith("<") || source.startsWith(">")) 
+          s = 1;
+        int i = s;
+        while (i < source.length() && Character.isDigit(source.charAt(i)))
+          i++;
+        Quantity q = new Quantity();
+        if (s > 0)
+          q.setComparator(QuantityComparator.fromCode(source.substring(0, s)));
+        if (i > s) 
+          q.setValue(new BigDecimal(source.substring(s, i)));
+        if (i < source.length()) 
+          q.setUnit(source.substring(i).trim());
+        return q;
+      }
+        
+      throw new Exception("Unable to process primitive value '"+source+"' provided for "+column+" - unhandled type "+type+" @ " +getLocation(row));
     }
   }
 
