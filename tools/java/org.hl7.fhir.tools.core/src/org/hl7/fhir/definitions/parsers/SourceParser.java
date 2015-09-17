@@ -139,9 +139,11 @@ public class SourceParser {
   private final Map<String, StructureDefinition> extensionDefinitions;
   private final PageProcessor page;
   private final Set<String> igNames = new HashSet<String>();
+  private boolean forPublication;
 
   public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, BuildWorkerContext context, Calendar genDate, Map<String, StructureDefinition> extensionDefinitions, PageProcessor page) {
     this.logger = logger;
+    this.forPublication = forPublication;
     this.registry = new BindingNameRegistry(root, forPublication);
     this.definitions = definitions;
     this.version = version;
@@ -423,7 +425,7 @@ public class SourceParser {
     if (root.getNodeName().equals("igs")) {
       Element ig = XMLUtil.getFirstChild(root);
       while (ig != null) {
-        if (ig.getNodeName().equals("ig")) {
+        if (ig.getNodeName().equals("ig") && (!ig.hasAttribute("local") || isOkLocally(ig.getAttribute("code")))) {
           ImplementationGuideDefn igg = new ImplementationGuideDefn(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("brief"), 
               ig.getAttribute("source").replace('\\', File.separatorChar), "1".equals(ig.getAttribute("review")),
               ig.getAttribute("ballot"), ig.getAttribute("fmm"), ig.getAttribute("section"), "yes".equals(ig.getAttribute("core")), page.getValidationErrors());
@@ -433,6 +435,18 @@ public class SourceParser {
         ig = XMLUtil.getNextSibling(ig);
       }
     }
+  }
+
+
+  private boolean isOkLocally(String code) {
+    if (forPublication)
+      return false;
+    String inifile = Utilities.path(rootDir, "local.ini");
+    if (!new File(inifile).exists())
+      return false;
+    IniFile ini = new IniFile(inifile);
+    boolean ok = "true".equals(ini.getStringProperty("igs", code));
+    return ok;
   }
 
 
