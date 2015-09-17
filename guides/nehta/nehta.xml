@@ -11,9 +11,11 @@
     <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="colorectal-spreadsheet.xml"/>
     </extension>
+<!--
     <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="gastric-cancer-spreadsheet.xml"/>
     </extension>
+   -->
     <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="event-summary-spreadsheet.xml"/>
     </extension>
@@ -32,6 +34,12 @@
     <source value="nehta.html"/>
     <name value="Home Page"/>
     <kind value="page"/>
+    <page>
+      <source value="nehta-colorectal.html"/>
+      <name value="Colorectal Report"/>
+      <kind value="page"/>
+      <format value="generated"/>
+    </page>
     <page>
       <source value="registry.html"/>
       <name value="Registry"/>

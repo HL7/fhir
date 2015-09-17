@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="example-extensional"/>
+  <id value="example-intensional"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
@@ -13,13 +13,13 @@
       <p>Developed by: FHIR project team (example)</p>
       <p>Published for testing on 13-June 2012</p>
       <p>This value set includes all the LOINC codes in LOINC Part Concept Cholesterol | Bld-Ser-Plas (LP43571-6), except for 5932-9 Cholesterol [Presence] in Blood by Test strip</p>
-      <p>This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.</p>
+      <p>This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</p>
     </div>
   </text>
 <!--   
 	  for this example, we use a real URI, since this example does have a canonical address
 		at which it's posted. Alternatively, We could have used an OID, or a UUID   -->
-  <url value="http://hl7.org/fhir/ValueSet/example-extensional"/>
+  <url value="http://hl7.org/fhir/ValueSet/example-intensional"/>
 <!--   an imaginary identifier. This is a non FHIR identifier - might be used in a 
 	  v2 context (though you always need to translate namespaces for v2)   -->
   <identifier>
@@ -44,7 +44,7 @@
   </contact>
   <date value="2015-06-22"/>
   <description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/>
-  <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
 <!--   
 	  in extensional value sets, it's often done
     not to specify a locked date, or a version of the

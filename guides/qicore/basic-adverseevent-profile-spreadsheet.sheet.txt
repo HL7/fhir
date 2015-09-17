@@ -115,13 +115,18 @@
   QDM Mapping = negation rationale
 
  -- Row 14 -----------------------------------
+  Element = Basic.code
+  Type = CodeableConcept
+  Value = { \"coding\" : [{ \"system\" : \"http://hl7.org/fhir/basic-resource-type\", \"code\" : \"advevent\" }]}
+
+ -- Row 15 -----------------------------------
   Element = Basic.subject
   Must Support = Y
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
   Short Label = The person experiencing the adverse event
   Definition = The person who has the adverse event
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Basic.author
   Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} |Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
 

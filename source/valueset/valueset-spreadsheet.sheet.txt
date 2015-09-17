@@ -788,9 +788,9 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = Intensional
-  Identity = example-intensional
-  Description = ValueSet Example using enumeration of codes (intensional)
+  Name = Extensional
+  Identity = example-extensional
+  Description = ValueSet Example using enumeration of codes (extensional)
   Filename = valueset-example.xml
 
  -- Row 2 -----------------------------------
@@ -800,10 +800,10 @@
   Filename = valueset-example-inline.xml
 
  -- Row 3 -----------------------------------
-  Name = Extensional
-  Identity = example-extensional
-  Description = ValueSet Example using code filter (extensional)
-  Filename = valueset-example-extensional.xml
+  Name = Intensional
+  Identity = example-intensional
+  Description = ValueSet Example using code filter (intensional)
+  Filename = valueset-example-intensional.xml
 
  -- Row 4 -----------------------------------
   Name = Expansion

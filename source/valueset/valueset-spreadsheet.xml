@@ -9,19 +9,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-07-23T04:12:48Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2015-09-17T01:01:49Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16440</WindowHeight>
-  <WindowWidth>10005</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <TabRatio>780</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <TabRatio>893</TabRatio>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6577,12 +6577,12 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">Intensional</Data><NamedCell
+    <Cell ss:StyleID="s144"><Data ss:Type="String">Extensional</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ValueSet Example using enumeration of codes (intensional)</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ValueSet Example using enumeration of codes (extensional)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">example-intensional</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">example-extensional</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">valueset-example.xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6604,11 +6604,11 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">Extensional</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">Intensional</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ValueSet Example using code filter (extensional)</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">example-extensional</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">valueset-example-extensional.xml</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ValueSet Example using code filter (intensional)</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">example-intensional</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">valueset-example-intensional.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s145"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -6954,6 +6954,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6973,7 +6974,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
