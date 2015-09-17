@@ -39,6 +39,7 @@ import java.io.Writer;
 import java.util.*;
 
 import org.hl7.fhir.definitions.model.*;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
@@ -508,7 +509,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
     }
 
     @Override
-    public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
+    public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
         return false;
     }
 

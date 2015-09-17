@@ -150,7 +150,7 @@ public class EmberModel {
                     block.ln(getFieldDefinition(fieldName, m.typify("number")));
                 } else if (elementType.equals("instant") || elementType.equals("date") || elementType.equals("dateTime") || elementType.equals("time")) {
                     block.ln(getFieldDefinition(fieldName, m.typify("date")));
-                } else if (elementType.equals("string") || elementType.equals("uri") || elementType.equals("code") || elementType.equals("id") || elementType.equals("oid") || elementType.equals("xhtml")) {
+                } else if (elementType.equals("string") || elementType.equals("uri") || elementType.equals("code") || elementType.equals("id") || elementType.equals("oid") || elementType.equals("xhtml") || elementType.equals("markdown")) {
                     if (!fieldName.equals("Id")) {
                         block.ln(getFieldDefinition(fieldName, m.typify("string")));
                     }
@@ -158,7 +158,7 @@ public class EmberModel {
                     block.ln(getFieldDefinition(fieldName, m.typify("Reference")));
                 } else if (elementType.equals("Resource")) {
                     block.ln(getFieldDefinition(fieldName, m.typify("interface{}")));
-                } else if (elementType.equals("Age") || elementType.equals("Count") || elementType.equals("Duration") || elementType.equals("Money")) {
+                } else if (elementType.equals("Age") || elementType.equals("Count") || elementType.equals("Duration") || elementType.equals("Money") || elementType.equals("Distance")|| elementType.equals("SimpleQuantity")) {
                     block.ln(getFieldDefinition(fieldName, m.typify("Quantity")));
                 } else {
                     if (typeRef.isElementReference()) {

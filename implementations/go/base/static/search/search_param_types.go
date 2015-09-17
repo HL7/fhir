@@ -48,11 +48,9 @@ func (q *Query) Params() []SearchParam {
 			}
 		} else {
 			if strings.HasPrefix(param, "_") {
-				panic(UnsupportedError(fmt.Sprintf("special search parameter: %s", param)))
-			} else if strings.Contains(param, ".") {
-				panic(UnsupportedError("chained search parameters"))
+				panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", param)))
 			} else {
-				panic(InvalidSearchError(fmt.Sprintf("%s does not support search parameter: %s", q.Resource, param)))
+				panic(createInvalidSearchError("SEARCH_NONE", fmt.Sprintf("Error: no processable search found for %s search parameters \"%s\"", q.Resource, param)))
 			}
 		}
 	}
@@ -481,29 +479,33 @@ func findReferencedType(typeFromVal string, info SearchParamInfo) string {
 
 	if info.Modifier != "" {
 		if t != "" && t != info.Modifier {
-			panic(InvalidSearchError("reference modifier is " + info.Modifier + ", but type is " + t))
+			panic(createInvalidSearchError("MSG_PARAM_MODIFIER_INVALID", fmt.Sprintf("Parameter \"%s\" modifier is invalid", info.Name)))
 		}
 		t = info.Modifier
 	}
 
+	valid := false
 	if len(info.Targets) == 1 {
 		target := info.Targets[0]
 		if target != "Any" {
 			if t == "" {
 				t = target
-			} else if t != target {
-				panic(InvalidSearchError("target is " + target + ", but type is " + t))
 			}
+			valid = (t == target)
 		}
 	} else if len(info.Targets) > 0 {
-		valid := false
 		for _, target := range info.Targets {
 			if t == target {
 				valid = true
 			}
 		}
-		if !valid {
-			panic(InvalidSearchError("type " + t + " does not match any of the valid targets"))
+	}
+
+	if !valid {
+		if info.Modifier != "" {
+			panic(createInvalidSearchError("MSG_PARAM_MODIFIER_INVALID", fmt.Sprintf("Parameter \"%s\" modifier is invalid", info.Name)))
+		} else {
+			panic(createInvalidSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", info.Name)))
 		}
 	}
 

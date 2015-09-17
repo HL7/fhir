@@ -63,7 +63,7 @@ func (m *MongoSearcher) createParamObjects(resource string, params []SearchParam
 		case *OrParam:
 			results[i] = m.createOrQueryObject(resource, p)
 		default:
-			panic(InternalServerError("Unknown search type"))
+			panic(createInternalServerError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", p)))
 		}
 	}
 
@@ -75,7 +75,7 @@ func panicOnUnsupportedFeatures(p SearchParam) {
 	_, isDate := p.(*DateParam)
 	prefix := p.getInfo().Prefix
 	if prefix != "" && prefix != EQ && !isDate {
-		panic(UnsupportedError("search prefix: " + prefix))
+		panic(createUnsupportedSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", p.getInfo().Name)))
 	}
 
 	// No modifiers are supported except for resource types in reference parameters
@@ -83,24 +83,24 @@ func panicOnUnsupportedFeatures(p SearchParam) {
 	modifier := p.getInfo().Modifier
 	if modifier != "" {
 		if _, ok := SearchParameterDictionary[modifier]; !isRef || !ok {
-			panic(UnsupportedError("search modifier: :" + modifier))
+			panic(createUnsupportedSearchError("MSG_PARAM_MODIFIER_INVALID", fmt.Sprintf("Parameter \"%s\" modifier is invalid", p.getInfo().Name)))
 		}
 	}
 }
 
 func (m *MongoSearcher) createCompositeQueryObject(resource string, c *CompositeParam) bson.M {
-	panic(UnsupportedError("composite search parameters"))
+	panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", c.Name)))
 }
 
 func (m *MongoSearcher) createDateQueryObject(d *DateParam) bson.M {
 	single := func(p SearchParamPath) bson.M {
 		switch p.Type {
 		case "date", "dateTime", "instant":
-			return buildBSON(p.Path, dateSelector(d.Date, d.Prefix))
+			return buildBSON(p.Path, dateSelector(d))
 		case "Period":
-			return buildBSON(p.Path, periodSelector(d.Date, d.Prefix))
+			return buildBSON(p.Path, periodSelector(d))
 		case "Timing":
-			return buildBSON(p.Path+".event", dateSelector(d.Date, d.Prefix))
+			return buildBSON(p.Path+".event", dateSelector(d))
 		default:
 			return bson.M{}
 		}
@@ -115,32 +115,32 @@ func (m *MongoSearcher) createDateQueryObject(d *DateParam) bson.M {
 // 00:00:00.000 to 23:59:59.999, we currently only compare against 00:00:00.000 -- so some things
 // that should match, might not.
 // TODO: Fix this via more complex search criteria or by a different representation in the database.
-func dateSelector(date *Date, prefix Prefix) bson.M {
+func dateSelector(d *DateParam) bson.M {
 	var timeCriteria bson.M
-	switch prefix {
+	switch d.Prefix {
 	case EQ:
 		timeCriteria = bson.M{
-			"$gte": date.RangeLowIncl(),
-			"$lt":  date.RangeHighExcl(),
+			"$gte": d.Date.RangeLowIncl(),
+			"$lt":  d.Date.RangeHighExcl(),
 		}
 	case GT:
 		timeCriteria = bson.M{
-			"$gt": date.RangeLowIncl(),
+			"$gt": d.Date.RangeLowIncl(),
 		}
 	case LT:
 		timeCriteria = bson.M{
-			"$lt": date.RangeLowIncl(),
+			"$lt": d.Date.RangeLowIncl(),
 		}
 	case GE:
 		timeCriteria = bson.M{
-			"$gte": date.RangeLowIncl(),
+			"$gte": d.Date.RangeLowIncl(),
 		}
 	case LE:
 		timeCriteria = bson.M{
-			"$lt": date.RangeHighExcl(),
+			"$lt": d.Date.RangeHighExcl(),
 		}
 	default:
-		panic(UnsupportedError(fmt.Sprintf("search prefix: %s", prefix)))
+		panic(createUnsupportedSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", d.Name)))
 	}
 
 	return bson.M{"time": timeCriteria}
@@ -152,15 +152,15 @@ func dateSelector(date *Date, prefix Prefix) bson.M {
 // 00:00:00.000 to 23:59:59.999, we currently only compare against 00:00:00.000 -- so some things
 // that should match, might not.
 // TODO: Fix this via more complex search criteria or by a different representation in the database.
-func periodSelector(date *Date, prefix Prefix) bson.M {
-	switch prefix {
+func periodSelector(d *DateParam) bson.M {
+	switch d.Prefix {
 	case EQ:
 		return bson.M{
 			"start.time": bson.M{
-				"$gte": date.RangeLowIncl(),
+				"$gte": d.Date.RangeLowIncl(),
 			},
 			"end.time": bson.M{
-				"$lt": date.RangeHighExcl(),
+				"$lt": d.Date.RangeHighExcl(),
 			},
 		}
 	case GT:
@@ -168,7 +168,7 @@ func periodSelector(date *Date, prefix Prefix) bson.M {
 			"$or": []bson.M{
 				bson.M{
 					"end.time": bson.M{
-						"$gt": date.RangeLowIncl(),
+						"$gt": d.Date.RangeLowIncl(),
 					},
 				},
 				// Also support instances where period exists, but end is null (ongoing)
@@ -183,7 +183,7 @@ func periodSelector(date *Date, prefix Prefix) bson.M {
 			"$or": []bson.M{
 				bson.M{
 					"start.time": bson.M{
-						"$lt": date.RangeLowIncl(),
+						"$lt": d.Date.RangeLowIncl(),
 					},
 				},
 				// Also support instances where period exists, but start is null
@@ -198,12 +198,12 @@ func periodSelector(date *Date, prefix Prefix) bson.M {
 			"$or": []bson.M{
 				bson.M{
 					"start.time": bson.M{
-						"$gte": date.RangeLowIncl(),
+						"$gte": d.Date.RangeLowIncl(),
 					},
 				},
 				bson.M{
 					"end.time": bson.M{
-						"$gt": date.RangeLowIncl(),
+						"$gt": d.Date.RangeLowIncl(),
 					},
 				},
 				// Also support instances where period exists, but end is null (ongoing)
@@ -218,12 +218,12 @@ func periodSelector(date *Date, prefix Prefix) bson.M {
 			"$or": []bson.M{
 				bson.M{
 					"end.time": bson.M{
-						"$lt": date.RangeHighExcl(),
+						"$lt": d.Date.RangeHighExcl(),
 					},
 				},
 				bson.M{
 					"start.time": bson.M{
-						"$lt": date.RangeLowIncl(),
+						"$lt": d.Date.RangeLowIncl(),
 					},
 				},
 				// Also support instances where period exists, but start is null
@@ -234,7 +234,7 @@ func periodSelector(date *Date, prefix Prefix) bson.M {
 			},
 		}
 	}
-	panic(UnsupportedError(fmt.Sprintf("search prefix: %s", prefix)))
+	panic(createUnsupportedSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", d.Name)))
 }
 
 func (m *MongoSearcher) createNumberQueryObject(n *NumberParam) bson.M {
@@ -263,7 +263,7 @@ func (m *MongoSearcher) createQuantityQueryObject(q *QuantityParam) bson.M {
 		if q.System == "" {
 			criteria["$or"] = []bson.M{
 				bson.M{"code": ci(q.Code)},
-				bson.M{"units": ci(q.Code)},
+				bson.M{"unit": ci(q.Code)},
 			}
 		} else {
 			criteria["code"] = ci(q.Code)
@@ -397,66 +397,56 @@ func (m *MongoSearcher) createOrQueryObject(resource string, o *OrParam) bson.M 
 	}
 }
 
-// SearchError is an interface for search errors, providing an HTTP status and operation outcome
-type SearchError interface {
-	HTTPStatus() int
-	OperationOutcome() *models.OperationOutcome
-}
-
-func createOpOutcome(severity, code, display, details string) *models.OperationOutcome {
-	return &models.OperationOutcome{
+func createOpOutcome(severity, code, detailsCode, detailsDisplay string) *models.OperationOutcome {
+	outcome := &models.OperationOutcome{
 		Issue: []models.OperationOutcomeIssueComponent{
 			models.OperationOutcomeIssueComponent{
 				Severity: severity,
-				Code: &models.CodeableConcept{
-					Coding: []models.Coding{
-						models.Coding{Code: code, System: "http://hl7.org/fhir/issue-type", Display: display},
-					},
-					Text: display,
-				},
-				Details: details,
+				Code:     code,
 			},
 		},
 	}
+
+	if detailsCode != "" {
+		outcome.Issue[0].Details = &models.CodeableConcept{
+			Coding: []models.Coding{
+				models.Coding{
+					Code:    detailsCode,
+					System:  "http://hl7.org/fhir/ValueSet/operation-outcome",
+					Display: detailsDisplay},
+			},
+			Text: detailsDisplay,
+		}
+	}
+
+	return outcome
 }
 
-// UnsupportedError indicates that the requested search is not currently supported.
-type UnsupportedError string
-
-// HTTPStatus returns HTTP 501
-func (s UnsupportedError) HTTPStatus() int {
-	return http.StatusNotImplemented
+// Error is an interface for search errors, providing an HTTP status and operation outcome
+type Error struct {
+	HTTPStatus       int
+	OperationOutcome *models.OperationOutcome
 }
 
-// OperationOutcome returns an OperationOutcome with the 'not-supported' code
-func (s UnsupportedError) OperationOutcome() *models.OperationOutcome {
-	return createOpOutcome("error", "not-supported", "Content not supported", "Unsupported: "+string(s))
+func createUnsupportedSearchError(code, display string) *Error {
+	return &Error{
+		HTTPStatus:       http.StatusNotImplemented,
+		OperationOutcome: createOpOutcome("error", "not-supported", code, display),
+	}
 }
 
-// InvalidSearchError indicates that the requested search is not a valid FHIR search.
-type InvalidSearchError string
-
-// HTTPStatus returns HTTP 400
-func (s InvalidSearchError) HTTPStatus() int {
-	return http.StatusBadRequest
+func createInvalidSearchError(code, display string) *Error {
+	return &Error{
+		HTTPStatus:       http.StatusBadRequest,
+		OperationOutcome: createOpOutcome("error", "processing", code, display),
+	}
 }
 
-// OperationOutcome returns an OperationOutcome with the 'processing' code
-func (s InvalidSearchError) OperationOutcome() *models.OperationOutcome {
-	return createOpOutcome("error", "processing", "Processing Failure", "Invalid Search: "+string(s))
-}
-
-// InternalServerError indicates that there was an unexpected error in the server.
-type InternalServerError string
-
-// HTTPStatus returns HTTP 500
-func (s InternalServerError) HTTPStatus() int {
-	return http.StatusInternalServerError
-}
-
-// OperationOutcome returns an OperationOutcome with the 'exception' code
-func (s InternalServerError) OperationOutcome() *models.OperationOutcome {
-	return createOpOutcome("fatal", "exception", "Exception", string(s))
+func createInternalServerError(code, display string) *Error {
+	return &Error{
+		HTTPStatus:       http.StatusInternalServerError,
+		OperationOutcome: createOpOutcome("fatal", "exception", code, display),
+	}
 }
 
 func buildBSON(path string, criteria interface{}) bson.M {
@@ -531,7 +521,7 @@ func processOrCriteria(path string, orValue interface{}, result bson.M) {
 		}
 		result["$or"] = newOrs
 	} else {
-		panic(InvalidSearchError(fmt.Sprintf("$or operator used with non-array: %v", orValue)))
+		panic(createInternalServerError("", ""))
 	}
 }
 
