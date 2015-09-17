@@ -75,7 +75,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="[%fhir-path%]questionnaireresponse.html">QuestionnaireResponse</a>
+            <a href="../questionnaireresponse.html">QuestionnaireResponse</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">

@@ -144,7 +144,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="[%fhir-path%]questionnaire.html">Questionnaire</a>
+            <a href="../questionnaire.html">Questionnaire</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -241,7 +241,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="[%fhir-path%]valueset.html">ValueSet</a>
+            <a href="../valueset.html">ValueSet</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -338,7 +338,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="[%fhir-path%]dataelement.html">DataElement</a>
+            <a href="../dataelement.html">DataElement</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
