@@ -152,7 +152,9 @@ functionality.
 <p>
 If the sender of the message implements reliable messaging, it SHALL do
 the following when it receives no response to a message within a
-configured timeout period:
+configured timeout period based on the value specified in the
+<a href="conformance.html">Conformance</a> <code>messaging.event.category</code>
+for the event associated with the message:
 </p>
 <table class="grid">
  <tr><td>Consequence</td><td>Resend the same message (with the same MessageHeader.id) with the same Bundle.id</td></tr>
@@ -267,12 +269,12 @@ statement is a <a href="conformance.html">resource with the name
 The simplest way to handle messages where there are also <a href="http.html">RESTful interactions</a>
 occurring is to use the <a href="messageheader-operations.html">$process-message</a>. 
 This operation accepts a message, processes it according to the definition of the event in the message header, and returns a one or more response messages. 
-e.g. In addition to processing the message event, a server
+For example, in addition to processing the message event, a server
 may choose to retain all or some the resources and make them available on a RESTful interface, but
 is not required to do so.
 </p>
 <p>
-When processing messages, a server may return a status code of 200 OK, or an process/error code (300+).
+When processing messages, a server may return a status code of 200 OK, or a process/error code (300+).
 If the server returns 200 OK, it SHALL return a bundle that is the message response.
 For any other response code, the message has not been successfully processed. The server MAY return an
 <a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD
@@ -323,7 +325,7 @@ The following rules apply when using the $process-message operation synchronousl
 </ul>
 <h3>Asynchronous Operation</h3>
 <p>
-in Asynchronous messaging, the server acknowledges receipt of them message immediately,
+In Asynchronous messaging, the server acknowledges receipt of the message immediately,
 and responds to the sender separately. The server may respond more than once to any
 given message. 
 </p>
