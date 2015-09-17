@@ -132,7 +132,7 @@ Additional information about the Structured Data Capture project can be found on
 <h3>Specification</h3>
 <p>The following sections describe the artifacts that set expectations for systems wishing to be conformant to the FHIR SDC implementation guide.</p>
 
-<a href="conformance"> </a>
+<a name="conformance"> </a>
 <h4>Conformance Statements</h4>
 <p>
 FHIR Conformance statements define the expectations for particular system "roles" within an SDC environment.  To be considered SDC-conformant, a system 
@@ -149,7 +149,7 @@ updating those same properties.
 </p>
 
 
-<a href="resources"> </a>
+<a name="resources"> </a>
 <h4>Resources</h4>
 <p>
 This implementation guide defines profiles on several resources.  Implementations are expected to be conformant with these profiles in order
@@ -202,7 +202,7 @@ summary, the FHIR DataElement resource can express most (all, if additional exte
 </p>
 <ul>
 <li>FHIR does not define separate resources for the Data Element vs. the Data Element Concept.  Both notions can be represented using the same structure and both conceptual and conceptual domain and value domain aspects can be represented within a single instance.</li>
-<li>FHIR uses <a href="valueset.html">ValueSet</a>s to represent both permissible values and value meanings (and allows the sets to be defined by
+<li>FHIR uses <a href="[%fhir-path%]valueset.html">ValueSet</a>s to represent both permissible values and value meanings (and allows the sets to be defined by
 expression rather than only by enumeration)</li>
 <li>The notions of Object_Class and Property are considered to be just one possible model for defining the meaning of a given element</li>
 </ul>
