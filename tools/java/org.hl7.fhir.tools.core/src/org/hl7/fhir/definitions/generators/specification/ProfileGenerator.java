@@ -75,6 +75,7 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingCom
 import org.hl7.fhir.instance.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
 import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
 import org.hl7.fhir.instance.model.Extension;
@@ -877,7 +878,8 @@ public class ProfileGenerator {
     if (src.getBinding() != BindingMethod.Unbound) {
       dst.setStrength(src.getStrength());    
       dst.setValueSet(buildReference(src));    
-    }
+    } else
+      dst.setStrength(BindingStrength.EXAMPLE);    
     return dst;
   }
 
