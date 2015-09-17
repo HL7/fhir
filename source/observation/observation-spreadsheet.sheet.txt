@@ -527,7 +527,7 @@
   Card. = 1..1
   Type = Reference(Observation|QuestionnaireResponse)
   Short Label = Resource that is related to this one
-  Definition = A reference to the observation or [[[QuestionnaireaResponse]]] resource that is related to this observation
+  Definition = A reference to the observation or [[[QuestionnaireResponse]]] resource that is related to this observation
   RIM Mapping = .targetObservation
   Committee Notes = can an invariant be made to limit code when referencing a resource type?
 
