@@ -12,6 +12,9 @@
       <valueUri value="colorectal-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
+      <valueUri value="gastric-cancer-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
       <valueUri value="event-summary-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-logical-spreadsheet">
