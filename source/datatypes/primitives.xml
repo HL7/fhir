@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-21T19:16:26Z</Created>
   <LastSaved>2015-03-30T11:54:36Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,6 @@
   <WindowWidth>22575</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -133,7 +132,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="59.25" ss:StyleID="s62">
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s65"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40">       <Font html:Color="#000000">A date, or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  </Font><Font>       </Font><B>        <Font
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font
         html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1]))?)?</Data></Cell>
@@ -168,11 +167,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -270,7 +269,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
