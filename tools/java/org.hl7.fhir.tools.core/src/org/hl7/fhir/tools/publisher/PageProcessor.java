@@ -5766,7 +5766,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           }
         }
         b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
-                  append(genlevel(level)).append("terminologies.html#").append(tx.getStrength().toCode()).append("\">").append(tx.getStrength().toCode()).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
+                  append(genlevel(level)).append("terminologies.html#").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).
+                  append("\">").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
       }
       b.append("</table>\r\n");
       return b.toString();
