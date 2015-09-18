@@ -67,9 +67,9 @@ that are not simple data types.
 <b>Extensibility:</b> HL7 v2 provides an extensibility mechanism through the use of "Z-segments".  
 The meaning of these extensions is opaque without prior manual explanation by the sender.  Extensions 
 are supposed to be restricted to data elements that do not affect the meaning of the "standard" segments.  
-FHIR <a href="extensibility.html">extensions</a>, on the other hand, can appear at any level (including 
+FHIR <a href="extensibility.html">Extensions</a>, on the other hand, can appear at any level (including 
 within data types).  <a href="extensibility.html#modifierExtension">ModifierExtensions</a> may be used 
-to in circumstances where an extension can change the meaning of other elements (e.g. the introduction 
+in circumstances where an extension can change the meaning of other elements (e.g. the introduction 
 of a negation indicator on a record).  Finally, the meaning of FHIR extensions is discoverable by resolving 
 the URI that defines the extension.  The URI approach also ensures that extensions created by independent 
 systems won't collide. (This can be an issue with Z-segments.)
@@ -163,7 +163,7 @@ information needed/available.  This creates two challenges:
   represent it using multiple resources.</li>
 </ol>
 <p>
-<b>Identified vs. Contained resources:</b><a name="HL7 v2-contained"> </a> Each HL7 v2 message will map to 
+<b>Identified vs. Contained resources:</b><a name="HL7 v2-contained"> </a> Each HL7 v2 message will be mapped to 
 multiple resource instances - often 10s or even 100s of resource instances.  To maintain consistency 
 with the HL7 v2 messaging paradigm, all resource data will typically be sent over the wire as part of the 
 FHIR message rather than being sent by reference as would be typical in a RESTful implementation.  
