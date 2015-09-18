@@ -79,15 +79,15 @@ patient compartment if the subject, sender, or recipient is the patient, the com
 search is actually the same as the union of these 3 searches:
 </p>
 <pre>
-  GET [base]/Condition?subject=[id]
-  GET [base]/Condition?sender=[id]
-  GET [base]/Condition?recipient=[id]
+  GET [base]/Communication?subject=[id]
+  GET [base]/Communication?sender=[id]
+  GET [base]/Communication?recipient=[id]
 </pre>
 <p>
 There is no way to do this as a single search, except by using the <a href="search_filter.html">_filter</a>:
 </p>
 <pre>
-  GET [base]/Condition?_filter=subject re [id] or sender re [id] or recipient re [id]
+  GET [base]/Communication?_filter=subject re [id] or sender re [id] or recipient re [id]
 </pre>
 <p>
 Further details of searching by compartment are <a href="http.html#vsearch">described under the search operation</a>.
@@ -129,7 +129,7 @@ the reference to the resource that establishes the compartment is in an extensio
 <p>
 Some resources are not in any compartment, e.g. <a href="medication.html">Medication</a>, 
 <a href="substance.html">Substance</a>, <a href="location.html">Location</a>. These resources are not directly to a patient 
-or authored record, and are some times called 'master files'. Servers will need to make 
+or authored record, and are sometimes called 'master files'. Servers will need to make 
 arrangements to make these resources available to the clients that are limited to 
 particular compartments. For example, a Medication resource describes a medication itself 
 and does not link to a patient; however, a resource such as MedicationAdministration 
