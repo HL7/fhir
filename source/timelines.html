@@ -39,20 +39,38 @@ different aspects of the specification.  They are as follows:
       safe for implementation.  It may have known issues or still in the "in development" stages.  It is included
       in the publication as a place-holder, to solicit feedback from the implementation community and/or to give
       implementers some insight as to functionality likely to be included in future versions of the specification.
-      Content at this level should only be implemented by the brave or desparate and is very much "use at your own
-      risk". This version of the specification is a draft that will be elevated to DSTU once review and correction is complete after ballot</td>
+      Content at this level should only be implemented by the brave or desperate and is very much "use at your own
+      risk". The content that is draft that will usually be elevated to DSTU once review and correction is complete after ballot</td>
     </tr>
     <tr>
       <th>Draft Standard for Trial Use (DSTU)</th>
-      <td>This content has been well reviewed and is considered by the authors to be ready for use in production
+      <td>
+      <p>This content has been well reviewed and is considered by the authors to be ready for use in production
       systems.  It has been subjected to ballot and approved as an official standard.  However, it has not yet
       seen widespread use in production across the full spectrum of environments it is intended to be used in.  In
       some cases, there may be documented known issues that require implementation experience to determine appropriate
       resolutions for.
+      </p>
+      <p>
       For these reasons, DSTU content is not subject to FHIR <a href="compatibility.html">Inter-version Compatibility Rules</a>.
       Future versions of FHIR may make significant changes to DSTU-level content that are not compatible with
       previously published content.  See <a href="#dstu">DSTU suggestions</a> for implementation strategies to
-      help manage the risk of non-compatible future changes.</td>
+      help manage the risk of non-compatible future changes.
+      </p>
+      <p>
+      DSTU content can have a wide range of stability ranging from never before implemented even in test systems through
+      to widely implemented in production and well reviewed.  FHIR makes use of a <a href="resource.html#maturity>Maturity rating</a>
+      that provides insight into how well polished a given resource or other artifact is.  Artifacts with higher maturity
+      ratings (4 or 5) will be subject to somewhat tighter constraints on non-backward compatible changes, though these
+      are still possible when deemed to be in the best interests of the implementer community.
+      </p>
+      <p>
+      The maturity model is significantly influenced by the degree and type of implementation activity using an artifact.
+      For this reason, we encourage implementers to share with the <a href="mailto:fmgcontact@hl7.org">FHIR Management Group</a>
+      what artifacts they have implemented.  A detailed analysis of the maturity metrics for FHIR artifacts can be found
+      <a href="https://docs.google.com/spreadsheets/d/18HfXF7mUCUV7jACCG0oejFp6D-ibtvbmcgywNhn76lw">here</a>.
+      </p>
+      </td>
     </tr>
     <tr>
       <th>Normative</th>
@@ -95,6 +113,13 @@ minimal divergence from the DSTU specification will be candidates for normative.
 Once FHIR has reached normative status, subsequent publications will continue on the 18-24 month schedule with subsequent releases
 introducing additional resources, capabilities and other content as well as migrating existing content from draft to DSTU and
 DSTU to normative, based on the level of implementation.
+</p>
+<p>
+Not all of the intended scope for DSTU 2 was ready in sufficient time to be included in this specification.  This includes
+many resources included in DSTU 2 as draft, as well as refinement of the "request" and "order"-related resources to
+better flesh out and standardize how workflow occurs.  For this reason, an interim release (tentatively labeled 2.1) is
+planned, likely for publication in Spring, 2016.  This release will have a tightly constrained scope and will focus on
+positioning existing resources for normative ballot in the 2017 release and meeting other urgent implementer requirements.
 </p>
 
 <a name="dstu"/>

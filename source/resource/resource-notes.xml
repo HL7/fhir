@@ -361,11 +361,14 @@ The FMM level can be used by implementers to judge how advanced - and therefore 
 <ol start="0">
  <li>the resource or profile (artifact) has been published on the current build</li>
  <li>FMM0 + the artifact produces no warnings during the build process and the responsible WG has indicated that they consider the artifact substantially complete and ready for implementation</li>
- <li>FMM1 + the artifact has been tested at an HL7 International connectathon</li>
- <li>FMM2 + the artifact has been subject to a round of formal balloting with at least 10 implementer comments drawn from at least 3 organizations resulting in at least one substantive change</li>
- <li>FMM3 + the artifact has been tested across its scope, published in a formal publication (e.g. DSTU), and implemented in multiple prototype projects</li>
- <li>FMM4 + the artifact has been published in two formal publication release cycles and has been implemented in at least 5 independent production systems in more than one country</li>
+ <li>FMM1 + the artifact has been tested and successfully exchanged between at least three independently developed systems at a connectathon whose results have been reported to the FHIR Management Group</li>
+ <li>FMM2 + the artifact has been verified by the work group as meeting the <a href="http://wiki.hl7.org/index.php?title=DSTU_2_QA_guidelines">DSTU Quality Guidelines</a> and has been subject to a 
+ round of formal balloting with at least 10 implementer comments drawn from at least 3 organizations resulting in at least one substantive change</li>
+ <li>FMM3 + he artifact has been tested across its scope (see below), published in a formal publication (e.g. DSTU), and implemented in multiple prototype projects. As well, the responsible 
+ work group agrees the resource is sufficiently stable to require implementer consensus for subsequent non-backward compatible changes.</li>
+ <li>FMM4 + the artifact has been published in two formal publication release cycles at FMM1+ (i.e. DSTU level) and has been implemented in at least 5 independent production systems in more than one country</li>
 </ol>
+<p></p>
 <p>
 The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource.
 For further information, and discussion, see the <a href="http://wiki.hl7.org/index.php?title=FHIR_Maturity_Model">FHIR Wiki</a>.
