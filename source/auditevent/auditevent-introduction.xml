@@ -29,31 +29,93 @@ it can also be used for any audit logging needs and simple event-based notificat
 <a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
-Servers that provide support for AuditEvent resources would not generally accept update or delete 
-operations on the resources, as this would compromise the integrity of the audit record. Access of the AuditEvent
-would typically be limited to security office, privacy office, or other systems administration purposes. The AuditEvent 
-is not intended to be used directly by providers or patients, although reports generated from the raw data would 
-be useful. An example is a patient-centric Accounting of Disclosures or an Access Report.
-</p>
-<p>
-All actors involved in an auditable event should record an AuditEvent (See Audit Event Sub-Type vocabulary for guidance on 
-some security relevant events) resource. This would result in duplicate AuditEvent resource entries which show the properly working system 
-of systems. Thus it is typical to get an auditable event recorded by both the application and the server. In this way duplicate 
-entries are expected, and this is helpful because detecting when only one actor records that an auditable event has occurred is an indication 
-of a security problem.  There may be non-participating actors that also detect a security relevant event and thus would record 
-an AuditEvent resource, such as a trusted intermediary.
+All actors; such as applications, processes, and services; involved in an auditable event should record an AuditEvent. 
+This will likely result in multiple AuditEvent entries that show whether privacy and security 
+safeguards, such as access control, are the properly functioning across an enterprise's system-of-systems. 
+Thus it is typical to get an auditable event recorded by both the application in a workflow process, and the servers that support them. 
+For this reason, duplicate entries are expected, which is helpful because it may aid in the detecting of, for example, 
+fewer than expected actors being recorded in a multi-actor process or attributes related to those records being in 
+conflict, which is an indication of a security problem.
+There may be non-participating actors that also detect a security relevant event and thus would record 
+an AuditEvent, such as a trusted intermediary.
 </p>
 <p>
 Security relevant events are not limited to communications or RESTful events. They include software startup and shutdown; 
 user login and logout; access control decisions; configuration events; software installation; policy rules changes; 
-and manipulation of data that exposes the data to users.
+and manipulation of data that exposes the data to users. See 
+Audit Event Sub-Type vocabulary for guidance on some security relevant events.
 </p>
 <p>
-AuditEvent resources are often (though not exclusively) 
-created by the application responding to the create/read/query/update/delete/execute, etc., event. 
-A <a href="provenance.html">Provenance resource</a> contains overlapping information, but is a 
-record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
-Provenance resources are prepared by the application that initiates the create/update of the resource.
+The content of an AuditEvent is intended for use by Security System Administrators, Security and Privacy Information 
+Managers, and Records Management personnel.  This content is not intended to be accessible or used directly by other 
+healthcare users, such as Providers or Patients, although reports generated from the raw data would be useful. An 
+example is a Patient centric Accounting of Disclosures or an Access Report. Servers that provide support for Audit 
+Event resources would not generally accept update or delete operations on the resources, as this would compromise 
+the integrity of the audit record. Access of the AuditEvent would typically be limited to e.g., security, privacy, 
+or other system administration purposes.
+</p>
+<p>
+Relationship of AuditEvent and Provenance resources are often (though not exclusively) created by the application 
+responding to the create/read/query/update/delete/execute etc. event. 
+A <a href="provenance.html">Provenance resource</a> resource contains overlapping 
+information, but is a record-keeping assertion that gathers information about the context in which the information 
+in a resource ”came to be” in its current state, e.g., whether it was created de novo or obtained from another entity 
+in whole, part, or by transformation. Provenance resources are prepared by the application that initiates the 
+create/update of the resource, and may be persisted with the AuditEvent target resource. 
+</p>
+<a name="TODO"> </a>
+<h2>Open Issues and Request for Comments</h2>
+<p>
+The AuditEvent Resource, like many of the FHIR Resources in DSTU, continues to be developed by the sponsoring HL7 Security 
+Work Group.  In particular, the Security WG continues to focus on refining the value sets used by both AuditEvent and 
+its closely related Provenance Resource to ensure complete coverage of system and end user actions and action reasons 
+that impact security objects (data, processes, applications, servers, etc.)  The Security WG is particularly interested 
+in implementer feedback on these focus areas, and at the same time cautions implementers to undertake due diligence in 
+adapting these resources to their use cases. 
+</p>
+<p>
+At this juncture, there are multiple standard vocabularies in use that reflect different perspectives and levels of 
+granularity on the concepts used to convey actions and reasons for actions.  Both the AuditEvent and Provenance Resources 
+are making available a number of those vocabularies via resource element bindings.  
+</p>
+<p>
+For example, AuditEvent has four elements that bind to “activity” vocabularies which could be used to convey the same 
+concept where there’s no clear use case for doing so.  E.g., a “read” action could be conveyed by AuditEvent.event.type, 
+AuditEvent.event.subtype, AuditEvent.event.action, and AuditEvent.object.lifecycle.  Only the AuditEvent.event.type is 
+required, but is there a use case for including the others if the basic action is the same?  However, there may be use 
+cases in which both the high level CRUDE action value set is an important addition to a required code from AuditEvent.event.type.  
+E.g., seems helpful where the required code = Audit event: Application Activity has taken place, and not so helpful if the 
+required code = Audit Log has been used.  The upshot is that implementers will need to carefully match the concepts in the 
+value set bindings to their use cases to ensure that the level of granularity and concept selections are appropriate.  
+The Security WG would appreciate comments on this, and in particular, how feasible or useful pre-coordination of these 
+multiple activity value sets might be or whether collapsing these into one or two might be more appropriate.
+</p>
+<p>
+The Security WG would also appreciate feedback from the implementer community on how well they are able to discern and 
+utilize the different contexts in which the rationale for actions is conveyed using the HL7 Purpose of Use 
+vocabulary [V:PurposeOfUse:2.16.840.1.113883.1.11.20448]. At this juncture, AuditEvent binds to this value set in four places: 
+<ul>
+<li>As Purpose of Event – where it’s a machine that is the audited agent</li> 
+<li>As Purpose of Use – which is the Human User’s asserted POU </li>
+<li>As a Security Label Element – see 3rd Detailed Description below</li>
+<li>As a Security Label Metadata value Meta.security (Extensible)</li>
+</ul>
+</p>
+<p>
+The Security WG envisions use cases where these could be used in concert, but that would require system functionality 
+that may not be feasible or beneficial to the implementer community.  For example, 
+<ul>
+<li>Purpose of Event when the machine2machine is an EHR server and the user’s client supposedly being used for Treatment</li>
+<li>End User’s POU is Treatment and Research using e.g., DAF</li>
+<li>POU Security Label on the participant/target object of the AuditEvent = Legal, which is the POU for e.g., Legal Hold [i.e., no one but Records Management and Legal is supposed to have access but the Access Control System doesn’t do ABAC or the patient’s consent directive does not assent to POU = research, but the audited system has not implemented data segmentation to prevent End User from using the data to research</li>
+<li>Security Label on the AuditEvent Resource = System administration [because the only permitted use is for system administration/security]</li>
+</ul>
+</p>
+<p>
+Note that the binding of the value sets discussed above are currently set to extensible rather than example.  
+Concerns have been raised about constraining vocabulary choices during DSTU especially for other jurisdictions.  
+For example, outside of the US, ISO 13606 Purpose of Use codes are more likely used.  Security WG would also 
+appreciate feedback on whether these bindings should be example or extensible.
 </p>
 </div>
 
