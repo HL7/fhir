@@ -50,11 +50,11 @@
 			<li>
 				<b>Making the Appointment Request</b>
 				<p>
-					When an appointment is required, a requester creates new Appointment resource with the Appointment.status=”proposed”.<br/>
-					All included participants (optional or mandatory) should have the status=”needs-action” to allow filtering and displaying
+					When an appointment is required, a requester creates new Appointment resource with the Appointment.status="proposed".<br/>
+					All included participants (optional or mandatory) should have the status="needs-action" to allow filtering and displaying
 					appointments to user-participants for accepting or rejecting new and updated requests. Based on internal system business rules,
-					certain statuses may be automatically updated, for example: “reject because the requested participant is on vacation” or 
-					“this type of user is not allowed to request those specific appointments”.
+					certain statuses may be automatically updated, for example: "reject because the requested participant is on vacation" or 
+					"this type of user is not allowed to request those specific appointments".
 				</p>
 			</li>
 			<li>

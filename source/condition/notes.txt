@@ -50,7 +50,7 @@ PROBLEM LIST - NO KNOWN PROBLEMS
                                   codeSystemName="HL7ActClass"/>
                            <statusCode code="completed"/>
                            <effectiveTime>
-                                <low value=”20000902"/>
+                                <low value="20000902"/>
                                 <high nullFlavor="NA"/>
                            </effectiveTime>
                            <entryRelationship typeCode="SUBJ">

@@ -15,7 +15,7 @@ The use of the attributes in the context of information objects, including detai
 in <a href="http://medical.nema.org/medical/dicom/current/output/html/part03.html">DICOM Part 3 Information Object Definitions </a>.  
 </p>
 <p>
-Attributes used in the DICOM query information models, such as “Number of Instances in Study”, can be found 
+Attributes used in the DICOM query information models, such as "Number of Instances in Study", can be found 
 in <a href="http://medical.nema.org/medical/dicom/current/output/html/part04.html#chapter_C">DICOM Part 4 Annex C</a>.
 </p>
 <!-- old scope and usage - removed August 2015 - CP7679

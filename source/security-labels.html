@@ -21,28 +21,28 @@ The <a href="security.html#access-control">Access Control decision engine</a>
 uses the security label together with any provenance resources associated with 
 the resource and other metadata (e.g. the resource type, resource contents, etc.) to</p>
 <ul>
-  <li>approve read, change, and other operations,</li>
-  <li>determine what level of the resource can be returned, and</li>
-  <li>determine what handling caveats must be conveyed with the data.</li>
+  <li>approve read, change, and other operations</li>
+  <li>determine what level of the resource can be returned</li>
+  <li>determine what handling caveats must be conveyed with the data</li>
 </ul>
 <p>
 Security Labels enable more data to flow as they enable policy fragments to accompany the resource data.
 </p>
 <p>
-The intent of a security label is for the recipient of resources or bundles with security-tags 
+The intent of a security label is that the recipient of resources or bundles with security-tags is obligated 
 to enforce the handling caveats of the tags and carry the security labels forward as appropriate.
 </p>
 <p>
-Security labels are a mechanism for connecting specific resources, bundles, or operations 
-to a wider security framework. A full set of policy and consent statements and their 
+Security labels are only a device to connect specific resources, bundles, or operations 
+to a wider security framework; a full set of policy and consent statements and their 
 consequent obligations is needed to give the labels meaning. As a consequence of this,
-security labels are most effective in fully trusted environments.  That is, 
+security labels are most effective in fully trusted environments - that is, 
 where all trading partners have agreed to abide by them in a Mutual Trust 
-Framework. Security labels support policy, and specific tagging
+Framework. Note also that security labels support policy, and specific tagging
 of individual resources is not always required to implement policy correctly. 
 </p>
 <p>
-In the absence of a pre-agreement, Security Labels 
+In the absence of this kind of pre-agreement, Security Labels 
 may still be used by individual parties to assist with security role 
 checking, but they may not all be recognized and enforced, which in turn
 limits what information is allowed to flow.
@@ -54,13 +54,13 @@ statements, and in particular:
 </p>
 <ul>
  <li>Which Security Labels are able to be used</li>
- <li>What to do if a resource has an unrecognized security label</li>
+ <li>What do if a resource has an unrecognized security label on it</li>
  <li>Authoring obligations around security labels</li>
  <li>Operational implications of security labels</li>
 </ul>
 <p>
 This specification defines a basic set of labels for the most common
-use cases trading partners, and a wider array of security labels
+use cases trading partners, and also a wider array of security labels
 that allow much finer grained management of the information.
 </p>
 
@@ -123,26 +123,27 @@ A JSON search result that includes a resource that the receiving application mus
 </pre>
 </div>
 
-<p>Note: The actual terms used in these examples are described below.</p>
+<p>Note: the actual terms used in these examples are described below.</p>
 
 <p>
 The basic framework for security labels is described by the HL7 Healthcare Classification 
 System (HCS; ref todo). This specification identifies how security labels are defined and provides a 
 relatively comprehensive list of labels. All of the HCS defined labels (see below for the lists)
-can be used as security labels on FHIR resources and bundles, for example requests and responses.
+can be used as security labels on FHIR resources and bundles (e.g. requests and responses).
 </p>
 <p>
 In addition, other security labels not defined here or in the HCS can be defined by 
-jurisdictions, vendors and/or projects and used as appropriate. However, consider that:
+jurisdictions, vendors and/or projects and used as appropriate. However, note that:
 </p>
 <ul>
- <li>Defining additional security labels will increase costs associated with information and system portability.</li>
- <li>Implementation guides and applications SHOULD always use the applicable label defined by the HCS if one exists.</li>
+ <li>Defining additional security labels will increase costs associated with information and system portability</li>
+ <li>Implementation guides and applications SHOULD always use the applicable label defined by the HCS if one exists</li>
 </ul>
 
 <p>
-Note: At the time of publication, the use of security labels and the expression of common shared security 
-policies is a matter of ongoing discussion and development in several communities.  
+Note: The use of security labels and the expression of common shared security 
+policies is a matter of ongoing discussion and development in several communities
+at this time.  
 </p>
 
 <a name="core"> </a>
@@ -150,7 +151,7 @@ policies is a matter of ongoing discussion and development in several communitie
 <p>
 This specification defines a set of core security labels for all FHIR systems.
 All conformant FHIR Applications SHOULD use these labels where appropriate. 
-For all of these labels, how they are operationalized.  Their use and interpretation is subject 
+For all of these labels, how they are operationalised - their use and interpretation - is subject 
 to the applicable Mutual Trust Framework agreement as described above.
 These codes all come from one of two code systems: 
 http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
@@ -169,13 +170,13 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    <td>
      These <a href="v3/Confidentiality/index.html">confidentiality codes</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource, 
      but can be modified subsequently as a matter of operational management. The Confidentiality codes describe the sensitivity of the information in a resource with regard to 
-     whether it should made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Note:
+     whether it should made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
      <ul>
-      <li>In the absence of a confidentiality code, the basic confidentiality of a resource may be implied by its definition and content; e.g. a patient's condition is far more likely to be confidential than a practitioner resource, and a Diagnostic Report with an HIV test is always highly confidential, where as a routine electrolytes is rarely particularly confidential.</li>
-      <li>A few resources have a confidentiality code in the resource itself. This should always be understood as the original intended confidentiality, whereas a confidentiality tag is the current confidentiality of the content; e.g. the confidentiality may change in response to patient concern.<!-- Todo: See if we can drop these confidentiality elements and replace with the tagging structure --></li>
-      <li>The confidentiality of a bundle is always as confidential as the most confidential resource in the bundle.</li>
+      <li>In the absence of a confidentiality code, the basic confidentiality of a resource may be implied by its definition and content; e.g. a patient's condition is far more likely to be confidential than a practitioner resource, and a Diagnostic Report with an HIV test is always highly confidential, where as a routine electrolytes is rarely particularly confidential</li>
+      <li>A few resources have a confidentiality code in the resource itself. This should always be understood as the original intended confidentiality, where as a confidentiality tag is the current confidentiality of the content; e.g. the confidentiality may change in response to patient concern <!-- Todo: See if we can drop these confidentiality elements and replace with the tagging structure --></li>
+      <li>The confidentiality of a bundle is always as confidential as the most confidential resource in the bundle</li>
      </ul>
-     The specific labels below are defined to support very specific fine-grained access control, and should 
+     The additional more specific labels below are defined to support very specific fine-grained access control, and should 
      always be used in association with an appropriate confidentiality label. 
    </td>
  </tr>
@@ -183,10 +184,10 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    <td>Celebrity / VIP: ActCode.<a href="v3/ActCode/index.html#CEL">CEL</a></td>
    <td>
     Use on any resource to indicate that the subject/patient is a celebrity or well known to the staff in the institution.
-    <br/>Note:
+    <br/>Notes:
     <ul>
-     <li>This may be applied to the <a href="patient.html">Patient</a> resource, with implied behavior for the <a href="compartments.html#compartment">entire patient compartment</a>, or it may be applied to individual resources.</li>
-     <li>Resources affected by this label are more likely to be the subject of active audit maintenance or additional security policy.</li>
+     <li>This may be applied to the <a href="patient.html">Patient</a> resource, with implied behavior for the <a href="compartments.html#compartment">entire patient compartment</a>, or it may be applied to individual resources</li>
+     <li>Resources affected by this label are more likely to be the subject of active audit maintenance or additional security policy</li>
     </ul>
    </td>
  </tr>
@@ -195,10 +196,10 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    <td>
     Use on a <a href="patient.html">Patient</a> resource and resources with a subject of that patient to indicate that the patient is a staff member of the institution. This is a variation on 
     being a celebrity.
-    <br/>Note:
+    <br/>Notes:
     <ul>
-     <li>This may be applied to the <a href="patient.html">Patient</a> resource, with implied behavior for the <a href="compartments.html#compartment">entire patient compartment</a>, or it may be applied to individual resources.</li>
-     <li>Resources affected by this label are more likely to be the subject of active audit maintenance or additional security policy.</li>
+     <li>This may be applied to the <a href="patient.html">Patient</a> resource, with implied behavior for the <a href="compartments.html#compartment">entire patient compartment</a>, or it may be applied to individual resources</li>
+     <li>Resources affected by this label are (even) more likely to be the subject of active audit maintenance or additional security policy</li>
     </ul>
    </td>
  </tr>
@@ -206,30 +207,30 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    <td>Keep information from patient: ActCode.<a href="v3/ActCode/index.html#TBOO">TBOO</a></td>
    <td>
     Used on <a href="resourcelist.html">any</a> resource to indicate that information is not to be made available to the patient or their relatives/carers, except by the personal decision of a physician assigned to the patient.
-    <br/>Note:
+    <br/>Notes:
     <ul>
-     <li>A common use for this is with <a href="flag.html">Flag</a> resources, when the alert records information on patient abuse or non-compliance.</li>
-     <li>This label might also be used temporarily on laboratory or other test results where policy is for the results to be initially disclosed by direct discussion with the patient's physician.</li>
+     <li>A common use for this is with <a href="flag.html">Flag</a> resources, when the alert records information on patient abuse or non-compliance</li>
+     <li>This label might also be used temporarily on laboratory or other test results where policy is for the results to be initially disclosed by direct discussion with the patient's physician</li>
     </ul>
    </td>
  </tr>
  <tr>
    <td>Contact/Employment Details Confidential: ActCode.<a href="v3/ActCode/index.html#DEMO">DEMO</a></td>
    <td>
-    Used on a <a href="patient.html">Patient</a> resource to indicate that the patient's address and contact details such as phone numbers, email addresses and including employment information, are sensitive 
-    and shouldn't be shared with the patient's family or others without specific authorization.
+    Used on a <a href="patient.html">Patient</a> resource to indicate that the patient's address and contact details (phone numbers, email addresses) - including employment information - are sensitive 
+    and shouldn't be shared with the patient's family or others without specific authorization
    </td>
  </tr>
  <tr>
    <td>Diagnosis-related confidentiality: ActCode.<a href="v3/ActCode/index.html#DIA">DIA</a></td>
    <td>
-    Used on <a href="resourcelist.html">any</a> resource to indicate that the resource relates to a diagnosis or potential diagnosis which is generally 
-    associated with confidentiality requirements or is for this particular patient. 
+    Used on <a href="resourcelist.html">any</a> resource to indicate that the resource relates to a diagnosis (or potential diagnosis) which is generally 
+    associated with confidentiality requirements - or is for this particular patient. 
     This may be associated for diagnoses including STDs, psychiatric conditions, adolescent related issues, drug abuse, genetics conditions and others.
-     <br/> Note:
+     <br/> Notes:
      <ul>
-      <li>Generally, this security label cascades logically, for example, any <a href="diagnosticreport.html">Diagnostic Reports</a> produced because of a <a href="diagnosticorder.html">Diagnostic Order</a> with this security label should also have the same security label.</li>
-      <li>There may be additional labels classifying the diagnosis; such labels SHOULD always be accompanied by this label so that more systems will know that restrictions apply.</li>
+      <li>Generally, this security label cascades logically; e.g. any <a href="diagnosticreport.html">Diagnostic Reports</a> produced because of a <a href="diagnosticorder.html">Diagnostic Order</a> with this security label should also have the same security label. </li>
+      <li>There may be additional labels classifying the diagnosis; such labels SHOULD always be accompanied by this label so that more systems will know that restrictions apply</li>
     </ul>
    </td>
  </tr>
@@ -246,10 +247,10 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
  <tr>
    <td>Delete After Use: ActCode.<a href="v3/ActCode/index.html#DELAU">DELAU</a></td>
    <td>
-     An application receiving a resource with this label must delete all copies after the immediate use for which the resource/feed was exchanged is complete. <br/> Note:
+     An application receiving a resource with this label must delete all copies after the immediate use for which the resource/feed was exchanged is complete. <br/> Notes:
      <ul>
-      <li>This may imply a prohibition for not storing the resource in any audit trail as well.</li>
-      <li>Additional security labels are allowed to make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to retain copies unless the exact rules for retaining it can be followed.</li>
+      <li>This may imply a prohibition not storing the resource in any audit trail as well</li>
+      <li>Additional security labels are allowed to make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to retain copies unless the exact rules for retaining it can be followed</li>
      </ul>
    </td>
  </tr>
@@ -257,10 +258,10 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
  <tr>
    <td>Do Not Re-use: ActCode.<a href="v3/ActCode/index.html#NOREUSE">NOREUSE</a></td>
    <td>
-     An application receiving a resource with this label may only use it for the immediate purpose of use. In particular, the application is not authorized to re-distribute (i.e. exchange this resource with any other application). <br/> Note:
+     An application receiving a resource with this label may only use it for the immediate purpose of use. In particular, the application is not authorized to re-distribute (i.e. exchange this resource with any other application). <br/> Notes:
      <ul>
-      <li>The exact interpretation of "immediate purpose of use" and the boundaries of "the application" are determined by local policy.</li>
-      <li>Additional security labels are allowed to make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to re-use unless the exact rules for doing so can be followed.</li>
+      <li>The exact interpretation of "immediate purpose of use" and the boundaries of "the application" are determined by local policy</li>
+      <li>Additional security labels are allowed to make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to re-use unless the exact rules for doing so can be followed</li>
      </ul>
    </td>
  </tr>
@@ -272,7 +273,7 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
 
 <p>
 There is a special security label to support the commonly encountered "break-the-glass" protocol, 
-where a clinician, usually in an emergency context, requests emergency 
+where a clinician (usually in an emergency context) requests emergency 
 unauthorized access to the patient's record. 
 This specification does not make any policy recommendations or rules
 about the operation, merely provides support for it. See 
@@ -281,11 +282,11 @@ discussion of the issues involved in break-the-glass operations.
 </p>
 <p>
 When the operation occurs, it is represented as a security label on the 
-request, rather than on a resource, and therefore is represented differently. 
+request, rather than on a resource, and so is represented differently. 
 The break the glass tag needs to be used as part of an agreed policy 
-and protocol. FHIR does not attempt to define this policy or protocol. 
-It must be agreed on an implementation by implementation basis.
-For example, as a URL:
+and protocol. FHIR does not attempt to define this policy or protocol, 
+it must be agreed on an implementation by implementation basis.
+For example as a URL:
 </p>
 <table class="grid">
  <tr>
@@ -352,7 +353,7 @@ community or project
  <tr> <td>Integrity Category</td> <td>0..*</td> <td><a href="v3/vs/SecurityIntegrityObservationValue/index.html">SecurityIntegrityObservationValue</a></td>  <td>Security label metadata that "segments" an 
 IT resource by conveying the completeness, 
 veracity, reliability, trustworthiness, and 
-provenance of an IT resource.
+provenance of an IT resource
 <br/>Example Uses: Anonymized, signed, patient reported
 
 </td> </tr>
@@ -364,7 +365,7 @@ IT resource custodian or receiver must comply.<br/>
 This type of handling caveat SHALL be assigned 
 to a clinical fact if required by jurisdictional or 
 organizational policy, which may be triggered by a 
-patient consent directive.
+patient consent directive
 <br/>Example Uses: do not disclose, various restrictions on use, and policy marks
 </td> </tr>
 </table>

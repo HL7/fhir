@@ -59,7 +59,7 @@ Relationship of AuditEvent and Provenance resources are often (though not exclus
 responding to the create/read/query/update/delete/execute etc. event. 
 A <a href="provenance.html">Provenance resource</a> resource contains overlapping 
 information, but is a record-keeping assertion that gathers information about the context in which the information 
-in a resource ”came to be” in its current state, e.g., whether it was created de novo or obtained from another entity 
+in a resource "came to be" in its current state, e.g., whether it was created de novo or obtained from another entity 
 in whole, part, or by transformation. Provenance resources are prepared by the application that initiates the 
 create/update of the resource, and may be persisted with the AuditEvent target resource. 
 </p>
@@ -79,8 +79,8 @@ granularity on the concepts used to convey actions and reasons for actions.  Bot
 are making available a number of those vocabularies via resource element bindings.  
 </p>
 <p>
-For example, AuditEvent has four elements that bind to “activity” vocabularies which could be used to convey the same 
-concept where there’s no clear use case for doing so.  E.g., a “read” action could be conveyed by AuditEvent.event.type, 
+For example, AuditEvent has four elements that bind to "activity" vocabularies which could be used to convey the same 
+concept where there’s no clear use case for doing so.  E.g., a "read" action could be conveyed by AuditEvent.event.type, 
 AuditEvent.event.subtype, AuditEvent.event.action, and AuditEvent.object.lifecycle.  Only the AuditEvent.event.type is 
 required, but is there a use case for including the others if the basic action is the same?  However, there may be use 
 cases in which both the high level CRUDE action value set is an important addition to a required code from AuditEvent.event.type.  

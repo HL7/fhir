@@ -1026,7 +1026,7 @@ When the signature is an XML Digital Signature (contentType = application/signat
  <li>The Signature SHOULD conform to XAdES-X-L for support of Long Term signatures. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
  <li>When FHIR Resources are signed, the signature is accross the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
  <li>The Signature SHOULD use the hashing algorithm sha256. Signature validation policy will apply to the signature and determine acceptability</li>
- <li>The Signature SHALL include a “CommitmentTypeIndication” element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as committmentTypeIndication</li>
+ <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as committmentTypeIndication</li>
 </ul>
 <p>
 There are three levels of signature verification: 

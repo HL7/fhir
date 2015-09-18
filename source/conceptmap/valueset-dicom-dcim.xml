@@ -8802,7 +8802,7 @@
           <td>Positioner Primary End Angle</td>
         
           
-          <td>Positioner Primary Angle at the end of an irradiation event. For further definition see (112011,DCM,”Positioner Primary Angle”)</td>
+          <td>Positioner Primary Angle at the end of an irradiation event. For further definition see (112011,DCM,"Positioner Primary Angle")</td>
       
         
         </tr>  
@@ -8821,7 +8821,7 @@
           <td>Positioner Secondary End Angle</td>
         
           
-          <td>Positioner Secondary Angle at the end of an irradiation event. For further definition see (112012,DCM,”Positioner Secondary Angle”)</td>
+          <td>Positioner Secondary Angle at the end of an irradiation event. For further definition see (112012,DCM,"Positioner Secondary Angle")</td>
       
         
         </tr>  
@@ -9999,7 +9999,7 @@
           <td>Mean CTDIvol</td>
         
           
-          <td>“Mean CTDIvol” refers to the average value of the CTDIvol associated with this acquisition.</td>
+          <td>"Mean CTDIvol" refers to the average value of the CTDIvol associated with this acquisition.</td>
       
         
         </tr>  
@@ -10892,7 +10892,7 @@
           <td>Length of Reconstructable Volume</td>
         
           
-          <td>The length from which images may be reconstructed (i.e., excluding any overranging performed in a spiral acquisition that is required for data interpolation).  Value is distinct from (1113825, DCM,”Scanning Length”), which is the actual length of the table travel during the entire tube loading, according to IEC 60601-2-44, and includes overranging. Also distinct from any actual Reconstructed Volume, which may depend on the slice thickness chosen for a particular reconstruction.</td>
+          <td>The length from which images may be reconstructed (i.e., excluding any overranging performed in a spiral acquisition that is required for data interpolation).  Value is distinct from (1113825, DCM,"Scanning Length"), which is the actual length of the table travel during the entire tube loading, according to IEC 60601-2-44, and includes overranging. Also distinct from any actual Reconstructed Volume, which may depend on the slice thickness chosen for a particular reconstruction.</td>
       
         
         </tr>  
@@ -13168,7 +13168,7 @@
           <td>Proximal Finding Site</td>
         
           
-          <td>Proximal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)</td>
+          <td>Proximal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, "Finding Site")</td>
       
         
         </tr>  
@@ -13187,7 +13187,7 @@
           <td>Distal Finding Site</td>
         
           
-          <td>Distal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)</td>
+          <td>Distal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, "Finding Site")</td>
       
         
         </tr>  
@@ -15728,7 +15728,7 @@
           <td>Normality</td>
         
           
-          <td>Assessment of a measurement relative to a normal range of values; may be considered subtype of term (G-C0F2, SRT, “has interpretation”)</td>
+          <td>Assessment of a measurement relative to a normal range of values; may be considered subtype of term (G-C0F2, SRT, "has interpretation")</td>
       
         
         </tr>  
@@ -22207,7 +22207,7 @@
           <td>Lumen Shape Index</td>
         
           
-          <td>Measurement of vessel lumen eccentricity. Lumen Shape Index = (2p * sqrt(Vessel lumen cross-sectional area / p) / Lumen Perimeter) 2  Reference: Tobis &amp; Yock, “Intravascular Ultrasound Imaging”,  Chapter 7</td>
+          <td>Measurement of vessel lumen eccentricity. Lumen Shape Index = (2p * sqrt(Vessel lumen cross-sectional area / p) / Lumen Perimeter) 2  Reference: Tobis &amp; Yock, "Intravascular Ultrasound Imaging",  Chapter 7</td>
       
         
         </tr>  
@@ -26425,7 +26425,7 @@
           <td>Hodges QTc Algorithm</td>
         
           
-          <td>Hodges QT Correction Algorithm; QT + 1.75 (heart rate-60); Hodges M, Salerno Q, Erlien D. “Bazett&#39;s QT correction reviewed. Evidence that a linear QT correction for heart rate is better.” J Am Coll Cardiol 1:694 (1983)</td>
+          <td>Hodges QT Correction Algorithm; QT + 1.75 (heart rate-60); Hodges M, Salerno Q, Erlien D. "Bazett&#39;s QT correction reviewed. Evidence that a linear QT correction for heart rate is better." J Am Coll Cardiol 1:694 (1983)</td>
       
         
         </tr>  
@@ -26463,7 +26463,7 @@
           <td>Framingham QTc Algorithm</td>
         
           
-          <td>Framingham QT Correction Algorithm; QT + 0.154 (1- RR); Sagie A, Larson MG, Goldberg RJ, et al. “An improved method for adjusting the QT interval for heart rate (the Framingham Heart Study).” Am J Cardiol 70:797-801(1992)</td>
+          <td>Framingham QT Correction Algorithm; QT + 0.154 (1- RR); Sagie A, Larson MG, Goldberg RJ, et al. "An improved method for adjusting the QT interval for heart rate (the Framingham Heart Study)." Am J Cardiol 70:797-801(1992)</td>
       
         
         </tr>  
@@ -26976,7 +26976,7 @@
           <td>ST/HR Index</td>
         
           
-          <td>ST depression at peak exercise divided by the exercise-induced increase in heart rate [Kligfield P, Ameisen O, Okin PM. “Heart rate adjustment of ST segment depression for improved detection of coronary artery disease.” Circulation 1989;79:245-55.]</td>
+          <td>ST depression at peak exercise divided by the exercise-induced increase in heart rate [Kligfield P, Ameisen O, Okin PM. "Heart rate adjustment of ST segment depression for improved detection of coronary artery disease." Circulation 1989;79:245-55.]</td>
       
         
         </tr>  
@@ -28705,7 +28705,7 @@
           <td>Continuity Equation</td>
         
           
-          <td>For conduits in series (“in continuity”), volume flow is equal: A1*V1 = A2*V2. where V is the velocity</td>
+          <td>For conduits in series ("in continuity"), volume flow is equal: A1*V1 = A2*V2. where V is the velocity</td>
       
         
         </tr>  
@@ -28724,7 +28724,7 @@
           <td>Continuity Equation by Mean Velocity</td>
         
           
-          <td>For conduits in series (“in continuity”), volume flow is equal: A1*V1 = A2*V2. where V is the mean velocity</td>
+          <td>For conduits in series ("in continuity"), volume flow is equal: A1*V1 = A2*V2. where V is the mean velocity</td>
       
         
         </tr>  
@@ -28743,7 +28743,7 @@
           <td>Continuity Equation by Peak Velocity</td>
         
           
-          <td>For conduits in series (“in continuity”), volume flow is equal: A1*V1 = A2*V2. where V is the peak velocity</td>
+          <td>For conduits in series ("in continuity"), volume flow is equal: A1*V1 = A2*V2. where V is the peak velocity</td>
       
         
         </tr>  
@@ -28762,7 +28762,7 @@
           <td>Continuity Equation by Velocity Time Integral</td>
         
           
-          <td>For conduits in series (“in continuity”), volume flow is equal: A1*V1 = A2*V2. where V is the velocity time integral</td>
+          <td>For conduits in series ("in continuity"), volume flow is equal: A1*V1 = A2*V2. where V is the velocity time integral</td>
       
         
         </tr>  
@@ -28990,7 +28990,7 @@
           <td>Modified Simpson</td>
         
           
-          <td>Modified Simpson&#39;s Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. “Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms”. J Am Soc Echocardiogr. 1989 2(5):358-367. Sep-Oct.</td>
+          <td>Modified Simpson&#39;s Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. "Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms". J Am Soc Echocardiogr. 1989 2(5):358-367. Sep-Oct.</td>
       
         
         </tr>  
@@ -29522,7 +29522,7 @@
           <td>Left Ventricle Mass by Area Length</td>
         
           
-          <td>method to measure the mass of the Left Ventricle via the ASE area-length method at end diastole. LV Mass = 1.05*(5/6*(A1*(L+t) ) - 5/6*(A2*L) ) A1 = Left Ventricle epicardial SAX area at the level of of the papillary muscle tips at end diastole. A2 = Left Ventricle endocardial SAX area cavity area at the level of the papillary muscle tips at end diastole. L = Left Ventricle apical view long axis length at end diastole. t = Myocardial thickness can be computed as :  t = sqrt( A1/3.14) – sqrt ( A2/3.14) Reference: 1) Schiller, N.B., et al. “Recommendations for Quantification of the LV by Two-dimensional Echocardiography.&quot; J Am Soc Echo, Vol. 2, No. 5: 358-367, Sep-Oct 1989. 2) Reichek, N., et al. &quot;Anatomic Validation of Left Ventricular Mass Estimates from Clinical Two-dimensional Echocardiography: Initial Results.&quot; Circulation, Vol. 67, No. 2: 348-52, February 1983.</td>
+          <td>method to measure the mass of the Left Ventricle via the ASE area-length method at end diastole. LV Mass = 1.05*(5/6*(A1*(L+t) ) - 5/6*(A2*L) ) A1 = Left Ventricle epicardial SAX area at the level of of the papillary muscle tips at end diastole. A2 = Left Ventricle endocardial SAX area cavity area at the level of the papillary muscle tips at end diastole. L = Left Ventricle apical view long axis length at end diastole. t = Myocardial thickness can be computed as :  t = sqrt( A1/3.14) – sqrt ( A2/3.14) Reference: 1) Schiller, N.B., et al. "Recommendations for Quantification of the LV by Two-dimensional Echocardiography.&quot; J Am Soc Echo, Vol. 2, No. 5: 358-367, Sep-Oct 1989. 2) Reichek, N., et al. &quot;Anatomic Validation of Left Ventricular Mass Estimates from Clinical Two-dimensional Echocardiography: Initial Results.&quot; Circulation, Vol. 67, No. 2: 348-52, February 1983.</td>
       
         
         </tr>  
@@ -29541,7 +29541,7 @@
           <td>Left Ventricle Mass by M-mode – adjusted by Height</td>
         
           
-          <td>Equation = Left Ventricle Mass by M-mode (in gram) / ( Height (in meter) )^2.7 Reference: Giovanni De Simone, et al. “Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk”. New York, New York and Cincinnati, Ohio.</td>
+          <td>Equation = Left Ventricle Mass by M-mode (in gram) / ( Height (in meter) )^2.7 Reference: Giovanni De Simone, et al. "Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk". New York, New York and Cincinnati, Ohio.</td>
       
         
         </tr>  
@@ -29560,7 +29560,7 @@
           <td>Left Ventricle Mass by Truncated Ellipse – adjusted by Height</td>
         
           
-          <td>Equation = Left Ventricle Mass by Truncated Ellipse / Height^2.7 Reference: Giovanni De Simone, et al. “Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk”. New York, New York and Cincinnati, Ohio.</td>
+          <td>Equation = Left Ventricle Mass by Truncated Ellipse / Height^2.7 Reference: Giovanni De Simone, et al. "Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk". New York, New York and Cincinnati, Ohio.</td>
       
         
         </tr>  
@@ -29579,7 +29579,7 @@
           <td>Left Ventricle Mass by Area Length – adjusted by Height</td>
         
           
-          <td>Equation = Left Ventricle Mass by Area Length / Height^2.7 Reference: Giovanni De Simone, et al. “Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk”. New York, New York and Cincinnati, Ohio.</td>
+          <td>Equation = Left Ventricle Mass by Area Length / Height^2.7 Reference: Giovanni De Simone, et al. "Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk". New York, New York and Cincinnati, Ohio.</td>
       
         
         </tr>  
@@ -34167,12 +34167,12 @@
     <concept>
       <code value="113739"/>
       <display value="Positioner Primary End Angle"/>
-      <definition value="Positioner Primary Angle at the end of an irradiation event. For further definition see (112011,DCM,”Positioner Primary Angle”)"/>
+      <definition value="Positioner Primary Angle at the end of an irradiation event. For further definition see (112011,DCM,"Positioner Primary Angle")"/>
     </concept>
     <concept>
       <code value="113740"/>
       <display value="Positioner Secondary End Angle"/>
-      <definition value="Positioner Secondary Angle at the end of an irradiation event. For further definition see (112012,DCM,”Positioner Secondary Angle”)"/>
+      <definition value="Positioner Secondary Angle at the end of an irradiation event. For further definition see (112012,DCM,"Positioner Secondary Angle")"/>
     </concept>
     <concept>
       <code value="113742"/>
@@ -34482,7 +34482,7 @@
     <concept>
       <code value="113830"/>
       <display value="Mean CTDIvol"/>
-      <definition value="“Mean CTDIvol” refers to the average value of the CTDIvol associated with this acquisition."/>
+      <definition value=""Mean CTDIvol" refers to the average value of the CTDIvol associated with this acquisition."/>
     </concept>
     <concept>
       <code value="113831"/>
@@ -34717,7 +34717,7 @@
     <concept>
       <code value="113893"/>
       <display value="Length of Reconstructable Volume"/>
-      <definition value="The length from which images may be reconstructed (i.e., excluding any overranging performed in a spiral acquisition that is required for data interpolation).  Value is distinct from (1113825, DCM,”Scanning Length”), which is the actual length of the table travel during the entire tube loading, according to IEC 60601-2-44, and includes overranging. Also distinct from any actual Reconstructed Volume, which may depend on the slice thickness chosen for a particular reconstruction."/>
+      <definition value="The length from which images may be reconstructed (i.e., excluding any overranging performed in a spiral acquisition that is required for data interpolation).  Value is distinct from (1113825, DCM,"Scanning Length"), which is the actual length of the table travel during the entire tube loading, according to IEC 60601-2-44, and includes overranging. Also distinct from any actual Reconstructed Volume, which may depend on the slice thickness chosen for a particular reconstruction."/>
     </concept>
     <concept>
       <code value="113895"/>
@@ -35305,12 +35305,12 @@
     <concept>
       <code value="121116"/>
       <display value="Proximal Finding Site"/>
-      <definition value="Proximal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)"/>
+      <definition value="Proximal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, "Finding Site")"/>
     </concept>
     <concept>
       <code value="121117"/>
       <display value="Distal Finding Site"/>
-      <definition value="Distal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, “Finding Site”)"/>
+      <definition value="Distal Anatomic Location for a differential measurement (e.g. distance or pressure gradient); may be considered subtype of term (G-C0E3, SRT, "Finding Site")"/>
     </concept>
     <concept>
       <code value="121118"/>
@@ -35977,7 +35977,7 @@
     <concept>
       <code value="121402"/>
       <display value="Normality"/>
-      <definition value="Assessment of a measurement relative to a normal range of values; may be considered subtype of term (G-C0F2, SRT, “has interpretation”)"/>
+      <definition value="Assessment of a measurement relative to a normal range of values; may be considered subtype of term (G-C0F2, SRT, "has interpretation")"/>
     </concept>
     <concept>
       <code value="121403"/>
@@ -37682,7 +37682,7 @@
     <concept>
       <code value="122348"/>
       <display value="Lumen Shape Index"/>
-      <definition value="Measurement of vessel lumen eccentricity. Lumen Shape Index = (2p * sqrt(Vessel lumen cross-sectional area / p) / Lumen Perimeter) 2  Reference: Tobis &amp; Yock, “Intravascular Ultrasound Imaging”,  Chapter 7"/>
+      <definition value="Measurement of vessel lumen eccentricity. Lumen Shape Index = (2p * sqrt(Vessel lumen cross-sectional area / p) / Lumen Perimeter) 2  Reference: Tobis &amp; Yock, "Intravascular Ultrasound Imaging",  Chapter 7"/>
     </concept>
     <concept>
       <code value="122350"/>
@@ -38792,7 +38792,7 @@
     <concept>
       <code value="122731"/>
       <display value="Hodges QTc Algorithm"/>
-      <definition value="Hodges QT Correction Algorithm; QT + 1.75 (heart rate-60); Hodges M, Salerno Q, Erlien D. “Bazett&#39;s QT correction reviewed. Evidence that a linear QT correction for heart rate is better.” J Am Coll Cardiol 1:694 (1983)"/>
+      <definition value="Hodges QT Correction Algorithm; QT + 1.75 (heart rate-60); Hodges M, Salerno Q, Erlien D. "Bazett&#39;s QT correction reviewed. Evidence that a linear QT correction for heart rate is better." J Am Coll Cardiol 1:694 (1983)"/>
     </concept>
     <concept>
       <code value="122732"/>
@@ -38802,7 +38802,7 @@
     <concept>
       <code value="122733"/>
       <display value="Framingham QTc Algorithm"/>
-      <definition value="Framingham QT Correction Algorithm; QT + 0.154 (1- RR); Sagie A, Larson MG, Goldberg RJ, et al. “An improved method for adjusting the QT interval for heart rate (the Framingham Heart Study).” Am J Cardiol 70:797-801(1992)"/>
+      <definition value="Framingham QT Correction Algorithm; QT + 0.154 (1- RR); Sagie A, Larson MG, Goldberg RJ, et al. "An improved method for adjusting the QT interval for heart rate (the Framingham Heart Study)." Am J Cardiol 70:797-801(1992)"/>
     </concept>
     <concept>
       <code value="122734"/>
@@ -38937,7 +38937,7 @@
     <concept>
       <code value="122773"/>
       <display value="ST/HR Index"/>
-      <definition value="ST depression at peak exercise divided by the exercise-induced increase in heart rate [Kligfield P, Ameisen O, Okin PM. “Heart rate adjustment of ST segment depression for improved detection of coronary artery disease.” Circulation 1989;79:245-55.]"/>
+      <definition value="ST depression at peak exercise divided by the exercise-induced increase in heart rate [Kligfield P, Ameisen O, Okin PM. "Heart rate adjustment of ST segment depression for improved detection of coronary artery disease." Circulation 1989;79:245-55.]"/>
     </concept>
     <concept>
       <code value="122775"/>
@@ -39392,22 +39392,22 @@
     <concept>
       <code value="125212"/>
       <display value="Continuity Equation"/>
-      <definition value="For conduits in series (“in continuity”), volume flow is equal: A1*V1 = A2*V2. where V is the velocity"/>
+      <definition value="For conduits in series ("in continuity"), volume flow is equal: A1*V1 = A2*V2. where V is the velocity"/>
     </concept>
     <concept>
       <code value="125213"/>
       <display value="Continuity Equation by Mean Velocity"/>
-      <definition value="For conduits in series (“in continuity”), volume flow is equal: A1*V1 = A2*V2. where V is the mean velocity"/>
+      <definition value="For conduits in series ("in continuity"), volume flow is equal: A1*V1 = A2*V2. where V is the mean velocity"/>
     </concept>
     <concept>
       <code value="125214"/>
       <display value="Continuity Equation by Peak Velocity"/>
-      <definition value="For conduits in series (“in continuity”), volume flow is equal: A1*V1 = A2*V2. where V is the peak velocity"/>
+      <definition value="For conduits in series ("in continuity"), volume flow is equal: A1*V1 = A2*V2. where V is the peak velocity"/>
     </concept>
     <concept>
       <code value="125215"/>
       <display value="Continuity Equation by Velocity Time Integral"/>
-      <definition value="For conduits in series (“in continuity”), volume flow is equal: A1*V1 = A2*V2. where V is the velocity time integral"/>
+      <definition value="For conduits in series ("in continuity"), volume flow is equal: A1*V1 = A2*V2. where V is the velocity time integral"/>
     </concept>
     <concept>
       <code value="125216"/>
@@ -39467,7 +39467,7 @@
     <concept>
       <code value="125227"/>
       <display value="Modified Simpson"/>
-      <definition value="Modified Simpson&#39;s Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. “Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms”. J Am Soc Echocardiogr. 1989 2(5):358-367. Sep-Oct."/>
+      <definition value="Modified Simpson&#39;s Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. "Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms". J Am Soc Echocardiogr. 1989 2(5):358-367. Sep-Oct."/>
     </concept>
     <concept>
       <code value="125228"/>
@@ -39607,22 +39607,22 @@
     <concept>
       <code value="125270"/>
       <display value="Left Ventricle Mass by Area Length"/>
-      <definition value="method to measure the mass of the Left Ventricle via the ASE area-length method at end diastole. LV Mass = 1.05*(5/6*(A1*(L+t) ) - 5/6*(A2*L) ) A1 = Left Ventricle epicardial SAX area at the level of of the papillary muscle tips at end diastole. A2 = Left Ventricle endocardial SAX area cavity area at the level of the papillary muscle tips at end diastole. L = Left Ventricle apical view long axis length at end diastole. t = Myocardial thickness can be computed as :  t = sqrt( A1/3.14) – sqrt ( A2/3.14) Reference: 1) Schiller, N.B., et al. “Recommendations for Quantification of the LV by Two-dimensional Echocardiography.&quot; J Am Soc Echo, Vol. 2, No. 5: 358-367, Sep-Oct 1989. 2) Reichek, N., et al. &quot;Anatomic Validation of Left Ventricular Mass Estimates from Clinical Two-dimensional Echocardiography: Initial Results.&quot; Circulation, Vol. 67, No. 2: 348-52, February 1983."/>
+      <definition value="method to measure the mass of the Left Ventricle via the ASE area-length method at end diastole. LV Mass = 1.05*(5/6*(A1*(L+t) ) - 5/6*(A2*L) ) A1 = Left Ventricle epicardial SAX area at the level of of the papillary muscle tips at end diastole. A2 = Left Ventricle endocardial SAX area cavity area at the level of the papillary muscle tips at end diastole. L = Left Ventricle apical view long axis length at end diastole. t = Myocardial thickness can be computed as :  t = sqrt( A1/3.14) – sqrt ( A2/3.14) Reference: 1) Schiller, N.B., et al. "Recommendations for Quantification of the LV by Two-dimensional Echocardiography.&quot; J Am Soc Echo, Vol. 2, No. 5: 358-367, Sep-Oct 1989. 2) Reichek, N., et al. &quot;Anatomic Validation of Left Ventricular Mass Estimates from Clinical Two-dimensional Echocardiography: Initial Results.&quot; Circulation, Vol. 67, No. 2: 348-52, February 1983."/>
     </concept>
     <concept>
       <code value="125271"/>
       <display value="Left Ventricle Mass by M-mode – adjusted by Height"/>
-      <definition value="Equation = Left Ventricle Mass by M-mode (in gram) / ( Height (in meter) )^2.7 Reference: Giovanni De Simone, et al. “Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk”. New York, New York and Cincinnati, Ohio."/>
+      <definition value="Equation = Left Ventricle Mass by M-mode (in gram) / ( Height (in meter) )^2.7 Reference: Giovanni De Simone, et al. "Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk". New York, New York and Cincinnati, Ohio."/>
     </concept>
     <concept>
       <code value="125272"/>
       <display value="Left Ventricle Mass by Truncated Ellipse – adjusted by Height"/>
-      <definition value="Equation = Left Ventricle Mass by Truncated Ellipse / Height^2.7 Reference: Giovanni De Simone, et al. “Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk”. New York, New York and Cincinnati, Ohio."/>
+      <definition value="Equation = Left Ventricle Mass by Truncated Ellipse / Height^2.7 Reference: Giovanni De Simone, et al. "Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk". New York, New York and Cincinnati, Ohio."/>
     </concept>
     <concept>
       <code value="125273"/>
       <display value="Left Ventricle Mass by Area Length – adjusted by Height"/>
-      <definition value="Equation = Left Ventricle Mass by Area Length / Height^2.7 Reference: Giovanni De Simone, et al. “Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk”. New York, New York and Cincinnati, Ohio."/>
+      <definition value="Equation = Left Ventricle Mass by Area Length / Height^2.7 Reference: Giovanni De Simone, et al. "Effect of Growth on Variability of Left Ventricular Mass: Assessment of Allometric Signals in Adults and Children and Their Capacity to Predict Cardiovascular Risk". New York, New York and Cincinnati, Ohio."/>
     </concept>
     <concept>
       <code value="125901"/>

@@ -1772,7 +1772,7 @@ cannot provide both a value and an uncertain range;
 uncertainRange shall be an IVL(INT);
 uncertainty shall not be populated.
 OCL for Invariants:
-inv “no uncertainty”: uncertainty.isNull
+inv "no uncertainty": uncertainty.isNull
 inv "uncertain types": uncertainRange.low.oclIsDefined 
 implies uncertainRange.low.oclIsKindOf(INT) and
 uncertainRange.high.oclIsDefined implies 

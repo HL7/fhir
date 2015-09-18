@@ -302,7 +302,7 @@
   Type = string
   Short Label = Additional comments
   Definition = Additional comments about the appointment
-  Comments = Additional text to aid in facilitating the appointment. For instance, a comment might be, “patient should proceed immediately to infusion room upon arrival”\n\nWhere this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.
+  Comments = Additional text to aid in facilitating the appointment. For instance, a comment might be, \"patient should proceed immediately to infusion room upon arrival\"\n\nWhere this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.
   iCal Mapping = COMMENT
   v2 Mapping = NTE-3
 
