@@ -23,7 +23,7 @@
  <tr><td>System</td><td>The URI <a href="http://www.nlm.nih.gov/research/umls/rxnorm">http://www.nlm.nih.gov/research/umls/rxnorm</a> identifies the RxNorm code system</td></tr>
  <tr><td>Version</td><td>Where a version is used, it should be the date of release, encoded as in the download files, e.g. "07092014"</td></tr>
  <tr><td>Code</td><td>The code value for an RxNorm code is a Concept Identifier (CUI), and only CUIs for which there is an SAB=RXNORM</td></tr>
- <tr><td>Display</td><td>The correct display for CUI is the String description for it associated with the source RXNORM. Display values are not case sensitive</td></tr>
+ <tr><td>Display</td><td>The correct display for a CUI is the string description for it associated with the source RXNORM. Display values are not case sensitive</td></tr>
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
 
@@ -49,7 +49,7 @@ their own right.
 
 <p>
 The <a href="https://uts.nlm.nih.gov/license.html">license for RxNorm</a> places restrictions on
-the distribution of the UMLS Metathesaurus or subsets of it. We are seeking a clarification of 
+the distribution of the UMLS Metathesaurus or subsets of it. HL7 is are seeking a clarification of 
 what constitutes a "subset of the metathesaurus" in order to make it clear what the status of 
 an RxNorm value set is.
 </p>
@@ -61,7 +61,7 @@ This section documents the property filters that can be used with the RxNorm
 code system in value set composition statements.
 </p>
 <p>
-The base SQL statement for returning a list of CUIS that conform to these filters 
+The base SQL statement for returning a list of CUIs that conform to these filters 
 is:
 </p>
 <pre>
@@ -71,7 +71,7 @@ is:
 <h4>Semantic Type</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Allows to choose a set of CUIs based on their Semantic Type</td></tr>
+ <tr><td>Description</td><td>Allows for the selection of a set of CUIs based on their Semantic Type</td></tr>
  <tr><td>Property Name</td><td>STY</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
  <tr><td>Values Allowed</td><td>[column:]value</td></tr>
@@ -82,7 +82,7 @@ is:
 <h4>Source</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Allows for selection of the set of concepts that have mappings to a particular rxnorm source</td></tr>
+ <tr><td>Description</td><td>Allows for the selection of a set of concepts that have mappings to a particular RxNorm concept</td></tr>
  <tr><td>Property Name</td><td>SAB</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
  <tr><td>Values Allowed</td><td>Values from RxNorm SAB table (e.g. select RSAB from rxnsab) </td></tr>
@@ -92,7 +92,7 @@ is:
 <h4>Term Type</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Allows for selection of a concept based on its designated type</td></tr>
+ <tr><td>Description</td><td>Allows for the selection of a concept based on its designated type</td></tr>
  <tr><td>Property Name</td><td>TTY</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
  <tr><td>Values Allowed</td><td>TTY values from the RxNorm Concept table (e.g. select distinct TTY from rxnconso)</td></tr>
@@ -102,10 +102,10 @@ is:
 <h4>Relationship</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Allows for selection of a concept based on its relationships</td></tr>
+ <tr><td>Description</td><td>Allows for the selection of a concept based on its relationships</td></tr>
  <tr><td>Property Name</td><td>[REL]</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
- <tr><td>Values Allowed</td><td>CUI:[RXCUI] or AUI:[RXAUI] must be a valid CUI or AUI. Note that a CUI does not need to have a SAB=RXNORM entry to be used here</td></tr>
+ <tr><td>Values Allowed</td><td>CUI:[RXCUI] or AUI:[RXAUI] must be a valid CUI or AUI. Note that a CUI does not need to have an SAB=RXNORM entry to be used here</td></tr>
  <tr><td>Comments</td><td>[REL] (:rel) is one of SY, SIB, RN, PAR, CHD, RB or RO</td></tr>
  <tr><td>SQL</td><td>
    for CUI:
@@ -118,10 +118,10 @@ is:
 <h4>Relationship Type</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Allows for selection of a concept based on the type of its relationships</td></tr>
+ <tr><td>Description</td><td>Allows for the selection of a concept based on the type of its relationships</td></tr>
  <tr><td>Property Name</td><td>[RELA]</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
- <tr><td>Values Allowed</td><td>CUI:[RXCUI] or AUI:[RXAUI] must be a valid CUI or AUI. Note that a CUI does not need to have a SAB=RXNORM entry to be used here</td></tr>
+ <tr><td>Values Allowed</td><td>CUI:[RXCUI] or AUI:[RXAUI] must be a valid CUI or AUI. Note that a CUI does not need to have an SAB=RXNORM entry to be used here</td></tr>
  <tr><td>Comments</td><td>[RELA] (:rela) is one of the relationship types below</td></tr>
  <tr><td>SQL</td><td>
    for CUI:
@@ -218,12 +218,12 @@ is:
 
 <p>
 Implicit value sets are those whose specification can be predicted based on the grammar of the 
-underlying code system, and the known structure of the URL that refers to them. RxNorm
-does not (yet) have any defined implicit value sets.
+underlying code system, and the known structure of the URL that refers to them. At the time of this publication, RxNorm
+does not define implicit value sets.
 </p>
 
 <p>
-The value set identifier http://www.nlm.nih.gov/research/umls/rxnorm/vs is a value set that contains all RxNorm CUIs.
+The identifier http://www.nlm.nih.gov/research/umls/rxnorm/vs represents a value set that contains all RxNorm CUIs.
 </p>
 
 

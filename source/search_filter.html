@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 
 [%settitle _filter Parameter%]
@@ -18,12 +18,12 @@
 <a name="intro"> </a>
 <h4>Introduction</h4>
 <p>
-The _filter parameter is a parameter that can be used with the <a href="search.html">Search Operation</a>.
+<code>_filter</code> is a parameter that can be used with the <a href="search.html">Search Operation</a>.
 It uses the same set of standard parameters defined for the resources, and provides a syntax
 for expressing a set of query expressions on the underlying resources. 
 </p>
 
-<p>Here's some example filters:</p>
+<p>Examples of filters:</p>
 <ul>
 <li>Patient: name co "pet" - all patients with the characters "pet" in a given or family name</li>
 <li>Patient: given eq "peter" and birthdate ge 2014-10-10 - all patients with a given name of peter, born on or after 10-Oct 2014</li>
@@ -38,19 +38,19 @@ The _filter syntax has the following features:
 </p>
 
 <ul>
-<li>A filter can be a logical one (x or x, or x and x, or not x)</li>
-<li>A filter can contain other filters in a set of parentheses : "()"</li>
-<li>A filter can be a test - path operation value, where operation is taken from the table below, and value is either a "true", "false", a JSON string, or a token (any sequence of non-whitespace characters, excluding ")" and "]". Values are never case sensitive</li>
-<li>A 'path' is a name, with chained searches done by name.name etc.as per existing source. There can also be a filter: name[filter].name...</li>
+<li>A filter can be a logical one (x or x, or x and x, or not x).</li>
+<li>A filter can contain other filters in a set of parentheses : "()".</li>
+<li>A filter can be a test - path operation value, where operation is taken from the table below, and value is either a "true", "false", a JSON string, or a token (any sequence of non-whitespace characters, excluding ")" and "]". Values are never case sensitive.</li>
+<li>A 'path' is a name, with chained searches done by name.name etc.as per existing source. There can also be a filter: name[filter].name.</li>
 <li>The name is one of the defined search parameters that are used with the other search mechanism, with some special exemptions defined below.</li>
 </ul>
 <p>
-Note that the only difference between a "string" value and a "token" 
+Note: The only difference between a "string" value and a "token" 
 value is that a string can contain spaces and ) and ]. There is 
 otherwise no significant difference between them.
 </p>
 <p>
-This is the formal grammar for the syntax:
+Formal grammar for the syntax:
 </p>
 <pre>
 filter       = paramExp / logExp / ("not") "(" filter ")"
@@ -69,10 +69,10 @@ dateChar     = DIGIT / "T" / "-" / "." / "+"
 
 <p>Notes about using the syntax:</p>
 <ul>
-<li>Logical expressions are evaluated left to right, with no precedence between "and" and "or". If there is ambiguity, use parentheses to be explicit</li>
-<li>the compareOp is always evaluated against the set of values produced by evaluating the param path</li>
-<li>the parameter names are those defined by the specification for search parameters, except for those defined below</li>
-<li>the date format is a standard XML (i.e. XSD) dateTime (including timezone).</li>
+<li>Logical expressions are evaluated left to right, with no precedence between "and" and "or". If there is ambiguity, use parentheses to be explicit.</li>
+<li>Rhe compareOp is always evaluated against the set of values produced by evaluating the param path.</li>
+<li>Rhe parameter names are those defined by the specification for search parameters, except for those defined below.</li>
+<li>Rhe date format is a standard XML (i.e. XSD) dateTime (including timezone).</li>
 </ul>
 
 <a name="ops"> </a>
@@ -275,10 +275,10 @@ For detailed rules about the operators eq, ne, le, ge, lt, gt, sa, and eb see
 </tbody>
 </table>
 
-<p>Notes:</p>
+<p>Note:</p>
 <ul>
-<li>For token, the format is the same as the existing search parameter</li>
-<li>For convenience, the codes "loinc", "snomed", "rxnorm" and "ucum" are predefined and can be used in place of their associated full namespace</li>
+<li>For token, the format is the same as the existing search parameter.</li>
+<li>For convenience, the codes "loinc", "snomed", "rxnorm" and "ucum" are predefined and can be used in place of their associated full namespace.</li>
 </ul>
 
 <a name="params"> </a>
@@ -337,14 +337,14 @@ actor = actor</p></td>
 </tbody>
 </table>
 
-<p>Explanation:</p>
+<p>Note:</p>
 <ul>
-<li>Any time these names are used in a parameter, they must have a filter and a chained name under them</li>
-<li>The first column is the resource type against which this name can be used</li>
-<li>The second column is the prameter name that is used</li>
-<li>The third column defines the names that can be used in the chained parameter, and in the filter, and shows which existing search parameters they equate to</li>
-<li>For example, you could search on Observation for '_filter=related[type eq has-component].target re url'. "type" here refers to the 
-search parameter "related-type", and "target" to the search parameter "related-target"</li>
+<li>Any time these names are used in a parameter, they must have a filter and a chained name under them.</li>
+<li>The first column is the resource type against which this name can be used.</li>
+<li>The second column is the parameter name that is used.</li>
+<li>The third column defines the names that can be used in the chained parameter, and in the filter, and shows which existing search parameters they equate to.</li>
+<li>For example, you could search on Observation for '_filter=related[type eq has-component].target re url'. "type" refers to the 
+search parameter "related-type", and "target" to the search parameter "related-target".</li>
 </ul>
 
 </div>

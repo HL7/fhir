@@ -17,7 +17,7 @@
 
 <p>
 Fast Healthcare Interoperability Resources (FHIR) is not a security protocol, nor does it define any security
-related functionality. However FHIR does define exchange protocols and content models that need to be used
+related functionality. However, FHIR does define exchange protocols and content models that need to be used
 with various security protocols defined elsewhere. This section gathers all information about security
 in one section. A summary:
 </p>
@@ -25,7 +25,7 @@ in one section. A summary:
  <li>Communications Security - all exchange of production data should be secured using TLS/SSL (e.g. https)</li>
  <li>Authentication - Users/Clients may be authenticated in any way desired. For web-centric use, OAuth is recommended</li>
  <li>Authorization/Access Control - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
- <li>Audit - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status and access of resources</li>
+ <li>Audit - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status, and access of resources</li>
  <li>Digital Signatures - FHIR includes several specifically reserved locations for digital signatures</li>
  <li>Attachments - FHIR allows for binary resources and attachments. These have their own concerns</li>
  <li><a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect that way resources are handled</li>
@@ -46,7 +46,7 @@ Implementers should track the developing IHE IUA Profile for additional security
 
 <p>
 A production FHIR system will need some kind of security sub-system that administers 
-users, user authentication and user-authorization. Where this sub-system fits into the 
+users, user authentication, and user authorization. Where this subsystem fits into the 
 deployment architecture is a matter for system design:
 </p>
 <table class="dense">
@@ -78,7 +78,7 @@ system exists, and that it may be deployed in front of or behind the FHIR API.
 The security system includes the following subsystems:
 </p>
 <ul>
- <li>Authentication: Identifies and Authenticates the user</li>
+ <li>Authentication: identifies and authenticates the user</li>
  <li>Access Control decision engine: decides whether FHIR operations are allowed</li>
  <li>Audit Log: records actions to allow for subsequent review and detection of intrusion or inappropriate usage</li>
 </ul>
@@ -122,12 +122,12 @@ client certificates.
 </p>
 <p>
 TLS/SSL SHOULD be used for all production data exchange. The TLS/SSL communications are established 
-prior to any HTTP command/response; so the whole FHIR interaction is protected by the SSL/TLS 
+prior to any HTTP command/response, so the whole FHIR interaction is protected by the SSL/TLS 
 communications. The security of the endpoints of the TLS/SSL communications must be risk-managed, 
 so as to prevent inappropriate risks (e.g. audit logging of the GET parameters into an unprotected audit log).
 </p>
 <p>
-To support browser-based client applications, recommend that servers SHOULD 
+To support browser-based client applications, servers SHOULD 
 implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the <a href="http.html">REST operations</a>.  
 </p>
 <p>
@@ -153,7 +153,7 @@ The server may choose to authenticate the client system and trust it, or to auth
 the individual user by a variety of techniques. For web-centric use, 
 <a href="http://oauth.net/">OAuth</a> may be used to authenticate and/or authorize 
 the users. The <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> profile 
-on OAuth is tightly integrated with FHIR, and is the preferred method for using OAuth.
+on OAuth is tightly integrated with FHIR and is the preferred method for using OAuth.
 </p>
 
 <!-- note about using OAuth and delegating user authority -->
@@ -166,20 +166,20 @@ Authorization/Access Control
 <p>
 Correctly identifying people, devices, locations and organizations is one of the foundations that any security system is built on. 
 Most applications of security protocols, whether authentication, access control, digital signatures, etc. rely on the correct mapping between
-the relevant resources and the underlying systems. Note that this isn't necessary: there is nothing in FHIR that requires or relies 
-on any security being in place, or any particular implementation. But real world usage will generally require this. 
+the relevant resources and the underlying systems. Note that this isn't necessary. There is nothing in FHIR that requires or relies 
+on any security being in place, or any particular implementation. However, real world usage will generally require this. 
 </p>
 <p>
 A holder of data should not allow the data to be communicated unless there are sufficient assurances that the 
-other party is authorized to receive it. This is true for a Client creating a resource through a PUT/POST, 
-as much as it is true for a Server returning resources on a GET. The presumption is that without 
+other party is authorized to receive it. This is true for a client creating a resource through a PUT/POST, 
+as much as it is true for a server returning resources on a GET. The presumption is that without 
 proper authorization, to the satisfaction of the data holder, the data does not get communicated.
 </p>
 <p>
-The rules behind the Access Control decision are often very complex, and potentially depends on information sourced from:
+The rules behind the access control decision are often very complex, and potentially depends on information sourced from:
 </p>
 <ul>
- <li>Client, such as User Identity, User Role, Location, level of assurance</li>
+ <li>Client, such as user identity, user role, location, level of assurance</li>
  <li>Resource, such as confidentiality, sensitivity, type of data, date ranges covered by the data, author of the data</li>
  <li>Patient, such as the patient identity, patient relationship to the user, patient consent policies</li>
  <li>Context of the transaction, system identity, time-of-day, purpose of use, workflow state, and transport security</li>
@@ -198,12 +198,12 @@ Submitted data and Retrieved data</a>.
 <a name="audit"> </a>
 <h2>Audit Logging</h2>
 <p>
-FHIR provides a <a href="auditevent.html">AuditEvent</a> resource suitable for use by 
+FHIR provides an <a href="auditevent.html">AuditEvent</a> resource suitable for use by 
 FHIR clients and servers to record when a security or privacy relevant event has occurred. 
 This form of audit logging records as much detail as reasonable at the time the event happened. 
 </p>
 <p>
-The AuditEvent when used to record security and privacy relevant events can then be 
+When used to record security and privacy relevant events, the AuditEvent can then be 
 used by properly authorized applications to support audit reporting, alerting, filtering, 
 and forwarding. This model has been developed and used in healthcare for a decade as 
 <a href="http://wiki.ihe.net/index.php?title=Audit_Trail_and_Node_Authentication">IHE-ATNA profile</a>. 
@@ -212,8 +212,8 @@ client applications are able to search the audit events, or subscribe to them.
 </p>
 <p>
 With regard to HTTP logs, implementers need to consider the implications of distributing
-access to the logs. HTTP logs - even ones that only include the URL itself - should be 
-regarded as sensitive as the resources themselves - even if direct PHI is kept out of
+access to the logs. HTTP logs, including those that only cotain the URL itself, should be 
+regarded as being as sensitive as the resources themselves.  Even if direct PHI is kept out of
 the logs by careful avoidance of search parameters (e.g. by using GET), the logs will
 still contain a rich set of information about the clinical records. 
 </p>
@@ -227,13 +227,13 @@ Digital Signatures
 This specification recommends the use of <a href="http://www.w3.org/TR/xmldsig-core/">W3C Digital Signatures</a> for signatures. 
 Resources can be signed using the <a href="provenance.html">Provenance</a> resource to carry a 
 <a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureDetached">detached digital signature</a>. 
-The <a href="datatypes.html#signature">Signature datatype</a> is available to carry various Signature types including non-repudiation purposes. 
-Further details on creation and valiation of <a href="datatypes.html#signature">Signature is defined.</a>
+The <a href="datatypes.html#signature">Signature datatype</a> is available to support various signature types including non-repudiation purposes. 
+Further details on creation and validation of <a href="datatypes.html#signature">Signatures are defined.</a>
 </p>
 <p>
 In addition, <a href="documents.html#signatures">documents may be signed</a> using an 
 <a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureEnveloped">enveloped</a> 
-signature. A specification for Enveloped signature is profiled in 
+signature. A specification for enveloped signature is profiled in 
 the <a href="http://wiki.ihe.net/index.php?title=Document_Digital_Signature">IHE DSG profile</a>.
 </p>
 <p>
@@ -252,7 +252,7 @@ Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedbac
 <a name="attachments"> </a>
 <h2>Attachments</h2>
 <p>
-Several FHIR resources include attachments. Attachments can either be references to content found elsewhere, or included inline encoded in base64.
+Several FHIR resources include attachments. Attachments can either be references to content found elsewhere or included inline encoded in base64.
 Attachments represent security risks in a way that FHIR resources do not, since some attachments contain executable code. Implementers should 
 always use caution when handling resources.
 </p>
@@ -269,7 +269,7 @@ See <a href="security-labels.html">Security Labels</a>.
 
 <p>
 FHIR resources include an XHTML narrative, so that applications can display the contents of the resource to users
-without having to fully and correctly process the data in the resource. However displaying HTML is associated 
+without having to fully and correctly process the data in the resource. However, displaying HTML is associated 
 with several known security issues that have been observed in production systems in other contexts (e.g. 
 <a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">with CDA</a>). For
 this reason, the <a href="narrative.html#security">FHIR narrative is not allowed to contain active content</a>.
@@ -279,7 +279,7 @@ However, care is still needed when displaying the narrative:
  <li>Validate the narrative (the standard FHIR schemas do not allow active content, and the reference implementations won't handle it). Note, though, that external references could still be included in CSS, and these are outside the scope of schemas and reference implementations.</li>
  <li>Ensure that any external references to images or anchors (e.g. outside the resource) do not cause the display software to <a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">leak sensitive information in headers</a></li>
  <li>Do not allow external links to run in a privileged context such as the EHR unless you are sure they can be trusted</li>
- <li>Care should be taken to differentiate HTTP RESTful (API) from browser based server content. Specifically one should separate user session cookies, as an attacker could create content that serves up with content-type "text/html" and has content like "&lt;script&gt;send_to_attacker(document.cookie);&lt;/script&gt;".</li>
+ <li>Care should be taken to differentiate HTTP RESTful (API) from browser based server content. Specifically, one should separate user session cookies, as an attacker could create content that serves up with content-type "text/html" and has content like "&lt;script&gt;send_to_attacker(document.cookie);&lt;/script&gt;".</li>
 </ul>
 <p>
 Also note that the inclusion of an external reference to an image can allow the server that hosts the image to track 
@@ -287,7 +287,7 @@ when the resource is displayed. This may be a feature or a problem depending on 
 </p>
 <a name="stylesheets"> </a>
 <p>
-In addition, to narrative <a href="documents.html">Documents</a> may also contain 
+In addition to narrative, <a href="documents.html">Documents</a> may also contain 
 stylesheets. Unlike with CDA, the stylesheets are simple CSS stylesheets, not 
 executable XSLT, so the same security risks do not apply. However CSS stylesheets
 may still reference external content (e.g. background images), and applications 
