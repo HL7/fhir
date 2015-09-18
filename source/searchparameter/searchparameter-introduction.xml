@@ -23,7 +23,7 @@ todo
 <a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
-Implementers should be familiar with with the 
+Implementers should be familiar with the 
 background and concepts described in <a href="profiling.html">Profiling FHIR</a> 
 before working with this resource.
 </p>

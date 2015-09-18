@@ -6,7 +6,7 @@
 <p>
 Executing each of the channels documented below involves the server
 sending a communication that will reveal information about the 
-client and server relatinoship, and, if the entire resource is 
+client and server relationship, and, if the entire resource is 
 sent, administrative or clinical information that may be quite 
 sensitive and/or protected under law. Servers are responsible
 for ensuring appropriate security is employed for each channel. 
@@ -30,7 +30,7 @@ the Location header and saves the new Subscription's logical id for
 use in subsequent operations.
 </p>
 <p>
-The criteria is subject to the same limitations as the client that
+The criteria are subject to the same limitations as the client that
 created it, such as access to patient compartments etc. Note that the
 subscription remains active after the client access tokens expire.
 </p>
@@ -90,7 +90,7 @@ sends a POST request with no body to the nominated URL.
 When the client receives a POST to https://biliwatch.com/customers/mount-auburn-miu/on-result, 
 it re-issues the criteria as a query to the server, appending &amp;_since=:last (where :last is 
 replaced by the time at which the client last checked). In this way it can fetch all new 
-relevent <a href="observation.html">Observations</a>.
+relevant <a href="observation.html">Observations</a>.
 </p>
 <p>
 Since payload is missing, the data in the resources is only available through 
@@ -177,7 +177,7 @@ email:
 
 <p>
 The server would send a new message for each matching resource.
-The body of the email may be empty, or it may contain a refernce
+The body of the email may be empty, or it may contain a reference
 to the search or the matching resource. It is at the discretion
 of the server as to how much information to provide. The email
 should be secured appropriately, such as using Direct, as specified
@@ -220,7 +220,7 @@ is white-listed prior to allowing these kinds of subscriptions.
 <a name="dstu"> </a>
 <p>
 <b>DSTU Note:</b>  The details of the message - mainly the event code - are 
-still be to resolved during the trial use.
+still to be resolved during the trial use period.
 </p>
 <p>
 Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.

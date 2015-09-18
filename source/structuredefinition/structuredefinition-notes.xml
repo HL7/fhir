@@ -110,7 +110,7 @@ This list shows a number of examples, with links to real examples for each:
 </pre>
  </li>
  
- <li>A contraint on a defined extension (no examples currently defined): <br/>
+ <li>A constraint on a defined extension (no examples currently defined): <br/>
 <pre class="json">
 {
   "resourceType": "StructureDefinition",
@@ -142,7 +142,7 @@ When the structure is a constraint (constrainedType is not null), then the follo
      <li>no new paths may be introduced that are not found in the base structure</li> 
      <li>the list of types for an element must be the same or a subset of the list of types for the same element in the base structure</li> 
      <li>The definition can be changed in the derived structure, but it must still be logically consistent with the definition in the base; e.g. the base element may be defined as "Result value" and this structure could define it as "Plasma Cholesterol Test Value", but not "Result status".</li>
-     <li>The cardinality must be a subset of the allowable cardinality in the base structure i.e. the minumum must be >= the base minimum, and the maximum must be &lt;= the base maximum</li>
+     <li>The cardinality must be a subset of the allowable cardinality in the base structure i.e. the minimum must be >= the base minimum, and the maximum must be &lt;= the base maximum</li>
    </ul>
   </li>
   <li>Note that because of slicing, there can be more than one element for the same path. For details, see <a href="profiling.html">Profiling resources</a></li>
