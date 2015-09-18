@@ -46,7 +46,7 @@ to describe  the characteristics, operational status and capabilities of a medic
 component of a medical device. It can be a physical component that is integrated inside 
 the device, a removable physical component, or a non-physical component that allows 
 physiological measurement data and its derived data to be grouped in a hierarchical 
-information organization. Devices are conceptualised using the following main structure:
+information organization. Devices are conceptualized using the following main structure:
 </p>
 <ol>
  <li><b>MedicalDeviceSystem</b> - An actual device that external systems communicate with. In 11073, this is known as a MDS.</li>

@@ -7,7 +7,7 @@
 A diagnostic report is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,
 and codes. The mix varies depending on the nature of the diagnostic procedure, and sometimes on the nature
-of the outcomes for a particular investigation.  In FHIR, the report can conveyed in a variety of ways including a <a href="documents.html">Document</a>, <a href="http.html">RESTful API</a>, or <a href="messaging.html">Messaging </a> framework.  Included within each of these, would be the DiagnosticReport resource itself.
+of the outcomes for a particular investigation.  In FHIR, the report can be conveyed in a variety of ways including a <a href="documents.html">Document</a>, <a href="http.html">RESTful API</a>, or <a href="messaging.html">Messaging </a> framework.  Included within each of these, would be the DiagnosticReport resource itself.
 </p>
 <p>
 The DiagnosticReport resource has information about the diagnostic report itself, and about the subject and, in the case of lab tests, the specimen of the report.  It can also refers to the request details and atomic observations details or image instances.  Report conclusions can be expressed as a simple text blob, structured coded data or as an attached fully formatted report such as a PDF.</p>
@@ -64,15 +64,15 @@ The results are assembled in "groups" which are nested structures of Observation
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Note that many diagnostic processes are procedures that generate observations and diagnostic reports. In many cases, such an observation does not require an explicit representation of the procedure used to create the observation, but where there are details of interest about how the diagnostic procedure was performed, the <a href="procedure.html">Procedure resource</a> is used to describe the activity.
+Note that many diagnostic processes are procedures that generate observations and diagnostic reports. In many cases, such an observation does not require an explicit representation of the procedure used to create the observation, but where there are details of interest about how the diagnostic procedure was performed, the <a href="procedure.html">Procedure</a> resource is used to describe the activity.
 </p>
 
 <p>
-In contrast to the <a href="observation.html">Observation resource</a>, the DiagnosticReport resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations. Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.
+In contrast to the <a href="observation.html">Observation</a> resource, the DiagnosticReport resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations. Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.
 </p>
 
 <p>
-If you have a highly structured report, then use DiagnosticReport - it has data and workflow support.  Details about the request for a diagnostic investigations are captured in the various "request" resources (e.g. the <a href="diagnosticorder.html">DiagnosticOrder resource</a>) and allow the report to connect to clinical work flows. For more narrative driven reports, with less work flow (histo/mortuary etc.) <a href="composition.html">Composition resource</a> would be more appropriate.
+If you have a highly structured report, then use DiagnosticReport - it has data and workflow support.  Details about the request for a diagnostic investigation are captured in the various "request" resources (e.g., the <a href="diagnosticorder.html">DiagnosticOrder</a>) resource and allow the report to connect to clinical workflows. For more narrative driven reports with less work flow (histology/mortuary, etc.), the <a href="composition.html">Composition</a> resource would be more appropriate.
 </p>
 <blockquote class="dstu-note">
 <a name="dstu"> </a>

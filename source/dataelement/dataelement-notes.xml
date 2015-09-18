@@ -9,7 +9,7 @@ The <b>DataElement</b> resource can be used to represent both Data_Element and D
 (The <a href="valueset.html">ValueSet</a> resource provides the details for Value_Domain and Conceptual_Domain for enumerated elements.)
 The determination of whether a <b>DataElement</b> resource instance is an ISO 11179 Data_Element or Data_Element_Concept is determined by 
 whether the <code>type</code> property is specified - which corresponds to the ISO property Data_Element.domain.datatype which is required 
-for Data_Elements.  I.e. If DataElement.type is present, the instance represents a 11179 data element.  If DataElement.type is absent, the
+for Data_Elements;  I.e. if DataElement.type is present, the instance represents a 11179 data element.  If DataElement.type is absent, the
 instance represents a 11179 data element concept.
 </p>
 	<p>
@@ -46,7 +46,7 @@ enhanced to contain a complete set of extensions and a full 11179 in a future re
 Data elements (and their registries) and codes (and their code systems) serve different purposes.  Data elements describe the characteristics of a piece of
 data - identifier, name, definition, data type, length, permitted value set, usage notes, etc.  On the other hand, while codes describe a particular concept 
 including a symbol for use when exchanging the concept, display names, definitions and often relationships to other concepts.  There is a subset of information 
-that is common for both codes and data elements - identifier, name and definition.  Because of this, a list of data elmements might sometimes be seen as
+that is common for both codes and data elements - identifier, name and definition.  Because of this, a list of data elements might sometimes be seen as
 a list of codes.
 </p>
 <p>
@@ -133,7 +133,7 @@ would occur.
 The stringency element allows identifying the types of usages for which the data element is appropriate.  Some uses
 (direct comparison of data, auto-population of data, etc.) are inappropriate with loose definitions of elements.  On the
 other hand, overly-restrictive data elements can result in a large number of data elements and limited abilities to
-compare similar but not identical data.  For now, the definition of what level of constraints are appropriate/necesssary
+compare similar but not identical data.  For now, the definition of what level of constraints are appropriate/necessary
 for a given level of stringency is left to implementers, though future versions this specification may assert at least
 some level of guidance in this area.
 </p>
@@ -178,7 +178,7 @@ this can occur:
 <li>The <a href="questionnaire.html">Questionnaire</a> extension <a href="extension-questionnaire-dereference.html">deReference</a> allows a
 particular question in a questionnaire to be linked to a data element deemed to correspond to that question.  This mechanism supports
 population of questionnaire instances on the basis of known data elements. The intent is that a server will populate anything 
-it recognises by data elements. However servers may not know all the data elements, and won't populate ones that they don't know.
+it recognizes by data elements. However servers may not know all the data elements, and won't populate ones that they don't know.
 </li>
 </ul>
 </div>
