@@ -4,7 +4,7 @@
 Notes:
 </p>
 <ul>
-<li>multipleBirth can be either expressed as a boolean (just indicating whether the patient is part of a multiple birth) or as an integer, indicating the actual birth order.</li>
+<li>multipleBirth can be either expressed as a Boolean (just indicating whether the patient is part of a multiple birth) or as an integer, indicating the actual birth order.</li>
 <li>Patient records may only be in one of two statuses: in use (active=true) and not in use (active=false). 
 A normal record is active, i.e. it is in use. Active is set to 'false' when a record is created as a duplicate or in error. 
 A record does not need to be linked to be inactivated.
@@ -50,12 +50,12 @@ record referred to does not point back to the referring record.</p>
 <p>In a distributed architecture, multiple systems keep separate patient records concerning the same patient. These
 records are not considered duplicates, but contain a distributed, potentially overlapping view of the patient's data.
 Each such record may have its own focus or maintaining organization and there need not be a sense of one record
-being more complete or more authorative than another. In such cases, links of type 'seealso' can be used to point to
+being more complete or more authorative than another. In such cases, links of type 'see also' can be used to point to
 other patient records. It is not a requirement that such links are bilateral. 
 </p>
 
 <a name="linking"> </a>
-<h2>Patient vs Person vs Patient.Link</h2>
+<h2>Patient vs. Person vs. Patient.Link</h2>
 <p>
 The Person resource on the surface appears to be very similar to the Patient resource, and the usage for it is very similar
 to using the Patient.Link capability.<br/>
@@ -64,26 +64,26 @@ individual. This includes across resource types, such as RelatedPerson, Practiti
 The Patient Link however is only intended to be used for Patient resources.
 </p>
 <p>
-The primary use case for the Person resource is to be able to support Person registries that do not necessarily have a
+The primary use case for the Person resource is to be able to support person registries that do not necessarily have a
 healthcare context, and are able to identify and quantify confidence levels that this is the same person.<br/>
-This could include consumer portals where the actual maintainer of the Person information is the actual person themselves.<br/>
+This could include consumer portals where the maintainer of the person information is the actual person themselves.<br/>
 A system could use the Person entry to cross check changes to information applied to one part of a record to values in another
-system; e.g. A Consumer updates his contact numbers and address when moving in his Person record, and then a Patient Administation
-system is able to see that this data is changed, and prompt the organization to follow up with the patient that was linked to
+system; e.g., when moving, a consumer updates his contact numbers and address in his person record, and then a Patient Administration
+system is able to see that this data is changed and prompt the organization to follow up with the patient that was linked to
 the person record if they want their details updated, or if they no longer need services and they should be cancelled, 
 as they've moved from the area.
 </p>
   
 <a name="contact"> </a>
-<h2>Patient.Contact vs RelatedPerson</h2>
+<h2>Patient.contact vs. RelatedPerson</h2>
 <p>
-The contact component on the Patient Resource should be used for storing people to contact information.
-Where a system has a separate record for other people for purposes other than just the contact details, The RelatedPerson
+The contact element on the Patient Resource should be used for storing people to contact information.
+Where a system has a separate record for other people for purposes other than just the contact details, the RelatedPerson
 resource should be used.<br/>
 This includes cases where these related people are actually contributing to the record, and need to be referenced individually 
 (e.g. CarePlan.Participant, Encounter, DocumentReference, Appointment) where the Patient.Contact component cannot be used.
 </p>
-<p>It is not expected that these records will be used for primary care provider, this information should be stored in
+<p>It is not expected that these records will be used for recording the primary care provider; this information should be stored in
 the Patient.careProvider field.</p>
 
 <a name="merge"> </a>
@@ -102,8 +102,7 @@ does not mandate that FHIR servers migrate information between such records on f
 <a name="dstu"> </a>
 <p>
 <b>DSTU Note:</b>   We are seeking input from the implementer community on what effect linking/merging/unlinking should have on 
-other functionality such as the GET operation (where the result is the old version of the Patient), searching, reverse includes etc.<br/>
-E.g. Should observation resources from all linked/merged patients be returned when querying for one of them?<br/>
+other functionality such as the GET operation (where the result is the old version of the Patient), searching, reverse includes, etc.; e.g., should observation resources from all linked/merged patients be returned when querying for one of them?<br/>
 How should an unlink behavior be done? (Assuming that no data was "re-allocated" as part of merge)
 These suggested updated behaviors could be the subject of a future connectathon.
 </p>
@@ -118,7 +117,7 @@ Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedbac
 A Master Patient Index (<a href="http://en.wikipedia.org/wiki/Enterprise_master_patient_index">MPI</a>) is a service used to manage patient identification in a context
 where multiple patient databases exist. Healthcare applications and middleware use the 
 MPI to match patients between the databases, and as new patient details are encountered.
-MPIs are highly specialised applications, often tailored extensively to the institution's 
+MPIs are highly specialized applications, often tailored extensively to the institution's 
 particular mix of patients. MPIs can also be run on a regional and national basis. 
 </p>
 <p>
@@ -134,7 +133,7 @@ in the patient set.
 </pre>
 <p>
 The response from an "mpi" query is a set of patient records, ordered from most
-likely to least likely. If thare are not patient matches, the MPI SHALL return 
+likely to least likely. If there are not patient matches, the MPI SHALL return 
 an empty search set with no error, but may include an <a href="operationoutcome.html">operation outcome</a> with 
 further advice. All patient records SHALL have a score from 0 to 1, where
 1 is the most certain match, along with an <a href="extensibility.html">extension</a>
@@ -160,10 +159,10 @@ The patient-mpi-match extension has one of the <a href="valueset-patient-mpi-mat
 </p>
 [%codelist-nh http://hl7.org/fhir/ValueSet/patient-mpi-match%]
 <p>
-One optional parameter to the mpi match operation is "userid", which is
+One optional parameter to the MPI match operation is "userid", which is
 used to pass the user details from a trusted client to the MPI. This may 
-be used by the MPI to restrict the possible matches that are returned based 
-on user's rights. For example, a staff member covered by policies etc.
+be used by the MPI to restrict the possible matches that are returned, based 
+on the user's rights. For example, a staff member covered by policies, etc.,
 may well get a different result than a patient trying to find their own 
 record. Note that this parameter is used where the user would not be 
 expected to log in to the MPI directly; whether this is appropriate or not is 

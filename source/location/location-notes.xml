@@ -35,10 +35,10 @@ Some of Location's data elements are only relevant when mode is 'instance' and s
 </ul>
 
 <a name="example"> </a>
-	<h2>Example Location Heirachy</h2>
+	<h2>Example Location Hierarchy</h2>
 	<p>
-		An example location heirachy should help give some guidance as to one example
-		of how a location heirachy could look within a fictitious Hospital.<br/>
+		An example location hierarchy should help give some guidance as to one example
+		of how a location hierarchy could look within a fictitious Hospital.<br/>
 		<i>(The nesting here would be the "part-of" structure of the location)</i>
 	</p>
 	<pre>
@@ -71,6 +71,6 @@ Mobile Services (kind)
         Ambulance AMB2 (instance)
 	</pre>
 	<p>
-		<i>Note that Wards/Departments are not part of this structure, these would form part of the Organizational Hierarchy.</i>
+		<i>Note: Wards/departments are not part of this structure - these would form part of the Organizational Hierarchy.</i>
 	</p>
 </div>

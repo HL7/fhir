@@ -6,12 +6,12 @@
 		<p>
 			Schedule resources provide a container for time-slots that can be booked using an appointment,
 			It provides the window of time (period) that slots are defined for and what type of appointments can be booked.<br/>
-			The schedule does not provide any information about actual appointments. This seperation also greatly assists where
+			The schedule does not provide any information about actual appointments. This separation also greatly assists where
 			access to the appointments would not be permitted for security or privacy reasons, and still being able
 			to determine if an appointment might be available.
 		</p>
     <p>
-      Note: A schedule is not used for the delivery of medication, that is the <a href="datatypes.html#Timing">Timing</a> datatype.
+      Note: A schedule is not used for the delivery of medication, that is the <a href="datatypes.html#Timing">Timing</a> data type.
     </p>
 
 		<h3>
@@ -49,7 +49,7 @@
 		<h3>Actor - What the schedule applies to</h3>
 		<p>
 			The schedule belongs to a single owner, the actor. This is normally a HealthcareService, Practitioner, Location
-			or Device. When booking an appoitment, multiple schedules may need to be checked depending on the configuration
+			or Device. When booking an appointment, multiple schedules may need to be checked depending on the configuration
 			of the system.
 		</p>
 		<p>

@@ -31,8 +31,8 @@ freezers to full hospital buildings or parking garages.
 <a name="bnr"> </a>
 	<h2>Boundaries and Relationships</h2>
   <p>
-    Locations and Organizations are very closely related resources and can often be mix/matched/confused.<br/>
-		The Location is intended to describe the more physical structures managed/operated by an organization, where the Organization is intended to
+    Locations and Organizations are very closely related resources and can often be mixed/matched/confused.<br/>
+		The Location is intended to describe the more physical structures managed/operated by an organization, whereas the Organization is intended to
 		represent the more conceptual hierarchies, such as a ward.
 	</p>
 	<p>
@@ -43,7 +43,7 @@ freezers to full hospital buildings or parking garages.
 	</p>
 	<p>
 		Another use of location could be for describing a Jurisdiction. This jurisdiction may be considered a classified boundary
-		which could be a combination of a physical boundary, and some other descrimintor(s):
+		which could be a combination of a physical boundary, and some other discriminator(s):
 	</p>
 	<ul>
 		<li>Nation - Country wide community or Federal Government (Ministry of Health)</li>
