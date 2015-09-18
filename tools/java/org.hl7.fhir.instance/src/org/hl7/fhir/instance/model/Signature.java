@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
+// Generated on Sat, Sep 19, 2015 06:26+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -78,7 +78,7 @@ public class Signature extends Type implements ICompositeType {
      * The base64 encoding of the Signature content.
      */
     @Child(name = "blob", type = {Base64BinaryType.class}, order=4, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The actual signature content (XML DigSig. JWT, picture, etc)", formalDefinition="The base64 encoding of the Signature content." )
+    @Description(shortDefinition="The actual signature content (XML DigSig. JWT, picture, etc.)", formalDefinition="The base64 encoding of the Signature content." )
     protected Base64BinaryType blob;
 
     private static final long serialVersionUID = -452432714L;

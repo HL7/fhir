@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
+// Generated on Sat, Sep 19, 2015 06:26+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -656,7 +656,7 @@ public class Order extends DomainResource {
   public static final String SP_WHENCODE = "when_code";
   @SearchParamDefinition(name="date", path="Order.date", description="When the order was made", type="date" )
   public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="identifier", path="Order.identifier", description="Instance id fromsource, target, and/or  others", type="token" )
+  @SearchParamDefinition(name="identifier", path="Order.identifier", description="Instance id from source, target, and/or  others", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 
 }

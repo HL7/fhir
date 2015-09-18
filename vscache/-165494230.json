@@ -1,1 +1,0 @@
-{"resourceType":"OperationOutcome","text":{"status":"generated","div":"<div><p>unable to provide support for code system http://hl7.org/fhir/ValueSet/v3-EntityNameUse</p></div>"},"issue":[{"severity":"error","diagnostics":"unable to provide support for code system http://hl7.org/fhir/ValueSet/v3-EntityNameUse"}]}

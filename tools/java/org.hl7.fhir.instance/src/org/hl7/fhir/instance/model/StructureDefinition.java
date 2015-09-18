@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
+// Generated on Sat, Sep 19, 2015 06:26+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -49,15 +49,15 @@ public class StructureDefinition extends DomainResource {
 
     public enum StructureDefinitionKind {
         /**
-         * A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions
+         * A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.
          */
         DATATYPE, 
         /**
-         * A resource defined by the FHIR specification
+         * A resource defined by the FHIR specification.
          */
         RESOURCE, 
         /**
-         * A logical model - a conceptual package of data that will be mapped to resources for implementation
+         * A logical model - a conceptual package of data that will be mapped to resources for implementation.
          */
         LOGICAL, 
         /**
@@ -93,9 +93,9 @@ public class StructureDefinition extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case DATATYPE: return "A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions";
-            case RESOURCE: return "A resource defined by the FHIR specification";
-            case LOGICAL: return "A logical model - a conceptual package of data that will be mapped to resources for implementation";
+            case DATATYPE: return "A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.";
+            case RESOURCE: return "A resource defined by the FHIR specification.";
+            case LOGICAL: return "A logical model - a conceptual package of data that will be mapped to resources for implementation.";
             default: return "?";
           }
         }
@@ -135,19 +135,19 @@ public class StructureDefinition extends DomainResource {
 
     public enum ExtensionContext {
         /**
-         * The context is all elements matching a particular resource element path
+         * The context is all elements matching a particular resource element path.
          */
         RESOURCE, 
         /**
-         * The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name)
+         * The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
          */
         DATATYPE, 
         /**
-         * The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used
+         * The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.
          */
         MAPPING, 
         /**
-         * The context is a particular extension from a particular profile, a uri that identifies the extension definition
+         * The context is a particular extension from a particular profile, a uri that identifies the extension definition.
          */
         EXTENSION, 
         /**
@@ -187,10 +187,10 @@ public class StructureDefinition extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case RESOURCE: return "The context is all elements matching a particular resource element path";
-            case DATATYPE: return "The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name)";
-            case MAPPING: return "The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used";
-            case EXTENSION: return "The context is a particular extension from a particular profile, a uri that identifies the extension definition";
+            case RESOURCE: return "The context is all elements matching a particular resource element path.";
+            case DATATYPE: return "The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).";
+            case MAPPING: return "The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.";
+            case EXTENSION: return "The context is a particular extension from a particular profile, a uri that identifies the extension definition.";
             default: return "?";
           }
         }
@@ -419,7 +419,7 @@ public class StructureDefinition extends DomainResource {
          * Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
         @Child(name = "comments", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Versions, Issues, Scope limitations etc", formalDefinition="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage." )
+        @Description(shortDefinition="Versions, Issues, Scope limitations etc.", formalDefinition="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage." )
         protected StringType comments;
 
         private static final long serialVersionUID = 299630820L;
@@ -882,7 +882,7 @@ public class StructureDefinition extends DomainResource {
      * An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.
      */
     @Child(name = "url", type = {UriType.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Literal URL used to reference this StructureDefinition", formalDefinition="An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published." )
+    @Description(shortDefinition="Absolute URL used to reference this StructureDefinition", formalDefinition="An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published." )
     protected UriType url;
 
     /**
@@ -942,10 +942,10 @@ public class StructureDefinition extends DomainResource {
     protected List<StructureDefinitionContactComponent> contact;
 
     /**
-     * The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the structure definition changes.
+     * The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
      */
     @Child(name = "date", type = {DateTimeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Date for this version of the StructureDefinition", formalDefinition="The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the structure definition changes." )
+    @Description(shortDefinition="Date for this version of the StructureDefinition", formalDefinition="The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes." )
     protected DateTimeType date;
 
     /**
@@ -973,7 +973,7 @@ public class StructureDefinition extends DomainResource {
      * A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
      */
     @Child(name = "copyright", type = {StringType.class}, order=13, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Use and/or Publishing restrictions", formalDefinition="A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings." )
+    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings." )
     protected StringType copyright;
 
     /**
@@ -1482,7 +1482,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #date} (The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
       if (this.date == null)
@@ -1502,7 +1502,7 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #date} (The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public StructureDefinition setDateElement(DateTimeType value) { 
       this.date = value;
@@ -1510,14 +1510,14 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the structure definition changes.
+     * @return The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
      */
     public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the structure definition changes.
+     * @param value The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
      */
     public StructureDefinition setDate(Date value) { 
       if (value == null)
@@ -2196,7 +2196,7 @@ public class StructureDefinition extends DomainResource {
         childrenList.add(new Property("experimental", "boolean", "This StructureDefinition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the structure definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("date", "dateTime", "The date that this version of the StructureDefinition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. in addition, it should change when the substantiative content of the structure definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("date", "dateTime", "The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "string", "A free text natural language description of the StructureDefinition and its use.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of structure definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("requirements", "string", "Explains why this structure definition is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
@@ -2343,7 +2343,7 @@ public class StructureDefinition extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="type", path="StructureDefinition.constrainedType", description="Any datatype or resource, including abstract ones", type="token" )
   public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="url", path="StructureDefinition.url", description="Literal URL used to reference this StructureDefinition", type="uri" )
+  @SearchParamDefinition(name="url", path="StructureDefinition.url", description="Absolute URL used to reference this StructureDefinition", type="uri" )
   public static final String SP_URL = "url";
   @SearchParamDefinition(name="kind", path="StructureDefinition.kind", description="datatype | resource | logical", type="token" )
   public static final String SP_KIND = "kind";

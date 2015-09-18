@@ -96,6 +96,7 @@
   Definition = The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
   Requirements = To support reporting for any diagnostic report into a clinical data repository.
   Comments = This is intended to capture a single report, and is not suitable for use in displaying summary information that covers multiple reports.  For example, this resource has not been designed for laboratory cumulative reporting formats nor detailed structured reports for sequencing.
+  v2 Mapping = ORU -> OBR
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
   Committee Notes = It\'s not clear how to handle cumulative reports
   w5 = clinical.diagnostics
@@ -109,7 +110,7 @@
   Short Label = Id for external references to this report
   Definition = The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider
   Requirements = Need to know what identifier to use when making queries about this report from the source laboratory, and for linking to the report outside FHIR context
-  v2 Mapping = OBR-51-Observation Group ID (todo: check semantic intent of OBR-51 with OOWG)
+  v2 Mapping = OBR-51
   RIM Mapping = id
   w5 = id
 
@@ -124,7 +125,7 @@
   Definition = The status of the diagnostic report as a whole
   Requirements = Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.
   Comments = This is labeled as \"Is Modifier\" because applications need to take appropriate action if a report is withdrawn
-  v2 Mapping = OBR-25-Result Status (not 1:1 mapping)
+  v2 Mapping = OBR-25 (not 1:1 mapping)
   RIM Mapping = statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type \"revise\"
   Committee Notes = [#5692]
   w5 = status
@@ -139,7 +140,7 @@
   Short Label = Service category
   Definition = A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.
   Comments = The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code.
-  v2 Mapping = OBR-24-Diagnostic Service Section ID
+  v2 Mapping = OBR-24
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code < LabService].code
   Committee Notes = #8514
   w5 = class
@@ -152,7 +153,7 @@
   Binding = DiagnosticReportCodes
   Short Label = Name/Code for this diagnostic report
   Definition = A code or name that describes this diagnostic report
-  v2 Mapping = OBR-4-Universal Service ID (HL7 v2 doesn\'t provide an easy way to indicate both the ordered test and the performed panel)
+  v2 Mapping = OBR-4 (HL7 v2 doesn\'t provide an easy way to indicate both the ordered test and the performed panel)
   RIM Mapping = code
   Committee Notes = #5961
   w5 = what
@@ -166,7 +167,7 @@
   Short Label = The subject of the report, usually, but not always, the patient
   Definition = The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
   Requirements = SHALL know the subject context
-  v2 Mapping = PID-3-Patient ID List (no HL7 v2 mapping for Group or Device)
+  v2 Mapping = PID-3 (no HL7 v2 mapping for Group or Device)
   RIM Mapping = participation[typeCode=SBJ]
   w5 = who.focus
 
@@ -177,6 +178,7 @@
   Type = Reference(Encounter)
   Short Label = Health care event when test ordered
   Definition = The link to the health care event (encounter) when the order was made.
+  v2 Mapping = PV1-19
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   Committee Notes = [#3839]
   w5 = context
@@ -191,7 +193,7 @@
   Definition = The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
   Requirements = Need to know where in the patient history to file/present this report
   Comments = If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic.
-  v2 Mapping = OBR-7-Observation Date/Time
+  v2 Mapping = OBR-7
   RIM Mapping = effectiveTime
   w5 = when.done
 
@@ -205,7 +207,7 @@
   Definition = The date and time that this version of the report was released from the source diagnostic service
   Requirements = Clinicians need to be able to check the date that the report was released
   Comments = May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report
-  v2 Mapping = OBR-22-Results Rpt/Status Chng - Date/Time
+  v2 Mapping = OBR-22
   RIM Mapping = participation[typeCode=VRF or AUT].time
   Committee Notes = #7500
   w5 = when.recorded
@@ -220,7 +222,7 @@
   Definition = The diagnostic service that is responsible for issuing the report
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
   Comments = This is not necessarily the source of the atomic data items. It is the entity that takes responsibility for the clinical report.
-  v2 Mapping = PRT-8-Participation Organization (where this PRT-4-Participation = \"PO\")
+  v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
   w5 = who.witness
 
@@ -232,6 +234,7 @@
   Definition = Details concerning a test or procedure requested.
   Requirements = Need to be able to track completion of requests based on reports issued and also to report what diagnostic tests were requested (not always the same as what is delivered)
   Comments = Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.
+  v2 Mapping = ORC? OBR-2/3?
   RIM Mapping = outboundRelationship[typeCode=FLFS].target
 
  -- Row 12 -----------------------------------
@@ -253,6 +256,7 @@
   Short Label = Observations - simple, or complex nested groups
   Definition = Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").
   Requirements = Need to support individual results, or report groups of results, where the result grouping is arbitrary, but meaningful. This structure is recursive - observations can contain observations
+  v2 Mapping = OBXs
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
  -- Row 14 -----------------------------------

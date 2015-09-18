@@ -121,7 +121,7 @@
   Definition = Date vaccine administered or was to be administered
   Comments = When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value
-  v2 Mapping = RXA-3-date/time start of administration
+  v2 Mapping = RXA-3
   RIM Mapping = .effectiveTime
   Committee Notes = #7887
   w5 = when.init
@@ -134,7 +134,7 @@
   Short Label = Vaccine product administered
   Definition = Vaccine that was administered or was to be administered
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code
-  v2 Mapping = RXA-5-administered code
+  v2 Mapping = RXA-5
   RIM Mapping = .code
   Committee Notes = #6128
   w5 = what
@@ -145,7 +145,7 @@
   Type = Reference(Patient)
   Short Label = Who was immunized
   Definition = The patient who either received or did not receive the immunization.
-  v2 Mapping = PID-3-patient ID list
+  v2 Mapping = PID-3
   RIM Mapping = .partipication[ttypeCode=].role
   Committee Notes = PID, PD1, NK1 | #3705
   w5 = who.focus
@@ -179,7 +179,7 @@
   Short Label = Who administered vaccine
   Definition = Clinician who administered the vaccine
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name
-  v2 Mapping = RXA-10-administering provider
+  v2 Mapping = RXA-10
   RIM Mapping = .participation[typeCode=PRF].COCT_MT090102UV
   w5 = who.actor
 
@@ -190,7 +190,7 @@
   Short Label = Who ordered vaccination
   Definition = Clinician who ordered the vaccination
   Comments = Other participants - delegate to Provenance resource
-  v2 Mapping = ORC-12-ordering provider
+  v2 Mapping = ORC-12
   RIM Mapping = outboundRelationship.target[classCode=SBADM].participation[typeCode=AUT].COCT_MT090102UV
   w5 = who.cause
 
@@ -200,7 +200,7 @@
   Type = Reference(Encounter)
   Short Label = Encounter administered as part of
   Definition = The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
-  v2 Mapping = PV1-19-Visit Number
+  v2 Mapping = PV1-19
   RIM Mapping = component->EncounterEvent
   Committee Notes = #3840
   w5 = context
@@ -212,7 +212,7 @@
   Short Label = Vaccine manufacturer
   Definition = Name of vaccine manufacturer
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name
-  v2 Mapping = RXA-17-substance manufacturer name
+  v2 Mapping = RXA-17
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=ORG]
 
  -- Row 13 -----------------------------------
@@ -221,7 +221,7 @@
   Type = Reference(Location)
   Short Label = Where vaccination occurred
   Definition = The service delivery location where the vaccine administration occurred.
-  v2 Mapping = RXA-27-administered-at (or RXA-11-administered-at location, deprecated as of v2.7)
+  v2 Mapping = RXA-27  (or RXA-11, deprecated as of v2.7)
   RIM Mapping = .participation[typeCode=LOC].COCT_MT240000UV
   w5 = where
 
@@ -232,7 +232,7 @@
   Short Label = Vaccine lot number
   Definition = Lot number of the  vaccine product
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText
-  v2 Mapping = RXA-15-substance lot number
+  v2 Mapping = RXA-15
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
 
  -- Row 15 -----------------------------------
@@ -241,7 +241,7 @@
   Type = date
   Short Label = Vaccine expiration date
   Definition = Date vaccine batch expires
-  v2 Mapping = RXA-16-substance expiration date
+  v2 Mapping = RXA-16
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime
 
  -- Row 16 -----------------------------------
@@ -252,7 +252,7 @@
   Short Label = Body site vaccine  was administered
   Definition = Body site where vaccine was administered
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code
-  v2 Mapping = RXR-2-administration site
+  v2 Mapping = RXR-2
   RIM Mapping = observation.targetSiteCode
 
  -- Row 17 -----------------------------------
@@ -263,7 +263,7 @@
   Short Label = How vaccine entered body
   Definition = The path by which the vaccine product is taken into the body.
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code
-  v2 Mapping = RXR-1-route
+  v2 Mapping = RXR-1
   RIM Mapping = .routeCode
 
  -- Row 18 -----------------------------------
@@ -272,7 +272,7 @@
   Type = SimpleQuantity
   Short Label = Amount of vaccine administered
   Definition = The quantity of vaccine product that was administered
-  v2 Mapping = RXA-6-administered amount / RXA-7.1-administered units.code
+  v2 Mapping = RXA-6 / RXA-7.1
   RIM Mapping = .doseQuantity
 
  -- Row 19 -----------------------------------

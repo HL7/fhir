@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
+// Generated on Sat, Sep 19, 2015 06:26+1000 for FHIR v1.0.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -37,21 +37,21 @@ import org.hl7.fhir.instance.model.api.*;
 public class Enumerations {
 
 // In here: 
-//   AdministrativeGender: The gender of a person used for administrative purposes
-//   AgeUnits: A valueSet of UCUM codes for representing age value units
-//   BindingStrength: Indication of the degree of conformance expectations associated with a binding
-//   ConceptMapEquivalence: The degree of equivalence between concepts
-//   ConformanceResourceStatus: The lifecycle status of a Value Set or Concept Map
-//   DataAbsentReason: Used to specify why the normally expected content of the data element is missing
-//   DataType: The type of an element - one of the FHIR data types
-//   DocumentReferenceStatus: The status of the document reference
-//   FHIRDefinedType: Either a resource or a data type
-//   MessageEvent: One of the message events defined as part of FHIR
-//   NoteType: The presentation types of notes
+//   AdministrativeGender: The gender of a person used for administrative purposes.
+//   AgeUnits: A valueSet of UCUM codes for representing age value units.
+//   BindingStrength: Indication of the degree of conformance expectations associated with a binding.
+//   ConceptMapEquivalence: The degree of equivalence between concepts.
+//   ConformanceResourceStatus: The lifecycle status of a Value Set or Concept Map.
+//   DataAbsentReason: Used to specify why the normally expected content of the data element is missing.
+//   DataType: The type of an element - one of the FHIR data types.
+//   DocumentReferenceStatus: The status of the document reference.
+//   FHIRDefinedType: Either a resource or a data type.
+//   MessageEvent: One of the message events defined as part of FHIR.
+//   NoteType: The presentation types of notes.
 //   RemittanceOutcome: The outcome of the processing.
-//   ResourceType: One of the resource types defined as part of FHIR
-//   SearchParamType: Data types allowed to be used for search parameters
-//   SpecialValues: A set of generally useful codes defined so they can be included in value sets
+//   ResourceType: One of the resource types defined as part of FHIR.
+//   SearchParamType: Data types allowed to be used for search parameters.
+//   SpecialValues: A set of generally useful codes defined so they can be included in value sets.
 
 
     public enum AdministrativeGender {
@@ -284,7 +284,7 @@ public class Enumerations {
 
     public enum BindingStrength {
         /**
-         * To be conformant, instances of this element SHALL include a code from the specified value set
+         * To be conformant, instances of this element SHALL include a code from the specified value set.
          */
         REQUIRED, 
         /**
@@ -292,11 +292,11 @@ public class Enumerations {
          */
         EXTENSIBLE, 
         /**
-         * Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant
+         * Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.
          */
         PREFERRED, 
         /**
-         * Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included
+         * Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.
          */
         EXAMPLE, 
         /**
@@ -336,10 +336,10 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case REQUIRED: return "To be conformant, instances of this element SHALL include a code from the specified value set";
+            case REQUIRED: return "To be conformant, instances of this element SHALL include a code from the specified value set.";
             case EXTENSIBLE: return "To be conformant, instances of this element SHALL include a code from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the valueset does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.";
-            case PREFERRED: return "Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant";
-            case EXAMPLE: return "Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included";
+            case PREFERRED: return "Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.";
+            case EXAMPLE: return "Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.";
             default: return "?";
           }
         }
@@ -384,39 +384,39 @@ public class Enumerations {
 
     public enum ConceptMapEquivalence {
         /**
-         * The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical)
+         * The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).
          */
         EQUIVALENT, 
         /**
-         * The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identifical or irrelevant (i.e. intensionally identical)
+         * The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identical or irrelevant (i.e. intentionally identical).
          */
         EQUAL, 
         /**
-         * The target mapping is wider in meaning than the source concept
+         * The target mapping is wider in meaning than the source concept.
          */
         WIDER, 
         /**
-         * The target mapping subsumes the meaning of the source concept (e.g. the source is-a target)
+         * The target mapping subsumes the meaning of the source concept (e.g. the source is-a target).
          */
         SUBSUMES, 
         /**
-         * The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally
+         * The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.
          */
         NARROWER, 
         /**
-         * The target mapping specializes the meaning of the source concept (e.g. the target is-a source)
+         * The target mapping specializes the meaning of the source concept (e.g. the target is-a source).
          */
         SPECIALIZES, 
         /**
-         * The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally
+         * The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.
          */
         INEXACT, 
         /**
-         * There is no match for this concept in the destination concept system
+         * There is no match for this concept in the destination concept system.
          */
         UNMATCHED, 
         /**
-         * This is an explicit assertion that there is no mapping between the source and target concept
+         * This is an explicit assertion that there is no mapping between the source and target concept.
          */
         DISJOINT, 
         /**
@@ -476,15 +476,15 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case EQUIVALENT: return "The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical)";
-            case EQUAL: return "The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identifical or irrelevant (i.e. intensionally identical)";
-            case WIDER: return "The target mapping is wider in meaning than the source concept";
-            case SUBSUMES: return "The target mapping subsumes the meaning of the source concept (e.g. the source is-a target)";
-            case NARROWER: return "The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally";
-            case SPECIALIZES: return "The target mapping specializes the meaning of the source concept (e.g. the target is-a source)";
-            case INEXACT: return "The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally";
-            case UNMATCHED: return "There is no match for this concept in the destination concept system";
-            case DISJOINT: return "This is an explicit assertion that there is no mapping between the source and target concept";
+            case EQUIVALENT: return "The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).";
+            case EQUAL: return "The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identical or irrelevant (i.e. intentionally identical).";
+            case WIDER: return "The target mapping is wider in meaning than the source concept.";
+            case SUBSUMES: return "The target mapping subsumes the meaning of the source concept (e.g. the source is-a target).";
+            case NARROWER: return "The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.";
+            case SPECIALIZES: return "The target mapping specializes the meaning of the source concept (e.g. the target is-a source).";
+            case INEXACT: return "The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.";
+            case UNMATCHED: return "There is no match for this concept in the destination concept system.";
+            case DISJOINT: return "This is an explicit assertion that there is no mapping between the source and target concept.";
             default: return "?";
           }
         }
@@ -554,15 +554,15 @@ public class Enumerations {
 
     public enum ConformanceResourceStatus {
         /**
-         * This resource is still under development
+         * This resource is still under development.
          */
         DRAFT, 
         /**
-         * This resource is ready for normal use
+         * This resource is ready for normal use.
          */
         ACTIVE, 
         /**
-         * This resource has been withdrawn or superseded and should no longer be used
+         * This resource has been withdrawn or superseded and should no longer be used.
          */
         RETIRED, 
         /**
@@ -598,9 +598,9 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case DRAFT: return "This resource is still under development";
-            case ACTIVE: return "This resource is ready for normal use";
-            case RETIRED: return "This resource has been withdrawn or superseded and should no longer be used";
+            case DRAFT: return "This resource is still under development.";
+            case ACTIVE: return "This resource is ready for normal use.";
+            case RETIRED: return "This resource has been withdrawn or superseded and should no longer be used.";
             default: return "?";
           }
         }
@@ -640,39 +640,39 @@ public class Enumerations {
 
     public enum DataAbsentReason {
         /**
-         * The value is not known
+         * The value is not known.
          */
         UNKNOWN, 
         /**
-         * The source human does not know the value
+         * The source human does not know the value.
          */
         ASKED, 
         /**
-         * There is reason to expect (from the workflow) that the value may become known
+         * There is reason to expect (from the workflow) that the value may become known.
          */
         TEMP, 
         /**
-         * The workflow didn't lead to this value being known
+         * The workflow didn't lead to this value being known.
          */
         NOTASKED, 
         /**
-         * The information is not available due to security, privacy or related reasons
+         * The information is not available due to security, privacy or related reasons.
          */
         MASKED, 
         /**
-         * The source system wasn't capable of supporting this element
+         * The source system wasn't capable of supporting this element.
          */
         UNSUPPORTED, 
         /**
-         * The content of the data is represented in the resource narrative
+         * The content of the data is represented in the resource narrative.
          */
         ASTEXT, 
         /**
-         * Some system or workflow process error means that the information is not available
+         * Some system or workflow process error means that the information is not available.
          */
         ERROR, 
         /**
-         * NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value
+         * NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value.
          */
         NAN, 
         /**
@@ -732,15 +732,15 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case UNKNOWN: return "The value is not known";
-            case ASKED: return "The source human does not know the value";
-            case TEMP: return "There is reason to expect (from the workflow) that the value may become known";
-            case NOTASKED: return "The workflow didn't lead to this value being known";
-            case MASKED: return "The information is not available due to security, privacy or related reasons";
-            case UNSUPPORTED: return "The source system wasn't capable of supporting this element";
-            case ASTEXT: return "The content of the data is represented in the resource narrative";
-            case ERROR: return "Some system or workflow process error means that the information is not available";
-            case NAN: return "NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value";
+            case UNKNOWN: return "The value is not known.";
+            case ASKED: return "The source human does not know the value.";
+            case TEMP: return "There is reason to expect (from the workflow) that the value may become known.";
+            case NOTASKED: return "The workflow didn't lead to this value being known.";
+            case MASKED: return "The information is not available due to security, privacy or related reasons.";
+            case UNSUPPORTED: return "The source system wasn't capable of supporting this element.";
+            case ASTEXT: return "The content of the data is represented in the resource narrative.";
+            case ERROR: return "Some system or workflow process error means that the information is not available.";
+            case NAN: return "NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value.";
             default: return "?";
           }
         }
@@ -838,7 +838,7 @@ public class Enumerations {
          */
         CODING, 
         /**
-         * Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
+         * Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
          */
         CONTACTPOINT, 
         /**
@@ -934,7 +934,7 @@ public class Enumerations {
          */
         CODE, 
         /**
-         * A date, or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.                 Dates SHALL be valid dates.
+         * A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.
          */
         DATE, 
         /**
@@ -1205,7 +1205,7 @@ public class Enumerations {
             case BACKBONEELEMENT: return "Base definition for all elements that are defined inside a resource - but not those in a data type.";
             case CODEABLECONCEPT: return "A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.";
             case CODING: return "A reference to a code defined by a terminology system.";
-            case CONTACTPOINT: return "Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.";
+            case CONTACTPOINT: return "Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.";
             case COUNT: return "";
             case DISTANCE: return "";
             case DURATION: return "";
@@ -1229,7 +1229,7 @@ public class Enumerations {
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
-            case DATE: return "A date, or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.                 Dates SHALL be valid dates.";
+            case DATE: return "A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.";
             case DATETIME: return "A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.";
             case DECIMAL: return "A rational number with implicit precision";
             case ID: return "Any combination of letters, numerals, \"-\" and \".\", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.";
@@ -1498,15 +1498,15 @@ public class Enumerations {
 
     public enum DocumentReferenceStatus {
         /**
-         * This is the current reference for this document
+         * This is the current reference for this document.
          */
         CURRENT, 
         /**
-         * This reference has been superseded by another reference
+         * This reference has been superseded by another reference.
          */
         SUPERSEDED, 
         /**
-         * This reference was created in error
+         * This reference was created in error.
          */
         ENTEREDINERROR, 
         /**
@@ -1542,9 +1542,9 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case CURRENT: return "This is the current reference for this document";
-            case SUPERSEDED: return "This reference has been superseded by another reference";
-            case ENTEREDINERROR: return "This reference was created in error";
+            case CURRENT: return "This is the current reference for this document.";
+            case SUPERSEDED: return "This reference has been superseded by another reference.";
+            case ENTEREDINERROR: return "This reference was created in error.";
             default: return "?";
           }
         }
@@ -1612,7 +1612,7 @@ public class Enumerations {
          */
         CODING, 
         /**
-         * Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
+         * Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
          */
         CONTACTPOINT, 
         /**
@@ -1708,7 +1708,7 @@ public class Enumerations {
          */
         CODE, 
         /**
-         * A date, or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.                 Dates SHALL be valid dates.
+         * A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.
          */
         DATE, 
         /**
@@ -1820,11 +1820,11 @@ public class Enumerations {
          */
         CLINICALIMPRESSION, 
         /**
-         * An occurrence of information being transmitted. E.g., an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
+         * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
          */
         COMMUNICATION, 
         /**
-         * A request to convey information. E.g., the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
+         * A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
          */
         COMMUNICATIONREQUEST, 
         /**
@@ -1836,7 +1836,7 @@ public class Enumerations {
          */
         CONCEPTMAP, 
         /**
-         * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.
+         * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
          */
         CONDITION, 
         /**
@@ -1848,7 +1848,7 @@ public class Enumerations {
          */
         CONTRACT, 
         /**
-         * Financial instrument which may be used to pay for or reimburse for health care products and services.
+         * Financial instrument which may be used to pay for or reimburse health care products and services.
          */
         COVERAGE, 
         /**
@@ -1856,11 +1856,11 @@ public class Enumerations {
          */
         DATAELEMENT, 
         /**
-         * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
+         * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
          */
         DETECTEDISSUE, 
         /**
-         * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non medical devices may includes things such as a machine, a cellphone, a computer, an application, etc.
+         * This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
          */
         DEVICE, 
         /**
@@ -1884,7 +1884,7 @@ public class Enumerations {
          */
         DIAGNOSTICORDER, 
         /**
-         * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.
+         * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
          */
         DIAGNOSTICREPORT, 
         /**
@@ -1892,7 +1892,7 @@ public class Enumerations {
          */
         DOCUMENTMANIFEST, 
         /**
-         * A reference to a document.
+         * A reference to a document .
          */
         DOCUMENTREFERENCE, 
         /**
@@ -1912,11 +1912,11 @@ public class Enumerations {
          */
         ENCOUNTER, 
         /**
-         * This resource provides the insurance Enrollment details to the insurer regarding a specified coverage.
+         * This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
          */
         ENROLLMENTREQUEST, 
         /**
-         * This resource provides Enrollment and plan details from the processing of an Enrollment resource.
+         * This resource provides enrollment and plan details from the processing of an Enrollment resource.
          */
         ENROLLMENTRESPONSE, 
         /**
@@ -1936,15 +1936,15 @@ public class Enumerations {
          */
         FLAG, 
         /**
-         * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.;.
+         * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
          */
         GOAL, 
         /**
-         * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn't an Organization.
+         * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
          */
         GROUP, 
         /**
-         * The details of a Healthcare Service available at a location.
+         * The details of a healthcare service available at a location.
          */
         HEALTHCARESERVICE, 
         /**
@@ -1952,7 +1952,7 @@ public class Enumerations {
          */
         IMAGINGOBJECTSELECTION, 
         /**
-         * Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
+         * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
         IMAGINGSTUDY, 
         /**
@@ -1960,7 +1960,7 @@ public class Enumerations {
          */
         IMMUNIZATION, 
         /**
-         * A patient’s point-in-time immunization and recommendation (i.e. forecasting a patient’s immunization eligibility according to a published schedule) with optional supporting justification.
+         * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
          */
         IMMUNIZATIONRECOMMENDATION, 
         /**
@@ -1988,7 +1988,7 @@ public class Enumerations {
          */
         MEDICATIONADMINISTRATION, 
         /**
-         * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a Pharmacy system responding to a Medication Order.
+         * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
          */
         MEDICATIONDISPENSE, 
         /**
@@ -1996,11 +1996,11 @@ public class Enumerations {
          */
         MEDICATIONORDER, 
         /**
-         * A record of a medication that is being consumed by a patient.   A medication statements may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patients’ memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains.The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Statement information may come from the patient’s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication Administration is more formal and is not missing detailed information.
+         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
          */
         MEDICATIONSTATEMENT, 
         /**
-         * The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
+         * The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
          */
         MESSAGEHEADER, 
         /**
@@ -2036,7 +2036,7 @@ public class Enumerations {
          */
         ORGANIZATION, 
         /**
-         * This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.
+         * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
         PARAMETERS, 
         /**
@@ -2060,7 +2060,7 @@ public class Enumerations {
          */
         PRACTITIONER, 
         /**
-         * An action that is or was performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy.
+         * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
          */
         PROCEDURE, 
         /**
@@ -2076,7 +2076,7 @@ public class Enumerations {
          */
         PROCESSRESPONSE, 
         /**
-         * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g., Document Completion - has the artifact been legally authenticated), all of which may impact Security, Privacy, and Trust policies.
+         * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
         PROVENANCE, 
         /**
@@ -2088,7 +2088,7 @@ public class Enumerations {
          */
         QUESTIONNAIRERESPONSE, 
         /**
-         * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organisation.
+         * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
          */
         REFERRALREQUEST, 
         /**
@@ -2096,7 +2096,7 @@ public class Enumerations {
          */
         RELATEDPERSON, 
         /**
-         * --- Abstract Type! ---Base Resource for everything.
+         * --- Abstract Type! ---This is the base resource type for everything.
          */
         RESOURCE, 
         /**
@@ -2108,7 +2108,7 @@ public class Enumerations {
          */
         SCHEDULE, 
         /**
-         * A Search Parameter that defines a named search item that can be used to search/filter on a resource.
+         * A search parameter that defines a named search item that can be used to search/filter on a resource.
          */
         SEARCHPARAMETER, 
         /**
@@ -2116,7 +2116,7 @@ public class Enumerations {
          */
         SLOT, 
         /**
-         * Sample for analysis.
+         * A sample to be used for analysis.
          */
         SPECIMEN, 
         /**
@@ -2132,7 +2132,7 @@ public class Enumerations {
          */
         SUBSTANCE, 
         /**
-         * Record of delivery of what is supply.
+         * Record of delivery of what is supplied.
          */
         SUPPLYDELIVERY, 
         /**
@@ -2747,7 +2747,7 @@ public class Enumerations {
             case BACKBONEELEMENT: return "Base definition for all elements that are defined inside a resource - but not those in a data type.";
             case CODEABLECONCEPT: return "A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.";
             case CODING: return "A reference to a code defined by a terminology system.";
-            case CONTACTPOINT: return "Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.";
+            case CONTACTPOINT: return "Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.";
             case COUNT: return "";
             case DISTANCE: return "";
             case DURATION: return "";
@@ -2771,7 +2771,7 @@ public class Enumerations {
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
-            case DATE: return "A date, or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.                 Dates SHALL be valid dates.";
+            case DATE: return "A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.";
             case DATETIME: return "A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.";
             case DECIMAL: return "A rational number with implicit precision";
             case ID: return "Any combination of letters, numerals, \"-\" and \".\", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.";
@@ -2799,52 +2799,52 @@ public class Enumerations {
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
-            case COMMUNICATION: return "An occurrence of information being transmitted. E.g., an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.";
-            case COMMUNICATIONREQUEST: return "A request to convey information. E.g., the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
+            case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.";
+            case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
             case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.";
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
-            case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.";
+            case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
             case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
-            case COVERAGE: return "Financial instrument which may be used to pay for or reimburse for health care products and services.";
+            case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
             case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
-            case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
-            case DEVICE: return "This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non medical devices may includes things such as a machine, a cellphone, a computer, an application, etc.";
+            case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
+            case DEVICE: return "This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
             case DEVICECOMPONENT: return "Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.";
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEUSEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICORDER: return "A record of a request for a diagnostic investigation service to be performed.";
-            case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.";
+            case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
-            case DOCUMENTREFERENCE: return "A reference to a document.";
+            case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "--- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.";
             case ELIGIBILITYREQUEST: return "This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
             case ENCOUNTER: return "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.";
-            case ENROLLMENTREQUEST: return "This resource provides the insurance Enrollment details to the insurer regarding a specified coverage.";
-            case ENROLLMENTRESPONSE: return "This resource provides Enrollment and plan details from the processing of an Enrollment resource.";
+            case ENROLLMENTREQUEST: return "This resource provides the insurance enrollment details to the insurer regarding a specified coverage.";
+            case ENROLLMENTRESPONSE: return "This resource provides enrollment and plan details from the processing of an Enrollment resource.";
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
             case FAMILYMEMBERHISTORY: return "Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
-            case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.;.";
-            case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn't an Organization.";
-            case HEALTHCARESERVICE: return "The details of a Healthcare Service available at a location.";
+            case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.";
+            case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
+            case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
             case IMAGINGOBJECTSELECTION: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
-            case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.";
+            case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
-            case IMMUNIZATIONRECOMMENDATION: return "A patient’s point-in-time immunization and recommendation (i.e. forecasting a patient’s immunization eligibility according to a published schedule) with optional supporting justification.";
+            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
             case MEDIA: return "A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.";
             case MEDICATION: return "This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.";
             case MEDICATIONADMINISTRATION: return "Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.";
-            case MEDICATIONDISPENSE: return "Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a Pharmacy system responding to a Medication Order.";
+            case MEDICATIONDISPENSE: return "Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.";
             case MEDICATIONORDER: return "An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationOrder\" rather than \"MedicationPrescription\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.";
-            case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A medication statements may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patients’ memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains.\r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Statement information may come from the patient’s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication Administration is more formal and is not missing detailed information.";
-            case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
+            case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.";
+            case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
@@ -2853,31 +2853,31 @@ public class Enumerations {
             case ORDER: return "A request to perform an action.";
             case ORDERRESPONSE: return "A response to an order.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
-            case PARAMETERS: return "This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.";
+            case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
             case PERSON: return "Demographics and administrative information about a person independent of a specific health-related context.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
-            case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy.";
+            case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
             case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
-            case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g., Document Completion - has the artifact been legally authenticated), all of which may impact Security, Privacy, and Trust policies.";
+            case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
-            case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organisation.";
+            case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.";
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
-            case RESOURCE: return "--- Abstract Type! ---Base Resource for everything.";
+            case RESOURCE: return "--- Abstract Type! ---This is the base resource type for everything.";
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
-            case SEARCHPARAMETER: return "A Search Parameter that defines a named search item that can be used to search/filter on a resource.";
+            case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
-            case SPECIMEN: return "Sample for analysis.";
+            case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
             case SUBSCRIPTION: return "The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined \"channel\" so that another system is able to take an appropriate action.";
             case SUBSTANCE: return "A homogeneous material with a definite composition.";
-            case SUPPLYDELIVERY: return "Record of delivery of what is supply.";
+            case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
             case SUPPLYREQUEST: return "A record of a request for a medication, substance or device used in the healthcare setting.";
             case TESTSCRIPT: return "TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.";
             case VALUESET: return "A value set specifies a set of codes drawn from one or more code systems.";
@@ -3890,7 +3890,7 @@ public class Enumerations {
          */
         COMPLETE, 
         /**
-         * The processing identified with errors.
+         * The processing identified errors.
          */
         ERROR, 
         /**
@@ -3923,7 +3923,7 @@ public class Enumerations {
         public String getDefinition() {
           switch (this) {
             case COMPLETE: return "The processing completed without errors.";
-            case ERROR: return "The processing identified with errors.";
+            case ERROR: return "The processing identified errors.";
             default: return "?";
           }
         }
@@ -4010,11 +4010,11 @@ public class Enumerations {
          */
         CLINICALIMPRESSION, 
         /**
-         * An occurrence of information being transmitted. E.g., an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
+         * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
          */
         COMMUNICATION, 
         /**
-         * A request to convey information. E.g., the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
+         * A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
          */
         COMMUNICATIONREQUEST, 
         /**
@@ -4026,7 +4026,7 @@ public class Enumerations {
          */
         CONCEPTMAP, 
         /**
-         * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.
+         * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
          */
         CONDITION, 
         /**
@@ -4038,7 +4038,7 @@ public class Enumerations {
          */
         CONTRACT, 
         /**
-         * Financial instrument which may be used to pay for or reimburse for health care products and services.
+         * Financial instrument which may be used to pay for or reimburse health care products and services.
          */
         COVERAGE, 
         /**
@@ -4046,11 +4046,11 @@ public class Enumerations {
          */
         DATAELEMENT, 
         /**
-         * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
+         * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
          */
         DETECTEDISSUE, 
         /**
-         * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non medical devices may includes things such as a machine, a cellphone, a computer, an application, etc.
+         * This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
          */
         DEVICE, 
         /**
@@ -4074,7 +4074,7 @@ public class Enumerations {
          */
         DIAGNOSTICORDER, 
         /**
-         * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.
+         * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
          */
         DIAGNOSTICREPORT, 
         /**
@@ -4082,7 +4082,7 @@ public class Enumerations {
          */
         DOCUMENTMANIFEST, 
         /**
-         * A reference to a document.
+         * A reference to a document .
          */
         DOCUMENTREFERENCE, 
         /**
@@ -4102,11 +4102,11 @@ public class Enumerations {
          */
         ENCOUNTER, 
         /**
-         * This resource provides the insurance Enrollment details to the insurer regarding a specified coverage.
+         * This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
          */
         ENROLLMENTREQUEST, 
         /**
-         * This resource provides Enrollment and plan details from the processing of an Enrollment resource.
+         * This resource provides enrollment and plan details from the processing of an Enrollment resource.
          */
         ENROLLMENTRESPONSE, 
         /**
@@ -4126,15 +4126,15 @@ public class Enumerations {
          */
         FLAG, 
         /**
-         * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.;.
+         * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
          */
         GOAL, 
         /**
-         * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn't an Organization.
+         * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
          */
         GROUP, 
         /**
-         * The details of a Healthcare Service available at a location.
+         * The details of a healthcare service available at a location.
          */
         HEALTHCARESERVICE, 
         /**
@@ -4142,7 +4142,7 @@ public class Enumerations {
          */
         IMAGINGOBJECTSELECTION, 
         /**
-         * Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
+         * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
         IMAGINGSTUDY, 
         /**
@@ -4150,7 +4150,7 @@ public class Enumerations {
          */
         IMMUNIZATION, 
         /**
-         * A patient’s point-in-time immunization and recommendation (i.e. forecasting a patient’s immunization eligibility according to a published schedule) with optional supporting justification.
+         * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
          */
         IMMUNIZATIONRECOMMENDATION, 
         /**
@@ -4178,7 +4178,7 @@ public class Enumerations {
          */
         MEDICATIONADMINISTRATION, 
         /**
-         * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a Pharmacy system responding to a Medication Order.
+         * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
          */
         MEDICATIONDISPENSE, 
         /**
@@ -4186,11 +4186,11 @@ public class Enumerations {
          */
         MEDICATIONORDER, 
         /**
-         * A record of a medication that is being consumed by a patient.   A medication statements may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patients’ memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains.The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Statement information may come from the patient’s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication Administration is more formal and is not missing detailed information.
+         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
          */
         MEDICATIONSTATEMENT, 
         /**
-         * The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
+         * The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
          */
         MESSAGEHEADER, 
         /**
@@ -4226,7 +4226,7 @@ public class Enumerations {
          */
         ORGANIZATION, 
         /**
-         * This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.
+         * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
         PARAMETERS, 
         /**
@@ -4250,7 +4250,7 @@ public class Enumerations {
          */
         PRACTITIONER, 
         /**
-         * An action that is or was performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy.
+         * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
          */
         PROCEDURE, 
         /**
@@ -4266,7 +4266,7 @@ public class Enumerations {
          */
         PROCESSRESPONSE, 
         /**
-         * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g., Document Completion - has the artifact been legally authenticated), all of which may impact Security, Privacy, and Trust policies.
+         * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
         PROVENANCE, 
         /**
@@ -4278,7 +4278,7 @@ public class Enumerations {
          */
         QUESTIONNAIRERESPONSE, 
         /**
-         * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organisation.
+         * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
          */
         REFERRALREQUEST, 
         /**
@@ -4286,7 +4286,7 @@ public class Enumerations {
          */
         RELATEDPERSON, 
         /**
-         * --- Abstract Type! ---Base Resource for everything.
+         * --- Abstract Type! ---This is the base resource type for everything.
          */
         RESOURCE, 
         /**
@@ -4298,7 +4298,7 @@ public class Enumerations {
          */
         SCHEDULE, 
         /**
-         * A Search Parameter that defines a named search item that can be used to search/filter on a resource.
+         * A search parameter that defines a named search item that can be used to search/filter on a resource.
          */
         SEARCHPARAMETER, 
         /**
@@ -4306,7 +4306,7 @@ public class Enumerations {
          */
         SLOT, 
         /**
-         * Sample for analysis.
+         * A sample to be used for analysis.
          */
         SPECIMEN, 
         /**
@@ -4322,7 +4322,7 @@ public class Enumerations {
          */
         SUBSTANCE, 
         /**
-         * Record of delivery of what is supply.
+         * Record of delivery of what is supplied.
          */
         SUPPLYDELIVERY, 
         /**
@@ -4759,52 +4759,52 @@ public class Enumerations {
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
-            case COMMUNICATION: return "An occurrence of information being transmitted. E.g., an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.";
-            case COMMUNICATIONREQUEST: return "A request to convey information. E.g., the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
+            case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.";
+            case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
             case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.";
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
-            case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.";
+            case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
             case CONFORMANCE: return "A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
-            case COVERAGE: return "Financial instrument which may be used to pay for or reimburse for health care products and services.";
+            case COVERAGE: return "Financial instrument which may be used to pay for or reimburse health care products and services.";
             case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
-            case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
-            case DEVICE: return "This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non medical devices may includes things such as a machine, a cellphone, a computer, an application, etc.";
+            case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
+            case DEVICE: return "This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
             case DEVICECOMPONENT: return "Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.";
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEUSEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICORDER: return "A record of a request for a diagnostic investigation service to be performed.";
-            case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.";
+            case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
-            case DOCUMENTREFERENCE: return "A reference to a document.";
+            case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "--- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.";
             case ELIGIBILITYREQUEST: return "This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
             case ENCOUNTER: return "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.";
-            case ENROLLMENTREQUEST: return "This resource provides the insurance Enrollment details to the insurer regarding a specified coverage.";
-            case ENROLLMENTRESPONSE: return "This resource provides Enrollment and plan details from the processing of an Enrollment resource.";
+            case ENROLLMENTREQUEST: return "This resource provides the insurance enrollment details to the insurer regarding a specified coverage.";
+            case ENROLLMENTRESPONSE: return "This resource provides enrollment and plan details from the processing of an Enrollment resource.";
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
             case FAMILYMEMBERHISTORY: return "Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
-            case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.;.";
-            case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn't an Organization.";
-            case HEALTHCARESERVICE: return "The details of a Healthcare Service available at a location.";
+            case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.";
+            case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
+            case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
             case IMAGINGOBJECTSELECTION: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
-            case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.";
+            case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
-            case IMMUNIZATIONRECOMMENDATION: return "A patient’s point-in-time immunization and recommendation (i.e. forecasting a patient’s immunization eligibility according to a published schedule) with optional supporting justification.";
+            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
             case MEDIA: return "A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.";
             case MEDICATION: return "This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.";
             case MEDICATIONADMINISTRATION: return "Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.";
-            case MEDICATIONDISPENSE: return "Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a Pharmacy system responding to a Medication Order.";
+            case MEDICATIONDISPENSE: return "Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.";
             case MEDICATIONORDER: return "An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationOrder\" rather than \"MedicationPrescription\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.";
-            case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A medication statements may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patients’ memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains.\r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Statement information may come from the patient’s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication Administration is more formal and is not missing detailed information.";
-            case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
+            case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.";
+            case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
@@ -4813,31 +4813,31 @@ public class Enumerations {
             case ORDER: return "A request to perform an action.";
             case ORDERRESPONSE: return "A response to an order.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
-            case PARAMETERS: return "This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.";
+            case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
             case PERSON: return "Demographics and administrative information about a person independent of a specific health-related context.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
-            case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy.";
+            case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
             case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
-            case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g., Document Completion - has the artifact been legally authenticated), all of which may impact Security, Privacy, and Trust policies.";
+            case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
-            case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organisation.";
+            case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.";
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
-            case RESOURCE: return "--- Abstract Type! ---Base Resource for everything.";
+            case RESOURCE: return "--- Abstract Type! ---This is the base resource type for everything.";
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
             case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
-            case SEARCHPARAMETER: return "A Search Parameter that defines a named search item that can be used to search/filter on a resource.";
+            case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
-            case SPECIMEN: return "Sample for analysis.";
+            case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
             case SUBSCRIPTION: return "The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined \"channel\" so that another system is able to take an appropriate action.";
             case SUBSTANCE: return "A homogeneous material with a definite composition.";
-            case SUPPLYDELIVERY: return "Record of delivery of what is supply.";
+            case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
             case SUPPLYREQUEST: return "A record of a request for a medication, substance or device used in the healthcare setting.";
             case TESTSCRIPT: return "TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.";
             case VALUESET: return "A value set specifies a set of codes drawn from one or more code systems.";
@@ -5346,35 +5346,35 @@ public class Enumerations {
 
     public enum SearchParamType {
         /**
-         * Search parameter SHALL be a number (a whole number, or a decimal)
+         * Search parameter SHALL be a number (a whole number, or a decimal).
          */
         NUMBER, 
         /**
-         * Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported
+         * Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
          */
         DATE, 
         /**
-         * Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces
+         * Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
          */
         STRING, 
         /**
-         * Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used
+         * Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
          */
         TOKEN, 
         /**
-         * A reference to another resource
+         * A reference to another resource.
          */
         REFERENCE, 
         /**
-         * A composite search parameter that combines a search on two values together
+         * A composite search parameter that combines a search on two values together.
          */
         COMPOSITE, 
         /**
-         * A search parameter that searches on a quantity
+         * A search parameter that searches on a quantity.
          */
         QUANTITY, 
         /**
-         * A search parameter that searches on a URI (RFC 3986)
+         * A search parameter that searches on a URI (RFC 3986).
          */
         URI, 
         /**
@@ -5430,14 +5430,14 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case NUMBER: return "Search parameter SHALL be a number (a whole number, or a decimal)";
-            case DATE: return "Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported";
-            case STRING: return "Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces";
-            case TOKEN: return "Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a \"|\", depending on the modifier used";
-            case REFERENCE: return "A reference to another resource";
-            case COMPOSITE: return "A composite search parameter that combines a search on two values together";
-            case QUANTITY: return "A search parameter that searches on a quantity";
-            case URI: return "A search parameter that searches on a URI (RFC 3986)";
+            case NUMBER: return "Search parameter SHALL be a number (a whole number, or a decimal).";
+            case DATE: return "Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.";
+            case STRING: return "Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.";
+            case TOKEN: return "Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a \"|\", depending on the modifier used.";
+            case REFERENCE: return "A reference to another resource.";
+            case COMPOSITE: return "A composite search parameter that combines a search on two values together.";
+            case QUANTITY: return "A search parameter that searches on a quantity.";
+            case URI: return "A search parameter that searches on a URI (RFC 3986).";
             default: return "?";
           }
         }
@@ -5502,27 +5502,27 @@ public class Enumerations {
 
     public enum SpecialValues {
         /**
-         * Boolean true
+         * Boolean true.
          */
         TRUE, 
         /**
-         * Boolean false
+         * Boolean false.
          */
         FALSE, 
         /**
-         * The content is greater than zero, but too small to be quantified
+         * The content is greater than zero, but too small to be quantified.
          */
         TRACE, 
         /**
-         * The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material
+         * The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material.
          */
         SUFFICIENT, 
         /**
-         * The value is no longer available
+         * The value is no longer available.
          */
         WITHDRAWN, 
         /**
-         * The are no known applicable values in this context
+         * The are no known applicable values in this context.
          */
         NILKNOWN, 
         /**
@@ -5570,12 +5570,12 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case TRUE: return "Boolean true";
-            case FALSE: return "Boolean false";
-            case TRACE: return "The content is greater than zero, but too small to be quantified";
-            case SUFFICIENT: return "The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material";
-            case WITHDRAWN: return "The value is no longer available";
-            case NILKNOWN: return "The are no known applicable values in this context";
+            case TRUE: return "Boolean true.";
+            case FALSE: return "Boolean false.";
+            case TRACE: return "The content is greater than zero, but too small to be quantified.";
+            case SUFFICIENT: return "The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material.";
+            case WITHDRAWN: return "The value is no longer available.";
+            case NILKNOWN: return "The are no known applicable values in this context.";
             default: return "?";
           }
         }

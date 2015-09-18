@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
+// Generated on Sat, Sep 19, 2015 06:26+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -85,7 +85,7 @@ public class Attachment extends Type implements ICompositeType {
      * The calculated hash of the data using SHA-1. Represented using base64.
      */
     @Child(name = "hash", type = {Base64BinaryType.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Hash of the data (sha-1, base64ed )", formalDefinition="The calculated hash of the data using SHA-1. Represented using base64." )
+    @Description(shortDefinition="Hash of the data (sha-1, base64ed)", formalDefinition="The calculated hash of the data using SHA-1. Represented using base64." )
     protected Base64BinaryType hash;
 
     /**

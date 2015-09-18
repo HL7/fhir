@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
+// Generated on Sat, Sep 19, 2015 06:26+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -51,7 +51,7 @@ public class RelatedPerson extends DomainResource {
      * Identifier for a person within a particular scope.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="A Human identifier for this person", formalDefinition="Identifier for a person within a particular scope." )
+    @Description(shortDefinition="A human identifier for this person", formalDefinition="Identifier for a person within a particular scope." )
     protected List<Identifier> identifier;
 
     /**
@@ -626,7 +626,7 @@ public class RelatedPerson extends DomainResource {
   public static final String SP_GENDER = "gender";
   @SearchParamDefinition(name="identifier", path="RelatedPerson.identifier", description="A patient Identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="address-postalcode", path="RelatedPerson.address.postalCode", description="A postalCode specified in an address", type="string" )
+  @SearchParamDefinition(name="address-postalcode", path="RelatedPerson.address.postalCode", description="A postal code specified in an address", type="string" )
   public static final String SP_ADDRESSPOSTALCODE = "address-postalcode";
 
 }

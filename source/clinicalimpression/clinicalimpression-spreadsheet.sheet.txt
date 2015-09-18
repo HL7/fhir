@@ -59,6 +59,7 @@
   Type = DomainResource
   Short Label = A clinical assessment performed when planning treatments and management strategies for a patient
   Definition = A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient\'s condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score
+  v2 Mapping = Partial mapping for problem evaluation
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
@@ -68,6 +69,7 @@
   Type = Reference(Patient)
   Short Label = The patient being assessed
   Definition = The patient being assessed
+  v2 Mapping = PID-3
   w5 = who.focus
 
  -- Row 3 -----------------------------------
@@ -77,6 +79,7 @@
   Type = Reference(Practitioner)
   Short Label = The clinician performing the assessment
   Definition = The clinician performing the assessment
+  v2 Mapping = ROL-4
   w5 = who.author
 
  -- Row 4 -----------------------------------
@@ -88,6 +91,7 @@
   Binding = ClinicalImpressionStatus
   Short Label = in-progress | completed | entered-in-error
   Definition = Identifies the workflow status of the assessment
+  v2 Mapping = PRB-14
   w5 = status
 
  -- Row 5 -----------------------------------
@@ -98,6 +102,7 @@
   Short Label = When the assessment occurred
   Definition = The point in time at which the assessment was concluded (not when it was recorded)
   Comments = This SHOULD be accurate to at least the minute, though some assessments only have a known date
+  v2 Mapping = PRB-2
   w5 = when.done
 
  -- Row 6 -----------------------------------
@@ -124,6 +129,7 @@
   Short Label = General assessment of patient state
   Definition = This a list of the general problems/conditions for a patient
   Comments = e.g. The patient is a pregnant, and cardiac congestive failure, ‎Adenocarcinoma, and is allergic to penicillin
+  v2 Mapping = PRB-3 / IAM-7
 
  -- Row 9 -----------------------------------
   Element = ClinicalImpression.trigger[x]
@@ -155,6 +161,7 @@
   Short Label = Record of a specific investigation
   Definition = A record of a specific investigation that was undertaken
   Comments = Most investigations are observations of one kind of or another but some other specific types of data collection resources can also be used
+  v2 Mapping = OBX-21
 
  -- Row 13 -----------------------------------
   Element = ClinicalImpression.protocol
@@ -169,6 +176,7 @@
   Type = string
   Short Label = Summary of the assessment
   Definition = A text summary of the investigations and the diagnosis
+  v2 Mapping = OBX
 
  -- Row 15 -----------------------------------
   Element = ClinicalImpression.finding
@@ -184,6 +192,7 @@
   Binding = ConditionKind
   Short Label = Specific text or code for finding
   Definition = Specific text of code for finding or diagnosis
+  v2 Mapping = OBX
 
  -- Row 17 -----------------------------------
   Element = ClinicalImpression.finding.cause
@@ -228,6 +237,7 @@
   Type = string
   Short Label = Estimate of likely outcome
   Definition = Estimate of likely outcome
+  v2 Mapping = PRB-22
 
  -- Row 23 -----------------------------------
   Element = ClinicalImpression.plan

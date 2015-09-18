@@ -293,6 +293,7 @@
   Binding = ConditionStage
   Short Label = Simple summary (disease specific)
   Definition = A simple summary of the stage such as \"Stage 3\". The determination of the stage is disease-specific
+  v2 Mapping = PRB-14
   RIM Mapping = .value
 
  -- Row 17 -----------------------------------

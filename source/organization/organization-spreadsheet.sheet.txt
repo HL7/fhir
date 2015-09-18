@@ -61,7 +61,7 @@
   Short Label = Identifies this organization  across multiple systems
   Definition = Identifier for the organization that is used to identify the organization across multiple disparate systems
   Requirements = Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization.
-  v2 Mapping = XON.10 Organization Identifier / XON.3 ID Number
+  v2 Mapping = XON.10 / XON.3
   RIM Mapping = .scopes[Role](classCode=IDENT)
   ServD Mapping = ./Identifiers
   w5 = id
@@ -107,7 +107,7 @@
   Short Label = Name used for the organization
   Definition = A name associated with the organization
   Requirements = Need to use the name as the label of the organization.
-  v2 Mapping = XON.1 Organization Name
+  v2 Mapping = XON.1
   RIM Mapping = .name
   ServD Mapping = .PreferredName/Name
   Committee Notes = If you need multiple names to cater for acronyms and \"trading under\" names, use an extension \"alias\" instead
@@ -121,7 +121,7 @@
   Definition = A contact detail for the organization
   Requirements = Human contact for the organization
   Comments = The use code home is not to be used. Note that these contacts are not the contact details of people who are employed by or represent the organization, but official contacts for the organization itself
-  v2 Mapping = No authoritative equivalent in HL7 v2
+  v2 Mapping = ORC-22?
   RIM Mapping = .telecom
   ServD Mapping = ./ContactPoints
 
@@ -134,7 +134,7 @@
   Definition = An address for the organization
   Requirements = May need to keep track of the organization\'s addresses for contacting, billing or reporting requirements
   Comments = Organization may have multiple addresses with different uses or applicable periods. The use code home is not to be used
-  v2 Mapping = No authoritative equivalent in HL7 v2; some HL7 v2 segments such as OBX might provide a serialized instance value
+  v2 Mapping = ORC-23?
   RIM Mapping = .address
   ServD Mapping = ./PrimaryAddress and ./OtherAddresses
 

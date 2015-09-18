@@ -56,7 +56,7 @@
   Type = DomainResource
   Short Label = Clinical issue with action
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
-  v2 Mapping = N/A
+  v2 Mapping = Partial mapping from messages containing the AL1 or IAM segment, such as the ADT^A01, ADT^A08, and ADT^A60.
   RIM Mapping = Observation[classCode=ALRT, moodCode=EVN)
   w5 = clinical.general
 
@@ -68,6 +68,7 @@
   Short Label = Associated patient
   Definition = Indicates the patient whose record the detected issue is associated with.
   Requirements = While the subject could be inferred by tracing the subject of the implicated resources, it\'s useful to have a direct link for query purposes.
+  v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
 
@@ -80,6 +81,7 @@
   Binding = DetectedIssueCategory
   Short Label = Issue Category, e.g. drug-drug, duplicate therapy, etc.
   Definition = Identifies the general type of issue identified.
+  v2 Mapping = AL1-2 / IAM-9
   RIM Mapping = .code
   w5 = class
 
@@ -92,6 +94,7 @@
   Binding = DetectedIssueSeverity
   Short Label = high | moderate | low
   Definition = Indicates the degree of importance associated with the identified issue based on the potential impact on the patient
+  v2 Mapping = AL1-4/ IAR-2
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV].value
   w5 = grade
 
@@ -113,6 +116,7 @@
   Short Label = Description and context
   Definition = A textual explanation of the detected issue
   Comments = Should focus on information not covered elsewhere as discrete data - no need to duplicate the narrative.
+  v2 Mapping = AL1-5 / IAM-8
   RIM Mapping = .text
 
  -- Row 7 -----------------------------------
@@ -123,6 +127,7 @@
   Short Label = When identified
   Definition = The date or date-time when the detected issue was initially identified.
   Requirements = No-one can be responsible for mitigation prior to the issue being identified
+  v2 Mapping = ALI-6 / IAM-11
   RIM Mapping = .effectiveTime
   w5 = when.recorded
 
@@ -133,6 +138,7 @@
   Type = Reference(Practitioner|Device)
   Short Label = The provider or device that identified the issue
   Definition = Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review
+  v2 Mapping = IAM-14 / IAM-16
   RIM Mapping = .participation[typeCode=AUT].role[classCode=ASSIGNED]
   To Do = Is this 80%?
   w5 = who.author
@@ -145,6 +151,7 @@
   Short Label = Unique id for the detected issue
   Definition = Business identifier associated with the detected issue record
   Requirements = Allows linking instances of the same detected issue found on different servers
+  v2 Mapping = IAM-7
   RIM Mapping = .id
   w5 = id
 

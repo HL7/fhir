@@ -46,7 +46,7 @@
   Short Label = A identifier for the person as this agent
   Definition = An identifier that applies to this person in this role
   Requirements = Often, specific identities are assigned for the agent
-  v2 Mapping = PRD-7 (or XCN.1 Person Identifier)
+  v2 Mapping = PRD-7 (or XCN.1)
   RIM Mapping = ./id
   ServD Mapping = ./Identifiers
   Committee Notes = Under \"Comments\" it said: \"The identifier changes when a new/different person steps into the same role\". This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case.
@@ -145,7 +145,7 @@
   Short Label = The represented organization
   Definition = The organization that the practitioner represents
   Requirements = Need to be able to track the represented organization separately, if any.
-  v2 Mapping = PRD-10 (-> 14) / PRA-9-Institution / PRT-8-Participation Organization for person participation
+  v2 Mapping = PRD-10 (-> 14) / PRA-9  / PRT-8
   RIM Mapping = ./scoper
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
 
@@ -175,7 +175,7 @@
   Definition = Roles which this practitioner is authorized to perform for the organization
   Requirements = Need to know what authority the practitioner has - what can they do?
   Comments = A person may have more than one role. At least one role is required.
-  v2 Mapping = PRD-1 / STF-18-job title / PRA-3-practitioner category  / PRT-4-Participation / ROL-3-role-ROL / ORC-12-ordering provider / OBR-16-ordering provider / PV1-7-attending doctor / PV1-8-referring doctor / PV1-9-consulting doctor / PV1-17-admitting doctor
+  v2 Mapping = PRD-1 / STF-18  / PRA-3  / PRT-4  / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17
   RIM Mapping = ./code
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
 
@@ -187,7 +187,7 @@
   Binding = PractitionerSpecialty
   Short Label = Specific specialty of the practitioner
   Definition = Specific specialty of the practitioner
-  v2 Mapping = PRA-5-specialty
+  v2 Mapping = PRA-5
   RIM Mapping = indirectAuthority/QualifiedEntity[code < Speciality]/code
   ServD Mapping = ./Specialty
 
@@ -199,7 +199,7 @@
   Short Label = The period during which the practitioner is authorized to perform in these role(s)
   Definition = The period during which the person is authorized to act as a practitioner in these role(s) for the organization
   Requirements = Even after the agencies is revoked, the fact that it existed must still be recorded
-  v2 Mapping = PRD-8/9 / PRA-5.4-date of certification
+  v2 Mapping = PRD-8/9 / PRA-5.4
   RIM Mapping = ./effectiveTime
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
   Committee Notes = Is this separate from the period of validity of the qualification?

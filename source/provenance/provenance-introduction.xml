@@ -59,7 +59,7 @@ The Provenance resource actually corresponds to a single activity that identifie
 The activity also references other entities (<i>entity</i>) that were used and the agents (<i>agent</i>) that were associated with the activity. 
 </p>
 <a name="TODO"> </a>
-<h2>Open Issues and Request for Comments</h2>
+<h3>Open Issues and Request for Comments</h3>
 <p>
 At this juncture, Provenance has several areas of concern for the Security WG. The first concern is whether the current HL7 
 ProvenanceEvent value set is sufficient for conveying the states 

@@ -242,6 +242,7 @@
   Type = Identifier
   Short Label = External ids for this item
   Definition = This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
+  v2 Mapping = IAM-7
   RIM Mapping = .id
   w5 = id
 
@@ -260,6 +261,7 @@
   Type = dateTime
   Short Label = When recorded
   Definition = Date when the sensitivity was recorded
+  v2 Mapping = IAM-20
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 
@@ -282,6 +284,7 @@
   Type = Reference(Patient)
   Short Label = Who the sensitivity is for
   Definition = The patient who has the allergy or intolerance
+  v2 Mapping = (PID-3)
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
 
@@ -294,6 +297,7 @@
   Short Label = Source of the information about the allergy
   Definition = The source of the information about the allergy that is recorded
   Comments = The recorder takes repsonsibility for the content, but can reference the source from where they got it
+  v2 Mapping = IAM-14 (if patient) / IAM-18 (if practitioner)
   w5 = who.source
 
  -- Row 8 -----------------------------------
@@ -306,6 +310,7 @@
   Short Label = Substance, (or class) considered to be responsible for risk
   Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk
   Comments = It is strongly recommended that the substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
+  v2 Mapping = AL1-3 / IAM-3
   w5 = what
 
  -- Row 9 -----------------------------------
@@ -319,6 +324,7 @@
   Short Label = active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error
   Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance
   Comments = Decision support would typically raise alerts for \'Unconfirmed\', \'Confirmed\', and \'Resolved\' and ignore a \'Refuted\' reaction. In particular, \'Refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
+  v2 Mapping = IAM-17
   w5 = status
 
  -- Row 10 -----------------------------------
@@ -343,6 +349,7 @@
   Short Label = allergy | intolerance - Underlying mechanism (if known)
   Definition = Identification of the underlying physiological mechanism for the reaction risk.
   Comments = Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians may not be in a position to distinguish the mechanism of a particular reaction. Often the term \"allergy\" is used rather generically and may overlap with the use of \"intolerance\" - in practice the boundaries between these two concepts may not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource.
+  v2 Mapping = IAM-9
   w5 = class
 
  -- Row 12 -----------------------------------

@@ -64,7 +64,7 @@ in whole, part, or by transformation. Provenance resources are prepared by the a
 create/update of the resource, and may be persisted with the AuditEvent target resource. 
 </p>
 <a name="TODO"> </a>
-<h2>Open Issues and Request for Comments</h2>
+<h3>Open Issues and Request for Comments</h3>
 <p>
 The AuditEvent Resource, like many of the FHIR Resources in DSTU, continues to be developed by the sponsoring HL7 Security 
 Work Group.  In particular, the Security WG continues to focus on refining the value sets used by both AuditEvent and 

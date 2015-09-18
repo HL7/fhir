@@ -10,14 +10,14 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-01T17:31:47Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16440</WindowHeight>
-  <WindowWidth>10005</WindowWidth>
+  <WindowHeight>11175</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -1002,7 +1002,8 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">ORU -&gt; OBR</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Observation[isNormalAct() and subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and domainMember(&quot;LabObservationType&quot;, code)]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">isNormalAct is a short-cut meaning: not(actionNegationInd=&quot;true&quot; or isCriterionInd=&quot;true&quot;)</Data><NamedCell
@@ -1043,7 +1044,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-51-Observation Group ID (todo: check semantic intent of OBR-51 with OOWG)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-51</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">unique(./id[displayable=&quot;true&quot; and scope=&quot;OBJ&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1085,7 +1086,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type &quot;revise&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-25-Result Status (not 1:1 mapping)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-25 (not 1:1 mapping)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">registered: ./statusCode[isNormalDatatype()]=&quot;new&quot;;  interim: ./statusCode[isNormalDatatype()]=&quot;active&quot;;  final: ./statusCode[isNormalDatatype()]=&quot;complete&quot; and not(./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseLabOrder&quot;, code) and isNormalAct()]);  amended: ./statusCode[isNormalDatatype()]=&quot;complete&quot; and ./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseLabOrder&quot;, code) and isNormalAct() and statusCode=&quot;completed&quot;];  cancelled:  ./statusCode[isNormalDatatype()]=&quot;aborted&quot;;  withdrawn: ./statusCode[isNormalDatatype()]=&quot;obsolete&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1128,7 +1129,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code &lt; LabService].code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-24-Diagnostic Service Section ID</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-24</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">unique(./inboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#LIST&quot;, classCode) and moodCode=&quot;EVN&quot; and inDomain(code,&quot;Lab Service&quot;) and isNormalAct()]/code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1168,7 +1169,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-4-Universal Service ID (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-4 (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">./code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1209,7 +1210,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">participation[typeCode=SBJ]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">PID-3-Patient ID List (no HL7 v2 mapping for Group or Device)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">PID-3 (no HL7 v2 mapping for Group or Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;SBJ&quot; and isNormalParticipation()]/role[classCode=&quot;PAT&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1248,7 +1249,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">PV1-19</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1288,7 +1290,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-7-Observation Date/Time</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-7</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">./effectiveTime[type=&quot;TS&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1329,7 +1331,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">participation[typeCode=VRF or AUT].time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-22-Results Rpt/Status Chng - Date/Time</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBR-22</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">firstOf(unique(./participation[isHighest(priorityCode) and typeCode=&quot;VRF&quot; and isNormalParticipation()]/time[type=&quot;TS&quot;]),  unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/time[type=&quot;TS&quot;]))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1372,7 +1374,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">participation[typeCode=AUT].role[classCode=ASSIGN].scoper</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">PRT-8-Participation Organization (where this PRT-4-Participation = &quot;PO&quot;)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">PRT-8 (where this PRT-4-Participation = &quot;PO&quot;)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation()]/role[subsumesCode(&quot;RoleClass#ASSIGN&quot;, classCode)]/scoper[subsumesCode(&quot;EntityClass#ORG&quot;, classCode) and determinerCode=&quot;INSTANCE&quot;])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1411,7 +1413,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outboundRelationship[typeCode=FLFS].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">ORC? OBR-2/3?</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">unique(./outboundRelationship[typeCode=&quot;FLFS&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and subsumes(&quot;ActMood#PRMS&quot;, moodCode) and isNormalAct()])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Question: Should this be by priorityCode too?</Data><NamedCell
@@ -1487,7 +1490,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outboundRelationship[typeCode=COMP].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OBXs</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[isNormalAct() and subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and fromDomain(code, &quot;LabObservationBattery&quot;)]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3932,7 +3936,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3940,13 +3944,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>19</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

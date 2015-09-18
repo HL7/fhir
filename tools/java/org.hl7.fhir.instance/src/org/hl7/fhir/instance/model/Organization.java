@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
+// Generated on Sat, Sep 19, 2015 06:26+1000 for FHIR v1.0.0
 
 import java.util.*;
 
@@ -66,7 +66,7 @@ public class Organization extends DomainResource {
          * A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.
          */
         @Child(name = "telecom", type = {ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contact details (telephone, email, etc)  for a contact", formalDefinition="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted." )
+        @Description(shortDefinition="Contact details (telephone, email, etc.)  for a contact", formalDefinition="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted." )
         protected List<ContactPoint> telecom;
 
         /**
@@ -741,7 +741,7 @@ public class Organization extends DomainResource {
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="identifier", path="Organization.identifier", description="Any identifier for the organization (not the accreditation issuer's identifier)", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="address-postalcode", path="Organization.address.postalCode", description="A postalCode specified in an address", type="string" )
+  @SearchParamDefinition(name="address-postalcode", path="Organization.address.postalCode", description="A postal code specified in an address", type="string" )
   public static final String SP_ADDRESSPOSTALCODE = "address-postalcode";
 
 }

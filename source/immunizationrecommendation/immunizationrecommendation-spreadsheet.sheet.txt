@@ -53,7 +53,7 @@
   Type = Reference(Patient)
   Short Label = Who this profile is for
   Definition = The patient for whom the recommendations are for.
-  v2 Mapping = PID-3-patient ID list
+  v2 Mapping = PID-3
   RIM Mapping = .partipication[typeCode=SUBJ].role
   Committee Notes = PID, PD1, NK1 | #3706
   w5 = who.focus
@@ -74,7 +74,7 @@
   Type = dateTime
   Short Label = Date recommendation created
   Definition = The date the immunization recommendation was created.
-  v2 Mapping = OBX-15-date/time of the observation
+  v2 Mapping = OBX-15
   RIM Mapping = .partipication[typeCode=AUTH].time
 
  -- Row 6 -----------------------------------
@@ -85,7 +85,7 @@
   Binding = VaccineCode
   Short Label = Vaccine recommendation applies to
   Definition = Vaccine that pertains to the recommendation
-  v2 Mapping = OBX-5-observation value : OBX-3-observation identifier e { 30956-7 | 38890-0 }
+  v2 Mapping = OBX-5 : OBX-3 e { 30956-7 | 38890-0 }
   RIM Mapping = .partipication[typeCode=CSM].role[classCode=ADMM].code
 
  -- Row 7 -----------------------------------
@@ -96,7 +96,7 @@
   Short Label = Recommended dose number
   Definition = This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
   Comments = May need other dose concepts such as administered vs. valid
-  v2 Mapping = OBX-5-observation value : OBX-3-observation identifier = 30973-2
+  v2 Mapping = OBX-5 : OBX-3 = 30973-2
   RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=INT]].sequenceNumber
 
  -- Row 8 -----------------------------------
@@ -107,7 +107,7 @@
   Binding = ImmunizationRecommendationStatus
   Short Label = Vaccine administration status
   Definition = Vaccine administration status
-  v2 Mapping = OBX-5-observation value : OBX-3-observation identifier = 59783-1
+  v2 Mapping = OBX-5 : OBX-3 = 59783-1
   RIM Mapping = .inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=\"Immunization Forecast Status\"].value
 
  -- Row 9 -----------------------------------
@@ -126,7 +126,7 @@
   Binding = ImmunizationRecommendationDateCriterion
   Short Label = Type of date
   Definition = Date classification of recommendation.  For example, earliest date to give, latest date to give, etc.
-  v2 Mapping = OBX-3-observation identifier
+  v2 Mapping = OBX-3
   RIM Mapping = .code
 
  -- Row 11 -----------------------------------
@@ -135,7 +135,7 @@
   Type = dateTime
   Short Label = Recommended date
   Definition = The date whose meaning is specified by dateCriterion.code
-  v2 Mapping = OBX-5-observation value
+  v2 Mapping = OBX-5
   RIM Mapping = .value
 
  -- Row 12 -----------------------------------
@@ -152,7 +152,7 @@
   Type = integer
   Short Label = Dose number within sequence
   Definition = Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
-  v2 Mapping = OBX-5-observation value : OBX-3-observation identifier = 30973-2
+  v2 Mapping = OBX-5 : OBX-3 = 30973-2
   RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=DEF]].sequenceNumber
 
  -- Row 14 -----------------------------------
@@ -161,7 +161,7 @@
   Type = string
   Short Label = Protocol details
   Definition = Contains the description about the protocol under which the vaccine was administered
-  v2 Mapping = OBX-5-observation value : OBX-3-observation identifier = 30956-7
+  v2 Mapping = OBX-5 : OBX-3 = 30956-7
   RIM Mapping = .text
 
  -- Row 15 -----------------------------------
@@ -170,7 +170,7 @@
   Type = Reference(Organization)
   Short Label = Who is responsible for protocol
   Definition = Indicates the authority who published the protocol.  For example, ACIP
-  v2 Mapping = OBX-5-observation value : OBX-3-observation identifier = 59779-9
+  v2 Mapping = OBX-5 : OBX-3 = 59779-9
   RIM Mapping = .participation[typeCode=AUT]
 
  -- Row 16 -----------------------------------

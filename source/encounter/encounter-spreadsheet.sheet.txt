@@ -231,7 +231,7 @@
   Summary = y
   Type = Identifier
   Short Label = Identifier(s) by which this encounter is known
-  v2 Mapping = PV1-19-visit number
+  v2 Mapping = PV1-19
   RIM Mapping = .id
   w5 = id
 
@@ -276,7 +276,7 @@
   Type = code
   Binding = EncounterClass
   Short Label = inpatient | outpatient | ambulatory | emergency +
-  v2 Mapping = PV1-2-patient class
+  v2 Mapping = PV1-2
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=LIST].code
   w5 = class
 
@@ -289,7 +289,7 @@
   Short Label = Specific type of encounter
   Definition = Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)
   Comments = Since there are many ways to further classify encounters, this element is 0..*
-  v2 Mapping = PV1-18 Patient Type
+  v2 Mapping = PV1-4 / PV1-18
   RIM Mapping = .code
   w5 = class
 
@@ -299,7 +299,7 @@
   Type = CodeableConcept
   Binding = Priority
   Short Label = Indicates the urgency of the encounter
-  v2 Mapping = PV2-25-visit priority code
+  v2 Mapping = PV2-25
   RIM Mapping = .priorityCode
   w5 = grade
 
@@ -311,7 +311,7 @@
   Type = Reference(Patient)
   Short Label = The patient present at the encounter
   Comments = While the encounter is always about the patient, the patient may not actually be known in all contexts of use
-  v2 Mapping = PID-3-patient ID list
+  v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=SBJ]/role[classCode=PAT]
   w5 = who.focus
 
@@ -351,7 +351,7 @@
   Short Label = Role of participant in encounter
   Definition = Role of participant in encounter
   Comments = The participant type indicates how an individual partitipates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc.
-  v2 Mapping = ROL-3
+  v2 Mapping = ROL-3 (or maybe PRT-4)
   RIM Mapping = .functionCode
 
  -- Row 15 -----------------------------------
@@ -360,7 +360,7 @@
   Type = Period
   Short Label = Period of time during the encounter participant was present
   Definition = The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period
-  v2 Mapping = ROL-5, ROL-6
+  v2 Mapping = ROL-5, ROL-6 (or maybe PRT-5)
 
  -- Row 16 -----------------------------------
   Element = Encounter.participant.individual
@@ -378,7 +378,7 @@
   Summary = y
   Type = Reference(Appointment)
   Short Label = The appointment that scheduled this encounter
-  v2 Mapping = SCH-1-placer appointment ID / SCH-2-filler appointment ID
+  v2 Mapping = SCH-1 / SCH-2
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=ENC, moodCode=APT]
 
  -- Row 18 -----------------------------------
@@ -412,7 +412,7 @@
   Short Label = Reason the encounter takes place (code)
   Definition = Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis
   Comments = For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)
-  v2 Mapping = EVN-4-event reason code / PV2-3-admit reason (note: PV2-3 is nominally constrained to inpatient admissions; HL7 v2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )
+  v2 Mapping = EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 v2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )
   RIM Mapping = .reasonCode
   w5 = why
 
@@ -441,7 +441,7 @@
   Card. = 0..1
   Type = Identifier
   Short Label = Pre-admission identifier
-  v2 Mapping = PV1-5-preadmit number
+  v2 Mapping = PV1-5
   RIM Mapping = .id
 
  -- Row 24 -----------------------------------
@@ -450,7 +450,7 @@
   Type = CodeableConcept
   Binding = PreAdminTest
   Short Label = Tests to be done before admission
-  v2 Mapping = PV1-12-preadmit test indicator
+  v2 Mapping = PV1-12
   RIM Mapping = .outboundRelationship[typeCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterion=true]
 
  -- Row 25 -----------------------------------
@@ -466,7 +466,7 @@
   Type = CodeableConcept
   Binding = AdmitSource
   Short Label = From where patient was admitted (physician referral, transfer)
-  v2 Mapping = PV1-14-admit source
+  v2 Mapping = PV1-14
   RIM Mapping = .admissionReferralSourceCode
 
  -- Row 27 -----------------------------------
@@ -483,7 +483,7 @@
   Binding = ReAdmissionType
   Short Label = The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission
   Definition = Whether this hospitalization is a readmission and why if known
-  v2 Mapping = PV1-13-re-admission indicator
+  v2 Mapping = PV1-13
   RIM Mapping = Propose at harmonization
   To Do = Need a harmonization proposal for this
 
@@ -494,7 +494,7 @@
   Short Label = Period during which the patient was admitted
   Definition = Period during which the patient was admitted
   Comments = May differ from start + length, since length excludes leaves of absence.
-  v2 Mapping = PV2-11-actual length of inpatient stay / PV1-44-admit date/time / PV1-45-discharge date/time
+  v2 Mapping = PV2-11 / PV1-44 / PV1-45
   RIM Mapping = .effectiveTime
 
  -- Row 30 -----------------------------------
@@ -509,7 +509,7 @@
   Card. = 0..1
   Type = Reference(Location)
   Short Label = The bed that is assigned to the patient
-  v2 Mapping = PV1-3-assigned patient location
+  v2 Mapping = PV1-3
   RIM Mapping = .participation[typeCode=LOC].role.player[classCode=PLC, code=BED]
 
  -- Row 32 -----------------------------------
@@ -527,7 +527,7 @@
   Short Label = Diet preferences reported by the patient
   Requirements = Used to track patient\'s diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter
   Comments = For example a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)
-  v2 Mapping = PV1-38-diet type
+  v2 Mapping = PV1-38
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=\"diet\"]
 
  -- Row 34 -----------------------------------
@@ -536,7 +536,7 @@
   Type = CodeableConcept
   Binding = Courtesies
   Short Label = Special courtesies (VIP, board member)
-  v2 Mapping = PV1-16-VIP indicator
+  v2 Mapping = PV1-16
   RIM Mapping = .specialCourtesiesCode
 
  -- Row 35 -----------------------------------
@@ -545,7 +545,7 @@
   Type = CodeableConcept
   Binding = Arrangements
   Short Label = Wheelchair, translator, stretcher, etc.
-  v2 Mapping = PV1-15-ambulatory status / OBR-30-transportation mode / OBR-43-planned patient transport comment
+  v2 Mapping = PV1-15 / OBR-30 / OBR-43
   RIM Mapping = .specialArrangementCode
 
  -- Row 36 -----------------------------------
@@ -562,7 +562,7 @@
   Type = CodeableConcept
   Binding = DischargeDisp
   Short Label = Category or kind of location after discharge
-  v2 Mapping = PV1-36-discharge disposition
+  v2 Mapping = PV1-36
   RIM Mapping = .dischargeDispositionCode
 
  -- Row 38 -----------------------------------
@@ -587,7 +587,7 @@
   Type = Reference(Location)
   Short Label = Location the encounter takes place
   Definition = The location where the encounter takes place
-  v2 Mapping = PV1-3-assigned patient location / PV1-6-prior patient location / PV1-11-temporary location / PV1-42-pending location / PV1-43-prior temporary location
+  v2 Mapping = PV1-3 / PV1-6 / PV1-11 / PV1-42 / PV1-43
   RIM Mapping = .role
   w5 = where
 
@@ -613,7 +613,7 @@
   Type = Reference(Organization)
   Short Label = The custodian organization of this Encounter record
   Definition = An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location\'s Organization.
-  v2 Mapping = PV1-10-hospital service / PL.6 Person Location Type & PL.1 Point of Care (note: HL7 v2 definition is \"the treatment or type of surgery that the patient is scheduled to receive\"; seems slightly out of alignment with the concept name \'hospital service\'. Would not trust that implementations apply this semantic by default)
+  v2 Mapping = PV1-10 / PL.6  & PL.1  (note: HL7 v2 definition is \"the treatment or type of surgery that the patient is scheduled to receive\"; seems slightly out of alignment with the concept name \'hospital service\'. Would not trust that implementations apply this semantic by default)
   RIM Mapping = .particiaption[typeCode=PFM].role
 
  -- Row 44 -----------------------------------

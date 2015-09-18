@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Sep 8, 2015 20:15+1000 for FHIR v1.0.0
+// Generated on Sat, Sep 19, 2015 06:26+1000 for FHIR v1.0.0
 
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 import org.hl7.fhir.instance.model.annotations.Block;
@@ -37,7 +37,7 @@ import org.hl7.fhir.instance.model.api.*;
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
  */
-@DatatypeDef(name="Age")
+@DatatypeDef(name="Age", profileOf=Quantity.class)
 public class Age extends Quantity {
 
     private static final long serialVersionUID = 1069574054L;

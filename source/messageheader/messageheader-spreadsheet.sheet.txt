@@ -57,7 +57,7 @@
   Short Label = Id of this message
   Definition = The identifier of this message
   Comments = This SHALL be unique within the scope of this stream of messages
-  v2 Mapping = MSH-10-message control ID
+  v2 Mapping = MSH-10
   RIM Mapping = Message.id
   w5 = id
 
@@ -68,7 +68,7 @@
   Short Label = Time that the message was sent
   Definition = The time that the message was sent
   Requirements = Allows limited detection of out-of-order and delayed transmission.  Also supports audit.
-  v2 Mapping = MSH-7-message date/time
+  v2 Mapping = MSH-7
   RIM Mapping = ./creationTime[isNormalDatatype()]
   w5 = when.init
 
@@ -81,7 +81,7 @@
   Short Label = Code for the event this message represents
   Definition = Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\"
   Requirements = Drives the behavior associated with this message
-  v2 Mapping = MSH-9.2-message type.trigger event
+  v2 Mapping = MSH-9.2
   RIM Mapping = ./payload[classCode=\"CACT\" and moodCode=\"EVN\" and isNormalAct()]/code[isNormalDatatype()]/code
   w5 = what
 
@@ -102,7 +102,7 @@
   Short Label = Id of original message
   Definition = The id of the message that this message is a response to
   Requirements = Allows receiver to know what message is being responded to
-  v2 Mapping = MSA-2-message control ID
+  v2 Mapping = MSA-2
   RIM Mapping = ./acknowledges.id[isNormalDatatype()]
 
  -- Row 7 -----------------------------------
@@ -115,7 +115,7 @@
   Definition = Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not
   Requirements = Allows the sender of the acknowledge message to know if the request was successful or if action is needed.
   Comments = This is a generic response to the request message. Specific data for the response will be found in MessageHeader.data
-  v2 Mapping = MSA-1-acknowledgment code
+  v2 Mapping = MSA-1
   RIM Mapping = ./typeCode[isNormalDatatype()]
 
  -- Row 8 -----------------------------------
@@ -147,7 +147,7 @@
   Short Label = Name of system
   Definition = Human-readable name for the source system
   Requirements = May be used to support audit
-  v2 Mapping = MSH-3-sending application
+  v2 Mapping = MSH-3
   RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/name[type=\'ST\' and isNormalDatatype()])
 
  -- Row 11 -----------------------------------
@@ -157,7 +157,7 @@
   Short Label = Name of software running the system
   Definition = May include configuration or other information useful in debugging.
   Requirements = Supports audit and possibly interface engine behavior
-  v2 Mapping = SFT-3-software product name ( +SFT-1-software vendor organization)
+  v2 Mapping = SFT-3 ( +SFT-1)
   RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/softwareName[isNormalDatatype()])
 
  -- Row 12 -----------------------------------
@@ -167,7 +167,7 @@
   Short Label = Version of software running
   Definition = Can convey versions of multiple systems in situations where a message passes through multiple hands.
   Requirements = Supports audit and possibly interface engine behavior
-  v2 Mapping = SFT-2-software certified version or release number
+  v2 Mapping = SFT-2
   RIM Mapping = (Not supported)
   Committee Notes = Version is not captured as a distinct property in v3
 
@@ -190,7 +190,7 @@
   Definition = Identifies the routing target to send acknowledgements to.
   Requirements = Identifies where to send responses, may influence security permissions
   Comments = The id may be a non-resolvable URI for systems that do not use standard network-based addresses
-  v2 Mapping = MSH-24-sending network address
+  v2 Mapping = MSH-24
   RIM Mapping = ./telecom[isNormalDatatype()]
 
  -- Row 15 -----------------------------------
@@ -212,7 +212,7 @@
   Short Label = Name of system
   Definition = Human-readable name for the target system
   Requirements = May be used for routing of response and/or to support audit
-  v2 Mapping = MSH-5-receiving application
+  v2 Mapping = MSH-5
   RIM Mapping = unique(./entity[determinerCode=\"INST\" and (classCode=(\"DEV\", \"PSN\", \"ORG\"]/name[type=\'ST\' and isNormalDatatype()])
 
  -- Row 17 -----------------------------------
@@ -232,7 +232,7 @@
   Definition = Indicates where the message should be routed to.
   Requirements = Identifies where to route the message
   Comments = The id may be a non-resolvable URI for systems that do not use standard network-based addresses
-  v2 Mapping = MSH-25-receiving network address (or MSH-6-receiving facility by implication)
+  v2 Mapping = MSH-25 (or MSH-6)
   RIM Mapping = ./telecom
 
  -- Row 19 -----------------------------------
@@ -243,7 +243,7 @@
   Definition = The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions
   Requirements = Need to know for audit/traceback requirements and possibly for authorization.
   Comments = Usually only for the request, but can be used in a response
-  v2 Mapping = EVN-5-operator ID / ORC-10-entered by / PRT-5-Participation Person:PRT-4-Participation=\'EP\' / ROL where ROL.3 is EP or ORC.10
+  v2 Mapping = EVN-5 / ORC-10 / PRT-5:PRT-4=\'EP\' / ROL where ROL.3 is EP or ORC.10
   RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[typeCode=\"ENT\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=(\"DEV\", \"PSN\") and determinerCode=\"INST\"])
   w5 = who.author
 
@@ -255,7 +255,7 @@
   Definition = The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions
   Requirements = Need to know for audit/traceback requirements and possibly for authorization.
   Comments = Usually only for the request, but can be used in a response
-  v2 Mapping = ORC-19-action by / PRT-5-Participation Person:PRT-4-Participation=\'AUT\' / ROL where ROL.3 is IP or ORC.12
+  v2 Mapping = ORC-19 / PRT-5:PRT-4=\'AUT\' / ROL where ROL.3 is IP or ORC.12
   RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"AUT\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=(\"DEV\", \"PSN\") and determinerCode=\"INST\"])
   w5 = who.author
 
@@ -266,7 +266,7 @@
   Short Label = Intended \"real-world\" recipient for the data
   Definition = Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn\'t sufficient.
   Requirements = Allows routing beyond just the application level
-  v2 Mapping = PRT-5-Participation Person:PRT-4-Participation=\'WAYR\' / PRT-8-Participation Organization:PRT-4-Participation=\'WAYR\'
+  v2 Mapping = PRT-5:PRT-4=\'WAYR\' / PRT-8:PRT-4=\'WAYR\'
   RIM Mapping = Not directly supported.  Could be shared using attentionLine.value with an appropriate keyWordText
   Committee Notes = Is this in the 80%?
   w5 = who.focus
@@ -279,7 +279,7 @@
   Definition = The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party
   Requirements = Need to know for audit/traceback requirements and possibly for authorization.
   Comments = Usually only for the request, but can be used in a response
-  v2 Mapping = ORC-12-ordering provider /  PRT-5-Participation Person:PRT-4-Participation=\'OP\' /  PRT-8-Participation Organization:PRT-4-Participation=\'OP\' / ROL where ROL.3 is RO or ORC.11
+  v2 Mapping = ORC-12 /  PRT-5:PRT-4=\'OP\' /  PRT-8:PRT-4=\'OP\' / ROL where ROL.3 is RO or ORC.11
   RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=\"PSN\" and determinerCode=\"INST\"] or ./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/scoper[isNormalEntity() and classCode=\"ORG\" and determinerCode=\"INST\"])
   w5 = who.witness
 

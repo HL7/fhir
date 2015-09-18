@@ -109,7 +109,7 @@
   Requirements = The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g. for a DICOM standard document a 64 character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form \"oid^extension\", where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the \'^\' character shall not be included.)
   Comments = CDA Document Id extension and root.
   XDS Mapping = DocumentEntry.uniqueId
-  v2 Mapping = TXA-12-Unique Document Number
+  v2 Mapping = TXA-12
   RIM Mapping = .id
   w5 = id
 
@@ -120,7 +120,7 @@
   Short Label = Other identifiers for the document
   Definition = Other identifiers associated with the document, including version independent identifiers
   XDS Mapping = DocumentEntry.entryUUID
-  v2 Mapping = TXA-16-Unique Document File Name?
+  v2 Mapping = TXA-16?
   RIM Mapping = .id / .setId
   w5 = id
 
@@ -131,7 +131,7 @@
   Short Label = Who/what is the subject of the document
   Definition = Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)
   XDS Mapping = DocumentEntry.patientId
-  v2 Mapping = PID-3-Patient ID List (No standard way to define a Practitioner or Group subject in HL7 v2 MDM message)
+  v2 Mapping = PID-3 (No standard way to define a Practitioner or Group subject in HL7 v2 MDM message)
   RIM Mapping = .participation[typeCode=\"SBJ\"].role[typeCode=\"PAT\"]
   w5 = who.focus
 
@@ -144,7 +144,7 @@
   Definition = Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced.
   Comments = Key metadata element describing the document, used in searching/filtering.
   XDS Mapping = DocumentEntry.type
-  v2 Mapping = TXA-2-Document Type
+  v2 Mapping = TXA-2
   RIM Mapping = ./code
   w5 = class
 
@@ -159,7 +159,6 @@
   Requirements = Helps humans to assess whether the document is of interest when viewing a list of documents.
   Comments = This is a metadata field from [XDS/MHD](http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD))
   XDS Mapping = DocumentEntry.class
-  v2 Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   w5 = class
 
@@ -182,7 +181,7 @@
   Definition = Identifies who is responsible for adding the information to the document
   Comments = Not necessarily who did the actual data entry (i.e. typist) it in or who was the source (informant)
   XDS Mapping = DocumentEntry.author
-  v2 Mapping = TXA-9-Originator Code/Name (No standard way to indicate a Device in HL7 v2 MDM message)
+  v2 Mapping = TXA-9 (No standard way to indicate a Device in HL7 v2 MDM message)
   RIM Mapping = .participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]
   w5 = who.author
 
@@ -212,7 +211,7 @@
   Definition = Which person or organization authenticates that this document is valid
   Comments = Represents a participant within the author institution who has legally authenticated or attested the document. Legal authentication implies that a document has been signed manually or electronically by the legal Authenticator.
   XDS Mapping = DocumentEntry.legalAuthenticator
-  v2 Mapping = TXA-10-Assigned Document Authenticator
+  v2 Mapping = TXA-10
   RIM Mapping = .participation[typeCode=\"AUTHEN\"].role[classCode=\"ASSIGNED\"]
   w5 = who.witness
 
@@ -224,7 +223,7 @@
   Definition = When the document was created
   Comments = Creation time is used for tracking, organizing versions and searching. This is the creation time of the document, not the source material on which it is based
   XDS Mapping = DocumentEntry.submissionTime
-  v2 Mapping = TXA-6-Origination Date/Time
+  v2 Mapping = TXA-6
   RIM Mapping = .effectiveTime[type=\"TS\"]
   w5 = when.done
 
@@ -249,7 +248,7 @@
   Definition = The status of this document reference
   Comments = This is the status of the DocumentReference object, which might be independent from the docStatus element.
   XDS Mapping = DocumentEntry status
-  v2 Mapping = TXA-19-Document Availability Status
+  v2 Mapping = TXA-19
   RIM Mapping = interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseDocument\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseDocument\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\"
   w5 = status
 
@@ -261,7 +260,7 @@
   Short Label = preliminary | final | appended | amended | entered-in-error
   Definition = The status of the underlying document
   Comments = The document that is pointed to might be in various lifecycle states.
-  v2 Mapping = TXA-17-Document Completion Status
+  v2 Mapping = TXA-17
   RIM Mapping = .statusCode
   w5 = status
 
@@ -303,7 +302,7 @@
   Requirements = Helps humans to assess whether the document is of interest
   Comments = What the document is about, rather than a terse summary of the document. It is commonly the case that records do not have a title and are collectively referred to by the display name of Record code (e.g. a \"consultation\" or \"progress note\").
   XDS Mapping = DocumentEntry.description
-  v2 Mapping = TXA-25-Document Title
+  v2 Mapping = TXA-25
   RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].target.text
 
  -- Row 20 -----------------------------------
@@ -316,7 +315,7 @@
   Requirements = Use of the Health Care Privacy/Security Classification (HCS) system of security-tag use is recommended.
   Comments = The confidentiality codes can carry multiple vocabulary items. HL7 has developed an understanding of security and privacy tags that might be desirable in a Document Sharing environment, called HL7 Healthcare Privacy and Security Classification System (HCS). The following specification is recommended but not mandated, as the vocabulary bindings are an administrative domain responsibility. The use of this method is up to the policy domain such as the XDS Affinity Domain or other Trust Domain where all parties including sender and recipients are trusted to appropriately tag and enforce.   In the HL7 Healthcare Privacy and Security Classification (HCS) there are code systems specific to Confidentiality, Sensitivity, Integrity, and Handling Caveats. Some values would come from a local vocabulary as they are related to workflow roles and special projects.
   XDS Mapping = DocumentEntry.confidentialityCode
-  v2 Mapping = TXA-18-Document Confidentiality Status
+  v2 Mapping = TXA-18
   RIM Mapping = .confidentialityCode
   To Do = This was embedded in the comments, but made no sense, so I moved it here:\n\n[1..1] Confidentiality Security Classification Label Field [0..*] Sensitivity Security Category Label Field [0..*] Compartment Security Category Label Field [0..*] Integrity Security Category Label Field [0..*] Handling Caveat Security Category Field In the HL7 Healthcare Privacy and Security Classification System
 
@@ -335,6 +334,7 @@
   Short Label = Where to access the document
   Definition = The document or url of the document along with critical metadata to prove content has integrity.
   XDS Mapping = DocumentEntry.mimeType DocumentEntry.languageCode DocumentEntry.URI DocumentEntry.size DocumentEntry.hash DocumentEntry.title
+  v2 Mapping = TXA-3 for mime type
   RIM Mapping = document.text
 
  -- Row 23 -----------------------------------

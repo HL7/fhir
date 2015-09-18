@@ -1,6 +1,7 @@
 package org.hl7.fhir.instance.model.api;
 
 
+
 /*
  * #%L
  * HAPI FHIR - Core Library
@@ -21,11 +22,23 @@ package org.hl7.fhir.instance.model.api;
  * #L%
  */
 
-
+/**
+ * Base interface for ID datatype. 
+ * 
+ * <p>
+ * <b>Concrete Implementations:</b> This interface is often returned and/or accepted by methods in HAPI's API
+ * where either {@link ca.uhn.fhir.model.primitive.IdDt} (the HAPI structure ID type) or 
+ * <code>org.hl7.fhir.instance.model.IdType</code> (the RI structure ID type) will be used, depending on 
+ * which version of the strctures your application is using.   
+ * </p>
+ */
 public interface IIdType {
 
 	boolean isEmpty();
 
+	/**
+	 * Returns <code>true</code> if the ID is a local reference (in other words, it begins with the '#' character)
+	 */
 	boolean isLocal();
 
 	/**
@@ -42,8 +55,16 @@ public interface IIdType {
 	 */
 	String getIdPart();
 
+	/**
+	 * Returns <code>true</code> if this ID contains an actual ID part. For example, the ID part is
+	 * the '123' in the following ID: <code>http://example.com/fhir/Patient/123/_history/55</code>
+	 */
 	boolean hasIdPart();
 
+	/**
+	 * Returns the server base URL if this ID contains one. For example, the base URL is
+	 * the 'http://example.com/fhir' in the following ID: <code>http://example.com/fhir/Patient/123/_history/55</code>
+	 */
 	String getBaseUrl();
 
 	IIdType toUnqualifiedVersionless();
@@ -66,10 +87,32 @@ public interface IIdType {
 
 	IIdType withServerBase(String theServerBase, String theResourceName);
 
+	/**
+	 * Returns <code>true</code> if this ID contains an absolute URL (in other words, a URL starting with "http://" or "https://"
+	 */
 	boolean isAbsolute();
 
+	/**
+	 * Returns <code>true</code> if the {@link #getIdPart() ID part of this object} is valid according to the FHIR rules for valid IDs. 
+	 * <p>
+	 * The FHIR specification states:
+	 * <code>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters. (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.) regex: [A-Za-z0-9\-\.]{1,64}</code>
+	 * </p>
+	 */
+	boolean isIdPartValid();
+
+	/**
+	 * Returns <code>true</code> if the {@link #getIdPart() ID part of this object} contains
+	 * only numbers 
+	 */
 	boolean isIdPartValidLong();
 
 	Long getIdPartAsLong();
+
+	boolean hasBaseUrl();
+
+	IIdType withVersion(String theVersion);
+
+	void applyTo(IBaseResource theResource);
 
 }

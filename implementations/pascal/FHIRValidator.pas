@@ -2067,7 +2067,7 @@ begin
     begin
       if b <> '' then b := b + ', ';
       b := b + ct.Value;
-      if (ct.Value = '*') or (stack.LogicalPaths.IndexOf(ct.Value+'.extension') = -1) then
+      if (ct.Value = '*') or (stack.LogicalPaths.IndexOf(ct.Value+'.extension') > -1) then
         ok := true;
     end;
     result := rule(errors, IssueTypeSTRUCTURE, element.line(), element.col(), stack.literalPath, ok, 'The extension '+extUrl+' is not allowed to be used on the logical path set ['+p+'] (allowed: datatype:='+b+')');

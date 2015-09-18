@@ -84,6 +84,7 @@
   Short Label = Named anatomical location
   Definition = Named anatomical location - ideally coded where possible.
   OpenEHR mapping = Name of location
+  v2 Mapping = OBX-20
 
  -- Row 6 -----------------------------------
   Element = BodySite.modifier
@@ -93,6 +94,7 @@
   Short Label = Modification to location code
   Definition = Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.
   OpenEHR mapping = Combines Side, Numerical identifier, Anatomical plane,and Aspect
+  v2 Mapping = No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies.
 
  -- Row 7 -----------------------------------
   Element = !BodySite.specificLocation.side

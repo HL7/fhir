@@ -210,7 +210,7 @@
   Short Label = registered | preliminary | final | amended +
   Definition = The status of the result value
   Requirements = Need to track the status of individual results. Some results are finalized before the whole report is finalized
-  v2 Mapping = OBX-11-observation result status
+  v2 Mapping = OBX-11
   RIM Mapping = status  Amended & Final are differentiated by whether it is the subject of a ControlAct event with a type of \"revise\"
   Display Hint = default: final
   w5 = status
@@ -236,7 +236,7 @@
   Short Label = Type of observation (code / type)
   Definition = Describes what was observed. Sometimes this is called the observation \"name\"
   Requirements = Knowing what kind of observation is being made is essential to understanding the observation.
-  v2 Mapping = OBX-3-observation identifier
+  v2 Mapping = OBX-3
   RIM Mapping = code
   w5 = what
 
@@ -249,7 +249,7 @@
   Definition = The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.
   Requirements = Observations have no value if you don\'t know who or what they\'re about.
   Comments = One would expect this element to be a cardinality  of 1..1.  The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated.\r\rIf the target of the observation is different than the subject, the general extension [observation-focal-subject](extension-observation-focal-subject.html).  may be used.  However, the distinction between the patient\'s own value for an observation versus that of the fetus, or the donor or blood product unit, etc., are often specified in the observation code.
-  v2 Mapping = PID-3-patient ID list
+  v2 Mapping = PID-3
   RIM Mapping = participation[typeCode=SBJ]
   Committee Notes = [#3447] ,[#5704],7156
   w5 = who.focus
@@ -275,7 +275,7 @@
   Definition = The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself
   Requirements = Knowing when an observation was deemed true is important to its relevance as well as determining trends
   Comments = At least a date should be present unless this observation is a historical report
-  v2 Mapping = OBX-14-date/time of the observation, and/or OBX-19 after v2.4  (depends on who observation made)
+  v2 Mapping = OBX-14, and/or OBX-19 after v2.4  (depends on who observation made)
   RIM Mapping = effectiveTime
   w5 = when.done
 
@@ -299,7 +299,7 @@
   Short Label = Who is responsible for the observation
   Definition = Who was responsible for asserting the observed value as \"true\"
   Requirements = May give a degree of confidence in the observation and also indicates where follow-up questions should be directed.
-  v2 Mapping = OBX.15 / (Practitioner)  OBX-16-responsible observer,  PRT-5-participation person:PRT-4-participation=\'RO\' /  (Device)  OBX-18-equipment instance identifier , PRT-10-participation device:PRT-4-participation=\'EQUIP\' / (Organization)  OBX-23-performing organization name,  PRT-8-participation organization:PRT-4-participation=\'PO\'
+  v2 Mapping = OBX.15 / (Practitioner)  OBX-16,  PRT-5:PRT-4=\'RO\' /  (Device)  OBX-18 , PRT-10:PRT-4=\'EQUIP\' / (Organization)  OBX-23,  PRT-8:PRT-4=\'PO\'
   RIM Mapping = participation[typeCode=PRF]
   Committee Notes = [#3688]{#3689]
   w5 = who.actor
@@ -340,7 +340,7 @@
   Short Label = High, low, normal, etc.
   Definition = The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
   Requirements = For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.
-  v2 Mapping = OBX-8-interpretation codes
+  v2 Mapping = OBX-8
   RIM Mapping = interpretationCode
 
  -- Row 14 -----------------------------------
@@ -377,7 +377,7 @@
   Definition = Indicates the site on the subject\'s body where the observation was made (i.e. the target site).
   Requirements = Knowing where the observation is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in code found in Observation.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately) then use the standard extension[ body-site-instance](extension-body-site-instance.html).
-  v2 Mapping = OBX-20-observation site
+  v2 Mapping = OBX-20
   RIM Mapping = targetSiteCode
   Committee Notes = Is this in the 80%?
 
@@ -390,7 +390,7 @@
   Definition = Indicates the mechanism used to perform the observation
   Requirements = In some cases, method can impact results and is thus used for determining whether results can be compared or determining significance of results
   Comments = Only used if not implicit in code for Observation.code
-  v2 Mapping = OBX-17-observation method
+  v2 Mapping = OBX-17
   RIM Mapping = methodCode
   Committee Notes = Is this in the 80%?
 
@@ -443,7 +443,7 @@
   Type = SimpleQuantity
   Short Label = Low Range, if relevant
   Definition = The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3).
-  v2 Mapping = OBX-7-references range
+  v2 Mapping = OBX-7
   RIM Mapping = value:IVL_PQ.low
   Committee Notes = [#3882]
 
@@ -454,7 +454,7 @@
   Type = SimpleQuantity
   Short Label = High Range, if relevant
   Definition = The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3).
-  v2 Mapping = OBX-7-references range
+  v2 Mapping = OBX-7
   RIM Mapping = value:IVL_PQ.high
 
  -- Row 24 -----------------------------------
@@ -466,7 +466,7 @@
   Definition = Code for the meaning of the reference range
   Requirements = Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, or perhaps what state this reference range applies to (i.e. age, hormonal cycles, etc.)
   Comments = This SHOULD be populated if there is more than one range
-  v2 Mapping = OBX-10-nature of abnormal test?
+  v2 Mapping = OBX-10?
   RIM Mapping = interpretationCode
 
  -- Row 25 -----------------------------------
@@ -484,7 +484,7 @@
   Type = string
   Short Label = Text based reference range in an observation
   Definition = Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of \'normals\'.
-  v2 Mapping = OBX-7-references range
+  v2 Mapping = OBX-7
   RIM Mapping = value:ST
 
  -- Row 27 -----------------------------------
@@ -540,6 +540,7 @@
   Definition = Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
   Requirements = Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.
   Comments = For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).
+  v2 Mapping = containment by OBX-4?
   RIM Mapping = outBoundRelationship[typeCode=COMP]
   Committee Notes = 5/15/2015:#7517
 
@@ -553,7 +554,7 @@
   Short Label = Type of component observation (code / type)
   Definition = Describes what was observed. Sometimes this is called the observation \"code\"
   Requirements = Knowing what kind of observation is being made is essential to understanding the observation.
-  v2 Mapping = OBX-3-observation identifier
+  v2 Mapping = OBX-3
   RIM Mapping = code
   w5 = what
 
