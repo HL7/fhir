@@ -8,7 +8,7 @@ Observations are a central element in healthcare, used to support diagnosis, mon
 and even capture demographic characteristics.  Most observations are simple name/value pair assertions with some metadata, 
 but some observations group other observations together logically, or even are multi-component observations.
 Note that the  <a href="diagnosticreport.html">DiagnosticReport</a> resource 
-provide a clinical or workflow context for a set of observations. Expected uses for the Observation resource include:
+provides a clinical or workflow context for a set of observations. Expected uses for the Observation resource include:
 </p>
 <ul>
   <li>Vital signs: temperature, blood pressure, respiration rate</li>

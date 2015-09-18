@@ -28,7 +28,7 @@ Implementers should be aware that semantic equivalency of results of genetic var
 This FHIR genomics work is based on work of the HL7 Clinical Genomics Workgroup and modeled based on the Domain Analysis Model and SMART on FHIR Genomics as published in JAMIA 2015 (http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long). 
 </p>
 <p>
-Hl7 Clinical Genomics Work Group emphasizes the importance of transmitting structured genetic findings within the clinical, translational, and research environments fully integrated with other clinical data, in order to drive outcomes analysis, operational decision making, discovery research, and public health reporting. the standard doesn't currently cover the reporting of clinically relevant negative or wildtype results within genetic data portion of the message.
+The HL7 Clinical Genomics Work Group emphasizes the importance of transmitting structured genetic findings within the clinical, translational, and research environments fully integrated with other clinical data, in order to drive outcomes analysis, operational decision making, discovery research, and public health reporting. The standard doesn't currently cover the reporting of clinically relevant negative or wild type results within genetic data portion of the message.
 </p>
 <p>
     <a href="https://www.hl7.org/documentcenter/public_temp_65DE7F6D-1C23-BA17-0CB30D7343EDE16D/wg/clingenomics/docs/V3DAM_CG_CLINSEQ_R1_O1_2013JAN.pdf">Here</a> is the document of HL7 Version 3 Domain Analysis Model where the examples used in genetics profile are from (Page 5).
@@ -36,8 +36,8 @@ Hl7 Clinical Genomics Work Group emphasizes the importance of transmitting struc
 
 <h3>Component</h3>
 
-<p>Observation.component should be used in genetic profile for observations without sequence information while Observation.extension still be used for sequence information as component is only suitable for flat obervations. </p>
-<p>Here is a loinc panel which could be supported by Observation.component for example:</p>
+<p>Observation.component should be used in genetic profile for observations without sequence information while Observation.extension still be used for sequence information as component is only suitable for flat observations. </p>
+<p>Here is a LOINC panel that could be supported by Observation.component, for example:</p>
 <p><strong>55232-3 Genetic analysis summary panel ­ Blood or Tissue by Molecular genetics method</strong></p>
 
 <ul>
