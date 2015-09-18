@@ -18,7 +18,7 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 <a name="v3"> </a>
 <p>
-<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> is the next generation of HL7's messaging standards.  It introduced 
+<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> was intended to be the next generation of HL7's messaging standards.  It introduced 
 a common Reference Information Model (RIM), data type model and set of vocabulary as well as 
 a formal standards development methodology.  In addition, it introduced the use of 
 "documents" as an alternative architecture to messaging for sharing healthcare information 
@@ -84,8 +84,8 @@ All other data models simply constrain the RIM to reflect the needs of particula
 This starts at the international level with further refinement happening in individual countries, projects 
 and finally specific implementations.  As models become closer to the implementer, they become less abstract.  
 The result is a tendency for v3 models to be extremely broad in their coverage and capability and also 
-somewhat abstract.  They need to be in order to ensure that all possible implementations in the space 
-covered by that model can be proper constraints on it.  As well, each model produces its own schema and, 
+somewhat abstract.  They need to be this way in order to ensure that all possible implementations in the space 
+covered by that model can be properly constrained.  As well, each model produces its own schema and, 
 in most cases, constrained schemas are not strictly wire-compatible with the schemas of the model being 
 constrained.
 </p>
@@ -121,7 +121,7 @@ data type property.  Examples include the ideas of "Unknown", "Not asked", "Posi
 permitted, these null flavors could appear absolutely anywhere.
 </p>
 <p>
-FHIR approached the problem differently.  Null flavors are only introduced in the core specification in those 
+FHIR approaches the problem differently.  Null flavors are only introduced in the core specification in those 
 circumstances where it is expected that most systems will need them.  Where needed, the flavors are constrained 
 to those relevant to that element.
 </p>
