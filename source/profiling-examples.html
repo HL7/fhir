@@ -22,7 +22,7 @@
 <p>
 One common use of slicing is to describe different
 constraints on different kinds of patient contact details. 
-This is defined as Patient.telecom : ContactPoint [0..*] where
+In this example, as Patient.telecom is defined as: ContactPoint [0..*] where
 the ContactPoint has system, value and use. 
 </p>
 <p>
@@ -130,7 +130,7 @@ In a StructureDefinition, this will look like:
     &lt;fixedCode value=&quot;work&quot;/&gt;
   &lt;/element&gt;
   
-  &lt;!-- thrid slice: email --&gt;
+  &lt;!-- third slice: email --&gt;
   &lt;element&gt; 
     &lt;path value=&quot;Patient.telecom&quot;/&gt;
     &lt;name value=&quot;Email&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
@@ -182,7 +182,7 @@ This table illustrates the relationship between the instance and the ElementDefi
 Another use of Slicing is for Blood Pressure Measurements, where the profile says:
 </p>
 <ul>
- <li>There must be a two components</li>
+ <li>There must be two components</li>
  <li>The first has LOINC code 8480-6, and a quantity </li>
  <li>The second has LOINC code 8462-4, and a quantity</li>
  <li>Other components are allowed (posture, etc., but not profiled in the base blood pressure profile)</li>
@@ -231,7 +231,7 @@ An example of an Observation resource that meets these rules:
 To do this, the profile that implements these rules needs to do the following:
 </p>
 <ul>
- <li>On the base Observation.component element: define that slicing is discriminated by code. Order is left unfixed, and rules left open</li>
+ <li>On the base Observation.component element: define that slicing is discriminated by code. Order is left unfixed, and rules left open.</li>
  <li>Then define 2 slices:
   <ol>
    <li>systolic: fixed values for code, cardinality 1..1, value is a Quantity</li>
@@ -303,7 +303,7 @@ In a StructureDefinition, this will look like:
 </pre>  
 <p>
 Note: lots of definition detail has been left out, and only the parts relevant to the pattern are shown.
-e.g. A real blood pressure profile would fix unit, a overall Observation code etc.
+E.g. A real blood pressure profile would fix unit, a overall Observation code etc.
 </p>
 
 <a name="extensions"> </a>  
@@ -317,7 +317,7 @@ allows other extensions to be used.
 </p>
 <p>
 Technically, the profile achieves this by "slicing" the extension list, into two slices, and saying that the slicing is "open" - that there can be other slices introduced.
-Here's the relevant parts of the Profile on patient:
+Here are the relevant parts of the Profile on patient:
 </p>
 <div class="xml">
 <pre>
@@ -394,7 +394,7 @@ In this example, a profile on an diagnostic report says that it must have
 4 observations, each with a different LOINC code (e.g. a classic lab panel).
 In this case (taken from the <a href="lipid-report.html">Example
 Lipid Profile</a>), the structure that applies to DiagnosticReport will say that
-there is 4 slices on DiagnosticReport.result, each conforming to a different structure,
+there are 4 slices on DiagnosticReport.result, each conforming to a different structure,
 which are also contained in the same profile. Each of those structures will constrain
 the LOINC code in the observation.
 </p>
@@ -442,7 +442,7 @@ the LOINC code in the observation.
       &lt;!-- snip definition parts --&gt;
       &lt;type&gt;
         &lt;code value=&quot;Reference&quot;/&gt;
-        &lt;!-- this element must conform to the &quot;Cholesterol&quot; structure --&gt;
+        &lt;!-- this element must conform to the &quot;Triglyceride&quot; structure --&gt;
         &lt;profile value=&quot;http://acme.org/fhir/StructureDefinition/Triglyceride&quot;/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
@@ -452,7 +452,7 @@ the LOINC code in the observation.
       &lt;!-- snip definition parts --&gt;
       &lt;type&gt;
         &lt;code value=&quot;Reference&quot;/&gt;
-        &lt;!-- this element must conform to the &quot;Cholesterol&quot; structure --&gt;
+        &lt;!-- this element must conform to the &quot;LDLCholesterol&quot; structure --&gt;
         &lt;profile value=&quot;http://acme.org/fhir/StructureDefinition/LDLCholesterol&quot;/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
@@ -462,7 +462,7 @@ the LOINC code in the observation.
       &lt;!-- snip definition parts --&gt;
       &lt;type&gt;
         &lt;code value=&quot;Reference&quot;/&gt;
-        &lt;!-- this element must conform to the &quot;Cholesterol&quot; structure --&gt;
+        &lt;!-- this element must conform to the &quot;HDLCholesterol&quot; structure --&gt;
         &lt;profile value=&quot;http://acme.org/fhir/StructureDefinition/HDLCholesterol&quot;/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
@@ -485,7 +485,7 @@ the LOINC code in the observation.
         the name element --&gt;
       &lt;path value=&quot;Observation.code&quot;/&gt;
       &lt;definition&gt;
-         &lt;!-- there's actually 3 ways to fix a CodeableConcept
+         &lt;!-- there are actually 3 ways to fix a CodeableConcept
          to a single fixed value. Here, we used the simplest one --&gt;
          &lt;valueCodeableConcept&gt;
            &lt;!-- just fix the value to the right code --&gt;
@@ -803,7 +803,7 @@ needs to do the following:
   </ol>
  </li>
  <li>Then, in the medication slice, slice the Composition.section.section: define that slicing is discriminated by code, and that the slices are closed and ordered</li>
- <li>Then define 3 slices on the Composition.section.section in medication:
+ <li>Then define 2 slices on the Composition.section.section in medication:
   <ol>
    <li>prescribed: fixed code,  cardinality 1..1</li>
    <li>otc: fixed code,  cardinality 0..1</li>
@@ -850,7 +850,7 @@ In a StructureDefinition, this will look like:
   &lt;!-- second slice: medications --&gt;
   &lt;element&gt; 
     &lt;path value=&quot;Composition.section&quot;/&gt;
-    &lt;name value=&quot;reason-for-visit&quot;/&gt; 
+    &lt;name value=&quot;medications&quot;/&gt; 
     &lt;min value=&quot;1&quot;/&gt;
     &lt;max value=&quot;1&quot;/&gt;
   &lt;/element&gt;
@@ -902,7 +902,7 @@ In a StructureDefinition, this will look like:
   &lt;element&gt; 
     &lt;path value=&quot;Composition.section.section&quot;/&gt;
     &lt;name value=&quot;otc&quot;/&gt; 
-    &lt;min value=&quot;1&quot;/&gt;
+    &lt;min value=&quot;0&quot;/&gt;
     &lt;max value=&quot;1&quot;/&gt;
   &lt;/element&gt;
   &lt;element&gt; 

@@ -23,25 +23,25 @@ code { counter-increment: listing; }
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
-FHIR (Fast Health Interoperability Resources) is designed to
-enable the information exchange that supports the provision
-of healthcare in a wide variety of processes. The specification
-builds on and adapts standard industry RESTful practices
+FHIR (<i>Fast Health Interoperability Resources</i>) is designed to
+enable information exchange to support the provision
+of healthcare in a wide variety of settings. The specification
+builds on and adapts modern, widely used RESTful practices
 to enable the provision of integrated healthcare across a
-wide range of teams.
+wide range of teams and organizations.
 </p>
 
 <p>
 The intended scope of FHIR is broad, covering human and veterinary,
 clinical care, public health, clinical trials, administration and
-financial aspects.  The standard is intended for global use in a wide
+financial aspects.  The standard is intended for global use and in a wide
 variety of architectures and scenarios.
 </p>
 
 <h3>Framework</h3>
 <p>
 FHIR is based on "Resources" which are the common building block
-for all exchanges.  Each resource has the following <a href="resource.html">common features</a>:
+for all exchanges.  All resource have the following features in <a href="resource.html">common</a>:
 </p>
 <ul>
  <li>A URL that identifies it</li>
@@ -51,7 +51,7 @@ for all exchanges.  Each resource has the following <a href="resource.html">comm
  <li>An <a href="extensibility.html">extensibility framework</a> to support variation in healthcare</li>
 </ul>
 <p>
-Resources are represented as either <a href="xml.html">XML</a> or <a href="json.html">JSON</a>. There are currently <%resourcecount%>
+Resources are represented as either <a href="xml.html">XML</a> or <a href="json.html">JSON</a> and there are currently <%resourcecount%>
 different <a href="resourcelist.html">resource types defined</a> in the FHIR specification.
 </p>
 
@@ -121,7 +121,7 @@ Each resource consists of:
   <li><b>data</b> (lines 18 - 43) - Optional: data elements defined for each type of resource</li>
 </ul>
 <p>
-Note that though this specification always shows the JSON properties in the order they are defined, many JSON libraries order properties by other criteria.
+Note that although this specification always shows the JSON properties in the order that they are defined, many JSON libraries order properties by other criteria.
 </p>
 
 <h3>Interactions</h3>
@@ -142,27 +142,27 @@ rich but simple set of interactions:
 <p>
 The FHIR specification describes other kinds of exchanges beyond this simple RESTful API,
 including exchange of groups of resources as <a href="documents.html">Documents</a>,
-<a href="messaging.html">Messages</a>, and by using other kinds of <a href="services.html">services</a>.
+as <a href="messaging.html">Messages</a>, and by using various types of <a href="services.html">Services</a>.
 </p>
 
 <h3>Managing Variability</h3>
 <p>
-One feature of the healthcare industry is that there is a wide variation
-between different jurisdictions and sections of the industry, and no
+There is a wide variation
+between different geo-political jurisdictions and segments of the healthcare industry, and no
 central authority to impose common business practices. Because of this,
-the FHIR specification defines a <a href="extensibility.html">common extension framework</a>, and defines
+the FHIR specification defines an <a href="extensibility.html">extension framework</a> and defines
 <a href="profiling.html">a framework for managing variability</a>.
 </p>
 <p>
 Another key aspect of the variability encountered in healthcare is that the
-same infomration different is be represented at different levels of 
-detail, granularity and nesting by different parties across the system. 
-For instance, a blood pressure measure is just a simple observation, a 
-vital sign measure, or can be thought of a rich set of highly controlled 
-data that includes things like controlled vocabularies for posture, exercise etc. 
+same information may be represented differently and with different levels of 
+detail, granularity and nesting by various parties across the system. 
+For example, in some casesa blood pressure measurement may be just a simple observation, a 
+vital sign measure, while in other cases can be a rich set of highly defined 
+data that includes things like controlled vocabularies for posture, exercise, etc. 
 The <a href="resourcelist.html">resources</a> defined in this specification 
 focus on the general, common use cases. Richer and more specific content 
-can be standardised by <a href="profiling.html">defining "profiles"</a> on 
+can be supported and standardized by <a href="profiling.html">defining "profiles"</a> on 
 the base resources. 
 </p>
 
@@ -195,7 +195,10 @@ In the example below we see the creation of a Patient.
 </div>
 
 <p>
-Submit a new patient to the server, and ask it to store the patient with an id of its own choice. Notes:
+Submit a new patient to the server, and ask it to store the patient with an id of its own choice.
+</p>
+<p>
+Notes:
 </p>
 <ul>
   <li><b>/Patient</b> (line 1) - the manager for all patients - use the name of the type of resource</li>
@@ -208,7 +211,7 @@ Submit a new patient to the server, and ask it to store the patient with an id o
 
 <h3>Create Response</h3>
 <p>
-A response contains an HTTP code 201 to indicate that the
+A response will contain an HTTP code 201 to indicate that the
 Resource has been created successfully. A location header
 indicates where the resource can be fetched in subsequent requests.
 The server may choose to return an <a href="operationoutcome.html">OperationOutcome</a> resource, but is not required to
@@ -346,9 +349,9 @@ Notes:
 
 <h3>Search Request</h3>
 <p>
-In addition to getting single known resources it is possible to find resources by
+In addition to getting single known resources it's possible to find a collection of resources by
 <a href="http.html#search">searching the resource end-point</a> with a <a href="search.html">set of
-criteria</a> describing the set of resources that should be retrieved and their order. The
+criteria</a> describing the set of resources that should be retrieved, and their order. The
 general pattern is:
 </p>
 <div class="example">
@@ -371,7 +374,7 @@ returns all the prescriptions for the patient created above.
 
 <h3>Search Response</h3>
 <p>
-The response to a search request is a <a href="bundle.html">bundle</a>: list of matching resources with some metadata:
+The response to a search request is a <a href="bundle.html">Bundle</a>: a list of matching resources with some metadata:
 </p>
 
 <div class="example">
@@ -425,9 +428,9 @@ Notes:
   <li><b>meta.lastUpdated</b> (line 11) - This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
   <li><b>total</b> (line 14) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
   <li><b>link</b> (line 15) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
-  <li><b>entry</b> (line 24) - An actual resources in this set of results</li>
-	<li><b>entry.resource.id</b> (line 27) - Note that in some bundles, the must be <a href="compartments.html#bundle-unique">unique in the bundle</a></li>
-  <li>In addition, the search operation is also able to <a href="search.html#include">return additional related resources</a> as well</li>
+  <li><b>entry</b> (line 24) - Actual resources in this set of results</li>
+	<li><b>entry.resource.id</b> (line 27) - Note that in some bundles, the <code>entry.resource.id</code>must be <a href="compartments.html#bundle-unique">unique in the bundle</a></li>
+  <li>The search operation is also able to <a href="search.html#include">return additional related resources</a> as well</li>
 </ul>
 
 <h3>Update Request</h3>
@@ -540,7 +543,7 @@ Implementers notes:
 <ul>
   <li><b>resourceType</b> (line 2) - always found in every resource. In XML, this is the name of the root element for the resource</li>
   <li><b>id</b> (line 3) - defined when the resource is created, and never changed. Only missing when the resource is first created</li>
-  <li><b>meta.versionId</b> (line 5) - changes each time any resource contents change (except for the last 3 elements in meta)</li>
+  <li><b>meta.versionId</b> (line 5) - changes each time any resource contents change (except for the last 3 elements in meta - <code>profile</code>, <code>security</code> and <code>tag</code>)</li>
   <li><b>meta.lastUpdated</b> (line 6) - Changes when the versionId changes. Systems that don't support versions usually don't track lastUpdated either</li>
   <li><b>meta.profile</b> (line 7) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. Can be changed as profiles and value sets change or the system rechecks conformance</li>
   <li><b>meta.security</b> (lines 8 - 11) - <a href="security-labels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-system chooses to</li>

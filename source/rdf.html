@@ -19,7 +19,7 @@ in order to support consistent definitions for schema and UML derived code.
 <%fmtheader rdf%>
 
 <a name="root"> </a>
-<h2>RDF Representation </h2>
+<h2>Resource Description Framework (RDF) Representation </h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 1</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">Draft</a></td></tr></table>
 
 <div style="background-color: #F0B0B0; border:1px solid black; padding: 5px;">
@@ -76,10 +76,10 @@ The RDF definitions are published as a series of turtle files <a href="rim.ttl">
 The backbone of the RDF definitions are a formal definition of the FHIR resources as RDF classes. 
 Each data type, resource, or element within a resource is defined as rdf:Class with a series of 
 rdf:Property items. Each property has a rdfs:range the specifies the value domain for the property. 
-In most cases, the conversion from the base resource definitions is straight-forward. 
+In most cases, the conversion from the base resource definitions is straightforward. 
 </p>
 <p>
-Constraints are represented intwo ways - as OWL statements, and as SHACL predicates. Implementers
+Constraints are represented in two ways - as OWL statements, and as SHACL predicates. Implementers
 wishing to enforce constraints can use tools from either language, or process the knowledge represented
 in these constraints in any other way they see fit.
 </p>
@@ -170,7 +170,7 @@ instances using turtle, but production instances can use any valid RDF syntax.
 :resource a fhir:Flag;...
 </pre>
 <p>
-The ":resource" object has a type predicate ("a") the indicates what kind of resource it is. 
+The ":resource" object has a type predicate ("a") that indicates what kind of resource it is. 
 In addition, the object will have a series of predicates for the properties 
 defined in the RDF class definitions:
 </p>
@@ -182,7 +182,7 @@ defined in the RDF class definitions:
   flag:status fhir:flag-status\#active.
 </pre>
 <p>
-Enumerated fields are represented using a anonymous concept that has an rdf:type which 
+Enumerated fields are represented using an anonymous concept that has an rdf:type which 
 is the concept as defined in the RDF code system definitions.
 </p>
 <p>
@@ -213,7 +213,7 @@ There are several special issues for the RDF based representation:
 There are a number of elements in the FHIR resources and data types
 that have an explicit meaning or a default value when they are missing. 
 Default values are represented explicitly in the RDF representation; 
-they are not omitted. For example, Patient.active has a default value of 
+they are not not omitted. For example, Patient.active has a default value of 
 "false", and is defined like this:
 </p>
 <pre>
@@ -257,8 +257,8 @@ If the patient is human then the representation will be:
 </pre>
 <p>
 Note: fhir:nil may be used for any property that has no value in a JSON or XML 
-instance, but  when the element has a 'meaning when missing', there SHALL be either
-a value of fhir:nil in the instance.
+instance, but when the element has a 'meaning when missing', there SHALL be either
+an explicit value or else fhir:nil in the instance.
 </p>
 <h4>Order</h4>
 <p>
@@ -333,14 +333,14 @@ or a complex object with further extensions.
 The data type <a href="datatypes.html#Coding">Coding</a> and its 
 container <a href="datatypes.html#CodeableConcept">CodeableConcept</a> 
 represent references from a resource to a separate knowledge container. 
-The definitions of the Coding data type is constained by operational 
+The definitions of the Coding data type are constained by operational 
 considerations around incomplete knowledge, longitudinal version issues, 
 use across multiple contexts, etc., so a mapping process is required to 
 match the information that constitutes the Coding reference to the target
 RDF concept on which reasoning will be based. 
 </p>
 <p>
-For instance, a reference to a LOINC code in an JSON resource 
+For instance, a reference to a LOINC code in a JSON resource 
 instance takes this form: 
 </p>
 <pre class="json">
@@ -411,7 +411,7 @@ can be carried as a normal FHIR extension in both the XML and JSON forms:
 <p>
 Implementers should note that these type assertions often reference 
 local ontologies, and the correct URI may be scope dependent or 
-may vary on a different lifecycle to the coding information itself, 
+may vary on a different lifecycle due to the coding information itself, 
 and so it is usually not appropriate to persist these references.
 </p>
 <p>
@@ -423,7 +423,7 @@ on the Coding.
 <h4>Resource References</h4>
 <p>
 The <a href="references.html#Reference">Reference</a> data type 
-represents a reference from a resource to to another. The reference 
+represents a reference from one resource to another. The reference 
 may be a relative URL, and resolution is subject to local 
 rules and context (e.g. server API [base], or context in a bundle). 
 For the same reasons as with Concept References, this can be reconciled
@@ -439,7 +439,7 @@ a reference to a resource would be represented like this in JSON:
 }
 </pre>
 <p>
-In RDF, this is represented as a an anonymous instance of the data type reference:
+In RDF, this is represented as an anonymous instance of the data type reference:
 </p>
 <pre class="rdf">
 :resource a fhir:Observation;
@@ -461,7 +461,7 @@ subject is directly assigned to the instance:
 <p>
 The details of the reference are added to the target resource. 
 <i>TODO: this means that traceability of the reference is lost, and it's not round-trippable
-if the reconciliation includes resources that have more one literal value to reference the 
+if the reconciliation includes resources that have more than one literal value to reference in the 
 target resource</i>
 </p>
 

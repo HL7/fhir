@@ -14,7 +14,7 @@
 
 <a name="root"> </a>
 <h2>FHIR Overview</h2>
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N?A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 
 <p>
@@ -25,9 +25,9 @@ This page provides an overview of the standard, and serves as a road map for fir
 <h3>Background</h3>
 <p>
 Healthcare records are increasingly becoming digitized. As patients move around the
-healthcare eco-system, their electronic health records must be available, discoverable,
+healthcare ecosystem, their electronic health records must be available, discoverable,
 and understandable. Further, to support automated clinical decision support and other
-machine based processing, the data must also be structured and standardized. (See <a href="change.html">Coming digital challenges in healthcare</a>)
+machine-based processing, the data must also be structured and standardized. (See <a href="change.html">Coming digital challenges in healthcare</a>)
 </p>
 <p>
 <a href="http://hl7.org">HL7</a> has been addressing these challenges by producing
@@ -75,10 +75,10 @@ to other HL7 standards</a>). With FHIR, specific use cases are usually implement
 by combining resources together through the use of <a href="references.html">resource references</a>.
 Although a single resource might be useful by itself for a given use case, it
 is more common that resources will be combined and tailored to meet use
-case specific requirements. Two special kinds of resources are used to describe how resources are combined and used:
+case specific requirements. Two special kinds of resources are used to describe how resources are defined and used:
 </p>
 <ul>
- <li><a href="conformance.html">Conformance Statement</a> – describes the interfaces that an implementation exposes for exchange of data</li>
+ <li><a href="conformance.html">Conformance Statement</a> - describes the interfaces that an implementation exposes for exchange of data</li>
  <li><a href="structuredefinition.html">StructureDefinition</a> - provide additional rules that serve to constrain the optionality, cardinality, terminology bindings, data types and extensions defined in the resources used by the implementation</li>
 </ul>
 
@@ -121,22 +121,21 @@ These header tabs found through-out the specification are important, and many re
 <br/>
 </p>
 <p>
-Resources and the <a href="datatypes.html">data types</a> that they use are presented in an concise easy to read XML-like format,
-but they also have detailed descriptions that describe their contents in considerable detail. In addition, most resources are mapped to several
+Resources and the <a href="datatypes.html">data types</a> that they use are presented in a concise easy to read XML-like format,
+but they also have detailed descriptions of their contents. In addition, most resources are mapped to several
 different formats, including <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>, the <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> RIM, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, DICOM, and others. Also, all resources come with at least one example (sometimes
 many more) and, where appropriate, with profiles that describe their use in specific circumstances. Finally, some resources include
-notes that helps implementers understand the design rationale underlying them.
+notes that help implementers understand the design rationale underlying them.
 </p>
 
 
 <h3>Finding Additional Information and Providing Feedback</h3>
 <p>While intended to be consumable by a variety of audiences, the FHIR specification is targeted to the implementation community - those who will actually
 write the software that uses the specification.  To help meet the needs of the implementation community, the editors have strived to keep the specification
-concise to reduce the amount of reading that must be done before writing useful code.  (The specification isn't nearly as brief as we'd like - sometimes
-the complexity of healthcare and the real world get in the way.)  For this reason, information that is not essential to the implementation process, such
-as rationale, considered alternatives, points of contention, future plans, etc. have been excluded from this specification.  As well, it is likely that
-from time-to-time, implementers will encounter situations where the specification is unclear or incomplete.  Finally, there will be circumstances where
-the specification may be broken or where a change could allow it to better meet implementer needs.
+concise to reduce the amount of reading that must be done before writing useful code.  For this reason, information that is not essential to the implementation process, such
+as considered alternatives, points of contention, future plans, etc. have been excluded from this specification.  As well, it is likely that
+from time-to-time, implementers will encounter situations where the specification is unclear or incomplete.  Finally, there may be circumstances where
+the specification is broken or where a change could allow it to better meet implementer needs.
 </p>
 <p>
 HL7 has therefore provided a number of mechanisms through which additional information about FHIR can be sought and maintained and through which support
@@ -160,7 +159,7 @@ the FHIR specification.  As well, some wiki content may not be up to date with t
 </p>
 <p>
 A wiki page exists for each page in the FHIR specification.  These pages will generally be used to capture background rationale, decision points and other
-information not relevent to implementers.  Additional pages defined include <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to_Designing_Resources">FHIR methodology</a>,
+information not relevant to implementers.  Additional pages defined include <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to_Designing_Resources">FHIR methodology</a>,
 use of the <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to_Authoring_Resources">FHIR design tools</a>, etc.  To
 explore the FHIR wiki, you can start at the <a href="http://wiki.hl7.org/index.php?title=FHIR">root page</a>
 </p>

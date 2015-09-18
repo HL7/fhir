@@ -23,92 +23,91 @@ code { counter-increment: listing; }
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
-FHIR (Fast Health Interoperability Resources) is designed to enable the exchange of healthcare-related information.
-This includes clinical data as well as healthcare-related administration, public health and research.  It covers
-both human and veterinary medicine and is intended to be useable world-wide in a wide variety of contexts - in-patient,
-ambulatory care, long-term care, community care, allied health, etc.
+FHIR (<i>Fast Health Interoperability Resources</i>) is designed to enable the exchange of healthcare-related information.
+This includes clinical data as well as healthcare-related administrative, public health and research data.  It covers
+both human and veterinary medicine and is intended to be useable world-wide in a wide variety of contexts, including in-patient,
+ambulatory care, acute care, long-term care, community care, allied health, etc.
 </p>
 
 <p>
-FHIR is a specification targeted to those who write software and architect interoperable solutions.
-That's who must actually create the systems that will use FHIR.  The FHIR specification does not attempt to
-define good or best clinical practice, nor does it provide guidance on user interfaces or workflows.  Guidance
-in these areas may be useful but is outside FHIR's scope.
+The FHIR specification is targeted to individuals and organizations developing software and
+architecting interoperable solutions that will be using FHIR.
+The FHIR specification does not attempt to
+define good or best clinical practices, nor does it provide guidance on user interfaces or workflows.  Guidance
+in these areas may be useful, but it is outside of FHIR's scope.
 </p>
 <p>
-Because of FHIR's implementation focus, many aspects of this specification deal with the technical underpinings of the
+Because of FHIR's focus on implementation, many aspects of the specification deal with the technical underpinings of the
 exchange of clinical information between electronic systems.  This section provides an introduction to 
-what FHIR provides and tries to highlight the portions of the specification
-that are likely to be of most interest to the clinical community and skipping over some of the technical
-drudgery of interoperability.  However, if technical drudgery is your thing, feel free to dig right in
-wherever you wish.
+what FHIR provides and tries to highlight those portions of the specification
+that are likely to be of most interest to the clinical community while skipping over some of the technical
+minutiae of interoperability.  However, clinical readers are welcome to explore some of the more
+technical areas if they find them of interest.
 </p>
 
 <h3>Resources</h3>
 <p>
-From a clinical perspective, the important part of the FHIR specification to understand is the resources.
-Think of resources as "forms" reflecting different types of clinical and administrative information that can
+From a clinical perspective, the most important parts of the FHIR specification to understand are the Resources.
+Think of Resources as paper "forms" reflecting different types of clinical and administrative information that can
 be captured and shared.
 The FHIR specification defines a generic "form template" for each type of clinical information - so one for
 allergies, one for prescriptions, one for referrals, etc.
 </p>
 <p>
-FHIR data consists of repositories of completed forms - resource instances.  The resource instances will describe patient information
-(demographics, health conditions, procedures, etc.) as well as administrative information
-(practitioners, organizations, locations).  Some resources are infrastructure components used to 
-support the technical exchange of information - describing what systems can do, defining allowed sets
+FHIR data consists of repositories containing completed "forms" (resource instances).  The resource instances describe patient-related information such as
+demographics, health conditions and procedures) as well as administrative information such as practitioners, organizations and locations).  Some resources are infrastructure components used to 
+support the technical exchange of information by describing what systems are able to do, defining allowed sets
 of codes, etc.  FHIR repositories might be elecronic health record (EHR) systems, pharmacy systems,
 hospital information systems (HISs), etc.  Some systems, such as clinical decision support engines, may
-expose FHIR interfaces even though they don't actually store any information.
+expose FHIR interfaces even though they don't actually store any patient or administrative information themselves.
 </p>
 <p>
-Each resource contains a small amount of highly-focused data. A single resource doesn't say much, but a lot of very small resources 
-together create a useful clinical record. Information systems map the actions that a user takes (look up patient records, make a
+Each Resource defines a small amount of highly-focused data. A single resource doesn't say very much, but a collection of Resources 
+taken together creates a useful clinical record. Information systems map the actions that a user takes (look up patient records, make a
 note in their history, etc.) to operations on the relevant resources.
 </p>
 
 <h3>Extensibility and Profiling</h3>
 <p>
-The forms in FHIR are generic.  They have to be useable in different countries, by different types of clinicians
-in different contexts (human care, veterinary care, public health, research, etc.).  FHIR recognizes that
-one size fits all is not appropriate in a healthcare space, so it provides the ability to adjust the
-forms to be able to handle the needs of different implementation spaces - adding additional "extensions"
+The paper forms (Resources) in FHIR are somewhat generic.  They have to be useable in different countries and by different types of clinicians
+in different contexts (human care, veterinary care, public health, research, etc.).  Recognizing that
+a <i>one size fits all</i> approach is not appropriate in the healthcare space, FHIR provides the ability to adjust the
+forms (Resources) to be able to handle the needs of different implementation spaces by defining"extensions"
 as well as enforcing constraints.  For example, a "prescription" form might have extension elements
-added to support tracking of restricted medications while also constraining what codes can be used
-to communicate types of drugs to a particular national standard.  However, the forms are designed in such
-a way that these changes can be made without changing how systems pass forms around.  Thus any system can
-consume completed forms even if they have "extra" elements added - and even if those particular extra elements
-aren't used by the receiving system.
+added to support tracking of restricted medications while also constraining the codes that can be used
+to communicate types of drugs to a particular national standard.  Forms are designed in such
+a way that these changes can be made without changing how systems pass forms around enabling any system to
+consume completed forms even if they have additional elements added whether or not those additional elements
+are used by the receiving system.
 </p>
 <p>
 To keep the base forms that everyone uses from being overly complex, FHIR has a rule that, in most cases, a
 resource will only include data elements if there's an expectation that most implementations will use that particular
 data element.  That doesn't mean the data must always exist.  For example, most systems in the world are capable
 of tracking "deceased date" for patient, even though that element will be blank for many patient records.  On
-the other hand, not so many systems track hair color, so hair color would be omitted from the base form and those
-systems that need it (perhaps in some esoteric clinical research setting?) would be able to use extensions to
+the other hand, not as many systems track hair color, so hair color would be omitted from the base form and those
+systems that need it (perhaps in a specialty clinical or research setting) can use a FHIR extension to
 capture it if needed.
 </p>
 <p>
-To keep the number of resources reasonable, some of them are fairly broad.  The <a href="observation.html">Observation</a>
-resource is used for vital signs, lab results, psychological assessments and a variety of other things.  To set rules
-for more narrow areas (e.g. "What should I send if I want to share a blood pressure?"), FHIR allows the creation of
-profiles.  There will be a great deal of clinical work involved in forming consensus around how different types of
+To keep the number of resources reasonable, some of them are fairly broad.  For example, the <a href="observation.html">Observation</a>
+resource is used for vital signs, lab results, psychological assessments and a variety of other things.  To support setting rules
+for more narrow areas (e.g. "<i>What should I send if I want to share a blood pressure?</i>"), FHIR allows the creation of
+Profiles.  There will be a great deal of clinical work involved in forming consensus around how different types of
 detailed clinical information should be captured and shared in particular settings.  Tooling to support the creation
 of profiles directly by clinicians is part of the plan for FHIR, but is still in the very early stages.
 </p>
 
 <h3>Narrative</h3>
 <p>
-FHIR is intended as a system for sharing discrete data between healthcare systems in a manner that supports
-computer interoperability - decision support, rules triggering, trend analysis, etc.  However, not every system is
-the same and not all systems will recognize all discrete data.  As well, there is still considerable value in data exchange
-in circumstances where very little of that data is captured in a discrete manner.  For this reason, FHIR resources
-support sharing not only discrete information for computation but also a human-readable view so that the humans
+FHIR is intended to support sharing data in a computable manner.  I.e. The information shared should be useable for computer-mediated processes such as decision support, rules triggering, trend analysis, etc.  However, not every system is
+the same and not all systems are able to recognize all discrete data.  Also, there is still considerable value in data exchange
+in circumstances where not all or even none of that data is captured in a discrete manner.  For this reason, FHIR resources
+support sharing not only discrete data for computation, but also a human-readable view so that the humans
 on each end of a healthcare information exchange can still get a full picture of what's going on.
 </p>
 <p>
-Narrative is expected to exist for most resource instances, though it can be omitted in a few limited circumstances.
+Narrative is expected to exist for most resource instances, although it can be omitted in a few limited circumstances.
 In some cases the narrative will be generated from discrete information.  For example the narrative for a patient
 might look like this:
 </p>
@@ -129,53 +128,53 @@ might look like this:
 </table>
 
 <p>
-In other cases, the narrative might be generated directly by a practitioner.  Examples might include
-referral letters, pathology reports, etc.  Certain pieces of the narrative would later be exposed as
+In other cases, the narrative might be free-form text commentary entered directly by a practitioner such as
+referral letters, pathology reports, etc.  Certain parts of the narrative would content could also later be exposed as
 discrete data.
 </p>
 
 <h3>Interfaces</h3>
 <p>
-In addition to defining the "forms" for data exchange (resources), FHIR also defines a set of interfaces by 
-which systems actually share that information .  There are four primary mechanisms
-or "paradigms" of exchange supported by FHIR: REST, Documents, Messaging and Services.
+In addition to defining the "forms" for data exchange (Resources), FHIR also defines a set of interfaces by 
+which systems actually share that information.  There are four primary mechanisms
+or "paradigms" of exchange supported by FHIR: via a REST interface, by exchanging Documents, by sending and resceiving Messages and by exposing and invoking Services.
 </p>
 
 <h4>REST</h4>
 <p>
-REST is the simplest exchange mechanism.  Continuing the "form" metaphor, a RESTful server can be thought
-of as a room full of filing cabinets.  Within the room is a cabinet for each "type" of form it supports.  The cabinet contains
-folders where each folder has a unique number and represents one particular real-world thing - one patient, one encounter
-one medication, etc.  Each folder (resource instance) contains multiple pieces of paper, where each piece of paper represents a "version"
-of that real world thing.  Every time someone updates a record, a new piece of paper is added to the top that
-file folder.  To see the history of a resource, you just flip through the pieces of paper in the folder.
+REST is the simplest exchange mechanism.  Continuing with the "form" metaphor, a RESTful server can be thought
+of as a room full of filing cabinets.  Within the room is a cabinet for each "type" of form (or Resource) it supports.  The cabinet contains
+folders where each folder has a unique number and represents one particular real-world thing: one Patient, one Encounter
+one Medication, etc.  Each folder (which represents a single Resource <i>instance</i>) contains multiple pieces of paper, with each piece of paper representing a specific "version"
+of that instance.  Every time someone updates a record, a new piece of paper is added to the top of the
+file folder.  To see the history of a resource, you simply have to flip through the pieces of paper in the folder.
 </p>
 <p>
-Note that a typical medical record is generally a big folder-of-folders with all the different
-types of 'form' or 'report' gathered together. This is convenient for someone who wants to review
-the whole record, but inconvenient for updating bits of it - there's always contention for access
-to it to update the right parts. In IT, the record will be deconstructed to it's smallest components
-for management purpose, and a computer will (well, should), assemble the right bits as required, by 
-following the references from one piece of information to the next. 
+Note that a typical medical record is generally a big "folder-of-folders" with many different
+types of 'forms' or 'reports' gathered together. This is convenient for someone who wants to review
+the whole record, but inconvenient for someone updating bits of it.  There's always contention for access
+to it to update the right part. In the computer application, the record will be decomposed to its smallest components
+for management purposes, and a computer will (or should), assemble the correct bits as required, by 
+following references that exist from one piece of information and the next. 
 </p>
 <p>
 Now picture a clerk at the front door of that room.  You can pass the clerk a requisition to have them do something with
-the information in those file cabinets.  The "clerk" and set of requisition forms make up the FHIR restful API.  With that API,
-you can do the following things:
+the information in those file cabinets.  The "clerk" and the set of requisition forms on the clerk's counter make up the FHIR restful API.  With that API,
+you can do the following:
 </p>
 <ul>
-<li><i>search</i>: Search through the folders for ones that meet a set of search criteria</li>
-<li><i>read</i>: Get a copy of the top piece of paper (most recent, aka current) of from a specific folder in one of the cabinets</li>
+<li><i>search</i>: Have the clerk search through the folders for one(s) that meet a set of search criteria and give you a copy of the top piece of paper in each relevant folder</li>
+<li><i>read</i>: Get a copy of the top piece of paper (which is the most current version) from a specific folder in one of the cabinets</li>
 <li><i>create</i>: Add a new folder to the appropriate cabinet (with a new number)</li>
 <li><i>update</i>: Add a new page (version) to the contents of a specific folder</li>
-<li><i>delete</i>: Remove a folder from the cabinet (or more accurately, put a sticker on it saying "do not open")</li>
-<li><i>history</i>: Look at all the pages in a single folder (or in some cases a particular file cabinet or even the whole room - though that's more for technical purposes than clinical purposes)</li>
-<li><i>transaction</i>: Give the server a bunch of folders all at once to update</li>
-<li><i>operation</i>: Ask the server to carry out some kind of procedure on the set of records it has</li>
+<li><i>delete</i>: Remove a folder from the cabinet (or more accurately, virtually remove it by putting a sticker on it saying "do not open")</li>
+<li><i>history</i>: Look at all the pages in a single folder, in a particular file cabinet or possibly in the whole room.  Such a broad request would be used primarily for administrative purposes rather than clinical purposes)</li>
+<li><i>transaction</i>: Give the server a multiple pieces of paper to place in distinct folders at the same time</li>
+<li><i>operation</i>: Ask the clerk to perform an action or procedure on papers from one or more of the folders - for example, averaging numbers across patients, producing a summary record, or perform a complex search just by ticking a box on a requisition saying "do that one"</li>
 </ul>
 <p>
-EHR and other systems may present a more sophisticated interface to their end users, but behind the scenes, they are all
-making the same sort of requisitions to the same file clerk.
+EHRs and other systems may present a more sophisticated interface to their end users, but behind the scenes they're all
+making these same types of requeststo the file clerk.
 </p>
 
 <h4>Documents</h4>
@@ -188,20 +187,25 @@ healthcare include discharge summaries and lab reports.
 <p>
 In FHIR, there's a special resource called <a href="composition.html">Composition</a> that acts as the "cover page"
 for a document.  It identifies the title, author date, relevant patient and the table of contents.  A FHIR document
-can be thought of as a set of sheets (resource instances) stacked together with a title page on top that is stapled
-together.  That stapled collection can then be stored or passed around, conveying a whole set of information at
+can be thought of as a set of sheets (Resource <i>instances</i>) stacked together with a title page on top that's stapled
+together.  That stapled collection can then be stored or passed around, conveying a complete set of information at
 once.
 </p>
 
 <h4>Messaging</h4>
 <p>
-Much healthcare information exchange happens using a messaging paradigm.  In messaging, a collection of information is sent
-from one system to another with an explicit request to "do something".  A message might request that a lab order be
-fulfilled or that two patient records be merged or notify a system that a patient has been transferred from one bed to
-another.  Messaging is similar to documents in that it collects resources together.  However, in this case, the
-cover page is a <a href="messageheader.html">MessageHeader</a> that acts as a requisition.  And rather than a staple, the
-resources are joined together with a paper-clip.  There's no expectation that the receiving system will store the
-data exactly as received.
+Much healthcare information exchange happens using a messaging paradigm.  In messaging, a set of information is sent
+from one system to another, typically triggered by an event in the sender system.  For example,
+a patient being admitted, a lab test being ordered, a drug being administered, the clock striking 12:00 or someone pressing a button.  The message serves to notify the receiver that the event occurred as well as
+provide details about any existing data that was modified or new data that was created.  Typically the 
+receiving a message means there's an expectation that the receiving system will "do something" in response.
+</p>
+<p>A message might request that a lab order be
+fulfilled or notify a system that two patient records have been merged or that a patient has been transferred from one bed to
+another.  A message is similar to a document in that it collects resources together, however for a message, the
+"cover page" is a <a href="messageheader.html">MessageHeader</a> that acts as a requisition.  And rather than using a staple, the
+resources are joined together with a paper-clip and there's no expectation that the receiving system will store the
+contents of the message exactly as received, if at all.
 </p>
 
 <h4>Services</h4>
@@ -209,25 +213,25 @@ data exactly as received.
 Services can be thought of as a light-weight way of doing messaging.  Rather than a full cover page, a small sticky
 note is attached to the front of a resource.  And sometimes rather than sending a full piece of paper, the relevant
 pieces are cut out and sent as fragments.  The response to a requisition is a similarly paper-clipped bundle of resource
-instances.  Services are likely to be used for things like decision support; e.g. "Is there a problem with prescribing medication
-X for patient Y?", "What's the recommended care plan for a patient with conditions A, B and C?"
+instances.  Services are likely to be used for things like decision support. E.g. "<i>Is there a problem with prescribing medication
+X for patient Y?</i>" or "<i>What's the recommended care plan for a patient with conditions A, B and C?</i>"
 </p>
 
 <h3>Approaching the specification</h3>
 <p>
-A FHIR-based system's capabilities are defined by what the resources can say. From a clinical perspective, then, these things define the clinical record:
+A FHIR-based system's capabilities are defined by what the Resources can say and from a clinical perspective, these things define the clinical record:
 </p>
 <ul>
-  <li>the kinds of resources that are defined</li>
-  <li>their data contents, rules about the data including what terminology codes</li>
-  <li>how they link to each other</li>
+  <li>the kinds of Resources that are defined</li>
+  <li>their data contents, and rules about the data such as what terminology codes are supported and/or required</li>
+  <li>how resources reference to each other</li>
   <li>how you can search for information</li>
 </ul>
 <p>
 This information can all be found in the resource definition pages.  The resources most likely to be of interest can be
 found on the <a href="clinical.html">Clinical</a> and <a href="administration.html">Administrative</a> pages.  Instructions
 on how to interpret the information found on the resource pages can be found <a href="formats.html">here</a>.  The
-<i>Logical table</i> or <i>UML</i> views are likely to be easiest to understand.  Also, don't forget to look at the examples
+<i>Logical table</i> or the <i>UML</i> views are likely to be easiest to understand.  Don't forget to look at the examples
 tab for an idea of what kind of information can be expressed.  Seeing how elements are used to convey real data is often more
 useful than just looking at definitions.  Also, look at the Profiles tab to see examples of how different resources can be
 constrained for use in particular contexts.

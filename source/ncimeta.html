@@ -23,7 +23,7 @@
  <tr><td>System</td><td>The URI <a href="http://ncimeta.nci.nih.gov">http://ncimeta.nci.nih.gov</a> identifies the NCI Metathesaurus</td></tr>
  <tr><td>Version</td><td>There is no version or versioning associated with the NCI metathesaurus</td></tr>
  <tr><td>Code</td><td>The Concept Unique Identifier (CUI) is used for the code value for a Metathesaurus concept</td></tr>
- <tr><td>Display</td><td>The name should be used as the display for English usage (e.g. "Aerosol Dose Form" for CUI C1112870)</td></tr>
+ <tr><td>Display</td><td>The name should be used as the display for English usage (e.g. "<i>Aerosol Dose Form</i>" for CUI C1112870)</td></tr>
  <tr><td>Filter Properties</td><td>None are described yet</td></tr>
 </table>
 
@@ -35,22 +35,25 @@ There are no staged releases of the NCI metathesaurus, so there is no versioning
 <h3>Copyright/License Issues</h3>
 
 <p>
-The NCI metathesaurus is in the public domain, so there are not copyright notices need 
+The NCI metathesaurus is in the public domain, so there are no copyright notices needed 
 in value sets that refer to NCI metathesaurus concepts, and there are no licensing 
-requirements to use concepts in instances or systems.
+requirements limiting use of NCI metathesaurus concepts in instances or systems.
 </p>
 
 <h3>MCI Metathesaurus MySQL Database</h3>
 <p>
 Like <a href="rxnorm.html">RxNorm</a> the RRF files that are the distributed source of the NCI Metathesaurus can be used
 to populate a MySQL database that contains the data. This page provides SQL statements that describe how to implement 
-the features of the NCI Metathesaurus correctly against this database. These are provided for implementer convenience, and 
-do not imply that any particular approach be used in implementations. (note: for consistency, the rxnorm table and column names 
-are used; also, the CUIs are 1 character longer, so the scripts must be updated).
+the features of the NCI Metathesaurus correctly against this database. They are provided only for implementer convenience, and 
+do not imply that any particular approach must be used in implementations. (Note: for consistency, the RxNorm table and column names 
+are used and the CUIs are 1 character longer, so the scripts must be updated).
 </p>
 <p>
-For example, the correct display name for a CUI is 'Select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM' and TTY &lt;&gt; 'SY'.
+For example, the correct display name for a CUI is 
 </p>
+<pre>
+  select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM' and TTY &lt;&gt; 'SY'
+</pre>.
 
 <h3>NCI metathesaurus Filter Properties</h3>
 
@@ -63,7 +66,7 @@ The base SQL statement for returning a list of CUIS that conform to these filter
 is:
 </p>
 <pre>
-  Select RXCUI from RXNCONSO where SAB = 'RXNORM' and TTY &lt;&gt; 'SY' 
+  select RXCUI from RXNCONSO where SAB = 'RXNORM' and TTY &lt;&gt; 'SY' 
 </pre>
 
 <h4>Semantic Type</h4>

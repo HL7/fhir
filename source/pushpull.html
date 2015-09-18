@@ -36,7 +36,7 @@ another needs or wants, one question that automatically arises is whether the so
 whether the destination system will pull the data.
 </p>
 <table class="grid">
-  <tr> <td>Push</td> <td>As new information becomes available, the source system sends the information to the 
+  <tr> <td>Push</td> <td>As new information becomes available, or whenever it deems appropriate, the source system sends the information to the 
     destination. It expects the destination system to maintain and index the information on receipt. 
     The source system must trust the destination system to manage access/security appropriately</td> </tr>
   <tr> <td>Pull</td> <td>The source system maintains and indexes data. When the destination system
@@ -48,7 +48,7 @@ Note that it is possible to mix these modes by adding an interface repository in
 For example, to connect a push-based source with a pull-based destination, simply have the 
 source push information at the repository, and the destination can pull data from it as 
 required. If the source is pull based, the interface repository can query it for new data 
-on a regular basis, and when it finds any, it can push it at the destination.
+on a regular basis, and when it finds any, it can pull it into the repository and/or push it to the destination.
 </p>
 <p>
 Which combination of push, pull and interface repositories is appropriate for any given 

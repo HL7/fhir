@@ -19,7 +19,7 @@
 <p>
 The base FHIR specification (this specification) describes a set of base resources, frameworks
 and APIs that are used in many different contexts in healthcare. However there is wide variability
-between jurisdictions and across the healthcare eco-system around
+between jurisdictions and across the healthcare ecosystem around
 practices, requirements, regulations, education and what actions are feasible
 and/or beneficial.
 </p>
@@ -36,7 +36,7 @@ contexts of use. Typically, these adaptations specify:
  <li>Descriptions of how the Resource elements and API features map to local requirements and/or implementations</li>
 </ul>
 <p>
-Note that because of the nature of the healthcare eco-system, there may be multiple
+Note that because of the nature of the healthcare ecosystem, there may be multiple
 overlapping sets of adaptations - by healthcare domain, by country, by institution, and/or by vendor/implementation.
 </p>
 <a name="glossary"> </a>
@@ -51,7 +51,7 @@ FHIR defines a cascade of artifacts for this purpose:
   <td><b><a href="daf/daf.html">DAF</a> example</b></td>
  </tr>
  <tr>
-  <td>Implementation Guide</td>
+  <td>Implementation Guide (IG)</td>
   <td>A coherent and bounded set of adaptations that are published as a single unit. Validation occurs within the context of the Implementation Guide</td>
   <td><a href="daf/daf.html">DAF IG</a></td>
  </tr>
@@ -61,7 +61,7 @@ FHIR defines a cascade of artifacts for this purpose:
   <td><a href="daf/daf-medicationusage.html">DAF Medication Usage</a></td>
  </tr>
  <tr>
-  <td>Conformance Item</td>
+  <td>Conformance Resource</td>
   <td>A single resource in a package that makes rules about how an implementation works. These are described below</td>
    <td><a href="daf/medicationorder-daf.html">DAF Prescription</a></td>
  </tr>
@@ -69,7 +69,7 @@ FHIR defines a cascade of artifacts for this purpose:
 <p>
 The term "profile" is a general one that is used about either a "package" or an "item". 
 "Profiling" is a general term that describes the process of creating an implementation guide,
-or any of the resources found in one. 
+or any of the conformance resources found in one. 
 </p>
 
 <a name="conf-res"> </a>
@@ -81,7 +81,7 @@ can be used to represent and share the decisions that have been made, and allows
 resources are known as the conformance resources. These conformance resources allow implementers to:
 </p>
 <ul>
- <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular use , and provide additional details about how the API calls are used (<a href="conformance.html">Conformance</a> Resource)</li>
+ <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular situation, and provide additional details about how API calls are used (<a href="conformance.html">Conformance</a> Resource)</li>
  <li>Add additional <a href="operations.html">operations</a> or <a href="search.html">search parameters</a> not in the base specification
    (using the <a href="operationdefinition.html">OperationDefinition</a> resource or the <a href="searchparameter.html">SearchParameter</a> Resource</li>
  <li>Define how a particular structure (Resource, Extension or Data Type) is used (<a href="structuredefinition.html">StructureDefinition</a> Resource):
@@ -91,10 +91,10 @@ resources are known as the conformance resources. These conformance resources al
       <li>Define extensions that can be used in resources or data types</li>
     </ul>
  </li>
- <li>Mix custom and standard terminologies and choose which codes from these to use for a particular use (<a href="valueset.html">Value Set</a> and StructureDefinition Resources)</li>
+ <li>Mix custom and standard terminologies and choose which codes from these to use for a particular (<a href="valueset.html">Value Set</a> and StructureDefinition Resources)</li>
  <li>Map between local and standard terminologies or content models (<a href="conceptmap.html">Concept Map</a> Resource)</li>
  <li>Register system namespaces for identifiers and terminologies (<a href="namingsystem.html">NamingSystem</a> Resource)</li>
- <li>Describe and register specific Data Elements that are used across systems in a Data Dictionary (<a href="dataelement.html">DataElement</a> Resource)</li>
+ <li>Describe and register in a Data Dictionary specific Data Elements that are used across systems (<a href="dataelement.html">DataElement</a> Resource)</li>
 </ul>
 <p>
 These resources need to be used as discussed below, and also
@@ -106,14 +106,14 @@ For implementer convenience, the specification itself publishes its base definit
 <h3>Two uses of Profiles</h3>
 <p>
 The <a href="conformance.html">Conformance</a> resource describes two different uses for profiles on resources:
-Resource Profiles and System Profiles. Resource Profiles are specified using <i>Conformance.rest.resource.profile</i> element 
-and System Profiles are specified using <i>Conformance.profile</i> element. 
+Resource Profiles and System Profiles. Resource Profiles are specified using the <i>Conformance.rest.resource.profile</i> element 
+and System Profiles are specified using the <i>Conformance.profile</i> element. 
 </p>
 <h4>Conformance.rest.resource.profile</h4>
 <p>
 These profiles describe the general features that are supported by the system for each kind of 
 resource. Typically, this is the superset of all the different use-cases implemented by the system. 
-This is a resource-level perspective of the system functionality. 
+This is a resource-level perspective of a system's functionality. 
 </p>
 <h4>Conformance.profile</h4>
 <p>
@@ -127,7 +127,7 @@ Some examples of the uses for these kind of profiles:
 </ul> 
 <p>
 Typically, these profiles are a series of variations on the same set of resources - different use cases leading to handling 
-the resources that represent them differently. These use-cases described above all pertain to system that produce and publish
+the resources that represent them differently. These usecases described above all pertain to system that produce and publish
 data, but the same concept applies to systems that consume data. For instance:
 </p>
 <ul>
@@ -142,10 +142,10 @@ made available by the producer system and deal only with the ones relevant
 to the use case. 
 </p>
 <p>
-As an example consider a laboratory system generating 1000s of reports 
+As an example consider a laboratory system generating thousands of reports 
 a day. 1% of those reports are a particular endocrine report that a 
 decision support system knows how to process. Both systems declare that 
-they support the particular endocrine profile, but how does the expert
+they support the particular endocrine report profile, but how does the expert
 system actually find the endocrine reports that it knows how to process? 
 </p>
 <p>
@@ -164,7 +164,7 @@ resources also SHALL, for any profile declared in Conformance.profile:
  <li>(if a server) support searching by the <a href="search.html#profile">_profile parameter</a> for the declared profiles</li>
 </ol>
 <p>
-Beyond these requirements, a producer of resources SHOULD ensure that any data that would reasonably be expected
+Beyond these requirements, a producer of resources SHOULD ensure that any resource instance that would reasonably be expected
 to conform to the declared profiles SHOULD be published in this form. 
 </p>
 
@@ -216,7 +216,7 @@ safely be used in addition to those defined in this specification.
 <h3>Extending and Restricting Resources</h3>
 
 <p>
-Extending and restricting resources (collectively known as 'constraining a resource') is done with a 
+Extending and restricting resources (collectively known as 'profiling a resource') is done with a 
 "StructureDefinition" resource, which is a statement of rules about
 how the elements in a resource are used, and where extensions are used in a resource.
 </p>
@@ -227,7 +227,7 @@ how the elements in a resource are used, and where extensions are used in a reso
 <p>
 One key function of profiles is to change the cardinality of an element. A profile
 can restrict the cardinality of an element within the limits of the base structure
-it is constraining. This table summarises what that means:
+it is constraining. This table summarizes what types of restrictions are allowed:
 </p>
 <table class="grid">
  <tr><td>derived (across)<br/>base (down)</td>       <td>0..0<br/>(Not used)</td>      <td>0..1<br/>(optional)</td>              <td>0..n<br/>(optional, many)</td>      <td>1..1<br/>(required)</td>     <td>1..n<br/>(at least 1)</td>    </tr>
@@ -264,9 +264,9 @@ in the profile itself that this is what the resource means; instead, the profile
 say that the resource must have an extension that represents this knowledge. 
 </p>
 <p>
-There is the facility to mark resources that they can only be safely understood by 
+There is a facility to mark resources to indicate that they can only be safely understood by 
 a process that is aware of and understands a set of published rules. For more information,
-see <a href="resource.html#ruleset">Restricted Understanding of Resources</a>.
+see <a href="resource.html#implicitRules">Restricted Understanding of Resources</a>.
 </p>
 
 
@@ -334,7 +334,7 @@ is easier with a flat structure.
 <h3>Differential vs Snapshot</h3>
 
 <p>
-Structure Definitions may contain either a differential statement, a snapshot
+Structure Definitions may contain a differential statement, a snapshot
 statement or both.
 </p>
 <p>Differential statements describe only the differences that they make
@@ -343,7 +343,7 @@ For example, a profile may make a single element mandatory (cardinality 1..1).
 In the case of a differential structure, it will contain a single element
 with the path of the element being made mandatory, and a cardinality statement.
 Nothing else is stated - all the rest of the structural information is implied (note:
-this implies that a differential profile can be sparse, and only
+this means that a differential profile can be sparse and only
 mention the elements that are changed, without having to list the
 full structure).
 </p>
@@ -353,7 +353,7 @@ Doing so means that the profile will be more flexible in terms of compatibility
 with other profiles, but will require more work to support from implementing
 systems. Alternatively, a profile can constrain all optional elements to be not 
 present (max cardinality = 0) - this closes the content, which makes 
-implementation easier, but the reduces it's usefulness. 
+implementation easier, but the reduces its usefulness. 
 </p>
 <p>
 In order to properly understand a differential structure, it must be
@@ -363,7 +363,7 @@ impossible if the base structure is not available), a StructureDefinition
 can also carry a "snapshot" - a fully calculated form of the
 structure that is not dependent on any other structure. The FHIR
 project provides tools for the common platforms that can populate
-a snapshot from a differential (note that this tool generates complete 
+a snapshot from a differential (note that the tools generate complete 
 verbose snapshots; it does not support suppressing mappings or constraints).
 </p>
 <p>
@@ -380,7 +380,7 @@ systems should always have the snapshot view populated.
 One common feature of constraining Structure Definitions is to take an element that may occur more than once (e.g. in a list), 
 and split the list into a series of sublists, each with different restrictions on the elements in the sublist with associated
 additional meaning. In FHIR, this operation is known as "Slicing" a list. It is common to
-“slice” a list into sub-lists each containing just one element, effectively putting constraints on each element in the list.
+"slice" a list into sub-lists each containing just one element, effectively putting constraints on each element in the list.
 This technique can also be used on elements that do not repeat, but that have a choice of data types.
 </p>
 <p>
@@ -388,8 +388,8 @@ Here is an example to illustrate the process:
 </p>
 <img alt="Slicing diagram" src="slicing.png" width="461" height="353"/>
 <p>
-In this example, the base structure definition for the resource <a href="observation.html">Observation</a>defines 
-the "component" element which contains a nested code and a value for observations have 
+In this example, the base structure definition for the resource <a href="observation.html">Observation</a> defines 
+the "component" element which contains a nested code and a value for observations that 
 have multiple values. A classic example of this kind of observation is a blood pressure 
 measurement - it contains 2 values, one for systolic, and one for diastolic (<a href="observation-example-bloodpressure.html">example</a>). 
 </p>
@@ -400,9 +400,9 @@ is shown as just a code not a full CodeableConcept).
 </p>
 <p>
 The structure definition for Blood Pressure splits the component list into
-2 sublists of one element each: a systolic element, and a diastolic element. Each of these
+two sublists of one element each: a systolic element, and a diastolic element. Each of these
 elements has a fixed value for the code element (a fixed LOINC code for
-the name), and specifying that both have a value of type Quantity. This process
+the name), and both have a value of type Quantity. This process
 is known as "slicing" and the Systolic and Diastolic elements are called "slices".
 </p>
 <p>
@@ -426,31 +426,30 @@ instance looks like this:
 </pre>
 <p>
 In order to determine that the first related item corresponds to "Systolic" in
-the structure definition, so that it can determine which additional constraints for a sub-list the item conforms,
+the structure definition, so that it can determine to which additional constraints for a sub-list the item conforms,
 the system checks the values of the elements. In this case, the "name" element
 in the target resource can be used to determine which slice that target refers to. 
-This element is called the “discriminator”.
+This element is called the "discriminator".
 </p>
 
 <a name="discriminator"> </a>
 <h3>Discriminator</h3>
 <p>
 In the general case, systems processing resources using a structure definition
-that slices a list can determine which slice an item in
-the list is to by checking whether its content meets the rules specified
+that slices a list can determine the slice corresponding to an item in
+the list by checking whether its content meets the rules specified
 for the slice.
-</p>
-<p>
-This requires for a processor to be able to check all the rules
+This would require a processor to be able to check all the rules
 applied in the slice and to do so speculatively in a depth-first
 fashion. Neither of these is appropriate for an operational system,
-and particularly not for generated code. For this reason, a slice 
-can nominate a set of fields that act as a "discriminator" - they
+and particularly not for generated code. Thus, to provide a better way to distinguish 
+slices, a sliced element 
+can designate a field or set of fields that act as a "discriminator" - they
 are used to tell the slices apart. 
 </p>
 <p>
 When a discriminator is provided, the composite of the values of 
-the elements nominated in the discriminator is unique and distinct
+the elements designated in the discriminator is unique and distinct
 for each possible slice and applications can easily determine
 which slice an item in a list is. The intention is that 
 this can be done in generated code, e.g. using a switch/case 
@@ -458,7 +457,7 @@ statement. When slicing elements with a choice of types, the
 discrimnator SHALL be "@type".
 </p>
 <p>
-When a constraining structure nominates one or more discriminators, it SHALL
+When a constraining structure designates one or more discriminators, it SHALL
 fix the value of the element for each discriminator for each
 slice (using <a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>), 
 or if the element has a terminology binding, it SHALL be associated with a complete binding with a required 
@@ -475,12 +474,12 @@ is not recommended as a basis for slicing while issues related to this are inves
 It is the composite (combined) values of the discriminators 
 that are unique, not each discriminator alone. For example,
 a slice on a list of items that are references to other 
-resources could nominate fields from different resources, 
-where each resource only has one of the nominated elements,
+resources could designate fields from different resources, 
+where each resource only has one of the designated elements,
 as long as they are distinct across slices.
 </p>
 <p>
-A structure definition is not required to nominate any discriminator at all
+A structure definition is not required to designate any discriminator at all
 for a slice, but those that don't identify discriminators are describing
 content that is very difficult to process, and so this is
 discouraged.
@@ -505,7 +504,7 @@ These entries together form a "slice group" that is:
 		than one <i>element</i> in a given slice group. If no discriminators are named, 
     it SHOULD still be possible to differentiate the slices based 
     on their properties, though it may be substantially harder to 
-    do so</li>
+    do so.</li>
 
 	<li><b>Serialized as a group</b>. The entries in a slice
 		group must be <b>adjacent</b> in a serialized structure definition,
@@ -531,11 +530,11 @@ There are two special names: @type, and @profile. Here are some example discrimi
  <tr>  <td>List.entry</td> <td>item.reference.name</td> <td>Entries are differentiated by the name element on the target resource - probably an observation, which could be determined by other information in the profile</td> </tr>
  <tr>  <td>List.entry</td> <td>item.reference.@type</td> <td>Entries are differentiated by the type of the target element that the reference points to</td> </tr>
  <tr>  <td>List.entry</td> <td>item.reference.@profile</td> <td>Entries are differentiated by a profile tag on the target of the reference, as specified by a structure definition (todo: how to do that?)</td> </tr>
- <tr>  <td>List.entry</td> <td>item.extension["http://acme.org/extensions/test"].code</td> <td>Entries are differentiated by the value of the code element in the extension with the nominated URL</td> </tr>
+ <tr>  <td>List.entry</td> <td>item.extension["http://acme.org/extensions/test"].code</td> <td>Entries are differentiated by the value of the code element in the extension with the designated URL</td> </tr>
  <tr>  <td>List.entry.extension</td> <td>url</td> <td>Extensions are differentiated by the value of their url property (usually how extensions are sliced)</td> </tr>
- <tr>  <td>List.entry</td> <td>item.reference.@type, item.reference.name</td> <td>Extensions are differentiated by the combination of item.reference.name, and, if it has one, the name element. This would be
+ <tr>  <td>List.entry</td> <td>item.reference.@type, item.reference.code</td> <td>Extensions are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
    appropriate for where a List might be composed of a Condition, and set of observations, each differentiated by its name - the condition has no name, so that is evaluated as a null in the discriminator set</td> </tr>
- <tr>  <td>Observation.value[x]</td> <td>@type</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.valu</td> </tr>
+ <tr>  <td>Observation.value[x]</td> <td>@type</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
 </table>
 
 <p>
@@ -578,7 +577,7 @@ slice from Profile B as well as to define a name for the slice defined within Pr
 <h3>Extension Definitions</h3>
 <p>
 An extension definition defines the URL that identifies the extension
-and which is used to refers to the extension definition when it is used 
+and which is used to refer to the extension definition when it is used 
 in a resource.
 </p>
 <p>
@@ -586,7 +585,7 @@ The extension definition also defines the context where the extension can be use
 a particular path or a data type) and then defines the extension element using the same details used to 
 profile the structural elements that are part of resources. This means that a single extension 
 can be defined once and used on different Resource and/or datatypes, e.g. one would only have to 
-define an extension for “hair color” once, and then specify it can be used on both Patient and Practitioner.
+define an extension for "hair color" once, and then specify that it can be used on both Patient and Practitioner.
 </p>
 <p>
 For further discussion of defining and using extensions, along with some examples, 
@@ -650,7 +649,7 @@ specification, following these rules:
  <tr> <td>example</td>  <td>The value set can contain whatever is appropriate for local use</td> </tr> 
 </table> 
 <p>
-Note that local codes are not as interoperable as standard published code systems (e.g. LOINC, SNOMED C, so it is preferable to use standard code systems.
+Note that local codes are not as interoperable as standard published code systems (e.g. LOINC, SNOMED CT, so it is preferable to use standard code systems.
 </p>
 
 <a name="binding-strength"> </a>
@@ -744,10 +743,10 @@ Since applications generally consume and produce resources at the same time,
 conforming to more than one profile may not be possible, unless the profiles
 are designed to make statements at different levels - and the case above
 is one such case, where one profile is focused on data access, provenance, 
-and availability, while one profile is focused on clinical content.
+and availability, the other profile is focused on clinical content.
 </p>
 <p>
-Accordingly, profiles can relate to each other in 4 different ways. 
+Accordingly, profiles can relate to each other in four different ways. 
 Each profile can be thought of in terms of the set of instances that conform to the profile:
 </p>
 <ol>
@@ -761,7 +760,7 @@ Profiles can be compared to determine their compatibility.
 One <a href="daf-cqi.html">such comparison</a> can be found between <a href="daf/daf.html">DAF</a>
 and <a href="qicore/qicore.html">QICore</a>. Note that this comparison is 
 generated by tooling under ongoing development, and is purely draft content to
-demonstrate the idea of profile copmarison.
+demonstrate the idea of profile comparison.
 </p>
 
 </div>

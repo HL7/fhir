@@ -15,15 +15,15 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
-The <a href="http.html">RESTful API</a> defines a set of common interactions performed on
-a repository of typed resources (read, update, search, etc.). These interactions follow
+The <a href="http.html">RESTful API</a> defines a set of common interactions (read, update, search, etc.)
+performed on a repository of typed resources. These interactions follow
 the RESTful paradigm of managing state by <b>C</b>reate/<b>R</b>ead/<b>U</b>pdate/<b>D</b>elete actions on a set of identified
 resources. While this approach solves many use cases, there is some specific
 functionality that can be met more efficiently using an RPC-like paradigm,
-where named operations are performed with inputs and outputs (<b>E</b>xecute). Operations are used where the server
+where named operations are performed with inputs and outputs (<b>E</b>xecute). Operations are used (a) where the server
 needs to play an active role in formulating the content of the response, not merely return existing
-information, or where the intended purpose is to cause side effects - modification of existing
-resources, or creation of new resourcse. This specification describes a light operation framework that
+information, or (b)where the intended purpose is to cause side effects such as the modification of existing
+resources, or creation of new resources. This specification describes a lightweight operation framework that
 seamlessly extends the RESTful API.
 </p>
 <p>
@@ -32,49 +32,48 @@ Operations have the following general properties:
 <ul>
  <li>Each operation has a name</li>
  <li>Each operation has a list of 'in' and 'out' parameters</li>
- <li>The parameters are either resources, data types or search parameters</li>
- <li>The operations are subject to the same security arrangements as the RESTful API</li>
+ <li>Parameters are either resources, data types or search parameters</li>
+ <li>Operations are subject to the same security constraints and requirements as the RESTful API</li>
  <li>The URIs for the operation end-points are based on the existing RESTful API address scheme</li>
- <li>The operations may make use of the existing repository of resources in their definitions</li>
- <li>Operations are performed against a specific resource, a resource type, or the whole system</li>
+ <li>Operations may make use of the existing repository of resources in their definitions</li>
+ <li>Operations may be performed on a specific resource, a resource type, or a whole system</li>
 </ul>
 
 <a name="executing"> </a>
 <h3>Executing an Operation</h3>
 
 <p>
-Operations are (mostly) POSTs to a FHIR endpoint, where the name of the operations is prefixed by a “$” sign. For example:
+Most Operations are a POST to a FHIR endpoint, where the name of the operations is prefixed by a "dollar sign" ('$') character. For example:
 </p>
 <pre>
  POST http://fhir.someserver.org/fhir/Patient/1/$everything
 </pre>
 <p>
-Whenever the operation is idempotent, and the parameters are all simple ones, 
-as is the case with the example above) it may be invoked using GET as well.
+When an operation is idempotent, and the parameters are all simple ones 
+(as is the case with the example above), it may be invoked using GET as well.
 </p>
 <p>
 Operations can be invoked on four types of FHIR endpoints:
 </p>
 <ul>
- <li>The “base” FHIR service endpoint (e.g. http://fhir.someserver.org/fhir) – these are operations that operate on the full scale of the server. For example: return me all extensions known by this server</li>
- <li>A resource type (e.g. http://fhir.someserver.org/fhir/Patient) – these operations operate across all instances of the given type</li>
- <li>A resource instance (e.g. http://fhir.someserver.org/fhir/Patient/1) – for operations that involve a single instance, like the $everything operation above</li>
- <li>A version of a resource instance (http://fhir.someserver.org/fhir/Patient/1/_history/4) – for operations that involve a specific version of a specific instance of FHIR data. This is a special case that only exists to allow manipulation of profile and tag metadata of past versions</li>
+ <li>The "base" FHIR service endpoint (e.g. http://fhir.someserver.org/fhir): These are operations that operate on the full scale of the server. For example, "return me all extensions known by this server"</li>
+ <li>A Resource type (e.g. http://fhir.someserver.org/fhir/Patient): These are operations that operate across all instances of a given resource type</li>
+ <li>A Resource instance (e.g. http://fhir.someserver.org/fhir/Patient/1): These are operations involve only a single instance of a Resource, like the $everything operation above does</li>
+ <li>A specific version of a resource instance (http://fhir.someserver.org/fhir/Patient/1/_history/4): These operations involve only a specific version of a single instance of a FHIR Resource and extists only to allow manipulation of profile and tag metadata of past versions</li>
 </ul>
 <p>
 The body of the invocation contains a special infrastructure resource called <a href="parameters.html">Parameters</a>,
 which represents a collection of named parameters as &lt;key,value&gt; pairs, where the value may be any 
-primitive or complex datatype or even a full Resource. In addition it may include strings that are 
-formatted as the search parameter types.
+primitive or complex datatype or even a full Resource. It may also include strings 
+formatted as search parameter types.
 </p>
 <p>
-On completion, the operation returns another <code>Parameters</code> resource, this time containing one or 
-more output “parameters”. This means that a FHIR operation can take any parameter “in” and return a set of 
-result parameters “out”. Both the body of the POST and the returned result are always a Resource. 
+Upon completion, the operation returns another <code>Parameters</code> resource, containing one or 
+more output parameters. This means that a FHIR operation can take any parameter <i>in</i> and return a set of 
+result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource. 
 </p>
 <p>
-Some operations - ones with simple input types and a single output parameter named 'return' that is 
-a resource - can be invoked differently, by using a GET directly, with parameters as HTTP URL parameters. 
+Some Operations with simple input types and a single Resource output parameter named '<code>return</code>' can be invoked using a GET directly, with parameters as HTTP URL parameters. 
 In this case, the response is simply the resource that is the return value, with no Parameters resource.
 </p>
 
@@ -88,7 +87,7 @@ This specification defines several operations:
 Notes:
 </p>
 <ul>
- <li>The special operations on the <code>meta</code> element also operate on previous version (/_history/) - they are the only ones</li>
+ <li>The special operations on the <code>meta</code> element also operate on previous versions of a resource (/_history/).  They are the only operations that can manipulate versions other than the "current" version.</li>
 </ul>
 
 <a name="extensibility"> </a>
@@ -96,13 +95,13 @@ Notes:
 <p>
 Implementations are able to define their own operations in addition to
 those defined here. Name clashes between operations defined
-by different implementers can be resolved by use of the
-<a href="conformance.html">conformance statement</a>.
+by different implementers can be resolved by the use of the server's
+<a href="conformance.html">Conformance statement</a>.
 </p>
 <p>
-In addition, the definition of these operations  or additional run time operations does not
+Also, the definition of these or additional run time operations does not
 prevent the use of other kinds of operations that are not dependent on and/or not integrated
-with the RESTful API, as long as their addressing scheme does not clash with the scheme
+with the RESTful API, provided that their addressing scheme does not clash with the scheme
 defined here.
 </p>
 
@@ -113,20 +112,20 @@ defined here.
 Each Operation is defined by:
 </p>
 <ul>
- <li>A context for the operation - system, resource type, or resource instance</li>
- <li>A name for the operation</li>
- <li>A list of parameters, with their definitions</li>
+ <li>A context for the Operation - <i>system</i>, <i>resource type</i>, or <i>resource instance</i></li>
+ <li>A name for the Operation</li>
+ <li>A list of parameters along with their definitions</li>
 </ul>
 
 <p>
 For each parameter, the following information is needed:
 </p>
 <ul>
- <li>Name - the name of the operation. For implementer convenience, the name should be a valid token (see below)</li>
+ <li>Name - the name of the parameter. For implementer convenience, the name should be a valid token (see below)</li>
  <li>Use - In | Out | Both</li>
- <li>Type - a data type or a resource type</li>
- <li>Profile - a profile that applies additional restrictions about the resource</li>
- <li>Documentation - describes its use</li>
+ <li>Type - a data type or a Resource type</li>
+ <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a> that applies additional restrictions about the resource</li>
+ <li>Documentation - a description of the parameter's use</li>
 </ul>
 <p>
 There is a special parameter type called "Tuple" which is a parameter type that has additional
@@ -136,13 +135,13 @@ the parameter it is part of.
 
 <p>
 The resource <a href="operationdefinition.html">Operation Definition</a> is used to provide a computable definition
-of the operation.
+of the Operation.
 </p>
 
 <a name="extending"> </a>
 <h3>Extending an Operation</h3>
 <p>
-Implementations are able to extend operations by defining new named parameters.
+Implementations are able to extend an operation by defining new named parameters.
 Implementations can publish their own extended definitions using the
  <a href="operationdefinition.html">Operation Definition</a> resource, and
 this variant definition can use OperationDefinition.base to refer to the
@@ -158,9 +157,9 @@ Note that the FHIR specification will never define any parameter names starting 
 <h3>Executing an Operation Synchronously</h3>
 
 <p>
-Most commonly, operations are executed synchronously - the client sends a request
-to the server with the operation in parameters, and the server replies with the
-operation out parameters.
+Operations are typically executed synchronously: a client sends a request
+to a server that includes the operation's <i>in</i> parameters and the server replies with the
+operation' <i>out</i> parameters.
 </p>
 
 <p>
@@ -176,24 +175,23 @@ The URL for an operation end-point depends on its context:
 <h4>Operation Request</h4>
 
 <p>
-In the general case, an operation is invoked by performing an HTTP POST to the operation end-point.
-The format of the submitted content is the special <a href="parameters.html">Parameters</a> format - a list
-of named parameters (the "in" parameters). For an example, see <a href="op-example-request.html">the value set expansion request example</a>.
+An operation is generally invoked by performing an HTTP POST to the operation's end-point.
+The submitted content is the special <a href="parameters.html">Parameters</a> format (the "in" parameters) - a list of named parameters. For an example, see <a href="op-example-request.html">the value set expansion request example</a>.
 </p>
 <p>
-Note that the same arrangement as the RESTful interface applies
-in regard to <a href="http.html#mime-type">content types</a>.
+Note that the same arrangement as for the RESTful interface applies
+with respect to <a href="http.html#mime-type">content types</a>.
 </p>
 <p>
 If there are no parameters with complex types (including resources) to the operation, and the operation
-is idempotent (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification
+is <i>idempotent</i> (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification
 definition of idempotent</a>), the operation may be invoked by performing an HTTP GET operation where
-all the parameters are appended to the URL in the search portion of the URL (e.g. after the "?").
+all of the parameters are appended to the URL in the search portion of the URL (e.g. after the '?' character).
 Servers SHALL support this method of invocation.
 </p>
 <p>
-Servers MAY choose to support submission of the parameters multi-part form method as well,
-which can be useful for allowing testing of an operation using HTML forms.
+Servers MAY choose to support submission of the parameters <i>multi-part/form-data</i> method as well,
+which can be useful when testing an operation using HTML forms.
 </p>
 
 <a name="response"> </a>
@@ -201,21 +199,21 @@ which can be useful for allowing testing of an operation using HTML forms.
 <h4>Operation Response</h4>
 
 <p>
-If the operation succeeds, the HTTP Status code is 200 OK. An
-HTTP status code if 4xx or 5xx indicates an error, and an
+If an operation succeeds, an HTTP Status code of 200 OK is retruned. An
+HTTP status code of 4xx or 5xx indicates an error, and an
 <a href="operationoutcome.html">OperationOutcome</a> may be returned.
-User agents should note that servers may issue redirects etc.to
+User agents should note that servers may issue redirects, etc. to
 authenticate the client in response to an operation request.
 </p>
 
 <p>
-In the general case, an operation response uses the same
-<a href="parameters.html">Parameters</a> format whether there is one or more
-named parameters (the "out" parameters).
+In general, an operation response uses the same
+<a href="parameters.html">Parameters</a> format whether there is only one or 
+there are multiple named <i>out</i> parameters.
 </p>
 <p>
-If there is only one out parameter, which is a resource,
-and it has the name "return" then the parameter format is
+If there is only one <i>out</i> parameter, which is a Resource with the parameter name
+"return" then the parameter format is
 not used, and the response is simply the resource itself.
 </p>
 <p>
@@ -223,8 +221,8 @@ The resources that are returned by the operation may be
 retained and made available in the resource repository
 on the operation server. In that case, the server will
 provide the identity of the resource in the returned resources. When
-resources that are not persisted are returned in the response,
-they will have no id property.
+resources that are not persisted are returned in the a response,
+they will have no <code>id</code> property.
 </p>
 
 <a name="asynchronous"> </a>
@@ -234,12 +232,12 @@ they will have no id property.
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b> there is no defined correct way to execute
-operations asynchronously. The <a href="messaging.html#operations">messaging page</a>
+<b>DSTU Note:</b> there is presentlly no mechanism to execute
+operations asynchronously in a RESTful manner. However, the <a href="messaging.html#operations">messaging page</a>
 describes a way to execute operations asynchronously using messages.
 </p>
 <p>
-Feedback/discussion <a href="http://wiki.hl7.org/index.php?title=FHIR_Asynchronous_Exchange">here</a>.
+Provide feedback/discussion <a href="http://wiki.hl7.org/index.php?title=FHIR_Asynchronous_Exchange">here</a>.
 </p>
 </blockquote>
 </div>

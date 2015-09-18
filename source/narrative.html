@@ -34,9 +34,9 @@ The narrative for a resource is allowed to contain additional information that i
 the structured data, including human-edited content. Such additional information SHALL be
 in the scope of the definition of the resource, though it is common for the narrative to
 include additional descriptional information extracted from other referenced resources.
-Narrative for a resource should include summary information about referenced resources as 
-necessary for a consumer of the resource to be able to understand the key essential information 
-about a resource without retrieving additional resources.  For example, the narrative for a 
+Narrative for a resource should include summary information about any referenced resources that would
+be required for a consumer of the resource to be able to understand the key, essential information 
+about a resource without retrieving any additional resources.  For example, the narrative for a 
 MedicationOrder might include brief summary information about the referenced patient, 
 prescriber and medication.  Some resources (e.g. List, Composition) may provide specific 
 rules about what content must (or must not) be included in the resource narrative.  Consideration 
@@ -49,16 +49,16 @@ when generating narrative, since resources will be used in multiple contexts.
 </p>
 <p>
 Resources SHOULD always contain narrative to support human-consumption
-as a fallback.  Structured data SHOULD not generally contain information of 
+as a fallback.  Structured data SHOULD NOT generally contain information of 
 importance to human readers that is omitted from the narrative. Creators of FHIR 
-resources should not assume that systems will render, or that humans will see, 
-data that is not in the narrative. However, in a strictly managed trading systems 
+resources should not assume that systems will render (or that humans will see) 
+data that is not in the narrative. However, in strictly managed trading systems 
 where all systems share a common data model and additional text is unnecessary or 
 even a clinical safety risk, the narrative may be omitted. Implementers should 
-consider carefully before doing this, as it will mean that these resources can 
+give careful consideration before doing this, as it will mean that such resources can 
 only be understood in the limited trading environment. Closed trading partner 
 environments are very likely to open up during the lifetime of the resources 
-they define. In addition, many workflow steps involving finding and aggregating 
+they define. Also, many workflow steps involving finding and aggregating 
 resources are much more difficult or tedious if the resources involved do not have 
 their own text.
 </p>
@@ -72,12 +72,12 @@ The narrative is an XHTML fragment with a flag to indicate its relationship to t
 [%dt Narrative 1%]
 <a name="security"> </a>
 <p>
-The contents of the <i>div</i> element are an XHTML fragment that SHALL contain only the basic html formatting elements described in
+The contents of the <i>div</i> element are an XHTML fragment that SHALL contain only the basic HTML formatting elements described in
 chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href),
 images and internally contained style attributes.
 The XHTML content SHALL NOT contain
-a head, a body element, external stylesheet references, deprecated elements, scripts, forms, base/link/xlink, frames, iframes, objects or event related attributes (e.g. onClick).
-This is to ensure that the content of the narrative is contained within the resource and that there is no active content - this would introduce
+a <code>head</code>, a <code>body</code> element, external stylesheet references, deprecated elements, scripts, forms, base/link/xlink, frames, iframes, objects or event related attributes (e.g. <code>onClick</code>).
+This is to ensure that the content of the narrative is contained within the resource and that there is no active content.  Such content would introduce
 <a href="security.html#narrative">security issues</a> and potentially safety issues with regard to extracting text from the XHTML.
 </p>
 <p>
@@ -100,10 +100,10 @@ The div element SHALL have some non-whitespace content (text or an image).
 </pre>
 </div>
 <p>
-The inner portion of the div content is often used for the innerHTML property in a browser.
+The inner portion of the <code>div</code> content is often used for the <i>innerHTML</i> property in a browser.
 In order to simplify this kind of processing, when the narrative is represented in JSON,
-it SHALL be encoded so that the character content between the first "&gt;" and the last
-"&lt;" characters is the content of the &lt;div&gt; element; e.g.
+it SHALL be encoded so that the characters between the first '&gt;' and the last
+'&lt;' delimiters is the content of the <code>&lt;div&gt;</code> element; e.g.
 </p>
 <pre class="json">
   &quot;div&quot;: &quot;&lt;div&gt;text&lt;/div&gt;&quot;
@@ -115,14 +115,14 @@ is legal, but this is not:
   &quot;div&quot;: &quot;&lt;?xml ...&gt;&lt;div&gt;text&lt;/div&gt;&quot;
 </pre>
 <p>
-Note that the XHTML is contained in general XML and so there is no support for HTML entities
-like &amp;nbsp; or &amp;copy; etc. Unicode characters SHALL be used instead. Unicode
-&amp;#160; substitutes for &amp;nbsp;.
+Note that the XHTML is contained in general XML so there is no support for HTML entities
+like <code>&amp;nbsp;</code> or <code>&amp;copy;</code> etc. Unicode characters SHALL be used instead. Unicode
+<code>&amp;#160;<code> substitutes for <code>&amp;nbsp;<code>.
 </p>
 <p>
 The narrative content SHOULD be in the <a href="resource-definitions.html#Resource.language">language of the resource</a>, but
 there is no reason to expect that HTML type tooling would understand the resource <a href="resource.html#content">language</a> element. For this reason,
-a lang attribute on the &lt;div&gt; SHOULD also be used (and see
+a <code>lang</code> attribute on the <code>&lt;div&gt;</code> SHOULD also be used (see
 <a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
 </p>
 
@@ -131,7 +131,7 @@ a lang attribute on the &lt;div&gt; SHOULD also be used (and see
 <h3>Image References</h3>
 
 <p>
-Image source data - the src attribute - may refer to an image found in the resource
+Image source data (the <code>src</code> attribute) may refer to an image found in the resource
 (as a contained <a href="media.html">Media</a> or <a href="compartments.html#binary">Binary</a> resource)
 by its <i>id</i>:
 </p>
@@ -151,11 +151,11 @@ by its <i>id</i>:
 </div>
 <p>
 References between the narrative and the resource data (in either direction)
-are mediated by the XML id/idref attributes. in JSON, the property "id" is
+are mediated by the XML <code>id</code>/<code>idref</code> attributes. in JSON, the property "id" is
 used which is equivalent to the XML attribute "id".
 </p>
 <p>
-The "id" attribute SHALL have a unique value <em>within the resource</em>
+The <code>id</code> attribute SHALL have a unique value <em>within the resource</em>
 with regard to any other id attributes: the uniqueness and resolution
 scope of these id references is within the resource that contains them.
 Contained resources are included in the id uniqueness scope of the
@@ -163,12 +163,12 @@ resource that contains them.
 </p>
 <p>
 If multiple resources are combined into a single combined document,
-such as a <a href="bundle.html">bundle</a>, duplicate
-values of the id attribute may occur between resources.
+such as a <a href="bundle.html">Bundle</a>, duplicate
+values of the <code>id</code> attribute may occur between resources.
 This SHALL be managed by applications reading the resources.
 </p>
 <p>
-Since images that are not contained in the resource cannot be guaranteed to be be available
+Since images that are not contained in the resource cannot be guaranteed to be available
 when the resource is presented to a user, the source for any images that are an essential
 part of the narrative SHOULD always be embedded as a <a href="https://tools.ietf.org/html/rfc2397">data: url</a>,
 in an attachment or a contained resource.
@@ -177,14 +177,14 @@ in an attachment or a contained resource.
 <a name="css"></a>
 <h3>Styling the XHTML</h3>
 <p>
-The XHTML fragment in the narrative may be styled using cascading stylesheets using
+The XHTML fragment in the narrative may be styled using cascading stylesheets with
 either external or internal styles. External styles are applied using the <i>class</i>
 and <i>id</i> attributes on the XHTML elements and internal styles are applied using
 a <i>style</i> attribute on the XHTML elements directly.
 </p>
 <p>
-In order to minimise manageability and security issues, authoring systems do not
-specify the CSS stylesheet to use directly; instead, the application that displays
+In order to minimise manageability and security issues, authoring systems cannot
+specify the CSS stylesheet to use directly. Instead, the application that displays
 the resource provides the stylesheets. This means that the rendering system
 chooses what styles can be used, but the authoring system must use them in advance.
 Authoring systems can use these classes, which SHALL be supported by all rendering systems:
@@ -214,8 +214,9 @@ Authoring systems can use these classes, which SHALL be supported by all renderi
 </table>
 <p>
 Note: for testing purposes, there is an <a href="basic-example-narrative.xml.html">example resource</a> that includes
-all these styles. It's also available <a href="narrative-example.html">as XHTML</a> and a
-<a href="fhir-runtime.css">standard stylesheet</a> that includes all these styles.
+all of these styles. It is also available <a href="narrative-example.html">as XHTML</a> and a
+<a href="fhir-runtime.css">standard stylesheet</a> that includes all of these styles.  Use of styles
+not on this list will require an arrangement between producing and consuming systems.
 </p>
 
 <p>
@@ -227,7 +228,10 @@ rendering, trading partner agreements will be required.
 Authoring systems may also use internal styles using the <i>style</i> attribute. This
 has the advantage of not depending on external interpretation, but also has the
 side effect of making content more difficult to manage when rendering, so applications
-should use this approach with care. Authoring systems may fix the following styling aspects of the content:
+should use this approach with care.
+</p>
+<p>
+Authoring systems may fix the following styling aspects of the content:
 </p>
 <ul>
   <li>bold, italic, underline, strikethrough</li>
@@ -237,10 +241,10 @@ should use this approach with care. Authoring systems may fix the following styl
   <li>ordered list number format (since it may be referred to in text)</li>
 </ul>
 <p>
-These style properties are specified in-line using the style attribute. Rendering systems
-SHOULD respect any of these rendering styles when they are specified in the style
-attribute, though appropriate interpretation is allowed (e.g. a low-contrast display for dark
-room contexts or a high-contrast display for the visually impaired may adjust colours accordingly).
+These style properties are specified in-line using the <code>style</code> attribute. Rendering systems
+SHOULD respect any of these rendering styles when they are specified in the <code>style</code>
+attribute, although appropriate interpretation is allowed in certain contexts (e.g. a low-contrast display for dark
+rooms or a high-contrast display for the visually impaired may adjust colors accordingly).
 </p>
 <p>
 Note that rendering systems are allowed to ignore or override any of the internal or
@@ -263,9 +267,9 @@ Note that there are additional rules around styling for <a href="documents.html#
 Health care records are often associated with legislative and business requirements for very long retention
 times (up to a century), and extreme risk aversion with regards to inconsistent display across
 a variety of devices. Although the narrative is allowed to use the standard XHTML and CSS
-features as described above, implementations are encouraged to be restrained in using the
-features available. Even where trading partner arrangements limit the current requirements
-made on a system, experience shows that these trading arrangements will gradually broaden
+features as described above, implementations are encouraged to show restraint when using the
+features available. Even when trading partner arrangements limit the current requirements
+made on a system, experience shows that these trading arrangements will likely broaden
 over time.
 </p>
 <p>
@@ -273,12 +277,12 @@ In particular:
 </p>
 <ul>
  <li>complex layered layouts requiring careful testing of
-the match between the xhtml <i>div</i> and <i>span</i> elements and styles, and
+the match between the XHTML <code>div</code> and <code>span</code> elements and styles, and
 those that include nested tables (possibly with images) as well make rendering consistency
 difficult, and implementations SHOULD avoid these</li>
- <li>The use of styles e.g. bolding, italics and colour; SHOULD not be utilized as the
+ <li>The use of styles e.g. bolding, italics and color; SHOULD NOT be sued as the
    sole way to convey meaning or semantics, but should be used in conjunction with other
-   FHIR resources to ensure consistent, long term interoperability. </li>
+   data elements to ensure consistent, long term interoperability. </li>
 </ul>
 </div>
 
