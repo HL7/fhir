@@ -87,7 +87,7 @@
   Binding = QuestionnaireResponseStatus
   Short Label = in-progress | completed | amended
   Definition = The lifecycle status of the questionnaire response as a whole.
-  Requirements = The information on questionnaires  may possibly be gathered during multiple sessions and altered after considered being finished. Questionnaires with just questions may serve as template forms, with the applicable publication statuses
+  Requirements = The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished. Questionnaire resources with just questions may serve as template forms, with the applicable publication statuses
   RIM Mapping = .statusCode (also whether there\'s a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)
   w5 = status
 
@@ -99,7 +99,7 @@
   Type = Reference(Any)
   Short Label = The subject of the questions
   Definition = The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information
-  Requirements = Must know the subject context
+  Requirements = The subject context must be known
   RIM Mapping = .participation[typeCode=SBJ].role
   w5 = who.focus
 
@@ -170,7 +170,7 @@
   Type = string
   Short Label = Corresponding group within Questionnaire
   Definition = Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireResponse resource.
-  Requirements = Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.
+  Requirements = Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by identifier.
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]
 
  -- Row 12 -----------------------------------
@@ -247,7 +247,7 @@
   UML = 0;190
   Short Label = The response(s) to the question
   Definition = The respondent\'s answer(s) to the question
-  Comments = We nest the value because we can\'t have a repeating structure that has variable type
+  Comments = The value is nested because we cannot have a repeating structure that has variable type
   RIM Mapping = .value[type=LIST_ANY]
 
  -- Row 20 -----------------------------------
@@ -257,7 +257,7 @@
   Binding = QuestionnaireAnswer
   Short Label = Single-valued answer to the question
   Definition = The answer (or one of the answers) provided by the respondent to the question
-  Requirements = Need to be able to retain a single-valued answer to a question
+  Requirements = Ability to retain a single-valued answer to a question
   Comments = More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
   RIM Mapping = .item
 

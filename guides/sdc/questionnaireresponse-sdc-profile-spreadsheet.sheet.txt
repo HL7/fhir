@@ -8,6 +8,7 @@
   Profile Name = SDCData
   Aliases = Form Data
   Type = Resource
+  Definition = Sets expectations for supported capabilities for questionnaire responses for SDC-conformant systems.
 
  -- Row 2 -----------------------------------
   Element = QuestionnaireResponse.identifier

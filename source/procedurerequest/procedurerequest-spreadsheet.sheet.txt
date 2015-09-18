@@ -29,14 +29,14 @@
   Binding Name = ProcedureReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/procedure-reason
-  Definition = A code that explains a reason why a procedure is  required.
+  Definition = A code that explains the reason why a procedure is  required.
   Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = A code that identifies anatomical location.
+  Definition = A code that identifies the anatomical location.
   Conformance = example
 
 === Sheet procedure-request-status =====================================
@@ -142,7 +142,7 @@
   Element = ProcedureRequest.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Identifier
+  Short Label = Unique identifier for the request
   Definition = Identifiers assigned to this order by the order or by the receiver.
   QUICK mapping = ClinicalStatement.identifier
   w5 = id
@@ -151,8 +151,8 @@
   Element = ProcedureRequest.subject
   Card. = 1..1
   Type = Reference(Patient|Group)
-  Short Label = Subject
-  Definition = The patient who will receive the procedure or a group of subjects.
+  Short Label = Who the procedure should be done to
+  Definition = The person, animal or group that should receive the procedure.
   QUICK mapping = ClinicalStatement.subject
   w5 = who.focus
 
@@ -161,8 +161,8 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = ProcedureCode
-  Short Label = Procedure Code
-  Definition = The specific procedure that is ordered. Use text if the exact nature of the procedure can\'t be coded.
+  Short Label = What procedure to perform
+  Definition = The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.
   QUICK mapping = Procedure.procedureCode
   w5 = class
 
@@ -171,10 +171,10 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = BodySite
-  Short Label = Target body sites
-  Definition = Indicates the sites on the subject\'s body where the procedure should be performed ( i.e. the target sites).
+  Short Label = What part of body to perform on
+  Definition = Indicates the sites on the subject\'s body where the procedure should be performed (I.e. the target sites).
   Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
-  Comments = Only used if not implicit in code found in ProcedureRequest.type
+  Comments = Only used if not implicit in the code found in ProcedureRequest.type
   QUICK mapping = Procedure.targetBodySite
   RIM Mapping = targetSiteCode
 
@@ -192,16 +192,16 @@
   Card. = 0..1
   Type = CodeableConcept|Reference(Condition)
   Binding = ProcedureReason
-  Short Label = Indication
-  Definition = The reason why the procedure is proposed or ordered. This procedure request may be motivated by a Condition for instance.
+  Short Label = Why procedure should occur
+  Definition = The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.
   QUICK mapping = Action.indication.reason
 
  -- Row 8 -----------------------------------
   Element = ProcedureRequest.scheduled[x]
   Card. = 0..1
   Type = dateTime|Period|Timing
-  Short Label = Procedure timing schedule
-  Definition = The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
+  Short Label = When procedure should occur
+  Definition = The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
   QUICK mapping = Procedure.procedureSchedule
   w5 = when.planned
 
@@ -209,7 +209,7 @@
   Element = ProcedureRequest.encounter
   Card. = 0..1
   Type = Reference(Encounter)
-  Short Label = Encounter
+  Short Label = Encounter request created during
   Definition = The encounter within which the procedure proposal or request was created.
   QUICK mapping = ClinicalStatement.encounter
   w5 = context
@@ -218,8 +218,8 @@
   Element = ProcedureRequest.performer
   Card. = 0..1
   Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
-  Short Label = Performer
-  Definition = E.g. surgeon, anaethetist, endoscopist.
+  Short Label = Who should perform the procedure
+  Definition = For example, the surgeon, anaethetist, endoscopist, etc.
   w5 = who.actor
 
  -- Row 11 -----------------------------------
@@ -237,7 +237,7 @@
   Element = ProcedureRequest.notes
   Card. = 0..*
   Type = Annotation
-  Short Label = Notes
+  Short Label = Additional information about desired procedure
   Definition = Any other notes associated with this proposal or order - e.g. provider instructions.
   QUICK mapping = ClinicalStatement.additionalText
 
@@ -246,7 +246,7 @@
   Card. = 0..1
   Type = boolean|CodeableConcept
   Binding = ProcedureAsNeededReason
-  Short Label = PRN
+  Short Label = Preconditions for procedure
   Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
   QUICK mapping = Proposal.prnReason.reason
 
@@ -254,7 +254,7 @@
   Element = ProcedureRequest.orderedOn
   Card. = 0..1
   Type = dateTime
-  Short Label = When Requested
+  Short Label = When request was created
   Definition = The time when the request was made.
   QUICK mapping = Proposal.proposedAtTime
   w5 = when.recorded
@@ -263,7 +263,7 @@
   Element = ProcedureRequest.orderer
   Card. = 0..1
   Type = Reference(Practitioner|Patient|RelatedPerson|Device)
-  Short Label = Ordering Party
+  Short Label = Who made request
   Definition = The healthcare professional responsible for proposing or ordering the procedure.
   QUICK mapping = ClinicalStatement.statementAuthor
   w5 = who.author

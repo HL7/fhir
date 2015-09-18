@@ -194,7 +194,7 @@
   Binding = ProvenanceAgentRole
   Short Label = What the agents involvement was
   Definition = The function of the agent with respect to the activity.
-  Comments = e.g. author | performer | enterer | attester: +
+  Comments = For example, author, performer, enterer, attester, etc.
   Auditevent Mapping = AuditEvent.participant.role
   Prov Mapping = Agent.Attribution
   RIM Mapping = attester: .[self::participation]/typeCode=\'RESP\' author: .[self::participation]/typeCode=\'AUT\' cc: .[self::participation]/typeCode=\'IRCP\' enterer:  .[self::participation]/typeCode=\'ENT\' informant: .[self::participation]/typeCode=\'INF\' performer: .[self::participation]/typeCode=\'PRF\' verifier: .[self::participation]/typeCode=\'VRF\' source: .[self::outboundRelationship]/typeCode=\'\'
@@ -215,7 +215,7 @@
   Card. = 0..1
   Type = Identifier
   Short Label = Authorization-system identifier for the agent
-  Definition = The identify of the agent as known by the authorization system
+  Definition = The identity of the agent as known by the authorization system
   Auditevent Mapping = AuditEvent.participant.userId
   Prov Mapping = Agent.Identity
   RIM Mapping = person: .plays:Role(classCode=\'IDENT\').id\npractitioner: ./id
@@ -226,7 +226,7 @@
   Card. = 0..*
   UML = 420;200
   Short Label = Track delegation between agents
-  Definition = A relationship between two the agents referenced in this resource. This is defined to allow for explicit description of the delegation between agents - e.g. this human author used this device, or one person acted on another\'s behest
+  Definition = A relationship between two the agents referenced in this resource. This is defined to allow for explicit description of the delegation between agents.  For example, this human author used this device, or one person acted on another\'s behest
   Prov Mapping = Agent.actedOnBehalfOf
   RIM Mapping = .rolelink
 
@@ -244,9 +244,9 @@
   Element = Provenance.agent.relatedAgent.target
   Card. = 1..1
   Type = uri
-  Short Label = Reference to other agent in this resource by id
-  Definition = An internal reference to another agent listed in this provenance by it\'s id
-  Comments = The uri has the form #[id] where id is on another Provenance.agent in this same resource
+  Short Label = Reference to other agent in this resource by identifier
+  Definition = An internal reference to another agent listed in this provenance by its identifier
+  Comments = The uri has the form #[id] where [id] is on another Provenance.agent in this same resource
   Prov Mapping = responsible
   RIM Mapping = .target
 
@@ -291,7 +291,7 @@
   Type = uri
   Short Label = Identity of entity
   Definition = Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative
-  Comments = identity may be a reference to a resource or to something else, depending on the type
+  Comments = Identity may be a reference to a resource or to something else, depending on the type
   Auditevent Mapping = AuditEvent.object.reference
   Prov Mapping = Entity.Identity
   RIM Mapping = ./text/reference

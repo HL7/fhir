@@ -176,7 +176,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = External Ids for this questionnaire
+  Short Label = External identifiers for this questionnaire
   Definition = This records identifiers associated with this question set that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
   RIM Mapping = .id[use=BUS]
@@ -189,7 +189,7 @@
   Aliases = N/A - MIF rather than RIM level
   Summary = y
   Type = string
-  Short Label = Logical id for this version of Questionnaire
+  Short Label = Logical identifier for this version of Questionnaire
   Definition = The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated
   Requirements = In some cases, separate resource instances might be created for each version (if an older version can be maintained once a new version exists)
   RIM Mapping = .id[use=VER]
@@ -210,7 +210,7 @@
  -- Row 5 -----------------------------------
   Element = Questionnaire.date
   Card. = 0..1
-  Aliases = Date Created, Date published, Date Issued, Date updated
+  Aliases = Date created, Date published, Date issued, Date updated
   Summary = y
   Type = dateTime
   Short Label = Date this version was authored
@@ -268,9 +268,9 @@
   Card. = 0..1
   Type = string
   Short Label = To link questionnaire with questionnaire response
-  Definition = An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.
+  Definition = An identifier that is unique within the Questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.
   Requirements = [[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.
-  Comments = May be omitted if there is no expectation to link answers back to a questionnaire.  This *can* be a meaningful id (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
+  Comments = May be omitted if there is no expectation to link answers back to a questionnaire.  This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
   RIM Mapping = .id
 
  -- Row 11 -----------------------------------
@@ -290,9 +290,9 @@
   Summary = Y
   Type = Coding
   Binding = QuestionnaireGroupConcept
-  Short Label = Concept that represents this section on a questionnaire
+  Short Label = Concept that represents this section in a questionnaire
   Definition = Identifies a how this group of questions is known in a particular terminology such as LOINC.
-  Requirements = Allows linking of groups of questions (and complete questionnaires) to formal terminologies
+  Requirements = Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies
   Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole.
   RIM Mapping = .code
 
@@ -310,7 +310,7 @@
   Element = Questionnaire.group.required
   Card. = 0..1
   Type = boolean
-  Short Label = Must group be included in data results?
+  Short Label = Whether the group must be included in data results
   Definition = If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
   RIM Mapping = Not supported - MIF/templating layer
   Default Value = False
@@ -354,7 +354,7 @@
   Short Label = To link questionnaire with questionnaire response
   Definition = An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.
   Requirements = [[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.
-  Comments = May be omitted if there is no expectation to link answers back to a questionnaire.  This *can* be a meaningful id (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
+  Comments = May be omitted if there is no expectation to link answers back to a questionnaire.  This *can* be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
   RIM Mapping = .id
 
  -- Row 19 -----------------------------------
@@ -393,7 +393,7 @@
   Element = Questionnaire.group.question.required
   Card. = 0..1
   Type = boolean
-  Short Label = Must question be answered in data results?
+  Short Label = Whether the question must be answered in data results
   Definition = If true, indicates that the question must be answered and have required groups within it also present.  If false, the question and any contained groups may be skipped when answering the questionnaire.
   RIM Mapping = Not supported - MIF/templating layer
   Default Value = False
@@ -402,7 +402,7 @@
   Element = Questionnaire.group.question.repeats
   Card. = 0..1
   Type = boolean
-  Short Label = Can question  have multiple answers?
+  Short Label = Whether the question  can have multiple answers
   Definition = If true, the question may have more than one answer.
   Requirements = Used for \"check all that apply\" types of questions or \"list your top 3\", etc.
   Comments = Whether the question itself will be displayed for each answer is a rendering choice typically based on whether there are nested groups.
@@ -415,7 +415,7 @@
   Inv. = 4
   Type = Reference(ValueSet)
   Short Label = Valueset containing permitted answers
-  Definition = Reference to a valueset containing the a list of codes representing permitted answers for the question
+  Definition = Reference to a value set containing a list of codes representing permitted answers for the question
   Comments = LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist)
   RIM Mapping = Not supported - MIF/templating layer to capture value set
 

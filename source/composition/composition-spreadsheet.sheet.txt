@@ -5,7 +5,7 @@
   Binding Name = CompositionSectionType
   Binding = value set
   Reference = valueset-doc-section-codes
-  Definition = Classification of a section of a composition / document.
+  Definition = Classification of a section of a composition/document.
   Conformance = example
 
  -- Row 2 -----------------------------------
@@ -151,8 +151,8 @@
   Definition = A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained
   Requirements = To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement
   Comments = While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical
-  RIM Mapping = Document[classCode=\"DOC\" and moodCode=\"EVN\" and isNormalAct()]
   CDA Mapping = ClinicalDocument
+  RIM Mapping = Document[classCode=\"DOC\" and moodCode=\"EVN\" and isNormalAct()]
   w5 = infrastructure.documents
 
  -- Row 2 -----------------------------------
@@ -161,10 +161,10 @@
   Summary = y
   Type = Identifier
   Short Label = Logical identifier of composition (version-independent)
-  Definition = Logical Identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time
+  Definition = Logical identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time
   Comments = See discussion in resource definition for how these relate
-  RIM Mapping = Document.id / Document.setId
   CDA Mapping = .setId
+  RIM Mapping = Document.id / Document.setId
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -175,8 +175,8 @@
   Short Label = Version-specific identifier for composition
   Definition = Version specific identifier for the composition, assigned when each version is created/updated.
   Comments = While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example
-  RIM Mapping = .id
   CDA Mapping = .id
+  RIM Mapping = .id
 
  -- Row 4 -----------------------------------
   Element = Composition.date
@@ -187,8 +187,8 @@
   Definition = The composition editing time, when the composition was last logically changed by the author
   Requirements = dateTime is used for tracking, organizing versions and searching.
   Comments = The Last Modified Date on the composition may be after the date of the document was attested without being changed
-  RIM Mapping = .effectiveTime[type=\"TS\"]
   CDA Mapping = .effectiveTime
+  RIM Mapping = .effectiveTime[type=\"TS\"]
   w5 = when.done
 
  -- Row 5 -----------------------------------
@@ -200,9 +200,9 @@
   Short Label = Kind of composition (LOINC if possible)
   Definition = Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition
   Requirements = Key metadata element describing the composition, used in searching/filtering.
-  Comments = For Composition type, LOINC is ubiquitious and strongly endorsed by the HL7. Most implementation guides will require a specific LOINC code, or use LOINC as an extensible binding
-  RIM Mapping = ./code
+  Comments = For Composition type, LOINC is ubiquitous and strongly endorsed by HL7. Most implementation guides will require a specific LOINC code, or use LOINC as an extensible binding
   CDA Mapping = .code
+  RIM Mapping = ./code
   w5 = class
 
  -- Row 6 -----------------------------------
@@ -215,8 +215,8 @@
   Definition = A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type
   Requirements = Helps humans to assess whether the composition is of interest when viewing an index of compositions or documents
   Comments = This is a metadata field from [XDS/MHD](http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD))
-  RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   CDA Mapping = n/a
+  RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   w5 = class
 
  -- Row 7 -----------------------------------
@@ -227,8 +227,8 @@
   Short Label = Human Readable name/title
   Definition = Official human-readable label for the composition
   Comments = For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a \"consultation\" or \"progress note\"). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period
-  RIM Mapping = ./title
   CDA Mapping = .title
+  RIM Mapping = ./title
 
  -- Row 8 -----------------------------------
   Element = Composition.status
@@ -240,9 +240,9 @@
   Short Label = preliminary | final | amended | entered-in-error
   Definition = The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document
   Requirements = Need to be able to mark interim, amended, or withdrawn compositions or documents
-  Comments = If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag \"withdrawn\" is why this element is labeled as a modifier of other elements. \n\nSome reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly reporting this business rule hass been . This would be handled by an extension if required
-  RIM Mapping = interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\"
+  Comments = If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag \"withdrawn\" is why this element is labeled as a modifier of other elements. \n\nSome reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required
   CDA Mapping = n/a
+  RIM Mapping = interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\"
   w5 = status
 
  -- Row 9 -----------------------------------
@@ -254,8 +254,8 @@
   Definition = The person or device that performed the data entry leading to this composition. Where there is more than one candidate, pick the most proximal to the document creation or capture on a per-section basis.
   Requirements = Identifies who is responsible for the entry of the data.
   Comments = Can provide other enterers in extensions
-  RIM Mapping = unique(highest(./participation[typeCode=\"INT\" and isNormalParticipation], priorityNumber)/role[classCode=\"ASSIGNED\" and isNormalRole]/player[determinerCode=\"INST\" and classCode=(\"DEV\", \"PSN\") and isNormalEntity()])
   CDA Mapping = .dataEnterer
+  RIM Mapping = unique(highest(./participation[typeCode=\"INT\" and isNormalParticipation], priorityNumber)/role[classCode=\"ASSIGNED\" and isNormalRole]/player[determinerCode=\"INST\" and classCode=(\"DEV\", \"PSN\") and isNormalEntity()])
 
  -- Row 10 -----------------------------------
   Element = Composition.confidentiality
@@ -267,8 +267,8 @@
   Short Label = As defined by affinity domain
   Definition = The code specifying the level of confidentiality of the Composition
   Comments = The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section)
-  RIM Mapping = .confidentialityCode
   CDA Mapping = .confidentialityCode
+  RIM Mapping = .confidentialityCode
 
  -- Row 11 -----------------------------------
   Element = Composition.subject
@@ -276,11 +276,11 @@
   Summary = y
   Type = Reference(Any)
   Short Label = Who and/or what the composition is about
-  Definition = Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)
+  Definition = Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)
   Requirements = Essential metadata for searching for the composition. Identifies who and/or what the composition/document is about
   Comments = For clinical documents, this is usually the patient.
-  RIM Mapping = .participation[typeCode=\"SBJ\"].role[typeCode=\"PAT\"]
   CDA Mapping = .recordTarget
+  RIM Mapping = .participation[typeCode=\"SBJ\"].role[typeCode=\"PAT\"]
   w5 = who.focus
 
  -- Row 12 -----------------------------------
@@ -289,10 +289,10 @@
   Summary = y
   Type = Reference(Practitioner|Device|Patient|RelatedPerson)
   Short Label = Who and/or what authored the composition
-  Definition = Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.)
+  Definition = Identifies who is responsible for the information in the composition, not necessarily who typed it in.
   Requirements = Identifies who is responsible for the content.
-  RIM Mapping = .participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]
   CDA Mapping = .author.assignedAuthor
+  RIM Mapping = .participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]
   w5 = who.author
 
  -- Row 13 -----------------------------------
@@ -304,8 +304,8 @@
   Definition = A participant who has attested to the accuracy of the composition/document
   Requirements = Identifies responsibility for the accuracy of the composition content.
   Comments = Only list each attester once
-  RIM Mapping = .participation[typeCode=\"AUTHEN\"].role[classCode=\"ASSIGNED\"]
   CDA Mapping = .authenticator/.legalAuthenticator
+  RIM Mapping = .participation[typeCode=\"AUTHEN\"].role[classCode=\"ASSIGNED\"]
 
  -- Row 14 -----------------------------------
   Element = Composition.attester.mode
@@ -315,10 +315,10 @@
   Binding = CompositionAttestationMode
   Short Label = personal | professional | legal | official
   Definition = The type of attestation the authenticator offers
-  Requirements = Indicates the level of officialness of the attestation.
+  Requirements = Indicates the level of authority of the attestation.
   Comments = Use more than one code where a single attester has more than one mode (professional and legal are often paired)
-  RIM Mapping = unique(./modeCode)
   CDA Mapping = implied by .authenticator/.legalAuthenticator
+  RIM Mapping = unique(./modeCode)
 
  -- Row 15 -----------------------------------
   Element = Composition.attester.time
@@ -328,8 +328,8 @@
   Short Label = When composition attested
   Definition = When composition was attested by the party
   Requirements = Identifies when the information in the composition was deemed accurate.  (Things may have changed since then.)
-  RIM Mapping = ./time[type=\"TS\" and isNormalDatatype()]
   CDA Mapping = .authenticator.time
+  RIM Mapping = ./time[type=\"TS\" and isNormalDatatype()]
 
  -- Row 16 -----------------------------------
   Element = Composition.attester.party
@@ -339,8 +339,8 @@
   Short Label = Who attested the composition
   Definition = Who attested the composition in the specified way
   Requirements = Identifies who has taken on the responsibility for accuracy of the composition content.
-  RIM Mapping = ./role[classCode=\"ASSIGNED\" and isNormalRole]/player[determinerCode=\"INST\" and classCode=(\"DEV\", \"PSN\") and isNormalEntity()] or ./role[classCode=\"ASSIGNED\" and isNormalRole and not(player)]/scoper[determinerCode=\"INST\" and classCode=\"ORG\" and isNormalEntity()]
   CDA Mapping = .authenticator.assignedEnttty
+  RIM Mapping = ./role[classCode=\"ASSIGNED\" and isNormalRole]/player[determinerCode=\"INST\" and classCode=(\"DEV\", \"PSN\") and isNormalEntity()] or ./role[classCode=\"ASSIGNED\" and isNormalRole and not(player)]/scoper[determinerCode=\"INST\" and classCode=\"ORG\" and isNormalEntity()]
   w5 = who.witness
 
  -- Row 17 -----------------------------------
@@ -348,12 +348,12 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Organization)
-  Short Label = Org which maintains the composition
+  Short Label = Organization which maintains the composition
   Definition = Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information
   Requirements = Identifies where to go to find the current version, where to report issues, etc.
-  Comments = This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because knowing this is sometimes not known by the authoring system, and can be inferred by context. However it\'s important that this information be known when working with a derived document, so providing a custodian is encouraged
-  RIM Mapping = .participation[typeCode=\"RCV\"].role[classCode=\"CUST\"].scoper[classCode=\"ORG\" and determinerCode=\"INST\"]
+  Comments = This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because this is sometimes not known by the authoring system, and can be inferred by context. However it is important that this information be known when working with a derived document, so providing a custodian is encouraged
   CDA Mapping = .custodian.assignedCustodian
+  RIM Mapping = .participation[typeCode=\"RCV\"].role[classCode=\"CUST\"].scoper[classCode=\"ORG\" and determinerCode=\"INST\"]
 
  -- Row 18 -----------------------------------
   Element = Composition.event
@@ -364,8 +364,8 @@
   Definition = The clinical service, such as a colonoscopy or an appendectomy, being documented
   Requirements = Provides context for the composition and creates a linkage between a resource describing an event and the composition created describing the event.
   Comments = The event needs to be consistent with the type element, though can provide further information if desired
-  RIM Mapping = outboundRelationship[typeCode=\"SUBJ\"].target[classCode<\'ACT\']
   CDA Mapping = .documentationOf.serviceEvent
+  RIM Mapping = outboundRelationship[typeCode=\"SUBJ\"].target[classCode<\'ACT\']
 
  -- Row 19 -----------------------------------
   Element = Composition.event.code
@@ -375,9 +375,9 @@
   Binding = DocumentEventType
   Short Label = Code(s) that apply to the event being documented
   Definition = This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a \"History and Physical Report\" in which the procedure being documented is necessarily a \"History and Physical\" act.
-  Comments = An event can further specialize the act inherent in the typeCode, such as where it is simply \"Procedure Report\" and the procedure was a \"colonoscopy\". If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as ???key words??? for certain types of queries.
-  RIM Mapping = .code
+  Comments = An event can further specialize the act inherent in the typeCode, such as where it is simply \"Procedure Report\" and the procedure was a \"colonoscopy\". If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries.
   CDA Mapping = .code
+  RIM Mapping = .code
 
  -- Row 20 -----------------------------------
   Element = Composition.event.period
@@ -386,8 +386,8 @@
   Type = Period
   Short Label = The period covered by the documentation
   Definition = The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time
-  RIM Mapping = .effectiveTime
   CDA Mapping = .effectiveTime
+  RIM Mapping = .effectiveTime
 
  -- Row 21 -----------------------------------
   Element = Composition.event.detail
@@ -396,19 +396,19 @@
   Type = Reference(Any)
   Short Label = The event(s) being documented
   Definition = The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy
-  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].target
   CDA Mapping = n/a
+  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].target
 
  -- Row 22 -----------------------------------
   Element = Composition.encounter
   Card. = 0..1
   Summary = y
   Type = Reference(Encounter)
-  Short Label = Context of the composition
+  Short Label = Context of the Composition
   Definition = Describes the clinical encounter or type of care this documentation is associated with.
   Requirements = Provides context for the composition and supports searching.
-  RIM Mapping = unique(highest(./outboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()], priorityNumber)/target[moodCode=\"EVN\" and classCode=(\"ENC\", \"PCPR\") and isNormalAct])
   CDA Mapping = .componentOf.encompassingEncounter
+  RIM Mapping = unique(highest(./outboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()], priorityNumber)/target[moodCode=\"EVN\" and classCode=(\"ENC\", \"PCPR\") and isNormalAct])
   w5 = context
 
  -- Row 23 -----------------------------------
@@ -418,8 +418,8 @@
   Type = =Section
   Short Label = Composition is broken into sections
   Definition = The root of the sections that make up the composition
-  RIM Mapping = ./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode=\"DOCSECT\" and isNormalAct]
   CDA Mapping = .component.structuredBody.component.section
+  RIM Mapping = ./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode=\"DOCSECT\" and isNormalAct]
 
  -- Row 24 -----------------------------------
   Element = Composition.section.title
@@ -430,8 +430,8 @@
   Definition = The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents
   Requirements = Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized
   Comments = The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element
-  RIM Mapping = ./title
   CDA Mapping = .title
+  RIM Mapping = ./title
 
  -- Row 25 -----------------------------------
   Element = Composition.section.code
@@ -442,8 +442,8 @@
   Definition = A code identifying the kind of content contained within the section. This must be consistent with the section title
   Requirements = Provides computable standardized labels to topics within the document.
   Comments = The code identifies the section for an automated processor of the document. This is particularly relevant when using profiles to control the structure of the document.   If the section has content (instead of sub-sections), the section.code does not change the meaning or interpretation of the resource that is the content of the section in the comments for the section.code.
-  RIM Mapping = ./code
   CDA Mapping = .code
+  RIM Mapping = ./code
 
  -- Row 26 -----------------------------------
   Element = !Composition.section.content
@@ -453,8 +453,8 @@
   Short Label = The Content of the section (narrative + data entries)
   Definition = The content (narrative and data entries) associated with the section
   Comments = Because composition represent point-in-time snapshots, resource references should either be to a specific version, or made against resources on the same server with full version tracking, so that the correct versions can easily be assembled.
-  RIM Mapping = unique(./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode!=\"DOCSECT\" and isNormalAct])
   CDA Mapping = n/a
+  RIM Mapping = unique(./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode!=\"DOCSECT\" and isNormalAct])
 
  -- Row 27 -----------------------------------
   Element = Composition.section.text
@@ -464,8 +464,8 @@
   Short Label = Text summary of the section, for human interpretation
   Definition = A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative.
   Comments = Document profiles may define what content should be represented in the narrative to ensure clinical safety
-  RIM Mapping = .text
   CDA Mapping = .text
+  RIM Mapping = .text
 
  -- Row 28 -----------------------------------
   Element = Composition.section.mode
@@ -477,8 +477,8 @@
   Short Label = working | snapshot | changes
   Definition = How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted
   Requirements = Sections are used in various ways, and it must be known in what way it is safe to use the entries in them
-  RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
   CDA Mapping = n/a
+  RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
   w5 = class
 
  -- Row 29 -----------------------------------
@@ -486,12 +486,12 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = SectionEntryOrder
-  Short Label = What order the section entries are in
-  Definition = What order applies to the items in the section entries
+  Short Label = Order of section entries
+  Definition = Specifies the order applied to the items in the section entries
   Requirements = Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries.
   Comments = Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order
-  RIM Mapping = .outboundRelationship[typeCode=COMP].sequenceNumber > 1
   CDA Mapping = n/a
+  RIM Mapping = .outboundRelationship[typeCode=COMP].sequenceNumber > 1
 
  -- Row 30 -----------------------------------
   Element = Composition.section.entry
@@ -501,8 +501,8 @@
   Short Label = A reference to data that supports this section
   Definition = A reference to the actual resource from which the narrative in the section is derived
   Comments = If there are no entries in the list, an emptyReason SHOULD be provided
-  RIM Mapping = .outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]
   CDA Mapping = .entry
+  RIM Mapping = .outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]
 
  -- Row 31 -----------------------------------
   Element = Composition.section.emptyReason
@@ -514,8 +514,8 @@
   Definition = If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason
   Requirements = Allows capturing things like \"none exist\" or \"not asked\" which can be important for most lists
   Comments = The various reasons for an empty section make a significant interpretation to its interpretation. Note that this code is for use when the entire section content has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases
-  RIM Mapping = .inboundRelationship[typeCode=SUBJ,code<{ListEmptyReason}].value[type=CD]
   CDA Mapping = n/a
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ,code<{ListEmptyReason}].value[type=CD]
 
  -- Row 32 -----------------------------------
   Element = Composition.section.section
@@ -526,8 +526,8 @@
   Short Label = Nested Section
   Definition = A nested sub-section within this section
   Comments = Nested sections are primarily used to help human readers navigate to particular portions of the document
-  RIM Mapping = ./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode=\"DOCSECT\" and isNormalAct]
   CDA Mapping = .component.section
+  RIM Mapping = ./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode=\"DOCSECT\" and isNormalAct]
 
 === Sheet Search =====================================
 

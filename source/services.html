@@ -14,175 +14,58 @@
 
 <a name="SOA"> </a>
 <a name="soa"> </a>
-<h2>Using Resources with Services</h2>
+<h2>Using Resources with Services and Service-oriented Architecture</h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
-<blockquote class="dstu-note">
-<a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b>  This page and <a href="soa.html">the other FHIR/SOA/Services page</a> will be reconciled and collapsed to a single page during ballot reconciliation.
+Though FHIR Resources are primarily designed for the <a href="http.html">RESTful HTTP-based implementation</a>, it is not necessary to use a RESTful interface when exchanging the resources; one way that they can be exchanged is in the context of services. Service Oriented Architecture (SOA) is an architecture pattern using services to encapsulate and provide discreet pieces of application functionality to each other. Services communicate by invoking public interfaces and exchanging information (as parameters and outputs) in accordance with a well-defined service contract. 
 </p>
-</blockquote>
 <p>
-Though FHIR Resources are primarily designed with for the <a href="http.html">RESTful HTTP-based implementation</a>,
+Generally speaking, services are cohesive sets of functions that maintain responsibility for both data and “state” for the scope of their responsibility.  Services have a unity of function, such as Terminology Management, Identity Management, or so on, working with other services in collaboration as part of an orchestrated workflow.  Data within a service typically follows a “black box” model and is not classically exposed, instead using pre-defined interfaces to make specific behavioral requests for the service to fill.  
+</p>
+<p>
+To relate this to FHIR, resources in a service-oriented implementation can serve two discrete roles:  either as a payload parameter, specifying information flowing into or out of a service; or in a behavioral sense, using FHIR APIs as the invocation mechanism for engaging a service.  Service APIs are often realized using either RESTful or SOAP-based interfaces.
+</p>
+<p>
+Of note, there are potential benefits in considering usage of FHIR and SOA together.  FHIR allows for ease of implementation and ready access to data payload in an open way.  SOA has maturity around transactional integrity across distributed systems instances, providing a framework for loose-coupling and addressing pre-conditions, exception handling, and other implementation considerations of complex distributed systems.
+</p>
+<p>
+This section illustrates different contexts to allow implementers to make informed decisions at implementation time, considering potential impacts and solution patterns to benefit specific situations.  In doing so, this section will clarify what is meant to apply SOA principles and specifications within a FHIR environment/implementation, and the converse.  It will identify the situational factors to consider, and the elements of the SOA discipline that can be applied for more effective FHIR implementation, providing a roadmap on how to optimize your implementation toolkit to make you and your team most effective.
+</p>
+<p>
+This section is being included as FHIR offers a highly flexible framework for interoperability that can be deployed that can be used in a variety of different ways, and in ways that have the potential to hinder interoperability if not done thoughtfully or consistently.  Use of SOA patterns and approaches can mitigate this risk, limiting the potential liability resulting from the extreme flexibility of FHIR and fostering an overall framework that leads to deployment and consistency. SOA provides guidance for how components interact, how to partition responsibilities, and how to manage workflows among different parts of systems, all of which have potential utility in FHIR implementation settings.
+</p>
 
-it is not necessary to use a RESTful interface when exchanging the resources; one way that they can be exchanged 
-is in the context of services. Service Oriented Architecture (SOA) is an architecture pattern using services 
-to encapsulate and provide discreet pieces of application functionality to each other. Services communicate 
-by invoking public interfaces and exchanging information (as parameters and outputs) in accordance to a 
-well-defined service contract. 
+<h3>Service References and Patterns</h3>
+
+<p>
+Generally, the definition of particular services is a domain or context specific task, and it is anticipated that this would be done as separate specifications that make use of the underlying facilities defined in this specification.  HL7 has already defined a portfolio of services that take advantage of REST- and SOAP-based interfaces, but the parameters passed to and from those services are not at present resource-based.  These are potential extension points that may lend well for FHIR implementation.  Services defined like this are able to build on the common underlying platform features defined in this specification such as REST or messaging, and add specific interactions where appropriate. Alternatively, the service interfaces can build an entirely separate implementation. 
 </p>
 <p>
-FHIR resources or <a href="compartments.html#bundle">bundles</a> may be used as the parameters or outputs of service interfaces.
+Note that for each of the items below, there are paired sets of standards, an HL7 Standard defining the functional specification, and an OMG Technical Standard containing SOAP bindings (for all of the items below) and REST bindings (for about half of the items below).    Links to the technical specifications are provided.
 </p>
 <p>
-Generally, the definition of particular services is a domain or context specific task, and it is anticipated
-that this would be done as separate specifications that make use of the underlying facilities defined
-in this specification. Services defined like this are able to build on the common underlying platform
-features defined in this specification such as REST or messaging, and add specific interactions where
-appropriate. Alternatively, the service interfaces can build an entirely separate implementation. 
-</p>
-<p>
-This specification defines a <a href="terminology-service.html">Terminology Service</a> which is 
-tightly integrated with the RESTful API. Definition of other additional services based on the  
-service interface definitions provided by the 
-<a href="http://hssp.wikispaces.com/">HL7 SOA work group</a> will be considered if 
-there is sufficient interest in this.
-</p>
-<blockquote>
-<p>
-<b>DSTU Notice</b>: The RESTful interface is a profile on the existing <a href="http://hssp-rlus.wikispaces.com/RLUS_FAQ">HL7/OMG HSSP 
-RLUS specification</a> (see <a href="http.html#hdata">comments on the RESTful specification</a>). 
-If there is interest, HL7 could define a SOAP equivalent to this. The main interest
-in this would be to provide a common technical base for other SOAP based services. 
-</p>
-</blockquote>
-<p>
-When implementing exchange of resources using a service-based approach, there are two 
-aspects to keep in mind:
+The portfolio of healthcare SOA service specifications includes:
 </p>
 <ul>
- <li>Technical requirements when exchanging resources</li>
- <li>FHIR architectural issues to consider when using services</li>
+ <li>IXS (Identification and Cross-Reference Services) that identifies the characteristic of a generic identification management services  (<a href="http://www.omg.org/spec/IXS">www.omg.org/spec/IXS</a>)</li>
+ <li>RLUS (Retrieve, Locate, Update Service) that supports the generic management resource in a SOA environment.   (<a href="http://www.omg.org/spec/RLUS">www.omg.org/spec/RLUS</a>)</li>
+ <li>ServD (Service directory) that supports the registration and discovery of health and human-related services  (<a href="http://www.omg.org/spec/ServD">www.omg.org/spec/ServD</a>)</li>
+ <li>CDSS (Clinical Decision Support Service) that defines a standard access interface to a clinical decision support system (<a href="http://www.omg.org/spec/CDSS">www.omg.org/spec/CDSS</a>)</li>
+ <li>CTS2 (Common Terminology Service V 2) that defines the capabilities, responsibilities, inputs, outputs, and expected behavior to support the management, maintenance, and interaction with ontologies and medical vocabulary systems (<a href="http://www.omg.org/spec/CTS2">www.omg.org/spec/CTS2</a>)</li>
+ <li>CCS (Care Coordination Service) that provides the capabilities to support the coordination of patient care across the care continuum spanning multiple organization [emerging specification]</li>
+ <li>OS (Order Service) that provides functional capabilities for ordering pharmacy, laboratory, radiology, consult and nutritional services individually or part of an order set [emerging specification].</li>
+ <li>EPSS (Event Publication & Subscription Service) that provides a Service Functional Model (SFM) for services, components and systems to subscribe to clinical events of interest and receive notice when new data are available [emerging specification].</li>
+ <li>UCS (Unified Communications Service) facilitates the bi-directional communication between participants (both SOA services and human participants) that is so essential for the efficient delivery and coordination of patient care [emerging specification].</li>
 </ul>
 <p>
-Both these impact on how services should manage exchanging resources in their design
-and implementation.
-</p>
-
-<a name="tech"> </a>
-<h3>Technical Requirements</h3>
-<p>
-A resource consists of an identifier, some metadata, narrative, and data. 
-When the resources are used with a service, the context of use will need to
-describe how the id and meta data are managed.
-</p>
-<p>
-A key question in this regard is whether the resources that are exchanged across a service interface 
-need to also be handled in a RESTful context around the service. For example, a decision support
-provider service might receive a collection of resources on which a decision is required, and 
-use an internal RESTful service to store and access them. In this case, it would need to take
-the resources out of the service context, and use them in a RESTful context, and generally the
-service would expect to see duplicate resources over time, where versions must be managed 
-correctly. If the resources to be exchanged over services are also to
-be exchanged with REST, the metadata will be required to be managed carefully.
-</p>
-<p><b>Resource Identity</b></p>
-<p>
-All resources have a single identity (the full URL), and a logical id which may be maintained
-as the resource moves from server to server (see <a href="managing.html">"Managing Resource Identity"</a> for further 
-discussion). Since this identity is used by any reference to the resource, it must be maintained 
-when the resource is exchanged so that references from other resources to the one being exchanged can 
-still be resolved. In other words, avoid exchanging the resource anonymously whenever possible.
-</p>
-<p>
-Related to this, resources are modular units that refer to each other. Although 
-resources stand-alone and are each processed independently, it's rarely possible 
-to use a resource to achieve some clinical or business goal without retrieving 
-other referenced resources. Any use of resources in a service environment needs to 
-address how these references can be resolved. This can be achieved by delegating 
-the reference resolution to a RESTful framework, by ensuring that all the relevant 
-resources are contained in the service call, or by making some service based arrangement
-by which additional resources can be retrieved.
-</p>
-<p>
-Services that exchange resources SHOULD maintain resource identity.
-</p>
-
-<p><b>Resource Version</b></p>
-<p>
-Resources have two metadata elements relating to versioning: "Resource.meta.versionId" and "Resource.meta.lastUpdated".
-Because of data/time resolution issues, systems implementing concurrency solutions are 
-strongly recommended to depend on the versionId; the lastUpdated is provided to
-inform human users about information currency. 
-</p>
-<p>
-Services typically assume that the information in the service calls is the latest 
-information. As a consequence, explicit version tracking is often not part of a 
-service call. However if the resources in the service call then need to be used
-in a RESTful fashion, explicitly tracking the version and last modified date 
-will make this subsequent usage much more efficient.
-</p>
-<p>
-Services that exchange resources SHOULD include version information when the resources are exchanged.
-</p>
-
-<p><b>Capability Statement</b></p>
-<p>
-When using <a href="http.html">RESTful exchange</a>, <a href="messaging.html">messaging</a>, and <a href="documents.html">document based</a> 
-exchange, the <a href="conformance.html">conformance statement</a> allows authoring and reading 
-applications to describe how they use a resource. The conformance statement supports trading partner
-negotiation from specification time through to run-time discovery. The conformance statement doesn't
-provide any equivalent way to make declarations about services, though this might be added in 
-the future if common requirements emerge. Services are expected to make appropriate arrangements
-around discovery and compatibility, though it is expected that these will vary considerably. 
-</p>
-<p>
-Services that exchange resources MAY choose to provide support for describing and 
-changing descriptions of service implementations.
-</p>
-
-<a name="architecture"> </a>
-<h3>Architectural Considerations</h3>
-<p>
-FHIR Resources are designed to make use in a wide variety of contexts. In particular,
-FHIR resources are required to be suitable for use in a REST environment. This means
-that there are number of design requirements and choices that impact on how suitable
-resources are for use with services. 
-</p>
-<p>
-If service use was the only consideration, different decisions would be made, and 
-resources would be more suitable for use with services. However this would curtail
-their usefulness and reusability in other contexts. 
-</p>
-
-<p><b>Resource References</b></p>
-<p>
-The most obvious impact is that resources <a href="references.html">refer to each other using full URL
-based references</a>, and there are a number of rules around how these references are 
-resolved. In the context of a service, this means that the references between modules 
-carry this extra weight of choice and obligation, even when it might not be necessary.
-</p>
-
-<p><b>Explicit State</b></p>
-<p>
-All resources represent the various states of the record and real world entities involved
-in a transaction explicitly. This is necessary for use in RESTful and document contexts,
-where there is no explicit transaction. Service interactions are typically associated with
-implicit semantics - a request to change the status of a particular resource to something
-else, for example. The fact that resources carry this state explicitly as well as the 
-transaction fixing state implicitly creates duplication between the two, and this will
-need to be managed.
-</p>
-
-<p><b>Modularity</b></p>
-<p>
-The modularity of resources - which resources are defined, and why - is driven by 
-a wide set of considerations around how they are used. Resources are a platform on 
-which a set of business/clinical services of various kinds are provided. Accordingly, the resources
-are defined for general use, and they can be expected to be less suitable for a 
-particular service than custom defined structures. The pay back is wider re-use 
-of the information that the service deals with.
+Note:   FHIR-enablement of the services above is already occurring on a limited basis.  The <a href="http://hl7.org/fhir/2015Sep/cqif/cqif.html">Clinical Quality Improvement Framework</a>  (CQIF) portion of this specification 
+is an example of a technical interface and resources that have been influenced by prior SOA work.  
+Similarly, this specification defines a <a href="terminology-service.html">Terminology Service</a> which 
+is tightly integrated with the RESTful API (note: this terminology service has different goals than 
+the CTS2 service, so they are not functionally equivalent). FHIR itself is a framework for the instantiation 
+of an RLUS service. Definition of other additional services based on the service interface definitions 
+provided by the HL7 SOA work group will be considered if there is sufficient interest in this.
 </p>
 
 

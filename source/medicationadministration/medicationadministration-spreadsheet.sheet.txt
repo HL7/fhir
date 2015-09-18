@@ -119,7 +119,7 @@
   Card. = 0..*
   Type = Identifier
   Short Label = External identifier
-  Definition = External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
+  Definition = External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
   v2 Mapping = RXA-25-Administered Barcode Identifier
   RIM Mapping = id
   w5 = id
@@ -140,8 +140,8 @@
   Element = MedicationAdministration.patient
   Card. = 1..1
   Type = Reference(Patient)
-  Short Label = Who received medication?
-  Definition = The person or animal to whom the medication was given.
+  Short Label = Who received medication
+  Definition = The person or animal receiving the medication.
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = subject->Patient
   w5 = who.focus
@@ -150,7 +150,7 @@
   Element = MedicationAdministration.practitioner
   Card. = 0..1
   Type = Reference(Practitioner | Patient | RelatedPerson)
-  Short Label = Who administered substance?
+  Short Label = Who administered substance
   Definition = The individual who was responsible for giving the medication to the patient.
   v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
   RIM Mapping = performer->Role
@@ -161,7 +161,7 @@
   Card. = 0..1
   Type = Reference(Encounter)
   Short Label = Encounter administered as part of
-  Definition = The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.
+  Definition = The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.
   v2 Mapping = PV1-19-Visit Number
   RIM Mapping = component->EncounterEvent
   w5 = context
@@ -222,7 +222,7 @@
   Element = MedicationAdministration.medication[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(Medication)
-  Short Label = What was administered?
+  Short Label = What was administered
   Definition = Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the administered medication. When the only available information is a text description of the medication, Medication.code.text should be used
   v2 Mapping = RXA-5-Administered Code
@@ -233,7 +233,7 @@
   Card. = 0..*
   Type = Reference(Device)
   Short Label = Device used to administer
-  Definition = The device used in administering the medication to the patient; e.g. a particular infusion pump
+  Definition = The device used in administering the medication to the patient.  For example, a particular infusion pump
   v2 Mapping = PRT-10 Participation Device / RXR-3 Administrative Device
   RIM Mapping = device->Access  OR device->AssignedDevice
 
@@ -266,7 +266,7 @@
   Type = CodeableConcept | Reference(BodySite)
   Binding = MedicationAdministrationSite
   Short Label = Body site administered to
-  Definition = A coded specification of the anatomic site where the medication first entered the body; e.g. \"left arm\"
+  Definition = A coded specification of the anatomic site where the medication first entered the body.  For example, \"left arm\"
   v2 Mapping = RXR-2 Administration Site / RXR-6 Administration Site Modifier
   RIM Mapping = approachSiteCode
 
@@ -276,7 +276,7 @@
   Type = CodeableConcept
   Binding = RouteOfAdministration
   Short Label = Path of substance into body
-  Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.   E.g. topical, intravenous, etc.
+  Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc.
   v2 Mapping = RXR-1-Route
   RIM Mapping = routeCode
 
@@ -286,7 +286,8 @@
   Type = CodeableConcept
   Binding = MedicationAdministrationMethod
   Short Label = How drug was administered
-  Definition = A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  Examples: Slow Push, Deep IV.  One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
+  Definition = A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.
+  Comments = One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
   v2 Mapping = RXR-4-Administration Method
   RIM Mapping = methodCode
 
@@ -306,7 +307,7 @@
   Type = Ratio|Range
   Short Label = Dose quantity per unit of time
   Definition = Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Currently we do not specify a default of \'1\' in the denominator, but this is being discussed.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
-  Comments = If the rate changes over time, and you want to capture this in Medication Administration, then each change should be captured as a distinct Medication Administration, with a specific MedicationAdministration.dosage.rate, and the date time when the rate change occurred. Typically, the MedicationAdministration.dosage.rate element is not used to convey an average rate.
+  Comments = If the rate changes over time, and you want to capture this in MedicationAdministration, then each change should be captured as a distinct MedicationAdministration, with a specific MedicationAdministration.dosage.rate, and the date time when the rate change occurred. Typically, the MedicationAdministration.dosage.rate element is not used to convey an average rate.
   v2 Mapping = RXA-12-Administered Per (Time Unit)
   RIM Mapping = rateQuantity
 

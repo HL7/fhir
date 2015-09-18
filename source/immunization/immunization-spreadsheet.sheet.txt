@@ -95,8 +95,8 @@
   Type = Identifier
   Short Label = Business identifier
   Definition = A unique identifier assigned to this immunization record.
-  RIM Mapping = .id
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/id
+  RIM Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -108,7 +108,7 @@
   Binding = ImmunizationStatus
   Short Label = in-progress | on-hold | completed | entered-in-error | stopped
   Definition = Indicates the current status of the vaccination event
-  Comments = Will generally be set to show that the immunizationhas been completed.
+  Comments = Will generally be set to show that the immunization has been completed.
   RIM Mapping = statusCode
   Committee Notes = #7867
   w5 = status
@@ -120,9 +120,9 @@
   Short Label = Vaccination administration date
   Definition = Date vaccine administered or was to be administered
   Comments = When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value
   v2 Mapping = RXA-3-date/time start of administration
   RIM Mapping = .effectiveTime
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value
   Committee Notes = #7887
   w5 = when.init
 
@@ -133,9 +133,9 @@
   Binding = VaccineCode
   Short Label = Vaccine product administered
   Definition = Vaccine that was administered or was to be administered
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code
   v2 Mapping = RXA-5-administered code
   RIM Mapping = .code
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code
   Committee Notes = #6128
   w5 = what
 
@@ -143,7 +143,7 @@
   Element = Immunization.patient
   Card. = 1..1
   Type = Reference(Patient)
-  Short Label = Who was immunized?
+  Short Label = Who was immunized
   Definition = The patient who either received or did not receive the immunization.
   v2 Mapping = PID-3-patient ID list
   RIM Mapping = .partipication[ttypeCode=].role
@@ -165,7 +165,7 @@
   Element = Immunization.reported
   Card. = 1..1
   Type = boolean
-  Short Label = Is this a self-reported record?
+  Short Label = Indicates a self-reported record
   Definition = True if this administration was reported rather than directly administered.
   Comments = May need source of reported info (e.g. parent), but leave out for now.
   v2 Mapping = RXA-9
@@ -176,18 +176,18 @@
   Element = Immunization.performer
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = Who administered vaccine?
+  Short Label = Who administered vaccine
   Definition = Clinician who administered the vaccine
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name
   v2 Mapping = RXA-10-administering provider
   RIM Mapping = .participation[typeCode=PRF].COCT_MT090102UV
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/performer/assignedEntity/assignedPerson/name
   w5 = who.actor
 
  -- Row 10 -----------------------------------
   Element = Immunization.requester
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = Who ordered vaccination?
+  Short Label = Who ordered vaccination
   Definition = Clinician who ordered the vaccination
   Comments = Other participants - delegate to Provenance resource
   v2 Mapping = ORC-12-ordering provider
@@ -211,15 +211,15 @@
   Type = Reference(Organization)
   Short Label = Vaccine manufacturer
   Definition = Name of vaccine manufacturer
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name
   v2 Mapping = RXA-17-substance manufacturer name
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=ORG]
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name
 
  -- Row 13 -----------------------------------
   Element = Immunization.location
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = Where did vaccination occur?
+  Short Label = Where vaccination occurred
   Definition = The service delivery location where the vaccine administration occurred.
   v2 Mapping = RXA-27-administered-at (or RXA-11-administered-at location, deprecated as of v2.7)
   RIM Mapping = .participation[typeCode=LOC].COCT_MT240000UV
@@ -231,9 +231,9 @@
   Type = string
   Short Label = Vaccine lot number
   Definition = Lot number of the  vaccine product
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText
   v2 Mapping = RXA-15-substance lot number
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText
 
  -- Row 15 -----------------------------------
   Element = Immunization.expirationDate
@@ -251,9 +251,9 @@
   Binding = ImmunizationSite
   Short Label = Body site vaccine  was administered
   Definition = Body site where vaccine was administered
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code
   v2 Mapping = RXR-2-administration site
   RIM Mapping = observation.targetSiteCode
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code
 
  -- Row 17 -----------------------------------
   Element = Immunization.route
@@ -262,9 +262,9 @@
   Binding = ImmunizationRoute
   Short Label = How vaccine entered body
   Definition = The path by which the vaccine product is taken into the body.
+  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code
   v2 Mapping = RXR-1-route
   RIM Mapping = .routeCode
-  CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code
 
  -- Row 18 -----------------------------------
   Element = Immunization.doseQuantity
@@ -289,7 +289,7 @@
   Element = Immunization.explanation
   Card. = 0..1
   UML = 410;320
-  Short Label = Administration / non-administration reasons
+  Short Label = Administration/non-administration reasons
   Definition = Reasons why a vaccine was or was not administered
   RIM Mapping = n/a
 
@@ -318,7 +318,7 @@
   UML = 410;0
   Short Label = Details of a reaction that follows immunization
   Definition = Categorical data indicating that an adverse event is associated in time to an immunization
-  Comments = A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case,  it should be recorded as a new [AllergyIntolerance](allergyintolerance.html) resource instance as most systems won\'t query against  past Immunization.reaction elements.
+  Comments = A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case,  it should be recorded as a new [[[AllergyIntolerance]]] resource instance as most systems will not query against  past Immunization.reaction elements.
   v2 Mapping = OBX-3
   RIM Mapping = Observation[classCode=obs].code
   Committee Notes = #7765
@@ -327,7 +327,7 @@
   Element = Immunization.reaction.date
   Card. = 0..1
   Type = dateTime
-  Short Label = When did reaction start?
+  Short Label = When reaction started
   Definition = Date of reaction to the immunization
   v2 Mapping = OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 v2 VXU message - most likely would appear in OBX segments if at all)
   RIM Mapping = .effectiveTime
@@ -345,7 +345,7 @@
   Element = Immunization.reaction.reported
   Card. = 0..1
   Type = boolean
-  Short Label = Was reaction self-reported?
+  Short Label = Indicates self-reported reaction
   Definition = Self-reported indicator
   v2 Mapping = (no such concept seems to exist for allergy/adverse reaction in HL7 v2)
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported=true)
@@ -380,7 +380,7 @@
   Card. = 0..1
   Type = Reference(Organization)
   Short Label = Who is responsible for protocol
-  Definition = Indicates the authority who published the protocol?  E.g. ACIP
+  Definition = Indicates the authority who published the protocol.  E.g. ACIP
   RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].participation[typeCode=AUT].COCT_MT090200UV
 
  -- Row 31 -----------------------------------
@@ -413,7 +413,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = VaccinationProtocolDoseStatus
-  Short Label = Does dose count towards immunity?
+  Short Label = Indicates if dose counts towards immunity
   Definition = Indicates if the immunization event should \"count\" against  the protocol.
   Comments = May need to differentiate between status declarations by a provider vs. a CDS engine
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].playedRole[classCode=INGR].scopedRole.scoper[classCode=MMAT].playedRole[classCode=HLTHCHRT].participation[typeCode=SBJ].observation[classCode=OBS].value
@@ -423,8 +423,8 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = VaccinationProtocolDoseStatusReason
-  Short Label = Why does does count/not count?
-  Definition = Provides an explanation as to why a immunization event should or should not count against the protocol.
+  Short Label = Why dose does (not) count
+  Definition = Provides an explanation as to why an immunization event should or should not count against the protocol.
   RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].playedRole[classCode=INGR].scopedRole.scoper[classCode=MMAT].playedRole[classCode=HLTHCHRT].participation[typeCode=SBJ].observation[classCode=OBS].reasonCode
 
 === Sheet Search =====================================

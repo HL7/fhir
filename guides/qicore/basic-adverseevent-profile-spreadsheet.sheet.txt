@@ -70,7 +70,7 @@
 
  -- Row 7 -----------------------------------
   Element = Basic.extension.extension
-  Profile Name = cause.item
+  Profile Name = item
   Must Support = Y
   Type = Extension{#cause#item}
   QDM Mapping = primary code
@@ -78,7 +78,7 @@
 
  -- Row 8 -----------------------------------
   Element = Basic.extension.extension
-  Profile Name = cause.certainty
+  Profile Name = certainty
   Type = Extension{#cause#certainty}
   Binding = AdverseEventCauseCertainty
   Short Label = unlikely | likely | confirmed

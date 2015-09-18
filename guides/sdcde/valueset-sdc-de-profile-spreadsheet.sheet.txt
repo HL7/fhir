@@ -7,6 +7,7 @@
   Element = ValueSet
   Profile Name = SDCValueSet
   Type = Resource
+  Definition = Sets expectations for SDC-conformant systems using value sets to represent the value meaning and/or permitted values for a data element.
   IHE SDC mapping = Form_Package//list_field
 
  -- Row 2 -----------------------------------

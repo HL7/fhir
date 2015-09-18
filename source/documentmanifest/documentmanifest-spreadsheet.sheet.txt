@@ -5,7 +5,7 @@
   Binding Name = DocumentC80Type
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/c80-doc-typecodes
-  Definition = Precice type of clinical document.
+  Definition = Precise type of clinical document.
   Conformance = Preferred
 
 === Sheet Invariants =====================================
@@ -57,7 +57,7 @@
   Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
   Short Label = Intended to get notified about this set of documents
   Definition = A patient, practitioner, or organization for which this set of documents is intended
-  Comments = How the recipient receives the document set or is notified of it is up to the implementation. This element is just a statement of intent. If the recipient is a person, and it’s not known whether the person is a patient or a practitioner, RelatedPerson would be the default choice
+  Comments = How the recipient receives the document set or is notified of it is up to the implementation. This element is just a statement of intent. If the recipient is a person, and it is not known whether the person is a patient or a practitioner, RelatedPerson would be the default choice
   XDS Mapping = SubmissionSet.intendedRecipient
   RIM Mapping = .participation[typeCode=IRCP].role
   w5 = who.cause
@@ -89,7 +89,7 @@
   Card. = 0..1
   Type = dateTime
   Short Label = When this document manifest created
-  Definition = When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc.)
+  Definition = When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.)
   Comments = Creation time is used for tracking, organizing versions and searching. This is the creation time of the document set, not the documents on which it is based
   XDS Mapping = SubmissionSet.submissionTime
   RIM Mapping = .participation[typeCode=AUT].time
@@ -163,7 +163,7 @@
   Type = Attachment|Reference(Any)
   Short Label = Contents of this set of documents
   Definition = The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed
-  Comments = The intended focus of the DocumentManifest is for the reference to target either DocumentReference or Media Resources, and most implementation guides will restrict to these resources. The reference is to any to support EN 13606 usage, where an extract is DocumentManifest that references  List and Composition resources
+  Comments = The intended focus of the DocumentManifest is for the reference to target either DocumentReference or Media Resources, and most implementation guides will restrict to these resources. The reference is to \"Any\" to support EN 13606 usage, where an extract is DocumentManifest that references  List and Composition resources
   XDS Mapping = SubmissionSet DocumentEntry(s)
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
@@ -181,16 +181,16 @@
   Card. = 0..1
   Type = Identifier
   Short Label = Identifiers of things that are related
-  Definition = Related identifier to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
-  Comments = Order numbers, accession numbers, XDW workflow numbers.
+  Definition = Related identifier to this DocumentManifest.  For example, Order numbers, accession numbers, XDW workflow numbers.
+  Comments = If both identifier and ref elements are present they shall refer to the same thing.
 
  -- Row 18 -----------------------------------
   Element = DocumentManifest.related.ref
   Card. = 0..1
   Type = Reference(Any)
   Short Label = Related Resource
-  Definition = Related Resource to this DocumentManifest. If both id and ref are present they shall refer to the same thing.
-  Comments = Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.
+  Definition = Related Resource to this DocumentManifest. For example, Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.
+  Comments = If both identifier and ref elements are present they shall refer to the same thing.
 
 === Sheet Search =====================================
 

@@ -14,6 +14,7 @@
   Element = DataElement
   Profile Name = SDCDataElement
   Type = Resource
+  Definition = Represents expectations for use of data elements by SDC conformant systems using data elements to support population of questionnaires.
 
  -- Row 2 -----------------------------------
   Element = DataElement.url

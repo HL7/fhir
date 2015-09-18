@@ -5,7 +5,7 @@
   Binding Name = MedicationDispenseType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType
-  Definition = Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
+  Definition = Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
   Description = ActPharmacySupplyType 
   Conformance = example
 
@@ -177,7 +177,7 @@
   Type = CodeableConcept
   Binding = MedicationDispenseType
   Short Label = Trial fill, partial fill, emergency fill, etc.
-  Definition = Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
+  Definition = Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
   v2 Mapping = RXD-33-Dispense Type
   RIM Mapping = .code
 
@@ -221,7 +221,7 @@
   Element = MedicationDispense.whenHandedOver
   Card. = 0..1
   Type = dateTime
-  Short Label = Handover time
+  Short Label = When product was given out
   Definition = The time the dispensed product was provided to the patient or their representative.
   v2 Mapping = RXD-3-Date/Time Dispensed
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].high
@@ -242,7 +242,7 @@
   Card. = 0..*
   Type = Reference(Patient|Practitioner)
   Short Label = Who collected the medication
-  Definition = Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional
+  Definition = Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional
   RIM Mapping = .participation[typeCode=RCV].role
   Committee Notes = This is in the core because Controlled Drugs must be signed for and the recievers identiy must be recorded.
 
@@ -258,9 +258,9 @@
   Element = MedicationDispense.dosageInstruction
   Card. = 0..*
   UML = right
-  Short Label = Medicine administration instructions to the patient/carer
+  Short Label = Medicine administration instructions to the patient/caregiver
   Definition = Indicates how the medication is to be used by the patient
-  Comments = When the dose or rate is intended to change over the entire administration period, e.g. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.
+  Comments = When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 
@@ -285,7 +285,7 @@
   Card. = 0..1
   Type = Timing
   Short Label = When medication should be administered
-  Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"
+  Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions.  For example, \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"
   RIM Mapping = .effectiveTime
 
  -- Row 20 -----------------------------------
@@ -323,7 +323,8 @@
   Type = CodeableConcept
   Binding = MedicationAdministrationMethod
   Short Label = Technique for administering medication
-  Definition = A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  Examples: Slow Push, Deep IV.  One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
+  Definition = A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.
+  Comments = This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.  One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
   v2 Mapping = RXR-4-Administration Method
   RIM Mapping = .methodCode
 
@@ -360,7 +361,7 @@
   Card. = 0..1
   UML = right
   Short Label = Deals with substitution of one medicine for another
-  Definition = Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn\'t happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.
+  Definition = Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]
   To Do = Shouldn\'t substitution be captured on a product by product basis?
   Committee Notes = Significant discssion around this topic.  May not have it right yet. What about the attribution?
@@ -370,7 +371,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = MedicationIntendedSubstitutionType
-  Short Label = Type of substitiution
+  Short Label = Type of substitution
   Definition = A code signifying whether a different drug was dispensed from what was prescribed.
   v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = .code
@@ -391,8 +392,8 @@
   Type = Reference(Practitioner)
   Short Label = Who is responsible for the substitution
   Definition = The person or organization that has primary responsibility for the substitution
-  Comments = rename
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
+  To Do = rename
   Committee Notes = Who is this handled?  Elsewhere attribution is handled by FHIR
 
 === Sheet Search =====================================

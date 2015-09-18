@@ -72,7 +72,7 @@
   Short Label = draft | active | retired
   Definition = The status of the concept map
   Requirements = Identify when/if the concept map should be used.
-  Comments = Allows filtering of ConceptMaps that are appropriate for use
+  Comments = Allows filtering of ConceptMap resources that are appropriate for use
   RIM Mapping = N/A
   w5 = status
 
@@ -83,7 +83,7 @@
   Type = boolean
   Short Label = If for testing purposes, not real usage
   Definition = This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
-  Comments = Allows filtering of ConceptMaps that are appropriate for use
+  Comments = Allows filtering of ConceptMap resources that are appropriate for use
   w5 = class
 
  -- Row 8 -----------------------------------
@@ -91,7 +91,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Name of the publisher (Organization or individual)
+  Short Label = Name of the publisher (organization or individual)
   Definition = The name of the individual or organization that published the concept map
   Requirements = Helps establish the \"authority/credibility\" of the concept map.  May also allow for contact
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
@@ -104,7 +104,7 @@
   UML = 380;20
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
-  Comments = May be a web site, an email address, a telephone number (tel:), etc.
+  Comments = May be a web site, an email address, a telephone number, etc.
 
  -- Row 10 -----------------------------------
   Element = ConceptMap.contact.name
@@ -153,17 +153,17 @@
   Type = CodeableConcept
   Binding = ConformanceUseContext
   Short Label = Content intends to support these contexts
-  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of concept maps.
-  Requirements = Assist in searching for appropriate concept maps
+  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of concept map instances.
+  Requirements = Assist in searching for appropriate concept map instances
   RIM Mapping = N/A
 
  -- Row 15 -----------------------------------
   Element = ConceptMap.requirements
   Card. = 0..1
   Type = string
-  Short Label = Why is this needed?
-  Definition = Explains why this concept map is needed and why it\'s been constrained as it has
-  Comments = This element does not describe the usage of the concept map (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+  Short Label = Why needed
+  Definition = Explains why this concept map is needed and why it has been constrained as it has
+  Comments = This element does not describe the usage of the concept map (that is done in comments), rather it\'s for traceability of \'\'why\'\' the element is either needed or \'\'why\'\' the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
 
  -- Row 16 -----------------------------------
   Element = ConceptMap.copyright
@@ -199,7 +199,7 @@
   Type = =SourceElement
   Short Label = Mappings for a concept from the source set
   Definition = Mappings for an individual concept in the source to one or more concepts in the target
-  Comments = Generally, the ideal is that there would only be one mapping for each concept in the source value set, but a given concept may be mapped mutliple times with different comments or dependencies
+  Comments = Generally, the ideal is that there would only be one mapping for each concept in the source value set, but a given concept may be mapped multiple times with different comments or dependencies
 
  -- Row 20 -----------------------------------
   Element = ConceptMap.element.codeSystem
@@ -270,8 +270,8 @@
   Element = ConceptMap.element.target.dependsOn.element
   Card. = 1..1
   Type = uri
-  Short Label = Reference to element/field/valueset mapping depends on
-  Definition = A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition
+  Short Label = Reference to element/field/ValueSet mapping depends on
+  Definition = A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. HL7 v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition
 
  -- Row 29 -----------------------------------
   Element = ConceptMap.element.target.dependsOn.codeSystem
@@ -285,7 +285,7 @@
   Card. = 1..1
   Type = string
   Short Label = Value of the referenced element
-  Definition = Identity (code or path) or the element/item that the map depends on / refers to
+  Definition = Identity (code or path) or the element/item/ValueSet that the map depends on / refers to
 
  -- Row 31 -----------------------------------
   Element = ConceptMap.element.target.product

@@ -52,6 +52,7 @@
   Element = DataElement
   Profile Name = SDCDataElement
   Type = Resource
+  Definition = Sets expectations for SDC conformant systems wishing to share data elements between registries.
   11179 Mapping = Data_Element
 
  -- Row 2 -----------------------------------

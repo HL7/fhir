@@ -307,7 +307,7 @@
   Card. = 0..1
   Must Support = Y
   Binding = USCountry
-  Short Label = ISO 3166 3 letter Country Code
+  Short Label = ISO 3166 2 or 3 letter Country Code
 
  -- Row 38 -----------------------------------
   Element = Patient.animal

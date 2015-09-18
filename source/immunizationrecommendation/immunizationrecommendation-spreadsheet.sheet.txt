@@ -115,7 +115,7 @@
   Card. = 0..*
   UML = 350;0
   Short Label = Dates governing proposed immunization
-  Definition = Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.
+  Definition = Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc.
   v2 Mapping = OBX-3: 30980-7 = Next dose recommended, 59777-3 = Latest next dose should be given, 59778-1 = Dose is overdue
   RIM Mapping = .outboundRelationship[typeCode=\'LIMIT\'].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]
 
@@ -125,7 +125,7 @@
   Type = CodeableConcept
   Binding = ImmunizationRecommendationDateCriterion
   Short Label = Type of date
-  Definition = Date classification of recommendation - e.g. earliest date to give, latest date to give, etc.
+  Definition = Date classification of recommendation.  For example, earliest date to give, latest date to give, etc.
   v2 Mapping = OBX-3-observation identifier
   RIM Mapping = .code
 
@@ -134,7 +134,7 @@
   Card. = 1..1
   Type = dateTime
   Short Label = Recommended date
-  Definition = Date recommendation
+  Definition = The date whose meaning is specified by dateCriterion.code
   v2 Mapping = OBX-5-observation value
   RIM Mapping = .value
 
@@ -169,7 +169,7 @@
   Card. = 0..1
   Type = Reference(Organization)
   Short Label = Who is responsible for protocol
-  Definition = Indicates the authority who published the protocol?  E.g. ACIP
+  Definition = Indicates the authority who published the protocol.  For example, ACIP
   v2 Mapping = OBX-5-observation value : OBX-3-observation identifier = 59779-9
   RIM Mapping = .participation[typeCode=AUT]
 

@@ -133,7 +133,7 @@
   Card. = 0..*
   Type = Identifier
   Short Label = External identifier
-  Definition = External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.
+  Definition = External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = id
   w5 = id
@@ -200,7 +200,7 @@
   Element = MedicationOrder.encounter
   Card. = 0..1
   Type = Reference(Encounter)
-  Short Label = Created during encounter / admission / stay
+  Short Label = Created during encounter/admission/stay
   Definition = A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
   Comments = SubstanceAdministration->component->EncounterEvent
   v2 Mapping = PV1-19-Visit Number
@@ -242,7 +242,7 @@
   UML = 420;0
   Short Label = How medication should be taken
   Definition = Indicates how the medication is to be used by the patient
-  Comments = When the dose or rate is intended to change over the entire administration period, e.g. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates. Another common example in institutional settings is \'titration\' of an IV medication dose to maintain a specific stated hemodynamic value or range e.g. durg x to be administered to maintain AM (arterial mean) greater than 65.
+  Comments = When the dose or rate is intended to change over the entire administration period, e.g. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates. Another common example in institutional settings is \'titration\' of an IV medication dose to maintain a specific stated hemodynamic value or range e.g. drug x to be administered to maintain AM (arterial mean) greater than 65.
   RIM Mapping = component.substanceAdministrationRequest
 
  -- Row 14 -----------------------------------
@@ -269,7 +269,8 @@
   Card. = 0..1
   Type = Timing
   Short Label = When medication should be administered
-  Definition = The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.
+  Definition = The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
+  Comments = This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.
   v2 Mapping = TQ1-X / ORC Quantity/timing
   RIM Mapping = effectiveTime
 
@@ -279,7 +280,8 @@
   Type = boolean | CodeableConcept
   Binding = MedicationAsNeededReason
   Short Label = Take \"as needed\" (for x)
-  Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  \n\nSpecifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
+  Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
+  Comments = Specifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
   RIM Mapping = boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: precondition.observationEventCriterion[code=\"Assertion\"].value
 
  -- Row 18 -----------------------------------
@@ -298,7 +300,7 @@
   Type = CodeableConcept
   Binding = RouteOfAdministration
   Short Label = How drug should enter body
-  Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient.
+  Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient\'s body.
   v2 Mapping = RXR-1-Route
   RIM Mapping = routeCode
 
@@ -308,7 +310,8 @@
   Type = CodeableConcept
   Binding = MedicationAdministrationMethod
   Short Label = Technique for administering medication
-  Definition = A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.  Terminologies used often pre-coordinate this term with the route and or form of administration.
+  Definition = A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  For examples, Slow Push; Deep IV.
+  Comments = Terminologies used often pre-coordinate this term with the route and or form of administration.
   v2 Mapping = RXR-4-Administration Method
   RIM Mapping = methodCode
 
@@ -318,7 +321,7 @@
   Type = Range | SimpleQuantity
   Short Label = Amount of medication per dose
   Definition = The amount of therapeutic or other substance given at one administration event.
-  Comments = Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug xyz. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
+  Comments = Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
   v2 Mapping = RXE-23-Give Rate Amount / RXE-24.1-Give Rate Units.code / RXE-24.3-Give Rate Units.name of coding system
   RIM Mapping = doseQuantity
 
@@ -337,7 +340,7 @@
   Card. = 0..1
   Type = Ratio
   Short Label = Upper limit on medication per unit of time
-  Definition = The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time; e.g. 1000mg in 24 hours.
+  Definition = The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.
   Comments = This is intended for use as an adjunct to the dosage when there is an upper cap.  For example \"2 tablets every 4 hours to a maximum of 8/day\"
   v2 Mapping = RXE-4-Give Amount - Maximum / RXE-5-Give Units
   RIM Mapping = maxDoseQuantity
@@ -365,7 +368,9 @@
   Card. = 0..1
   Type = Period
   Short Label = Time period supply is authorized for
-  Definition = Design Comments: This indicates the validity period of a prescription (stale dating the Prescription)  It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.  Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.
+  Definition = This indicates the validity period of a prescription (stale dating the Prescription)
+  Requirements = Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.
+  Comments = It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.
   RIM Mapping = effectiveTime
   To Do = Check v2 mapping
 
@@ -373,7 +378,7 @@
   Element = MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
   Card. = 0..1
   Type = positiveInt
-  Short Label = # of refills authorized
+  Short Label = Number of refills authorized
   Definition = An integer indicating the number of additional times (aka refills or repeats) the patient can receive the prescribed medication.   Usage Notes: This integer does NOT include the original order dispense.   This means that if an order indicates dispense 30 tablets plus  \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
   Comments = If displaying \"number of authorized refills\", subtract 1 from this number.
   v2 Mapping = RXE-12-Number of Refills
@@ -393,15 +398,16 @@
   Element = MedicationOrder.dispenseRequest.expectedSupplyDuration
   Card. = 0..1
   Type = Duration
-  Short Label = Days supply per dispense
-  Definition = Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.  In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
+  Short Label = Number of days supply per dispense
+  Definition = Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.
+  Comments = In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
   RIM Mapping = expectedUseTime
 
  -- Row 30 -----------------------------------
   Element = MedicationOrder.substitution
   Card. = 0..1
   UML = 0;260
-  Short Label = Any restrictions on medication substitution?
+  Short Label = Any restrictions on medication substitution
   Definition = Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber\'s intent. If nothing is specified substitution may be done.
   RIM Mapping = subjectOf.substitutionPersmission
 
@@ -420,7 +426,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = MedicationIntendedSubstitutionReason
-  Short Label = Why should substitution (not) be made
+  Short Label = Why should (not) substitution be made
   Definition = Indicates the reason for the substitution, or why substitution must or must not be performed.
   v2 Mapping = RXE-9 Substition status
   RIM Mapping = reasonCode

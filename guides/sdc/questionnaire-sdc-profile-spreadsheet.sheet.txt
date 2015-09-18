@@ -24,6 +24,7 @@
   Element = Questionnaire
   Profile Name = SDCQuestionnaire
   Type = DomainResource
+  Definition = Sets minimum expectations for questionnaire support for SDC-conformant systems, including a number of extensions around display and behavior.
   IHE SDC mapping = Form_Package
 
  -- Row 2 -----------------------------------
