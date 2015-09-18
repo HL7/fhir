@@ -22,7 +22,7 @@
     <h3>Multiple Organizations and Transfer of Care</h3>
     <p>
       Many organizations can be involved in an EpisodeOfCare, however each organization will have their own EpisodeOfCare
-      which tracks their responsibility with the Patient.
+      which tracks their responsibility with the patient.
     </p>
     <p>
       When an Organization completes their involvement with the patient and transfers care to another Organization.

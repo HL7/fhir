@@ -29,6 +29,6 @@ used to associate these short visits with either the third patient movement or t
 </ul>
 <p>Exactly how the Encounter is used depends on information available in the source system, the relevance of exchange
 of each level of Encounter and demands specific to the communicating partners. The expectation is that for each
-domain of exchange, Profiles are used to limit the flexibility of Encounter to meet the demands of the usecase.</p>
+domain of exchange, profiles are used to limit the flexibility of Encounter to meet the demands of the use case.</p>
 
 </div>

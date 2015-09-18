@@ -49,12 +49,12 @@ histories) a status history component is included.
 <p>
 There is no direct indication purely by the status field as to if an encounter is considered "admitted".<br/>
 The context of the encounter and business practices/policies/workflows/types can influence this definition.
-(e.g. Acure Care facility, Aged Care Centre, Outpatient Clinic, Emergency Dept, Community Based Clinic)<br/>
-Statuses of "arrived" or "inprogress" could be considered the start of the admission, and also have the 
+(e.g., acute care facility, aged care center, outpatient clinic, emergency department, community based clinic).<br/>
+Statuses of "arrived" or "in progress" could be considered the start of the admission, and also have the 
 presence of the hospitalization sub-component entered.
 </p>
 <p>
-The "onleave" status may or may not be a part of the admission, for example if the patient 
+The "on leave" status may or may not be a part of the admission, for example if the patient 
 was permitted to go home for a weekend or some other form of external event.<br/>
 The location is also likely to be filled in with a location status of "present".<br/>
 For other examples such as an outpatient visit (Day Procedure - colonoscopy), the patient could also be 

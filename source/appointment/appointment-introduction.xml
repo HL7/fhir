@@ -50,18 +50,18 @@
 			<li>
 				<b>Making the Appointment Request</b>
 				<p>
-					When an appointment is required, a Requester creates new Appointment resource with the Appointment.status=”proposed”.<br/>
+					When an appointment is required, a requester creates new Appointment resource with the Appointment.status=”proposed”.<br/>
 					All included participants (optional or mandatory) should have the status=”needs-action” to allow filtering and displaying
 					appointments to user-participants for accepting or rejecting new and updated requests. Based on internal system business rules,
 					certain statuses may be automatically updated, for example: “reject because the requested participant is on vacation” or 
-					“this type of users is not allowed to request those specific appointments.
+					“this type of user is not allowed to request those specific appointments”.
 				</p>
 			</li>
 			<li>
 				<b>Replying to the request</b>
 				<p>
 					The reply process is simply performed by the person/system handing the requests updating
-					the Participant Statuses as needed. If there are multiple systems involved, then these
+					the participant statuses as needed. If there are multiple systems involved, then these
 					will create AppointmentResponse entries with the desired statuses.
 				</p>
 				<p>
@@ -73,8 +73,8 @@
 			<li>
 				<b>Checking the overall status (Requester)</b>
 				<p>
-					The Requester (organizer) of the appointment checks for the overall status of the appointment
-					(and appointmentresponses where applicable) using fhir pub-sub techniques.
+					The requester (organizer) of the appointment checks for the overall status of the appointment
+					(and appointment responses, where applicable) using FHIR pub-sub techniques.
 				</p>
 				<p>
 					Where the participant statuses indicate that a re-scheduling is required, then the process may
@@ -132,7 +132,7 @@
 			and presents the approved details of the appointment.
 		</p>
 		<p>
-			The participant type property can be used to represent a specfic role that a practitioner 
+			The participant type property can be used to represent a specific role that a practitioner 
 			is required to perform for the appointment. This could be specified without an actor when the actual
 			practitioner is not known, and will be filled in closer to the scheduled time.<br/>
 			This property must be the same between the Appointment-participant and the AppointmentResponse
@@ -159,7 +159,7 @@
       This is due to the close relationship to the iCAL standard. Many non-clinical systems use generic
       non health appointment systems which implement this standard, and the desire to integrate
       with the consumer who has no access to health based software is highly desirable.<br/>
-      The mappings to the iCAL standard has been provided to guide implementation of gateways between
+      The mappings to the iCAL standard have been provided to guide implementation of gateways between
       FHIR servers and iCAL systems.
     </p>
 		<h3>Appointment Locations and Participation</h3>

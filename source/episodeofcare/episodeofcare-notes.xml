@@ -7,10 +7,10 @@
 	<h2>Status Management</h2>
 		<h3>History and Period</h3>
 		<p>
-			When an Organization assumes responsibility for a patient, then the EpisodeOfCare is created and a start date
+			When an organization assumes responsibility for a patient, then the EpisodeOfCare is created and a start date
 			entered to show when it has begun.<br/>
-			As the Organizations responsibility changes, as does the status of the EpisodeOfCare.<br/>
-			This is described via an example below for an example intake workflow.
+			As the organization's responsibility changes, so does the status of the EpisodeOfCare.<br/>
+			This is described via an example below for an intake workflow.
 		</p>
 		<p></p>
 		<h3>Leave Handling</h3>
@@ -18,7 +18,7 @@
 			With long term care there is often a concept of the provision of care being suspended for various reasons.
 			Many systems have extensive Leave Management/Tracking solutions which consider the complexities of this space,
 			however this EpisodeOfCare resource is NOT intended to provide this level of tracking.<br/>
-		  Extension(s) may be used on the status/status history to track the onhold reason which can facilitite the processing.
+		  Extension(s) may be used on the status/status history to track the on hold reason, which can facilitate the processing.
 		</p>
 		<p>A more complete Leave Management solution may have to deal with:</p>
 		<ul>
@@ -52,10 +52,10 @@
 				<i>The provision of care is then managed through the care plan, with all activities will also being linked to the EpisodeOfCare</i>
 			</li>
 			<li>
-				The patient is admitted to hospital for some procedures, EpisodeOfCare is marked as onhold<br/>
+				The patient is admitted to hospital for some procedures, and the EpisodeOfCare is marked as on hold<br/>
 				Some of the services on the CarePlan (or scheduled appointments) would be reviewed to determine if they
-				can be performed without the patient (e.g. Home Maintenance), or if they should be suspended while the
-				patient is onhold.
+				can be performed without the patient (e.g., home maintenance), or if they should be suspended while the
+				patient is on hold.
 			</li>
 			<li>The patient returns from the hospital and the EpisodeOfCare is marked as active again (and services reviewed again)</li>
 			<li>
