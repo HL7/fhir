@@ -32,9 +32,9 @@ Application claim conformance to one (or more) of the following exchange
 framworks:
 </p>
 <ul>
- <li>"RESTful FHIR": the <a href="http.html">RESTful api</a></li>
- <li>"FHIR messaging": <a href="messaging.html">message based exchange</a></li>
- <li>"FHIR documents": <a href="documents.html">document based exchange</a></li>
+ <li>"RESTful FHIR": the <a href="http.html">RESTful API</a></li>
+ <li>"FHIR messaging": <a href="messaging.html">Message based exchange</a></li>
+ <li>"FHIR documents": <a href="documents.html">Document based exchange</a></li>
 </ul>
 <p>
 To provide details about specific usage of the frameworks and resource 
@@ -73,7 +73,7 @@ properties defined below.
 </p>
 <p>
 Note: This specification uses the conformance verbs SHALL, SHOULD, and MAY as defined in <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.
-Unlike RFC 2119, however, this specification allows that different applications may not be able to be interoperate because of how they use optional features.
+Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features.
 </p>
 <p>
 Data elements defined in resources and data types have 3 properties that are 
@@ -148,8 +148,8 @@ instance, in the following fragment of a resource definition:
 </tbody></table>
 
 <p>
-The element "didNotOccurFlag" affects the entire meaning of the resource - if it is set to true, the 
-whole resource must be understood differently, and so it is not safe for implementations to ignore it. 
+The value of element affects the entire meaning of the resource - if it is set to refuted, the 
+entire resource must be understood differently, and so it is not safe for implementations to ignore it. 
 As a consequence, it is labelled as 'is modifier = true'. In this tabular representation of the resource,
 this shows as the flag '?!'. The <a href="json.html">JSON</a> and <a href="xml.html">XML</a> representations 
 of a resource definition have their own representation of 'is modifier = true' status, and 
@@ -223,7 +223,7 @@ Constraints defined on an element have the following properties:
  <tr><td><b>Requirements</b></td><td>An explanation of why the constraint has been applied - what harmful conditions are being avoided</td></tr>
  <tr><td><b>Severity</b></td><td>Whether the constraint is an error, or a warning. The exact difference in meaning of these depends on context, but an error is associated with "SHALL" and systems rejecting content, where as a warning might not be</td></tr>
  <tr><td><b>Human Description</b></td><td>A human description of the rule intended to be show as the explanation for a message when the constraint is not met</td></tr>
- <tr><td><b>XPath Expression</b></td><td>An XPath expression taht must evaluate to true when run on the element in the XML representation. To use the constraint in JSON, the resource must be converted to XML</td></tr>
+ <tr><td><b>XPath Expression</b></td><td>An XPath expression that must evaluate to true when run on the element in the XML representation. To use the constraint in JSON, the resource must be converted to XML</td></tr>
 </table>
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
@@ -240,8 +240,8 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 Many constraints are defined in the base specification. In addition, additional 
 constraints may be defined in <a href="profiling.html">profiles</a> that apply 
 to resources. Systems are not required to evaluate the constraints, just as they 
-are not required to check for conformance, or schema validatity. However, systems 
-SHOULD alway ensure that all resources are valid against all applicable constraints.
+are not required to check for conformance, or schema validity. However, systems 
+SHOULD always ensure that all resources are valid against all applicable constraints.
 </p>
 <p>
 Elements can also be explicitly associated with constraints defined elsewhere. This is 
