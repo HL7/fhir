@@ -33,7 +33,7 @@ resource, and handling the CDA document itself as a binary attachment (as XDS do
 <h3>CDA Similarities and Differences</h3>
 <p>
 <b>Clinical document focus:</b> As its name implies, Clinical Document Architecture 
-is limited "clinical" use cases.  The CDA model does not support exchange of content 
+is limited to "clinical" use cases.  The CDA model does not support exchange of content 
 not deemed to have clinical relevance, such as financial information and is limited to 
 documents that deal with patients.  (In some cases, such as the HL7 Structured Product 
 Labeling standard, non-patient-specific CDA-like specifications are created to get 
@@ -65,7 +65,7 @@ resource has not yet been defined.
 </p>
 <p>
 <b>Templates and Profiles:</b> As discussed above, CDA relies on the presence of templates in 
-order to understand the meaning of instances.  (While the meaning can theoretically be determined 
+order to understand the meaning of instances. While the meaning can theoretically be determined 
 by looking at RIM attributes and codes, the reality is that this is often not safe or sufficient.  
 As such, pretty much every CDA instance includes <i>templateId</i> attribute values scattered 
 throughout the instance to define meaning.  With FHIR, meaning is defined by the resource.  
