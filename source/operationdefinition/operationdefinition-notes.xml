@@ -56,7 +56,7 @@ or, in JSON:
 </pre>
 
 <p>
-Other parameters are passed by reference. For example, the populate takes a 
+Other parameters are passed by reference. For example, populate takes a 
 set of references to other resources that should be used to pre-populate the 
 questionnaire. These are passed by reference, and the type of the 
 parameter is 'Reference(Any)' - a reference to any kind of resource.
@@ -93,15 +93,15 @@ must be defined, one for a resource directly, and one for a reference.
 <h3>Renaming OperationDefinition.name</h3>
 
 <p>
-It's possible for two different organisations to create different operation definitions that 
+It's possible for two different organizations to create different operation definitions that 
 have the same name (or, perhaps more likely, to define equivalent operations that have the 
 same name but incompatible approaches in their parameter lists). 
 </p>
 <p>
-It's also possible (though a little unlikely) that a server will be required to support both of 
-these operations. Should this be the case, the server is able to do this by giving on of them
+It's also possible, though unlikely, that a server will be required to support both of 
+these operations. Should this be the case, the server is able to do this by giving one of them
 a new name, and then referring to it by definition in the conformance statement. To illustrate
-this, let's assume that two different organisations (orgA and orgB) both define an operation 
+this, let's assume that two different organizations (orgA and orgB) both define an operation 
 called "dothis", and the definitions are incompatible. OrgA publishes its operation
 definition at http://orga.com/fhir/dothis.xml, and OrgB publishes its operation at 
 http://fhir.orgb.com/meta/OperationDefinition/dothis. The server is able to implement
@@ -140,11 +140,9 @@ definition URI, and then execute the name given in the conformance statement.
 <h3>Determining System Compatibility</h3>
 
 <p>
-A client can determine the compatiblity of the server by iterating its conformance
+A client can determine the compatibility of the server by iterating its conformance
 statement and seeing whether any of the operations it declares to support source
-from the same definitions as those the client depends on, and whether the paramters
-it uses are supported by the server. A client that does this can report a useful 
-error to the user rather than allowing mystifying operational errors to occur.
+from the same definitions as those the client depends on, and whether the server supports the parameters it uses. A client that does this can report a useful error to the user rather than allowing mystifying operational errors to occur.
 </p>
 <p>
 Note, however, that there are fundamental limitations to this approach because 
@@ -167,7 +165,7 @@ moderately technical users to guess at the correct content of the form.
 For this reason, highly technical documentation should go in OperationDefinition.notes.
 </p>
 <p>
-Note also this is not expected to a be a tool of use to typical healthcare
+Note also this is not expected to be a tool of use to typical healthcare
 end-users; such users will usually need more support than can be offered
 in a generated form. 
 </p>
