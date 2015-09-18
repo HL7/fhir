@@ -162,8 +162,8 @@ notes: do not list revision in the version
 	<tr>
 		<td>1.0.0</td>
 		<td>
-      <p><b>DSTU QA Preview, Aug 31, 2015</b></p>
-      <p>This version had extensive change as a result of the May 2015 DSTU ballot, ongoing testing, and the open change proposals (over 800 gForge tasks). The extent of the changes is best illustrated by the number of the 
+      <p><b>DSTU 2, Sept ?? 2015</b></p>
+      <p>This version had extensive change as a result of the May 2015 DSTU ballot, ongoing testing, and the open change proposals (1317 gForge tasks). The extent of the changes is best illustrated by the number of the 
         <a href="http://wiki.hl7.org/index.php?title=FHIR_Breaking_changes_between_DSTU_2_ballot_and_final">list of changes labelled 'breaking change'</a> - 158 changes of 1317 total tasks. Below is a list of the most important changes:</p>
       <ul>
         <li>General: introduced the <a href="resource.html#maturity">maturity framework</a></li>
@@ -180,17 +180,24 @@ notes: do not list revision in the version
         <li>Resources:
           <ul>
             <li>New resources: <a href="account.html">Account</a>, <a href="implementationguide.html">ImplementationGuide</a>, <a href="testscript.html">TestScript</a></li>
-            <li>renamed: contraindication -&gt; <a href="detectedissue.html">DetectedIssue</a>, MedicationPrescription -&gt; <a href="medicationorder.html">MedicationOrder</a>, QuestinnaireAnswers -&gt; <a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
+            <li>renamed: Contraindication -&gt; <a href="detectedissue.html">DetectedIssue</a>, MedicationPrescription -&gt; <a href="medicationorder.html">MedicationOrder</a>, QuestionnaireAnswers -&gt; <a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
             <li>removed: Supply</li>
-            <li>changed: almost all resources - too many to list (1300+ tasks worth of changes) - add, remove elements, change types, references, definitions &amp; value sets, re-order elements, provide much more documentation and new examples</li>
+            <li>changed: almost all resources - too many to list (1317 tasks worth of changes) - add, remove elements, change types, references, definitions &amp; value sets, re-order elements, provide much more documentation and new examples</li>
           </ul>
         </li>
         <li>Implementation Guide:
           <ul>
-            <li>Add <a href="cqif/cqif.html">Clinical Quality Improvement Framework (CQIF)</a></li>
             <li>Move <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut content</a> out</li>
           </ul>
         </li>
+      </ul>
+      <p>
+      Note: this version was published for QA preview Aug 31, 2015. The QA preview inluded the the Clinical Quality Improvement Framework (CQIF), but this has been removed from this published version. Other changes of significance during the QA process:
+      </p>
+      <ul>
+       <li>made fixes to generated schematrons</li>
+       <li>updated generated comformance resources (StructureDefinitions and SearchParameters) so they were consistent with the specification</li>
+       <li>Many spelling / grammar / broken link fixes</li>
       </ul>
     </td>
 	</tr>

@@ -276,13 +276,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
   public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960/open";
   
-  public final static String WEB_PUB_NAME = "DSTU2 QA Preview";
+  public final static String WEB_PUB_NAME = "DSTU2";
   public final static String CI_PUB_NAME = "Current Build";
   
   public final static String WEB_PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
-          "This is the DSTU2 QA Preview.  It is suitable for implementation, though QA around spelling/grammar etc is ongoing. The <a href=\"iglist.html\">Implementation Guides</a> are still undergoing development. See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
-          "</p>\r\n";
+       " This is the Current officially released version of FHIR, which is DSTU 2. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
+      "</p>\r\n";
   
   public final static String CI_PUB_NOTICE = 
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
