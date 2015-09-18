@@ -45,12 +45,12 @@ Where to find common concepts in this specification:
  </tr>
  
  <tr><td colspan="3"><b>Clinical Findings</b></td></tr>
- <tr><td>Laboratory Results</td><td>Blood panels such as CBC with Differential, Liver Panel, etc.)</td><td><a href="diagnosticreport.html">DiagnosticReport</a> with <a href="observation.html">Observations</a></td></tr>
+ <tr><td>Laboratory Results</td><td>Blood panels such as CBC with Differential, Liver Panel, etc.</td><td><a href="diagnosticreport.html">DiagnosticReport</a> with <a href="observation.html">Observations</a></td></tr>
  <tr><td>Imaging Study Findings</td><td>CT Scans, MRI, Plain Radiographs, Ultrasounds)</td><td><a href="diagnosticreport.html">DiagnosticReport</a> (some with <a href="observation.html">Observations</a>)</td></tr>
- <tr><td>Diagnostic Test Results</td><td>EKG, pulmonary function test, EEG)</td><td><a href="observation.html">Observations</a> (and maybe a <a href="diagnosticreport.html">DiagnosticReport</a>)</td></tr>
- <tr><td>Vital Signs</td><td>Temperature, Blood Pressure, Heart Rate, Respiratory Rate)</td><td><a href="observation.html">Observation</a></td></tr>
- <tr><td>Other Physical Exam Findings</td><td>Auscultation findings)</td><td><a href="observation.html">Observation</a></td></tr>
- <tr><td>Pulmonary Artery Catheter readings</td><td>Pulmonary artery pressure)</td><td><a href="observation.html">Observation</a></td></tr>
+ <tr><td>Diagnostic Test Results</td><td>EKG, pulmonary function test, EEG</td><td><a href="observation.html">Observations</a> (and maybe a <a href="diagnosticreport.html">DiagnosticReport</a>)</td></tr>
+ <tr><td>Vital Signs</td><td>Temperature, Blood Pressure, Heart Rate, Respiratory Rate</td><td><a href="observation.html">Observation</a></td></tr>
+ <tr><td>Other Physical Exam Findings</td><td>Auscultation findings</td><td><a href="observation.html">Observation</a></td></tr>
+ <tr><td>Pulmonary Artery Catheter readings</td><td>Pulmonary artery pressure</td><td><a href="observation.html">Observation</a></td></tr>
  
  <tr><td colspan="3"><b>Patient Problems, Allergies and Adverse Events</b></td></tr> 
  <tr><td>Allergy</td><td>Food or drug allergies</td><td><a href="allergyintolerance.html">AllergyIntolerance</a> </td></tr>
@@ -95,7 +95,7 @@ tapped into an overall ontology that provides consistent meaning across the reso
 <p>
 One of the most fundamental aspects of a resource is tense - where it fits
 into the time line. Some resources are records of past events, some are plans for
-the future, etc. This table summarises the categories:
+the future, etc. This table summarizes the categories:
 </p>
 <table>
  <tr> 
@@ -136,20 +136,20 @@ the event they are concerned with passes.
   <code>AllergyIntolerance</code>, <code>Condition</code>, and <code>Procedure</code> are common resources that appear throughout 
   the patient record - summaries of the patient status or history. 
   
-  <code>FamilyMemberHistory</code> tracks significant health issues for relatives of the patient, since these are signficant risk factors for the patient.
+  <code>FamilyMemberHistory</code> tracks significant health issues for relatives of the patient, since these are significant risk factors for the patient.
   
-  These resources may be found in patient, episode, and discharge summaries, and consultation records.
+  These resources may be found in patient, episode, discharge summaries, and consultation records.
 </p>
 <p>
   <code>ClinicalImpression</code> (aka ClinicalAssessment) records the core of a clinical consultation/assessment/impression.
-  When an single text note is inserted directly in the patient record, this is typically a 
+  When a single text note is inserted directly in the patient record, this is typically a 
   ClinicalImpression.summary. A <code>RiskAssessment</code> is an assessment - usually, but not necessarily, by 
   a decision support engine of the likely outcomes of some course of action for a patient. 
 </p>  
 <p>
   A <code>DetectedIssue</code> is an active alert that there is a clinical issue with/between one or more active or 
   proposed clinical actions for a patient. One way it may be used is as part of an error message in response
-  to an attepted operation.
+  to an attempted operation.
 </p>
 
 <table class="grid">
@@ -170,7 +170,7 @@ These resources support planning of care provision - care and treatment plans.
 </p>
 <p>
 <code>CarePlan</code> and <code>Goal</code> are the primary structures around which future planning for the patient
-is based. These are used to define future planned care for a patient, and may be 
+is based. These are used to define care and treatement planned for a patient in the future, and may be 
 updated and adjusted as ongoing care is provided.
 </p>
 <p>
@@ -203,7 +203,7 @@ Supports the medication and immunization processes. Some points of note:
  <li>Prescription = a <code>MedicationOrder</code></li>
  <li>In some records, medication orders, administration, and statements may not be well differentiated. Generally, use <code>MedicationStatement</code> if records are unclear</li>
  <li>A medication chart (or variants) will use multiple different types of medication resources</li>
- <li>When prescribing is done by external code systems (e.g. most ambulatory prescribing), the <code>Medication</code> resource is not used; it is generally used for formulary and custom formulations</li>
+ <li>When prescribing is done by an external system (e.g. most ambulatory e-prescribing), the <code>Medication</code> resource is not used. It is generally used to represent information in formularies and to describe custom formulations</li>
 </ul>
  
 <table class="grid">
@@ -236,17 +236,16 @@ use Observation where <a href="condition.html">Condition</a> is more appropriate
 </p>
 <p>
 <code>DiagnosticOrder</code> and <code>DiagnosticReport</code> support the overall diagnostic process. 
-A Diagnostic report connects the process of 'reporting', linking process identifiers, visual 
-presenations of a report, and conclusions/interpretations with the raw Observations. Diagnostic
-Orders capture the request from an authorized clinician that initiates the diagnostic process.
+A DiagnosticReport connects the process of 'reporting', linking process identifiers, visual 
+presentations of a report, and conclusions/interpretations with the Observations. DiagnosticOrders capture the request from an authorized clinician to initiate the diagnostic process.
 <code>Specimen</code> and <code>BodySite</code> are used to record the details of specimen collection
-though BodySite can also be used with other resources (e.g. Operation location details on a procedure).
+although BodySite can also be used with other resources (e.g. Operation location details on a Procedure).
 </p>
 <p>
 The resources <code>ImagingObjectSelection</code> and <code>ImagingStudy</code> are provided to make links to diagnostic
 images available within the clinical record, where the actual images will be provided by 
 dedicated systems (the <a href="media.html">Media</a> resource is intended for sharing 
-actual images directly, which is not generally suitable for high resolution high volume
+actual images directly, which is not generally suitable for high resolution, high volume
 diagnostic images).
 </p>
 
@@ -265,8 +264,8 @@ diagnostic images).
 <h3>Administrative Resources</h3>
 
 <p>
-These resources are provide support for identifing
-the various entities that are involved in healthcare: 
+These resources provide support for identifying
+the various entities involved in healthcare: 
 people, organizations, substances, devices, etc.
 </p>
 
@@ -274,8 +273,8 @@ people, organizations, substances, devices, etc.
 
 <p>
 The <code>Patient</code> resource represents the recipient of healthcare. This concept
-is not always referred to as a 'patient' - other words such as client, customer, resident
-etc.are commonly used, but in this specification, the recipient of healthcare is 
+is not always referred to as a 'patient' - other words such as client, customer, resident,
+etc. are commonly used, but in this specification, the recipient of healthcare is 
 simply known as the patient. The patient resource includes basic demographics and 
 next of kin information.
 </p>
@@ -309,7 +308,7 @@ represents the services offered by one or more organizations at a single locatio
 <p>
 A <code>Group</code> is used to describe one or more individuals - usually people, though
 other kinds of entities are allowed. Typically, these are used with aggregate reporting,
-though sometimes care is provided to a set of individuals at once (some counselling
+though sometimes care is provided to a set of individuals at once (some counseling
 procedures, public health procedures, herds of cattle, etc.).
 </p>
 
@@ -326,7 +325,7 @@ procedures, public health procedures, herds of cattle, etc.).
 <code>Location</code> - for where things happen. Locations are either by instance (e.g. 
 this particular room at a given address or GPS coordinates) or by kind (e.g. the back
 of some ambulance). The same applies to <code>Substance</code>, for some kind of 
-meterial (e.g. chemical) used in healthcare - it may refer to an identified instance 
+material (e.g. chemical) used in healthcare - it may refer to an identified instance 
 (e.g. bottle) or a kind of chemical. 
 </p>
 <p>
@@ -349,13 +348,13 @@ dedicated person registries.
 <p>
 <code>Device</code> is used to track non-consumable manufactured materials through the
 healthcare process. It includes implants, large instruments, non-medical things (including
-software), and containers. Devices - and therefore the device resource - have may purposes,
+software), and containers. Devices - and therefore the device resource - have many purposes,
 including stock control, locating devices, and tracking implants.
 </p>
 <p>
 <code>DeviceComponent</code> and <code>DeviceMetric</code> are used to report the status
 and characteristics of the kinds of medical devices that produce a stream of one or 
-more data points (<a href="observation.html">observations</a>), usually about a patient. 
+more data points (<a href="observation.html">Observations</a>), usually about a patient. 
 </p>
 
 <table class="grid">
@@ -377,7 +376,7 @@ clinical details (though these usual link to it). Aliases for this include
 when the patient goes to physiotherapy as part of a hospital admission.
 </p>
 <p>
-An <code>EpisodeofCare</code> is a association between a patient and a care provider
+An <code>EpisodeofCare</code> is an association between a patient and a care provider
 that may last over several encounters. The purpose of EpisodeOfCare is track a provider
 (person or organization) that has an interest in the ongoing care of the patient.
 </p>
@@ -410,7 +409,7 @@ These resources are concerned with planning times and locations for future deliv
  <li>An <code>AppointmentResponse</code> is an individual's acceptance or rejection of an appointment</li>
 </ul>
 <p>
-The scheduling systems is closely aligned with the iCal system so that systems may leverage web bookings while maintaing integrity with the rest of the clinical record.
+The scheduling systems is closely aligned with the iCal system so that systems may leverage web bookings while maintaining integrity with the rest of the clinical record.
 </p>
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
@@ -423,7 +422,7 @@ The scheduling systems is closely aligned with the iCal system so that systems m
 <h4>Order Management</h4>
 
 <p>
-Todo: these resources are all draft. Bringing them to maturity and testing this is a major ongoing focus of the FHIR project.
+Todo: these resources are all draft. Bringing them to maturity and testing their support for real-world scenarios is a major ongoing focus of the FHIR project.
 </p>
 
 <table class="grid">
@@ -451,14 +450,13 @@ base FHIR framework (<a href="http.html">RESTful API</a>, <a href="messaging.htm
 
 <p>
 <code>Questionnaire</code> and <code>QuestionnaireResponse</code> are for general purpose data collection
-from a patient or other information source- the set of questions, and the individuals response (answers to the 
-questions). A questionnaire can contain any kind of data, including the data represented in all other
-resources; it is anticpated that the data will be processed into the other kind of resources for further
+from a patient or other information source.  They represent the set of questions to be answered, and an individual's responses to those questions. A questionnaire can contain any kind of data, including the data represented in all other
+resources. It is anticipated that the data will be processed into other kinds of resources for further
 usage and exchange.
 </p>
 <p>
-The <code>Provenance</code> resource is used to make statements about the where 
-a resource came from - that is, who, what, why, when and where for it's creation. 
+The <code>Provenance</code> resource is used to make statements about where 
+a resource came from - that is, who, what, why, when and where for its creation. 
 This may be used in assessing the integrity, reliability and usefulness of a resource
 or the data in it. Note that many resources contain some limited amount of this
 information directly, because it is deemed essential to using/finding/filtering/understanding
@@ -467,7 +465,7 @@ provenance statements for the resource, it is expected to be the same.
 </p>
 <p>
 An <code>AuditEvent</code> is an observation by a system that a record was altered (created, 
-updated, deleted), with audit information about the event. Typically, the provenance record
+updated, deleted) or otherwise accessed (queried, transferred, copied), with audit information about the event. Typically, the provenance record
 is created before the resource is altered, by the (sub)system causing the change to the 
 resource, while the audit record is created after the change by the (sub)system responsible
 for storing it. 
@@ -489,12 +487,12 @@ granular form, and for exchanging it in packages known as 'documents'. This spec
 provides two different kinds of support for creating and exchanging documents:
 </p>
 <ul>
- <li><code>Composition</code> allows for the construction of a detailed <a href="documents.html">document package</a> using a resources for all the details of the document</li>
- <li><code>DocumentReference</code> and <code>DocumentManifest</code> are used for referring to and/or exchanging external documents (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, PDF, other kinds of records etc.) either as single documents or groups of documents respectively</li>
+ <li><code>Composition</code> allows for the construction of a detailed <a href="documents.html">document package</a> using other resources for all content of the document</li>
+ <li><code>DocumentReference</code> and <code>DocumentManifest</code> are used for referring to and/or exchanging external documents (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, PDF, other kinds of records, etc.) either as single documents or groups of documents respectively</li>
 </ul>
 <p>
-The <code>List</code> resource is used to link a set of other kinds of resources into a singe list. This might 
-be done for many reasons - maintaining a list of work to do, or patients of interest, or a set of current problems for a patient. 
+The <code>List</code> resource is used to link a set of other kinds of resources into a single list. This might 
+be done for many reasons - maintaining a list of work to do, of patients of interest, or of a set of current problems for a patient. 
 </p>
 
 <table class="grid">
@@ -508,12 +506,12 @@ be done for many reasons - maintaining a list of work to do, or patients of inte
 <h4>Structures</h4>
 
 <p>
-Basic support structures with general usefulness:
+Basic support structure Resources with general usefulness:
 </p>
 <ul>
  <li><code>Media</code> stores an image, video, or sound recording, with metadata that can be used to link it into the rest of the healthcare record as represented in resources</li>
- <li><code>Binary</code> is a container for content of any type, to include content that in some format other than a FHIR resource </li>
- <li><code>Bundle</code> acts as an envelope for a set of other resources as they are gathered toegether for exchange. Bundles may be long lived (documents) or very short lived (search results)</li>
+ <li><code>Binary</code> is a container for content of any type, to include content that is in some format other than a FHIR resource </li>
+ <li><code>Bundle</code> acts as an envelope for a set of other resources as they are gathered together for exchange. Bundles may be long lived (documents) or very short lived (search results)</li>
  <li><code>Basic</code> is a general container that can be used to represent data for which a specific resource doesn't yet exist (general extension point)</li>
 </ul>
 
@@ -531,7 +529,7 @@ Basic support structures with general usefulness:
 These resources support the exchange process directly:
 </p>
 <ul>
- <li><code>MessageHeader</code> is the header for a message - identifies it context, sender and reciever, and content</li>
+ <li><code>MessageHeader</code> is the header for a message - identifies it context, sender and receiver, and content</li>
  <li><code>OperationOutcome</code> is returned to indicate the detailed outcome of a particular FHIR operation or interaction - success, or failure</li>
  <li><code>Parameters</code> is input or output to <a href="operations.html">Operations</a></li>
  <li><code>Subscription</code> allows one system to subscribe to events on another system</li>
@@ -564,7 +562,7 @@ code systems.
 </p>
 <p>
 A <code>NamingSystem</code> resource represents and external provider of codes 
-or identifiers (e.g. a external code system such as SNOMED CT, or an identification system such
+or identifiers (e.g. an external code system such as SNOMED CT, or an identification system such
 as an institution MRN. The naming system resource exists to share the identification and registration
 of these systems, to foster consistency in their identification.
 </p>
@@ -623,7 +621,7 @@ an interoperability solution.
 
 <p>
 A <code>TestScript</code> specifies a series of operations and outcomes
-that a system is expected to meet. Test Scripts are for develpoment and
+that a system is expected to meet. Test Scripts are for development and
 acceptance testing, but may also be considered for use with production
 systems, if the tests are carefully constructed and vetted.
 </p>
@@ -638,7 +636,7 @@ systems, if the tests are carefully constructed and vetted.
 
 <p>
 These resources are all in draft 
-status, and more details will be 
+status and more details will be 
 provided here in due course.
 </p>
 

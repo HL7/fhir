@@ -52,7 +52,7 @@ has the same patient for its subject. Instead, the subject of the procedure must
 directly in the Procedure resource itself. Another way to state this is that the context of the subject
 is not "inherited", nor does it "conduct" along the relationship to procedure.
 The only exception to this is the case of contained resources (see below). Note that in
-practice, the relationships do need to describe a logical and coherent record, and in the
+practice, the relationships need to describe a logical and coherent record, and in the
 case of the Condition and Procedure described here, they would usually be required to have
 the same patient for their subjects.
 </p>
@@ -80,12 +80,12 @@ The actual reference looks like this:
  <li>The <code>reference</code> element contains a url that is either
    <ul>
      <li>an absolute URL</li>
-     <li>a relative URL, which is relative to the <a href="http.html#root">Service Base URL</a>, or, in a bundle the <code>Bundle.entry.fullUrl</code> (see <a href="bundle.html#references">Resolving References in Bundles</a></li>
+     <li>a relative URL, which is relative to the <a href="http.html#root">Service Base URL</a>, or, in a bundle, the <code>Bundle.entry.fullUrl</code> (see <a href="bundle.html#references">Resolving References in Bundles</a>)</li>
      <li>an internal fragment reference (see "Contained Resources" below)</li>
    </ul>
  </li>
  <a name="regex"> </a>
- <li>Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a
+ <li>Using absolute URLs provides a stable, scalable approach suitable for a cloud/web context, while using relative/logical references provides a
    flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="implementation.html#identity">implementation issues for further discussion</a>)</li>
  <li>Absolute URLs do not need to point to a <a href="http.html">FHIR RESTful server</a>, though this is the preferred approach.
    Whether or not the reference is to a FHIR RESTful server, the reference SHALL point to a Resource as defined by this specification. 
@@ -97,12 +97,12 @@ The actual reference looks like this:
    However conformance with this regex is no guarantee that the end-point is a FHIR server
    </li>
  <li>URLs are always considered to be case-sensitive</li>
- <li>The <code>display</code>, if populated, does generally not have identical content to the Resource.text of the referenced resource.  The purpose is to
+ <li>In general, the <code>display</code>, if populated, does not have identical content to the Resource.text of the referenced resource.  The purpose is to
    identify what's being referenced, not to more fully describe it</li>
 </ul>
 
 <div class="example">
-<p>A relative reference to the <a href="patient.html">patient</a> "034AB16" in an element named <code>context</code> on a FHIR RESTful server:</p>
+<p>A relative reference to the <a href="patient.html">Patient</a> "034AB16" in an element named <code>context</code> on a FHIR RESTful server:</p>
 <pre class="xml" fragment="Reference">
   &lt;context&gt;
     &lt;reference value="Patient/034AB16" /&gt;
@@ -131,8 +131,8 @@ This text can be used by a system that is unable to resolve the reference to an 
 
 <p>
 Note that some elements have the type <a href="datatypes.html#uri"><code>uri</code></a> instead of <code>Reference</code>.
-URIs may point to either resources, elements inside a resource by their <code>id</code> property, or (most often)
-some other content that is not a resource. The Reference type is only used to refer to resources
+URIs may point to resources, to elements inside a resource by their <code>id</code> property, or (most often)
+to some other content that is not a resource. The Reference type is only used to refer to resources
 directly, by their logical id.
 </p>
 
@@ -151,12 +151,12 @@ refers to it.
 <p>
 For example, consider a situation where an interface engine is creating a <a href="condition.html">Condition</a>
 record on a patient from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message, and the only information about the primary surgeon is her
-first name and lastname (REL-7.2 &amp; RES-7.3). In the absence of a controlled practitioner directory,
+first name and last name (REL-7.2 &amp; RES-7.3). In the absence of a controlled practitioner directory,
 this is not enough information to create an identified <a href="practitioner.html">Practitioner</a>
-resource - more than one practitioner might have the same name.
+resource since more than one practitioner might have the same name.
 </p>
 <p>
-In these circumstances, the resource is placed directly in line in the resource. <b>This SHOULD NOT be
+In these circumstances, the resource is placed directly in-line in the resource. <b>This SHOULD NOT be
 done when the content can be identified properly, as once the identification is lost, it is extremely difficult
 (and context dependent) to restore it again.</b>
 </p>
@@ -231,7 +231,7 @@ Some notes about use and interpretation of contained resources:
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below)</li>
   <li>Contained resources SHALL NOT contain additional contained resources</li>
   <li>Contained resources SHALL NOT contain any narrative</li>
-  <li>A contained resource SHALL only be included in a resource if something that resource has a reference to it</li>
+  <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it</li>
 </ul>
 <p>
 Resources that are contained inline do not "inherit" context from their parent resource. For instance, if
