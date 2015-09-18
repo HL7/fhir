@@ -19,7 +19,7 @@ or identification of health issues/situations considered harmful, potentially ha
 </p>
 <p>
 The condition resource may also be used to record certain health state of a patient which does not normally present negative outcome (until complications 
-are predicted or detected), e.g. pregnancy. Examples of complications of pregnancy include: hyperemesis gravidarum, preeclampsia, eclampsia, which are 
+are predicted or detected), e.g. pregnancy. Examples of complications of pregnancy include: hyperemesis gravidarum, preeclampsia, eclampsia - which are 
 captured as problems/diagnoses.
 </p>
 </div>

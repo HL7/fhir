@@ -9,7 +9,7 @@
     Whether these other properties will be populated may vary by implementation. 
 </p>
 <p>    
-    Care should be taken to avoid non-sensical combinations/statements; e.g. "name=amputation, bodySite=heart"
+    Care should be taken to avoid nonsensical combinations/statements; e.g. "name=amputation, bodySite=heart"
 </p>
     
 <h3>

@@ -11,9 +11,9 @@ A flag has a subject representing the resource that will trigger its display. Th
 </p>
 <ul>
     <li>A note that a patient has an overdue account, which the provider may wish to discuss with them - in case of hardship for example (subject = Patient) </li>
-    <li>An outbreak of ebola in a particular region (subject=Location) so that all patients from that region have a higher risk of having that condition</li>
+    <li>An outbreak of Ebola in a particular region (subject=Location) so that all patients from that region have a higher risk of having that condition</li>
     <li>A particular provider is unavailable for referrals over a given period (subject = Practitioner)</li>
-    <li>A patient who is enrolled in a clincial trial (subject=Group)</li>
+    <li>A patient who is enrolled in a clinical trial (subject=Group)</li>
 </ul>
 <p>
     

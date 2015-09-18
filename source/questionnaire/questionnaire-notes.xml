@@ -5,7 +5,7 @@
 Notes:
 </h2>
 <ul>
-<li>Questionnaires may be used to represent predefined forms or pannels, referenced using Questionnaire.group.concept.</li>
+<li>Questionnaires may be used to represent predefined forms or panels, referenced using Questionnaire.group.concept.</li>
 <li>A Questionnaire's contents are placed inside its single nested Group, which may contain Questions or subgroups with Questions.</li>
 <li>Groups and Questions may have linkIds allowing groups and question answers captured in a <a href="questionnaireresponse.html">QuestionnaireResponse</a>
 to be associated with their corresponding group or question.</li>

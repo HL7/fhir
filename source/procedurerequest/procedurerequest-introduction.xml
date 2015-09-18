@@ -12,7 +12,7 @@ the value of the ProcedureRequestStatus field.
 <p>
 A procedure is an activity 
 that is performed with or on a patient as part of the provision of care. Examples include surgical 
-procedures, diagnostic procedures, endoscopic procedures, biopsies, counselling, physiotherapy, exercise, etc.
+procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, exercise, etc.
 Procedures may be performed by a healthcare professional, a friend or relative or in some cases by the patient
 themselves.
 </p>
@@ -56,7 +56,7 @@ DiagnosticOrder.  The diagnostic service might then initiate a ProcedureRequest.
 <p>
 The notion of ProcedureRequest and <a href="communicationrequest.html">CommunicationRequest</a> are also closely related.  
 The boundary between determining whether an action is
-considered to be training or counselling (and thus a ProcedureRequest) as opposed to a CommunicationRequest is based on whether
+considered to be training or counseling (and thus a ProcedureRequest) as opposed to a CommunicationRequest is based on whether
 there's a specific intent to change the mind-set of the patient.  A request to merely disclose information would be considered
 a CommunicationRequest.  Invocation of a process that will involve verification of the patient's comprehension or an attempt to
 change the patient's mental state would be a ProcedureRequest.

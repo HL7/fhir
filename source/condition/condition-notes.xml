@@ -7,7 +7,7 @@ also specify a particular stage, location, or causality as part of the code. Thi
 SNOMED CT is used for the condition, and especially if expressions are allowed. 
 </p>
 <p>
-The Condition.code may also include such concepts as "history of X" and "good health", where it is useful or appropriate to make such assertions.. 
+The Condition.code may also include such concepts as "history of X" and "good health", where it is useful or appropriate to make such assertions. 
 It can also be used to capture "risk of" and "fear of" in addition to physical conditions.
 </p>
 <p>

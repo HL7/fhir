@@ -35,7 +35,7 @@ phone calls, letters and other interactions that are not system-to-system.  And 
 specific end recipients may not be known.  As well, <a href="auditevent.html">AuditEvents</a> are not considered to be "part"
 of the patient record, while <b>Communication</b> instances are.  The <b>Communication</b> resource is not used as a general
 audit mechanism to track every disclosure of every record.  Rather, it is used when a clinician or other user wants to ensure
-a record of a particular communication is itself maintaned as part of the reviewable health record.
+a record of a particular communication is itself maintained as part of the reviewable health record.
 </p>
 <p>
 <a href="flag.html">Flag</a> resources represent a continuous ongoing "communication" alerting anyone dealing with the patient
