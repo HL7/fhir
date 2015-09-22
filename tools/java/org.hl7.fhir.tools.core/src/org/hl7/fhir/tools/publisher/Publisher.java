@@ -431,6 +431,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
     pub.web = (args.length > 1 && hasParam(args, "-web"));
+    pub.page.setForPublication(pub.web);
     pub.diffProgram = getNamedParam(args, "-diff");
     pub.noPartialBuild = (args.length > 1 && hasParam(args, "-nopartial"));
     if (hasParam(args, "-resource"))

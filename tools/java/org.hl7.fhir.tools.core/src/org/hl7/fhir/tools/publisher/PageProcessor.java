@@ -259,6 +259,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private long lastSecs = 0;
   private Set<String> searchTypeUsage = new HashSet<String>();
   private ValueSetValidator vsValidator;
+  boolean forPublication;
 
   public PageProcessor(String tsServer) throws URISyntaxException {
     super();
@@ -281,7 +282,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   
   public final static String WEB_PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
-       " This is the Current officially released version of FHIR, which is DSTU 2. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
+       " This is the Current officially released version of FHIR, which is <a href=\timelines.html\">DSTU 2</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
       "</p>\r\n";
   
   public final static String CI_PUB_NOTICE = 
@@ -623,6 +624,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+getWgTitle(com[1])+s3;
       } else if (com[0].equals("ig.registry")) {
         src = s1+buildIgRegistry(ig, com[1])+s3;
+      } else if (com[0].equals("search-link")) {
+        src = s1+searchLink(s2)+s3;
+      } else if (com[0].equals("search-footer")) {
+        src = s1+searchFooter(level, s2)+s3;
       } else if (com[0].equals("profileheader")) {
         src = s1+profileHeader(((StructureDefinition) resource).getId().toLowerCase(), com[1], false)+s3;
       } else if (com.length != 1)
@@ -3833,6 +3838,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+getWgLink(file, com[1])+s3;
       } else if (com[0].equals("wgt")) {
         src = s1+getWgTitle(com[1])+s3;
+      } else if (com[0].equals("search-link")) {
+        src = s1+searchLink(s2)+s3;
+      } else if (com[0].equals("search-footer")) {
+        src = s1+searchFooter(level, s2)+s3;
       } else if (com[0].equals("toc1")) {
         src = s1 + generateToc(com[1], 1) + s3;
       } else if (com[0].equals("toc2")) {
@@ -4048,6 +4057,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     return src;
   } 
+
+  private String searchFooter(int level, String s2) {
+    if (isForPublication())
+      return "<a style=\"color: #81BEF7\" href=\""+genlevel(level)+"search.cfm\">Search</a>";
+    else
+      return "<a style=\"color: #81BEF7\" href=\"http://hl7.org/fhir/search.cfm\">Search</a>";
+  }
+
+
+  private String searchLink(String s2) {
+    if (s2.equals("search-link"))
+      return "<a href=\"search.cfm\">Search this specification</a>";
+    else
+      return s2.substring(11)+" <a href=\"search.cfm\">search this specification</a>";
+  }
 
   private String igRegistryList(String purpose, String type) throws Exception {
     StringBuilder b = new StringBuilder();
@@ -4324,6 +4348,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genOpCount(resource.getOperations()) + s3;  
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
+      else if (com[0].equals("search-footer")) 
+        src = s1+searchFooter(level, s2)+s3;
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -5314,6 +5340,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 +genProfileDoco(pack, intro)+ s3;
       else if (com[0].equals("profile.notes"))
         src = s1 +genProfileDoco(pack, notes)+ s3;
+      else if (com[0].equals("search-footer")) 
+        src = s1+searchFooter(level, s2)+s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
       else if (com[0].equals("resurl")) {
@@ -5711,6 +5739,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+describeExtensionContext(ed)+s3;
       else if (com[0].equals("ext-name"))
         src = s1+Utilities.escapeXml(ed.getName())+s3;
+      else if (com[0].equals("search-footer")) 
+        src = s1+searchFooter(level, s2)+s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
       else 
@@ -6520,6 +6550,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + Utilities.escapeXml(pack.getDescription()) + s3;  
       else if (com[0].equals("package-content"))
         src = s1 + getPackageContent(pack, genlevel(level)) + s3;  
+      else if (com[0].equals("search-footer")) 
+        src = s1+searchFooter(level, s2)+s3;
       else if (com[0].equals("package.search"))
         src = s1+getSearch(pack)+s3;
       else if (com[0].startsWith("!"))
@@ -6938,6 +6970,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String hsplt(String s) {
     return s.replace(".", "\u200B.").replace("-", "\u200B-").replace("/", "\u200B/");
+  }
+
+  public boolean isForPublication() {
+    return forPublication;
+  }
+
+  public void setForPublication(boolean forPublication) {
+    this.forPublication = forPublication;
   }
   
 

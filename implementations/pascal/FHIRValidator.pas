@@ -36,26 +36,9 @@ Uses
   IdSoapXml,
   StringSupport, MathSupport,
   AdvObjects, AdvGenerics, AdvJSON, AdvObjectLists, Advbuffers, AdvNameBuffers, AdvMemories, AdvFiles, AdvVclStreams,
-  FHIRBase, FHIRResources, FHIRTypes, FHIRParser;
+  FHIRBase, FHIRResources, FHIRTypes, FHIRParser, FHIRProfileUtilities;
 
 Type
-  TValidationResult = class (TAdvObject)
-  private
-    FSeverity : TFhirIssueSeverity;
-    FMessage  : String;
-  public
-    Property Severity : TFhirIssueSeverity read FSeverity write FSeverity;
-    Property Message : String read FMessage write FMessage;
-    function isOk : boolean;
-  end;
-
-  TValidatorServiceProvider = {abstract} class
-    function fetchResource(t : TFhirResourceType; url : String) : TFhirResource; virtual; abstract;
-    function expand(vs : TFhirValueSet) : TFHIRValueSet; virtual; abstract;
-    function supportsSystem(system : string) : boolean; virtual; abstract;
-    function validateCode(system, code, display : String) : TValidationResult; virtual; abstract;
-  end;
-
   TWrapperElement = class (TAdvObject)
   private
     FOwned : TAdvObjectList;
@@ -1312,16 +1295,6 @@ begin
     SameText(t, 'dateTime') or SameText(t, 'time') or SameText(t, 'code') or SameText(t, 'oid') or SameText(t, 'id');
 end;
 
-function uncapitalize(s : String) : string;
-begin
-  result := Lowercase(s[1])+s.Substring(1);
-end;
-
-function capitalize(s : String) : string;
-begin
-  result := UpperCase(s[1])+s.Substring(1);
-end;
-
 function describeTypes(types : TFhirElementDefinitionTypeList) : String;
 var
   tc : TFhirElementDefinitionType;
@@ -2571,7 +2544,10 @@ begin
 //    else
 //    begin
 //      vs := FContext.fetchCodeSystem(system);
-//      if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unknown Code System '+system)) begin
+//      if (vs <> nil) then
+//        check vlaue set uri hasn't been used directly
+//        if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, vs <> nil, 'Unknown Code System '+system))
+//      else begin
 //        ConceptDefinitionComponent def := getCodeDefinition(vs, code);
 //        if (warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, def <> nil, 'Unknown Code ('+system+'#'+code+')'))
 //          return warning(errors, IssueTypeCODEINVALID, element.line(), element.col(), path, display = nil ) or ( display = def.getDisplay()), 'Display should be "'+def.getDisplay()+'"');
