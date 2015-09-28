@@ -140,9 +140,11 @@ func <ModelName>CreateHandler(rw http.ResponseWriter, r *http.Request, next http
 	if err != nil {
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
 	}
-
 	rw.Header().Add("Location", "http://" + host + ":3001/<ModelName>/" + i.Hex())
+	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
+	rw.Header().Set("Access-Control-Allow-Origin", "*")
 	rw.WriteHeader(http.StatusCreated)
+	json.NewEncoder(rw).Encode(<LowerCaseModelName>)
 }
 
 func <ModelName>UpdateHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
@@ -174,6 +176,10 @@ func <ModelName>UpdateHandler(rw http.ResponseWriter, r *http.Request, next http
 	context.Set(r, "<ModelName>", <LowerCaseModelName>)
 	context.Set(r, "Resource", "<ModelName>")
 	context.Set(r, "Action", "update")
+
+	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
+	rw.Header().Set("Access-Control-Allow-Origin", "*")
+	json.NewEncoder(rw).Encode(<LowerCaseModelName>)
 }
 
 func <ModelName>DeleteHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
