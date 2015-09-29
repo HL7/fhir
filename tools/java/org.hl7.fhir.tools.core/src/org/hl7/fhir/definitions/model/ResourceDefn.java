@@ -61,7 +61,6 @@ public class ResourceDefn  {
   private String name = null;
   private String enteredInErrorStatus;
   private String fmmLevel;
-  private String fmmLevelNoWarnings;
   private String proposedOrder;
   private String display;
 
@@ -251,14 +250,6 @@ public class ResourceDefn  {
 
   public void setFmmLevel(String fmmLevel) {
     this.fmmLevel = fmmLevel;
-  }
-
-  public String getFmmLevelNoWarnings() {
-    return fmmLevelNoWarnings;
-  }
-
-  public void setFmmLevelNoWarnings(String fmmLevelNoWarnings) {
-    this.fmmLevelNoWarnings = fmmLevelNoWarnings;
   }
 
   public Profile getConformancePackage(String id) {

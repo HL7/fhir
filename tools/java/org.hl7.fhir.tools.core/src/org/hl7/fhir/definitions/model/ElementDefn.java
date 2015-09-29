@@ -764,7 +764,7 @@ public class ElementDefn {
 
   public boolean usesType(String name) {
     for (TypeRef t : getTypes()) {
-      if (t.summary().equals(name))
+      if (t.summary().equals(name) || (t.getName().equals(name) && name.equals("Reference")))
         return true;
     }
     return false;

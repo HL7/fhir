@@ -425,7 +425,7 @@ public class SourceParser {
     if (root.getNodeName().equals("igs")) {
       Element ig = XMLUtil.getFirstChild(root);
       while (ig != null) {
-        if (ig.getNodeName().equals("ig") && (!ig.hasAttribute("local") || isOkLocally(ig.getAttribute("code")))) {
+        if (ig.getNodeName().equals("ig") && (!ig.hasAttribute("local") || isOkLocally(ig.getAttribute("code")) && !isRuledOutLocally(ig.getAttribute("code")))) {
           ImplementationGuideDefn igg = new ImplementationGuideDefn(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("brief"), 
               ig.getAttribute("source").replace('\\', File.separatorChar), "1".equals(ig.getAttribute("review")),
               ig.getAttribute("ballot"), ig.getAttribute("fmm"), ig.getAttribute("section"), "yes".equals(ig.getAttribute("core")), page.getValidationErrors());
@@ -435,6 +435,16 @@ public class SourceParser {
         ig = XMLUtil.getNextSibling(ig);
       }
     }
+  }
+
+
+  private boolean isRuledOutLocally(String code) {
+    String inifile = Utilities.path(rootDir, "local.ini");
+    if (!new File(inifile).exists())
+      return false;
+    IniFile ini = new IniFile(inifile);
+    boolean ok = "false".equals(ini.getStringProperty("igs", code));
+    return ok;
   }
 
 
@@ -819,6 +829,7 @@ public class SourceParser {
       throw new Exception("Error Parsing Resource "+n+": "+e.getMessage(), e);
     }
     root.setWg(wg);
+    root.setFmmLevel(ini.getStringProperty("fmm", n.toLowerCase()));
 
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());

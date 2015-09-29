@@ -312,10 +312,6 @@ public class SpreadsheetParser {
       for (int row = 0; row < sheet.rows.size(); row++) {
         if (sheet.rows.get(row).size() >= 2 && "entered-in-error-status".equals(sheet.rows.get(row).get(0)))
           resource.setEnteredInErrorStatus(sheet.rows.get(row).get(1));
-        if (sheet.rows.get(row).size() >= 2 && "fmm".equals(sheet.rows.get(row).get(0)))
-          resource.setFmmLevel(sheet.rows.get(row).get(1));
-        if (sheet.rows.get(row).size() >= 2 && "fmm-no-warnings".equals(sheet.rows.get(row).get(0)))
-          resource.setFmmLevelNoWarnings(sheet.rows.get(row).get(1));
         if (sheet.rows.get(row).size() >= 2 && "proposed-order".equals(sheet.rows.get(row).get(0)))
           resource.setProposedOrder(sheet.rows.get(row).get(1));
       }
