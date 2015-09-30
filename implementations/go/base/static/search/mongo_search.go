@@ -26,7 +26,7 @@ func NewMongoSearcher(db *mgo.Database) *MongoSearcher {
 // corresponding mgo.Query.  The caller is responsible for executing
 // the returned query (allowing flexibility in how results are returned).
 func (m *MongoSearcher) CreateQuery(query Query) *mgo.Query {
-	c := m.db.C(MongoCollectionNames[query.Resource])
+	c := m.db.C(models.PluralizeLowerResourceName(query.Resource))
 	o := m.createQueryObject(query)
 	return c.Find(o)
 }

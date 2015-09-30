@@ -112,11 +112,10 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
         for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
             generateMgoModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions, "encoding/json");
-            generateGoController(entry.getKey(), dirs.get("serverDir"), templateGroup);
         }
 
         generateGoUtil(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
-        generateMongoCollectionNames(namesAndDefinitions.keySet(), dirs.get("searchDir"), templateGroup);
+        generateResourceHelpers(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
         generateSearchParameterDictionary(definitions, dirs.get("searchDir"), templateGroup);
 
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
@@ -125,6 +124,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "mongo_search.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "search_param_types.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "config.go")), new File(dirs.get("serverDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "resource_controller.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server.go")), new File(Utilities.path(basedDir, "app")));
 
@@ -144,20 +144,6 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
         MgoModel model = new MgoModel(name, definitions, modelFile, templateGroup, imports);
         model.generate();
-    }
-
-    private void generateGoController(String name, String controllerDir, STGroup templateGroup) throws IOException {
-        File controllerFile = new File(Utilities.path(controllerDir, name.toLowerCase() + ".go"));
-        ST controllerTemplate = templateGroup.getInstanceOf("generic_controller.go");
-
-        controllerTemplate.add("ModelName", name);
-        controllerTemplate.add("CollectionName", getMongoCollectionName(name));
-        controllerTemplate.add("LowerCaseModelName", name.toLowerCase());
-
-        Writer controllerWriter = new BufferedWriter(new FileWriter(controllerFile));
-        controllerWriter.write(controllerTemplate.render());
-        controllerWriter.flush();
-        controllerWriter.close();
     }
 
     private void generateGoRouting(Map<String, ResourceDefn> namesAndDefinitions, String serverDir) throws IOException {
@@ -182,25 +168,23 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
         for (String name : namesAndDefinitions.keySet()) {
             String lower = name.toLowerCase();
+            String controller = lower + "Controller";
+            serverWriter.write(controller + " := ResourceController{\"" + name + "\"}");
+            serverWriter.newLine();
             serverWriter.write(lower + "Base := router.Path(\"/" + name + "\").Subrouter()");
             serverWriter.newLine();
-            //serverWriter.write(lower + "Base.Methods(\"GET\").HandlerFunc(" + name + "IndexHandler)");
-            serverWriter.write(lower + "Base.Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Index\"], negroni.HandlerFunc(" + name + "IndexHandler))...))");
+            serverWriter.write(lower + "Base.Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Index\"], negroni.HandlerFunc(" + controller + ".IndexHandler))...))");
             serverWriter.newLine();
-            //serverWriter.write(lower + "Base.Methods(\"POST\").HandlerFunc(" + name + "CreateHandler)");
-            serverWriter.write(lower + "Base.Methods(\"POST\").Handler(negroni.New(append(config[\"" + name + "Create\"], negroni.HandlerFunc(" + name + "CreateHandler))...))");
+            serverWriter.write(lower + "Base.Methods(\"POST\").Handler(negroni.New(append(config[\"" + name + "Create\"], negroni.HandlerFunc(" + controller + ".CreateHandler))...))");
             serverWriter.newLine();
             serverWriter.newLine();
             serverWriter.write(lower + " := router.Path(\"/" + name + "/{id}\").Subrouter()");
             serverWriter.newLine();
-            //serverWriter.write(lower + ".Methods(\"GET\").HandlerFunc(" + name + "ShowHandler)");
-            serverWriter.write(lower + ".Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Show\"], negroni.HandlerFunc(" + name + "ShowHandler))...))");
+            serverWriter.write(lower + ".Methods(\"GET\").Handler(negroni.New(append(config[\"" + name + "Show\"], negroni.HandlerFunc(" + controller + ".ShowHandler))...))");
             serverWriter.newLine();
-            //serverWriter.write(lower + ".Methods(\"PUT\").HandlerFunc(" + name + "UpdateHandler)");
-            serverWriter.write(lower + ".Methods(\"PUT\").Handler(negroni.New(append(config[\"" + name + "Update\"], negroni.HandlerFunc(" + name + "UpdateHandler))...))");
+            serverWriter.write(lower + ".Methods(\"PUT\").Handler(negroni.New(append(config[\"" + name + "Update\"], negroni.HandlerFunc(" + controller + ".UpdateHandler))...))");
             serverWriter.newLine();
-            //serverWriter.write(lower + ".Methods(\"DELETE\").HandlerFunc(" + name + "DeleteHandler)");
-            serverWriter.write(lower + ".Methods(\"DELETE\").Handler(negroni.New(append(config[\"" + name + "Delete\"], negroni.HandlerFunc(" + name + "DeleteHandler))...))");
+            serverWriter.write(lower + ".Methods(\"DELETE\").Handler(negroni.New(append(config[\"" + name + "Delete\"], negroni.HandlerFunc(" + controller + ".DeleteHandler))...))");
             serverWriter.newLine();
             serverWriter.newLine();
         }
@@ -226,21 +210,21 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         controllerWriter.close();
     }
 
-    private void generateMongoCollectionNames(Set<String> resourceNames, String outputDir, STGroup templateGroup) throws IOException {
+    private void generateResourceHelpers(Set<String> resourceNames, String outputDir, STGroup templateGroup) throws IOException {
         // Sort the resources by name just for consistent (diff-able) output
         ArrayList<String> resourceList = new ArrayList<String>(resourceNames);
         Collections.sort(resourceList);
 
-        HashMap<String, String> collectionMap = new HashMap<String, String>();
+        HashMap<String, String> pluralMap = new HashMap<String, String>();
         for (String resource : resourceList) {
-            collectionMap.put(resource, getMongoCollectionName(resource));
+            pluralMap.put(resource, Utilities.pluralizeMe(resource.toLowerCase()));
         }
 
-        ST utilTemplate = templateGroup.getInstanceOf("mongo_collection_names.go");
+        ST utilTemplate = templateGroup.getInstanceOf("resource_helpers.go");
         utilTemplate.add("Resources", resourceList);
-        utilTemplate.add("Collections", collectionMap);
+        utilTemplate.add("Plurals", pluralMap);
 
-        File outputFile = new File(Utilities.path(outputDir, "mongo_collection_names.go"));
+        File outputFile = new File(Utilities.path(outputDir, "resource_helpers.go"));
         Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
         controllerWriter.write(utilTemplate.render());
         controllerWriter.flush();
@@ -497,10 +481,6 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
                 return "uri".equals(dataType);
         }
         return false;
-    }
-
-    private String getMongoCollectionName(String resourceName) {
-        return Utilities.pluralizeMe(resourceName.toLowerCase());
     }
 
     @Override
