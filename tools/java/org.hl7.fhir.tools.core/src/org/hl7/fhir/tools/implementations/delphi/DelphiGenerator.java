@@ -30,6 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -299,6 +300,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeRes.uses.add("DateAndTime");
     defCodeRes.uses.add("FHIRBase");
     defCodeRes.uses.add("FHIRTypes");
+    defCodeRes.usesImpl.add("FHIRUtilities");
 
     defCodeConst = new DelphiCodeGenerator(new FileOutputStream(implDir+"FHIRConstants.pas"));
     defCodeConst.start();
@@ -334,6 +336,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeType.uses.add("EncdDecd");
     defCodeType.uses.add("DateAndTime");
     defCodeType.uses.add("FHIRBase");
+    defCodeType.usesImpl.add("FHIRUtilities");
 
     factoryIntf = new StringBuilder();
     factoryImpl = new StringBuilder();
@@ -517,7 +520,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
     generateParser(tn, category, !superClass.equals("TFHIRObject"), root.typeCode());
-    defineList(tn, tn+"List", null, category, false);
+    defineList(tn, tn+"List", null, category, category == ClassCategory.AbstractResource);
   }
 
   private void genTypeAbstract(ElementDefn root, String tn, String superClass, ClassCategory category) throws Exception {
@@ -645,7 +648,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    defineList(tn, tn+"List", null, category, false);
+    defineList(tn, tn+"List", null, category, true);
 
     prsrdefX.append("    Procedure Parse"+root.getName()+"Attributes(resource : "+tn+"; path : string; element : IXmlDomElement);\r\n");
     prsrImpl.append("Procedure TFHIRXmlParser.Parse"+root.getName()+"Attributes(resource : "+tn+"; path : string; element : IXmlDomElement);\r\n");
@@ -1124,6 +1127,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append("    function Clone : "+tn+"; overload;\r\n");
     def.append("    procedure setProperty(propName : string; propValue : TFHIRObject); override;\r\n");
     def.append("    function FhirType : string; override;\r\n");
+    def.append("    function equalsDeep(other : TFHIRObject) : boolean; override;\r\n");
+    def.append("    function equalsShallow(other : TFHIRObject) : boolean; override;\r\n");
     def.append("    {!script show}\r\n");
     def.append("  published\r\n");
     def.append(defPub.toString());
@@ -1185,12 +1190,108 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     impl2.append("begin\r\n");
     impl2.append("  result := "+tn+"(inherited Clone);\r\n");
     impl2.append("end;\r\n\r\n");
+    generateEquals(e, tn, impl2);
 
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
     generateParser(tn, category, true, e.typeCode());
-    defineList(tn, tn+"List", null, category, false);
+    defineList(tn, tn+"List", null, category, category == ClassCategory.AbstractResource);
+  }
+
+  private void generateEquals(ElementDefn e, String tn, StringBuilder b) throws IOException {
+    b.append("function "+tn+".equalsDeep(other : TFHIRObject) : boolean; \r\n");
+    b.append("var\r\n");
+    b.append("  o : "+tn+";\r\n");
+    b.append("begin\r\n");
+    b.append("  if (not inherited equalsDeep(other)) then\r\n");
+    b.append("    result := false\r\n");
+    b.append("  else if (not (other is "+tn+")) then\r\n");
+    b.append("    result := false\r\n");
+    b.append("  else\r\n");
+    b.append("  begin\r\n");
+    b.append("    o := "+tn+"(other);\r\n");
+    b.append("    result := ");
+    boolean first = true;
+    int col = 18;
+    for (ElementDefn c : e.getElements()) {
+      if (first)
+        first = false;
+      else {
+        b.append(" and ");
+        col = col+5;
+      }
+      if (col > 80) {
+        col = 6;
+        b.append("\r\n      ");
+      }
+      String name = getElementName(c.getName());
+      if (name.endsWith("[x]"))
+        name = name.substring(0, name.length()-3);
+      if (c.unbounded())
+        name = name + "List";
+      else
+        name = name + "Element";
+      b.append("compareDeep("+name+", o."+name+", true)");
+      col = col+21 + name.length()*2;
+    }
+    if (first)
+      b.append("true"); 
+    b.append(";\r\n");
+    b.append("  end;\r\n");
+    b.append("end;\r\n\r\n");
+    
+    b.append("function "+tn+".equalsShallow(other : TFHIRObject) : boolean; \r\n");
+    b.append("var\r\n");
+    b.append("  o : "+tn+";\r\n");
+    b.append("begin\r\n");
+    b.append("  if (not inherited equalsShallow(other)) then\r\n");
+    b.append("    result := false\r\n");
+    b.append("  else if (not (other is "+tn+")) then\r\n");
+    b.append("    result := false\r\n");
+    b.append("  else\r\n");
+    b.append("  begin\r\n");
+    b.append("    o := "+tn+"(other);\r\n");
+    b.append("    result := ");
+
+    first = true;
+    col = 18;
+    for (ElementDefn c : e.getElements()) {
+      if (isJavaPrimitive(c)) {
+        if (first)
+          first = false;
+        else {
+          b.append(" and ");
+          col = col+5;
+        }
+        if (col > 80) {
+          col = 6;
+          b.append("\r\n      ");
+        }
+        String name = getElementName(c.getName());
+        if (name.endsWith("[x]"))
+          name = name.substring(0, name.length()-3);
+        if (c.unbounded())
+          name = name + "List";
+        else
+          name = name + "Element";
+        b.append("compareValues("+name+", o."+name+", true)");
+        col = col+21 + name.length()*2;
+      }
+    }
+    if (first)
+      b.append("true"); 
+    b.append(";\r\n");
+    b.append("  end;\r\n");
+    b.append("end;\r\n\r\n");
+  }
+  
+  protected boolean isJavaPrimitive(ElementDefn e) {
+    return e.getTypes().size() == 1 && (isPrimitive(e.typeCode()) || e.typeCode().equals("xml:lang"));
+  }
+
+  protected boolean isPrimitive(String name) {
+    return definitions.hasPrimitiveType(name) || (name.endsWith("Type") && definitions.getPrimitives().containsKey(name.substring(0, name.length()-4)));
   }
 
   private void generateParser(String tn, ClassCategory category, boolean isElement, String parent) throws Exception {
@@ -1547,7 +1648,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           defPub.append("      "+makeDocoSafe(e.getDefinition())+"\r\n");
           defPub.append("    }\r\n");
           defPub.append("    property "+s+" : "+listForm(tn)+" read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
-          defPub.append("    property "+s+"Element : "+listForm("TFhirEnum")+" read Get"+getTitle(s)+";\r\n");
+          defPub.append("    property "+s+"List : "+listForm("TFhirEnum")+" read Get"+getTitle(s)+";\r\n");
           assign.append("    F"+getTitle(s)+".Assign("+cn+"(oSource).F"+getTitle(s)+");\r\n");
         } else {
           defPub.append("    property "+s+" : "+listForm("TFhirEnum")+" read Get"+getTitle(s)+";\r\n");
@@ -1583,7 +1684,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         if (enumSizes.get(tn) < 32) {
           impl.append("Function "+cn+".Get"+getTitle(s)+"ST : "+listForm(tn)+";\r\n  var i : integer;\r\nbegin\r\n  result := [];\r\n  if F"+s+" <> nil then\r\n    for i := 0 to F"+s+".count - 1 do\r\n      result := result + ["+tn+"(StringArrayIndexOfSensitive(CODES_"+tn+", F"+s+"[i].value))];\r\nend;\r\n\r\n");
           impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+listForm(tn)+");\r\nvar a : "+tn+";\r\nbegin\r\n  F"+s+".clear;\r\n  for a := low("+tn+") to high("+tn+") do\r\n    if a in value then\r\n      begin\r\n         if F"+s+" = nil then\r\n           F"+s+" := TFhirEnumList.create;\r\n         F"+s+".add(TFhirEnum.create(CODES_"+tn+"[a]));\r\n      end;\r\nend;\r\n\r\n");
-          obj = "Element";
+          obj = "List";
         }
 
         workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n"+

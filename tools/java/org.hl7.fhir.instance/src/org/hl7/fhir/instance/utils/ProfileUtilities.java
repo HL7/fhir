@@ -244,7 +244,7 @@ public class ProfileUtilities {
     int diffCursor = 0; // we need a diff cursor because we can only look ahead, in the bound scoped by longer paths
 
     // we actually delegate the work to a subroutine so we can re-enter it with a different cursors
-    processPaths(derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, derived.getDifferential().getElement().size()-1, url, derived.getId()+'.'+profileName+"."+derived.getName(), null, pkp, false, base.getUrl(), null, false);
+    processPaths(derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, derived.getDifferential().getElement().size()-1, url, derived.getId()+'.'+profileName+"."+derived.getName(), null, pkp, false, base.getUrl(), null);
   }
 
   /**
@@ -252,7 +252,7 @@ public class ProfileUtilities {
    * @throws Exception
    */
   private void processPaths(StructureDefinitionSnapshotComponent result, StructureDefinitionSnapshotComponent base, StructureDefinitionDifferentialComponent differential, int baseCursor, int diffCursor, int baseLimit,
-      int diffLimit, String url, String profileName, String contextPath, ProfileKnowledgeProvider pkp, boolean trimDifferential, String contextName, String resultPathBase, boolean slicingHandled) throws Exception {
+      int diffLimit, String url, String profileName, String contextPath, ProfileKnowledgeProvider pkp, boolean trimDifferential, String contextName, String resultPathBase) throws Exception {
 
     // just repeat processing entries until we run out of our allowed scope (1st entry, the allowed scope is all the entries)
     while (baseCursor <= baseLimit) {
@@ -264,7 +264,6 @@ public class ProfileUtilities {
       // in the simple case, source is not sliced.
       if (!currentBase.hasSlicing()) {
         if (diffMatches.isEmpty()) { // the differential doesn't say anything about this item
-          log(cpath+": no match in the differential");
           // so we just copy it in
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
@@ -276,8 +275,7 @@ public class ProfileUtilities {
             throw new Exception("Adding wrong path");
           result.getElement().add(outcome);
           baseCursor++;
-        } else if (diffMatches.size() == 1 && (slicingHandled || !diffMatches.get(0).hasSlicing())) {// one matching element in the differential
-          log(cpath+": single match in the differential at "+Integer.toString(diffCursor));
+        } else if (diffMatches.size() == 1) {// one matching element in the differential
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           updateFromBase(outcome, currentBase);
@@ -294,23 +292,21 @@ public class ProfileUtilities {
           baseCursor++;
           diffCursor = differential.getElement().indexOf(diffMatches.get(0))+1;
           if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
-            if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), fixedPath(contextPath, diffMatches.get(0).getPath())+".")) {
+            if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
               if (outcome.getType().size() > 1)
                 throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
               StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
               if (dt == null)
                 throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
-              log(cpath+": now walk into the profile "+dt.getUrl());
               contextName = dt.getUrl();
               int start = diffCursor;
               while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
                 diffCursor++;
               processPaths(result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
-                  diffCursor - 1, url, profileName+"/"+dt.getName(), diffMatches.get(0).getPath(), pkp, trimDifferential, contextName, resultPathBase, false);
+                  diffCursor - 1, url, profileName+"/"+dt.getName(), diffMatches.get(0).getPath(), pkp, trimDifferential, contextName, resultPathBase);
             }
           }
         } else {
-          log(cpath+": differential slices this");
           // ok, the differential slices the item. Let's check our pre-conditions to ensure that this is correct
           if (!unbounded(currentBase) && !isSlicedToOneOnly(diffMatches.get(0)))
             // you can only slice an element that doesn't repeat if the sum total of your slices is limited to 1
@@ -353,7 +349,7 @@ public class ProfileUtilities {
             ndc = differential.getElement().indexOf(diffMatches.get(i));
             ndl = findEndOfElement(differential, ndc);
             // now we process the base scope repeatedly for each instance of the item in the differential list
-            processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName, contextPath, pkp, trimDifferential, contextName, resultPathBase, true);
+            processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName, contextPath, pkp, trimDifferential, contextName, resultPathBase);
           }
           // ok, done with that - next in the base list
           baseCursor = nbl+1;
@@ -416,11 +412,7 @@ public class ProfileUtilities {
             outcome.setSlicing(null);
             if (!outcome.getPath().startsWith(resultPathBase))
               throw new Exception("Adding wrong path");
-            if (!diffMatches.get(diffpos).hasName() && diffMatches.get(diffpos).hasSlicing()) {
-              diffpos++;
-              // todo: check slicing details match
-            }
-            if (diffpos < diffMatches.size() && outcome.getName().equals(diffMatches.get(diffpos).getName())) {
+            if (diffpos < diffMatches.size() && diffMatches.get(diffpos).getName().equals(outcome.getName())) {
               // if there's a diff, we update the outcome with diff
               // no? updateFromDefinition(outcome, diffMatches.get(diffpos), profileName, pkp, closed, url);
               //then process any children
@@ -428,8 +420,7 @@ public class ProfileUtilities {
               int ndc = differential.getElement().indexOf(diffMatches.get(diffpos));
               int ndl = findEndOfElement(differential, ndc);
               // now we process the base scope repeatedly for each instance of the item in the differential list
-              processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName, contextPath, pkp, closed, contextName, resultPathBase, true);
-              
+              processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName, contextPath, pkp, closed, contextName, resultPathBase);
               // ok, done with that - now set the cursors for if this is the end
               baseCursor = nbl+1;
               diffCursor = ndl+1;
@@ -469,11 +460,6 @@ public class ProfileUtilities {
         }
       }
     }
-  }
-
-
-  private void log(String message) {
-//    System.out.println(message);    
   }
 
 
