@@ -285,6 +285,8 @@ function gen(coding : TFHIRCoding):String; overload;
 function gen(code : TFhirCodeableConcept):String; overload;
 function gen(t : TFhirType):String; overload;
 
+function compareValues(e1, e2 : TFHIRObjectList; allowNull : boolean) : boolean; overload;
+function compareValues(e1, e2 : TFHIRPrimitiveType; allowNull : boolean) : boolean; overload;
 
 implementation
 
@@ -2306,6 +2308,35 @@ begin
         result.add(e.Link);
     end;
   end;
+end;
+
+function compareValues(e1, e2 : TFHIRObjectList; allowNull : boolean) : boolean;
+var
+  i : integer;
+begin
+  if (e1 = nil) and (e2 = nil) and (allowNull) then
+    result := true
+  else if (e1 = nil) or (e2 = nil) then
+    result := false
+  else if (e1.count <> e2.count) then
+    result := false
+  else
+  begin
+    result := true;
+    for i := 0 to e1.count - 1 do
+      if (not compareValues(e1.get(i) as TFHIRPrimitiveType, e2.get(i) as TFHIRPrimitiveType, allowNull)) then
+        result := false;
+  end;
+end;
+
+function compareValues(e1, e2 : TFHIRPrimitiveType; allowNull : boolean) : boolean;
+begin
+  if (e1 = nil) and (e2 = nil) and (allowNull) then
+    result := true
+  else if (e1 = nil) or (e2 = nil) then
+    result := false
+  else
+    result := e1.equalsShallow(e2);
 end;
 
 end.

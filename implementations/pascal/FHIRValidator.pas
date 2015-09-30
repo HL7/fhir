@@ -3057,13 +3057,6 @@ begin
   end;
 end;
 
-{ TValidationResult }
-
-function TValidationResult.isOk: boolean;
-begin
-  result := message = '';
-end;
-
 { TChildIterator }
 
 constructor TChildIterator.Create(path: String; element: TWrapperElement);

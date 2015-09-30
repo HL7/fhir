@@ -524,12 +524,19 @@ type
     Property xml_commentsEnd : TAdvStringList read GetCommentsEnd;
 
     Property _source_format : TFHIRFormat read FFormat write FFormat;
+    function equalsDeep(other : TFHIRObject) : boolean; virtual;
+    function equalsShallow(other : TFHIRObject) : boolean; virtual;
   end;
 
   TFHIRBaseFactory = class (TAdvObject)
   private
   public
   end;
+
+function noList(e : TFHIRObjectList) : boolean;
+function compareDeep(e1, e2 : TFHIRObjectList; allowNull : boolean) : boolean; overload;
+function compareDeep(e1, e2 : TFHIRBase; allowNull : boolean) : boolean; overload;
+function compareDeep(div1, div2 : TFhirXHtmlNode; allowNull : boolean) : boolean; overload;
 
 Implementation
 
@@ -588,6 +595,16 @@ begin
   FCommentsStart.Free;
   FCommentsEnd.Free;
   inherited;
+end;
+
+function TFHIRBase.equalsDeep(other: TFHIRObject): boolean;
+begin
+  result := other <> nil;
+end;
+
+function TFHIRBase.equalsShallow(other: TFHIRObject): boolean;
+begin
+  result := other <> nil;
 end;
 
 function TFHIRBase.FhirType: String;
@@ -1603,6 +1620,53 @@ end;
 function TFhirXhtmlNodeListEnumerator.GetCurrent : TFhirXhtmlNode;
 begin
   Result := FList[FIndex];
+end;
+
+function noList(e : TFHIRObjectList) : boolean;
+begin
+  result := (e = nil) or (e.Count = 0);
+end;
+
+function compareDeep(e1, e2 : TFHIRObjectList; allowNull : boolean) : boolean;
+var
+  i : integer;
+begin
+  if noList(e1) and noList(e2) and (allowNull) then
+    result := true
+  else if (noList(e1)) or (noList(e2)) then
+    result := false
+  else if (e1.Count <> e2.Count) then
+    result := false
+  else
+  begin
+    result := true;
+    for i := 0 to e1.Count - 1 do
+      if (not compareDeep(e1.get(i) as TFHIRBase, e2.get(i) as TFHIRBase, allowNull)) then
+        result := false;
+  end;
+end;
+
+function compareDeep(e1, e2 : TFHIRBase; allowNull : boolean) : boolean;
+begin
+  if (e1 = nil) and (e2 = nil) and (allowNull) then
+    result := true
+  else if (e1 = nil) or (e2 = nil) then
+    result := false
+  else
+    result := e1.equalsDeep(e2);
+end;
+
+function compareDeep(div1, div2 : TFhirXHtmlNode; allowNull : boolean) : boolean;
+begin
+  if (div1 = nil) and (div2 = nil) and (allowNull) then
+    result := true
+  else if (div1 = nil) or (div2 = nil) then
+    result := false
+  else
+  begin
+    result := false; //div1.equalsDeep(div2);
+    raise Exception.Create('Not done yet');
+  end;
 end;
 
 End.
