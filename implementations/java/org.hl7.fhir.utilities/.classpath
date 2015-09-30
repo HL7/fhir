@@ -7,6 +7,6 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-io-1.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/txtmark-0.11.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/txtmark-0.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
