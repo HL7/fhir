@@ -2154,24 +2154,26 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     private void createChildren() {
       // System.out.println(" ..: "+path);
       // we're going to make this look like the XML
-      if (element == null)
-        throw new Error("not done yet");
-
-      if (element instanceof JsonPrimitive) {
-        // we may have an element_ too
-        if (_element != null && _element instanceof JsonObject)
-          for (Entry<String, JsonElement> t : ((JsonObject) _element).entrySet())
-            processChild(t.getKey(), t.getValue());
-      } else if (element instanceof JsonObject) {
-        for (Entry<String, JsonElement> t : ((JsonObject) element).entrySet())
-          if (!t.getKey().equals("resourceType")) {
-            processChild(t.getKey(), t.getValue());
-              }
-      } else if (element instanceof JsonNull) {
-        // nothing to do
-              } else
-        throw new Error("unexpected condition: " + element.getClass().getName());
+      if (element != null) {
+        if (element instanceof JsonPrimitive) {
+          // we may have an element_ too
+          if (_element != null && _element instanceof JsonObject)
+            for (Entry<String, JsonElement> t : ((JsonObject) _element).entrySet())
+              processChild(t.getKey(), t.getValue());
+        } else if (element instanceof JsonObject) {
+          for (Entry<String, JsonElement> t : ((JsonObject) element).entrySet())
+            if (!t.getKey().equals("resourceType")) {
+              processChild(t.getKey(), t.getValue());
             }
+        } else if (element instanceof JsonNull) {
+          // nothing to do
+        } else
+          throw new Error("unexpected condition: " + element.getClass().getName());
+      }
+      if (_element != null) {
+      
+      }
+    }
 
     @Override
     public String getAttribute(String name) {

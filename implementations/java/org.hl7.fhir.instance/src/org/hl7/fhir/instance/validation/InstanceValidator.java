@@ -2153,9 +2153,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     private void createChildren() {
       // System.out.println(" ..: "+path);
       // we're going to make this look like the XML
-      if (element == null)
-        throw new Error("not done yet");
-
+      if (element != null) {
       if (element instanceof JsonPrimitive) {
         // we may have an element_ too
         if (_element != null && _element instanceof JsonObject)
@@ -2170,6 +2168,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         // nothing to do
       } else
         throw new Error("unexpected condition: " + element.getClass().getName());
+    }
+      if (_element != null) {
+      
+      }
     }
 
     @Override
