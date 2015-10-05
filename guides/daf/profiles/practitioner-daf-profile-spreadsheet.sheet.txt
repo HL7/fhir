@@ -96,7 +96,7 @@
  -- Row 13 -----------------------------------
   Element = Practitioner.telecom.extension
   Profile Name = directAddressInd
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-direct}
 
