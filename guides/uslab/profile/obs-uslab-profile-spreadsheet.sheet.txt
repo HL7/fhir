@@ -154,7 +154,7 @@
  -- Row 9 -----------------------------------
   Element = Observation.extension
   Profile Name = uslab-observationkind
-  Card. = 0..1
+  Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
   Short Label = Kind of observation
@@ -522,7 +522,7 @@
  -- Row 9 -----------------------------------
   Element = Observation.extension
   Profile Name = uslab-observationkind
-  Card. = 0..1
+  Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
   Short Label = Kind of observation
@@ -953,7 +953,7 @@
  -- Row 9 -----------------------------------
   Element = Observation.extension
   Profile Name = uslab-observationkind
-  Card. = 0..1
+  Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
   Short Label = Kind of observation
@@ -1252,7 +1252,7 @@
  -- Row 9 -----------------------------------
   Element = Observation.extension
   Profile Name = uslab-observationkind
-  Card. = 0..1
+  Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
   Short Label = Kind of observation
@@ -1721,7 +1721,7 @@
  -- Row 9 -----------------------------------
   Element = Observation.extension
   Profile Name = uslab-observationkind
-  Card. = 0..1
+  Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
   Short Label = Kind of observation
@@ -2131,7 +2131,7 @@
  -- Row 9 -----------------------------------
   Element = Observation.extension
   Profile Name = uslab-observationkind
-  Card. = 0..1
+  Card. = 1..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/uslab-observationkind}
   Short Label = Kind of observation

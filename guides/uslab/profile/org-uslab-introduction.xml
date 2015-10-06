@@ -15,8 +15,29 @@
 		</ul>
 		<p>For the purposes of this profile, all elements listed in the differential profile view are <i>Supported</i> which means that the Laboratory Order/Results Sender  SHALL be capable of supplying these elements and or extensions to the Laboratory Order/Results Receiver if the data is available.          For the Laboratory Order/Results Receiver <i>Supported</i> means they SHALL save/print/archive/etc. the supplied the elements and or extensions sent by the Laboratory Order/Results Sender.  Both the Laboratory Receiver and Laboratory Sender MAY use the information to control their display of the information.      </p>
 
-		<h2>Boundaries and Relationships</h2>
-		<p>         Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.      </p>
+				<!--org examples table -->
+	<table>
+		<tr>
+			<td>
+				<b>Examples</b>:</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="org-uslab-example1.html">USLab Ordering Organization Profile: University Hospital</a>
+			</td>
+		</tr>
+				<tr>
+			<td>
+				<a href="org-uslab-example2.html">USLab Copy to Organization Profile: Children's Hospital</a>
+			</td>
+		</tr>
+						<tr>
+			<td>
+				<a href="org-uslab-example3.html">USLab Performing Lab Organization Profile: Acme Labs</a>
+			</td>
+		</tr>
+
+	</table>
 	</div>  <!-- (optional):      <div>      <h2>Background and Context</h2>      <p>      Provides additional detail on exactly how the resource is to be used      </p>      </div>      -->
 </div>
 

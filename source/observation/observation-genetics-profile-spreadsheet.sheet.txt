@@ -241,7 +241,7 @@
  -- Row 21 -----------------------------------
   Element = Observation.extension
   Profile Name = Result
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{#Result}
   Short Label = Result
   Definition = Results from genetic profile (e.g. One gene mutation with one type variation observed in a patient). It makes genetic profile support various genetic test(e.g. A genetic test reporting a list of gene mutations).

@@ -17,10 +17,31 @@
 
 		<p>         For the purposes of this profile, all elements listed in the differential profile view are <i>Supported</i> which means that the Laboratory Order/Results Sender  SHALL be capable of supplying these elements and or extensions to the Laboratory Order/Results Receiver if the data is available.          For the Laboratory Order/Results Receiver <i>Supported</i> means they SHALL save/print/archive/etc. the supplied the elements and or extensions sent by the Laboratory Order/Results Sender.  Both the Laboratory Receiver and Laboratory Sender MAY use the information to control their display of the information.      </p>
 
+		<!--Practitioner examples table -->
+	<table>
+		<tr>
+			<td>
+				<b>Examples</b>:</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="pract-uslab-example1.html">USLab Practitioner Profile: Dr Leonard T Bloodraw Jr</a>
+			</td>
+		</tr>
+				<tr>
+			<td>
+				<a href="pract-uslab-example2.html">USLab PHPractitioner Profile: Dr Bill T Lookafter Jr</a>
+			</td>
+		</tr>
+						<tr>
+			<td>
+				<a href="pract-uslab-example3.html">USLab PHPractitioner Profile: Gregory F House PhD</a>
+			</td>
+		</tr>
+
+	</table>
 
 
-		<h2>Boundaries and Relationships</h2>
-		<p>         Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.      </p>
 	  </div> <!-- (optional):      <div>      <h2>Background and Context</h2>      <p>      Provides additional detail on exactly how the resource is to be used      </p>      </div>      -->
 </div>
 

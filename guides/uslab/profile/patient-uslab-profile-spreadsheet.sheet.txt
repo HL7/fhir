@@ -89,7 +89,7 @@
  -- Row 2 -----------------------------------
   Element = Patient.extension
   Profile Name = race
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-race}
   Binding = DAFRace
@@ -538,7 +538,7 @@
  -- Row 2 -----------------------------------
   Element = Patient.extension
   Profile Name = DAFRace
-  Card. = 0..*
+  Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-race}
   Binding = DAFRace

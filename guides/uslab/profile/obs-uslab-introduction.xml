@@ -28,7 +28,53 @@
 		<p>In addition, for the Observation.code element,  <i>Supported</i> means that the Laboratory Order/Results Sender SHALL be capable of supplying both the LOINC and the local code if both exist and the Laboratory Order/Results Receiver SHALL be capable of consuming both if they exist.    For the Observation.valueCodeableConcept,  <i>Supported</i> means that the Laboratory Order/Results Sender SHALL be capable of  supplying  both the SNOMED CT and the local code if both exist and the Laboratory Order/Results Receiver SHALL be capable of consuming both if  they exist.</p>
 	
 		<p> Both the Laboratory Receiver and Laboratory Sender MAY use the information to control their display of the information.  </p>
-		
+		<!--obs examples table -->
+	<table>
+		<tr>
+			<td>
+				<b>Examples</b>:</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="obs-uslab-example1.html">USLab Quantitative Observation Profile Example: Capillary Blood Lead</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="obs-uslab-example5.html">USLab Quantitative Observation Profile Example: Blood Lead</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="obs-uslab-example2.html">USLab Coded Observation Profile Example: N gonorrhoeae PCR</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="obs-uslab-example7.html">USLab Coded Observation Profile Example: C trachomatis PCR</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="obs-uslab-example6.html">USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="obs-uslab-example4.html">USLab Ratio Observation Profile Example: Dengue Titer</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="obs-uslab-example8.html">USLab Range Observation Profile Example: WBCs in Urine</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="obs-uslab-example6.html">USLab Panel Observation Profile Example: GC/CT Aptima 2 Combo panel</a>
+			</td>
+		</tr>
+	</table>	
 	</div>
 	<!-- (optional):      <div>      <h2>Background and Context</h2>      <p>      Provides additional detail on exactly how the resource is to be used      </p>      </div>      -->
 </div>
