@@ -35,23 +35,24 @@
         <xsl:variable name="tid" select="@id"/>
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
-            <xsl:apply-templates select="*"/>
+            <xsl:apply-templates select="node()"/>
         </xsl:copy>
     </xsl:template>
     
     <xsl:template match="f:version">
-        <xsl:variable name="desc" select="@desc"/>
-        <xsl:variable name="comment" select="@comment"/>
+        <xsl:variable name="desc" select="lower-case(@desc)"/>
+        <xsl:variable name="comment" select="lower-case(@comment)"/>
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
+            <xsl:apply-templates select="comment()"/>
             <xsl:copy-of select="f:desc"/>
             <xsl:if test="not(f:desc)">
                 <xsl:choose>
                     <xsl:when test=".[@comments]">
-                        <xsl:copy-of select="(ancestor::f:table/f:version[@desc=$desc][@comments=$comment]/f:desc)[last()]"/>
+                        <xsl:copy-of select="(ancestor::f:table/f:version[lower-case(@desc)=$desc][lower-case(@comments)=$comment]/f:desc)[last()]"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:copy-of select="(ancestor::f:table/f:version[@desc=$desc]/f:desc)[last()]"/>
+                        <xsl:copy-of select="(ancestor::f:table/f:version[lower-case(@desc)=$desc]/f:desc)[last()]"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:if>
@@ -62,10 +63,11 @@
     <xsl:template match="f:item">
         <xsl:param name="version"/>
         <xsl:variable name="code" select="@code"/>
-        <xsl:variable name="desc" select="@desc"/>
+        <xsl:variable name="desc" select="lower-case(@desc)"/>
         <xsl:variable name="comment" select="@comment"/>
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
+            <xsl:apply-templates select="comment()"/>
             <xsl:choose>
                 <xsl:when test="f:desc">
                     <xsl:copy-of select="f:desc"/>
@@ -73,10 +75,10 @@
                 <xsl:otherwise>
                     <xsl:choose>
                         <xsl:when test="@comments">
-                            <xsl:copy-of select="(ancestor::f:table/f:version/f:item[@code = $code][@desc = $desc][@comments]/f:desc)[last()]"/>
+                            <xsl:copy-of select="(ancestor::f:table/f:version/f:item[@code = $code][lower-case(@desc) = $desc][@comments]/f:desc)[last()]"/>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:copy-of select="(ancestor::f:table/f:version/f:item[@code = $code][@desc = $desc][not(@comments)]/f:desc)[last()]"/>
+                            <xsl:copy-of select="(ancestor::f:table/f:version/f:item[@code = $code][lower-case(@desc) = $desc][not(@comments)]/f:desc)[last()]"/>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:otherwise>
