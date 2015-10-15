@@ -126,6 +126,15 @@
 				<reference value="questionnaireresponse-sdc-profile-spreadsheet.xml"/>
 			</exampleFor>
 		</resource>
+		<resource>
+			<purpose value="example"/>
+			<name value="SDC-ValueSet AHRQ_Medication_Q1"/>
+			<description value="The answer list for question 1 on the AHRQ &#39;Medication or Other Substance&#39; form"/>
+			<sourceUri value="valueset-sdc-profile-example.xml"/>
+			<exampleFor>
+				<reference value="valueset-sdc-profile-spreadsheet.xml"/>
+			</exampleFor>
+		</resource>
 	</package>
 	<binary value="sdc-form-curation.png"/>
 	<binary value="sdc-form-population.png"/>

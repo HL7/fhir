@@ -108,9 +108,9 @@
   Definition = Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document
   Requirements = The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g. for a DICOM standard document a 64 character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form \"oid^extension\", where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the \'^\' character shall not be included.)
   Comments = CDA Document Id extension and root.
-  XDS Mapping = DocumentEntry.uniqueId
   v2 Mapping = TXA-12
   RIM Mapping = .id
+  XDS Mapping = DocumentEntry.uniqueId
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -119,9 +119,9 @@
   Type = Identifier
   Short Label = Other identifiers for the document
   Definition = Other identifiers associated with the document, including version independent identifiers
-  XDS Mapping = DocumentEntry.entryUUID
   v2 Mapping = TXA-16?
   RIM Mapping = .id / .setId
+  XDS Mapping = DocumentEntry.entryUUID
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -130,9 +130,9 @@
   Type = Reference(Patient|Practitioner|Group|Device)
   Short Label = Who/what is the subject of the document
   Definition = Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)
-  XDS Mapping = DocumentEntry.patientId
   v2 Mapping = PID-3 (No standard way to define a Practitioner or Group subject in HL7 v2 MDM message)
   RIM Mapping = .participation[typeCode=\"SBJ\"].role[typeCode=\"PAT\"]
+  XDS Mapping = DocumentEntry.patientId
   w5 = who.focus
 
  -- Row 5 -----------------------------------
@@ -143,9 +143,9 @@
   Short Label = Kind of document (LOINC if possible)
   Definition = Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced.
   Comments = Key metadata element describing the document, used in searching/filtering.
-  XDS Mapping = DocumentEntry.type
   v2 Mapping = TXA-2
   RIM Mapping = ./code
+  XDS Mapping = DocumentEntry.type
   w5 = class
 
  -- Row 6 -----------------------------------
@@ -158,8 +158,8 @@
   Definition = A categorization for the type of document referenced - helps for indexing and searching. This may be implied by or derived from the code specified in the DocumentReference.type
   Requirements = Helps humans to assess whether the document is of interest when viewing a list of documents.
   Comments = This is a metadata field from [XDS/MHD](http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD))
-  XDS Mapping = DocumentEntry.class
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
+  XDS Mapping = DocumentEntry.class
   w5 = class
 
  -- Row 7 -----------------------------------
@@ -170,8 +170,8 @@
   Short Label = Format/content rules for the document
   Definition = An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType
   Comments = Note that while IHE mostly issues URNs for format types, not all documents can be identified as URIs
-  XDS Mapping = DocumentEntry.formatCode
   RIM Mapping = n/a
+  XDS Mapping = DocumentEntry.formatCode
 
  -- Row 8 -----------------------------------
   Element = DocumentReference.author
@@ -180,9 +180,9 @@
   Short Label = Who and/or what authored the document
   Definition = Identifies who is responsible for adding the information to the document
   Comments = Not necessarily who did the actual data entry (i.e. typist) it in or who was the source (informant)
-  XDS Mapping = DocumentEntry.author
   v2 Mapping = TXA-9 (No standard way to indicate a Device in HL7 v2 MDM message)
   RIM Mapping = .participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]
+  XDS Mapping = DocumentEntry.author
   w5 = who.author
 
  -- Row 9 -----------------------------------
@@ -210,9 +210,9 @@
   Short Label = Who/what authenticated the document
   Definition = Which person or organization authenticates that this document is valid
   Comments = Represents a participant within the author institution who has legally authenticated or attested the document. Legal authentication implies that a document has been signed manually or electronically by the legal Authenticator.
-  XDS Mapping = DocumentEntry.legalAuthenticator
   v2 Mapping = TXA-10
   RIM Mapping = .participation[typeCode=\"AUTHEN\"].role[classCode=\"ASSIGNED\"]
+  XDS Mapping = DocumentEntry.legalAuthenticator
   w5 = who.witness
 
  -- Row 12 -----------------------------------
@@ -222,9 +222,9 @@
   Short Label = Document creation time
   Definition = When the document was created
   Comments = Creation time is used for tracking, organizing versions and searching. This is the creation time of the document, not the source material on which it is based
-  XDS Mapping = DocumentEntry.submissionTime
   v2 Mapping = TXA-6
   RIM Mapping = .effectiveTime[type=\"TS\"]
+  XDS Mapping = DocumentEntry.submissionTime
   w5 = when.done
 
  -- Row 13 -----------------------------------
@@ -234,8 +234,8 @@
   Short Label = When this document reference created
   Definition = When the document reference was created
   Comments = Referencing/indexing time is used for tracking, organizing versions and searching.
-  XDS Mapping = DocumentEntry.submissionTime
   RIM Mapping = .availabilityTime[type=\"TS\"]
+  XDS Mapping = DocumentEntry.submissionTime
   w5 = when.recorded
 
  -- Row 14 -----------------------------------
@@ -247,9 +247,9 @@
   Short Label = current | superseded | entered-in-error
   Definition = The status of this document reference
   Comments = This is the status of the DocumentReference object, which might be independent from the docStatus element.
-  XDS Mapping = DocumentEntry status
   v2 Mapping = TXA-19
   RIM Mapping = interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseDocument\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseDocument\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\"
+  XDS Mapping = DocumentEntry status
   w5 = status
 
  -- Row 15 -----------------------------------
@@ -281,8 +281,8 @@
   Short Label = replaces | transforms | signs | appends
   Definition = The type of relationship that this document has with anther document
   Comments = If this document appends another document, then the document cannot be fully understood without also accessing the referenced document
-  XDS Mapping = DocumentEntry Associations type
   RIM Mapping = .outboundRelationship.typeCode
+  XDS Mapping = DocumentEntry Associations type
 
  -- Row 18 -----------------------------------
   Element = DocumentReference.relatesTo.target
@@ -290,8 +290,8 @@
   Type = Reference(DocumentReference)
   Short Label = Target of the relationship
   Definition = The target document of this relationship
-  XDS Mapping = DocumentEntry Associations reference
   RIM Mapping = .target[classCode=\"DOC\", moodCode=\"EVN\"].id
+  XDS Mapping = DocumentEntry Associations reference
 
  -- Row 19 -----------------------------------
   Element = DocumentReference.description
@@ -301,9 +301,9 @@
   Definition = Human-readable description of the source document. This is sometimes known as the \"title\"
   Requirements = Helps humans to assess whether the document is of interest
   Comments = What the document is about, rather than a terse summary of the document. It is commonly the case that records do not have a title and are collectively referred to by the display name of Record code (e.g. a \"consultation\" or \"progress note\").
-  XDS Mapping = DocumentEntry.description
   v2 Mapping = TXA-25
   RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].target.text
+  XDS Mapping = DocumentEntry.description
 
  -- Row 20 -----------------------------------
   Element = DocumentReference.securityLabel
@@ -314,9 +314,9 @@
   Definition = A set of Security-Tag codes specifying the level of privacy/security of the Document. Note that DocumentReference.meta.security contains the security labels of the \"reference\" to the document, while DocumentReference.securityLabel contains a snapshot of the security labels on the document the reference refers to
   Requirements = Use of the Health Care Privacy/Security Classification (HCS) system of security-tag use is recommended.
   Comments = The confidentiality codes can carry multiple vocabulary items. HL7 has developed an understanding of security and privacy tags that might be desirable in a Document Sharing environment, called HL7 Healthcare Privacy and Security Classification System (HCS). The following specification is recommended but not mandated, as the vocabulary bindings are an administrative domain responsibility. The use of this method is up to the policy domain such as the XDS Affinity Domain or other Trust Domain where all parties including sender and recipients are trusted to appropriately tag and enforce.   In the HL7 Healthcare Privacy and Security Classification (HCS) there are code systems specific to Confidentiality, Sensitivity, Integrity, and Handling Caveats. Some values would come from a local vocabulary as they are related to workflow roles and special projects.
-  XDS Mapping = DocumentEntry.confidentialityCode
   v2 Mapping = TXA-18
   RIM Mapping = .confidentialityCode
+  XDS Mapping = DocumentEntry.confidentialityCode
   To Do = This was embedded in the comments, but made no sense, so I moved it here:\n\n[1..1] Confidentiality Security Classification Label Field [0..*] Sensitivity Security Category Label Field [0..*] Compartment Security Category Label Field [0..*] Integrity Security Category Label Field [0..*] Handling Caveat Security Category Field In the HL7 Healthcare Privacy and Security Classification System
 
  -- Row 21 -----------------------------------
@@ -333,9 +333,9 @@
   Type = Attachment
   Short Label = Where to access the document
   Definition = The document or url of the document along with critical metadata to prove content has integrity.
-  XDS Mapping = DocumentEntry.mimeType DocumentEntry.languageCode DocumentEntry.URI DocumentEntry.size DocumentEntry.hash DocumentEntry.title
   v2 Mapping = TXA-3 for mime type
   RIM Mapping = document.text
+  XDS Mapping = DocumentEntry.mimeType DocumentEntry.languageCode DocumentEntry.URI DocumentEntry.size DocumentEntry.hash DocumentEntry.title
 
  -- Row 23 -----------------------------------
   Element = DocumentReference.content.format
@@ -345,8 +345,8 @@
   Short Label = Format/content rules for the document
   Definition = An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType
   Comments = Note that while IHE mostly issues URNs for format types, not all documents can be identified by a URI
-  XDS Mapping = DocumentEntry.formatCode
   RIM Mapping = document.text
+  XDS Mapping = DocumentEntry.formatCode
 
  -- Row 24 -----------------------------------
   Element = DocumentReference.context
@@ -374,8 +374,8 @@
   Short Label = Main Clinical Acts Documented
   Definition = This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a \"History and Physical Report\" in which the procedure being documented is necessarily a \"History and Physical\" act
   Comments = An event can further specialize the act inherent in the type, such as  where it is simply \"Procedure Report\" and the procedure was a \"colonoscopy\". If one or more event codes are included, they shall not conflict with the values inherent in the class or type elements as such a conflict would create an ambiguous situation.
-  XDS Mapping = DocumentEntry.eventCodeList
   RIM Mapping = .code
+  XDS Mapping = DocumentEntry.eventCodeList
 
  -- Row 27 -----------------------------------
   Element = DocumentReference.context.period
@@ -383,8 +383,8 @@
   Type = Period
   Short Label = Time of service that is being documented
   Definition = The time period over which the service that is described by the document was provided
-  XDS Mapping = DocumentEntry.serviceStartTime DocumentEntry.serviceStopTime
   RIM Mapping = .effectiveTime
+  XDS Mapping = DocumentEntry.serviceStartTime DocumentEntry.serviceStopTime
 
  -- Row 28 -----------------------------------
   Element = DocumentReference.context.facilityType
@@ -393,8 +393,8 @@
   Binding = DocumentC80FacilityType
   Short Label = Kind of facility where patient was seen
   Definition = The kind of facility where the patient was seen
-  XDS Mapping = DocumentEntry.healthcareFacilityTypeCode
   RIM Mapping = .participation[typeCode=\"LOC\"].role[classCode=\"DSDLOC\"].code
+  XDS Mapping = DocumentEntry.healthcareFacilityTypeCode
 
  -- Row 29 -----------------------------------
   Element = DocumentReference.context.practiceSetting
@@ -405,8 +405,8 @@
   Definition = This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty
   Requirements = This is an important piece of metadata that providers often rely upon to quickly sort and/or filter out to find specific content.
   Comments = The value set for this content has an example binding because it is a value set decided by community policy. Other examples exist for consideration: * HITSP created the table HITSP/C80 Table 2-148 Clinical Specialty Value Set (a value set based upon SNOMED CT which is referenced by Direct (XDR and XDM for Direct Messaging Specification, Version 1), as well as Nationwide Health Information Network (NHIN).  Query for Documents, Web Service Interface Specification, V 3.0, 07/27/2011 * ELGA (Austria) (ELGA CDA Implementie-rungsleitfäden Registrierung von CDA Dokumenten für ELGA mit IHE Cross-Enterprise Document Sharing: XDS Metadaten (XDSDocumentEntry), [1.2.40.0.34.7.6.3] * XDS Connect-a-thon practiceSettingCode
-  XDS Mapping = DocumentEntry.practiceSettingCode
   RIM Mapping = .participation[typeCode=\"LOC\"].role[classCode=\"DSDLOC\"].code
+  XDS Mapping = DocumentEntry.practiceSettingCode
 
  -- Row 30 -----------------------------------
   Element = DocumentReference.context.sourcePatientInfo
@@ -414,8 +414,8 @@
   Type = Reference(Patient)
   Short Label = Patient demographics from source
   Definition = The Patient Information as known when the document was published. May be a reference to a version specific, or contained
-  XDS Mapping = DocumentEntry.sourcePatientInfo DocumentEntry.sourcePatientId
   RIM Mapping = .participation[typeCode=\"SBJ\"].role[typeCode=\"PAT\"]
+  XDS Mapping = DocumentEntry.sourcePatientInfo DocumentEntry.sourcePatientId
 
  -- Row 31 -----------------------------------
   Element = DocumentReference.context.related
@@ -424,8 +424,8 @@
   Short Label = Related identifiers or resources
   Definition = Related identifiers or resources associated with the DocumentReference.
   Comments = May be identifiers or resources that caused the DocumentReference or referenced Document to be created.
-  XDS Mapping = DocumentEntry.referenceIdList
   RIM Mapping = ./outboundRelationship[typeCode=\"PERT\" and isNormalActRelationship()] / target[isNormalAct]
+  XDS Mapping = DocumentEntry.referenceIdList
 
  -- Row 32 -----------------------------------
   Element = DocumentReference.context.related.identifier

@@ -1,4 +1,36 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<h3>Example List</h3>
+<table class="list">
+  <tbody>
+    <tr>
+      <td>
+        <a href="questionnaireresponse-sdc-profile-example.html">SDC - Response to Diagnosis NCI Standard Template</a>
+      </td>
+      <td>
+        <a href="questionnaireresponse-sdc-profile-example.xml.html">XML</a>
+      </td>
+      <td>
+        <a href="questionnaireresponse-sdc-profile-example.json.html">JSON</a>
+      </td>
+      <td>Responses to the questionnaire found in the SDC - Combination list of questionnaires</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="questionnaireresponse-sdc-example-ussg-fht-answers.html">SDC-LOINC USSG Family History Response</a>
+      </td>
+      <td>
+        <a href="questionnaireresponse-sdc-example-ussg-fht-answers.xml.html">XML</a>
+      </td>
+      <td>
+        <a href="questionnaireresponse-sdc-example-ussg-fht-answers.json.html">JSON</a>
+      </td>
+      <td>Example response to the SDC-LOINC USSG Family History questionnaire</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.
+</p>
 
 </div>
 

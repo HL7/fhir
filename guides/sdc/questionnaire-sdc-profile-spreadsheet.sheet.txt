@@ -607,21 +607,23 @@
   IHE SDC mapping = parent::guarded_element/guard //guard[guarded_element_identifier = current()/question-identifier]
 
  -- Row 85 -----------------------------------
-  Element = !Questionnaire.group.question.extension.extension
-  Profile Name = !questionEnableWhen.question
+  Element = Questionnaire.group.question.extension.extension
+  Profile Name = question
   Card. = 1..1
   Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen.question}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen#question}
   IHE SDC mapping = parent::list_item/parent::list_field/parent::question
 
  -- Row 86 -----------------------------------
-  Element = !Questionnaire.group.question.extension.extension
-  Profile Name = !questionEnableWhen.answered
+  Element = Questionnaire.group.question.extension.extension
+  Profile Name = answered
+  Card. = 0..1
   Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen#answered}
 
  -- Row 87 -----------------------------------
-  Element = !Questionnaire.group.question.extension.extension
-  Profile Name = !questionEnableWhen.answer
+  Element = Questionnaire.group.question.extension.extension
+  Profile Name = answer
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen#answer}

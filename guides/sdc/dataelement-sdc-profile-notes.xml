@@ -35,4 +35,45 @@ factors are known?
   <p>
 Opinions on these and related questions of stringency are welcome.
 </p>
+<h3>Example List</h3>
+<table class="list">
+  <tbody>
+    <tr>
+      <td>
+        <a href="dataelement-sdc-profile-example.html">C-CDA-Gender</a>
+      </td>
+      <td>
+        <a href="dataelement-sdc-profile-example.xml.html">XML</a>
+      </td>
+      <td>
+        <a href="dataelement-sdc-profile-example.json.html">JSON</a>
+      </td>
+      <td>FHIR Gender with mapping to C-CDA</td>
+    </tr>
+  </tbody>
+</table>
+<br/>
+<p>
+Additional examples of this profile can be found as contained resources within the following examples:
+</p>
+<table class="list">
+  <tbody>
+    <tr>
+      <td>
+        <a href="questionnaire-sdc-profile-example-ussg-fht.html">SDC-LOINC USSG Family History</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example-ussg-fht.xml.html">XML</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example-ussg-fht.json.html">JSON</a>
+      </td>
+      <td>LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.
+</p>
 </div>

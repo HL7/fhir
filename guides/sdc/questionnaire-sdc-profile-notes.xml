@@ -30,4 +30,61 @@ the translations to be maintained independently of the resource which has both p
 <b>Open Issue:</b> Should this profile define such an extension and/or a resource for managing such translations?
 </p>
 
+<h3>Example List</h3>
+<table class="list">
+  <tbody>
+    <tr>
+      <td>
+        <a href="questionnaire-sdc-profile-example.html">SDC - Combination</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example.xml.html">XML</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example.json.html">JSON</a>
+      </td>
+      <td>Set of several examples - medication, AHRQ and NCI forms</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="questionnaire-sdc-profile-example-cap.html">SDC-Pathology</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example-cap.xml.html">XML</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example-cap.json.html">JSON</a>
+      </td>
+      <td>Cancer pathology questionnaire with flow-control extensions</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="questionnaire-sdc-profile-example-loinc.html">SDC-LOINC AHRQ</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example-loinc.xml.html">XML</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example-loinc.json.html">JSON</a>
+      </td>
+      <td>LOINC perspective on the AHRQ form found in the SDC - Combination set of questionnaires</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="questionnaire-sdc-profile-example-ussg-fht.html">SDC-LOINC USSG Family History</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example-ussg-fht.xml.html">XML</a>
+      </td>
+      <td>
+        <a href="questionnaire-sdc-profile-example-ussg-fht.json.html">JSON</a>
+      </td>
+      <td>LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.
+</p>
+
 </div>

@@ -32,8 +32,8 @@
   Type = DomainResource
   Short Label = A homogeneous material with a definite composition
   Definition = A homogeneous material with a definite composition.
-  ORIM Mapping = fhir:Substance rdfs:subClassOf   rim:Entity, [      a owl:Restriction;     owl:onProperty  rim:Act.classCode;     owl:allValuesFrom  cs:EntityClass\\#MAT   ].
   RIM Mapping = Material
+  ORIM Mapping = fhir:Substance rdfs:subClassOf   rim:Entity, [      a owl:Restriction;     owl:onProperty  rim:Act.classCode;     owl:allValuesFrom  cs:EntityClass\\#MAT   ].
   w5 = administrative.entity
 
  -- Row 2 -----------------------------------
@@ -69,8 +69,8 @@
   Short Label = What substance this is
   Definition = A code (or set of codes) that identify this substance
   Comments = This could be a reference to an externally defined code.  It could also be a locally assigned code (e.g. a formulary),  optionally with translations to the standard drug codes
-  ORIM Mapping = fhir:Substance.code rdfs:subPropertyOf rim:Entity.code
   RIM Mapping = .code
+  ORIM Mapping = fhir:Substance.code rdfs:subPropertyOf rim:Entity.code
   Committee Notes = #7961
   w5 = what
 
