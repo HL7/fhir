@@ -23,6 +23,27 @@ The ISO 19763 specification permits declaring language on questionnaire titles, 
 capturing multiple variants of these strings with distinct languages.  These capabilities can be mirrored using the above extensions.
 </p>
 
+<h3>Example List</h3>
+<table class="list">
+  <tbody>
+    <tr>
+      <td>
+        <a href="dataelement-sdc-profile-example-de.html">SDC-Gender</a>
+      </td>
+      <td>
+        <a href="dataelement-sdc-profile-example-de.xml.html">XML</a>
+      </td>
+      <td>
+        <a href="dataelement-sdc-profile-example-de.json.html">JSON</a>
+      </td>
+      <td>Patient gender represented according to SDC rules</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.
+</p>
+
 </div>
 
 

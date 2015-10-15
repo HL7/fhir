@@ -3963,7 +3963,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       page.getVsValidator().validate(page.getValidationErrors(), "Value set Example "+prefix +n, vs, false, false);
       if (vs.getUrl() == null)
-        throw new Exception("Value set example " + e.getTitle() + " has no identifier");
+        throw new Exception("Value set example " + e.getTitle() + " has no url");
       vs.setUserData("path", prefix +n + ".html");
       if (vs.getUrl().startsWith("http:"))
         page.getValueSets().put(vs.getUrl(), vs);
