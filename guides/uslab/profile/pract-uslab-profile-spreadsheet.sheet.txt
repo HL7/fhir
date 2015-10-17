@@ -67,7 +67,7 @@
   Definition = See https://nppes.cms.hhs.gov/NPPES/
   Requirements = NPI for practitioner is used
   Committee Notes = could also use \'https://nppes.cms.hhs.gov/NPPES/\'
-  Value = urn:oid:2.16.840.1.113883.4.6
+  Value = http://hl7.org.fhir/sid/us-npi
 
  -- Row 7 -----------------------------------
   Element = Practitioner.identifier.value
@@ -297,7 +297,7 @@
   Definition = See https://nppes.cms.hhs.gov/NPPES/
   Requirements = NPI for practitioner is used
   Committee Notes = could also use \'https://nppes.cms.hhs.gov/NPPES/\'
-  Value = urn:oid:2.16.840.1.113883.4.6
+  Value = http://hl7.org.fhir/sid/us-npi
 
  -- Row 7 -----------------------------------
   Element = Practitioner.identifier.value

@@ -14,7 +14,7 @@ Authored by: Eric M Haas  Health eData Inc.
   <id value="org-uslab-example2"/>
   <identifier>
     <use value="official"/>
-    <system value="https://nppes.cms.hhs.gov/NPPES/"/>
+    <system value="http://hl7.org/fhir/sid/us-npi"/>
   <!--  NPI  -->
     <value value="8235849085"/>
   </identifier>

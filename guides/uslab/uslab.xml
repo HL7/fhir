@@ -546,7 +546,7 @@
 		</page>
 		<page>
 			<source value="pract-uslab.html"/>
-			<name value="US Laboratory Patient Profiles "/>
+			<name value="US Laboratory Practitioner Profiles "/>
 			<kind value="page"/>
 			<format value="generated"/>
 			<page>
@@ -599,7 +599,7 @@
 			</page>
 			<page>
 				<source value="uslab-performinglab.html"/>
-				<name value="US Laboratory Practitioner Performing Laboratory Details"/>
+				<name value="US Laboratory Performing Laboratory Details"/>
 				<kind value="resource"/>
 				<format value="generated"/>
 					<page>

@@ -69,7 +69,7 @@
   Type = uri
   Short Label = See https://nppes.cms.hhs.gov/NPPES/
   Committee Notes = ORC.21.10:Organization Identifier:ST:C(R/RE):::1..20:= , EI datatypeORC.21.10:Organization Identifier:ST:C(R/RE):::1..20:= , EI datatype
-  Value = urn:oid:2.16.840.1.113883.4.6
+  Value = http://hl7.org/fhir/sid/us-npi
 
  -- Row 7 -----------------------------------
   Element = Organization.identifier.value
@@ -462,12 +462,12 @@
  -- Row 6 -----------------------------------
   Element = Organization.identifier.system
   Card. = 1..1
-  Slice Description = OID for National Provider Identifier (NPI)
+  Slice Description = URL for National Provider Identifier (NPI)
   Must Support = Y
   Type = uri
   Short Label = See https://nppes.cms.hhs.gov/NPPES/
   Committee Notes = 11/19/2014 EH: shall have generated text narrative
-  Value = urn:oid:2.16.840.1.113883.4.6
+  Value = http://hl7.org/fhir/sid/us-npi
 
  -- Row 7 -----------------------------------
   Element = Organization.identifier.value

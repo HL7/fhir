@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--
 <li>file: pract-uslab-example2.xml</li>
 <li> id: uslab-example2</li>
@@ -15,7 +15,7 @@ Authored by: Eric M Haas  Health eData Inc.
 	<id value="pract-uslab-example2"/>
 		<identifier>
 		<use value="official"/>
-		<system value="https://nppes.cms.hhs.gov/NPPES/"/> <!-- NPI-->
+		<system value="http://hl7.org/fhir/sid/us-npi"/> <!-- NPI-->
 		<value value="121121121"/>
 		</identifier>
 	<name>
