@@ -35,6 +35,7 @@ public class PrimitiveType extends DefinedCode {
   private String v2;
   private String v3;
   private String regEx;
+  private String jsonType;
 
   public PrimitiveType() {
     super();
@@ -51,6 +52,16 @@ public class PrimitiveType extends DefinedCode {
 
   public String getSchemaType() {
     return schemaType;
+  }
+
+  
+  public void setJsonType(String value) {
+    jsonType = value;
+    
+  }
+
+  public String getJsonType() {
+    return jsonType;
   }
 
   

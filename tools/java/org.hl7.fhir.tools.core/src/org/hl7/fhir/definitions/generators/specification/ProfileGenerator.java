@@ -247,10 +247,13 @@ public class ProfileGenerator {
     ec.setDefinition("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
-    ec.getFormatCommentsPre().add("Note: the primitive value does not have an assigned type\r\n      The actual value domain is assumed to be known by magic by\r\n      reading the spec and from the name of the primitive type");
-    ec.getFormatCommentsPre().add("Schema Type: "+type.getSchemaType());
-    if (!Utilities.noString(type.getRegEx()))
-      ec.getFormatCommentsPre().add("Regex: "+type.getRegEx());
+    TypeRefComponent t = ec.addType();
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, type.getSchemaType());
+    if (!Utilities.noString(type.getRegEx())) {
+      ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegEx());
+    }
     addSpecificDetails(type, ec);
 
     reset();
@@ -288,10 +291,12 @@ public class ProfileGenerator {
     ec3.setMin(0);
     ec3.setMax("1");
     ec3.setShort("Primitive value for " +type.getCode());
-    ec3.getFormatCommentsPre().add("Note: the primitive value does not have an assigned type\r\n        The actual value domain is assumed to be known by magic by\r\n        reading the spec and from the name of the primitive type");
-    ec3.getFormatCommentsPre().add("Schema Type: "+type.getSchemaType());
+    t = ec3.addType();
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, type.getSchemaType());
     if (!Utilities.noString(type.getRegEx()))
-      ec3.getFormatCommentsPre().add("Regex: "+type.getRegEx());
+      ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegEx());
     addSpecificDetails(type, ec3);
     generateElementDefinition(ec3, ec);
 
@@ -369,11 +374,13 @@ public class ProfileGenerator {
     ec2.setDefinition("Primitive value for " +type.getCode());
     ec2.setMin(0);
     ec2.setMax("1");
-    ec2.getFormatCommentsPre().add("Note: not have an assigned type\r\n        The actual value domain is assumed to be known by magic by\r\n        reading the spec and from the name of the primitive type");
-    ec2.getFormatCommentsPre().add("Schema Type: "+type.getSchema());
-    if (!Utilities.noString(type.getRegex()))
-      ec2.getFormatCommentsPre().add("Regex: "+type.getRegex());
-
+    TypeRefComponent t = ec2.addType();
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, type.getSchema());
+    if (!Utilities.noString(type.getRegex())) {
+      ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegex());
+    }
     reset();
     // now. the snapshot
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
@@ -407,10 +414,12 @@ public class ProfileGenerator {
     ecB.getBase().setPath(type.getBase()+".value");
     ecB.getBase().setMin(0);
     ecB.getBase().setMax("1");
-    ecB.getFormatCommentsPre().add("Note: not have an assigned type\r\n        The actual value domain is assumed to be known by magic by\r\n        reading the spec and from the name of the primitive type");
-    ecB.getFormatCommentsPre().add("Schema Type: "+type.getSchema());
+    t = ecB.addType();
+    t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type\r\n      e.g. this is compiler magic\r\n      XML and JSON types provided by extension");
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
+    ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, type.getSchema());
     if (!Utilities.noString(type.getRegex()))
-      ecB.getFormatCommentsPre().add("Regex: "+type.getRegex());
+      ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegex());
 //    generateElementDefinition(ecB, ecA);
 
     containedSlices.clear();
@@ -612,7 +621,8 @@ public class ProfileGenerator {
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
     p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(r.isAbstract());
-    p.setBase("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
+    if (!Utilities.noString(r.getRoot().typeCode()))
+      p.setBase("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
     p.setUserData("filename", r.getName().toLowerCase());
     p.setUserData("path", r.getName().toLowerCase()+".html");
     p.setDisplay(pack.metadata("display"));
