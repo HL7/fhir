@@ -198,6 +198,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
+import org.hl7.fhir.instance.test.ProfileUtilitiesTests;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileComparer;
 import org.hl7.fhir.instance.utils.ProfileComparer.ProfileComparison;
@@ -689,11 +690,17 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     String fullFileName = Utilities.path(page.getFolders().dstDir, n.replace("/", File.separator));
     Utilities.createDirectory(fullFileName);
-    String page = "<html>\r\n<head>\r\n<title>Redirect Page for "+Utilities.escapeXml(desc)+" </title>\r\n<meta http-equiv=\"REFRESH\" content=\"0;url="+
-       level+pn+"\"></HEAD>\r\n</head>\r\n<body>\r\nThis page is a redirect to "+level+pn+"\r\n</body>\r\n</html>\r\n";
-    String fn = Utilities.path(fullFileName, "index.html");
+    // simple html version
+//    String pagecnt = "<html>\r\n<head>\r\n<title>Redirect Page for "+Utilities.escapeXml(desc)+" </title>\r\n<meta http-equiv=\"REFRESH\" content=\"0;url="+
+//       level+pn+"\"></HEAD>\r\n</head>\r\n<body>\r\nThis page is a redirect to "+level+pn+"\r\n</body>\r\n</html>\r\n";
+    
+    // asp redirection version
+    String pagecnt = TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "tools", "html", "redirect.asp"));
+    pagecnt = pagecnt.replace("<%filename%>", Utilities.changeFileExt(pn, ""));
+    
+    String fn = Utilities.path(fullFileName, "index.asp");
     if (!(new File(fn).exists()))
-      TextFile.stringToFile(page, fn);
+      TextFile.stringToFile(pagecnt, fn);
 
   }
 
@@ -5185,6 +5192,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
   private void validationProcess() throws Exception {
+//    new ProfileUtilitiesTests(page.getFolders().dstDir).testSnapshotGeneration();
     validateXml();
     if (web)
       roundTrip();

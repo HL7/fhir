@@ -655,7 +655,8 @@ public class ProfileUtilitiesTests {
     id.addType().setCode("Extension").addProfile("http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName");    
     
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    ProfileUtilities pu = new ProfileUtilities(context);
+    pu.generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
 
     // 2 different: extension slices 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size() - 2;
@@ -684,7 +685,7 @@ public class ProfileUtilitiesTests {
       ElementDefinition d1 = focus.getSnapshot().getElement().get(8);
       ElementDefinition d2 = focus.getSnapshot().getElement().get(9);
       ok = d1.hasType() && d1.getType().get(0).hasProfile() && d2.hasType() && d2.getType().get(0).hasProfile() && !Base.compareDeep(d1.getType(), d2.getType(), true) &&
-            d1.getMin() == 1 && d2.getMin() == 0;
+            d1.getMin() == 1 && d2.getMin() == 0 && d1.getMax().equals("1") && d2.getMax().equals("1");
       if (ok) {
         d1.getType().clear();
         d2.getType().clear();

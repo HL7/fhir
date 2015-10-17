@@ -2024,7 +2024,7 @@ public class SpreadsheetParser {
 	        exe.getInvariants().put(inv.getId(), inv);
 	    }
 	  }
-     
+	  
     parseExtensionElement(sheet, row, definitions, exe, false);
     String sl = exe.getShortDefn();
     ex.setName(sheet.getColumn(row, "Name"));

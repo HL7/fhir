@@ -250,7 +250,8 @@ public class ValueSetImporterV2 {
   }
 
   private void addLangDesc(ConceptDefinitionComponent c, String lang, String value) {
-    c.addDesignation().setLanguage(lang).setValue(value);
+    if (!Utilities.noString(value))
+      c.addDesignation().setLanguage(lang).setValue(value);
   }
 
   private List<Element> getLangList(Element node) {
