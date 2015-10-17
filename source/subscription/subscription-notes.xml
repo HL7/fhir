@@ -143,7 +143,7 @@ A client can declare its intention to listen via Web Sockets:
 
 <pre class="json">
   "channel": {
-    "type": "webSocket"
+    "type": "websocket"
   }
 </pre>
 
