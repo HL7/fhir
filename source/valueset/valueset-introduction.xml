@@ -28,7 +28,7 @@ validation. An expanded value set may also contain the original definition.
 </p>
 <p>
 Value sets that contain inline code systems are intended for small, simple code systems that are 
-found throughout the implementation context (e.g., lists of wards, status codes, enumerations). 
+found throughout the implementation context (e.g., lists of words, status codes, enumerations). 
 The inline code system definition is not intended to represent large publically defined terminologies 
 such as LOINC, etc. - these terminologies have their own distribution formats.
 </p>
