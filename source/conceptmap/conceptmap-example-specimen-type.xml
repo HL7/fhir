@@ -670,7 +670,7 @@
       <codeSystem value="http://snomed.info/sct"/>
       <code value="258455001"/>
       <equivalence value="equivalent"/>
-      <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: not an acceptible specimen for micro - not specific enough term"/>
+      <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: not an acceptable specimen for micro - not specific enough term"/>
       <product>
         <element value="http://hl7.org/fhir/v2/element/SPM-7"/>
         <codeSystem value="http://snomed.info/sct"/>
