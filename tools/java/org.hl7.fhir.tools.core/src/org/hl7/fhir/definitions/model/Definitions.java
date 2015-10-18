@@ -718,6 +718,8 @@ public class Definitions {
   }
 
   public boolean hasBaseType(String name) {
+    if (name == null)
+      return false;
     for (DefinedCode dc : primitives.values()) {
       if (/* dc instanceof PrimitiveType && */ dc.getCode().equals(name))
         return true;

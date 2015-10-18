@@ -2338,7 +2338,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void checkElement(StructureDefinition sd, ElementDefinition ed, boolean inDiff) {
     check(ed.hasPath(), sd, "Element has no path");
     for (TypeRefComponent tr : ed.getType()) {
-      if (!inDiff || tr.hasCode())
+      if ((!inDiff || tr.hasCode()) && tr.getCode() != null)
         if (ed.getPath().contains("."))
           check(page.getDefinitions().hasBaseType(tr.getCode()) || tr.getCode().equals("Resource"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid");
         else if (sd.hasConstrainedType())
