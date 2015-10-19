@@ -64,9 +64,9 @@
   Must Support = Y
   Type = uri
   Short Label = OID for National Provider Identifier (NPI)
-  Definition = See https://nppes.cms.hhs.gov/NPPES/
+  Definition = See http://hl7.org/fhir/sid/us-npi
   Requirements = NPI for practitioner is used
-  Committee Notes = could also use \'https://nppes.cms.hhs.gov/NPPES/\'
+  Committee Notes = could also use \'http://hl7.org/fhir/sid/us-npi\'
   Value = http://hl7.org.fhir/sid/us-npi
 
  -- Row 7 -----------------------------------
@@ -294,9 +294,9 @@
   Must Support = Y
   Type = uri
   Short Label = OID for National Provider Identifier (NPI)
-  Definition = See https://nppes.cms.hhs.gov/NPPES/
+  Definition = See http://hl7.org/fhir/sid/us-npi
   Requirements = NPI for practitioner is used
-  Committee Notes = could also use \'https://nppes.cms.hhs.gov/NPPES/\'
+  Committee Notes = could also use \'http://hl7.org/fhir/sid/us-npi\'
   Value = http://hl7.org.fhir/sid/us-npi
 
  -- Row 7 -----------------------------------

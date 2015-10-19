@@ -67,7 +67,7 @@
   Slice Description = OID for National Provider Identifier (NPI)
   Must Support = Y
   Type = uri
-  Short Label = See https://nppes.cms.hhs.gov/NPPES/
+  Short Label = See http://hl7.org/fhir/sid/us-npi
   Committee Notes = ORC.21.10:Organization Identifier:ST:C(R/RE):::1..20:= , EI datatypeORC.21.10:Organization Identifier:ST:C(R/RE):::1..20:= , EI datatype
   Value = http://hl7.org/fhir/sid/us-npi
 
@@ -465,7 +465,7 @@
   Slice Description = URL for National Provider Identifier (NPI)
   Must Support = Y
   Type = uri
-  Short Label = See https://nppes.cms.hhs.gov/NPPES/
+  Short Label = See http://hl7.org/fhir/sid/us-npi
   Committee Notes = 11/19/2014 EH: shall have generated text narrative
   Value = http://hl7.org/fhir/sid/us-npi
 
