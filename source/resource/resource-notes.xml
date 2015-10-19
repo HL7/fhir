@@ -134,7 +134,7 @@ in particular implementations or contexts of use.
   <tr>
    <td>tag (0..*)</td>
    <td><a href="datatypes.html#Coding">Coding</a></td>
-   <td><a href="compartments.html">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider 
+   <td><a href="resource-definitions.html#Meta.tag">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider 
     the tags when interpreting the meaning of a resource.</td>
   </tr>
 		
