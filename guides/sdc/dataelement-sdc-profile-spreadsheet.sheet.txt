@@ -395,7 +395,8 @@
   Card. = !0..1
   Must Support = Y
   Type = !code
-  Binding = DEXMappingLanguage
+  Binding = !DEXMappingLanguage
+  Comments = The most common languages will be application/sparql-results+xml, application/sql and application/xquery
 
  -- Row 69 -----------------------------------
   Element = DataElement.element.mapping.map

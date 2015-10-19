@@ -460,7 +460,7 @@ public class TurtleGenerator {
   }
  
   private void commitPrefixes(LineOutputStreamWriter writer) throws Exception {
-    writer.ln("# FHIR definitions");
+    writer.ln("# FHIR ub-definitions");
     writer.write("# This is work in progress, and may change rapidly \r\n");
     writer.ln();
     writer.write("# A note about policy: the focus here is providing the knowledge from \r\n"); 
@@ -472,6 +472,8 @@ public class TurtleGenerator {
     writer.write("# Where the community agrees on additional predicate statements (such \r\n");
     writer.write("# as OWL constraints) these are added in addition to the direct FHIR \r\n");
     writer.write("# predicates \r\n");
+    writer.ln();
+    writer.write("# This it not a formal ontology, though it is possible it may start to become one eventually\r\n");
     writer.ln();
     writer.write("# this file refers to concepts defined in rim.ttl and to others defined elsewhere outside HL7 \r\n");
     writer.ln();

@@ -648,6 +648,7 @@
   Card. = !0..1
   Must Support = Y
   Type = !code
+  Comments = The most common languages will be application/sparql-results+xml, application/sql and application/xquery
 
  -- Row 85 -----------------------------------
   Element = DataElement.element.mapping.map

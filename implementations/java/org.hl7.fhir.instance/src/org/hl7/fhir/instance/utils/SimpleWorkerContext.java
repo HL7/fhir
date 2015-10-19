@@ -744,6 +744,10 @@ public class SimpleWorkerContext implements IWorkerContext {
     return null;
   }
 
+  public int totalCount() {
+    return valueSets.size() +  maps.size() + structures.size();
+  }
+
   
 
 }
