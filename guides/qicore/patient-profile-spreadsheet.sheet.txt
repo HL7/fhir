@@ -245,21 +245,21 @@
 
  -- Row 21 -----------------------------------
   Element = Patient.extension.extension
-  Profile Name = clinicalTrial.NCT
+  Profile Name = NCT
   Card. = 1..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial#NCT}
   QDM Mapping = primary code
 
  -- Row 22 -----------------------------------
   Element = Patient.extension.extension
-  Profile Name = clinicalTrial.period
+  Profile Name = period
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial#period}
   QDM Mapping = start and stop datetime
 
  -- Row 23 -----------------------------------
   Element = Patient.extension.extension
-  Profile Name = clinicalTrial.reason
+  Profile Name = reason
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial#reason}
   Binding = QICoreProblemCode
