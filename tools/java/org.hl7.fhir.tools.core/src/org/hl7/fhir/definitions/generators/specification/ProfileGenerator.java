@@ -514,8 +514,8 @@ public class ProfileGenerator {
     e.setName(pt.getName());
     e.setShort(pt.getDefinition());
     e.setDefinition(pt.getDescription());
-    e.setMin(1);
-    e.setMax("1");
+    e.setMin(0);
+    e.setMax("*");
     e.setIsModifier(false);
 
     String s = definitions.getTLAs().get(pt.getName().toLowerCase());
@@ -989,8 +989,8 @@ public class ProfileGenerator {
     if (!Utilities.noString(e.getStatedType()))
       ToolingExtensions.addStringExtension(ce, "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name", e.getStatedType());
 
-    if (e.getMaxLength() != null) 
-      ce.setMax(e.getMaxLength()); 
+    if (!Utilities.noString(e.getMaxLength())) 
+      ce.setMaxLength(Integer.parseInt(e.getMaxLength())); 
 
     // no purpose here
     if (e.getMinCardinality() != null)
