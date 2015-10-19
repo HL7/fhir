@@ -6,7 +6,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
 
-  <criteria value="Observation?name=http://loinc.org|1975-2"/>
+  <criteria value="Observation?code=http://loinc.org|1975-2"/>
   <contact>
     <system value="phone"/>
     <value value="ext 4123"/>
