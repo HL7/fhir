@@ -72,9 +72,9 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Context = StructureDefinition.snapshot
-  English = Element paths must be unique - or not (LM)
-  XPath = count(f:element) >= count(distinct-values(f:element/f:path/@value))
+  Context = StructureDefinition
+  English = Element paths must be unique unless the structure is a constraint
+  XPath = exists(f:constrainedType) or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))
 
  -- Row 2 -----------------------------------
   Id = 2
