@@ -204,7 +204,7 @@
   Id = 3
   Context = Timing.repeat
   English = Either frequency or when can exist, not both
-  XPath = not(exists(f:frequency)) or not(exists(f:when))
+  XPath = not((f:period or f:frequency) and f:when)
 
  -- Row 4 -----------------------------------
   Id = 4
