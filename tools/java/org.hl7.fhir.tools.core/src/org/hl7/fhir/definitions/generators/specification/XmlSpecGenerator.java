@@ -611,12 +611,12 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
       if (children.isEmpty())
         write("<span style=\"color: Gray\"> --&gt;</span>");
+    }
       if (!doneType) {
         write("&lt;/");
         write(en);
         write("&gt;");
       }
-    }
     write("\r\n");
   }
 
