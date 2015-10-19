@@ -807,7 +807,7 @@ Examples of using composite parameters:
 
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
- <tr><td><pre> GET [base]/DiagnosticReport?result.code-value-quantity=http://loinc.org|2823-3$gt5.5|http://unitsofmeasure.org|mmol/L</pre></td><td>Search for all diagnostic reports that contain on observation with a potassium value of >5.4 mmol/L (UCUM)</td></tr>
+ <tr><td><pre> GET [base]/DiagnosticReport?result.code-value-quantity=http://loinc.org|2823-3$gt5.4|http://unitsofmeasure.org|mmol/L</pre></td><td>Search for all diagnostic reports that contain on observation with a potassium value of >5.4 mmol/L (UCUM)</td></tr>
  <tr><td><pre> GET [base]/Observation?component-code-value-quantity=http://loinc.org|8480-6$lt60</pre></td><td>Search for all the observations with a systolic blood pressure &lt; 60. Note that in this case, the unit is assumed (eveyone uses mmHg)</td></tr>
  <tr><td><pre> GET [base]/Group?characteristic-value=gender$mixed</pre></td><td>Search for all groups that have a characteristic "gender" with a text value of "mixed"</td></tr>
 </table>
@@ -1089,7 +1089,7 @@ Prescription</a> resources and their <a href="practitioner.html">prescribing Pra
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
 </p>
 <pre>
-GET [base]/MedicationDispense?_include=MedicationDispense.authorizingPrescription
+GET [base]/MedicationDispense?_include=MedicationDispense:authorizingPrescription
     &amp;_include:recurse=MedicationOrder.prescriber&amp;criteria...
 </pre>
 <p>
@@ -1101,7 +1101,7 @@ recursively, so it will retrieve observations that are directly related, and
 also any related observations to any other included observation.
 </p>
 <pre>
-GET [base]/Observation?_include=Observation.related-target&amp;criteria...
+GET [base]/Observation?_include=Observation:related-target&amp;criteria...
 GET [base]/Observation?_include:recurse=Observation.related-target&amp;criteria...
 </pre>
 <p>
