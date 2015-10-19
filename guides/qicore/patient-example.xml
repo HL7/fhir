@@ -59,16 +59,16 @@
     </valueCodeableConcept>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial">
-    <extension url="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrialNCT">
+    <extension url="NCT">
       <valueString value="NCT01647425"/>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrialPeriod">
+    <extension url="period">
       <valuePeriod>
         <start value="2012-04-01"/>
         <end value="2013-09-30"/>
       </valuePeriod>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrialReason">
+    <extension url="reason">
       <valueCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>
