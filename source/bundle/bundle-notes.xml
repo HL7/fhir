@@ -71,7 +71,7 @@ information:
 
 <p>
 An update history (type = "history") consists of a series of 
-0 or more entries. Each entry element SHALL contain a transaction element that describes the change
+0 or more entries. Each entry element SHALL contain a request element that describes the change
 that was made, and, if the method is a POST or PUT, a resource that represents the state of the 
 resource at the conclusion of the operation. 
 See <a href="http.html#history">History</a> for further information.
@@ -89,7 +89,7 @@ and that may be returned by following the "next" <a href="bundle-definitions.htm
 
 <p>
 A transaction (type = "transaction") consists of a series of 0 or more entries. Each entry element 
-SHALL contain either a transaction element, or a resource element (or both). See <a href="http.html#transaction">Transactions</a> 
+SHALL contain either a request element, or a resource element (or both). See <a href="http.html#transaction">Transactions</a> 
 for further information. Each entry in a transaction has the details of an HTTP operation that informs the system 
 processing the transaction what to do with the entry. If the entry method is a 'PUT' or 
 'POST', then the entry SHALL contain a resource that becomes the body of the HTTP operation. 
@@ -107,7 +107,7 @@ infer whether this is a create or an update from the resource identity supplied.
 <p>
 A transaction response (type = "transaction-response") consists of a series of 
 0 or more entries, 1 for each entry in the transaction it is in response to. 
-Each entry element SHALL contain a <code>transactionResponse</code> element which indicates 
+Each entry element SHALL contain a <code>response</code> element which indicates 
 the outcome of the HTTP operation that the server performed for the entry. 
 </p>
 
