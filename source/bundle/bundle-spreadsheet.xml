@@ -10,17 +10,17 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-09-14T23:59:23Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16440</WindowHeight>
-  <WindowWidth>10005</WindowWidth>
+  <WindowHeight>16575</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3920,7 +3920,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4072,20 +4071,20 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">3</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.transaction</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.request</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.transaction when (and only when) a transaction</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.request only for some types of bundles</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s108"><Data ss:Type="String">not(f:entry/f:request) or (f:type/@value = 'batch') or (f:type/@value = 'transaction') or (f:type/@value = 'history')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">4</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.transactionResponse</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.response</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.transactionResponse when (and only when) a transaction-response</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.response only for some types of bundles</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s108"><Data ss:Type="String">not(f:entry/f:response) or (f:type/@value = 'batch-response') or (f:type/@value = 'transaction-response')</Data></Cell>
    </Row>
@@ -4095,7 +4094,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">entry.resource</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle.entry</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">must be a resource unless there's a transaction or transaction response</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">must be a resource unless there's a request or response</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s108"><Data ss:Type="String">f:resource or f:request or f:response</Data></Cell>
    </Row>
@@ -4448,6 +4447,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4467,7 +4467,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

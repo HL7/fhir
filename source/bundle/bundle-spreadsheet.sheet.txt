@@ -175,21 +175,21 @@
  -- Row 8 -----------------------------------
   Id = 3
   Context = Bundle
-  English = entry.transaction when (and only when) a transaction
+  English = entry.request only for some types of bundles
   XPath = not(f:entry/f:request) or (f:type/@value = \'batch\') or (f:type/@value = \'transaction\') or (f:type/@value = \'history\')
   Severity = error
 
  -- Row 9 -----------------------------------
   Id = 4
   Context = Bundle
-  English = entry.transactionResponse when (and only when) a transaction-response
+  English = entry.response only for some types of bundles
   XPath = not(f:entry/f:response) or (f:type/@value = \'batch-response\') or (f:type/@value = \'transaction-response\')
   Severity = error
 
  -- Row 10 -----------------------------------
   Id = 5
   Context = Bundle.entry
-  English = must be a resource unless there\'s a transaction or transaction response
+  English = must be a resource unless there\'s a request or response
   XPath = f:resource or f:request or f:response
   Severity = error
 
