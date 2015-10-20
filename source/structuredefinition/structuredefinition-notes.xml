@@ -9,7 +9,7 @@
 <li>A structure is represented as a flat list of elements. The <code>element.path</code> provides the overall structure.</li>
 <li><code>element.short</code>, <code>element.formal</code>, <code>element.comments</code> and <code>element.mapping</code> provide the specific definition for the field in a specific context.</li>
 <li><code>element.type</code> is used to specify which types may be used for this element. If there is more than one type, the element offers a choice of types and must have a name that terminates in "[x]". 
-Names of elements that are choices retain the "[x]" in the name, even if a constraint on such an element limits the number of allowed types down to one.</li>
+When profiling a resource, and only one type is specified, the names of element is changed to include the type instead of '[x]'.</li>
 <li>When using xpath to make constraints about the relationship between the contents of the narrative and the contents of the data elements, the element against which the rule is expressed is the one against which the error or warning will be reported by a validator.</li>
 <li>When xpath constraints refer to elements that offer a choice of types, the statement must use the fully expanded name (including the actual type), not the name ending in "[x]".</li>
 <li>For xpath constraints, the prefix "f" should be used for "http://hl7.org/fhir", and "h" for "http://www.w3.org/1999/xhtml". XPath constraints are written against the XML representation, but the rules they describe SHALL be true in any other representation as well</li>
