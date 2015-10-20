@@ -280,7 +280,7 @@
   Type = boolean
   Short Label = Indicates whether or not any change to the content logical definition may occur
   Definition = If this is set to \'true\', then no new versions of the content logical definition can be created.  Note: Other metadata might still change
-  Comments = Normally immutability is set to \'false\', which is the default assumption if it is not populated.  Note that the implication is that if this is set to \'true\', there may be only one ValueSet version for this definition. Immutability tends to be set to \'true\' in one of two cases: - Where the value set, by the nature of its usage, cannot change.  For example \"All specializations of ACT in ActClassCode\" - Where there\'s no safe way to express the \"Purpose\" such that someone else could safely make changes to the value set definition Source workflow control must guarantee that the same URI always yields the same definition
+  Comments = Normally immutability is set to \'false\', which is the default assumption if it is not populated.  Note that the implication is that if this is set to \'true\', there may be only one ValueSet version for this definition. Immutability tends to be set to \'true\' in one of two cases: - Where the value set, by the nature of its usage, cannot change.  For example \"All specializations of ACT in ActClassCode\" - Where there\'s no safe way to express the \"Purpose\" such that someone else could safely make changes to the value set definition. Source workflow control must guarantee that the same URI always yields the same definition
 
  -- Row 17 -----------------------------------
   Element = ValueSet.requirements
@@ -297,7 +297,7 @@
   Type = string
   Short Label = Use and/or publishing restrictions
   Definition = A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set
-  Comments = Frequently, the copyright differs between the value set, and codes that are included. The copyright statement should clearly differentiate between these when required
+  Comments = Frequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required
 
  -- Row 19 -----------------------------------
   Element = ValueSet.extensible
@@ -315,8 +315,8 @@
   UML = -190;0
   Inv. = 5
   Short Label = An inline code system - part of this value set
-  Definition = A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it\'s (codeSystem.system) directly
-  Comments = All code systems defined as part of a FHIR value set have an implicit valueset that includes all the code in the code system - the value set in which they are defined
+  Definition = A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to its (codeSystem.system) directly
+  Comments = All code systems defined as part of a FHIR value set have an implicit valueset that includes all of the codes in the code system - the value set in which they are defined
   Committee Notes = The choice to package code system as a part of the value set resource rather than having code systems as a first level entity is a scope choice that has generated much comment; this may be reviewed in the future
 
  -- Row 21 -----------------------------------
@@ -326,7 +326,7 @@
   Type = uri
   Short Label = URI to identify the code system (e.g. in Coding.system)
   Definition = An absolute URI that is used to reference this code system, including in [Coding]{datatypes.html#Coding}.system
-  Comments = The reference is not required to point to any specific kind of definition, but the more information that can be provided, the more useful it is for implementers. Best practice is to resolve to a computable definition of the code system (either a value set, or some other format). Terminology Servers MAY validate this reference (e.g. when accepting PUT/POST), and MAY make additional rules about what kind of content it refers to
+  Comments = The reference is not required to point to any specific kind of definition, but the more information that can be provided, the more useful it is for implementers. Best practice is to resolve to a computable definition of the code system (either a value set, or some other format). Terminology servers MAY validate this reference (e.g. when accepting PUT/POST), and MAY make additional rules about what kind of content it refers to
 
  -- Row 22 -----------------------------------
   Element = ValueSet.codeSystem.version
@@ -373,14 +373,14 @@
   Element = ValueSet.codeSystem.concept.display
   Card. = 0..1
   Type = string
-  Short Label = Text to Display to the user
+  Short Label = Text to display to the user
   Definition = A human readable string that is the recommended default way to present this concept to a user
 
  -- Row 28 -----------------------------------
   Element = ValueSet.codeSystem.concept.definition
   Card. = 0..1
   Type = string
-  Short Label = Formal Definition
+  Short Label = Formal definition
   Definition = The formal definition of the concept. The value set resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept
 
  -- Row 29 -----------------------------------
@@ -557,7 +557,7 @@
   Type = code
   Binding = !
   Short Label = Code from the system, or regex criteria
-  Definition = The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value
+  Definition = The match value may be either a code defined by the system, or a string value or a regex match on the literal string of the property value
   Comments = Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example
   RIM Mapping = N/A
 
@@ -594,7 +594,7 @@
   Type = dateTime
   Short Label = Time ValueSet expansion happened
   Definition = The time at which the expansion was produced by the expanding system.
-  Comments = This SHOULD be a fully populated instant, but in some circumstances, value sets are expanded by hand, of the expansion is published without that precision
+  Comments = This SHOULD be a fully populated instant, but in some circumstances, value sets are expanded by hand, and the expansion is published without that precision
 
  -- Row 52 -----------------------------------
   Element = ValueSet.expansion.total
@@ -618,14 +618,14 @@
   Card. = 0..*
   UML = 290;80
   Short Label = Parameter that controlled the expansion process
-  Definition = A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion
-  Comments = The server decides which parameters to include here, but as a minimum, the list SHOULD include the date, filter, and profile parameters passed to the $expand operation (if any)
+  Definition = A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion
+  Comments = The server decides which parameters to include here, but at a minimum, the list SHOULD include the date, filter, and profile parameters passed to the $expand operation (if any)
 
  -- Row 55 -----------------------------------
   Element = ValueSet.expansion.parameter.name
   Card. = 1..1
   Type = string
-  Short Label = Name as assigned by server
+  Short Label = Name as assigned by the server
   Definition = The name of the parameter
   Comments = The names are assigned at the discretion of the server
   Committee Notes = There is no standardization of parameter names that control the expansion process. This will be reviewed in the future
@@ -862,7 +862,7 @@
  -- Row 2 -----------------------------------
   Name = expand.identifier
   Use = in
-  Documentation = A logical value set identifier (i.e. ValueSet.identifier). The server must know the value set (e.g. it is defined explicitly in the server\'s value sets, or it is defined implicitly by some code system known to the server
+  Documentation = A logical value set identifier (i.e. ValueSet.url). The server must know the value set (e.g. it is defined explicitly in the server\'s value sets, or it is defined implicitly by some code system known to the server
   Type = uri
   Min = 0
   Max = 1
@@ -1054,7 +1054,7 @@
  -- Row 26 -----------------------------------
   Name = validate-code.identifier
   Use = in
-  Documentation = A logical value set id (i.e. ValueSet.url). The server must know the value set (e.g. it is defined explicitly in the server\'s value sets, or it is defined implicitly by some code system known to the server
+  Documentation = A logical value set identifier (i.e. ValueSet.url). The server must know the value set (e.g. it is defined explicitly in the server\'s value sets, or it is defined implicitly by some code system known to the server
   Type = uri
   Min = 0
   Max = 1
