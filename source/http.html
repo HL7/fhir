@@ -84,12 +84,12 @@ Implementations constructing URLs using these patterns SHOULD conform to <a href
 which requires percent-encoding for a number of characters that occasionally appear in the URLs (mainly in search parameters).
 </p>
 <p>
-This specification uses the undescore as a prefix to disambiguate reserved names from other names in 3 cases:
+This specification uses the underscore as a prefix to disambiguate reserved names from other names in 3 cases:
 </p>
 <ul>
  <li>To differentiate system wide history and search interactions from interactions on Resource Types</li>
  <li>To differentiate search, history and similar interactions from instances of a resource type</li>
- <li>To differentiate search parameters defined for all reosurces from those defined for specific resource types</li>
+ <li>To differentiate search parameters defined for all resources from those defined for specific resource types</li>
 </ul>
 <p>
 In addition, the character <code>$</code> is used as a prefix to operation names that are RPC-like additions to the base
@@ -253,7 +253,7 @@ Prefer: return=representation
 The first of these two asks to return no body. The
 second asks to return the full resource. Servers SHOULD honor this header.
 In the absence of the header, servers may choose whether to return the
-full resource or not. Note that this setting only applies to succesful interactions.
+full resource or not. Note that this setting only applies to successful interactions.
 In case of failure, servers SHOULD always return a body that contains an 
 <a href="operationoutcome.html">OperationOutcome</a> resource.
 </p>
@@ -883,16 +883,16 @@ Examples:
 
 <h4>Batch Processing Rules</h4>
 <p>
-For a <code>batch</code>, there SHALL be no interpendencies between the different entries
-in the Bundle. The success or failure of one entry SHALL not alter the sucess or failure
+For a <code>batch</code>, there SHALL be no interdependencies between the different entries
+in the Bundle. The success or failure of one entry SHALL not alter the success or failure
 or resulting content of another. Servers SHALL validate that this is the case. 
 Note that it is considered that servers execute the batch in the same order as 
-that specified below for transactions, though the order of exceution should not 
+that specified below for transactions, though the order of execution should not 
 matter given the previous rule.
 </p>
-<h4>Transction Processing Rules</h4>
+<h4>Transaction Processing Rules</h4>
 <p>
-For a <code>transction</code>, servers SHALL either accept all actions and return a <code>200</code> OK, along with a
+For a <code>transaction</code>, servers SHALL either accept all actions and return a <code>200</code> OK, along with a
 response bundle (see below), or reject all resources and return an HTTP <code>400</code> or <code>500</code> type
 response. It is not an error if the submitted bundle has no resources in it.
 The outcome of the processing the transaction SHALL NOT depend on the order
