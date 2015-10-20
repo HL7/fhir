@@ -446,7 +446,7 @@ HTTP/1.1 200 OK
 The Expand and Validate operations can be used to perform subsumption testing. To test whether
 <i>code A</i> subsumes <i>code B</i>, perform a validate specifying a value set built of all the
 codes that are subsumed by <i>code A</i>, and test whether <i>code B</i> is subsumed by it.
-Note that a server is allowed (and SHOULD, but is not required to) consider concept maps when
+Note that a server is allowed to (and SHOULD, but is not required to) consider concept maps when
 doing subsumption testing. For example if A is a LOINC code, and it has a precise mapping to a
 SNOMED CT code that subsumes B, with an appropriate scope, then the server can indicate
 that this it is true that LOINC code A subsumes SNOMED CT code B.
