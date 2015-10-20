@@ -95,7 +95,7 @@ processing the transaction what to do with the entry. If the entry method is a '
 'POST', then the entry SHALL contain a resource that becomes the body of the HTTP operation. 
 </p>
 <p>
-If there is no <code>transaction</code> element, then there SHALL be a resource and the server must 
+If there is no <code>request</code> element, then there SHALL be a resource and the server must 
 infer whether this is a create or an update from the resource identity supplied.
 </p>
 

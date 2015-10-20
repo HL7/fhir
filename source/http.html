@@ -865,7 +865,7 @@ A <code>batch</code> or <code>transaction</code> interaction is performed by an 
 The content of the post submission is a <a href="bundle.html">Bundle</a> with <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> = <code><a href="valueset-bundle-type.html#batch">batch</a></code> or <code><a href="valueset-bundle-type.html#transaction">transaction</a></code>.
 Each entry carries <code>request</code> details (<a href="bundle-definitions.html#Bundle.entry.request">Bundle.entry.request</a>)
 that provides the HTTP details of the action in order to inform the system processing the batch or transaction
-what to do for the entry. If the HTTP command is a <code>PUT</code> or <code>POST</code>, then the entry 
+what to do for the entry (note: the <code>request</code> is <a href="bundle.html#transaction">optional</a>, but SHOULD be present). If the HTTP command is a <code>PUT</code> or <code>POST</code>, then the entry 
 SHALL contain a resource for the body of the action.
 The resources in the bundle are each processed separately as if they were an individual
 interactions or operations as otherwise described on this page, or the <a href="operations.html">Operations
