@@ -265,7 +265,7 @@
  -- Row 1 -----------------------------------
   Name = General
   Identity = example
-  Description = General example for searching on an extension
+  Description = General example
   Filename = searchparameter-example.xml
 
  -- Row 2 -----------------------------------
