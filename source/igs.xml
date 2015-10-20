@@ -14,7 +14,7 @@
   <ig code="ehrsrle"  name="EHRS Functional model - Record Lifecycle Events" brief="EHRS-RLE" review="" source="\guides\ehrsrle\ehrsrle.xml" committee="ehr" ballot="dstu2" fmm="0" core="no" section="E"/>
   <ig code="qicore"   name="Quality Improvement Core" brief="QICore" review="" source="\guides\qicore\qicore.xml" committee="cds" ballot="dstu1" fmm="0" section="F"/>
   <ig code="cqif"     name="Clinical Quality Improvement Framework" brief="CQIF" review="" source="\guides\cqif\cqif.xml" committee="cds" ballot="draft" fmm="0" section="G" local="true"/>
-<!--  <ig code="hspc"     name="Healthcare Services Platform Consortium" brief="HSPC" review="yes" source="\guides\hspc\hspc.xml" committee="fhir" ballot="draft" fmm="0" section="H"/>
-  <ig code="nehta"    name="NEHTA Tooling/Method Evaluation" brief="NEHTA" review="" source="\guides\nehta\nehta.xml" committee="fhir" ballot="draft" fmm="0" section="I"/> -->
+<!--  <ig code="hspc"     name="Healthcare Services Platform Consortium" brief="HSPC" review="yes" source="\guides\hspc\hspc.xml" committee="fhir" ballot="draft" fmm="0" section="H"/> -->
+  <ig code="nehta"    name="NEHTA Tooling/Method Evaluation" brief="NEHTA" review="" source="\guides\nehta\nehta.xml" committee="fhir" ballot="draft" fmm="0" section="I"/> 
   <ig code="argonaut" name="Argonaut" brief="Argonaut" source="\guides\argonaut\argonaut.xml" committeereview="0" committee="fhir" ballot="draft" fmm="0" section="J"/>
 </igs>
