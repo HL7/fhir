@@ -428,7 +428,7 @@
         <date value="2015-08-21"/>
         <uniqueId>
           <type value="uri"/>
-          <value value="http://hl7.org/fhir/sid/icd-9-cm/diagosis"/>
+          <value value="http://hl7.org/fhir/sid/icd-9-cm/diagnosis"/>
           <preferred value="true"/>
         </uniqueId>
       </NamingSystem>
