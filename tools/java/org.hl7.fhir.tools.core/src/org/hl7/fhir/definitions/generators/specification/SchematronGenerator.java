@@ -31,9 +31,7 @@ public class SchematronGenerator {
     this.page = page;
     sch = new SchematronWriter(out);
   }
-
-
-  
+ 
 	public void generate(Definitions definitions) throws Exception {
     insertGlobalRules();
     for (ResourceDefn root : definitions.getResources().values()) {

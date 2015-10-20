@@ -274,7 +274,7 @@ public class ProfileUtilities {
     if (derived == null)
       throw new Exception("no derived structure provided");
 
-    System.out.println("Generate Snapshot for "+derived.getUrl());
+//    System.out.println("Generate Snapshot for "+derived.getUrl());
     this.messages = messages;
 
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
@@ -328,8 +328,10 @@ public class ProfileUtilities {
             if (sd != null) {
               template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath());
               // temporary work around
-              template.setMin(currentBase.getMin());
-              template.setMax(currentBase.getMax());
+              if (!diffMatches.get(0).getType().get(0).getCode().equals("Extension")) {
+                template.setMin(currentBase.getMin());
+                template.setMax(currentBase.getMax());
+              }
             }
           } 
           if (template == null)
@@ -2015,10 +2017,10 @@ public class ProfileUtilities {
       
     }
     for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
-      if (inv.hasXpath() && !inv.hasUserData(IS_DERIVED)) {
+      if (inv.hasXpath()) {
         if (!started) {
           txt.ln_i("<sch:pattern>");
-          txt.ln("<sch:title>"+ed.getPath()+"</sch:title>");
+          txt.ln("<sch:title>"+ed.getPath()+(inv.hasUserData(IS_DERIVED) ? " (inherited" : "")+"</sch:title>");
           started = true;
         }
         txt.ln_i("<sch:rule context=\""+xpath+"\">");

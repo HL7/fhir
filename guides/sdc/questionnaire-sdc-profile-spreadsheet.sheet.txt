@@ -53,7 +53,7 @@
  -- Row 5 -----------------------------------
   Element = Questionnaire.extension
   Profile Name = category
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-category}
   IHE SDC mapping = ./form_design/classifier
@@ -120,7 +120,7 @@
  -- Row 15 -----------------------------------
   Element = Questionnaire.group.extension.valueString.extension
   Profile Name = groupLabel.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Must Support = n
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ../style
@@ -136,7 +136,7 @@
  -- Row 17 -----------------------------------
   Element = Questionnaire.group.extension
   Profile Name = groupInstruction
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-instruction}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -148,7 +148,7 @@
  -- Row 19 -----------------------------------
   Element = Questionnaire.group.extension.valueString.extension
   Profile Name = groupInstruction.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -163,7 +163,7 @@
  -- Row 21 -----------------------------------
   Element = Questionnaire.group.extension
   Profile Name = groupSecurity
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-security}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -175,7 +175,7 @@
  -- Row 23 -----------------------------------
   Element = Questionnaire.group.extension.valueString.extension
   Profile Name = groupSecurity.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -190,7 +190,7 @@
  -- Row 25 -----------------------------------
   Element = Questionnaire.group.extension
   Profile Name = groupHelp
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-help}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -202,7 +202,7 @@
  -- Row 27 -----------------------------------
   Element = Questionnaire.group.extension.valueString.extension
   Profile Name = groupHelp.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -217,7 +217,7 @@
  -- Row 29 -----------------------------------
   Element = Questionnaire.group.extension
   Profile Name = groupTooltip
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-tooltip}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -229,7 +229,7 @@
  -- Row 31 -----------------------------------
   Element = Questionnaire.group.extension.valueString.extension
   Profile Name = groupTooltip.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -244,7 +244,7 @@
  -- Row 33 -----------------------------------
   Element = Questionnaire.group.extension
   Profile Name = groupTrailing
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-trailing}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -256,7 +256,7 @@
  -- Row 35 -----------------------------------
   Element = Questionnaire.group.extension.valueString.extension
   Profile Name = groupTrailing.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -326,7 +326,7 @@
  -- Row 44 -----------------------------------
   Element = Questionnaire.group.title.extension
   Profile Name = groupTitle.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Must Support = n
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ../style
@@ -356,7 +356,7 @@
  -- Row 48 -----------------------------------
   Element = Questionnaire.group.text.extension
   Profile Name = groupText.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Must Support = n
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ../style
@@ -424,7 +424,7 @@
  -- Row 58 -----------------------------------
   Element = Questionnaire.group.question.extension.valueString.extension
   Profile Name = questionLabel.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ../style
 
@@ -439,7 +439,7 @@
  -- Row 60 -----------------------------------
   Element = Questionnaire.group.question.extension
   Profile Name = questionInstruction
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-instruction}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -451,7 +451,7 @@
  -- Row 62 -----------------------------------
   Element = Questionnaire.group.question.extension.valueString.extension
   Profile Name = questionInstruction.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -466,7 +466,7 @@
  -- Row 64 -----------------------------------
   Element = Questionnaire.group.question.extension
   Profile Name = questionSecurity
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-security}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -478,7 +478,7 @@
  -- Row 66 -----------------------------------
   Element = Questionnaire.group.question.extension.valueString.extension
   Profile Name = questionSecurity.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -493,7 +493,7 @@
  -- Row 68 -----------------------------------
   Element = Questionnaire.group.question.extension
   Profile Name = questionHelp
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-help}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -505,7 +505,7 @@
  -- Row 70 -----------------------------------
   Element = Questionnaire.group.question.extension.valueString.extension
   Profile Name = questionHelp.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -520,7 +520,7 @@
  -- Row 72 -----------------------------------
   Element = Questionnaire.group.question.extension
   Profile Name = questionTooltip
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-tooltip}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -532,7 +532,7 @@
  -- Row 74 -----------------------------------
   Element = Questionnaire.group.question.extension.valueString.extension
   Profile Name = questionTooltip.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -547,7 +547,7 @@
  -- Row 76 -----------------------------------
   Element = Questionnaire.group.question.extension
   Profile Name = questionTrailing
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-trailing}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -559,7 +559,7 @@
  -- Row 78 -----------------------------------
   Element = Questionnaire.group.question.extension.valueString.extension
   Profile Name = questionTrailing.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -574,7 +574,7 @@
  -- Row 80 -----------------------------------
   Element = Questionnaire.group.question.extension
   Profile Name = questionUnits
-  Card. = 0..*
+  Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-units}
   IHE SDC mapping = ./additional_instruction | ./additional_text
@@ -586,7 +586,7 @@
  -- Row 82 -----------------------------------
   Element = Questionnaire.group.question.extension.valueString.extension
   Profile Name = questionUnits.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ./style
 
@@ -764,7 +764,7 @@
  -- Row 105 -----------------------------------
   Element = Questionnaire.group.question.text.extension
   Profile Name = questionText.renderingStyle
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ../style
 

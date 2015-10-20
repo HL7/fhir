@@ -297,7 +297,7 @@
   Type = Coding
   Binding = ProcessPriority
   Short Label = Desired processing priority
-  Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
+  Definition = Immediate (stat), best effort (normal), deferred (deferred)
 
  -- Row 13 -----------------------------------
   Element = Claim.fundsReserve
