@@ -314,7 +314,7 @@
   Summary = y
   UML = -190;0
   Inv. = 5
-  Short Label = An inline code system - part of this value set
+  Short Label = An inline code system, which is part of this value set
   Definition = A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to its (codeSystem.system) directly
   Comments = All code systems defined as part of a FHIR value set have an implicit valueset that includes all of the codes in the code system - the value set in which they are defined
   Committee Notes = The choice to package code system as a part of the value set resource rather than having code systems as a first level entity is a scope choice that has generated much comment; this may be reviewed in the future
@@ -557,7 +557,7 @@
   Type = code
   Binding = !
   Short Label = Code from the system, or regex criteria
-  Definition = The match value may be either a code defined by the system, or a string value or a regex match on the literal string of the property value
+  Definition = The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value
   Comments = Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example
   RIM Mapping = N/A
 

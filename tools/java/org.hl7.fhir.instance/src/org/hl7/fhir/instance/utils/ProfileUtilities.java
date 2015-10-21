@@ -2020,11 +2020,11 @@ public class ProfileUtilities {
       if (inv.hasXpath()) {
         if (!started) {
           txt.ln_i("<sch:pattern>");
-          txt.ln("<sch:title>"+ed.getPath()+(inv.hasUserData(IS_DERIVED) ? " (inherited" : "")+"</sch:title>");
+          txt.ln("<sch:title>"+ed.getPath()+"</sch:title>");
           started = true;
         }
         txt.ln_i("<sch:rule context=\""+xpath+"\">");
-        txt.ln("<sch:assert test=\""+inv.getXpath()+"\">"+inv.getId()+": "+inv.getHuman()+"</sch:assert>");
+        txt.ln("<sch:assert test=\""+inv.getXpath()+"\">"+(inv.hasId() ? inv.getId()+": " : "")+inv.getHuman()+(inv.hasUserData(IS_DERIVED) ? " (inherited" : "")+"</sch:assert>");
         txt.ln_o("</sch:rule>");
         
       }
