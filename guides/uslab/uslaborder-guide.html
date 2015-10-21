@@ -15,6 +15,7 @@
             The FHIR USLab Order Implementation focuses on identifying the requirements, specifications and
             standards, and on providing the implementation guidance for electronic ordering of laboratory tests in
             the US Realm using <a href="[%fhir-path%]http.html">the FHIR in the RESTful framework</a>. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a
+            the US Realm using <a href="[%fhir-path%]http.html">the FHIR in the RESTful framework</a>. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a
             particular implementation of Electronic Health Record System (EHR-S) to use standardized structured
             data in a defined inter-organizational laboratory transaction. The Use Case requirements are directed at
             laboratory test orders between an Ambulatory Provider's EHR-S and a Laboratory's Laboratory
@@ -151,11 +152,13 @@
             </li>
          </ul>
          <a name="usecasesandcontext"></a>
-         <h2>Orders for Ambulatory Care Use Case and Context Diagrams </h2>
+         <h2>Orders for Ambulatory Care Context Diagram</h2>
+<!--  
          <p><b>Figure 2-1. Use Case Diagram</b></p>
          <img alt="Figure 2-1. Use Case Diagram" src="uslaborder-contextdiagram.png"/>
-         <p><b>Figure 2-2. Context Diagram</b></p>
-         <img alt="Figure 2-2. Context Diagram" src="uslaborder-contextdiagram.png"/>
+-->
+         <p><b>Figure 2-1. Context Diagram</b></p>
+         <img alt="Figure 2-1. Context Diagram" src="uslabordercontext.png"/>
          <a name="userstory"></a>
          <h3>User Story</h3>
          <p>
@@ -298,12 +301,16 @@
          <h5>Functional Requirements</h5>
          <p>todo</p>
          <!--EH:  need to rework for REST  acknowledgment codes -->
-         <h5>Sequence Diagram</h5>
+         <h5>Sequence Diagram for Electronic Ordering Of New Or Scheduled Laboratory Test(s)</h5>
          <p>
-            <b>Figure N-N: Scenario 1 Sequence Diagram</b>
+            <b>Figure 2-3</b>
          </p>
-         <img alt="Electronic Ordering Of New Or Scheduled
-            Laboratory Test(S) " src="todo"/>
+         <img alt="REST behavior: USLabOrder Orderer is the server (i.e. in Pull mode)" src="uslaborderpushrest.png"/>
+          <p>           
+                     <b>Figure 2-2</b>
+         </p>
+         <img alt="REST behavior: USLabOrder Receiver is the server (i.e. in Push mode)" src="uslaborderpullrest.png"/>
+
          <!--EH:  need to rework for REST  acknowledgment codes -->
          <a name="scen2"></a>
          <h4> Scenario 2 - Electronic Ordering Of Add-On Laboratory Test(S)</h4>
@@ -353,10 +360,14 @@
          <!--EH:  need to rework for REST  acknowledgment codes -->
          <h5>Sequence Diagram</h5>
          <p>
-            <b>Figure N-N: Scenario 3 Sequence Diagram</b>
+            <b>Figure 2-4</b>
          </p>
-         <img alt="Requesting The Cancellation Of A Previously Placed
-            Laboratory Order" src="todo"/>
+         <img alt="REST behavior: USLabOrder Orderer is the server (i.e. in Pull mode)" src="uslaborderpushrest.png"/>
+          <p>           
+                     <b>Figure 2-5</b>
+         </p>
+         <img alt="REST behavior: USLabOrder Receiver is the server (i.e. in Push mode)" src="uslaborderpullrest.png"/>
+
          <!--EH:  need to rework for REST  acknowledgment codes -->
          <a name="scen4"></a>
          <h4>Scenario 4 - Laboratory Cancellation Of A Previously Placed

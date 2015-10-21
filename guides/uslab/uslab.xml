@@ -295,6 +295,12 @@
     <sourceUri value="list-uslab-valuesets.xml"/>
   </resource>
    -->
+    <binary value="uslabreportpushrest.png"/>
+    <binary value="uslabreportpullrest.png"/>
+    <binary value="uslabreportcontext.png"/>
+    <binary value="uslaborderpushrest.png"/>
+    <binary value="uslaborderpullrest.png"/>
+    <binary value="uslabordercontext.png"/>
 	<page>
 		<source value="uslab.html"/>
 		<name value="US Lab Implementation Guide Home Page"/>
