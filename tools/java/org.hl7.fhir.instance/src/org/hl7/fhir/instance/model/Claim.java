@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 19, 2015 15:25+1100 for FHIR v1.0.1
+// Generated on Thu, Oct 22, 2015 10:14+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -3363,10 +3363,10 @@ public class Claim extends DomainResource {
     protected Enumeration<Use> use;
 
     /**
-     * Immediate (STAT), best effort (NORMAL), deferred (DEFER).
+     * Immediate (stat), best effort (normal), deferred (deferred).
      */
     @Child(name = "priority", type = {Coding.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Desired processing priority", formalDefinition="Immediate (STAT), best effort (NORMAL), deferred (DEFER)." )
+    @Description(shortDefinition="Desired processing priority", formalDefinition="Immediate (stat), best effort (normal), deferred (deferred)." )
     protected Coding priority;
 
     /**
@@ -3914,7 +3914,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #priority} (Immediate (STAT), best effort (NORMAL), deferred (DEFER).)
+     * @return {@link #priority} (Immediate (stat), best effort (normal), deferred (deferred).)
      */
     public Coding getPriority() { 
       if (this.priority == null)
@@ -3930,7 +3930,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @param value {@link #priority} (Immediate (STAT), best effort (NORMAL), deferred (DEFER).)
+     * @param value {@link #priority} (Immediate (stat), best effort (normal), deferred (deferred).)
      */
     public Claim setPriority(Coding value) { 
       this.priority = value;
@@ -4697,7 +4697,7 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The provider which is responsible for the bill, claim pre-determination, pre-authorization.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the bill, claim pre-determination, pre-authorization.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("use", "code", "Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).", 0, java.lang.Integer.MAX_VALUE, use));
-        childrenList.add(new Property("priority", "Coding", "Immediate (STAT), best effort (NORMAL), deferred (DEFER).", 0, java.lang.Integer.MAX_VALUE, priority));
+        childrenList.add(new Property("priority", "Coding", "Immediate (stat), best effort (normal), deferred (deferred).", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("fundsReserve", "Coding", "In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.", 0, java.lang.Integer.MAX_VALUE, fundsReserve));
         childrenList.add(new Property("enterer", "Reference(Practitioner)", "Person who created the invoice/claim/pre-determination or pre-authorization.", 0, java.lang.Integer.MAX_VALUE, enterer));
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));

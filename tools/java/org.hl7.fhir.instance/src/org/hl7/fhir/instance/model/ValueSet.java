@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 19, 2015 15:25+1100 for FHIR v1.0.1
+// Generated on Thu, Oct 22, 2015 10:14+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -632,14 +632,14 @@ public class ValueSet extends DomainResource {
          * A human readable string that is the recommended default way to present this concept to a user.
          */
         @Child(name = "display", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Text to Display to the user", formalDefinition="A human readable string that is the recommended default way to present this concept to a user." )
+        @Description(shortDefinition="Text to display to the user", formalDefinition="A human readable string that is the recommended default way to present this concept to a user." )
         protected StringType display;
 
         /**
          * The formal definition of the concept. The value set resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept.
          */
         @Child(name = "definition", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Formal Definition", formalDefinition="The formal definition of the concept. The value set resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept." )
+        @Description(shortDefinition="Formal definition", formalDefinition="The formal definition of the concept. The value set resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept." )
         protected StringType definition;
 
         /**
@@ -1941,10 +1941,10 @@ public class ValueSet extends DomainResource {
         protected Enumeration<FilterOperator> op;
 
         /**
-         * The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.
+         * The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.
          */
         @Child(name = "value", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Code from the system, or regex criteria", formalDefinition="The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value." )
+        @Description(shortDefinition="Code from the system, or regex criteria", formalDefinition="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value." )
         protected CodeType value;
 
         private static final long serialVersionUID = 1985515000L;
@@ -2057,7 +2057,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #value} (The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @return {@link #value} (The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public CodeType getValueElement() { 
           if (this.value == null)
@@ -2077,7 +2077,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @param value {@link #value} (The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @param value {@link #value} (The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public ConceptSetFilterComponent setValueElement(CodeType value) { 
           this.value = value;
@@ -2085,14 +2085,14 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.
+         * @return The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.
          */
         public String getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
-         * @param value The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.
+         * @param value The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.
          */
         public ConceptSetFilterComponent setValue(String value) { 
             if (this.value == null)
@@ -2105,7 +2105,7 @@ public class ValueSet extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("property", "code", "A code that identifies a property defined in the code system.", 0, java.lang.Integer.MAX_VALUE, property));
           childrenList.add(new Property("op", "code", "The kind of operation to perform as a part of the filter criteria.", 0, java.lang.Integer.MAX_VALUE, op));
-          childrenList.add(new Property("value", "code", "The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value", "code", "The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       public ConceptSetFilterComponent copy() {
@@ -2177,10 +2177,10 @@ public class ValueSet extends DomainResource {
         protected IntegerType offset;
 
         /**
-         * A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.
+         * A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.
          */
         @Child(name = "parameter", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Parameter that controlled the expansion process", formalDefinition="A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion." )
+        @Description(shortDefinition="Parameter that controlled the expansion process", formalDefinition="A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion." )
         protected List<ValueSetExpansionParameterComponent> parameter;
 
         /**
@@ -2389,7 +2389,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #parameter} (A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.)
+         * @return {@link #parameter} (A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.)
          */
         public List<ValueSetExpansionParameterComponent> getParameter() { 
           if (this.parameter == null)
@@ -2407,7 +2407,7 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #parameter} (A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.)
+         * @return {@link #parameter} (A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.)
          */
     // syntactic sugar
         public ValueSetExpansionParameterComponent addParameter() { //3
@@ -2474,7 +2474,7 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("timestamp", "dateTime", "The time at which the expansion was produced by the expanding system.", 0, java.lang.Integer.MAX_VALUE, timestamp));
           childrenList.add(new Property("total", "integer", "The total number of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.", 0, java.lang.Integer.MAX_VALUE, total));
           childrenList.add(new Property("offset", "integer", "If paging is being used, the offset at which this resource starts.  I.e. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.", 0, java.lang.Integer.MAX_VALUE, offset));
-          childrenList.add(new Property("parameter", "", "A Parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.", 0, java.lang.Integer.MAX_VALUE, parameter));
+          childrenList.add(new Property("parameter", "", "A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.", 0, java.lang.Integer.MAX_VALUE, parameter));
           childrenList.add(new Property("contains", "", "The codes that are contained in the value set expansion.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
 
@@ -2535,7 +2535,7 @@ public class ValueSet extends DomainResource {
          * The name of the parameter.
          */
         @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Name as assigned by server", formalDefinition="The name of the parameter." )
+        @Description(shortDefinition="Name as assigned by the server", formalDefinition="The name of the parameter." )
         protected StringType name;
 
         /**
@@ -3249,10 +3249,10 @@ public class ValueSet extends DomainResource {
     protected BooleanType extensible;
 
     /**
-     * A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it's (codeSystem.system) directly.
+     * A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to its (codeSystem.system) directly.
      */
     @Child(name = "codeSystem", type = {}, order=16, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="An inline code system - part of this value set", formalDefinition="A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it's (codeSystem.system) directly." )
+    @Description(shortDefinition="An inline code system, which is part of this value set", formalDefinition="A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to its (codeSystem.system) directly." )
     protected ValueSetCodeSystemComponent codeSystem;
 
     /**
@@ -4012,7 +4012,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @return {@link #codeSystem} (A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it's (codeSystem.system) directly.)
+     * @return {@link #codeSystem} (A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to its (codeSystem.system) directly.)
      */
     public ValueSetCodeSystemComponent getCodeSystem() { 
       if (this.codeSystem == null)
@@ -4028,7 +4028,7 @@ public class ValueSet extends DomainResource {
     }
 
     /**
-     * @param value {@link #codeSystem} (A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it's (codeSystem.system) directly.)
+     * @param value {@link #codeSystem} (A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to its (codeSystem.system) directly.)
      */
     public ValueSet setCodeSystem(ValueSetCodeSystemComponent value) { 
       this.codeSystem = value;
@@ -4101,7 +4101,7 @@ public class ValueSet extends DomainResource {
         childrenList.add(new Property("requirements", "string", "Explains why this value set is needed and why it has been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
-        childrenList.add(new Property("codeSystem", "", "A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to it's (codeSystem.system) directly.", 0, java.lang.Integer.MAX_VALUE, codeSystem));
+        childrenList.add(new Property("codeSystem", "", "A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to its (codeSystem.system) directly.", 0, java.lang.Integer.MAX_VALUE, codeSystem));
         childrenList.add(new Property("compose", "", "A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set.", 0, java.lang.Integer.MAX_VALUE, compose));
         childrenList.add(new Property("expansion", "", "A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, java.lang.Integer.MAX_VALUE, expansion));
       }
