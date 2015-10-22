@@ -1,1 +1,0 @@
-These files are stored in the version control to speed the build. 
