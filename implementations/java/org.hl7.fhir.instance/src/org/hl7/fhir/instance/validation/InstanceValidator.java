@@ -1008,7 +1008,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private boolean isAbsolute(String uri) {
     return Utilities.noString(uri) || uri.startsWith("http:") || uri.startsWith("https:") || uri.startsWith("urn:uuid:") || uri.startsWith("urn:oid:") || uri.startsWith("urn:ietf:")
-        || uri.startsWith("urn:iso:");
+        || uri.startsWith("urn:iso:") || isValidFHIRUrn(uri);
+  }
+
+  private boolean isValidFHIRUrn(String uri) {
+    return (uri.equals("urn:x-fhir:uk:id:nhs-number"));
   }
 
   public boolean isAnyExtensionsAllowed() {
@@ -2083,7 +2087,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     public int line() {
       return line;
     }
-
   }
 
   public class ElementInfo {

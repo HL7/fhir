@@ -33,7 +33,7 @@ Type
     client : TIdHTTP;
     ssl : TIdSSLIOHandlerSocketOpenSSL;
     FOnClientStatus : TFHIRClientStatusEvent;
-    FLastUpdated : TDateAndTime;
+//    FLastUpdated : TDateAndTime;
     procedure status(msg : String);
     function serialise(resource : TFhirResource):TStream; overload;
     function makeUrl(tail : String; params : TAdvStringMatch = nil) : String;
@@ -60,6 +60,7 @@ Type
     procedure deleteResource(atype : TFhirResourceType; id : String);
     function search(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch) : TFHIRBundle;
     function searchPost(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch; resource : TFhirResource) : TFHIRBundle;
+    function operation(atype : TFhirResourceType; opName : String; params : TFhirParameters) : TFHIRResource;
     function historyType(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch) : TFHIRBundle;
 
     property OnClientStatus : TFHIRClientStatusEvent read FOnClientStatus write FOnClientStatus;
@@ -244,27 +245,39 @@ Var
   src, frm : TStream;
   ct : String;
 begin
-  raise Exception.Create('Not done yet');
-//  src := serialise(resource);
-//  try
-//    src.Position := 0;
-//    ct := makeMultipart(src, 'src', params, frm);
-//    try
-//      result := fetchResource(makeUrl(CODES_TFhirResourceType[aType])+'/_search', post, frm) as TFhirBundle;
-//      try
-//        result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
-//        result.links.AddValue('self', client.response.location);
-//        parseCategories(result.categories);
-//        result.link;
-//      finally
-//        result.free;
-//      end;
-//    finally
-//      frm.Free;
-//    end;
-//  finally
-//    src.free;
-//  end;
+  src := serialise(resource);
+  try
+    src.Position := 0;
+    ct := makeMultipart(src, 'src', params, frm);
+    try
+      result := fetchResource(makeUrl(CODES_TFhirResourceType[aType])+'/_search', post, frm) as TFhirBundle;
+      try
+        result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
+        result.link;
+      finally
+        result.free;
+      end;
+    finally
+      frm.Free;
+    end;
+  finally
+    src.free;
+  end;
+end;
+
+
+function TFhirClient.operation(atype : TFhirResourceType; opName : String; params : TFhirParameters) : TFHIRResource;
+Var
+  src, frm : TStream;
+  ct : String;
+begin
+  src := serialise(params);
+  try
+    src.Position := 0;
+    result := fetchResource(makeUrl(CODES_TFhirResourceType[aType])+'/$'+opName, post, src);
+  finally
+    src.free;
+  end;
 end;
 
 function TFhirClient.exchange(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TStream;
@@ -415,7 +428,7 @@ begin
       result := nil
     else
     begin
-      StreamToFile(ret, 'c:\temp\file.txt');
+//      StreamToFile(ret, 'c:\temp\file.txt');
       p := CreateParser(ret);
       try
         p.parse;
@@ -461,9 +474,6 @@ begin
 end;
 
 function TFhirClient.makeUrl(tail: String; params : TAdvStringMatch = nil): String;
-var
-  s : String;
-  first : boolean;
 begin
   result := FURL;
   if not result.EndsWith('/') then

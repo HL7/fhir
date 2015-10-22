@@ -87,6 +87,7 @@ Type
 
     fcmdOperation, {@enum.value fcmdOperation operation, as defined in DSTU2}
 
+    fcmdBatch, {@enum.value fcmdBatch batch as defined in DSTU2}
     fcmdWebUI, {@enum.value fcmdWebUI Special web interface operations - not a valid FHIR operation}
     fcmdNull); {@enum.value fcmdNull Internal use only - not a valid FHIR operation}
 
@@ -138,7 +139,7 @@ Type
 Const
   FHIR_NS = 'http://hl7.org/fhir';
   CODES_TFHIRCommandType : array [TFHIRCommandType] of String = (
-    'Unknown', 'MailBox', 'Read', 'VersionRead', 'Update', 'Delete', 'HistoryInstance', 'Create', 'Search', 'HistoryType', 'Validate', 'ConformanceStmt', 'Transaction', 'HistorySystem', 'Upload', 'GetTags', 'UpdateTags', 'DeleteTags', 'Operation', 'WebUI', 'Null');
+    'Unknown', 'MailBox', 'Read', 'VersionRead', 'Update', 'Delete', 'HistoryInstance', 'Create', 'Search', 'HistoryType', 'Validate', 'ConformanceStmt', 'Transaction', 'HistorySystem', 'Upload', 'GetTags', 'UpdateTags', 'DeleteTags', 'Operation', 'Batch', 'WebUI', 'Null');
   CODES_TFHIRHtmlNodeType : array [TFHIRHtmlNodeType] of String = ('Element', 'Text', 'Comment', 'Document');
   CODES_TFHIRFormat : Array [TFHIRFormat] of String = ('AsIs', 'XML', 'JSON', 'XHTML');
   MIMETYPES_TFHIRFormat : Array [TFHIRFormat] of String = ('', 'text/xml+fhir', 'application/json+fhir', 'text/xhtml');
@@ -533,19 +534,6 @@ type
   public
   end;
 
-function noList(e : TFHIRObjectList) : boolean;
-function compareDeep(e1, e2 : TFHIRObjectList; allowNull : boolean) : boolean; overload;
-function compareDeep(e1, e2 : TFHIRBase; allowNull : boolean) : boolean; overload;
-function compareDeep(div1, div2 : TFhirXHtmlNode; allowNull : boolean) : boolean; overload;
-
-Implementation
-
-Uses
-  StringSupport,
-  FHIRUtilities,
-  FHIRTypes,
-  FHIRResources;
-
 type
   TFHIRQueryProcessor = class (TAdvObject)
   private
@@ -563,6 +551,19 @@ type
   end;
 
               
+function noList(e : TFHIRObjectList) : boolean;
+function compareDeep(e1, e2 : TFHIRObjectList; allowNull : boolean) : boolean; overload;
+function compareDeep(e1, e2 : TFHIRBase; allowNull : boolean) : boolean; overload;
+function compareDeep(div1, div2 : TFhirXHtmlNode; allowNull : boolean) : boolean; overload;
+
+Implementation
+
+Uses
+  StringSupport,
+  FHIRUtilities,
+  FHIRTypes,
+  FHIRResources;
+
 
 { TFHIRBase }
 
@@ -1127,7 +1128,7 @@ end;
 constructor TFHIRObjectText.create(value: TBytes);
 begin
   Create;
-  self.value := EncodeBase64(@value[0], length(value));
+  self.value := String(EncodeBase64(@value[0], length(value)));
 end;
 
 procedure TFHIRObjectText.ListProperties(oList: TFHIRPropertyList; bInheritedProperties: Boolean);
@@ -1190,6 +1191,9 @@ begin
       for i := 0 to FSource.count - 1 Do
         FSource[i].GetChildrenByName(seg, FResults);
     first := false;
+    for i := FResults.count- 1 downto 0 do
+      if (FResults[i] = nil) then
+        FResults.DeleteByIndex(i);
     if src <> '' then
     begin
       FSource.Free;
@@ -1455,7 +1459,7 @@ begin
   FType := sType;
   FList := TFHIRObjectList.Create;
   if (length(value) > 0) then
-    FList.Add(TFhirString.Create(EncodeBase64(@value[0], length(value))));
+    FList.Add(TFhirString.Create(String(EncodeBase64(@value[0], length(value)))));
 end;
 
 { TFHIRPropertyList }
@@ -1556,9 +1560,8 @@ end;
 
 function TFhirObjectListEnumerator.MoveNext : boolean;
 begin
-  Result := FIndex < FList.count;
-  if Result then
     Inc(FIndex);
+  Result := FIndex < FList.count;
 end;
 
 function TFhirObjectListEnumerator.GetCurrent : TFhirObject;

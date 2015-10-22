@@ -37,6 +37,7 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.utils.ProfileUtilities.ExtensionContext;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -63,6 +64,49 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  *
  */
 public class ProfileUtilities {
+
+  public class ExtensionContext {
+
+    private ElementDefinition element;
+    private StructureDefinition defn;
+
+    public ExtensionContext(StructureDefinition ext, ElementDefinition ed) {
+      this.defn = ext;
+      this.element = ed;
+    }
+
+    public ElementDefinition getElement() {
+      return element;
+    }
+
+    public StructureDefinition getDefn() {
+      return defn;
+    }
+
+    public String getUrl() {
+      if (element == defn.getSnapshot().getElement().get(0))
+        return defn.getUrl();
+      else
+        return element.getName();
+    }
+
+    public ElementDefinition getExtensionValueDefinition() {
+      int i = defn.getSnapshot().getElement().indexOf(element)+1;
+      while (i < defn.getSnapshot().getElement().size()) {
+        ElementDefinition ed = defn.getSnapshot().getElement().get(i);
+        if (ed.getPath().equals(element.getPath()))
+          return null;
+        if (ed.getPath().startsWith(element.getPath()+".value"))
+          return ed;
+        i++;
+      }
+      return null;
+    }
+    
+  }
+
+
+
 
   private final boolean ADD_REFERENCE_TO_TABLE = true;
 
@@ -230,7 +274,7 @@ public class ProfileUtilities {
     if (derived == null)
       throw new Exception("no derived structure provided");
 
-    System.out.println("Generate Snapshot for "+derived.getUrl());
+//    System.out.println("Generate Snapshot for "+derived.getUrl());
     this.messages = messages;
 
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
@@ -278,13 +322,19 @@ public class ProfileUtilities {
           baseCursor++;
         } else if (diffMatches.size() == 1 && (!diffMatches.get(0).hasSlicing() || slicingDone)) {// one matching element in the differential
           ElementDefinition template = null;
-//          if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().get(0).hasProfile() && diffMatches.get(0).getType().get(0).getCode().equals("Extension")) {
-//            String p = diffMatches.get(0).getType().get(0).getProfile().get(0).asStringValue();
-//            StructureDefinition sd = context.fetchResource(StructureDefinition.class, p);
-//            if (sd != null)
-//              template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath()); 
-//          } 
-//          if (template == null)
+          if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !diffMatches.get(0).getType().get(0).getCode().equals("Reference")) {
+            String p = diffMatches.get(0).getType().get(0).getProfile().get(0).asStringValue();
+            StructureDefinition sd = context.fetchResource(StructureDefinition.class, p);
+            if (sd != null) {
+              template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath());
+              // temporary work around
+              if (!diffMatches.get(0).getType().get(0).getCode().equals("Extension")) {
+                template.setMin(currentBase.getMin());
+                template.setMax(currentBase.getMax());
+              }
+            }
+          } 
+          if (template == null)
             template = currentBase.copy();
           ElementDefinition outcome = updateURLs(url, template);
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
@@ -1311,10 +1361,10 @@ public class ProfileUtilities {
       if (element != null && (!element.getConstraint().isEmpty() || !element.getCondition().isEmpty()))
         gc.addImage(corePath+"lock.png", "This element has or is affected by some invariants", "I");
 
-      StructureDefinition extDefn = null;
+      ExtensionContext extDefn = null;
       if (ext) {
         if (element != null && element.getType().size() == 1 && element.getType().get(0).hasProfile()) {
-        extDefn = context.fetchResource(StructureDefinition.class, element.getType().get(0).getProfile().get(0).getValue());
+        extDefn = locateExtension(StructureDefinition.class, element.getType().get(0).getProfile().get(0).getValue());
           if (extDefn == null) {
             genCardinality(gen, element, row, hasDef, used, null);
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getType().get(0).getProfile(), null, null));
@@ -1323,15 +1373,15 @@ public class ProfileUtilities {
             String name = urltail(element.getType().get(0).getProfile().get(0).getValue());
             left.getPieces().get(0).setText(name);
             // left.getPieces().get(0).setReference((String) extDefn.getExtensionStructure().getTag("filename"));
-            left.getPieces().get(0).setHint("Extension URL = "+element.getType().get(0).getProfile());
-            genCardinality(gen, element, row, hasDef, used, extDefn.getSnapshot().getElement().get(0));
-            ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
+            left.getPieces().get(0).setHint("Extension URL = "+extDefn.getUrl());
+            genCardinality(gen, element, row, hasDef, used, extDefn.getElement());
+            ElementDefinition valueDefn = extDefn.getExtensionValueDefinition();
             if (valueDefn != null && !"0".equals(valueDefn.getMax()))
                genTypes(gen, pkp, row, valueDefn, profileBaseFileName, profile, corePath);
              else // if it's complex, we just call it nothing
                 // genTypes(gen, pkp, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
               row.getCells().add(gen.new Cell(null, null, "(Complex)", null, null));
-            generateDescription(gen, row, element, extDefn.getSnapshot().getElement().get(0), used.used, null, extDefn.getUrl(), pkp, profile, corePath);
+            generateDescription(gen, row, element, extDefn.getElement(), used.used, null, extDefn.getUrl(), pkp, profile, corePath);
           }
         } else {
           genCardinality(gen, element, row, hasDef, used, null);
@@ -1382,13 +1432,54 @@ public class ProfileUtilities {
     }
   }
 
+  private ExtensionContext locateExtension(Class<StructureDefinition> class1, String value) throws EOperationOutcome, Exception {
+    if (value.contains("#")) {
+      StructureDefinition ext = context.fetchResource(StructureDefinition.class, value.substring(0, value.indexOf("#")));
+      if (ext == null)
+        return null;
+      String tail = value.substring(value.indexOf("#")+1);
+      ElementDefinition ed = null;
+      for (ElementDefinition ted : ext.getSnapshot().getElement()) {
+        if (tail.equals(ted.getName())) {
+          ed = ted;
+          return new ExtensionContext(ext, ed);
+        }
+      }
+      return null;
+    } else {
+      StructureDefinition ext = context.fetchResource(StructureDefinition.class, value);
+      if (ext == null)
+        return null;
+      else 
+        return new ExtensionContext(ext, ext.getSnapshot().getElement().get(0));
+    }
+  }
 
 
   private boolean extensionIsComplex(ProfileKnowledgeProvider pkp, String value) throws EOperationOutcome, Exception {
-    StructureDefinition ext = context.fetchResource(StructureDefinition.class, value);
+    if (value.contains("#")) {
+      StructureDefinition ext = context.fetchResource(StructureDefinition.class, value.substring(0, value.indexOf("#")));
     if (ext == null)
       return false;
-    return ext.getSnapshot().getElement().size() > 5;
+      String tail = value.substring(value.indexOf("#")+1);
+      ElementDefinition ed = null;
+      for (ElementDefinition ted : ext.getSnapshot().getElement()) {
+        if (tail.equals(ted.getName())) {
+          ed = ted;
+          break;
+        }
+      }
+      if (ed == null)
+        return false;
+      int i = ext.getSnapshot().getElement().indexOf(ed);
+      int j = i+1;
+      while (j < ext.getSnapshot().getElement().size() && !ext.getSnapshot().getElement().get(j).getPath().equals(ed.getPath()))
+        j++;
+      return j - i > 5;
+    } else {
+      StructureDefinition ext = context.fetchResource(StructureDefinition.class, value);
+      return ext != null && ext.getSnapshot().getElement().size() > 5;
+    }
   }
 
 
@@ -1413,15 +1504,6 @@ public class ProfileUtilities {
       return path;
 
   }
-
-  private ElementDefinition getExtensionValueDefinition(StructureDefinition extDefn) {
-    for (ElementDefinition ed : extDefn.getSnapshot().getElement()) {
-      if (ed.getPath().startsWith("Extension.value"))
-        return ed;
-    }
-    return null;
-  }
-
 
   private boolean standardExtensionSlicing(ElementDefinition element) {
     String t = tail(element.getPath());
@@ -1935,14 +2017,14 @@ public class ProfileUtilities {
       
     }
     for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
-      if (inv.hasXpath() && !inv.hasUserData(IS_DERIVED)) {
+      if (inv.hasXpath()) {
         if (!started) {
           txt.ln_i("<sch:pattern>");
           txt.ln("<sch:title>"+ed.getPath()+"</sch:title>");
           started = true;
         }
         txt.ln_i("<sch:rule context=\""+xpath+"\">");
-        txt.ln("<sch:assert test=\""+inv.getXpath()+"\">"+inv.getId()+": "+inv.getHuman()+"</sch:assert>");
+        txt.ln("<sch:assert test=\""+inv.getXpath()+"\">"+(inv.hasId() ? inv.getId()+": " : "")+inv.getHuman()+(inv.hasUserData(IS_DERIVED) ? " (inherited" : "")+"</sch:assert>");
         txt.ln_o("</sch:rule>");
         
       }

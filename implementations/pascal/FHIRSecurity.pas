@@ -38,7 +38,7 @@ type
     constructor create(user : TSCIMUser; secure : boolean); overload;
     constructor create(base : TSCIMUser; choice : String; secure : boolean); overload;
     constructor create(base : TSCIMUser; choice : TStringList; secure : boolean); overload;
-    destructor destroy; override;
+    destructor Destroy; override;
 
     property canGetUserInfo : boolean read FUserInfo;
     function canRead(aType : TFHIRResourceType) : boolean;
