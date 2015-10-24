@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-logging-api-1.1.jar"/>
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-io-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

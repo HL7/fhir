@@ -55,6 +55,7 @@ import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Range;
+import org.hl7.fhir.instance.model.SimpleQuantity;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Timing;
 import org.hl7.fhir.instance.model.Timing.EventTiming;
@@ -412,6 +413,7 @@ public class Convert {
 	  return v.contains("+") || v.contains("-") || v.endsWith("Z");
   }
 
+
 	public DateType makeDateFromTS(Element ts) throws Exception {
 		if (ts == null)
 			return null;
@@ -525,8 +527,8 @@ public class Convert {
 		if (low == null && high == null)
 			return null;
 		Range r = new Range();
-		r.setLow(makeQuantityFromPQ(low, ivlpq.getAttribute("unit")));
-		r.setHigh(makeQuantityFromPQ(high, ivlpq.getAttribute("unit")));
+		r.setLow(makeSimpleQuantityFromPQ(low, ivlpq.getAttribute("unit")));
+		r.setHigh(makeSimpleQuantityFromPQ(high, ivlpq.getAttribute("unit")));
 		return r;
 	}
 	
@@ -547,11 +549,34 @@ public class Convert {
 		units = Utilities.noString(pq.getAttribute("unit")) ? units : pq.getAttribute("unit");
 		if (!Utilities.noString(units)) {
 			if (ucumSvc == null || ucumSvc.validate(units) != null)
-				qty.setUnits(units);
+				qty.setUnit(units);
 			else {
 				qty.setCode(units);
 				qty.setSystem("http://unitsofmeasure.org");
-				qty.setUnits(ucumSvc.getCommonDisplay(units));
+				qty.setUnit(ucumSvc.getCommonDisplay(units));
+			}
+		}
+		return qty;		
+  }
+
+	public SimpleQuantity makeSimpleQuantityFromPQ(Element pq, String units) throws Exception {
+		if (pq == null)
+	    return null;
+		SimpleQuantity qty = new SimpleQuantity();
+		String n = pq.getAttribute("value").replace(",", "").trim();
+		try {
+		  qty.setValue(new BigDecimal(n));
+		} catch (Exception e) {
+			throw new Exception("Unable to process value '"+n+"'", e);
+		}			
+		units = Utilities.noString(pq.getAttribute("unit")) ? units : pq.getAttribute("unit");
+		if (!Utilities.noString(units)) {
+			if (ucumSvc == null || ucumSvc.validate(units) != null)
+				qty.setUnit(units);
+			else {
+				qty.setCode(units);
+				qty.setSystem("http://unitsofmeasure.org");
+				qty.setUnit(ucumSvc.getCommonDisplay(units));
 			}
 		}
 		return qty;		

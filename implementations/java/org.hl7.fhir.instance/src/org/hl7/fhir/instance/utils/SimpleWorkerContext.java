@@ -279,8 +279,10 @@ public class SimpleWorkerContext implements IWorkerContext {
     } catch (Exception e) {
       return new ValidationResult(IssueSeverity.ERROR, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
     }
-    throw new Error("not done yet");   
+//    if (tsServer == null)
+    return new ValidationResult(IssueSeverity.WARNING, "Cannot Validate "+system);
   }
+  
   @Override
   public ValidationResult validateCode(String system, String code, String display, ValueSet vs) {
     throw new Error("not done yet");
