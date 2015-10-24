@@ -425,7 +425,7 @@ public class SourceParser {
     if (root.getNodeName().equals("igs")) {
       Element ig = XMLUtil.getFirstChild(root);
       while (ig != null) {
-        if (ig.getNodeName().equals("ig") && (!ig.hasAttribute("local") || isOkLocally(ig.getAttribute("code")) && !isRuledOutLocally(ig.getAttribute("code")))) {
+        if (ig.getNodeName().equals("ig") && (!ig.hasAttribute("local") || isOkLocally(ig.getAttribute("code"))) && !isRuledOutLocally(ig.getAttribute("code"))) {
           ImplementationGuideDefn igg = new ImplementationGuideDefn(ig.getAttribute("committee"), ig.getAttribute("code"), ig.getAttribute("name"), ig.getAttribute("brief"), 
               ig.getAttribute("source").replace('\\', File.separatorChar), "1".equals(ig.getAttribute("review")),
               ig.getAttribute("ballot"), ig.getAttribute("fmm"), ig.getAttribute("section"), "yes".equals(ig.getAttribute("core")), page.getValidationErrors());
@@ -437,7 +437,6 @@ public class SourceParser {
     }
   }
 
-
   private boolean isRuledOutLocally(String code) {
     String inifile = Utilities.path(rootDir, "local.ini");
     if (!new File(inifile).exists())
@@ -446,7 +445,6 @@ public class SourceParser {
     boolean ok = "false".equals(ini.getStringProperty("igs", code));
     return ok;
   }
-
 
   private boolean isOkLocally(String code) {
     if (forPublication)
@@ -459,7 +457,6 @@ public class SourceParser {
     return ok;
   }
 
-
   private void loadTypePages() {
     String[] tps = ini.getPropertyNames("type-pages");
     for (String tp : tps) {
@@ -467,7 +464,6 @@ public class SourceParser {
       definitions.getTypePages().put(tp, s);
     }        
   }
-
 
   private void loadW5s() {
     if (new File(Utilities.path(srcDir, "w5.ini")).exists()) {
