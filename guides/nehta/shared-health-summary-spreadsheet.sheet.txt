@@ -120,7 +120,7 @@
   Type = *
   Short Label = Adverse Reactions
   Definition = Information about adverse reactions of the patient (including allergies and intolerances), and any relevant reaction details. This includes statements about adverse reactions that need to be positively recorded as absent or excluded.
-  Logical Mapping = sct1 = Composition.section[title=\'Adverse Reactions\'; code={nehta-sct:101.20113}]
+  Logical Mapping = @sct1 = Composition.section[title=\'Adverse Reactions\'; code={nehta-sct:101.20113}]
 
  -- Row 7 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.exclusionStatementAdverseReactions
@@ -145,7 +145,7 @@
   Type = *
   Short Label = Adverse Reaction
   Definition = A harmful or undesirable effect associated with exposure to any substance or agent.
-  Logical Mapping = ai = sct1.entry->AllergyIntolerance
+  Logical Mapping = @ai = sct1.entry->AllergyIntolerance
 
  -- Row 10 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.adverseReaction.substanceAgent
@@ -162,7 +162,7 @@
   Type = *
   Short Label = Reaction Event
   Definition = Details about each adverse reaction event.
-  Logical Mapping = ev = ai.event
+  Logical Mapping = @ev = ai.event
 
  -- Row 12 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.adverseReaction.event.manifestation
@@ -188,7 +188,7 @@
   Type = *
   Short Label = Medication Orders
   Definition = Medicines that the subject of care is using.
-  Logical Mapping = sct2 = Composition.section[title=\'Medication Orders\'; code={nehta-sct:101.16146}]
+  Logical Mapping = @sct2 = Composition.section[title=\'Medication Orders\'; code={nehta-sct:101.16146}]
 
  -- Row 15 -----------------------------------
   Element = SharedHealthSummary.medicationOrders.exclusionStatementMedications
@@ -213,7 +213,7 @@
   Type = *
   Short Label = Medication Instruction
   Definition = Information pertaining to one or more therapeutic goods that is represented to achieve, or is likely to achieve, its principal intended action by pharmacological, chemical, immunological or metabolic means in or on the body of a human.
-  Logical Mapping = ms = sct2.entry->MedicationStatement
+  Logical Mapping = @ms = sct2.entry->MedicationStatement
 
  -- Row 18 -----------------------------------
   Element = SharedHealthSummary.medicationOrders.medicationInstruction.therapeuticGoodIdentification
@@ -254,7 +254,7 @@
   Type = *
   Short Label = Medical History
   Definition = The history of the subject of care\'s problems, diagnoses and medical or surgical procedures.
-  Logical Mapping = sct3 = Composition.section[title=\'Medical History\'; code={nehta-sct:101.16117}]
+  Logical Mapping = @sct3 = Composition.section[title=\'Medical History\'; code={nehta-sct:101.16117}]
 
  -- Row 23 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.problemDiagnosis
@@ -262,7 +262,7 @@
   Type = *
   Short Label = Problem/Diagnosis
   Definition = A health condition that, as determined by a clinician, may have impact on the physical, mental or social well-being of a person. A diagnosis is determined by scientific evaluation of pathological and pathophysiological findings identified from the patient\'s clinical history, family history, physical examination and diagnostic investigations.
-  Logical Mapping = cnd1 = sct3.entry->Condition
+  Logical Mapping = @cnd1 = sct3.entry->Condition
 
  -- Row 24 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.problemDiagnosis.identification
@@ -320,7 +320,7 @@
   Type = *
   Short Label = Procedure
   Definition = A clinical activity carried out for therapeutic, evaluative, investigative, screening or diagnostic purposes.
-  Logical Mapping = cnd2 = sct3.entry->Condition
+  Logical Mapping = @cnd2 = sct3.entry->Condition
 
  -- Row 31 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.procedure.name
@@ -370,7 +370,7 @@
   Type = *
   Short Label = Uncategorised Medical History Item
   Definition = A medical history entry that has not been categorised as either Procedure or Problem/Diagnosis .
-  Logical Mapping = cnd3 = sct3.entry->Condition
+  Logical Mapping = @cnd3 = sct3.entry->Condition
 
  -- Row 37 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.uncategorisedMedicalHistoryItem.description
@@ -402,7 +402,7 @@
   Type = *
   Short Label = Immunisations
   Definition = Information about vaccines given to the subject of care.
-  Logical Mapping = sct4 = Composition.section[title=\'Immunization\'; code={nehta-sct:101.16117}]
+  Logical Mapping = @sct4 = Composition.section[title=\'Immunization\'; code={nehta-sct:101.16117}]
 
  -- Row 41 -----------------------------------
   Element = SharedHealthSummary.immunisations.medicationAction
@@ -410,7 +410,7 @@
   Type = *
   Short Label = Medication Action
   Definition = The act of administering a dose of a vaccine to a person for the purpose of preventing or minimising the effects of a disease by producing immunity or to counter the effects of an infectious organism.
-  Logical Mapping = imm = sct4.entry->Immunization
+  Logical Mapping = @imm = sct4.entry->Immunization
 
  -- Row 42 -----------------------------------
   Element = SharedHealthSummary.immunisations.medicationAction.therapeuticGoodIdentification
