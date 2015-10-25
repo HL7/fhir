@@ -19,6 +19,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
+import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
@@ -196,6 +197,10 @@ public class SvgGenerator extends BaseGenerator {
     links.clear();
     XMLWriter xml = new XMLWriter(new FileOutputStream(filename), "UTF-8");
     generate(resource, xml);
+  }
+
+  public String generate(StructureDefinition definition, String filename, String id) throws Exception {
+    return "todo";
   }
 
   private void generate(ResourceDefn resource, XMLWriter xml) throws Exception {

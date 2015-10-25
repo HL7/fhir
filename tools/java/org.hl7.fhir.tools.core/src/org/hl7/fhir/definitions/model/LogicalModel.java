@@ -1,21 +1,21 @@
 package org.hl7.fhir.definitions.model;
 
+import org.hl7.fhir.instance.model.StructureDefinition;
 
 public class LogicalModel {
  
-  private TypeDefn root;  
   private String id;
   private String source;
   private ResourceDefn resource;
+  private StructureDefinition definition;
 
-  public TypeDefn getRoot()
-  {
-    return root;
+  public LogicalModel() {
+    super();
   }
 
-  public void setRoot(TypeDefn root)
-  {
-    this.root = root;
+  public LogicalModel(StructureDefinition definition) {
+    super();
+    this.definition = definition;
   }
 
   public String getId() {
@@ -42,5 +42,12 @@ public class LogicalModel {
     this.source = source;
   }
 
-  
+  public StructureDefinition getDefinition() {
+    return definition;
+  }
+
+  public boolean hasResource() {
+    return resource != null;
+  }
+
 }

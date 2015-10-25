@@ -627,9 +627,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("search-link")) {
         src = s1+searchLink(s2)+s3;
       } else if (com[0].equals("search-footer")) {
-        src = s1+searchFooter(level, s2)+s3;
+        src = s1+searchFooter(level)+s3;
       } else if (com[0].equals("search-header")) { 
-          src = s1+searchHeader(level, s2)+s3;
+          src = s1+searchHeader(level)+s3;
       } else if (com[0].equals("profileheader")) {
         src = s1+profileHeader(((StructureDefinition) resource).getId().toLowerCase(), com[1], false)+s3;
       } else if (com.length != 1)
@@ -2067,7 +2067,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
-  private String mapOnThisPage(String mappings) {
+  public String mapOnThisPage(String mappings) {
     if (mappings == null) {
       List<ElementDefn> list = new ArrayList<ElementDefn>();
       list.addAll(definitions.getStructures().values());
@@ -2429,7 +2429,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ResourceTableGenerator gen = new ResourceTableGenerator(folders.dstDir, this, res.getName()+"-definitions.html", false);
     return new XhtmlComposer().compose(gen.generate(e, prefix));
   }
-  
+    
   private String genResourceConstraints(ResourceDefn res) throws Exception {
     ElementDefn e = res.getRoot();
     Map<String, String> invs = new HashMap<String, String>();
@@ -2884,7 +2884,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();   
   }
 
-  private String lmHeader(String n, String title, String mode) throws Exception {
+  private String lmHeader(String n, String title, String mode, boolean hasXMlJson) throws Exception {
     StringBuilder b = new StringBuilder();
 
     b.append("<ul class=\"nav nav-tabs\">");
@@ -2892,6 +2892,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
+    if (hasXMlJson) {
+      b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
+      b.append(makeHeaderTab("JSON", n+".profile.json.html", "json".equals(mode)));
+    }
     b.append("</ul>\r\n");
 
     return b.toString();   
@@ -3843,9 +3847,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("search-link")) {
         src = s1+searchLink(s2)+s3;
       } else if (com[0].equals("search-footer")) {
-        src = s1+searchFooter(level, s2)+s3;
+        src = s1+searchFooter(level)+s3;
       } else if (com[0].equals("search-header")) { 
-          src = s1+searchHeader(level, s2)+s3;
+          src = s1+searchHeader(level)+s3;
       } else if (com[0].equals("toc1")) {
         src = s1 + generateToc(com[1], 1) + s3;
       } else if (com[0].equals("toc2")) {
@@ -4062,11 +4066,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   } 
 
-  private String searchFooter(int level, String s2) {
+  private String searchFooter(int level) {
     return "<a style=\"color: #81BEF7\" href=\"http://hl7.org/fhir/search.cfm\">Search</a>";
   }
 
-  private String searchHeader(int level, String s2) {
+  private String searchHeader(int level) {
     return "<div id=\"hl7-nav\"><a id=\"hl7-logo\" no-external=\"true\" href=\"http://hl7.org/fhir/search.cfm\"><img alt=\"Search FHIR\" src=\"./assets/images/search.png\"/></a></div>";
   }
 
@@ -4228,7 +4232,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("aresheader"))
         src = s1+abstractResHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("lmheader"))
-        src = s1+lmHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
+        src = s1+lmHeader(name, resource.getName(), com.length > 1 ? com[1] : null, false)+s3;
       else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
@@ -4354,9 +4358,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
       else if (com[0].equals("search-footer")) 
-        src = s1+searchFooter(level, s2)+s3;
+        src = s1+searchFooter(level)+s3;
       else if (com[0].equals("search-header")) 
-        src = s1+searchHeader(level, s2)+s3;
+        src = s1+searchHeader(level)+s3;
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -4396,6 +4400,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String getDraftNote(ResourceDefn resource) {
     if ("draft".equals(resource.getStatus()))
       return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This resource is <a href=\"timelines.html#levels\">marked as a draft</a>.</p>";
+    else
+      return "";
+  }
+
+  public String getDraftNote(StructureDefinition definition) {
+    if ("draft".equals(definition.getStatus().toCode()))
+      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This artefact is <a href=\"timelines.html#levels\">marked as a draft</a>.</p>";
     else
       return "";
   }
@@ -5107,7 +5118,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private void checkFormat(String filename, String res, ResourceDefn r) throws Exception {
     XhtmlNode doc = new XhtmlParser().parse("<div>"+res+"</div>", null).getFirstElement();
-    if (!doc.getFirstElement().getName().equals("div"))
+    if (doc.getFirstElement() == null || !doc.getFirstElement().getName().equals("div"))
       log("file \""+filename+"\": root element should be 'div'", LogMessageType.Error);
     else if (doc.getFirstElement() == null) {
       log("file \""+filename+"\": there is no 'Scope and Usage'", LogMessageType.Error);
@@ -5185,7 +5196,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return true;
   }
 
-  private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition, ResourceDefn resource, List<String> tabs, ImplementationGuideDefn ig) throws Exception {
+  public String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition, ResourceDefn resource, List<String> tabs, ImplementationGuideDefn ig) throws Exception {
     String filename;
     if (definitions.hasLogicalModel(name)) {
       LogicalModel lm = definitions.getLogicalModel(name);
@@ -5193,6 +5204,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     } else
       filename = folders.srcDir + name+File.separatorChar+name+"-"+suffix+".xml";
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource, tabs, ig);
+  }
+
+  private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition, StructureDefinition sd, List<String> tabs, ImplementationGuideDefn ig) throws Exception {
+    String filename;
+    if (definitions.hasLogicalModel(name)) {
+      LogicalModel lm = definitions.getLogicalModel(name);
+      filename = Utilities.changeFileExt(lm.getSource(), "-"+suffix+".xml");
+    } else
+      filename = folders.srcDir + name+File.separatorChar+name+"-"+suffix+".xml";
+    return loadXmlNotesFromFile(filename, checkHeaders, definition, null, tabs, ig);
   }
 
   public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path, String intro, String notes, ImplementationGuideDefn ig, boolean isDict) throws Exception {
@@ -5348,9 +5369,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("profile.notes"))
         src = s1 +genProfileDoco(pack, notes)+ s3;
       else if (com[0].equals("search-footer")) 
-        src = s1+searchFooter(level, s2)+s3;
+        src = s1+searchFooter(level)+s3;
       else if (com[0].equals("search-header")) 
-        src = s1+searchHeader(level, s2)+s3;
+        src = s1+searchHeader(level)+s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
       else if (com[0].equals("resurl")) {
@@ -5749,9 +5770,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("ext-name"))
         src = s1+Utilities.escapeXml(ed.getName())+s3;
       else if (com[0].equals("search-footer")) 
-        src = s1+searchFooter(level, s2)+s3;
+        src = s1+searchFooter(level)+s3;
       else if (com[0].equals("search-header")) 
-        src = s1+searchHeader(level, s2)+s3;
+        src = s1+searchHeader(level)+s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
       else 
@@ -6562,9 +6583,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("package-content"))
         src = s1 + getPackageContent(pack, genlevel(level)) + s3;  
       else if (com[0].equals("search-footer")) 
-        src = s1+searchFooter(level, s2)+s3;
+        src = s1+searchFooter(level)+s3;
       else if (com[0].equals("search-header")) 
-        src = s1+searchHeader(level, s2)+s3;
+        src = s1+searchHeader(level)+s3;
       else if (com[0].equals("package.search"))
         src = s1+getSearch(pack)+s3;
       else if (com[0].startsWith("!"))

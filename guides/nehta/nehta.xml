@@ -29,6 +29,11 @@
       <valueUri value="australian-organ-donor-register-spreadsheet.xml"/>
     </extension>
     <name value="base"/>
+    <resource>
+      <purpose value="logical"/>
+      <name value="Pregnancy Summary"/>
+      <sourceUri value="pregnancy.xml"/>
+    </resource>
   </package>
   <page>
     <source value="nehta.html"/>

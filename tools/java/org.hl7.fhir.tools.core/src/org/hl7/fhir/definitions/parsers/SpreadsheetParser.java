@@ -2341,7 +2341,6 @@ public class SpreadsheetParser {
     scanNestedTypes(resource, resource.getRoot(), resource.getName());
     
     LogicalModel lm = new LogicalModel();
-    lm.setRoot(resource.getRoot());
     lm.setResource(resource);
     tabfmt.close();
 

@@ -1,0 +1,86 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-COMPOSITION.pregnancy_summary.v1
+
+concept
+	[at0000]	-- Pregnancy Summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["organisation"] = <"Ocean Informatics">
+		["date"] = <"2013-06-14">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a summary of all significant details for a single pregnancy.">
+			use = <"Use to record a summary of all significant details for a single pregnancy.
+
+Multiple Pregnancy Summary COMPOSITIONS may co-exist in a woman's health record - one per pregnancy.
+
+The intent of this COMPOSITION is for use as a persistent summary, however it has been identified that for implementation the archetype also needs additional attributes related to the context of the event. As a result, the COMPOSITION has been temporarily modified as an EVENT COMPOSITION which allows addition of an Items SLOT into which additional context-related archetypes can be included. This new requirement for context-related attributes in the Persistent COMPOSITION has been requested as a future openEHR Reference Model update.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"CommitteeDraft">
+	other_contributors = <"Heath Frankel, Ocean Informatics, Australia", ...>
+	other_details = <
+		["current_contact"] = <"Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com">
+		["MD5-CAM-1.0.1"] = <"69346D1F764C520AA90AEC94E78F6587">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- Pregnancy Summary
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0004] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							allow_archetype ITEM[at0006] occurrences matches {0..*} matches {	-- Items
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.document_entry_metadata(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+						}
+					}
+				}
+			}
+		}
+		content cardinality matches {1..*; unordered} matches {
+			allow_archetype EVALUATION[at0003] occurrences matches {0..1} matches {	-- Pregnancy
+				include
+					archetype_id/value matches {/openEHR-EHR-EVALUATION\.pregnancy(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Pregnancy Summary">
+					description = <"A summary of all significant details for a specific pregnancy.">
+				>
+				["at0003"] = <
+					text = <"Pregnancy">
+					description = <"Cumulative overview of a single pregnancy.">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Items">
+					description = <"Additional COMPOSITION related data.">
+				>
+			>
+		>
+	>

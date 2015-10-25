@@ -109,6 +109,14 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     close();
   }
 
+  public void generate(String prefix, StructureDefinition root) throws Exception
+  {
+//    scan(root, root.getName());
+//    gen(prefix, txusages);
+    flush();
+    close();
+  }
+
   public void generate(String prefix, ConstraintStructure profile) throws Exception
   {
 //    write("<p>\r\nDefined Bindings\r\n</p>\r\n<ul>\r\n");

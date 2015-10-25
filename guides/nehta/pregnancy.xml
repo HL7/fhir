@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="pregnancy"/>
+  <name value="PregnancySummary"/>
+  <status value="draft"/>
+  <description value="To support the recording of an overview or summary record of an identified pregnancy including the antenatal period, labor, birth and the immediate postnatal period."/>
+  <requirements value="Use:
+Use to record an overview or summary record of an identified pregnancy including the antenatal period, labor, birth and the immediate postnatal period. 
+
+This information in this archetype should ideally be only entered once, however there are some situations where it is useful to duplicate data elements. For example, within the context of a pregnancy summary it is helpful to include Apgar Score totals, however the entire detail of the Apgar Score is captured using a purpose built Apgar archetype. In this situation applications can ensure that there is not duplicate data entry required on behalf of the user but that these data elements within the summary are directly derived from the actual Apgar Score data.
+
+During an active pregnancy, this archetype supports the evolution of a persistent pregnancy-related health summary record, with information gradually accumulated or updated, throughout the duration of the pregnancy, labor, birth and the immediate postnatal period. As the data is committed to the persistent health record, the date of the update is also recorded in the &#39;Last Updated&#39; data element in Protocol, to ensure that if this pregnancy summary is taken out of context of the health record for other purposes, such as data exchange, the date of latest update is kept with the clinical data.
+
+After birth, this summary record can be used as the basis for sharing key information with other healthcare providers about the pregnancy, labor, birth and immediate postnatal period. 
+
+Each completed pregnancy summary saved to the health record can be re-used to populate the Past Pregnancy History details in subsequent pregnancy records.
+
+In situations where completed pregnancy summaries are not available for each previous pregnancy, this archetype can also be used to record a relevant subset of information that can be used to populate the Past Pregnancy History details with new or active pregnancy records.
+
+Misuse:
+Not to be used to record event-based information during the pregnancy, labor, birth and immediate postnatal period. These will be recorded using OBSERVATION archetypes - for example, the information related to history &amp; examination during antenatal visits or during labour.
+
+Not to be used to record summary information about a woman&#39;s Obstetric history - use EVALUATION.obstetric_summary.
+
+Not to be used to record detailed information about a woman&#39;s Menstrual Cycle - use OBSERVATION.menstrual_cycle.
+
+Not to be used to record detailed information about infant feeding - a separate archetype will be used.
+
+Not to be used to record a general menstrual history summary or diary - separate archetypes will be used."/>
+  <copyright value="© National E-Health Transition Authority"/>
+  <code>
+    <display value="pregnancy"/>
+  </code>
+  <code>
+    <display value="fetus"/>
+  </code>
+  <code>
+    <display value="foetus"/>
+  </code>
+  <code>
+    <display value="infant"/>
+  </code>
+  <code>
+    <display value="neonate"/>
+  </code>
+  <code>
+    <display value="delivery"/>
+  </code>
+  <code>
+    <display value="conception"/>
+  </code>
+  <code>
+    <display value="due"/>
+  </code>
+  <code>
+    <display value="date"/>
+  </code>
+  <code>
+    <display value="expected"/>
+  </code>
+  <code>
+    <display value="labor"/>
+  </code>
+  <code>
+    <display value="labour"/>
+  </code>
+  <code>
+    <display value="birth"/>
+  </code>
+  <code>
+    <display value="baby"/>
+  </code>
+  <code>
+    <display value="babies"/>
+  </code>
+  <code>
+    <display value="EDD"/>
+  </code>
+  <code>
+    <display value="EDB"/>
+  </code>
+  <snapshot>
+    <element>
+      <path value="PregnancySummary"/>
+      <short value="Pregnancy Summary"/>
+      <definition value="Overview or summary record of a pregnancy including the antenatal period, labour, birth and the immediate postnatal period."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="LogicalModel"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.assistedReproduction"/>
+      <short value="Assisted Reproduction?"/>
+      <definition value="Was the pregnancy a result of assisted reproductive technology?"/>
+      <comments value="True, if assisted reproduction was required to achieve the pregnancy."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.assistedReproductionType"/>
+      <short value="Assisted Reproduction Type"/>
+      <definition value="Type of assisted reproductive technology used to achieve pregnancy."/>
+      <comments value="Coding with a terminology is preferred, where possible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.dateOfConception"/>
+      <short value="Date of Conception"/>
+      <definition value="Actual date of conception."/>
+      <comments value="To be recorded only if the actual date of conception is known, not estimated or calculated. This usually occurs in situations where fertilisation is assisted, for example via IVF."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbConception"/>
+      <short value="EDB (Conception)"/>
+      <definition value="Estimated date of birth based on a known date of conception."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.contraception"/>
+      <short value="Contraception"/>
+      <definition value="Most recent form of contraception used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.contraceptionCeased"/>
+      <short value="Contraception Ceased"/>
+      <definition value="Date that the most recent form of contraception was ceased."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnCycle"/>
+      <short value="EDB Based on Cycle"/>
+      <definition value="Details about the estimated date of birth (EDB) based upon the menstrual cycle."/>
+      <comments value="An EDB based on cycle can only be calculated if both LNMP and cycle length are known to a degree of certainty that is clinically acceptable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnCycle.lnmp"/>
+      <short value="LNMP"/>
+      <definition value="First day of last normal menstrual cycle (LNMP)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnCycle.certainty"/>
+      <short value="Certainty"/>
+      <definition value="Certainty of LNMP as a reliable basis for calculation of EDB (Cycle)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnCycle.cycleLength"/>
+      <short value="Cycle Length"/>
+      <definition value="Usual length of menstrual cycle."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Duration"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnCycle.irregularCycles"/>
+      <short value="Irregular Cycles?"/>
+      <definition value="Are the menstrual cycles irregular?"/>
+      <comments value="Record as True only if the cycles are irregular."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnCycle.description"/>
+      <short value="Description"/>
+      <definition value="Narrative description of menstrual cycle or menstruation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnCycle.edbCycle"/>
+      <short value="EDB (Cycle)"/>
+      <definition value="Estimated date of birth based on menstrual cycle."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnUltrasound"/>
+      <short value="EDB Based on Ultrasound"/>
+      <definition value="Details about the estimated date of birth (EDB) based upon an ultrasound examination."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnUltrasound.dateOfUltrasound"/>
+      <short value="Date of Ultrasound"/>
+      <definition value="Date on which the ultrasound examination was performed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnUltrasound.estimatedGestation"/>
+      <short value="Estimated Gestation"/>
+      <definition value="Estimated gestation based on the ultrasound findings."/>
+      <min value="1"/>
+      <max value="2"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Duration"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnUltrasound.variation"/>
+      <short value="Variation"/>
+      <definition value="Possible variation from Estimated Gestation, recorded as a positive number of days."/>
+      <comments value="For example, 7 days indicating EDB +/- 7 days."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Duration"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.edbBasedOnUltrasound.edbUltrasound"/>
+      <short value="EDB (Ultrasound)"/>
+      <definition value="Estimated date of birth based on ultrasound examination."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.agreedEdb"/>
+      <short value="Agreed EDB"/>
+      <definition value="Details about the agreed estimated date of birth (EDB)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.agreedEdb.edbAgreed"/>
+      <short value="EDB (Agreed)"/>
+      <definition value="Estimated date of birth (EDB) on which all antenatal care and management is based."/>
+      <comments value="As agreed by the care team, and after taking into consideration all available information regarding Date of Conception, EDB (Cycle) and EDB (Ultrasound)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.agreedEdb.rationale"/>
+      <short value="Rationale"/>
+      <definition value="Reason for selection of EDB (Agreed)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.modelOfCare"/>
+      <short value="Model of Care"/>
+      <definition value="Model of antenatal care provided."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.modelOfCare.type"/>
+      <short value="Type"/>
+      <definition value="The Model of care type."/>
+      <comments value="Coding with a terminology is preferred, where possible. For example, GP shared care, birth centre, private community midwife or midwifery group practice."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.modelOfCare.reason"/>
+      <short value="Reason"/>
+      <definition value="Reason or rationale for the selected type of antenatal care."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.modelOfCare.startDate"/>
+      <short value="Start Date"/>
+      <definition value="Date of commencement of the identified type of antenatal care."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.plannedPlaceOfBirth"/>
+      <short value="Planned Place of Birth"/>
+      <definition value="Planned or intended physical location for birth."/>
+      <comments value="Local standardisation of the value set is desired in preference to free text entry, so as to provide clinicians with a meaningful local list, including &#39;Home&#39;. The value set may be modelled directly in a template or via inclusion of an external terminology reference set."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.numberOfBabies"/>
+      <short value="Number of Babies"/>
+      <definition value="Number of fetuses identified in utero."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Count"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.pregnancyOutcome"/>
+      <short value="Pregnancy Outcome"/>
+      <definition value="Outcome of the pregnancy as a whole."/>
+      <comments value="Coding of the Pregnancy Outcome with a terminology is desirable, where possible. If individual fetuses have been identified, record this information using the &#39;Individual Outcome&#39; data element. This data element is not to be recorded if &#39;Individual Outcome&#39; is recorded."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.onsetOfLabour"/>
+      <short value="Onset of Labour"/>
+      <definition value="Manner in which labour started."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.inductionMethod"/>
+      <short value="Induction Method"/>
+      <definition value="Method of labour induction."/>
+      <comments value="Coding of the &#39;Induction Method&#39; with a terminology is desirable, where possible."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.reasonForInduction"/>
+      <short value="Reason for Induction"/>
+      <definition value="Reason for induction of labour."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.augmentationMethod"/>
+      <short value="Augmentation Method"/>
+      <definition value="Method of labour augmentation."/>
+      <comments value="Coding of the &#39;Augmentation Method&#39; with a terminology is desirable, where possible."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.painReliefMethod"/>
+      <short value="Pain Relief Method"/>
+      <definition value="Method/s of analgesia used during labour."/>
+      <comments value="Coding of the &#39;Type of Pain Relief&#39; with a terminology is desirable, where possible."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.durationOfFirstStage"/>
+      <short value="Duration of First Stage"/>
+      <definition value="Total duration of the first stage of labour."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Duration"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.maternalComplication"/>
+      <short value="Maternal Complication"/>
+      <definition value="Details about pregnancy complications or birth complications affecting the mother."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.maternalComplication.complication"/>
+      <short value="Complication"/>
+      <definition value="Identification of the complication."/>
+      <comments value="Coding of the &#39;Complication&#39; with a terminology is desirable, where possible. For example, post partum haemorrhage or pre-eclampsia."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.maternalComplication.description"/>
+      <short value="Description"/>
+      <definition value="Narrative description of the maternal complication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.maternalComplication.dateTimeOfOnset"/>
+      <short value="Date/Time of Onset"/>
+      <definition value="Date of onset of complication, as assessed by a clinician."/>
+      <comments value="If only a partial date is available, this is acceptable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby"/>
+      <short value="Baby"/>
+      <definition value="Information about an individual identified baby."/>
+      <comments value="While most often these details are used to record information about birth of newborn, occasionally they are also useful to record delivery details for "/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.identification"/>
+      <short value="Identification"/>
+      <definition value="Identification of the baby."/>
+      <comments value="Identification might be by the name of the neonate or a label given to a fetus."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.birthOrder"/>
+      <short value="Birth Order"/>
+      <definition value="Sequential order of each baby in a multiple birth event."/>
+      <comments value="For example, record &#39;1&#39; if this neonate is the first born of a multiple birth; record &#39;4&#39; if this neonate is the fourth born of a multiple birth."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Count"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.durationOfSecondStage"/>
+      <short value="Duration of Second Stage"/>
+      <definition value="Duration of second stage for the baby."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Duration"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.modeOfBirth"/>
+      <short value="Mode of Birth"/>
+      <definition value="Method by which the baby was delivered."/>
+      <comments value="Value set from AIHW."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.presentingPart"/>
+      <short value="Presenting Part"/>
+      <definition value="Presenting part of the baby at birth or delivery."/>
+      <comments value="Extension of the AIHW value set. The clinical context for recording this data element is only presentation at birth, not at any other phase of labour."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.babyOutcome"/>
+      <short value="Baby Outcome"/>
+      <definition value="Outcome of the pregnancy for the identified baby."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.sex"/>
+      <short value="Sex"/>
+      <definition value="Sex of the baby, as determined by observable physical characteristics."/>
+      <comments value="Coding with a terminology is preferred, where possible. Indeterminate is to be used in the situation where is it not possible to tell if the sex is male or female."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.dateTimeOfBirth"/>
+      <short value="Date/Time of Birth"/>
+      <definition value="Date and time of birth."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.placeOfBirthCategory"/>
+      <short value="Place of Birth Category"/>
+      <definition value="The category of the physical location where the birth occurred."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.specificPlaceOfBirth"/>
+      <short value="Specific Place of Birth"/>
+      <definition value="The actual physical location where the birth occurred."/>
+      <comments value="For example, the name of an institution or an address."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.gestationalAge"/>
+      <short value="Gestational Age"/>
+      <definition value="Estimated gestational age of fetus or baby at birth or delivery, based on clinical examination and evaluation."/>
+      <comments value="This data element is intended to record estimated gestation based on clinical findings on examination of the fetus/neonate and clinical assessment, not the calculated gestation based on the &#39;Agreed EDB&#39;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Duration"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.birthweight"/>
+      <short value="Birthweight"/>
+      <definition value="Weight of the fetus or baby at birth or delivery."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.descriptionOfBirth"/>
+      <short value="Description of Birth"/>
+      <definition value="Narrative description of the birth or delivery."/>
+      <comments value="For example, footling breech with cord presentation or uncomplicated vaginal birth."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.descriptionOfBaby"/>
+      <short value="Description of Baby"/>
+      <definition value="Description of the fetus or baby at delivery."/>
+      <comments value="For example, need for resuscitation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.totalApgarAt1Minute"/>
+      <short value="Total Apgar at 1 Minute"/>
+      <definition value="The sum of the 5 scores for each Apgar component recorded at 1 minute after birth."/>
+      <comments value="Can be derived direct from the Birth Record documentation, if present."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Count"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.totalApgarAt5Minutes"/>
+      <short value="Total Apgar at 5 Minutes"/>
+      <definition value="The sum of the 5 scores for each Apgar component recorded at 5 minutes after birth."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Count"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.totalApgarAt10Minutes"/>
+      <short value="Total Apgar at 10 Minutes"/>
+      <definition value="The sum of the 5 scores for each Apgar component recorded at 10 minutes after birth."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Count"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.babyComplication"/>
+      <short value="Baby Complication"/>
+      <definition value="Details about complications affecting the baby."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.babyComplication.complication"/>
+      <short value="Complication"/>
+      <definition value="Identification of the complication after birth."/>
+      <comments value="Coding of the &#39;Complication&#39; with a terminology is desirable, where possible. For example, neonatal hypoglycaemia or hypothermia."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.babyComplication.description"/>
+      <short value="Description"/>
+      <definition value="Narrative description of complication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.baby.babyComplication.dateTimeOfOnset"/>
+      <short value="Date/Time of Onset"/>
+      <definition value="Date and/or time of onset of the complication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.durationOfThirdStage"/>
+      <short value="Duration of Third Stage"/>
+      <definition value="Total duration of  the third stage of labour."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Duration"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.totalDurationOfLabor"/>
+      <short value="Total Duration of Labor"/>
+      <definition value="Total duration of all three stages of labour."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Duration"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.perineum"/>
+      <short value="Perineum"/>
+      <definition value="Narrative description about the condition of the perineum after birth, including injuries and repairs."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.bloodLoss"/>
+      <short value="Blood Loss"/>
+      <definition value="Estimation of maternal blood loss during birth and immediately post delivery."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.feeding"/>
+      <short value="Feeding"/>
+      <definition value="Narrative description about feeding."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.pregnancySynopsis"/>
+      <short value="Pregnancy Synopsis"/>
+      <definition value="Narrative description about the whole of pregnancy."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="PregnancySummary.dateUpdated"/>
+      <short value="Date Updated"/>
+      <definition value="The date this pregnancy summary was last updated."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+  </snapshot>
+</StructureDefinition>

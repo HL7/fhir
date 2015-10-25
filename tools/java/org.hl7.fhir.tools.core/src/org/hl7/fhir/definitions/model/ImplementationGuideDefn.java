@@ -498,4 +498,11 @@ public class ImplementationGuideDefn {
     return null;
   }
 
+  public int getLevel() {
+    if (isCore())
+      return 0;
+    else
+      return 1;
+  }
+
 }

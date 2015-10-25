@@ -592,7 +592,7 @@ public class Definitions {
   public boolean hasLogicalModel(String name) {
     for (ImplementationGuideDefn ig : getSortedIgs()) {
       for (LogicalModel lm : ig.getLogicalModels()) {
-        if (lm.getResource().getName().equals(name))
+        if (lm.getResource() != null && lm.getResource().getName().equals(name))
           return true;
         if (lm.getId().equals(name))
           return true;
@@ -616,7 +616,7 @@ public class Definitions {
   public LogicalModel getLogicalModel(String name) {
     for (ImplementationGuideDefn ig : getSortedIgs()) {
       for (LogicalModel lm : ig.getLogicalModels()) {
-        if (lm.getResource().getName().equals(name))
+        if (lm.getResource() != null && lm.getResource().getName().equals(name))
           return lm;
         if (lm.getId().equals(name))
           return lm;

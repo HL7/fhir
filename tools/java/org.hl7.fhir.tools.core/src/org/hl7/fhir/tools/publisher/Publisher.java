@@ -4680,62 +4680,76 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void produceLogicalModel(LogicalModel lm, ImplementationGuideDefn ig) throws Exception {
     String n = lm.getId();
-    ByteArrayOutputStream bs = new ByteArrayOutputStream();
-    XmlSpecGenerator gen = new XmlSpecGenerator(bs, n + "-definitions.html", null, page, "../");
-    gen.generate(lm.getRoot(), true);
-    gen.close();
-    String xml = new String(bs.toByteArray());
-
-    bs = new ByteArrayOutputStream();
-    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, n + "-definitions.html", null, page, "../");
-    genJ.generate(lm.getRoot(), true, true);
-    genJ.close();
-    String json = new String(bs.toByteArray());
-
-//    xmls.put(n, xml);
-//    jsons.put(n, json);
 
     File tmp = Utilities.createTempFile("tmp", ".tmp");
 
     TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
-    tgen.generate("../", lm.getRoot());
+    if (lm.hasResource())
+      tgen.generate("../", lm.getResource().getRoot());
+    else
+      tgen.generate("../", lm.getDefinition());
     tgen.close();
     String tx = TextFile.fileToString(tmp.getAbsolutePath());
 
     DictHTMLGenerator dgen = new DictHTMLGenerator(new FileOutputStream(tmp), page, "../");
-    dgen.generate(lm.getRoot());
+    if (lm.hasResource())
+      dgen.generate(lm.getResource().getRoot());
+    else
+      dgen.generate(lm.getDefinition());
     dgen.close();
     String dict = TextFile.fileToString(tmp.getAbsolutePath());
 
     MappingsGenerator mgen = new MappingsGenerator(page.getDefinitions());
-    mgen.generate(lm.getResource());
+    if (lm.hasResource())
+      mgen.generate(lm.getResource());
+    else
+      mgen.generate(lm.getDefinition());
     String mappings = mgen.getMappings();
     String mappingsList = mgen.getMappingsList();
 
     SvgGenerator svg = new SvgGenerator(page, "../");
     String fn = ig.getCode()+File.separator+n;
-    svg.generate(lm.getResource(), page.getFolders().dstDir + fn+".svg", "2");
+    if (lm.hasResource())
+      svg.generate(lm.getResource(), page.getFolders().dstDir + fn+".svg", "2");
+    else
+      svg.generate(lm.getDefinition(), page.getFolders().dstDir + fn+".svg", "2");
 
     String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(lm.getId());
     SectionTracker st = new SectionTracker(prefix, true);
     st.start("");
     page.getSectionTrackerCache().put(fn, st);
 
+    if (lm.getDefinition() != null) {
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, ig.getPrefix(), n+".xml")), lm.getDefinition());
+      cloneToXhtml(ig.getPrefix()+n, "Logical Model "+lm.getDefinition().getName(), true, "logical-model", lm.getDefinition().getName());
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, ig.getPrefix(), n+".json")), lm.getDefinition());
+      jsonToXhtml(ig.getPrefix()+n, "Logical Model "+lm.getDefinition().getName(), new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(lm.getDefinition()), "logical-model", lm.getDefinition().getName());
+    }
     String template = "template-logical";
     String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
-    src = insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "resource", n + ".html", ig), st, n + ".html", 1, null);
+    if (lm.hasResource())
+      src = insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", tx, dict, src, mappings, mappingsList, "resource", n + ".html", ig), st, n + ".html", 1, null);
+    else
+      src = insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict).process(src), st, n + ".html", 1, null);
     TextFile.stringToFile(src, page.getFolders().dstDir + fn+".html");
     page.getEpub().registerFile(fn+".html", "Base Page for " + n, EPubManager.XHTML_TYPE, true);
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-definitions.html");
-    TextFile.stringToFile(
-        insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", ig), st, n
+    if (lm.hasResource())
+      TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", ig), st, n
             + "-definitions.html", 0, null), page.getFolders().dstDir + fn+"-definitions.html");
-    page.getEpub().registerFile(fn+"-definitions.html", "Detailed Descriptions for " + lm.getResource().getName(), EPubManager.XHTML_TYPE, true);
+    else
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict).process(src), st, n
+          + "-definitions.html", 0, null), page.getFolders().dstDir + fn+"-definitions.html");
+    page.getEpub().registerFile(fn+"-definitions.html", "Detailed Descriptions for " + (lm.hasResource() ? lm.getResource().getName() : lm.getDefinition().getName()), EPubManager.XHTML_TYPE, true);
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-mappings.html");
-    TextFile.stringToFile(
-        insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), xml, json, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html", ig), st, n + "-mappings.html", 0, null),
+    if (lm.hasResource())
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html", ig), st, n + "-mappings.html", 0, null),
+          page.getFolders().dstDir + fn + "-mappings.html");
+    else
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict).process(src), st, n + "-mappings.html", 0, null),
         page.getFolders().dstDir + fn + "-mappings.html");
     page.getEpub().registerFile(fn+"-mappings.html", "Formal Mappings for " + n, EPubManager.XHTML_TYPE, true);
 

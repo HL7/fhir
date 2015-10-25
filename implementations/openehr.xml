@@ -1,0 +1,31 @@
+<!-- 
+  this file contains master information used by the conversion from ADL to FHIR logical models
+  This file is for openEHR archetypes (not CIMI archetypes)
+-->  
+<openEHR xmlns="http://hl7.org/fhir">
+  <dataTypes>
+    <dataType name="CLUSTER" fhir="BackboneElement"/>
+    <dataType name="DV_BOOLEAN" fhir="boolean"/>
+    <dataType name="DV_CODED_TEXT" fhir="CodeableConcept"/>
+    <dataType name="DV_COUNT" fhir="Quantity" profile="http://hl7.org/fhir/StructureDefinition/Count"/>
+    <dataType name="DV_DATE" fhir="date"/>
+    <dataType name="DV_DATE_TIME" fhir="dateTime"/>
+    <dataType name="DV_DURATION" fhir="Quantity" profile="http://hl7.org/fhir/StructureDefinition/Duration"/>
+    <dataType name="DV_QUANTITY" fhir="Quantity"/>
+    <dataType name="DV_TEXT" fhir="string"/>
+    
+    <dataType name="EVALUATION" fhir="LogicalModel"/>
+  </dataTypes>
+</openEHR>
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

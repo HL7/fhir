@@ -161,10 +161,18 @@ public class IgParser {
           r.setSource(new UriType(fn.getName()));
         } else if (r.getPurpose() == GuideResourcePurpose.PROFILE) {
           throw new Error("Not implemented yet");
+        } else if (r.getPurpose() == GuideResourcePurpose.LOGICAL) {
+          fn = new CSFile(Utilities.path(myRoot, r.getSourceUriType().asStringValue()));
+          StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(fn));
+          LogicalModel lm = new LogicalModel(sd);
+          lm.setSource(fn.getAbsolutePath());
+          lm.setId(sd.getId());
+          igd.getLogicalModels().add(lm);        
         } else if (r.getPurpose() == GuideResourcePurpose.DICTIONARY) {
           Dictionary d = new Dictionary(id, r.getName(), igd.getCode(), fn.getAbsolutePath(), igd);
           igd.getDictionaries().add(d);
-        }
+        } else 
+          throw new Error("Not implemented yet - purpose = "+r.getPurpose().toCode());
 
 
         //        if (r.hasExampleFor()) {
