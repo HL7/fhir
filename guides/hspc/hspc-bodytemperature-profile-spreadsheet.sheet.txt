@@ -17,10 +17,10 @@
 
  -- Row 3 -----------------------------------
   Binding Name = ObservationStatusBasic
-  Binding = value set
-  Reference = valueset-observationstatusbasic
+  Binding = code list
+  Reference = #observationstatusbasic
   Definition = A set of codes that describe the state of the observation
-  Conformance = preferred
+  Conformance = required
 
  -- Row 4 -----------------------------------
   Binding Name = BodyTempMeasBodyLocationPrecoord
@@ -57,12 +57,29 @@
   Definition = The set of codes that describe the subject of an observation when not the patient of record
   Conformance = preferred
 
+=== Sheet observationstatusbasic =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/observation-status
+  Code = final
+  Display = final
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/observation-status
+  Code = entered-in-error
+  Display = entered-in-error
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/observation-status
+  Code = unknown
+  Display = unknown
+
 === Sheet hspc-bodytemp =====================================
 
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Body Temperature
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -72,6 +89,7 @@
  -- Row 3 -----------------------------------
   Element = Observation.valueQuantity
   Card. = 1..1
+  Type = Quantity
 
  -- Row 4 -----------------------------------
   Element = Observation.valueQuantity.system
@@ -99,50 +117,45 @@
   Binding = ObservationStatusBasic
 
  -- Row 10 -----------------------------------
-  Element = Observation.reliability
-  Card. = 0..0
-
- -- Row 11 -----------------------------------
-  Element = Observation.bodySite[x]
+  Element = Observation.bodySite
   Card. = 0..1
   Binding = BodyTempMeasBodyLocationPrecoord
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.method
   Card. = 0..1
   Binding = BodyTempMeasMethodDevice
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.specimen
   Card. = 0..0
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.performer
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Observation.device
   Card. = 0..0
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Observation.extension
   Profile Name = DeltaFlag
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-delta}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeltaFlag}
   Binding = DeltaFlagNumericNom
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Observation.extension
   Profile Name = AssocitatedPrecondition
-  Card. = 0..*
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}
   Binding = VitalSignAssociatedPrecondition
 
- -- Row 18 -----------------------------------
-  Element = Observation.extension
+ -- Row 17 -----------------------------------
+  Element = Observation.modifierExtension
   Profile Name = FocalSubject
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-heartrate#hspc-focalSubject}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsfocalSubject}
   Binding = FocalSubject
 
 === Sheet Search =====================================

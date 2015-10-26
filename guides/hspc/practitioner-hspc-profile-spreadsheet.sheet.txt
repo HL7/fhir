@@ -11,19 +11,19 @@
 
  -- Row 2 -----------------------------------
   Binding Name = HSPCPractitionerTelecomUse
-  Binding = value set
-  Reference = valueset-practitioner-telecomUse
+  Binding = code list
+  Reference = #telecomUse
   Definition = A set of codes that describe what the given telecom value is used for
   Description = A set of codes that describe what the given telecom value is used for
-  Conformance = preferred
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = HSPCPractitionerAddressUse
-  Binding = value set
-  Reference = valueset-practitioner-addressUse
+  Binding = code list
+  Reference = #addressUse
   Definition = A set of codes that describe the manner in which an addressed is used.
   Description = A set of codes that describe the manner in which an addressed is used.
-  Conformance = preferred
+  Conformance = required
 
  -- Row 4 -----------------------------------
   Binding Name = ProviderPractitionerType
@@ -80,6 +80,69 @@
   Definition = The set of values to indicate affirmative or negative
   Conformance = preferred
 
+=== Sheet telecomUse =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = EC
+  Display = emergency contact
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = MC
+  Display = mobile contact
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = PG
+  Display = pager
+
+=== Sheet addressUse =====================================
+
+ -- Row 1 -----------------------------------
+  Code = BAD
+  Display = Bad address
+
+ -- Row 2 -----------------------------------
+  Code = PHYS
+  Display = Physical visit address
+
+ -- Row 3 -----------------------------------
+  Code = PST
+  Display = Postal address
+
+ -- Row 4 -----------------------------------
+  Code = HP
+  Display = Primary home
+
+ -- Row 5 -----------------------------------
+  Code = PUB
+  Display = Public
+
+ -- Row 6 -----------------------------------
+  Code = TMP
+  Display = Temporary address
+
+ -- Row 7 -----------------------------------
+  Code = HV
+  Display = Vacation home
+
+ -- Row 8 -----------------------------------
+  Code = WP
+  Display = Work place
+
+ -- Row 9 -----------------------------------
+  Code = H
+  Display = Home address
+
+ -- Row 10 -----------------------------------
+  Code = DIR
+  Display = Direct address
+
+ -- Row 11 -----------------------------------
+  Code = CONF
+  Display = Conficential address
+
 === Sheet hspc-provpract =====================================
 
  -- Row 1 -----------------------------------
@@ -91,82 +154,83 @@
   Element = Practitioner.telecom
 
  -- Row 3 -----------------------------------
-  Element = Practitioner.telecom.system
-  Binding = HSPCPractitionerTelecomSystem
-
- -- Row 4 -----------------------------------
-  Element = Practitioner.telecom.use
+  Element = !Practitioner.telecom.use
   Binding = HSPCPractitionerTelecomUse
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = Practitioner.telecom.extension
   Profile Name = PreferenceIndicator
   Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-preferred}
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Practitioner.address
 
- -- Row 7 -----------------------------------
-  Element = Practitioner.address.use
+ -- Row 6 -----------------------------------
+  Element = !Practitioner.address.use
   Binding = HSPCPractitionerAddressUse
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Practitioner.address.extension
   Profile Name = PrimaryIndicator
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-primaryInd}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsprimaryIndicator}
+  Binding = YesNo
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Practitioner.practitionerRole
   Profile Name = PractitionerRole
   Discriminator = Practitioner.practitionerRole.managingOrganization|false|open, Practitioner.practitionerRole.role
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Practitioner.practitionerRole.role
   Binding = ProviderPractitionerType
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Practitioner.practitionerRole.specialty
   Binding = ProviderSpecialty
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Practitioner.practitionerRole
   Profile Name = AdministrativeAffiliation
   Slice Description = AdministrativeAffiliation
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Practitioner.practitionerRole
   Profile Name = PracticeAffiliation
   Slice Description = PracticeAffiliation
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Practitioner.practitionerRole.extension
   Profile Name = PracticeAffiliationType
   Slice Description = PracticeAffiliationType
-  Type = Extension{#PracticeAffiliationType}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionspracticeAffiliationType}
+  Binding = PracticeAffiliationType
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Practitioner.practitionerRole.extension
   Profile Name = PractitionerPrivilege
   Slice Description = PractitionerPrivilege
-  Type = Extension{#PractitionerPrivilege}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionspractitionerPrivilege}
+  Binding = ProviderPractitionerPrivilege
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Practitioner.qualification
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Practitioner.qualification.extension
   Profile Name = CredentialEligibiltyIndicator
-  Type = Extension{#CredentialEligibilityInd}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscredentialEligibilityInd}
+  Binding = YesNo
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Practitioner.communication
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Practitioner.communication.extension
   Profile Name = CommunicationMode
-  Type = Extension{#CommunicationMode}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscommunicationMode}
+  Binding = HSPCPractitionerCommunicationMode
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Practitioner.classification
   Binding = ProviderClassification
 

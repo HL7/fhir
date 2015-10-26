@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-05-07T19:15:07Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2015-09-28T21:40:05Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -860,11 +860,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s162" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
-  </Style>
   <Style ss:ID="s163">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
@@ -1058,7 +1053,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1248,8 +1242,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Location.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1283,7 +1276,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">Extension{#LocationNameUse}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1393,8 +1386,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Location.address</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3885,6 +3877,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3905,8 +3898,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6616,9 +6609,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><Data ss:Type="String">Status</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">The state of the service delivery location</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">valueset-location-serviceDeliveryLocation-status</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">#status</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
@@ -6648,8 +6641,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">The set of values to indicate affirmative or negative</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s162" ss:HRef="http://hl7.org/fhir/ValueSet/v2-0136"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0136</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0136</Data></Cell>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s144"/>
@@ -7067,7 +7059,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -7078,16 +7070,16 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="some-code-list">
+ <Worksheet ss:Name="status">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='some-code-list'!R1C1:R1C9"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=status!R1C1:R1C9"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s163" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s163" ss:Width="80.25"/>
    <Column ss:StyleID="s163" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s163" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s163" ss:Width="216"/>
    <Column ss:StyleID="s163" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s163" ss:AutoFitWidth="0" ss:Width="244.5"/>
    <Column ss:StyleID="s163" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
@@ -7131,22 +7123,22 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"/>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-EntityStatus</Data></Cell>
     <Cell ss:StyleID="s166"/>
-    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">Active</Data></Cell>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s167"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-EntityStatus</Data></Cell>
     <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Inactive</Data></Cell>
     <Cell ss:StyleID="s169"/>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"/>
@@ -7697,7 +7689,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

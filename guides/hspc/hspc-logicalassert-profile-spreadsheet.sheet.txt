@@ -91,32 +91,32 @@
   Element = Observation.extension
   Profile Name = SupportingInformationIdentifier
   Card. = 0..1
-  Type = Extension{#SupportingInformationIdentifier}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionssupportingInformationIdentifier}
 
  -- Row 17 -----------------------------------
   Element = Observation.extension
   Profile Name = SupportingInformationText
   Card. = 0..1
-  Type = Extension{#SupportingInformationText}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionssupportingInformationText}
 
  -- Row 18 -----------------------------------
   Element = Observation.extension
   Profile Name = KnowledgeDocumentExternalIdentifier
   Card. = 0..1
-  Type = Extension{#KnowledgeDocumentIdentifier}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsknowledgeDocumentIdentifier}
 
  -- Row 19 -----------------------------------
-  Element = Observation.extension
+  Element = Observation.modifierExtension
   Profile Name = FocalSubject
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-heartrate#hspc-focalSubject}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsfocalSubject}
   Binding = FocalSubject
 
  -- Row 20 -----------------------------------
-  Element = Observation.extension
+  Element = Observation.modifierExtension
   Profile Name = Likelihood
   Card. = 0..1
-  Type = Extension{#Likelihood}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionslikelihood}
   Binding = Likelihood
 
  -- Row 21 -----------------------------------

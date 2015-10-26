@@ -1592,7 +1592,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">AllergyIntolerance.extension</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">!AllergyIntolerance.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3835,7 +3835,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>17</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -6526,7 +6526,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">AllergyIntoleranceStatus</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">The set of codes that describe the state of an allergy or intolerance</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-allergyIntoleranceStatus</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6541,7 +6541,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">SubstanceCategory</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">A set of codes that describe categorical classifications of materials or matter.</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-substanceCategory</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6556,7 +6556,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">AllergyIntoleranceType</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">The set of codes that describe if a reaction is a allergy or intolerance.</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-allergyIntoleranceType</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6586,7 +6586,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">Severity</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">The set of codes that describe the seriousness of a reaction</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-severity</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6976,8 +6976,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

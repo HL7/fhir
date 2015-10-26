@@ -85,55 +85,62 @@
   Card. = 0..0
 
  -- Row 8 -----------------------------------
-  Element = Observation.status
-  Card. = 0..0
-
- -- Row 9 -----------------------------------
   Element = Observation.reliability
   Card. = 0..0
 
- -- Row 10 -----------------------------------
-  Element = Observation.bodySiteCodeableConcept
-  Type = CodeableConcept
+ -- Row 9 -----------------------------------
+  Element = Observation.bodySite
   Binding = BodyLocationPrecoord
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.extension
   Profile Name = BodyPosition
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-bodyPosition}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsbodyPosition}
   Binding = BloodPressureBodyPosition
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.method
   Binding = BloodPressureMeasMethodDevice
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.specimen
   Card. = 0..0
 
+ -- Row 13 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 0..0
+
  -- Row 14 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Card. = 0..0
+
+ -- Row 15 -----------------------------------
+  Element = Observation.device
+  Card. = 0..0
+
+ -- Row 16 -----------------------------------
   Element = Observation.performer
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Observation.extension
   Profile Name = AssociatedPrecondition
   Card. = 0..*
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}
   Binding = VitalSignAssociatedPrecondition
 
- -- Row 16 -----------------------------------
-  Element = Observation.extension
+ -- Row 18 -----------------------------------
+  Element = Observation.modifierExtension
   Profile Name = FocalSubject
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-heartrate#hspc-focalSubject}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsfocalSubject}
   Binding = FocalSubject
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Observation.extension
   Profile Name = DeltaFlag
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-delta}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeltaFlag}
   Binding = DeltaFlagNumNom
 
 === Sheet Search =====================================

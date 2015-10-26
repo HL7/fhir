@@ -10,10 +10,10 @@
 
  -- Row 2 -----------------------------------
   Binding Name = ObservationStatusBasic
-  Binding = value set
-  Reference = valueset-observationstatusbasic
+  Binding = code list
+  Reference = #observationstatusbasic
   Definition = A set of codes that describe the state of the observation
-  Conformance = preferred
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = HeartRateMeasMethodDevice
@@ -50,12 +50,29 @@
   Definition = The set of codes that describe the subject of an observation when not the patient of record
   Conformance = preferred
 
+=== Sheet observationstatusbasic =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/observation-status
+  Code = final
+  Display = final
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/observation-status
+  Code = entered-in-error
+  Display = entered-in-error
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/observation-status
+  Code = unknown
+  Display = unknown
+
 === Sheet hspc-heartrate =====================================
 
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Heart Rate
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -65,6 +82,7 @@
  -- Row 3 -----------------------------------
   Element = Observation.valueQuantity
   Card. = 1..1
+  Type = Quantity
 
  -- Row 4 -----------------------------------
   Element = Observation.valueQuantity.system
@@ -89,44 +107,39 @@
   Binding = ObservationStatusBasic
 
  -- Row 9 -----------------------------------
-  Element = !Observation.reliability
-  Card. = 0..0
-
- -- Row 10 -----------------------------------
   Element = Observation.bodySite
   Type = CodeableConcept
   Binding = BodyLocationPrecoord
 
- -- Row 11 -----------------------------------
-  Element = Observation.extension
+ -- Row 10 -----------------------------------
+  Element = Observation.observation-bodyPosition
   Profile Name = HeartRateBodyPosition
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-bodyPosition}
   Binding = HeartRateBodyPosition
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.method
   Binding = HeartRateMeasMethodDevice
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.specimen
   Card. = 0..0
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.performer
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Observation.extension
   Profile Name = AssociatedPrecondition
-  Card. = 0..*
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}
   Binding = VitalSignAssociatedPrecondition
 
- -- Row 16 -----------------------------------
-  Element = Observation.extension
+ -- Row 15 -----------------------------------
+  Element = Observation.modifierExtension
   Profile Name = FocalSubject
   Card. = 0..1
-  Type = Extension{#hspc-focalSubject}
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsfocalSubject}
   Binding = FocalSubject
 
 === Sheet Search =====================================

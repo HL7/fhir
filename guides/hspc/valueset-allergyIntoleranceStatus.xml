@@ -7,7 +7,7 @@
     <date value="2015-07-31"/>
     <description value="SELECT SNOMED CT and Intermountain Healthcare HDD code system values."/>
     <immutable value="true"/>
-    <copyright value="TBD"/>
+    <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
     <extensible value="true"/>
     <codeSystem>
 		<system value="http://hl7.org/fhir/hspc-allergyintolerancestatus"/>

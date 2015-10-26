@@ -20,7 +20,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Age
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -30,6 +30,7 @@
  -- Row 3 -----------------------------------
   Element = Observation.valueQuantity
   Card. = 1..1
+  Type = Quantity
 
  -- Row 4 -----------------------------------
   Element = Observation.valueQuantity.system
@@ -49,38 +50,30 @@
   Card. = 0..0
 
  -- Row 8 -----------------------------------
-  Element = Observation.status
-  Card. = 0..0
-
- -- Row 9 -----------------------------------
-  Element = !Observation.reliability
-  Card. = 0..0
-
- -- Row 10 -----------------------------------
   Element = Observation.bodySite
   Card. = 0..0
 
- -- Row 11 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Observation.method
   Card. = 0..0
 
- -- Row 12 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.specimen
   Card. = 0..0
 
- -- Row 13 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.performer
   Card. = 0..*
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
 
- -- Row 14 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.referenceRange
   Card. = 0..0
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.extension
   Profile Name = Data Origination Mode
-  Type = Extension{#hspc-dataOriginationMode}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdataOriginationMode}
   Binding = dataOriginationModeVS
 
 === Sheet Search =====================================

@@ -1,0 +1,47 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet hspc-bppanel =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = HSPC Blood Pressure Panel
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"35094-2\"/><display value=\"Blood pressure panel\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Observation.component
+  Profile Name = Systolic pressure
+  Discriminator = observation.component|true|closed
+  Slice Description = Systolic
+
+ -- Row 4 -----------------------------------
+  Element = Observation.component.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"8480-6\"/><display value=\"Systolic blood pressure\"/></coding></code>
+
+ -- Row 5 -----------------------------------
+  Element = Observation.component
+  Profile Name = Diastolic pressure
+  Slice Description = Diastolic
+
+ -- Row 6 -----------------------------------
+  Element = Observation.component.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"8462-4\"/><display value=\"Diastolic blood pressure\"/></coding></code>
+
+ -- Row 7 -----------------------------------
+  Element = Observation.component
+  Profile Name = Mean Arterial Pressure
+  Slice Description = Mean Arterial Pressure
+
+ -- Row 8 -----------------------------------
+  Element = Observation.component.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"8478-0\"/><display value=\"Mean blood pressure\"/></coding></code>
+
+=== Sheet Search =====================================

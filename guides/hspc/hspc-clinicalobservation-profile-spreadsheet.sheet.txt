@@ -71,13 +71,13 @@
   Element = Observation.extension
   Profile Name = DateOfOnset
   Card. = 0..1
-  Type = Extension{#DateOfOnset}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdateOfOnset}
 
  -- Row 5 -----------------------------------
   Element = Observation.extension
   Profile Name = HistoryIndicator
   Card. = 0..1
-  Type = Extension{#HistoryIndicator}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionshistoryIndicator}
   Binding = YesNo
 
  -- Row 6 -----------------------------------
@@ -88,28 +88,28 @@
   Element = Observation.extension
   Profile Name = AssociatedPrecondition
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}
   Binding = AssociatedPrecondition
 
  -- Row 8 -----------------------------------
-  Element = Observation.extension
+  Element = Observation.modifierExtension
   Profile Name = FocalSubject
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-heartrate#hspc-focalSubject}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsfocalSubject}
   Binding = FocalSubjectRelationship
 
  -- Row 9 -----------------------------------
-  Element = Observation.extension
+  Element = Observation.modifierExtension
   Profile Name = Likelihood
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-logicalassert#Likelihood}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionslikelihood}
   Binding = Likelihood
 
  -- Row 10 -----------------------------------
-  Element = Observation.extension
+  Element = Observation.modifierExtension
   Profile Name = RiskForIndicator
   Card. = 0..1
-  Type = Extension{#RiskForIndicator}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsriskForIndicator}
   Binding = YesNo
 
  -- Row 11 -----------------------------------

@@ -84,7 +84,7 @@
   Card. = 0..0
 
  -- Row 8 -----------------------------------
-  Element = Observation.status
+  Element = !Observation.status
   Card. = 0..0
 
  -- Row 9 -----------------------------------
@@ -113,28 +113,28 @@
   Element = Observation.extension
   Profile Name = BodyPosition
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-bodyPosition}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsbodyPosition}
   Binding = BodyPosition
 
  -- Row 15 -----------------------------------
   Element = Observation.extension
   Profile Name = DeltaFlag
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-delta}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeltaFlag}
   Binding = hspc-DeltaFlag
 
  -- Row 16 -----------------------------------
   Element = Observation.extension
   Profile Name = Data Origination Mode
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-age#hspc-dataOriginationMode}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdataOriginationMode}
   Binding = dataOriginationModeVS
 
  -- Row 17 -----------------------------------
   Element = Observation.extension
   Profile Name = AssociatedPrecondition
   Card. = 0..*
-  Type = Extension{#hspc-associatedPrecondition}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}
   Binding = HeightMeasAssociatedPrecondition
 
 === Sheet Search =====================================

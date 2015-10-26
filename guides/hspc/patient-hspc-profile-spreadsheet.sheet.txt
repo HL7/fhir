@@ -16,23 +16,23 @@
   Conformance = required
 
  -- Row 3 -----------------------------------
-  Binding Name = TelecomType
-  Binding = value set
-  Reference = valueset-patient-telecomType
+  Binding Name = TelecomUse
+  Binding = code list
+  Reference = #telecomUse
   Definition = A set of codes that describe the type of usage for a telecom value.
   Conformance = required
 
  -- Row 4 -----------------------------------
   Binding Name = HSPCAdministrativeGender
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v2-0001
+  Binding = code list
+  Reference = #administrativeGender
   Definition = The gender of a person used for administrative purposes
   Conformance = required
 
  -- Row 5 -----------------------------------
   Binding Name = HSPCAddressUse
-  Binding = value set
-  Reference = valueset-patient-addressUse
+  Binding = code list
+  Reference = #addressUse
   Definition = A set of codes that describe the manner in which an addressed is used.
   Conformance = required
 
@@ -41,7 +41,7 @@
   Binding = value set
   Reference = valueset-patient-maritalStatus
   Definition = Marital status of the patient
-  Conformance = preferred
+  Conformance = required
 
  -- Row 7 -----------------------------------
   Binding Name = CommunicationMode
@@ -69,7 +69,118 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/hspc-location-addressType
   Definition = Identifies the different representations of an address which may affect how it is used.
+  Conformance = required
+
+ -- Row 11 -----------------------------------
+  Binding Name = BirthDateVerifiedMethod
+  Binding = value set
+  Reference = valueset-hspc-bdverifiedmethod
+  Definition = A set of codes that describe the kind of documentation used to validate a date of birth
   Conformance = preferred
+
+ -- Row 12 -----------------------------------
+  Binding Name = VIPLevel
+  Binding = value set
+  Reference = valueset-hspc-viplevel
+  Definition = A set of codes that describe the sensitivity level of a patient\'s information
+  Conformance = preferred
+
+ -- Row 13 -----------------------------------
+  Binding Name = AdoptionInfo
+  Binding = value set
+  Reference = valueset-patient-adoptionInfo
+  Definition = A set of codes that describe patient info viewing privileges base on adoption status.
+  Conformance = preferred
+
+=== Sheet telecomUse =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = AS
+  Display = Answering service
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = EC
+  Display = Emergency contact
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = MC
+  Display = Mobile contact
+
+ -- Row 4 -----------------------------------
+  System = http://hl7.org/fhir/v3/AddressUse
+  Code = PG
+  Display = Pager
+
+ -- Row 5 -----------------------------------
+  Code = NS
+  Display = Not specified
+  Definition = The type of telecom system was not specified for the given number.
+
+=== Sheet administrativeGender =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/ValueSet/v3-AdministrativeGender
+  Code = M
+  Display = Male
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/ValueSet/v3-AdministrativeGender
+  Code = F
+  Display = Female
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/ValueSet/v3-AdministrativeGender
+  Code = UN
+  Display = Undifferentiated
+
+=== Sheet addressUse =====================================
+
+ -- Row 1 -----------------------------------
+  Code = BAD
+  Display = Bad address
+
+ -- Row 2 -----------------------------------
+  Code = PHYS
+  Display = Physical visit address
+
+ -- Row 3 -----------------------------------
+  Code = PST
+  Display = Postal address
+
+ -- Row 4 -----------------------------------
+  Code = HP
+  Display = Primary home
+
+ -- Row 5 -----------------------------------
+  Code = PUB
+  Display = Public
+
+ -- Row 6 -----------------------------------
+  Code = TMP
+  Display = Temporary address
+
+ -- Row 7 -----------------------------------
+  Code = HV
+  Display = Vacation home
+
+ -- Row 8 -----------------------------------
+  Code = WP
+  Display = Work place
+
+ -- Row 9 -----------------------------------
+  Code = H
+  Display = Home address
+
+ -- Row 10 -----------------------------------
+  Code = DIR
+  Display = Direct address
+
+ -- Row 11 -----------------------------------
+  Code = CONF
+  Display = Confidential address
 
 === Sheet HSPC-Patient =====================================
 
@@ -80,82 +191,139 @@
   QDM Mapping = Patient Characteristic
 
  -- Row 2 -----------------------------------
-  Element = Patient.name
+  Element = !Patient.name
 
  -- Row 3 -----------------------------------
-  Element = Patient.name.use
+  Element = !Patient.name.use
   Binding = PersonNameUse
 
  -- Row 4 -----------------------------------
-  Element = Patient.telecom
+  Element = !Patient.telecom
 
  -- Row 5 -----------------------------------
-  Element = Patient.telecom.system
-  Binding = TelecomSystem
+  Element = !Patient.telecom.use
+  Binding = TelecomUse
 
  -- Row 6 -----------------------------------
-  Element = Patient.telecom.use
-  Binding = TelecomType
-
- -- Row 7 -----------------------------------
   Element = Patient.gender
   Binding = HSPCAdministrativeGender
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Patient.address
 
- -- Row 9 -----------------------------------
-  Element = Patient.address.use
+ -- Row 8 -----------------------------------
+  Element = !Patient.address.use
   Binding = HSPCAddressUse
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Patient.address.extension
   Profile Name = address.primaryInd
   Card. = 0..1
-  Type = Extension{#PrimaryIndicator}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsprimaryIndicator}
+  Binding = YesNo
   Comments = Make general extension
 
- -- Row 11 -----------------------------------
-  Element = Patient.address.extension
+ -- Row 10 -----------------------------------
+  Element = Patient.address.type
   Profile Name = addressType
   Card. = 0..1
-  Type = Extension{#AddressType}
+  Binding = AddressType
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Patient.maritalStatus
   Profile Name = AdministrativeMaritalStatus
   Binding = HSPCMaritalStatus
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Patient.contact
   Profile Name = Contact
   Discriminator = patient.contact.relationship|true|openAtEnd
   Card. = 0..1
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Patient.contact.relationship
   Profile Name = emergencyContact
   Card. = 0..1
   Type = CodeableConcept
-  Value = <relationship><coding><system value=\"http://hl7.org/fhir/v2/AddressUse\"/><code value=\"EC\"/><display value=\"Emergency Contact\"/></coding></relationship>
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Patient.communication
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Patient.communication.extension
   Profile Name = communication.mode
   Card. = 0..1
-  Type = Extension{#communicationMode}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscommunicationMode}
+  Binding = CommunicationMode
   Comments = HL7 Comm. Mode. TBD
 
- -- Row 17 -----------------------------------
-  Element = Patient.communication.extension
-  Profile Name = preferenceInd
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-preferred}
-
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Patient.militaryService
   Profile Name = militaryService
   Binding = VeteranMilitaryStatus
+
+ -- Row 17 -----------------------------------
+  Element = Patient.extension
+  Profile Name = birthDateVerificationMethod
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsbirthDateVerificationMethod}
+  Binding = BirthDateVerifiedMethod
+
+ -- Row 18 -----------------------------------
+  Element = Patient.extension
+  Profile Name = patientImportance
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionspatientImportance}
+  Binding = VIPLevel
+
+ -- Row 19 -----------------------------------
+  Element = Patient.deceasedBoolean
+  Profile Name = deceasedInd
+  Card. = 0..1
+  Type = boolean
+
+ -- Row 20 -----------------------------------
+  Element = Patient.extension
+  Profile Name = deceasedDate
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeceasedDateTime}
+
+ -- Row 21 -----------------------------------
+  Element = Patient.multipleBirthBoolean
+  Profile Name = multipleBirthInd
+  Card. = 0..1
+  Type = boolean
+
+ -- Row 22 -----------------------------------
+  Element = Patient.extension
+  Profile Name = multipleBirthOrderNumber
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsmultipleBirthOrderNumber}
+
+ -- Row 23 -----------------------------------
+  Element = Patient.extension
+  Profile Name = citezenship
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscitezenship}
+  Binding = USCountry
+
+ -- Row 24 -----------------------------------
+  Element = Patient.extension.extension
+  Profile Name = citezenshipPeriod
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscitezenshipPeriod}
+
+ -- Row 25 -----------------------------------
+  Element = Patient.extension
+  Profile Name = adoptionInfo
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsadoptionInfo}
+  Binding = AdoptionInfo
+
+ -- Row 26 -----------------------------------
+  Element = Patient.patient-clinicalTrial
+  Card. = 0..0
+
+ -- Row 27 -----------------------------------
+  Element = Patient.patient-birthTime
+  Card. = 0..0

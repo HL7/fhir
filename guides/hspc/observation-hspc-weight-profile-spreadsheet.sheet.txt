@@ -23,7 +23,7 @@
   Conformance = preferred
 
  -- Row 4 -----------------------------------
-  Binding Name = hspc-DeltaFlag
+  Binding Name = DeltaFlag
   Binding = value set
   Reference = valueset-deltaFlag-numericNom
   Definition = A set of codes that describe the manner in which a value has changed from a previous value
@@ -77,7 +77,7 @@
   Card. = 0..0
 
  -- Row 8 -----------------------------------
-  Element = Observation.status
+  Element = !Observation.status
   Card. = 0..0
 
  -- Row 9 -----------------------------------
@@ -109,21 +109,21 @@
   Element = Observation.extension
   Profile Name = DeltaFlag
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-delta}
-  Binding = hspc-DeltaFlag
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeltaFlag}
+  Binding = DeltaFlag
 
  -- Row 16 -----------------------------------
   Element = Observation.extension
   Profile Name = Data Origination Mode
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-age#hspc-dataOriginationMode}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdataOriginationMode}
   Binding = dataOriginationModeVS
 
  -- Row 17 -----------------------------------
   Element = Observation.extension
   Profile Name = AssociatedPrecondition
   Card. = 0..*
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-height#hspc-associatedPrecondition}
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}
   Binding = BodyWeightMeasAssociatedPrecondition
 
 === Sheet Search =====================================

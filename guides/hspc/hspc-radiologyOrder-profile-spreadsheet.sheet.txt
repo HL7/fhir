@@ -1,0 +1,81 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = RadLexCodes
+  Binding = value set
+  Reference = valueset-radlexplaybook
+  Definition = RadLex is a lexicon of radiologic terms.  This value set contains all terms from the RadLex Playbook which is a subset of RadLex containing prodedure and ordareable radiological terms
+  Conformance = preferred
+
+=== Sheet HSPC-RadOrder =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DiagnosticOrder
+  Profile Name = HSPC Radiology Order
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-diagnosticorder}
+  QDM Mapping = Patient Characteristic
+
+ -- Row 2 -----------------------------------
+  Element = DiagnosticOrder.subject
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}
+
+ -- Row 3 -----------------------------------
+  Element = DiagnosticOrder.orderer
+  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}
+
+ -- Row 4 -----------------------------------
+  Element = DiagnosticOrder.encounter
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/hspc-encounter}
+
+ -- Row 5 -----------------------------------
+  Element = DiagnosticOrder.supportingInformation
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}|Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}|Reference(DocumentReference)
+
+ -- Row 6 -----------------------------------
+  Element = DiagnosticOrder.status
+  Card. = 1..1
+
+ -- Row 7 -----------------------------------
+  Element = DiagnosticOrder.priority
+  Card. = 1..1
+
+ -- Row 8 -----------------------------------
+  Element = DiagnosticOrder.event
+  Card. = 1..*
+
+ -- Row 9 -----------------------------------
+  Element = DiagnosticOrder.event.status
+  Card. = 1..1
+
+ -- Row 10 -----------------------------------
+  Element = DiagnosticOrder.event.description
+  Card. = 0..0
+
+ -- Row 11 -----------------------------------
+  Element = DiagnosticOrder.event.actor
+  Card. = 1..1
+
+ -- Row 12 -----------------------------------
+  Element = DiagnosticOrder.item
+  Card. = 1..1
+
+ -- Row 13 -----------------------------------
+  Element = DiagnosticOrder.item.code
+  Binding = RadLexCodes
+
+ -- Row 14 -----------------------------------
+  Element = DiagnosticOrder.item.specimen
+  Card. = 0..0
+
+ -- Row 15 -----------------------------------
+  Element = DiagnosticOrder.item.bodySite
+  Card. = 0..0
+
+ -- Row 16 -----------------------------------
+  Element = DiagnosticOrder.item.status
+  Card. = 0..0
+
+ -- Row 17 -----------------------------------
+  Element = DiagnosticOrder.item.event
+  Card. = 0..1

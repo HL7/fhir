@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Adption Info"/>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="HSPC Adoption Info"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
   <contact>
@@ -10,19 +10,19 @@
       <value value="http://healthcaresoa.org"/>
     </telecom>
   </contact>
-  <description value="A set of value that describe the state of the medical records of an adopted child."/>
+  <description value="A set of codes that describe patient info viewing privileges base on adoption status."/>
   <codeSystem>
     <system value="http://hl7.org/fhir/patient-hspc-adoptionInfo"/>
     <caseSensitive value="true"/>
     <concept>
-      <code value="5ee777e9-7916-4e41-bfc1-083a5b106937"/>
+      <code value="526742432"/>
       <display value="Adopted Birth Record"/>
-      <definition value="An indication that the medical records being viewed are from a time prior to a patient&#39;s adoption and therefore cannot be viewed by adoptive guardians."/>
+      <definition value="An indication that the medical records being viewed are from a time prior to a patient's adoption and therefore cannot be viewed by the adoptive gaurdians."/>
     </concept>
     <concept>
-      <code value="f3b8a7bc-c653-42da-a1c6-09b3e0607a21"/>
+      <code value="526742433"/>
       <display value="Adopted Patient Record"/>
-      <definition value="An indication that the medical records being viewed are from a time after a patient&#39;s adoption and can be viewed by the adoptive guardians."/>
+      <definition value="An indication that the medical records being viewed are from a time after a patient's adoption and can be viewed by the adoptive gaurdians."/>
     </concept>
   </codeSystem>
 </ValueSet>

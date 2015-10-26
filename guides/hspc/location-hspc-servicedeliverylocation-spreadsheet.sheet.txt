@@ -10,10 +10,10 @@
 
  -- Row 2 -----------------------------------
   Binding Name = Status
-  Binding = value set
-  Reference = valueset-location-serviceDeliveryLocation-status
+  Binding = code list
+  Reference = #status
   Definition = The state of the service delivery location
-  Conformance = preferred
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = LocationNameUse
@@ -36,6 +36,18 @@
   Definition = Identifies the different representations of an address which may affect how it is used.
   Conformance = preferred
 
+=== Sheet status =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/ValueSet/v3-EntityStatus
+  Code = active
+  Display = Active
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/ValueSet/v3-EntityStatus
+  Code = inactive
+  Display = Inactive
+
 === Sheet HSPC-ServiceDeliveryLocation =====================================
 
  -- Row 1 -----------------------------------
@@ -45,7 +57,6 @@
 
  -- Row 2 -----------------------------------
   Element = Location.name
-  Card. = 0..*
 
  -- Row 3 -----------------------------------
   Element = Location.name.extension
@@ -70,7 +81,6 @@
 
  -- Row 7 -----------------------------------
   Element = Location.address
-  Card. = 0..*
 
  -- Row 8 -----------------------------------
   Element = Location.address.extension

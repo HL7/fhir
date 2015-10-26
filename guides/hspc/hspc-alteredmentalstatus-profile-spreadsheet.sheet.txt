@@ -1,0 +1,98 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AlteredMentalStatusAlleviatingFactor
+  Binding = value set
+  Reference = valueset-amsalleviatingfactors
+  Definition = The set of concepts that describe actions or items that limit, reduce, or remove an identified condition or problem
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = AlteredMentalStatusExacerbatingFactor
+  Binding = value set
+  Reference = valueset-amsexacerbatingfactors
+  Definition = The set of concepts that describe actions or items that increase or worsen an identified condition or problem.
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = Periodicity
+  Binding = value set
+  Reference = valueset-amsperiodicity
+  Definition = The set of concepts that describe the frequency that a condition or problem occurs.
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = Course
+  Binding = value set
+  Reference = valueset-course
+  Definition = The set of concepts tht describe the rate of change of a condition or problem as well as whether or not it is getting better or worse.
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = AssociatedSignAndSymptom
+  Binding = value set
+  Reference = valueset-associatedSignAndSymptom
+  Definition = The set of concepts that describe any signs or symptoms that may be correlated to the observed condition
+  Conformance = preferred
+
+=== Sheet hspc-alteredmentalstatus =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  Profile Name = HSPC Altered Mental Status Assertion
+  Type = {http://hl7.org/fhir/StructureDefinition/hspc-clinicalassert}
+
+ -- Row 2 -----------------------------------
+  Element = Condition.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://snomed.info/sct\"/><code value=\"419284004\"/><display value=\"Altered mental status (finding)\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Condition.abatementDate
+  Profile Name = Date of Resolution
+  Type = dateTime
+
+ -- Row 4 -----------------------------------
+  Element = Condition.qicore-bodysite
+  Card. = 0..0
+
+ -- Row 5 -----------------------------------
+  Element = Condition.bodySite
+  Card. = 0..0
+
+ -- Row 6 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Alleviating Factor
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsalleviatingFactor}
+  Binding = AlteredMentalStatusAlleviatingFactor
+
+ -- Row 7 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Exacerbating Factor
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsexacerbatingFactor}
+  Binding = AlteredMentalStatusExacerbatingFactor
+
+ -- Row 8 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Periodicity
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsperiodicity}
+  Binding = Periodicity
+
+ -- Row 9 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Associated Sign and Symptom
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedSignAndSymptom}
+
+ -- Row 10 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Course
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscourse}
+  Binding = Course
+
+=== Sheet Search =====================================

@@ -3,10 +3,10 @@
 
  -- Row 1 -----------------------------------
   Binding Name = ObservationStatusBasic
-  Binding = value set
-  Reference = valueset-observationstatusbasic
+  Binding = code list
+  Reference = #observationstatusbasic
   Definition = A set of codes that describe the state of the observation
-  Conformance = preferred
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = FetalEstimationMethod
@@ -14,6 +14,23 @@
   Reference = valueset-fetalestimationmethod
   Definition = A set of codes that describe how a due date was arrived at
   Conformance = example
+
+=== Sheet observationstatusbasic =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/observation-status
+  Code = final
+  Display = final
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/observation-status
+  Code = entered-in-error
+  Display = entered-in-error
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/observation-status
+  Code = unknown
+  Display = unknown
 
 === Sheet hspc-estimatedduedate =====================================
 

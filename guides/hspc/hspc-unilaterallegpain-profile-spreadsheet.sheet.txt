@@ -1,0 +1,121 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AlleviatingFactor
+  Binding = value set
+  Reference = valueset-alleviatingfactors
+  Definition = The set of concepts that describe actions or items that limit, reduce, or remove an identified condition or problem
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = ExacerbatingFactor
+  Binding = value set
+  Reference = valueset-exacerbatingfactors
+  Definition = The set of concepts that describe actions or items that increase or worsen an identified condition or problem.
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = Periodicity
+  Binding = value set
+  Reference = valueset-periodicity
+  Definition = The set of concepts that describe the frequency that a condition or problem occurs.
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = Course
+  Binding = value set
+  Reference = valueset-course
+  Definition = The set of concepts tht describe the rate of change of a condition or problem as well as whether or not it is getting better or worse.
+  Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = AssociatedSignAndSymptom
+  Binding = value set
+  Reference = valueset-associatedSignAndSymptom
+  Definition = The set of concepts that describe any signs or symptoms that may be correlated to the observed condition
+  Conformance = preferred
+
+ -- Row 6 -----------------------------------
+  Binding Name = BodyLaterality
+  Binding = value set
+  Reference = valueset-bodylaterality
+  Definition = The concepts that describe the side of the body where an observation is located
+  Conformance = preferred
+
+ -- Row 7 -----------------------------------
+  Binding Name = PainSeverity
+  Binding = value set
+  Reference = valueset-painseverity
+  Definition = The set of concepts that describe how severely pain is being felt by an individual
+  Conformance = preferred
+
+=== Sheet hspc-legpain =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Condition
+  Profile Name = HSPC Unilateral Leg Pain Assertion
+  Type = {http://hl7.org/fhir/StructureDefinition/hspc-clinicalassert}
+
+ -- Row 2 -----------------------------------
+  Element = Condition.code
+  Type = CodeableConcept
+  Value = <code><coding><system value=\"http://snomed.info/sct\"/><code value=\"66857006\"/><display value=\"Pain in lower limb (finding)\"/></coding></code>
+
+ -- Row 3 -----------------------------------
+  Element = Condition.severity
+  Card. = 0..1
+  Binding = PainSeverity
+
+ -- Row 4 -----------------------------------
+  Element = Condition.abatementDateTime
+  Profile Name = Date of Resolution
+  Type = dateTime
+
+ -- Row 5 -----------------------------------
+  Element = Condition.bodySite
+  Card. = 0..0
+
+ -- Row 6 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Alleviating Factor
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsalleviatingFactor}
+  Binding = AlleviatingFactor
+
+ -- Row 7 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Exacerbating Factor
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsexacerbatingFactor}
+  Binding = ExacerbatingFactor
+
+ -- Row 8 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Periodicity
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsperiodicity}
+  Binding = Periodicity
+
+ -- Row 9 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Associated Sign and Symptom
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedSignAndSymptom}
+  Binding = AssociatedSignAndSymptom
+
+ -- Row 10 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Body Laterality
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsbodyLaterality}
+  Binding = BodyLaterality
+
+ -- Row 11 -----------------------------------
+  Element = Condition.extenstion
+  Profile Name = Course
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscourse}
+  Binding = Course
+
+=== Sheet Search =====================================

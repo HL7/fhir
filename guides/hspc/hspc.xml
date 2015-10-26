@@ -17,6 +17,9 @@
   </dependency>
   <package>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-extensions-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="patient-hspc-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
@@ -95,6 +98,9 @@
       <valueUri value="hspc-systolicbp-profile-spreadsheet.xml"/>
     </extension>
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-bloodpressurepanel-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-logicalassert-profile-spreadsheet.xml"/>
     </extension>
     <!--<extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
@@ -104,24 +110,18 @@
       <valueUri value="hspc-allergyintolerance-profile-spreadsheet.xml"/>
     </extension>
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="hspc-clinicalobservation-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-clinicalassertcondition-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="hspc-tqbilirubin-profile-spreadsheet.xml"/>
     </extension>
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-pregnancyassert-profile-spreadsheet.xml"/>
     </extension>
-<!--    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-revisedgenevatotalscore-profile-spreadsheet.xml"/>
     </extension>
-    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="hspc-revisedgenevaagescore-profile-spreadsheet.xml"/>
-    </extension>-->
     <!--<extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-revisedgenevaagescore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-revisedgenevaactivecancerscore-profile-spreadsheet.xml"/>
     </extension>
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
@@ -141,7 +141,34 @@
     </extension>
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-revisedgenevaunilaterallegpainscore-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-rgspanel-profile-spreadsheet.xml"/>
     </extension>-->
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-hemoptysis-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-unilaterallegpain-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-labOrder-profile-spreadsheet.xml"/>
+    </extension>
+<!--    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-radiologyOrder-profile-spreadsheet.xml"/>
+    </extension>-->
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-alteredmentalstatus-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-ctparaddose-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-cumulativeraddose-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-vqscanraddose-profile-spreadsheet.xml"/>
+    </extension>
     <name value="base"/>
     <resource>
       <purpose value="dictionary"/>

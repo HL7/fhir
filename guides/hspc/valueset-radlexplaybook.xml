@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="hspc-radlexplaybook"/>
+  <name value="RadLex Playbook"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <date value="2015-10-15"/>
+  <description value="All codes contained in the RadLex © Playbook."/>
+  <copyright value="This content is licensed under the copyright of RSNA RadLex © and subject to RSNA license guidelines (http://www.rsna.org/uploadedFiles/RSNA/Content/Informatics/RadLex_License_Agreement_and_Terms_of_Use_V2_Final.pdf)"/>
+  <compose>
+    <include>
+      <system value="http://playbook.radlex.org/"/>
+    </include>
+  </compose>
+</ValueSet>
