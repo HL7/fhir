@@ -346,8 +346,162 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = Colorectal.preAnalytic
-  English = If there is a perforation, the perforation type must be indicated
-  XPath = not(f:perforation/@value = \'present\') or exists(f:NatureOfPerforation)
+  English = If there is a perforation, the perforation type must be indicated.
+  XPath = not(f:perforation/@value = \'present\') or exists(f:natureOfPerforation)
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = Colorectal.preAnalytic
+  English = If the tumour location is rectum, then the distance from the anal verge must be recorded.
+  XPath = not(f:tumourLocation/@value = \'Rectum\') or exists(f:distanceAnalVerge)
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Colorectal.preAnalytic
+  English = If other procedure(s) is selected, then record the type of procedure.
+  XPath = not(f:typeOfOperation/@value = \'Other procedure(s)\') or exists(f:typeOfOperation.typeOfProcedure)
+  Severity = error
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Context = Colorectal.preAnalytic
+  English = If anterior resection is selected, record anterior resection type.
+  XPath = not(f:typeOfOperation/@value = \'Anterior resection\') or exists(f:typeOfOperation/anteriorResectionType)
+  Severity = error
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Context = Colorectal.preAnalytic
+  English = If pre-operative radiotherapy is done, then the type of course is to be recorded.
+  XPath = not(f:preoperativeRadiotherapy/@value = \'Yes\') or exists(f:preoperativeRadiotherapy/typeOfCourse)
+  Severity = error
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Context = Colorectal.preAnalytic
+  English = If regional (local) recurrence or distant metastasis describe.
+  XPath = not((f:newPrimaryOrRecurrence/@value = \'Regional (local) recurrence\') or (f:newPrimaryOrRecurrence/@value = \'Distant metastases\')) or exists(f:newPrimaryOrRecurrence/describe)
+  Severity = error
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Context = Colorectal.macro
+  English = If tumour site is rectum, the relationship to anterior peritoneal reflection is to be recorded.
+  XPath = not(f:tumourSite/@value = \'Rectum\') or exists(f:relToAntPeritonealReflection)
+  Severity = error
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Context = Colorectal.macro
+  English = If tumour site is rectum, the intactness of mesorectum is to be recorded.
+  XPath = not(f:tumourSite/@value = \'Rectum\') or exists(f:intactnessOfMesorectum)
+  Severity = error
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Context = Colorectal.macro
+  English = If lymph nodes area received, record the number of nodes
+  XPath = not(f:lymphNodes/@value = \'Received\') or exists(f:lymphNodes/noLymphNodesPerCassette)
+  Severity = error
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Context = Colorectal.macro
+  English = If polyps are present, provide a polyp summary.
+  XPath = not(f:polyps/@value = \'Present\') or exists(f:polyps/polypSummary)
+  Severity = error
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Context = Colorectal.micro
+  English = If the tumour is involved in the proximal or distal resection (‘cut-end’) margins, then record invovled margin(s).
+  XPath = not(f:proximalOrDistalResectionMargins/@value = \'Involved\') or exists(f:proximalOrDistalResectionMargins/involvedMargins)
+  Severity = error
+
+ -- Row 12 -----------------------------------
+  Id = 12
+  Context = Colorectal.micro
+  English = If the tumour is not involved in the proximal or distal resection (‘cut-end’) margins, then record the microscopic clearance.
+  XPath = not(f:proximalOrDistalResectionMargins/@value = \'Not involved\') or exists(f:proximalOrDistalResectionMargins/microClearance)
+  Severity = error
+
+ -- Row 13 -----------------------------------
+  Id = 13
+  Context = Colorectal.macro
+  English = If the tumour is a rectal tumour the status of the nonperitonealised circumferential margin (rectal tumours) is to be recorded.
+  XPath = not(f:tumourLocation/@value = \'Rectum\') or exists(f:nonperitonealisedCircumMargin)
+  Severity = error
+
+ -- Row 14 -----------------------------------
+  Id = 14
+  Context = Colorectal.micro
+  English = If the tumour is a rectal tumour and the status of the nonperitonealised circumferential margin (rectal tumours) is not involved, then the clearance is to be recorded.
+  XPath = not(f:nonperitonealisedCircumMargin/@value = \'Not involved\') or exists(f:microClearanceRectum)
+  Severity = error
+
+ -- Row 15 -----------------------------------
+  Id = 15
+  Context = Colorectal.macro
+  English = If lymph nodes have been received the tumour inolvement in the lymph nodes is to be recorded.
+  XPath = not(f:lymphNodes/@value = \'Received\') or exists(f:lymphNodeInvolvement)
+  Severity = error
+
+ -- Row 16 -----------------------------------
+  Id = 16
+  Context = Colorectal.micro
+  English = If tumour positive lymph nodes are present then record the site(s) and numbers of lymph nodes.
+  XPath = not(f:lymphNodeInvolvement/@value = \'Present\') or exists(f:lymphNodeInvolvement/lymphNodesDetails)
+  Severity = error
+
+ -- Row 17 -----------------------------------
+  Id = 17
+  Context = Colorectal.micro
+  English = If histologically confirmed distant metastases are present then the sites are to be recorded.
+  XPath = not(f:histoConfDistMetastases/@value = \'Present\') or exists(f:histoConfDistMetastases/site)
+  Severity = error
+
+ -- Row 18 -----------------------------------
+  Id = 18
+  Context = Colorectal.micro
+  English = If polyps are present as relevant coexistent pathological abnormalities, then polyp details are to be recorded.
+  XPath = not(f:relCoexistPathabnorm/@value = \'Polyps\') or exists(f:relCoexistPathabnorm/polypDetails)
+  Severity = error
+
+ -- Row 19 -----------------------------------
+  Id = 19
+  Context = Colorectal.micro
+  English = If Ulcerative colitis is present as relevant coexistent pathological abnormality, then dysplasia is to be recorded.
+  XPath = not(f:relCoexistPathabnorm/@value = \'Ulcerative colitis\') or exists(f:relCoexistPathabnorm/dysplasia)
+  Severity = error
+
+ -- Row 20 -----------------------------------
+  Id = 20
+  Context = Colorectal.micro
+  English = If Crohn\'s disease is present as relevant coexistent pathological abnormality, then dysplasia is to be recorded.
+  XPath = not(f:relCoexistPathabnorm/@value = \'Crohns disease\') or exists(f:relCoexistPathabnorm/dysplasia)
+  Severity = error
+
+ -- Row 21 -----------------------------------
+  Id = 21
+  Context = Colorectal.micro
+  English = If other abnormalities is selected as relevant coexistent pathological abnormality, then other abnormaily details are to be recorded.
+  XPath = not(f:relCoexistPathabnorm/@value = \'Other\') or exists(f:relCoexistPathabnorm/otherAbnormality)
+  Severity = error
+
+ -- Row 22 -----------------------------------
+  Id = 22
+  Context = Colorectal.ancillaryTests
+  English = If MSI unstable, record laboratory performing test and report number
+  XPath = not(f:mismatchRepairEnz.msi/@value = \'Unstable\') or exists(f:mismatchRepairEnz.msi/mismatchRepairEnz.msi.LabDetails)
+  Severity = error
+
+ -- Row 23 -----------------------------------
+  Id = 23
+  Context = Colorectal.ancillaryTests
+  English = If MSI stable, record laboratory performing test and report number
+  XPath = not(f:mismatchRepairEnz.msi/@value = \'Stable\') or exists(f:mismatchRepairEnz.msi/mismatchRepairEnz.msi.LabDetails)
   Severity = error
 
 === Sheet Data Elements =====================================
@@ -429,7 +583,7 @@
   Requirements = If present, record the nature of perforation
 
  -- Row 9 -----------------------------------
-  Element = Colorectal.preAnalytic.natureOfPerforation
+  Element = Colorectal.preAnalytic.perforation.natureOfPerforation
   Card. = 0..*
   Type = code
   Binding = NatureOfPerforation
@@ -449,6 +603,7 @@
   Element = Colorectal.preAnalytic.tumourLocation
   Card. = 0..*
   Summary = Y
+  Inv. = 2
   Type = code
   Binding = TumourLocation
   Short Label = Tumour location
@@ -478,6 +633,7 @@
   Element = Colorectal.preAnalytic.typeOfOperation
   Card. = 0..1
   Summary = Y
+  Inv. = 3,4
   Type = code
   Binding = TypeOfOperation
   Short Label = *
@@ -486,7 +642,7 @@
   To Do = ? - add UNK to codeset
 
  -- Row 15 -----------------------------------
-  Element = Colorectal.preAnalytic.typeOfProcedure
+  Element = Colorectal.preAnalytic.typeOfOperation.typeOfProcedure
   Card. = 0..1
   Type = string
   Short Label = Procedure type
@@ -505,6 +661,7 @@
  -- Row 17 -----------------------------------
   Element = Colorectal.preAnalytic.preoperativeRadiotherapy
   Card. = 0..1
+  Inv. = 5
   Type = code
   Binding = PreoperativeRadiotherapy
   Short Label = Pre-operative radiotherapy
@@ -513,7 +670,7 @@
   To Do = ? add an invariant to accommodate the conditional statement \"if Yes …\"
 
  -- Row 18 -----------------------------------
-  Element = Colorectal.preAnalytic.typeOfCourse
+  Element = Colorectal.preAnalytic.preoperativeRadiotherapy.typeOfCourse
   Card. = 0..1
   Type = code
   Binding = TypeOfCourse
@@ -538,6 +695,7 @@
  -- Row 21 -----------------------------------
   Element = Colorectal.preAnalytic.newPrimaryOrRecurrence
   Card. = 0..1
+  Inv. = 6
   Type = code
   Binding = NewPrimaryCancerOrRecurrence
   Short Label = New primary cancer or recurrence
@@ -546,7 +704,7 @@
   Comments = ? If need to make an invariant due to the conditional statement
 
  -- Row 22 -----------------------------------
-  Element = Colorectal.preAnalytic.describe
+  Element = Colorectal.preAnalytic.newPrimaryOrRecurrence.describe
   Card. = 0..1
   Type = string
   Short Label = Describe
@@ -586,6 +744,7 @@
  -- Row 27 -----------------------------------
   Element = Colorectal.macro.tumourSite
   Card. = 0..1
+  Inv. = 7,8,13
   Type = code
   Binding = TumourSite
   Short Label = Tumour site
@@ -656,6 +815,7 @@
  -- Row 35 -----------------------------------
   Element = Colorectal.macro.lymphNodes
   Card. = 0..1
+  Inv. = 9,15
   Type = code
   Binding = LymphNodes
   Short Label = Lymph nodes
@@ -663,7 +823,7 @@
   Requirements = Conditional:\nIf received, record the number of nodes
 
  -- Row 36 -----------------------------------
-  Element = Colorectal.macro.noLymphNodesPerCassette
+  Element = Colorectal.macro.lymphNodes.noLymphNodesPerCassette
   Card. = 0..*
   Type = SimpleQuantity
   Short Label = Number of lymph nodes in each cassette
@@ -673,6 +833,7 @@
  -- Row 37 -----------------------------------
   Element = Colorectal.macro.polyps
   Card. = 0..1
+  Inv. = 10
   Type = code
   Binding = Polyps
   Short Label = Polyps
@@ -680,7 +841,7 @@
   Requirements = Conditional:\nIf present, provide a polyp summary.
 
  -- Row 38 -----------------------------------
-  Element = Colorectal.macro.polypSummary
+  Element = Colorectal.macro.polyps.polypSummary
   Card. = 0..1
   Type = string
   Short Label = The number, diameter and gross configuration of polyps should be summarised
@@ -739,6 +900,7 @@
  -- Row 45 -----------------------------------
   Element = Colorectal.micro.proximalOrDistalResectionMargins
   Card. = 0..1
+  Inv. = 11,12
   Type = code
   Binding = InvolvementOfTheProximalOrDistalResectionCut-endMargins
   Short Label = Involvement of the proximal or distal resection (cut-end) margins
@@ -746,7 +908,7 @@
   Requirements = Single selection value list.\nIf involved is selected, record involved margin(s)\nIf not involved is selected, record microscopic clearance.
 
  -- Row 46 -----------------------------------
-  Element = Colorectal.micro.involvedMargins
+  Element = Colorectal.micro.proximalOrDistalResectionMargins.involvedMargins
   Card. = 0..*
   Type = code
   Binding = InvolvedMargin-s
@@ -755,7 +917,7 @@
   Requirements = Multi select value list (select all that apply).\nThis is a conditional field.
 
  -- Row 47 -----------------------------------
-  Element = Colorectal.micro.microClearance
+  Element = Colorectal.micro.proximalOrDistalResectionMargins.microClearance
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Microscopic Clearance
@@ -766,6 +928,7 @@
  -- Row 48 -----------------------------------
   Element = Colorectal.micro.nonperitonealisedCircumMargin
   Card. = 0..1
+  Inv. = 14
   Type = code
   Binding = NonperitonealisedCircumferentialMargin
   Short Label = Status of the nonperitonealised circumferential margin (rectal tumours)
@@ -783,6 +946,7 @@
  -- Row 50 -----------------------------------
   Element = Colorectal.micro.lymphNodeInvolvement
   Card. = 0..1
+  Inv. = 16
   Type = code
   Binding = LymphNodeInvolvement
   Short Label = Lymph node involvement
@@ -790,7 +954,7 @@
   Requirements = Single selection value list.\nConditional on nodes being received in G2.02. If G2.02 has been recorded as “not received” this standard is not required.\nIf present, record site(s) and number of lymph nodes
 
  -- Row 51 -----------------------------------
-  Element = Colorectal.micro.lymphNodesDetails
+  Element = Colorectal.micro.lymphNodeInvolvement.lymphNodesDetails
   Card. = 0..*
   Type = string
   Short Label = Site(s) and numbers of lymph nodes
@@ -863,6 +1027,7 @@
  -- Row 59 -----------------------------------
   Element = Colorectal.micro.histoConfDistMetastases
   Card. = 0..1
+  Inv. = 17
   Type = code
   Binding = HistologicallyConfirmedDistantMetastases
   Short Label = Histologically confirmed distant metastases
@@ -870,7 +1035,7 @@
   Requirements = Single selection value list.\nIf present, record sites
 
  -- Row 60 -----------------------------------
-  Element = Colorectal.micro.histoConfDistMetastasesSite
+  Element = Colorectal.micro.histoConfDistMetastases.site
   Card. = 0..1
   Type = string
   Short Label = Histologically confirmed distant metastases - site
@@ -880,6 +1045,7 @@
  -- Row 61 -----------------------------------
   Element = Colorectal.micro.relCoexistPathabnorm
   Card. = 0..*
+  Inv. = 18,19,20,21
   Type = code
   Binding = RelevantCoexistentPathologicalAbnormalities
   Short Label = Relevant coexistent pathological abnormalities
@@ -887,7 +1053,7 @@
   Requirements = Multi select value list (select all that apply).\n?? How is this indicated??\nIf Polyps is selected provide details\nIf Ulcerative colitis or Crohn’s disease is selected record dysplasia\nIf other is selected, provide details in “other abnormality”
 
  -- Row 62 -----------------------------------
-  Element = Colorectal.micro.polypDetails
+  Element = Colorectal.micro.relCoexistPathabnorm.polypDetails
   Card. = 0..1
   Type = string
   Short Label = Polyp details (type, number, polyposis syndrome criteria met etc)
@@ -895,7 +1061,7 @@
   Requirements = Is conditional
 
  -- Row 63 -----------------------------------
-  Element = Colorectal.micro.dysplasia
+  Element = Colorectal.micro.relCoexistPathabnorm.dysplasia
   Card. = 0..1
   Type = code
   Binding = Dysplasia
@@ -905,7 +1071,7 @@
   Comments = Cannot have an apostrophe in a spreadsheet eg Crohn apostrophe s
 
  -- Row 64 -----------------------------------
-  Element = Colorectal.micro.otherAbnormality
+  Element = Colorectal.micro.relCoexistPathabnorm.otherAbnormality
   Card. = 0..1
   Type = string
   Short Label = Other abnormality
@@ -950,7 +1116,7 @@
   Comments = This is just a sub-group/sub-section header and is not a result field
 
  -- Row 70 -----------------------------------
-  Element = Colorectal.ancillaryTests.mlh1
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.mlh1
   Card. = 0..1
   Type = code
   Binding = Mlh1
@@ -959,7 +1125,7 @@
   Requirements = Single selection value list.
 
  -- Row 71 -----------------------------------
-  Element = Colorectal.ancillaryTests.pms2
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.pms2
   Card. = 0..1
   Type = code
   Binding = Pms2
@@ -968,7 +1134,7 @@
   Requirements = Single selection value list.
 
  -- Row 72 -----------------------------------
-  Element = Colorectal.ancillaryTests.msh2
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msh2
   Card. = 0..1
   Type = code
   Binding = Msh2
@@ -977,7 +1143,7 @@
   Requirements = Single selection value list.
 
  -- Row 73 -----------------------------------
-  Element = Colorectal.ancillaryTests.msh6
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msh6
   Card. = 0..1
   Type = code
   Binding = Msh6
@@ -986,15 +1152,16 @@
   Requirements = Single selection value list.
 
  -- Row 74 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnzComments
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.comments
   Card. = 0..1
   Type = string
   Short Label = Mismatch repair enzyme comments
   Definition = Mismatch repair enzyme comments can be recorded
 
  -- Row 75 -----------------------------------
-  Element = Colorectal.ancillaryTests.microsatelliteInstability
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msi
   Card. = 0..1
+  Inv. = 22,23
   Type = code
   Binding = Msi
   Short Label = Microsatellite instability (MSI)
@@ -1002,7 +1169,7 @@
   Requirements = Single selection value list.\nIf unstable or stable, record laboratory performing test and report number
 
  -- Row 76 -----------------------------------
-  Element = Colorectal.ancillaryTests.microsatelliteInstabilityComments
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msi.comments
   Card. = 0..1
   Type = string
   Short Label = Microsatellite instability (MSI) comments
@@ -1010,7 +1177,7 @@
   Requirements = Conditional
 
  -- Row 77 -----------------------------------
-  Element = Colorectal.ancillaryTests.msiLabDetails
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msi.LabDetails
   Card. = 0..1
   Type = string
   Short Label = MSI laboratory performing test and report number
@@ -1018,7 +1185,7 @@
   Requirements = Conditional
 
  -- Row 78 -----------------------------------
-  Element = Colorectal.ancillaryTests.braf
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.braf
   Card. = 0..1
   Type = code
   Binding = Braf
@@ -1027,21 +1194,21 @@
   Requirements = Single selection value list.\nIf mutated or wild type, record laboratory performing test and report number
 
  -- Row 79 -----------------------------------
-  Element = Colorectal.ancillaryTests.brafComments
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.braf.comments
   Card. = 0..1
   Type = string
   Short Label = BRAF (V600E mutation) comments
   Definition = BRAF (V600E mutation) comments can be recorded
 
  -- Row 80 -----------------------------------
-  Element = Colorectal.ancillaryTests.brafLabDetails
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.braf.labDetails
   Card. = 0..1
   Type = string
   Short Label = BRAF (V600E mutation) laboratory performing test and report number
   Definition = BRAF (V600E mutation) laboratory performing test and report number can be recorded
 
  -- Row 81 -----------------------------------
-  Element = Colorectal.ancillaryTests.kras
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.kras
   Card. = 0..1
   Type = code
   Binding = Kras
@@ -1049,14 +1216,14 @@
   Definition = KRAS gene mutation (codons 12 and 13) testing
 
  -- Row 82 -----------------------------------
-  Element = Colorectal.ancillaryTests.krasComments
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.kras.comments
   Card. = 0..1
   Type = string
   Short Label = KRAS gene mutation (codons 12 and 13) comments
   Definition = KRAS gene mutation (codons 12 and 13) comments can be recorded
 
  -- Row 83 -----------------------------------
-  Element = Colorectal.ancillaryTests.krasLabDetails
+  Element = Colorectal.ancillaryTests.mismatchRepairEnz.kras.labDetails
   Card. = 0..1
   Type = string
   Short Label = KRAS gene mutation (codons 12 and 13) laboratory performing test and report number
@@ -1079,7 +1246,7 @@
   Comments = This is just a sub-group/sub-section header and is not a result field
 
  -- Row 86 -----------------------------------
-  Element = Colorectal.synthesisOverview.tumourStageT
+  Element = Colorectal.synthesisOverview.tumourStage.t
   Card. = 0..1
   Type = code
   Binding = TumourStageT
@@ -1088,7 +1255,7 @@
   Requirements = Single selection value list.
 
  -- Row 87 -----------------------------------
-  Element = Colorectal.synthesisOverview.tumourStageN
+  Element = Colorectal.synthesisOverview.tumourStage.n
   Card. = 0..1
   Type = code
   Binding = TumourStageN
@@ -1097,7 +1264,7 @@
   Requirements = Single selection value list.
 
  -- Row 88 -----------------------------------
-  Element = Colorectal.synthesisOverview.tumourStageM
+  Element = Colorectal.synthesisOverview.tumourStage.m
   Card. = 0..1
   Type = code
   Binding = TumourStageM
@@ -1106,7 +1273,7 @@
   Requirements = Single selection value list.
 
  -- Row 89 -----------------------------------
-  Element = Colorectal.synthesisOverview.tumourStageGrouping
+  Element = Colorectal.synthesisOverview.tumourStage.grouping
   Card. = 0..1
   Type = code
   Binding = TumourStageGrouping
@@ -1117,7 +1284,7 @@
   Example = 0 Tis N0 M0   |\nI T1 N0 M0   |\nT2 N0 M0   |\nIIA T3 N0 M0   |\nIIB T4a N0 M0   |\nIIC T4b N0 M0   |\nIIIA T1-T2 N1/N1c M0   |\nT1 N2a M0   |\nIIIB T3-T4a N1/N1c M0   |\nT2-T3 N2a M0   |\nT1-T2 N2b M0   |\nIIIC T4a N2a M0   |\nT3-T4a N2b M0   |\nT4b N1-N2 M0   |\nIVA Any T Any N M1a   |\nIVB Any T Any N M1b
 
  -- Row 90 -----------------------------------
-  Element = Colorectal.synthesisOverview.stagingSystemDetails
+  Element = Colorectal.synthesisOverview.tumourStage.stagingSystemDetails
   Card. = 0..1
   Type = string
   Short Label = Year and/or edition of staging system
@@ -1150,7 +1317,7 @@
   Requirements = Single selection value list.\nIf regional (local) recurrence or distant metastasis describe.
 
  -- Row 94 -----------------------------------
-  Element = Colorectal.synthesisOverview.describe
+  Element = Colorectal.synthesisOverview.newPrimaryOrRecurrence.describe
   Card. = 0..1
   Type = string
   Short Label = Describe

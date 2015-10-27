@@ -12,6 +12,9 @@
     <display value="Bacterial sepsis (disorder)"/>
     <display value="Bacterial septicemia (disorder)"/>
   </concept>
+  <concept id="10200004" display="Liver structure (body structure)">
+    <display value="Liver"/>
+  </concept>
   <concept id="10206005" display="Hospital-based outpatient dental clinic (environment)">
     <display value="Hospital-based outpatient dental clinic"/>
     <display value="Hospital-based outpatient dental health clinic"/>
@@ -120,6 +123,9 @@
     <display value="Bubo"/>
     <display value="Bubo, NOS"/>
     <display value="Bubo (morphologic abnormality)"/>
+  </concept>
+  <concept id="116175006" display="Proximal subtotal gastrectomy (procedure)">
+    <display value="Proximal subtotal gastrectomy"/>
   </concept>
   <concept id="118376009" display="Thermocouple device (physical object)">
     <display value="Thermocouple"/>
@@ -553,6 +559,9 @@
     <display value="Laboratory test, NOS"/>
     <display value="Laboratory test panel"/>
     <display value="Laboratory test (procedure)"/>
+  </concept>
+  <concept id="15776009" display="Pancreatic structure (body structure)">
+    <display value="Pancreas"/>
   </concept>
   <concept id="159285000" display="Medical laboratory technician (occupation)">
     <display value="Medical laboratory technician"/>
@@ -1106,6 +1115,9 @@
     <display value="Severely"/>
     <display value="Severe (severity modifier) (qualifier value)"/>
   </concept>
+  <concept id="24506003" display="Esophagogastrectomy (procedure)">
+    <display value="Oesophagogastrectomy"/>
+  </concept>
   <concept id="24642003" display="Psychiatry procedure or service (procedure)">
     <display value="Psychiatry procedure or service"/>
     <display value="Psychiatry procedure or service, NOS"/>
@@ -1510,6 +1522,9 @@
     <display value="Ruled out"/>
     <display value="Negative (qualifier value)"/>
   </concept>
+  <concept id="260386005" display="Nil (qualifier value)">
+    <display value="Nil"/>
+  </concept>
   <concept id="260402009" display="Short duration (qualifier value)">
     <display value="Short duration"/>
     <display value="Short duration (qualifier value)"/>
@@ -1557,6 +1572,12 @@
     <display value="At rest"/>
     <display value="At rest (qualifier value)"/>
   </concept>
+  <concept id="263768009" display="Greater (qualifier value)">
+    <display value="Greater"/>
+  </concept>
+  <concept id="263796003" display="Lesser (qualifier value)">
+    <display value="Lesser"/>
+  </concept>
   <concept id="264217000" display="Superior (qualifier value)">
     <display value="Superior"/>
     <display value="Superior (qualifier value)"/>
@@ -1564,6 +1585,9 @@
   <concept id="264331002" display="Grain (substance)">
     <display value="Grain"/>
     <display value="Grain (substance)"/>
+  </concept>
+  <concept id="26452005" display="Total gastrectomy (procedure)">
+    <display value="Total gastrectomy"/>
   </concept>
   <concept id="265414003" display="Abdominoperineal resection of rectum (procedure)">
     <display value="Abdominoperineal resection"/>
@@ -1763,6 +1787,9 @@
     <display value="Testicular structure"/>
     <display value="Testicular structure (body structure)"/>
   </concept>
+  <concept id="280119005" display="Pyloric structure of stomach (body structure)">
+    <display value="Pylorus"/>
+  </concept>
   <concept id="280193007" display="Entire retropharyngeal area (body structure)">
     <display value="Retropharyngeal space"/>
     <display value="Entire retropharyngeal area"/>
@@ -1826,6 +1853,9 @@
     <display value="Autopsy"/>
     <display value="Necropsy"/>
     <display value="Autopsy examination (procedure)"/>
+  </concept>
+  <concept id="298225002" display="Lamina propria mucosae (body structure)">
+    <display value="Lamina propria mucosae"/>
   </concept>
   <concept id="302794003" display="Nasogastric aspirate">
     <display value="Nasogastric aspirate"/>
@@ -2400,6 +2430,10 @@
     <display value="Mumps without mention of complication"/>
     <display value="Mumps (disorder)"/>
   </concept>
+  <concept id="370140002" display="Muscularis mucosae (body structure)">
+    <display value="Muscularis mucosae"/>
+    <display value="Lamina muscularis mucosae"/>
+  </concept>
   <concept id="371041009" display="Embolic stroke (disorder)">
     <display value="Embolic stroke (disorder)"/>
     <display value="Embolic stroke"/>
@@ -2890,6 +2924,9 @@
     <display value="Pain management (specialty) (qualifier value)"/>
     <display value="Pain management (specialty)"/>
   </concept>
+  <concept id="394894008" display="Pre-operative chemotherapy (procedure)">
+    <display value="Pre-operative chemotherapy"/>
+  </concept>
   <concept id="394899003" display="Oral administration of treatment (navigational concept)">
     <display value="Oral administration of treatment (procedure)"/>
     <display value="Oral administration of treatment"/>
@@ -2917,6 +2954,9 @@
     <display value="Hematopathology (specialty) (qualifier value)"/>
     <display value="Hematopathology"/>
     <display value="Hematopathology (specialty)"/>
+  </concept>
+  <concept id="394934009" display="Combined pre-operative chemotherapy and radiotherapy (procedure)">
+    <display value="Combined pre-operative chemotherapy and radiotherapy"/>
   </concept>
   <concept id="39579001" display="Anaphylaxis (disorder)">
     <display value="Generalized anaphylaxis"/>
@@ -3340,6 +3380,9 @@
     <display value="Child day care center (environment)"/>
     <display value="Child day care center"/>
     <display value="Child day care center"/>
+  </concept>
+  <concept id="414003" display="Gastric fundus structure (body structure)">
+    <display value="Gastric fundus"/>
   </concept>
   <concept id="414135002" display="Estimated (qualifier value)">
     <display value="Estimated (qualifier value)"/>
@@ -4155,6 +4198,9 @@
     <display value="Liquid-crystal patient thermometer"/>
     <display value="Liquid-crystal patient thermometer (physical object)"/>
   </concept>
+  <concept id="4631006" display="Tubular adenocarcinoma (morphologic abnormality)">
+    <display value="Tubular adenocarcinoma"/>
+  </concept>
   <concept id="463698006" display="Pneumograph (physical object)">
     <display value="Pneumograph (physical object)"/>
     <display value="Pneumograph"/>
@@ -4217,6 +4263,9 @@
     <display value="Intravenous route (qualifier value)"/>
     <display value="Intravenous route"/>
     <display value="An intravascular route that begins within a vein."/>
+  </concept>
+  <concept id="4797003" display="Papillary adenocarcinoma (morphologic abnormality)">
+    <display value="Papillary adenocarcinoma"/>
   </concept>
   <concept id="48311003" display="Veteran&#39;s administration hospital (environment)">
     <display value="Veteran&#39;s administration hospital (environment)"/>
@@ -4544,6 +4593,9 @@
     <display value="Local community health center"/>
     <display value="Local community health center (environment)"/>
   </concept>
+  <concept id="68439008" display="Tunica submucosa (body structure)">
+    <display value="Submucosa"/>
+  </concept>
   <concept id="6853008" display="Nasogastric tube aspiration (procedure)">
     <display value="Aspirating nasogastric tube"/>
     <display value="Nasogastric tube aspiration"/>
@@ -4623,6 +4675,9 @@
     <display value="Prepaid healthcare organisation"/>
     <display value="Health maintenance organisation"/>
     <display value="Health maintenance organization (environment)"/>
+  </concept>
+  <concept id="72495009" display="Mucinous adenocarcinoma (morphologic abnormality)">
+    <display value="Mucinous adenocarcinoma"/>
   </concept>
   <concept id="72511004" display="Fruit (substance)">
     <display value="Fruit"/>
@@ -4737,6 +4792,9 @@
     <display value="Bladder irrigation"/>
     <display value="Irrigation of urinary bladder (procedure)"/>
   </concept>
+  <concept id="78961009" display="Splenic structure (body structure)">
+    <display value="Spleen"/>
+  </concept>
   <concept id="79121003" display="Biopsy of stomach (procedure)">
     <display value="Biopsy of stomach"/>
     <display value="Biopsy of stomach, NOS"/>
@@ -4833,6 +4891,9 @@
     <display value="Past tobacco smoker"/>
     <display value="Ex-smoker (life style)"/>
   </concept>
+  <concept id="85217002" display="Distal subtotal gastrectomy (procedure)">
+    <display value="Distal subtotal gastrectomy"/>
+  </concept>
   <concept id="85581007" display="Drug powder (qualifier value)">
     <display value="Drug powder (product)"/>
     <display value="Drug powder"/>
@@ -4860,6 +4921,9 @@
     <display value="Biopsy, NOS"/>
     <display value="Biopsy (procedure)"/>
     <display value="Removal of tissue for diagnostic examination"/>
+  </concept>
+  <concept id="86915006" display="Muscularis propria (body structure)">
+    <display value="Muscularis propria"/>
   </concept>
   <concept id="87628006" display="Bacterial infectious disease (disorder)">
     <display value="Bacterial infectious disease"/>
