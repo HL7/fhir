@@ -268,6 +268,8 @@ import com.google.gson.JsonObject;
  */
 public class Publisher implements URIResolver, SectionNumberer {
 
+  private static final boolean VALIDATE_BY_PROFILE = false;
+
   public class EValidationFailed extends Exception {
     private static final long serialVersionUID = 1L;
     public EValidationFailed(String string) {
@@ -1847,14 +1849,12 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       String n = r.getName().toLowerCase();
-      SchematronGenerator sch = new SchematronGenerator(new FileOutputStream(page.getFolders().dstDir + n + ".sch"), page);
-      sch.generate(r, page.getDefinitions());
-      sch.close();
+      SchematronGenerator sch = new SchematronGenerator(page);
+      sch.generate(new FileOutputStream(page.getFolders().dstDir + n + ".sch"), r, page.getDefinitions());
     }
 
-    SchematronGenerator sg = new SchematronGenerator(new FileOutputStream(page.getFolders().dstDir + "fhir-invariants.sch"), page);
-    sg.generate(page.getDefinitions());
-    sg.close();
+    SchematronGenerator sg = new SchematronGenerator(page);
+    sg.generate(new FileOutputStream(page.getFolders().dstDir + "fhir-invariants.sch"), page.getDefinitions());
 
     produceSchemaZip();
     for (ValueSet vs : page.getWorkerContext().getCodeSystems().values())
@@ -2224,7 +2224,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           + "do the expansions or find a terminology server that supports the same version of the value sets");
       for (ValueSet vs : page.getValueSets().values()) {
         if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
-          ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs);
+          ValueSetExpansionOutcome vse = page.getWorkerContext().expandVS(vs, true);
           if (vse.getValueset() != null) {
             ValueSet vsc = vs.copy();
             vsc.setText(null);
@@ -5180,6 +5180,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
   static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
 
+
   private void checkBySchema(String fileToCheck, String[] schemaSource) throws Exception {
     StreamSource[] sources = new StreamSource[schemaSource.length];
     int i = 0;
@@ -5496,10 +5497,11 @@ public class Publisher implements URIResolver, SectionNumberer {
     // the build tool validation focuses on codes and identifiers
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
     validator.validate(issues, root);
-    // if (profile != null)
-    // validator.validateInstanceByProfile(issues, root, profile);
+    if (profile != null && VALIDATE_BY_PROFILE)
+      validator.validate(issues, root, profile);
     for (ValidationMessage m : issues) {
       if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING)) {
+        m.setMessage(n+": "+m.getMessage());
         page.getValidationErrors().add(m);
       }
       if (m.getLevel() == IssueSeverity.WARNING)

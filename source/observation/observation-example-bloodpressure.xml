@@ -62,9 +62,9 @@
     <coding>
       <system value="http://hl7.org/fhir/v2/0078"/>
       <code value="L"/>
-      <display value="Below low normal"/>
+      <display value="low"/>
     </coding>
-    <text value="low"/>
+    <text value="Below low normal"/>
   </interpretation>
   <bodySite>
     <coding>

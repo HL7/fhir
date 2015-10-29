@@ -19,7 +19,7 @@
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
-            
+
             <a href="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32">Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005
           </div>
         </text>
@@ -37,6 +37,13 @@
             <display value="History and Physical"/>
           </coding>
         </type>
+        <class>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="47039-3"/>
+            <display value="Inpatient Admission history and physical note"/>
+          </coding>
+        </class>
         <author>
           <reference value="Practitioner/a3"/>
         </author>
@@ -47,16 +54,23 @@
         <indexed value="2013-07-01T23:11:33+10:00"/>
         <status value="current"/>
         <description value="Physical"/>
+        <securityLabel>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+            <code value="N"/>
+            <display value="normal"/>
+          </coding>
+        </securityLabel>
         <content>
-			<attachment>
-				<contentType value="text/plain"/>
-				<language value="en-us"/>
-				<url value="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
-			</attachment>
-			<format>
-				<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
-				<code value="urn:ihe:pcc:handp:2008"/>
-			</format> 
+          <attachment>
+            <contentType value="text/plain"/>
+            <language value="en-us"/>
+            <url value="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
+          </attachment>
+          <format>
+            <system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
+            <code value="urn:ihe:pcc:handp:2008"/>
+          </format> 
         </content>
         <context>
           <period>
@@ -81,7 +95,7 @@
   <entry>
     <fullUrl value="http://localhost:9556/svc/fhir/Patient/a2"/>
     <resource>
-    <!--  if the server can find a matching resource, use that, else create a new 
+      <!--  if the server can find a matching resource, use that, else create a new 
       resource with these details  -->
       <Patient>
         <id value="a2"/>
@@ -160,7 +174,7 @@
     <resource>
       <Practitioner>
         <id value="a4"/>
-      <!--  cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au  -->
+        <!--  cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au  -->
         <meta>
           <lastUpdated value="2013-07-01T13:11:33Z"/>
         </meta>

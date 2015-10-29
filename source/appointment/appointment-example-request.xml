@@ -17,6 +17,10 @@
 		</coding>
 	</type>
 	<reason>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="413095006"/>
+    </coding>
 		<text value="Clinical Review" />
 	</reason>
 	<priority value="5" />
@@ -37,7 +41,8 @@
 	<participant>
 		<type>
 			<coding>
-				<code value="attending"/>
+        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+				<code value="ATND"/>
 			</coding>
 		</type>
 		<required value="required" />

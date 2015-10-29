@@ -32,8 +32,9 @@
     <coding>
       <system value="http://hl7.org/fhir/v2/0078"/>
       <code value="N"/>
-      <display value="Normal (applies to non-numeric results)"/>
+      <display value="Normal"/>
     </coding>
+    <text value="Normal (applies to non-numeric results)"/>
   </interpretation>
   <device>
     <reference value="DeviceMetric/example"/>

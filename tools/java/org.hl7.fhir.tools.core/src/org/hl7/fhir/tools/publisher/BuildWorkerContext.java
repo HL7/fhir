@@ -32,6 +32,8 @@ import org.hl7.fhir.instance.formats.ParserType;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.CodeableConcept;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DataElement;
@@ -57,6 +59,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.terminologies.ValueSetExpanderSimple;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
+import org.hl7.fhir.instance.utils.BaseWorkerContext;
 import org.hl7.fhir.instance.utils.EOperationOutcome;
 import org.hl7.fhir.instance.utils.INarrativeGenerator;
 import org.hl7.fhir.instance.utils.IWorkerContext;
@@ -94,13 +97,12 @@ import org.w3c.dom.Element;
  - list of resource names
 
  */
-public class BuildWorkerContext implements IWorkerContext {
+public class BuildWorkerContext extends BaseWorkerContext implements IWorkerContext {
 
-  private FHIRToolingClient client;
-  private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
+//  private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
+//  private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
+//  private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   private Map<String, DataElement> dataElements = new HashMap<String, DataElement>();
-  private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
-  private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
   private Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
   private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
@@ -114,26 +116,26 @@ public class BuildWorkerContext implements IWorkerContext {
   private boolean serverOk = false;
   private String cache;
   private String tsServer;
-  private ValueSetExpansionCache expansionCache;
   
 
 
   public BuildWorkerContext(Definitions definitions, FHIRToolingClient client, Map<String, ValueSet> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles) {
     super();
     this.definitions = definitions;
-    this.client = client;
+    this.txServer = client;
     this.codeSystems = codeSystems;
     this.valueSets = valueSets;
     this.maps = maps;
     this.profiles = profiles;
+    this.cacheValidation = true;
   }
 
   public boolean hasClient() {
-    return client != null;
+    return txServer != null;
   }
 
   public FHIRToolingClient getClient() {
-    return client;
+    return txServer;
   }
 
   public Map<String, ValueSet> getCodeSystems() {
@@ -323,7 +325,7 @@ public class BuildWorkerContext implements IWorkerContext {
 
   @Override
   public IResourceValidator newValidator() throws Exception {
-    return new InstanceValidator(this, null);
+    return new InstanceValidator(this);
   }
 
   @Override
@@ -336,20 +338,34 @@ public class BuildWorkerContext implements IWorkerContext {
   }
 
   @Override
-  public ValueSet fetchCodeSystem(String system) {
-    return codeSystems.get(system);
+  public boolean supportsSystem(String system) {
+    return "http://snomed.info/sct".equals(system) || "http://loinc.org".equals(system) || super.supportsSystem(system) ;
   }
-
+  
   @Override
-  public ValidationResult validateCode(String system, String code, String display, ValueSet vs) {
-    throw new Error("not done yet");
+  public ValueSetExpansionOutcome expandVS(ValueSet vs, boolean cacheOk) {
+    try {
+      if (vs.hasExpansion()) {
+        return new ValueSetExpansionOutcome(vs.copy());
+      }
+      String cacheFn = Utilities.path(cache, determineCacheId(vs)+".json");
+      if (new File(cacheFn).exists())
+        return loadFromCache(vs.copy(), cacheFn);
+      if (cacheOk && vs.hasUrl()) {
+        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs);
+        if (vse.getValueset() != null) {
+          FileOutputStream s = new FileOutputStream(cacheFn);
+          newJsonParser().compose(new FileOutputStream(cacheFn), vse.getValueset());
+          s.close();
+          return vse;
+        }
+      }
+      return expandOnServer(vs, cacheFn);
+    } catch (Exception e) {
+      return new ValueSetExpansionOutcome(e.getMessage());
+    }
   }
-
-  @Override
-  public ValidationResult validateCode(String system, String code, String display, ConceptSetComponent vsi) {
-    throw new Error("not done yet");
-  }
-
+  
   public static class Concept {
     private String display; // preferred
     private List<String> displays = new ArrayList<String>();
@@ -585,10 +601,6 @@ public class BuildWorkerContext implements IWorkerContext {
   }
 
   
-  public boolean supportsSystem(String system) {
-    return "http://snomed.info/sct".equals(system) || "http://loinc.org".equals(system) ;
-  }
-
   public void loadSnomed(String filename) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     DocumentBuilder builder = factory.newDocumentBuilder();
@@ -677,29 +689,6 @@ public class BuildWorkerContext implements IWorkerContext {
     return true;
   }
 
-  @Override
-  public ValueSetExpansionOutcome expandVS(ValueSet vs) {
-    try {
-      if (vs.hasExpansion()) {
-        return new ValueSetExpansionOutcome(vs.copy());
-      }
-      String cacheFn = Utilities.path(cache, determineCacheId(vs)+".json");
-      if (new File(cacheFn).exists())
-        return loadFromCache(vs.copy(), cacheFn);
-      if (vs.hasUrl()) {
-        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs);
-        if (vse.getValueset() != null) {
-          FileOutputStream s = new FileOutputStream(cacheFn);
-          newJsonParser().compose(new FileOutputStream(cacheFn), vse.getValueset());
-          s.close();
-          return vse;
-        }
-      }
-      return expandOnServer(vs, cacheFn);
-    } catch (Exception e) {
-      return new ValueSetExpansionOutcome(e.getMessage());
-    }
-  }
 
   private String determineCacheId(ValueSet vs) throws Exception {
     // just the content logical definition is hashed
@@ -735,13 +724,13 @@ public class BuildWorkerContext implements IWorkerContext {
         triedServer = true;
         serverOk = false;
         // for this, we use the FHIR client
-        if (client == null) {
-          client = new FHIRToolingClient(tsServer);
+        if (txServer == null) {
+          txServer = new FHIRToolingClient(tsServer);
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("code", code);
         params.put("system", "http://loinc.org");
-        Parameters result = client.lookupCode(params);
+        Parameters result = txServer.lookupCode(params);
         serverOk = true;
 
         for (ParametersParameterComponent p : result.getParameter()) {
@@ -765,14 +754,14 @@ public class BuildWorkerContext implements IWorkerContext {
         triedServer = true;
         serverOk = false;
         // for this, we use the FHIR client
-        if (client == null) {
-          client = new FHIRToolingClient(tsServer);
+        if (txServer == null) {
+          txServer = new FHIRToolingClient(tsServer);
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);
         params.put("_incomplete", "true");
         params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
-        ValueSet result = client.expandValueset(vs, params);
+        ValueSet result = txServer.expandValueset(vs, params);
         serverOk = true;
         FileOutputStream s = new FileOutputStream(cacheFn);
         parser.compose(s, result);
@@ -874,7 +863,7 @@ public class BuildWorkerContext implements IWorkerContext {
     ValueSet vs = new ValueSet();
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
-    ValueSetExpansionOutcome vse = expandVS(vs);
+    ValueSetExpansionOutcome vse = expandVS(vs, true);
     return vse.getValueset().getExpansion();
   }
 
@@ -883,5 +872,6 @@ public class BuildWorkerContext implements IWorkerContext {
     this.tsServer = tsServer;
     expansionCache = new ValueSetExpansionCache(this, null);
   }
+
 
 }

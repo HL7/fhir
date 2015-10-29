@@ -62,7 +62,7 @@
 	<role>
 		<system value="http://hl7.org/fhir/object-role"/>
 		<code value="4"/>
-		<display value="DomainResource"/>
+		<display value="Domain Resource"/>
 	</role>
     <lifecycle>
 		<system value="http://hl7.org/fhir/object-lifecycle"/>

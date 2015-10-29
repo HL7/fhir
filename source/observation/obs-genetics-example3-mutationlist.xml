@@ -28,6 +28,7 @@
           <reference value="genetics-example3-mutationlist-1"/>
       </valueReference>
   </extension>
+<!-- disabled GG 28-Oct 2015 as the extension http://hl7.org/fhir/StructureDefinition/geneticsResult only allows 0..1 occurences
   <extension url="http://hl7.org/fhir/StructureDefinition/geneticsResult">
       <valueReference>
           <reference value="genetics-example3-mutationlist-2"/>
@@ -43,7 +44,7 @@
           <reference value="genetics-example3-mutationlist-4"/>
       </valueReference>
   </extension>
-
+-->
 
   
   <status value="final"/>

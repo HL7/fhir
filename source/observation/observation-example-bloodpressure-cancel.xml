@@ -61,9 +61,9 @@
 		<coding>
 			<system value="http://hl7.org/fhir/v2/0078"/>
 			<code value="L"/>
-			<display value="Below low normal"/>
+		  <display value="low"/>
 		</coding>
-		<text value="low"/>
+		<text value="Below low normal"/>
 	</interpretation>
 	<comments value="In this example, the blood pressure measurements are not available due to cancellation of the order.  Data absent reason is present for each component"/>
 	<!-- for an observation with components, these cannot disagree with the flags on the components -->

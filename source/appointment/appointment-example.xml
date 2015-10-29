@@ -28,7 +28,8 @@
 	<participant>
 		<type>
 			<coding>
-				<code value="attending"/>
+        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+				<code value="ATND"/>
 			</coding>
 		</type>
 		<actor>

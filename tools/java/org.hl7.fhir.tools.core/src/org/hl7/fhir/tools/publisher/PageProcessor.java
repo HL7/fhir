@@ -290,7 +290,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           "This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
           "</p>\r\n";
 
-  public static final String CODE_LIMIT_EXPANSION = "1000";
+  public static final String CODE_LIMIT_EXPANSION = "10000";
   public static final String TOO_MANY_CODES_TEXT = "This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection  (1000 codes) of the whole set of codes is shown";
   private static final String NO_CODESYSTEM_TEXT = "This value set refers to code systems that the FHIR Publication Tooling does not support";
 
@@ -3622,7 +3622,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (!hasDynamicContent(vs))
       return "";
     try {
-      ValueSetExpansionOutcome result = workerContext.expandVS(vs);
+      ValueSetExpansionOutcome result = workerContext.expandVS(vs, true);
       if (result.getError() != null)
         return "<hr/>\r\n"+VS_INC_START+"<!--1-->"+processExpansionError(result.getError())+VS_INC_END;
       ValueSet exp = result.getValueset();
@@ -3690,7 +3690,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   
   public ValueSet expandValueSet(ValueSet vs) throws Exception {
-    ValueSetExpansionOutcome result = workerContext.expandVS(vs);
+    ValueSetExpansionOutcome result = workerContext.expandVS(vs, true);
     if (result.getError() != null)
       return null;
     else
@@ -6788,7 +6788,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public String expandVS(ValueSet vs, String prefix, String base) {
     try {
-      ValueSetExpansionOutcome result = workerContext.expandVS(vs);
+      ValueSetExpansionOutcome result = workerContext.expandVS(vs, true);
       if (result.getError() != null)
         return "<hr/>\r\n"+VS_INC_START+"<!--3-->"+processExpansionError(result.getError())+VS_INC_END;
 

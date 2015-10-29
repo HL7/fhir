@@ -50,6 +50,11 @@ import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xml.SchematronWriter;
+import org.hl7.fhir.utilities.xml.SchematronWriter.Assert;
+import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
+import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
+import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 
 /**
  * This class provides a set of utility operations for working with Profiles.
@@ -929,8 +934,8 @@ public class ProfileUtilities {
             messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), IssueSeverity.ERROR));
 //            throw new Exception("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode());
           else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED) {
-            ValueSetExpansionOutcome expBase = context.expandVS(context.fetchResource(ValueSet.class, base.getBinding().getValueSetReference().getReference()));
-            ValueSetExpansionOutcome expDerived = context.expandVS(context.fetchResource(ValueSet.class, derived.getBinding().getValueSetReference().getReference()));
+            ValueSetExpansionOutcome expBase = context.expandVS(context.fetchResource(ValueSet.class, base.getBinding().getValueSetReference().getReference()), true);
+            ValueSetExpansionOutcome expDerived = context.expandVS(context.fetchResource(ValueSet.class, derived.getBinding().getValueSetReference().getReference()), true);
             if (expBase.getValueset() == null)
               messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetReference().getReference()+" could not be expanded", IssueSeverity.WARNING));
             else if (expDerived.getValueset() == null)
@@ -1934,20 +1939,11 @@ public class ProfileUtilities {
 
   	StructureDefinition base = context.fetchResource(StructureDefinition.class, structure.getBase());
 
-    TextStreamWriter txt = new TextStreamWriter(dest);
-    txt.ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-    txt.ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
-    txt.ln("<sch:ns prefix=\"f\" uri=\"http://hl7.org/fhir\"/>");
-    txt.ln("<sch:ns prefix=\"h\" uri=\"http://www.w3.org/1999/xhtml\"/>");
+  	SchematronWriter sch = new SchematronWriter(dest, SchematronType.PROFILE, base.getName());
 
-    // we assume that the resource is valid against the schematrons on
-    // the underlying resource
     ElementDefinition ed = structure.getSnapshot().getElement().get(0);
-    generateForChildren(txt, "f:"+ed.getPath(), ed, structure, base);
-    txt.ln_o("</sch:schema>");
-    txt.flush();
-    txt.close();
-
+    generateForChildren(sch, "f:"+ed.getPath(), ed, structure, base);
+    sch.dump();
   }
 
   private class Slicer extends ElementDefinitionSlicingComponent {
@@ -1977,8 +1973,7 @@ public class ProfileUtilities {
       return new Slicer(false);
   }
 
-  private void generateForChildren(TextStreamWriter txt, String xpath, ElementDefinition ed, StructureDefinition structure, StructureDefinition base) throws IOException {
-  	boolean started = false;
+  private void generateForChildren(SchematronWriter sch, String xpath, ElementDefinition ed, StructureDefinition structure, StructureDefinition base) throws IOException {
     //    generateForChild(txt, structure, child);
     List<ElementDefinition> children = getChildList(structure, ed);
     String sliceName = null;
@@ -1997,43 +1992,25 @@ public class ProfileUtilities {
       Slicer slicer = slicing == null ? new Slicer(true) : generateSlicer(child, slicing, structure);
       if (slicer.check) {
         if (doMin || doMax) {
-          if (!started) {
-            txt.ln_i("<sch:pattern>");
-            txt.ln("<sch:title>"+xpath+"</sch:title>");
-            started = true;
-          }
-          if (doMin) {
-            txt.ln_i("<sch:rule context=\""+xpath+"\">");
-            txt.ln("<sch:assert test=\"count(f:"+name+slicer.criteria+") &gt;= "+Integer.toString(child.getMin())+"\">"+name+slicer.name+": minimum cardinality is "+Integer.toString(child.getMin())+"</sch:assert>");
-            txt.ln_o("</sch:rule>");
-          }
-          if (doMax) {
-            txt.ln_i("<sch:rule context=\""+xpath+"\">");
-            txt.ln("<sch:assert test=\"count(f:"+name+slicer.criteria+") &lt;= "+child.getMax()+"\">"+name+slicer.name+": maximum cardinality is "+child.getMax()+"</sch:assert>");
-            txt.ln_o("</sch:rule>");
+          Section s = sch.section(xpath);
+          Rule r = s.rule(xpath);
+          if (doMin) 
+            r.assrt("count(f:"+name+slicer.criteria+") >= "+Integer.toString(child.getMin()), name+slicer.name+": minimum cardinality of '"+name+"' is "+Integer.toString(child.getMin()));
+          if (doMax) 
+            r.assrt("count(f:"+name+slicer.criteria+") <= "+child.getMax(), name+slicer.name+": maximum cardinality of '"+name+"' is "+child.getMax());
           }
         }
       }
-      
-    }
     for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
       if (inv.hasXpath()) {
-        if (!started) {
-          txt.ln_i("<sch:pattern>");
-          txt.ln("<sch:title>"+ed.getPath()+"</sch:title>");
-          started = true;
-        }
-        txt.ln_i("<sch:rule context=\""+xpath+"\">");
-        txt.ln("<sch:assert test=\""+inv.getXpath()+"\">"+(inv.hasId() ? inv.getId()+": " : "")+inv.getHuman()+(inv.hasUserData(IS_DERIVED) ? " (inherited" : "")+"</sch:assert>");
-        txt.ln_o("</sch:rule>");
-        
+        Section s = sch.section(ed.getPath());
+        Rule r = s.rule(xpath);
+        r.assrt(inv.getXpath(), (inv.hasId() ? inv.getId()+": " : "")+inv.getHuman()+(inv.hasUserData(IS_DERIVED) ? " (inherited)" : ""));
       }
     }
-    if (started)
-      txt.ln_o("  </sch:pattern>");
     for (ElementDefinition child : children) {
       String name = tail(child.getPath());
-      generateForChildren(txt, xpath+"/f:"+name, child, structure, base);
+      generateForChildren(sch, xpath+"/f:"+name, child, structure, base);
     }
   }
 

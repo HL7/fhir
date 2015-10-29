@@ -119,9 +119,9 @@ public class ADLImporter {
 		builder = factory.newDocumentBuilder();
 		adl = builder.parse(new FileInputStream(source)).getDocumentElement();
 
-		check(adl.getNamespaceURI(), "http://schemas.openehr.org/v1", "Wrong namespace for ADL XML");
-		check(adl.getNodeName(), "archetype", "Wrong XML for ADL XML");
-		check(XMLUtil.getNamedChild(adl, "adl_version").getTextContent(), "1.4", "unsupported ADL version");
+		check("root", adl.getNamespaceURI(), "http://schemas.openehr.org/v1", "Wrong namespace for ADL XML");
+		check("root", adl.getNodeName(), "archetype", "Wrong XML for ADL XML");
+		check("root", XMLUtil.getNamedChild(adl, "adl_version").getTextContent(), "1.4", "unsupported ADL version");
 		
 		String id = XMLUtil.getFirstChild(XMLUtil.getNamedChild(adl, "archetype_id")).getTextContent().split("\\.")[1];
 		// create structure definition
@@ -138,7 +138,8 @@ public class ADLImporter {
 		XMLUtil.getNamedChildren(details, "keywords", set);
 		for (Element e : set) 
 			sd.addCode().setDisplay(e.getTextContent());
-		if ("CommitteeDraft".equals(XMLUtil.getNamedChild(description, "lifecycle_state").getTextContent()))
+		String status = XMLUtil.getNamedChild(description, "lifecycle_state").getTextContent();
+		if ("CommitteeDraft".equals(status) || "AuthorDraft".equals(status))
 			sd.setStatus(ConformanceResourceStatus.DRAFT);
 		else
 			throw new Exception("Unknown life cycle state "+XMLUtil.getNamedChild(description, "lifecycle_state").getTextContent());
@@ -164,7 +165,7 @@ public class ADLImporter {
   	XMLUtil.getNamedChildren(definition, "attributes", set);
 		for (Element item : set) {
 			// we're actually skipping this level - we don't care about data protocol etc.
-			Element attributes = XMLUtil.getNamedChild(XMLUtil.getNamedChild(item, "children"), "attributes");
+			Element attributes = item; // XMLUtil.getNamedChild(XMLUtil.getNamedChild(item, "children"), "attributes");
 			loadChildren(root.atCode, root, attributes);
 		}
 		dumpChildren("", root);
@@ -229,19 +230,21 @@ public class ADLImporter {
 			Element attr = XMLUtil.getNamedChild(e, "attributes");
 			String type = attr.getAttribute("xsi:type");
 			if ("C_SINGLE_ATTRIBUTE".equals(type)) {
-				check(item.typeName, "ELEMENT", "type for simple element");
+				check(path, item.typeName, "ELEMENT", "type for simple element: "+item.typeName);
 				checkCardSingle(path, XMLUtil.getNamedChild(attr, "existence"));
 				Element c = XMLUtil.getNamedChild(attr, "children");
 				checkCardSingle(path, XMLUtil.getNamedChild(c, "occurrences"));
 				item.typeName = XMLUtil.getNamedChild(c, "rm_type_name").getTextContent();
 			} else {
-				check(item.typeName, "CLUSTER", "type for complex element");
+				check(path, item.typeName, "CLUSTER", "type for complex element");
 				loadChildren(path+"/"+item.atCode, item, attr);
 			}
 		}
 	}
 
 	private String generateToken(String atCode, boolean upFirst) {
+		if (!texts.containsKey(atCode))
+			return atCode;
 	  String text = texts.get(atCode).getText();
 	  boolean lastText = false;
 	  StringBuilder b = new StringBuilder();
@@ -266,19 +269,19 @@ public class ADLImporter {
 	}
 
 	private void checkCardSingle(String path, Element element) throws DOMException, Exception {
-		check(XMLUtil.getNamedChild(element, "lower_included").getTextContent(), "true", "Cardinality check");
-	  check(XMLUtil.getNamedChild(element, "upper_included").getTextContent(), "true", "Cardinality check"); 
-		check(XMLUtil.getNamedChild(element, "lower_unbounded").getTextContent(), "false", "Cardinality check"); 
-		check(XMLUtil.getNamedChild(element, "upper_unbounded").getTextContent(), "false", "Cardinality check"); 
-		check(XMLUtil.getNamedChild(element, "lower").getTextContent(), "1", "Cardinality check"); 
-		check(XMLUtil.getNamedChild(element, "upper").getTextContent(), "1", "Cardinality check"); 
+		check(path, XMLUtil.getNamedChild(element, "lower_included").getTextContent(), "true", "Cardinality check");
+	  check(path, XMLUtil.getNamedChild(element, "upper_included").getTextContent(), "true", "Cardinality check"); 
+		check(path, XMLUtil.getNamedChild(element, "lower_unbounded").getTextContent(), "false", "Cardinality check"); 
+		check(path, XMLUtil.getNamedChild(element, "upper_unbounded").getTextContent(), "false", "Cardinality check"); 
+		check(path, XMLUtil.getNamedChild(element, "lower").getTextContent(), "1", "Cardinality check"); 
+		check(path, XMLUtil.getNamedChild(element, "upper").getTextContent(), "1", "Cardinality check"); 
 	}
 
 	private Cardinality readCardinality(String path, Element element) throws DOMException, Exception {
-		check(XMLUtil.getNamedChild(element, "lower_included").getTextContent(), "true", "Cardinality check");
+		check(path, XMLUtil.getNamedChild(element, "lower_included").getTextContent(), "true", "Cardinality check");
 		if (XMLUtil.getNamedChild(element, "upper_included") != null)
-		  check(XMLUtil.getNamedChild(element, "upper_included").getTextContent(), "true", "Cardinality check"); 
-		check(XMLUtil.getNamedChild(element, "lower_unbounded").getTextContent(), "false", "Cardinality check"); 
+		  check(path, XMLUtil.getNamedChild(element, "upper_included").getTextContent(), "true", "Cardinality check"); 
+		check(path, XMLUtil.getNamedChild(element, "lower_unbounded").getTextContent(), "false", "Cardinality check"); 
 		Cardinality card = new Cardinality();
 		card.min = XMLUtil.getNamedChild(element, "lower").getTextContent();
 		if ("true".equals(XMLUtil.getNamedChild(element, "upper_unbounded").getTextContent()))
@@ -307,9 +310,9 @@ public class ADLImporter {
     texts.put(atcode, ts);
 	}
 
-	private void check(String found, String expected, String message) throws Exception {
+	private void check(String path, String found, String expected, String message) throws Exception {
 	  if (!expected.equals(found.trim())) 
-	  	throw new Exception(message+". Expected '"+expected+"' but found '"+found.trim()+"'.");
+	  	throw new Exception(message+". Expected '"+expected+"' but found '"+found.trim()+"', at "+path);
 	}
 
 }

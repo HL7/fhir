@@ -15,11 +15,12 @@
 	</appointment>
 	<start value="2013-12-25T13:15:00Z" />
 	<end value="2013-12-25T13:30:00Z" />
-	<participantType>
-		<coding>
-			<code value="attending"/>
-		</coding>
-	</participantType>
+  <participantType>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+      <code value="ATND"/>
+    </coding>
+  </participantType>
 	<actor>
 		<reference value="Practitioner/example" />
 		<display value="Dr Adam Careful" />

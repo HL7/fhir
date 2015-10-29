@@ -9,10 +9,17 @@ import java.util.List;
 
 import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 
 
 public class SchematronWriter  extends TextStreamWriter  {
+
+  public enum SchematronType {
+    ALL_RESOURCES,
+    RESOURCE,
+    PROFILE
+  }
 
   public class Assert {
     private String test;
@@ -52,45 +59,46 @@ public class SchematronWriter  extends TextStreamWriter  {
       return r;
     }
   }
-  
+
+  private SchematronType type;
+  private String description;
   private List<Section> sections = new ArrayList<Section>();
 
 
-  public SchematronWriter(OutputStream out) throws UnsupportedEncodingException {
+  public SchematronWriter(OutputStream out, SchematronType type, String description) throws UnsupportedEncodingException {
     super(out);
+    this.type = type;
+    this.description = description;
   }
 
-  public Section addSection(String title) {
+  public Section section(String title) {
+    for (Section s : sections) {
+      if (s.title.equals(title))
+        return s;
+    }
     Section s = new Section();
     s.title = title;
     sections.add(s);
     return s;
   }
   
-  public void dump(String rn) throws IOException {
+  public void dump() throws IOException {
     ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
     ln("<sch:ns prefix=\"f\" uri=\"http://hl7.org/fhir\"/>");
     ln("<sch:ns prefix=\"h\" uri=\"http://www.w3.org/1999/xhtml\"/>");
-    if (rn != null) {
-      ln("<!-- ");
-      ln("  This file contains just the constraints for the resource "+rn);
-      ln("  It is provided for documentation purposes. When actually validating,");
-      ln("  always use fhir-invariants.sch (because of the way containment works)");
-      ln("  Alternatively you can use this file to build a smaller version of");
-      ln("  fhir-invariants.sch (the contents are identical; only include those ");
-      ln("  resources relevant to your implementation).");
-      ln("-->");
-    }
+    addNote();
 
     for (Section s : sections) {
       ln_i("<sch:pattern>");
       ln("<sch:title>"+s.title+"</sch:title>");
       for (Rule r : s.rules) {
-        ln_i("<sch:rule context=\""+r.name+"\">");
-        for (Assert a : r.asserts) 
-          ln("<sch:assert test=\""+Utilities.escapeXml(a.test)+"\">"+Utilities.escapeXml(a.message)+"</sch:assert>");
-        ln_o("</sch:rule>");
+        if (!r.asserts.isEmpty()) {
+          ln_i("<sch:rule context=\""+r.name+"\">");
+          for (Assert a : r.asserts) 
+            ln("<sch:assert test=\""+Utilities.escapeXml(a.test)+"\">"+Utilities.escapeXml(a.message)+"</sch:assert>");
+          ln_o("</sch:rule>");
+        }
       }
       ln_o("</sch:pattern>");
     }  
@@ -98,5 +106,46 @@ public class SchematronWriter  extends TextStreamWriter  {
     flush();
     close();
   }
-  
+
+  private void addNote() throws IOException {
+    switch (type) {
+    case ALL_RESOURCES : addAllResourcesNote(); break;
+    case RESOURCE : addResourceNote(); break;
+    case PROFILE : addProfileNote(); break;
+    }
+  }
+
+  private void addAllResourcesNote() throws IOException {
+    ln("<!-- ");
+    ln("  This file contains constraints for all resources");
+    ln("  Because of the way containment works, this file should always )");
+    ln("  be used for validating resources. Alternatively you can use ");
+    ln("  the resource specific files to build a smaller version of");
+    ln("  this file (the contents are identical; only include those ");
+    ln("  resources relevant to your implementation).");
+    ln("-->");
+  }
+
+  private void addResourceNote() throws IOException {
+    ln("<!-- ");
+    ln("  This file contains just the constraints for the resource "+description);
+    ln("  It is provided for documentation purposes. When actually validating,");
+    ln("  always use fhir-invariants.sch (because of the way containment works)");
+    ln("  Alternatively you can use this file to build a smaller version of");
+    ln("  fhir-invariants.sch (the contents are identical; only include those ");
+    ln("  resources relevant to your implementation).");
+    ln("-->");
+  }
+
+  private void addProfileNote() throws IOException {
+    ln("<!-- ");
+    ln("  This file contains just the constraints for the profile "+description);
+    ln("  It includes the base constraints for the resource as well.");
+    ln("  Because of the way that schematrons and containment work, ");
+    ln("  you may need to use this schematron fragment to build a, ");
+    ln("  single schematron that validates contained resources (if you have any) ");
+    ln("-->");
+    
+  }
+
 }

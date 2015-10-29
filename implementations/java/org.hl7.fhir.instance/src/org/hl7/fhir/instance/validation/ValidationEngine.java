@@ -181,9 +181,9 @@ public class ValidationEngine {
     SAXSource saxSource = new SAXSource(locationAnnotator, inputSource);
     nullTransformer.transform(saxSource, domResult);
 
-		if (cache == null)
-		  cache = new ValueSetExpansionCache(context, null);
-		InstanceValidator validator = new InstanceValidator(context, cache);
+		if (cache != null)
+		  context.setCache(cache);
+		InstanceValidator validator = new InstanceValidator(context);
 		validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
 		validator.getExtensionDomains().addAll(extensionDomains);
 
@@ -219,7 +219,7 @@ public class ValidationEngine {
 
 		if (cache == null)
 		  cache = new ValueSetExpansionCache(context, null);
-		InstanceValidator validator = new InstanceValidator(context, cache);
+		InstanceValidator validator = new InstanceValidator(context);
 		validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
 		validator.getExtensionDomains().addAll(extensionDomains);
 

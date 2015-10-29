@@ -600,8 +600,8 @@ public class ProfileComparer {
           ValueSetExpansionOutcome le;
           ValueSetExpansionOutcome re;
           try {
-            le = context.expandVS(lvs);
-            re = context.expandVS(rvs);
+            le = context.expandVS(lvs, true);
+            re = context.expandVS(rvs, true);
             if (!closed(le.getValueset()) || !closed(re.getValueset())) 
               throw new Exception("unclosed value sets are not handled yet");
             cvs = intersectByExpansion(lvs, rvs);

@@ -1933,7 +1933,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (vs.hasCompose()) {
         if (vs.getCompose().hasExclude()) {
           try {
-            ValueSetExpansionOutcome vse = context.expandVS(vs);
+            ValueSetExpansionOutcome vse = context.expandVS(vs, true);
             count = 0;
             count += conceptCount(vse.getValueset().getExpansion().getContains());
             return count;

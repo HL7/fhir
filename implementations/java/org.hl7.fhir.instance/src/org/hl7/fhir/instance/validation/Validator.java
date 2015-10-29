@@ -61,7 +61,7 @@ public class Validator {
       System.out.println("Usage: org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-profile [profile]) (-output [output]) (-tsserver [server])  (-noxslt) where: ");
       System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
       System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from inside the jar file");
-      System.out.println("* [server] is the url of a FHIR terminology service. Default is http://fhir-dev.healthintersections.com.au/open");
+      System.out.println("* [txserver] is the url of a FHIR terminology service. Default is http://fhir-dev.healthintersections.com.au/open");
       System.out.println("* [profile] is an optional filename or URL for a specific profile to validate a resource");
       System.out.println("    against. In the absence of this parameter, the resource will be checked against the ");
       System.out.println("    base specification using the definitions.");
@@ -94,7 +94,7 @@ public class Validator {
             output = args[i+1];
           if (args[i].equals("-profile"))
             exe.setProfile(args[i+1]);
-          if (args[i].equals("-tsserver"))
+          if (args[i].equals("-txserver"))
             exe.setTsServer(args[i+1]);
           if (args[i].equals("-noxslt"))
           	exe.engine.setNoSchematron(true);
@@ -124,12 +124,12 @@ public class Validator {
   }
 
 
-	private String tsServer;
+	private String txServer;
 
 
 
-  private void setTsServer(String tsServer) {
-	  this.tsServer = tsServer;
+  private void setTsServer(String txServer) {
+	  this.txServer = txServer;
 	}
 
 
@@ -167,7 +167,7 @@ public class Validator {
 
   public void process() throws Exception {
     engine.readDefinitions(definitions);
-    engine.connectToTSServer(tsServer == null ? "http://fhir-dev.healthintersections.com.au/open" : tsServer);
+    engine.connectToTSServer(txServer == null ? "http://fhir-dev.healthintersections.com.au/open" : txServer);
     engine.loadProfile(profile);
     engine.setSource(loadSource());
     engine.process();
