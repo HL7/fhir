@@ -75,6 +75,7 @@
   Context = Observation.effective[x]
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -82,6 +83,7 @@
   Context = Observation.code
   English = Must have a LOINC or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
  -- Row 3 -----------------------------------
@@ -89,6 +91,7 @@
   Context = Observation.valueCodeableConcept
   English = Must have a SNOMED CT code or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
  -- Row 4 -----------------------------------
@@ -96,6 +99,7 @@
   Context = Observation.issued
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
 === Sheet USLab-ObsCode =====================================
@@ -450,6 +454,7 @@
   Context = Observation.effective[x]
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -457,6 +462,7 @@
   Context = Observation.code
   English = Must have a LOINC or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
  -- Row 3 -----------------------------------
@@ -464,6 +470,7 @@
   Context = Observation.issued
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
 === Sheet USLab-ObsQuantity =====================================
@@ -881,6 +888,7 @@
   Context = Observation.effective[x]
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -888,6 +896,7 @@
   Context = Observation.code
   English = Must have a LOINC or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
  -- Row 3 -----------------------------------
@@ -895,6 +904,7 @@
   Context = Observation.issued
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
 === Sheet USLab-ObsOther =====================================
@@ -1180,6 +1190,7 @@
   Context = Observation.effective[x]
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -1187,6 +1198,7 @@
   Context = Observation.code
   English = Must have a LOINC or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
  -- Row 3 -----------------------------------
@@ -1194,6 +1206,7 @@
   Context = Observation.issued
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
 === Sheet USLab-ObsRange =====================================
@@ -1649,6 +1662,7 @@
   Context = Observation.effective[x]
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -1656,6 +1670,7 @@
   Context = Observation.code
   English = Must have a LOINC or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
  -- Row 3 -----------------------------------
@@ -1663,6 +1678,7 @@
   Context = Observation.issued
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
 === Sheet USLab-ObsRatio =====================================
@@ -2059,6 +2075,7 @@
   Context = Observation.effective[x]
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -2066,6 +2083,7 @@
   Context = Observation.code
   English = Must have a LOINC or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
  -- Row 3 -----------------------------------
@@ -2073,6 +2091,7 @@
   Context = Observation.issued
   English = Datetime must be at least to day.
   XPath = f:matches(./\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value.length >= 8
   Severity = error
 
 === Sheet USLab-ObsPanel =====================================

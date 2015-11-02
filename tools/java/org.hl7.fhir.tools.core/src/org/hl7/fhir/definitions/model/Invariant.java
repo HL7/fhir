@@ -38,6 +38,7 @@ public class Invariant {
   private String severity;
   private String turtle;
   private String requirements;
+  private String expression;
   
   public String getId()
   {
@@ -112,6 +113,14 @@ public class Invariant {
 
   public void setTurtle(String turtle) {
     this.turtle = turtle;
+  }
+
+  public String getExpression() {
+    return expression;
+  }
+
+  public void setExpression(String value) {
+    this.expression = value;
   }
 
   

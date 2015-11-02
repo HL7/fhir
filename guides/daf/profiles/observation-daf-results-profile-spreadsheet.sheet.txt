@@ -59,6 +59,7 @@
   Context = http://hl7.org/fhir/StructureDefinition/uslab-specimenrejectreason
   English = Must have a code or text or both.
   XPath = (exists(f:coding) or exists(f:text))
+  FHIRPath = code or text
   Severity = error
 
 === Sheet DAF-ResultObs-Inv =====================================
@@ -68,6 +69,7 @@
   Context = Observation.effective[x]
   English = Datetime must be at least to day.
   XPath = f:matches(effectiveDateTime,/\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value:length >= 8
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -75,6 +77,7 @@
   Context = Observation.code
   English = Must have a LOINC or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
  -- Row 3 -----------------------------------
@@ -82,6 +85,7 @@
   Context = Observation.valueCodeableConcept
   English = Must have a SNOMED-CT code or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
 === Sheet DAF-ResultObs =====================================

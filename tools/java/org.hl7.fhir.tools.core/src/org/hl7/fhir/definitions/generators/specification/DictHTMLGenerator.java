@@ -514,7 +514,10 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	      done.add(inv.getId());
 	      if (b)
 	        s.append("<br/>");
-	      s.append("<b title=\"Formal Invariant Identifier\">"+i+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
+	      if (inv.getExpression().equals("n/a"))
+	        s.append("<b title=\"Formal Invariant Identifier\">"+i+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
+	      else
+	        s.append("<b title=\"Formal Invariant Identifier\">"+i+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (expression: "+Utilities.escapeXml(inv.getExpression())+", xpath: "+Utilities.escapeXml(inv.getXpath())+")");
 	      b = true;
 	    }
 	  }
@@ -527,7 +530,10 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         if (!done.contains(id.getId())) {
           if (b)
             s.append("<br/>");
-          s.append("<b>"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (xpath: "+Utilities.escapeXml(id.getXpath())+")");
+          if (id.getExpression().equals("n/a"))
+            s.append("<b title=\"Formal Invariant Identifier\">"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (xpath: "+Utilities.escapeXml(id.getXpath())+")");
+          else
+            s.append("<b title=\"Formal Invariant Identifier\">"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (expression: "+Utilities.escapeXml(id.getExpression())+", xpath: "+Utilities.escapeXml(id.getXpath())+")");
           b = true;
         }
       }

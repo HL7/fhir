@@ -289,6 +289,9 @@ public class SpreadsheetParser {
           }
 		      else if (inv.getXpath().contains("\""))
 		        throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character");
+          if (Utilities.noString(inv.getExpression())) {
+            throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no Expression statement (in FHIRPath format)");
+          }
 		    }
 		  }
 		}
@@ -674,6 +677,7 @@ public class SpreadsheetParser {
     tabfmt.column("Context");
     tabfmt.column("English");
     tabfmt.column("XPath");
+    tabfmt.column("FHIRPath");
     tabfmt.column("Severity");
     tabfmt.column("RDF");
 
@@ -686,7 +690,8 @@ public class SpreadsheetParser {
 			tabfmt.cell(sheet.getColumn(row, "Requirements"));
 			tabfmt.cell(sheet.getColumn(row, "Context"));
 			tabfmt.cell(sheet.getColumn(row, "English"));
-			tabfmt.cell(sheet.getColumn(row, "XPath"));
+      tabfmt.cell(sheet.getColumn(row, "XPath"));
+      tabfmt.cell(sheet.getColumn(row, "Expression"));
 			tabfmt.cell(sheet.getColumn(row, "Severity"));
 			tabfmt.cell(sheet.getColumn(row, "RDF"));
 
@@ -696,7 +701,9 @@ public class SpreadsheetParser {
 			  inv.setRequirements(sheet.getColumn(row, "Requirements"));
 			  inv.setContext(sheet.getColumn(row, "Context"));
 			  inv.setEnglish(sheet.getColumn(row, "English"));
-			  inv.setXpath(sheet.getColumn(row, "XPath"));
+        inv.setXpath(sheet.getColumn(row, "XPath"));
+        inv.setExpression(sheet.getColumn(row, "Expression"));
+			  
 			  inv.setSeverity(sheet.getColumn(row, "Severity"));
         inv.setTurtle(sheet.getColumn(row, "RDF"));
 
@@ -1412,6 +1419,8 @@ public class SpreadsheetParser {
           }
 			    else if (inv.getXpath().contains("\""))
 	          throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character");
+//          if (Utilities.noString(inv.getExpression())) 
+//            throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no Expression statement (in FHIRPath format)");
 			  }
 			}
 		}
@@ -2329,6 +2338,8 @@ public class SpreadsheetParser {
           }
           else if (inv.getXpath().contains("\""))
             throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character");
+//          if (Utilities.noString(inv.getExpression())) 
+//            throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no Expression statement (in FHIRPath format)");
         }
       }
     }

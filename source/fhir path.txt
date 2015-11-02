@@ -11,6 +11,16 @@ types. When the expression begins evaluating, there is a collection
 on one element in focus. 
 
 --------------------
+0. Usage
+
+FHIR Path is used in 3 places within the specification
+- search parameter paths - used to define what contents the parameter refers to 
+- slicing discriminator - used to indicate what elements define uniqueness
+- invariants in ElementDefinition, used to apply co-occurance and other rules to the contents 
+
+implementations may find other uses for this as well
+
+--------------------
 1. Path selection
 
 The first fundamental operation is to select a set of elements 
@@ -128,12 +138,29 @@ converts a string to an integer (empty collection if it's not a proper integer)
 
 filters the list to only include elements with a string value that starst with the specified content
 
+:length
+
+returns the length of characters used to represent the value (primitive types only) (does not include syntactical escapes). returns the longest item in the collection
+
+:matches(regex)
+
+returns a boolean for whether all the items in the collection match the given regex
+
 :distinct(path,path)
 
 returns true of all the elements in the list are distinct when using the relative paths (simple
 paths only). If the elements in the list are primitives, this can be used with no paths (e.g. :distinct()
+Note: distinct may only be used in invariants and does not need to be implemented for other uses
 
-  
+-----------------------------------
+5. Fixed constants
+
+%sct - url for snomed ct
+%loinc - url for loinc
+%ucum - url for ucum
+%us-zip - regex [0-9]{5}(-[0-9]{4}){0,1}
+%vs-[name] - full url for the provided [name]
+%ext-[name]  
   
   
   

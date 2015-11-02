@@ -10,18 +10,19 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-09-05T16:09:02Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11100</WindowHeight>
-  <WindowWidth>20730</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>913</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>13</ActiveSheet>
+  <FirstVisibleSheet>5</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4143,7 +4144,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -21840,9 +21840,9 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -21860,7 +21860,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -21870,7 +21871,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">coding</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">exists(f:coding)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -21879,7 +21880,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.valueCodeableConcept</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Must have a SNOMED CT code or a Local code or both.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">coding</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">exists(f:coding)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -21888,7 +21889,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Datetime must be at least to day.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">value.length &gt;= 8</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -22320,7 +22321,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -22363,9 +22365,9 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -22383,7 +22385,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -22393,7 +22396,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">coding</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">exists(f:coding)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -22402,7 +22405,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Datetime must be at least to day.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -22852,8 +22855,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -22896,9 +22899,9 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -22916,7 +22919,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -22926,7 +22930,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">coding</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">exists(f:coding)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -22935,7 +22939,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Datetime must be at least to day.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -23385,8 +23389,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -23429,9 +23433,9 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -23449,7 +23453,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -23459,7 +23464,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">coding</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">exists(f:coding)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -23468,7 +23473,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Datetime must be at least to day.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">value.length &gt;= 8</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -23918,8 +23923,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2C1:R4C7</RangeSelection>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -23953,9 +23958,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">English</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">XPath 2 expression.  See wiki or make Lloyd do it :&gt;</Font>       </ss:Data></Comment></Cell>
@@ -23966,7 +23971,7 @@
     <Cell ss:StyleID="s101"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Observation.effective[x]</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Datetime must be at least to day.</Data></Cell>
-    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -23975,7 +23980,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">coding</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">exists(f:coding)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -23984,7 +23989,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Datetime must be at least to day.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -24418,11 +24423,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -24463,9 +24469,9 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -24483,7 +24489,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Datetime must be at least to day.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -24493,7 +24500,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">coding</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">exists(f:coding)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -24502,7 +24509,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Datetime must be at least to day.</Data></Cell>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">value.length &gt;= 8</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">f:matches(./\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -24952,8 +24959,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

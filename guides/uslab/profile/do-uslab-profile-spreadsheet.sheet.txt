@@ -22,6 +22,7 @@
   Context = DiagnosticOrder.item.code
   English = Must have a LOINC or a Local code or both.
   XPath = exists(f:coding)
+  FHIRPath = coding
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -29,6 +30,7 @@
   Context = DiagnosticOrder.event.dateTime
   English = Datetime must be at least to day.
   XPath = f:matches(dateTime,/\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
+  FHIRPath = value:length >= 8
   Severity = error
 
 === Sheet USLab-DO =====================================

@@ -526,6 +526,8 @@ public class ProfileGenerator {
     inv.setRequirements(pt.getInvariant().getRequirements());
     inv.setSeverity(ConstraintSeverity.ERROR);
     inv.setHuman(pt.getInvariant().getEnglish());
+    if (!"n/a".equals(pt.getInvariant()))
+      ToolingExtensions.addStringExtension(inv, ToolingExtensions.EXT_EXPRESSION, pt.getInvariant().getExpression());
     inv.setXpath(pt.getInvariant().getXpath());
     e.getConstraint().add(inv);
     p.setDifferential(new StructureDefinitionDifferentialComponent());
@@ -1154,6 +1156,8 @@ public class ProfileGenerator {
         con.setSeverity(ConstraintSeverity.fromCode(inv.getSeverity()));
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());
+      if (!"n/a".equals(inv.getExpression()))
+        ToolingExtensions.addStringExtension(con, ToolingExtensions.EXT_EXPRESSION, inv.getExpression());
       ce.getConstraint().add(con);
     }
     // we don't have anything to say about constraints on resources
@@ -1470,6 +1474,8 @@ public class ProfileGenerator {
         con.setSeverity(ConstraintSeverity.fromCode(inv.getSeverity()));
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());
+      if (!"n/a".equals(inv.getExpression()))
+        ToolingExtensions.addStringExtension(con, ToolingExtensions.EXT_EXPRESSION, inv.getExpression());
       dst.getConstraint().add(con);
     }
 
