@@ -57,6 +57,7 @@
   Context = OperationDefinition.parameter
   English = Either a type must be provided, or parts
   XPath = exists(f:type) or exists(f:part)
+  FHIRPath = type or part
   Severity = error
 
 === Sheet Data Elements =====================================

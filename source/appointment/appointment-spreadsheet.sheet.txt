@@ -141,18 +141,21 @@
   Context = Appointment.participant
   English = Either the type or actor on the participant MUST be specified
   XPath = (exists(f:type) or exists(f:actor))
+  FHIRPath = type or actor
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Appointment
   English = Either start and end are specified, or neither
   XPath = ((exists(f:start) and exists(f:end)) or (not(exists(f:start)) and not(exists(f:end))))
+  FHIRPath = start:empty xor end
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = Appointment
   English = Only proposed or cancelled appointments can be missing start/end dates
   XPath = ((exists(f:start) and exists(f:end)) or (f:status/@value=\'proposed\') or (f:status/@value=\'cancelled\'))
+  FHIRPath = (start and end) or status = \'proposed\' or status = \'cancelled\'
 
 === Sheet Data Elements =====================================
 

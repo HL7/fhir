@@ -10,14 +10,14 @@
   <LastAuthor>Richard J. Ettema (AEGIS.net)</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-08-31T16:43:24Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>12975</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>673</TabRatio>
@@ -5660,9 +5660,9 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">XPath</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -5676,7 +5676,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Setup action SHALL contain either an operation or assert but not both.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">operation:empty xor assert</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">(f:operation or f:assert) and not(f:operation and f:assert)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5686,7 +5686,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Test action SHALL contain either an operation or assert but not both.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">operation:empty xor assert</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">(f:operation or f:assert) and not(f:operation and f:assert)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5696,7 +5696,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.teardown.action</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Teardown action SHALL contain an operation.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">f:operation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5706,7 +5706,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.variable</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Variable cannot contain both headerField and path.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">headerField:empty or path:empty</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">not(f:headerField and f:path)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5716,7 +5716,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.metadata</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript metadata capability SHALL contain required or validated or both.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">capability.required or capability.validated</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">f:capability/f:required or f:capability/f:validated or (f:capability/f:required and f:capability/f:validated)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5726,7 +5726,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.metadata</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Setup metadata capability SHALL contain required or validated or both.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">capability.required or capability.validated</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">f:capability/f:required or f:capability/f:validated or (f:capability/f:required and f:capability/f:validated)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5736,7 +5736,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.metadata</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Test metadata capability SHALL contain required or validated or both.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">capability.required or capability.validated</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">f:capability/f:required or f:capability/f:validated or (f:capability/f:required and f:capability/f:validated)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5746,7 +5746,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action.assert</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Only a single assertion SHALL be present within setup action assert element.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">contentType:count + headerField:count + minimumId:count + navigationLinks:count + path:count + resource:count + responseCode:count + response:count + validateProfileId:count &lt;=1</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">count(f:contentType) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:validateProfileId)  &lt;=1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5756,7 +5756,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action.assert</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Only a single assertion SHALL be present within test action assert element.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">contentType:count + headerField:count + minimumId:count + navigationLinks:count + path:count + resource:count + responseCode:count + response:count + validateProfileId:count &lt;=1</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">count(f:contentType) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:validateProfileId)  &lt;=1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5766,7 +5766,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action.operation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Setup operation SHALL contain either sourceId or targetId or params or url.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">sourceId or (targetId:count + url:count + params:count = 1) or (type.code in ('conformance', 'search', 'transaction' , 'history'))</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">f:sourceId or ((f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1)) or (f:type/f:code/@value='conformance' or f:type/f:code/@value='search' or f:type/f:code/@value='transaction' or f:type/f:code/@value='history')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5776,7 +5776,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action.operation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Test operation SHALL contain either sourceId or targetId or params or url.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">sourceId or (targetId:count + url:count + params:count = 1) or (type.code in ('conformance', 'search', 'transaction' , 'history'))</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">f:sourceId or (f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value='conformance' or f:type/f:code/@value='search' or f:type/f:code/@value='transaction' or f:type/f:code/@value='history')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5786,7 +5786,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.teardown.action.operation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Teardown operation SHALL contain either sourceId or targetId or params or url.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">sourceId or (targetId:count + url:count + params:count = 1) or (type.code in ('conformance', 'search', 'transaction' , 'history'))</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">f:sourceId or (f:targetId or f:url or (f:params and f:resource)) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value='conformance' or f:type/f:code/@value='search' or f:type/f:code/@value='transaction' or f:type/f:code/@value='history')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5796,7 +5796,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action.assert</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Setup action assert shall contain both compareToSourceId and compareToSourcePath or neither.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId:empty xor compareToSourcePath</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">(f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourcePath)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5806,7 +5806,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action.assert</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Test action assert shall contain both compareToSourceId and compareToSourcePath or neither.</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId:empty xor compareToSourcePath</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">(f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourcePath)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5978,7 +5978,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

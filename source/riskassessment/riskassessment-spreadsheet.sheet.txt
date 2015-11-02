@@ -25,12 +25,14 @@
   Context = RiskAssessment.prediction.probabilityRange
   English = low and high must be percentages, if present
   XPath = (not(f:low) or f:low[f:code/@value=\'%\' and f:system/@value=\'http://unitsofmeasure.org\']) and (not(f:high) or f:high[f:code/@value=\'%\' and f:system/@value=\'http://unitsofmeasure.org\'])
+  FHIRPath = (low:empty or (low.code = \"%\" and low.system = \'http://unitsofmeasure.org\') and (high:empty or (high.code = \"%\" and high.system = \'http://unitsofmeasure.org\')
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = RiskAssessment.prediction.probabilityDecimal
   English = Must be <= 100
   XPath = @value <= 100
+  FHIRPath = value <= 100
 
 === Sheet Data Elements =====================================
 

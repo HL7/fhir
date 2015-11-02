@@ -75,48 +75,56 @@
   Context = StructureDefinition
   English = Element paths must be unique unless the structure is a constraint
   XPath = exists(f:constrainedType) or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))
+  FHIRPath = containedType or snapshot.element:distinct(path)
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = StructureDefinition.mapping
   English = Must have at a name or a uri (or both)
   XPath = exists(f:uri) or exists(f:name)
+  FHIRPath = name or uri
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = StructureDefinition.snapshot
   English = Each element definition in a snapshot must have a formal definition and cardinalities
   XPath = count(f:element) = count(f:element[exists(f:definition) and exists(f:min) and exists(f:max)])
+  FHIRPath = snapshot.element:all(definition and min and max)
 
  -- Row 4 -----------------------------------
   Id = 4
   Context = StructureDefinition
   English = A structure must have a base unless abstract = true
   XPath = (f:abstract/@value =true()) or exists(f:base)
+  FHIRPath = base or abstract = \'true\'
 
  -- Row 5 -----------------------------------
   Id = 5
   Context = StructureDefinition
   English = If the structure defines an extension then the structure must have context information
   XPath = not(f:constrainedType/@value = \'extension\') or (exists(f:context) and exists(f:contextType))
+  FHIRPath = constrainedType != \'Extension\' or (context and contextType)
 
  -- Row 6 -----------------------------------
   Id = 6
   Context = StructureDefinition
   English = A structure must have either a differential, or a snapshot (or both)
   XPath = exists(f:snapshot) or exists(f:differential)
+  FHIRPath = snapshot or differential
 
  -- Row 7 -----------------------------------
   Id = 7
   Context = StructureDefinition
   English = If the structure describes a base Resource or Type, the URL has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the id
   XPath = exists(f:constrainedType) or f:url/@value=concat(\'http://hl7.org/fhir/StructureDefinition/\', f:id/@value)
+  FHIRPath = constrainedType or url = \'http://hl7.org/fhir/StuctureDefinition/\'+id
 
  -- Row 8 -----------------------------------
   Id = 8
   Context = StructureDefinition
   English = In any snapshot or differential, all the elements except the first have to have a path that starts with the path of the first + \".\"
   XPath = string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()>1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, \'.\'))) then \'\' else $elementName,\'\')=\'\'
+  FHIRPath = snapshot.element.tail:all(path:starts-with(snapshot.element.first.path+\".\")) and differential.element.tail:all(path:starts-with(differential.element.first.path+\".\"))
 
  -- Row 9 -----------------------------------
   Id = 9
@@ -124,6 +132,7 @@
   Context = StructureDefinition
   English = In any snapshot or differential, no label, code or requirements on the an element without a \".\" in the path (e.g. the first element)
   XPath = not(exists(f:snapshot/f:element[not(contains(f:path/@value, \'.\')) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, \'.\')) and (f:label or f:code or f:requirements)]))
+  FHIRPath = *.element.first.label:empty and *.element.first.code:empty and *.element.first.requirements:empty
 
  -- Row 10 -----------------------------------
   Id = 10
@@ -131,6 +140,7 @@
   Context = StructureDefinition
   English = If the structure is not abstract, or there\'s a constrained type, then there SHALL be a base
   XPath = (f:abstract/@value=true()) or not(exists(f:constrainedType)) or exists(f:base)
+  FHIRPath = base or abstract = \'true\' or constrainedType
 
  -- Row 11 -----------------------------------
   Id = 11
@@ -138,6 +148,7 @@
   Context = StructureDefinition
   English = If there\'s a constrained type, its content must match the path name in the first element of a snapshot
   XPath = not(exists(f:constrainedType)) or not(exists(f:snapshot)) or (f:constrainedType/@value = f:snapshot/f:element[1]/f:path/@value)
+  FHIRPath = constrainedType:empty or snapshot.element.first.path = constrainedType
 
  -- Row 12 -----------------------------------
   Id = 12
@@ -145,6 +156,7 @@
   Context = StructureDefinition
   English = element.base cannot appear if there is no base on the structure definition
   XPath = f:base or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))
+  FHIRPath = snapshot.element.base:empty xor base
 
  -- Row 13 -----------------------------------
   Id = 13
@@ -152,6 +164,7 @@
   Context = StructureDefinition
   English = element.base must appear if there is a base on the structure definition
   XPath = not(f:constrainedType) or not(f:snapshot/f:element[not(f:base)])
+  FHIRPath = snapshot.element.base:empty xor base
 
 === Sheet Data Elements =====================================
 

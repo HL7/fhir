@@ -87,12 +87,14 @@
   Context = List
   English = A list can only have an emptyReason if it is empty
   XPath = not(exists(f:emptyReason) and exists(f:entry))
+  FHIRPath = emptyReason:empty or enty:empty
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = List
   English = The deleted flag can only be used if the mode of the list is \"changes\"
   XPath = (f:mode/@value = \'changes\') or not(exists(f:entry/f:deleted))
+  FHIRPath = mode = \'changes\' or entry:deleted:empty
 
 === Sheet Data Elements =====================================
 

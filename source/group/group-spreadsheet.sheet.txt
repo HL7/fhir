@@ -67,6 +67,7 @@
   Context = Group
   English = Can only have members if group is \"actual\"
   XPath = f:actual/@value=true() or not(exists(f:member))
+  FHIRPath = member:empty or actual
 
 === Sheet Data Elements =====================================
 

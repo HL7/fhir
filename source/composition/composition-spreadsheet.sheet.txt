@@ -135,12 +135,14 @@
   Context = Composition.section
   English = A section must at least one of text, entries, or sub-sections
   XPath = exists(f:text) or exists(f:entry) or exists(f:section)
+  FHIRPath = text or entry or section
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Composition.section
   English = A section can only have an emptyReason if it is empty
   XPath = not(exists(f:emptyReason) and exists(f:entry))
+  FHIRPath = emptyReason:empty or entry:empty
 
 === Sheet Data Elements =====================================
 

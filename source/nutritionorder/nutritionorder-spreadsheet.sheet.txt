@@ -142,6 +142,7 @@
   Context = NutritionOrder
   English = Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula class
   XPath = exists(f:oralDiet) or exists(f:supplement) or exists(f:enteralFormula)
+  FHIRPath = oralDiet or supplement or enteralFormula
   Severity = warning
 
 === Sheet Data Elements =====================================

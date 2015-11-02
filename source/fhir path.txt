@@ -1,0 +1,139 @@
+FHIR Path
+
+FHIRPath is a path based extraction language, somewhat like XPath. It
+is optimised to work best on FHIR resources. Operations are expressed
+in terms of the logical content of the resources, rather than their 
+XML or JSON reprsentation. The expressions can (in theory) be convert
+to XPath or JSON equivalents
+
+All FHIRPath operations result in a collection of Elements of various
+types. When the expression begins evaluating, there is a collection
+on one element in focus. 
+
+--------------------
+1. Path selection
+
+The first fundamental operation is to select a set of elements 
+by their path:
+
+  path.subPath.subPath - select all the elements on the path
+  
+e.g. To select all the phone numbers for a patient
+
+  telecom.value
+
+when the focus is "Patient". Note that the path never includes 
+the context - it is evaluated from the context. 
+
+Special paths:  
+ * - any child
+ ** any descendent
+ name* - recursive uses of the element 
+ path.value[x].subPath - all kinds of value
+ path.valueQuantity.subPath - only values that are quantity
+
+-----------------
+
+2. Criteria
+ 
+Any path section can have a criteria on it:
+
+  path[criteria].path
+  
+e.g.
+  
+  telecom(use = 'home').value
+
+All patient's home telephone numbers
+
+A criteria is set of operations (path op value) and/or/xor (path op value) 
+that are operated with respect to the elements that meet the path. if
+the criteria is true, they are included in the result collection
+
+Special paths:
+  $ = reset path to original root
+  
+operations
+  =, !=\, >, <, >=, <=  - normal use
+  in, 
+
+ 
+-------------------------
+3. Boolean evaluations
+
+Collections can be evaluated as booleans in logical tests in 
+criteria. When a collection is implicited converted to a boolean
+then:
+
+* if it has a single item that is a boolean:
+  - it has the value of the boolean
+* if it is empty
+  - it is false
+* else it is true
+  
+-------------------------
+4. Operations
+
+In addition to selecting subelements, operations
+can be performed on the list. So that there is no 
+ambiguity between operation names, and sub-element 
+names, operations are introduced with : instead of . 
+
+As an example:
+  
+  telecom(use = 'home').value:empty
+
+This returns a collection of a single boolean element
+that contains true if there is no home telephone numbers. 
+
+The following operations are defined:
+
+:empty
+
+true if the collection is empty
+
+:all(criteria)
+
+true if all items in the collection meet the criteria (also true if the 
+collection is empty). The criteria is evaluated for each item in the 
+collection
+
+:any(criteria)
+
+true if any items in the collection meet the criteria (and false if the 
+collection is empty). The criteria is evaluated for each item in the 
+collection
+
+:first
+
+returns a collection containing the first item in the list 
+
+:last
+
+returns a collection containing the last item in the list 
+
+:tail
+
+returns a collection containing all but the last item in the list 
+
+:count
+
+returns a collection with a single value which is the integer count of the collection
+
+:as-integer
+
+converts a string to an integer (empty collection if it's not a proper integer)
+
+:starts-with()
+
+filters the list to only include elements with a string value that starst with the specified content
+
+:distinct(path,path)
+
+returns true of all the elements in the list are distinct when using the relative paths (simple
+paths only). If the elements in the list are primitives, this can be used with no paths (e.g. :distinct()
+
+  
+  
+  
+  

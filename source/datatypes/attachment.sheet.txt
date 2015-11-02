@@ -8,6 +8,7 @@
   Context = Attachment
   English = It the Attachment has data, it SHALL have a contentType
   XPath = not(exists(f:data)) or exists(f:contentType)
+  FHIRPath = data:empty or contentType:notEmpty
 
 === Sheet Data Elements =====================================
 

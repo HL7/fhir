@@ -473,18 +473,21 @@
   Context = AuditEvent.object
   English = Either a name or a query (NOT both)
   XPath = not(exists(f:name)) or not(exists(f:query))
+  FHIRPath = name:empty or query:empty
 
  -- Row 2 -----------------------------------
   Id = !2
   Context = AuditEvent.object
   English = Either an identifier or a reference, (or both)
   XPath = exists(f:identifier) or exists(f:reference)
+  FHIRPath = identifier or reference
 
  -- Row 3 -----------------------------------
   Id = !3
   Context = AuditEvent.participant
   English = Either a userId or a reference, (or both)
   XPath = exists(f:userId) or exists(f:reference)
+  FHIRPath = userId or reference
 
 === Sheet Data Elements =====================================
 

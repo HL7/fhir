@@ -27,18 +27,21 @@
   Context = Organization
   English = The organization SHALL at least have a name or an id, and possibly more than one
   XPath = count(f:identifier | f:name) > 0
+  FHIRPath = identifier or name
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Organization.address
   English = An address of an organization can never be of use \'home\'
   XPath = count(f:use[@value=\'home\']) = 0
+  FHIRPath = address(use = \'home\'):empty
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = Organization.telecom
   English = The telecom of an organization can never be of use \'home\'
   XPath = count(f:use[@value=\'home\']) = 0
+  FHIRPath = telecom(use = \'home\'):empty
 
 === Sheet Data Elements =====================================
 

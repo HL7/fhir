@@ -40,6 +40,7 @@
   Context = Quantity
   English = If a code for the unit is present, the system SHALL also be present
   XPath = not(exists(f:code)) or exists(f:system)
+  FHIRPath = code:empty or system
 
 === Sheet Data Elements =====================================
 

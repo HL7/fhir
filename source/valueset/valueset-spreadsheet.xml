@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4419,9 +4419,9 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">XPath</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -4437,7 +4437,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">A value set composition SHALL have an include or an import</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">include or import</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">exists(f:include) or exists(f:import)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -4448,7 +4449,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A value set with only one import SHALL also have an include and/or an exclude unless the value set includes and inline code system</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">compose.import.count != 1 or compose.include or copose.exclude or codeSystem</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude) or exists(f:codeSystem))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4458,7 +4459,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.codeSystem</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Within a code system definition, all the codes SHALL be unique</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">concept.code*:distinct()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(distinct-values(descendant::f:concept/f:code/@value))=count(descendant::f:concept)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4468,7 +4469,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Value set SHALL contain at least one of a codeSystem, a compose, or an expansion element</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">codeSystem or compose or expansion</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:codeSystem) or exists(f:compose) or exists(f:expansion)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4478,7 +4479,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">SHALL have a code or a display</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">code or display</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:code) or exists(f:display)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4488,7 +4489,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">A defined code system (if present) SHALL have a different url than the value set url</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">codeSystem:empty or (codeSystem.url != url)</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">not(f:codeSystem/f:system/@value = f:url/@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4498,7 +4499,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.codeSystem</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Codes must be unique</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">concept.code*:distinct()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(descendant::f:concept)=count(distinct-values(descendant::f:concept/f:code/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4508,7 +4509,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Must have a code if not abstract</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">code or abstract = 'true'</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">exists(f:code) or (f:abstract/@value = true())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4518,7 +4519,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.expansion.contains</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Must have a system if a code is present</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">code:empty or system</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:system) or not(exists(f:code))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4528,7 +4529,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s83"><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Cannot have both concept and filter</Data></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">concept:empty or filter:empty</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:concept)) or not(exists(f:filter))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4896,6 +4897,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4915,8 +4917,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5921,7 +5923,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

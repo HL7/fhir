@@ -58,6 +58,7 @@
   Context = AppointmentResponse
   English = Either the participantType or actor must be specified
   XPath = (exists(f:participantType) or exists(f:actor))
+  FHIRPath = participantType or actor
 
 === Sheet Data Elements =====================================
 
