@@ -11,7 +11,7 @@ types. When the expression begins evaluating, there is a collection
 on one element in focus. 
 
 --------------------
-0. Usage
+1. Usage
 
 FHIR Path is used in 3 places within the specification
 - search parameter paths - used to define what contents the parameter refers to 
@@ -21,7 +21,7 @@ FHIR Path is used in 3 places within the specification
 implementations may find other uses for this as well
 
 --------------------
-1. Path selection
+2. Path selection
 
 The first fundamental operation is to select a set of elements 
 by their path:
@@ -41,32 +41,6 @@ Special paths:
  name* - recursive uses of the element 
  path.value[x].subPath - all kinds of value
  path.valueQuantity.subPath - only values that are quantity
-
------------------
-
-2. Criteria
- 
-Any path section can have a criteria on it:
-
-  path[criteria].path
-  
-e.g.
-  
-  telecom(use = 'home').value
-
-All patient's home telephone numbers
-
-A criteria is set of operations (path op value) and/or/xor (path op value) 
-that are operated with respect to the elements that meet the path. if
-the criteria is true, they are included in the result collection
-
-Special paths:
-  $ = reset path to original root
-  
-operations
-  =, !=\, >, <, >=, <=  - normal use
-  in, 
-
  
 -------------------------
 3. Boolean evaluations
@@ -82,78 +56,94 @@ then:
 * else it is true
   
 -------------------------
-4. Operations
+4. Functions
 
-In addition to selecting subelements, operations
-can be performed on the list. So that there is no 
-ambiguity between operation names, and sub-element 
-names, operations are introduced with : instead of . 
+In addition to selecting subelements, functions
+can be performed on the list. fucntions are names 
+that are followed by a () with zero or more 
+parameters. 
+
+Note? Special paths:
+  $ = reset path to original root
 
 As an example:
   
-  telecom(use = 'home').value:empty
+  telecom.where(use = 'home').value.empty()
 
 This returns a collection of a single boolean element
 that contains true if there is no home telephone numbers. 
 
 The following operations are defined:
 
-:empty
+.empty()
 
 true if the collection is empty
 
-:all(criteria)
+.where(criteria)
+
+Filter the collection to only those elements that meet the 
+stated criteria expression. Expressions are evaluated with respect 
+to the elements that meet the path. If the criteria is true, 
+they are included in the result collection.
+  
+.all(criteria)
 
 true if all items in the collection meet the criteria (also true if the 
 collection is empty). The criteria is evaluated for each item in the 
 collection
 
-:any(criteria)
+.any(criteria)
 
 true if any items in the collection meet the criteria (and false if the 
 collection is empty). The criteria is evaluated for each item in the 
 collection
 
-:first
+.first()
 
 returns a collection containing the first item in the list 
 
-:last
+.last()
 
 returns a collection containing the last item in the list 
 
-:tail
+.tail()
 
 returns a collection containing all but the last item in the list 
 
-:count
+.count()
 
 returns a collection with a single value which is the integer count of the collection
 
-:as-integer
+.as-integer()
 
 converts a string to an integer (empty collection if it's not a proper integer)
 
-:starts-with()
+.starts-with()
 
 filters the list to only include elements with a string value that starst with the specified content
 
-:length
+.length()
 
 returns the length of characters used to represent the value (primitive types only) (does not include syntactical escapes). returns the longest item in the collection
 
-:matches(regex)
+.matches(regex)
 
 returns a boolean for whether all the items in the collection match the given regex
 
-:distinct(path,path)
+.distinct(path,path)
 
 returns true of all the elements in the list are distinct when using the relative paths (simple
-paths only). If the elements in the list are primitives, this can be used with no paths (e.g. :distinct()
+paths only with no functions). If the elements in the list are primitives, this can be used with no paths (e.g. :distinct()
 Note: distinct may only be used in invariants and does not need to be implemented for other uses
 
 -----------------------------------
-5. Fixed constants
+5. operations
+
+  =, !=\, >, <, >=, <=  - normal use
+  in, 
+
+-----------------------------------
+6. Fixed constants
 
 %sct - url for snomed ct
 %loinc - url for loinc
@@ -161,6 +151,3 @@ Note: distinct may only be used in invariants and does not need to be implemente
 %us-zip - regex [0-9]{5}(-[0-9]{4}){0,1}
 %vs-[name] - full url for the provided [name]
 %ext-[name]  
-  
-  
-  
