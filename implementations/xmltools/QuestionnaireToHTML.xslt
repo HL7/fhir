@@ -342,15 +342,16 @@
               <xsl:text>var questionnaireAnswersId = null;&#x0a;</xsl:text>
               <xsl:text>var questionnaireAnswersVersion = null;&#x0a;</xsl:text>
               <xsl:text>var questionnaireAnswersEndpoint = null;&#x0a;</xsl:text>
-			  <!-- Generated validation scripts replaced with a recursive function -->
+			  <!-- Generated validation and serialization scripts replaced with recursive functions -->
               <!--><xsl:apply-templates mode="validateScript" select="//f:group|//f:question"/>-->
-              <xsl:apply-templates mode="serializeScript" select="//f:group|//f:question"/>
+              <!--><xsl:apply-templates mode="serializeScript" select="//f:group|//f:question"/>-->
               <xsl:text>function validateQuestionnaire() {&#x0a;</xsl:text>
               <xsl:value-of select="concat('  return validate', f:group/f:linkId/@safeValue, '(document.getElementById(&quot;div-cnt&quot;));&#x0a;')"/>
               <xsl:text>}&#x0a;&#x0a;</xsl:text>
               <xsl:text>function populateQuestionnaire() {&#x0a;</xsl:text>
               <xsl:text>  return null;&#x0a;</xsl:text>
               <xsl:text>}&#x0a;&#x0a;</xsl:text>
+			  <!--
               <xsl:text>function serializeQuestionnaire() {&#x0a;</xsl:text>
               <xsl:value-of select="concat('  var rootGroup = serialize', f:group/f:linkId/@safeValue, '(document.getElementById(&quot;div-cnt&quot;));&#x0a;')"/>
               <xsl:text>  if (rootGroup.length == 0)&#x0a;</xsl:text>
@@ -358,7 +359,7 @@
               <xsl:text>  else&#x0a;</xsl:text>
               <xsl:text>    answers.group = rootGroup;&#x0a;</xsl:text>
               <xsl:text>  return answers;&#x0a;</xsl:text>
-              <xsl:text>}&#x0a;&#x0a;</xsl:text>
+              <xsl:text>}&#x0a;&#x0a;</xsl:text>-->
             </xsl:comment>
           </script>
         </xsl:if>
@@ -422,7 +423,7 @@
     <xsl:value-of select="concat('&#x0a;function change_', f:linkId/@safeValue, '() {&#x0a;')"/>
     <xsl:text>&#x0a;    }&#x0a;</xsl:text>
   </xsl:template>
-  <xsl:template mode="serializeScript" match="f:group">
+  <!--><xsl:template mode="serializeScript" match="f:group">
     <xsl:value-of select="concat('&#x0a;function serialize', f:linkId/@safeValue, '(node, groups) {&#x0a;')"/>
     <xsl:value-of select="concat('  var groupNodes = findDiv(node, &quot;', f:linkId/@value, '&quot;);&#x0a;')"/>
     <xsl:text disable-output-escaping="yes">  for (var i=0; i&lt;groupNodes.length;i++) {&#x0a;</xsl:text>
@@ -504,7 +505,7 @@
       <xsl:text>      groups.push(group);&#x0a;</xsl:text>
       <xsl:text>    }&#x0a;</xsl:text>
     </xsl:if>
-<!--    <xsl:choose>
+    <xsl:choose>
       <xsl:when test="f:_minOccurs/@value!=0">
         <xsl:text disable-output-escaping="yes">  if (answerNodes == null || answerNodes.length &lt; </xsl:text>
         <xsl:value-of select="concat(f:_minOccurs/@value, ')&#x0a;')"/>
@@ -519,9 +520,9 @@
         <xsl:text disable-output-escaping="yes">&#x0a;         &amp;&amp; </xsl:text>
       </xsl:if>
       <xsl:value-of select="concat('serialize', f:linkId/@safeValue, '(findDiv(node, &quot;', f:linkId/@value, '&quot;))')"/>
-    </xsl:for-each>-->
+    </xsl:for-each>
     <xsl:text>&#x0a;}&#x0a;&#x0a;</xsl:text>
-  </xsl:template>
+  </xsl:template>-->
   
 <!--
   <xsl:template mode="validateScript" match="f:group">
@@ -682,6 +683,174 @@
       <xsl:text disable-output-escaping="yes">/html-form-delete.png" alt="Remove" style="width:10px;height:10px;"/&gt;'&#x0a;</xsl:text>
     </xsl:otherwise>
   </xsl:choose>
+  
+function serializeResponse() {
+  if (questionnaireAnswers == null) {
+    initializeAnswers();
+  }
+  
+  // Locate root node
+  var groupNodes = findDiv(document.getElementById("div-cnt"), "root");
+  if (groupNodes.length &lt; 1) {
+    alert('Must have at least 1 occurrence of: group');
+    return false;   
+  }
+  
+  // Serialize root node; recursively traverse the DOM tree and serialize
+  // all groups/questions/answers
+  for (var i=0; i &lt; groupNodes.length; i++) {
+    var groupNode = groupNodes[i];
+    var answerTree = serializeNode(groupNode);
+  }
+  return true;
+}
+  
+function serializeNode(node) {
+  // Serialize the current group's metadata
+  var groupLinkId = "group";   
+  var groupTitle = "";
+  var linkIdSpan = $(node).children("span");
+  if (linkIdSpan.length &gt; 0) {
+    groupLinkId = linkIdSpan[0].innerHTML;
+  }
+  // A group's title is (unfortunately) a sibling element of the div element node
+  // we're working with. Solution: grab all "div" and "header" children of the 
+  // parent node, and find the header element (if any) that occurs right before
+  // the div node currently being serialized
+  var groupSiblings = $(node.parentNode).children("div, :header");
+  var tempTitle = "";
+  for (var i=0; i &lt; groupSiblings.length; i++) {
+    if(groupSiblings[i].nodeName != "DIV") {
+	  tempTitle = groupSiblings[i].innerHTML;
+    } else {
+      var temp = $(groupSiblings[i]).children("span");
+      if (temp.length > 0) {
+        var tempLinkId = temp[0].innerHTML;
+	    if(tempLinkId === groupLinkId) {
+		  groupTitle = tempTitle;
+		}
+      }
+	  tempTitle = "";
+    }
+  }
+  
+  // Inialize the group
+  var group = {
+    "linkId":groupLinkId,
+    "title":groupTitle,
+	"question":[],
+	"group":[]
+  }
+  
+  // Serialize questions in this group
+  // Questions are always contained in a table
+  var childTables = $(node).children("table");
+  var questionLinkId;
+  var questionText;
+  var question;
+  
+  for (var i=0; i &lt; childTables.length; i++) {
+    var tableNode = childTables[i];
+    var childNodes = $(tableNode).find("span").filter(function() {
+      return this.style.display == "none";
+    });
+
+	// The span elements for questions are always contained in a table cell, so checking the parent
+	// node of each span element lets us confirm if a span element pertains to a question
+    for (var j=0; j &lt; childNodes.length; j++) {
+      if (childNodes[j].parentNode.nodeName === "TD") {
+	    // childNodes[j] contains the span element corresponding to a question, so grab
+		// question metadata and initialize the question
+        questionLinkId = childNodes[j].innerHTML;
+		questionText = childNodes[j].parentNode.innerHTML;
+		questionText = questionText.substring(questionText.indexOf("/span") + "/span".length + 1).trim();
+		question = {
+		  "linkId":questionLinkId,
+	      "text":questionText,
+	      "answer":[]
+		}
+
+		var answerNodes = findAnswers(node, childNodes[j].innerHTML);
+		for (var k=0; k &lt; answerNodes.length; k++) {
+	      var inputCell = answerCell(node, questionLinkId);
+		  if (inputCell == null) continue;
+		  var inputType = answerType(inputCell);
+		  var answer;
+		  //TODO: Data type choices in this switch block need to be checked
+		  switch(inputType) {
+		    case "radio":
+              answer = {
+                "valueString":answerNodes[i]
+              }
+			  break;
+		    case "checkbox":
+              answer = {
+                "valueString":answerNodes[i]
+              }
+		      break;
+		    case "select":
+              answer = {
+                "valueString":answerNodes[i]
+              }
+		      break;
+		    case "boolean":
+			  answer = {
+			    "valueBoolean":answerNodes[i]
+			  }
+			  break;
+		    case "coding":
+		      answer = {
+		        "valueCoding":answerNodes[i]
+		      }
+		      break;
+		    case "reference":
+              answer = {
+                "valueReference":answerNodes[i]
+              }
+		      break;
+		    case "repeating-text":
+	          answer = {
+	            "valueString":answerNodes[i]
+	          }
+		      break;
+		    case "repeating-textarea":
+	          answer = {
+	            "valueString":answerNodes[i]
+	          }
+		      break;
+		    case "text":
+		      answer = {
+		        "valueString":answerNodes[i]
+		      }
+		      break;
+		    case "textarea":
+	          answer = {
+	            "valueString":answerNodes[i]
+	          }
+		      break;
+		    case "none":
+		      break;
+		  }
+		  question.answer.push(answer);
+		}
+		group.question.push(question);
+	  }
+    }
+  }
+  
+  // Serialize child groups (and their subtrees)
+  var groupNodes = $(node).children("div").filter(function() {
+  	return this.style.display != "none";
+  });
+  var g;
+  for (var i=0; i &lt; groupNodes.length; i++) {
+    var divNode = groupNodes[i];
+    g = serializeNode(divNode);
+	group.group.push(g);
+  }
+  
+  return group;
+}
   
 function validateQuestionnaire() {
   // Locate the root node; throw an error if missing
@@ -923,23 +1092,27 @@ function findAnswers(node, linkId, lookupArray, isNumber) {
   return answers;
 }
 
+function initializeAnswers(){
+  questionnaireAnswers =
+  {
+    "resourceType": "QuestionnaireAnswers",
+    "text": {
+      "status": "generated",
+      "div": null
+    },
+    // "questionnaire": TODO,
+    "status": "draft",
+    // "subject": TODO,
+    // "author": TODO,
+    "authored": "2001-01-01T00:00:00",
+    // "encounter": TODO,
+    "group": null
+  }
+}
+
 function loadAnswers() {
   if (typeof questionnaireAnswers == 'undefined') {
-    questionnaireAnswers =
-    {
-      "resourceType": "QuestionnaireAnswers",
-      "text": {
-        "status": "generated",
-        "div": null
-      },
-      // "questionnaire": TODO,
-      "status": "draft",
-      // "subject": TODO,
-      // "author": TODO,
-      "authored": "2001-01-01T00:00:00",
-      // "encounter": TODO,
-      "group": null
-    }
+    initializeAnswers();
   } else {
     populateQuestionnaire();
   }
@@ -959,6 +1132,7 @@ function padTime(num) {
 
 function saveDraft() {
   //serializeQuestionnaire();
+  serializeResponse();
   questionnaireAnswers.status = "draft"
   questionnaireAnswers.authored = currentTime();
   saveQuestionnaire(questionnaireAnswers);
@@ -967,6 +1141,7 @@ function saveDraft() {
 function saveFinal() {
   if (validateQuestionnaire()) {
     //serializeQuestionnaire();
+	serializeResponse();
     if (questionnaireAnswers.status == "completed")
       questionnaireAnswers.status = "amended"
      else
@@ -979,7 +1154,7 @@ function saveFinal() {
 }
 
 function saveQuestionnaire() {
-	alert(questionnaireAnswers.authored);
+	//TODO
 }
 
 function showError() {
