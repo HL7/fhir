@@ -836,6 +836,8 @@ public class ProfileGenerator {
     
     sp.setType(getSearchParamType(spd.getType()));
     sp.setDescription(spd.getDescription());
+    for (String s : spd.getPaths()) 
+      ToolingExtensions.addStringExtension(sp, ToolingExtensions.EXT_SEARCH_EXPRESSION, s);
     String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
     if (xpath != null) {
       if (xpath.contains("[x]"))

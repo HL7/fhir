@@ -261,6 +261,12 @@
 
 === Sheet Profiles =====================================
 
+ -- Row 1 -----------------------------------
+  Name = SearchParameter.extensions
+  IG Name = core
+  Filename = searchparameter-extensions.xml
+  Type = spreadsheet
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

@@ -1,0 +1,63 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = TemplateStatusCode
+  Binding = code list
+  Reference = #template-status-code
+  Definition = The status indicates the level of maturity of the design and may be used to manage the use of the design
+  Conformance = required
+  Oid = 2.16.840.1.113883.3.1937.98.11.8
+  Status = active
+
+=== Sheet template-status-code =====================================
+
+ -- Row 1 -----------------------------------
+  System = urn:oid:2.16.840.1.113883.3.1937.98.5.8
+  Code = draft
+  Display = Draft
+  Definition = Design is under development (nascent)
+
+ -- Row 2 -----------------------------------
+  System = urn:oid:2.16.840.1.113883.3.1937.98.5.8
+  Code = pending
+  Display = Under pre-publication review
+  Definition = Design is completed and is being reviewed
+
+ -- Row 3 -----------------------------------
+  System = urn:oid:2.16.840.1.113883.3.1937.98.5.8
+  Code = active
+  Display = Active
+  Definition = Design has been deemed fit for the intended purpose and is published by the governance group
+
+ -- Row 4 -----------------------------------
+  System = urn:oid:2.16.840.1.113883.3.1937.98.5.8
+  Code = review
+  Display = In Review
+  Definition = Design is active, but is under review. The review may result in a change to the design. The change may necessitate a new version to be created. This in turn may result in the prior version of the template to be retired. Alternatively, the review may result in a change to the design that does not require a new version to be created, or it may result in no change to the design at all
+
+ -- Row 5 -----------------------------------
+  System = urn:oid:2.16.840.1.113883.3.1937.98.5.8
+  Code = cancelled
+  Display = Cancelled
+  Definition = A drafted design is determined to be erroneous or not fit for intended purpose and is discontinued before ever being published in an active state
+
+ -- Row 6 -----------------------------------
+  System = urn:oid:2.16.840.1.113883.3.1937.98.5.8
+  Code = rejected
+  Display = Rejected
+  Definition = A previously drafted design is determined to be erroneous or not fit for intended purpose and is discontinued before ever being published for consideration in a pending state
+
+ -- Row 7 -----------------------------------
+  System = urn:oid:2.16.840.1.113883.3.1937.98.5.8
+  Code = retired
+  Display = Retired
+  Definition = A previously active design is discontinued from use. It should no longer be used for future designs, but for historical purposes may be used to process data previously recorded using this design. A newer design may or may not exist. The design is published in the retired state
+
+ -- Row 8 -----------------------------------
+  System = urn:oid:2.16.840.1.113883.3.1937.98.5.8
+  Code = terminated
+  Display = Terminated
+  Definition = A design is determined to be erroneous or not fit for the intended purpose and should no longer be used, even for historical purposes. No new designs can be developed for this template. The associated template no longer needs to be published, but if published, is shown in the terminated state
+
+=== Sheet Search =====================================
