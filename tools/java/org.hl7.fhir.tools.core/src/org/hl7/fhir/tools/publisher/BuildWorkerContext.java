@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -31,7 +32,9 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ParserType;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
+import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
@@ -56,6 +59,8 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.terminologies.ValueSetExpanderSimple;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
@@ -71,11 +76,20 @@ import org.hl7.fhir.instance.validation.IResourceValidator;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.stream.JsonWriter;
 
 /*
  *  private static Map<String, StructureDefinition> loadProfiles() throws Exception {
@@ -116,6 +130,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   private boolean serverOk = false;
   private String cache;
   private String tsServer;
+  private String validationCachePath;
   
 
 
@@ -871,7 +886,103 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     cache = path;
     this.tsServer = tsServer;
     expansionCache = new ValueSetExpansionCache(this, null);
+    validationCachePath = Utilities.path(path, "validation.cache");
+    loadValidationCache();
   }
+
+  public void saveCache() throws IOException {
+    saveValidationCache();
+  }
+
+  private void loadValidationCache() throws JsonSyntaxException, Exception {
+    File dir = new File(validationCachePath);
+    String[] files = dir.list();
+    for (String f : files) {
+      String fn = Utilities.path(validationCachePath, f);
+      com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
+      JsonObject json = (JsonObject) parser.parse(TextFile.fileToString(fn));
+      Map<String, ValidationResult> t = new HashMap<String, IWorkerContext.ValidationResult>();
+      for (JsonElement i : json.getAsJsonArray("outcomes")) {
+        JsonObject o = (JsonObject) i;
+        String s = o.get("hash").getAsString();
+        JsonElement j = o.get("message");
+        String m = null;
+        if (!(j instanceof JsonNull))
+          m = o.get("message").getAsString();
+        j = o.get("severity");
+        IssueSeverity sev = null;
+        if (!(j instanceof JsonNull))
+          sev = IssueSeverity.fromCode(j.getAsString());
+        ConceptDefinitionComponent def = null;
+        j = o.get("definition");
+        if (j != null && !(j instanceof JsonNull)) {
+          def = new ConceptDefinitionComponent();
+          def.setAbstract(json.get("abstract").getAsBoolean());
+          def.setCode(json.get("code").getAsString());
+          def.setDefinition(json.get("definition").getAsString());
+          def.setDisplay(json.get("display").getAsString());
+        }
+        t.put(s, new ValidationResult(sev, m, def));
+      }
+      validationCache.put(json.get("url").getAsString(), t);
+    }
+    
+  }
+
+  private void saveValidationCache() throws IOException {
+    File dir = new File(validationCachePath);
+    if (dir.exists())
+      Utilities.clearDirectory(validationCachePath);
+    else
+      dir.mkdir();
+    for (String s : validationCache.keySet()) {
+      String fn = makeFileName(s)+".json";
+      JsonWriter gson = new JsonWriter(new TextStreamWriter(new FileOutputStream(Utilities.path(validationCachePath, fn))));
+      gson.setIndent("  ");;
+      gson.beginObject();
+      gson.name("url");
+      gson.value(s);
+      gson.name("outcomes");
+      gson.beginArray();
+      Map<String, ValidationResult> t = validationCache.get(s);
+      for (String sp : t.keySet()) {
+        ValidationResult vr = t.get(sp);
+        gson.beginObject();
+        gson.name("hash");
+        gson.value(sp);
+        gson.name("severity");
+        if (vr.getSeverity() == null)
+          gson.nullValue();
+        else
+          gson.value(vr.getSeverity().toCode());
+        gson.name("message");
+        gson.value(vr.getMessage());
+        if (vr.asConceptDefinition() != null) {
+          gson.name("definition");
+          gson.beginObject();
+          gson.name("abstract");
+          gson.value(vr.asConceptDefinition().getAbstract());
+          gson.name("code");
+          gson.value(vr.asConceptDefinition().getCode());
+          gson.name("definition");
+          gson.value(vr.asConceptDefinition().getDefinition());
+          gson.name("display");
+          gson.value(vr.asConceptDefinition().getDisplay());
+          gson.endObject();
+        }
+        gson.endObject();
+      }
+      gson.endArray();
+      gson.endObject();
+      gson.close();
+    }
+  }
+
+  private String makeFileName(String s) {
+    return s.replace("http://hl7.org/fhir/ValueSet/", "").replace("http://", "").replace("/", "_");
+  }
+
+
 
 
 }

@@ -1,0 +1,27 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/doc-typecodes",
+  "outcomes": [
+    {
+      "hash": "#|http://loinc.org|null|11488-4|Consult note",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Consult note"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|28655-9|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Physician attending Discharge summary"
+      }
+    }
+  ]
+}

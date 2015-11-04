@@ -1,0 +1,21 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/c80-doc-classcodes",
+  "outcomes": [
+    {
+      "hash": "#|http://loinc.org|null|47039-3|Inpatient Admission history and physical note",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "47039-3",
+        "definition": null,
+        "display": "Inpatient Admission history and physical note"
+      }
+    },
+    {
+      "hash": "#|http://ihe.net/xds/connectathon/classCodes|null|History and Physical|History and Physical",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

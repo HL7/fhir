@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/flag-code",
+  "outcomes": [
+    {
+      "hash": "#|http://example.org/local/if1|null|l3|Follow Level 3 Protocol",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://example.org/local|null|bigdog|Big dog",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    }
+  ]
+}

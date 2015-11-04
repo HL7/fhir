@@ -1,0 +1,60 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|RNEU|Neuroradiology unit",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "RNEU",
+        "definition": null,
+        "display": "Neuroradiology unit"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|SLEEP|Sleep disorders unit",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "SLEEP",
+        "definition": null,
+        "display": "Sleep disorders unit"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PHARM|Pharmacy",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "PHARM",
+        "definition": null,
+        "display": "Pharmacy"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|AMB|Ambulance",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "AMB",
+        "definition": null,
+        "display": "Ambulance"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PTRES|Patient's Residence",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "PTRES",
+        "definition": null,
+        "display": "Patient's Residence"
+      }
+    }
+  ]
+}

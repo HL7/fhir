@@ -1,0 +1,16 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/modified-foodtype",
+  "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|28647000|Meat",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "28647000",
+        "definition": null,
+        "display": "Meat"
+      }
+    }
+  ]
+}

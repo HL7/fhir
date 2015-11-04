@@ -223,7 +223,6 @@ public interface IWorkerContext {
     public String getMessage() {
       return message;
     }
-
   }
 
   /**

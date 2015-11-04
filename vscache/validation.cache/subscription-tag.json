@@ -1,0 +1,10 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/subscription-tag",
+  "outcomes": [
+    {
+      "hash": "|http://example.org/fhir/cs/internal|null|bili-done|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@6e835d17\" in system \"http://example.org/fhir/cs/internal\": null"
+    }
+  ]
+}

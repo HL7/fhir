@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:84222848-6228-4a76-91b5-6fb9f755754f","timestamp":"2015-10-29T12:18:42Z","contains":[{"system":"http://snomed.info/sct","code":"419199007","display":"Allergy to substance (disorder)"}]}}

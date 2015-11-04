@@ -1,0 +1,16 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/food-type",
+  "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|20140730|227493005|Cashew Nut",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Cashew nuts"
+      }
+    }
+  ]
+}

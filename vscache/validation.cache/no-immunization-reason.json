@@ -1,0 +1,16 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/no-immunization-reason",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/v3/ActReason|null|MEDPREC|medical precaution",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MEDPREC",
+        "definition": null,
+        "display": "medical precaution"
+      }
+    }
+  ]
+}

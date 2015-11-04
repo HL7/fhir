@@ -1,0 +1,16 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/immunization-site",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/v3/ActSite|null|LA|left arm",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "LA",
+        "definition": null,
+        "display": "Left arm"
+      }
+    }
+  ]
+}

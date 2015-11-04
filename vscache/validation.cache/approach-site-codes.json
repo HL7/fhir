@@ -1,0 +1,27 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/approach-site-codes",
+  "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|181220002|Entire oral cavity",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Entire oral cavity"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|74262004|Oral cavity",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Oral cavity"
+      }
+    }
+  ]
+}

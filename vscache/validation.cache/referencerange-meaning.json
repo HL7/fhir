@@ -1,0 +1,16 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/referencerange-meaning",
+  "outcomes": [
+    {
+      "hash": "|http://hl7.org/fhir/referencerange-meaning|null|normal|Normal Range",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Normal Range"
+      }
+    }
+  ]
+}

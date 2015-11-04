@@ -5308,6 +5308,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       validateXmlFile(schema, "v3-codesystems", validator, null);
     }
     page.saveSnomed();
+    page.getWorkerContext().saveCache();
 
     logError("Summary: Errors="+Integer.toString(errorCount)+", Warnings="+Integer.toString(warningCount)+", Hints="+Integer.toString(informationCount), LogMessageType.Error);
     if (errorCount > 0)

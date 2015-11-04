@@ -1,0 +1,16 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/v3-ProvenanceEventCurrentState",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/v3/DocumentCompletion|null|AU|authenticated",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "AU",
+        "definition": null,
+        "display": "authenticated"
+      }
+    }
+  ]
+}

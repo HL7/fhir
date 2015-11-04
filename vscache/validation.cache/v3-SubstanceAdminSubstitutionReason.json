@@ -1,0 +1,16 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/v3-SubstanceAdminSubstitutionReason",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir|null|FP|formulary policy",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "FP",
+        "definition": null,
+        "display": "formulary policy"
+      }
+    }
+  ]
+}

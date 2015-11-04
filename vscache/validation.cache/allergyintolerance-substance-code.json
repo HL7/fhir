@@ -1,0 +1,38 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/allergyintolerance-substance-code",
+  "outcomes": [
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|314422|ALLERGENIC EXTRACT, PENICILLIN",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "ALLERGENIC EXTRACT, PENICILLIN"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|227493005|Cashew nuts",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Cashew nuts"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|227037002|Fish - dietary (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fish"
+      }
+    }
+  ]
+}

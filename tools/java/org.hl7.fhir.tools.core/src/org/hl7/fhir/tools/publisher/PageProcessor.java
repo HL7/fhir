@@ -217,8 +217,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private static final String SIDEBAR_SPACER = "<p>&#xA0;</p>\r\n";
-
   private final List<String> suppressedMessages = new ArrayList<String>();
   private Definitions definitions;
   private FolderManager folders;
@@ -7012,7 +7010,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setForPublication(boolean forPublication) {
     this.forPublication = forPublication;
-  }
-  
+  }  
 
 }

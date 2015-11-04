@@ -1,0 +1,10 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/surface",
+  "outcomes": [
+    {
+      "hash": "|http://fdi.org/fhir/oralsurfacecodes|null|L|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@3529bf5c\" in system \"http://fdi.org/fhir/oralsurfacecodes\": null"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/c80-facilitycodes",
+  "outcomes": [
+    {
+      "hash": "#|http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes|null|Outpatient|Outpatient",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

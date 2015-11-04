@@ -1,0 +1,27 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/dicm-402-roleid",
+  "outcomes": [
+    {
+      "hash": "#|http://nema.org/dicom/dicm|null|110152|Destination Role ID",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "110152",
+        "definition": null,
+        "display": "Destination Role ID"
+      }
+    },
+    {
+      "hash": "#|http://nema.org/dicom/dicm|null|110153|Source Role ID",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "110153",
+        "definition": null,
+        "display": "Source Role ID"
+      }
+    }
+  ]
+}

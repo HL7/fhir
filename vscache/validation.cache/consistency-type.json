@@ -1,0 +1,10 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/consistency-type",
+  "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|439021000124105|Dietary liquid consistency - nectar thick liquid",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}
