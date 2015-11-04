@@ -887,7 +887,11 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     this.tsServer = tsServer;
     expansionCache = new ValueSetExpansionCache(this, null);
     validationCachePath = Utilities.path(path, "validation.cache");
-    loadValidationCache();
+    try {
+      loadValidationCache();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   public void saveCache() throws IOException {
