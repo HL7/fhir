@@ -32,6 +32,8 @@ interface
 function GetFhirMessage(id, lang : String):String; overload;
 function GetFhirMessage(id, lang, def : String):String; overload;
 
+procedure LoadMessages;
+
 implementation
 
 {$R FHIRTranslations.res}

@@ -415,6 +415,8 @@ public class SpecificationTerminologyServices {
         // for this, we use the FHIR client
         if (client == null) {
           client = new FHIRToolingClient(tsServer);
+          if (System.getenv().containsKey("http.proxyHost") && System.getenv().containsKey("http.proxyPort") )
+            client.configureProxy(System.getenv().get("http.proxyHost"), Integer.parseInt(System.getenv().get("http.proxyPort")));
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);

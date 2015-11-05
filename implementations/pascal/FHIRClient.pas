@@ -51,7 +51,7 @@ Type
 //    procedure doRequest(request : TFHIRRequest; response : TFHIRResponse);
     procedure cancelOperation;
 
-    function conformance : TFhirConformance;
+    function conformance(summary : boolean) : TFhirConformance;
     function transaction(bundle : TFHIRBundle) : TFHIRBundle;
     function createResource(resource : TFhirResource) : TFHIRResource;
     function readResource(atype : TFhirResourceType; id : String) : TFHIRResource;
@@ -74,13 +74,14 @@ uses
 
 { TFhirClient }
 
-function TFhirClient.conformance: TFhirConformance;
+function TFhirClient.conformance(summary : boolean): TFhirConformance;
 var
   params : TAdvStringMatch;
 begin
   params := TAdvStringMatch.create;
   try
-    params.Add('params', '0');
+    if summary then
+      params.Add('_summary', 'true');
     result := FetchResource(MakeUrl('metadata', params), get, nil) as TFhirConformance;
   finally
     params.Free;

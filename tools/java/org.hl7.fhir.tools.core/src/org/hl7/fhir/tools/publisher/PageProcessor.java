@@ -265,6 +265,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     FHIRToolingClient client;
     try {
       client = new FHIRToolingClient(tsServer);
+      if (System.getenv().containsKey("http.proxyHost") && System.getenv().containsKey("http.proxyPort") )
+        client.configureProxy(System.getenv().get("http.proxyHost"), Integer.parseInt(System.getenv().get("http.proxyPort")));
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
       client = null;
@@ -272,7 +274,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     workerContext = new BuildWorkerContext(definitions, client, codeSystems, valueSets, conceptMaps, profiles);
   }
 
-  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
+  public final static String DEF_TS_SERVER = "http://fhir2.healthintersections.com.au/open";
 //  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960/open";
   
   public final static String WEB_PUB_NAME = "DSTU2";

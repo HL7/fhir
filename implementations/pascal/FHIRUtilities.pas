@@ -31,9 +31,9 @@ POSSIBILITY OF SUCH DAMAGE.
 interface
 
 uses
-  SysUtils, Classes,
+  SysUtils, Classes, Soap.EncdDecd,
   StringSupport, GuidSupport, DateSupport, BytesSupport, OidSupport, EncodeSupport,
-  AdvObjects, AdvStringBuilders, AdvGenerics,
+  AdvObjects, AdvStringBuilders, AdvGenerics, DateAndTime,
 
   IdSoapMime, TextUtilities, ZLib,
 
@@ -82,6 +82,9 @@ function BuildOperationOutcome(lang : String; e : exception) : TFhirOperationOut
 Function BuildOperationOutcome(lang, message : String) : TFhirOperationOutcome; overload;
 
 function getChildMap(profile : TFHIRStructureDefinition; name, path, nameReference : String) : TFHIRElementDefinitionList;
+function CreateResourceByName(name : String) : TFhirResource;
+function CreateTypeByName(name : String) : TFhirElement;
+function CreateBasicChildren(element : TFhirElement) : TFhirElement;
 
 function asUTCMin(value : TFhirInstant) : TDateTime; overload;
 function asUTCMax(value : TFhirInstant) : TDateTime; overload;
@@ -2522,6 +2525,209 @@ begin
   self.code := code;
   self.diagnostics := Diagnostics;
   self.locationList.Add(location);
+end;
+
+function CreateResourceByName(name : String) : TFhirResource;
+var
+  i : integer;
+begin
+  i := StringArrayIndexOfSensitive(CODES_TFhirResourceType, name);
+  if i = -1 then
+    raise Exception.Create('Unknown resource type '+name);
+  result := CLASSES_TFhirResourceType[TFhirResourceType(i)].Create;
+end;
+
+function CreateTypeByName(name : String) : TFhirElement;
+begin
+  if name = 'boolean' then
+    result := TFHIRboolean.create(false)
+  else if name = 'integer' then
+    result := TFHIRinteger.create('1')
+  else if name = 'decimal' then
+    result := TFHIRdecimal.create('1.0')
+  else if name = 'base64Binary' then
+    result := TFHIRbase64Binary.create(AnsiStringAsBytes('test content'))
+  else if name = 'instant' then
+    result := TFHIRinstant.create(NowUTC)
+  else if name = 'string' then
+    result := TFHIRstring.create('string')
+  else if name = 'uri' then
+    result := TFHIRuri.create('http://uri')
+  else if name = 'date' then
+    result := TFHIRdate.create(today)
+  else if name = 'dateTime' then
+    result := TFHIRdateTime.create(NowLocal)
+  else if name = 'time' then
+    result := TFHIRtime.create('00:10:00')
+  else if name = 'code' then
+    result := TFHIRcode.create('code')
+  else if name = 'oid' then
+    result := TFHIRoid.create('urn:oid:0.1.2.3')
+  else if name = 'id' then
+    result := TFHIRid.create('id')
+  else if name = 'unsignedInt' then
+    result := TFHIRunsignedInt.create('0')
+  else if name = 'positiveInt' then
+    result := TFHIRpositiveInt.create('1')
+  else if name = 'markdown' then
+    result := TFHIRmarkdown.create('*markdown*')
+  else if name = 'Annotation' then
+    result := TFHIRAnnotation.create
+  else if name = 'Attachment' then
+    result := TFHIRAttachment.create
+  else if name = 'Identifier' then
+    result := TFHIRIdentifier.create
+  else if name = 'CodeableConcept' then
+    result := TFHIRCodeableConcept.create
+  else if name = 'Coding' then
+    result := TFHIRCoding.create
+  else if name = 'Quantity' then
+    result := TFHIRQuantity.create
+  else if name = 'Range' then
+    result := TFHIRRange.create
+  else if name = 'Period' then
+    result := TFHIRPeriod.create
+  else if name = 'Ratio' then
+    result := TFHIRRatio.create
+  else if name = 'SampledData' then
+    result := TFHIRSampledData.create
+  else if name = 'Signature' then
+    result := TFHIRSignature.create
+  else if name = 'HumanName' then
+    result := TFHIRHumanName.create
+  else if name = 'Address' then
+    result := TFHIRAddress.create
+  else if name = 'ContactPoint' then
+    result := TFHIRContactPoint.create
+  else if name = 'Timing' then
+    result := TFHIRTiming.create
+  else if name = 'Reference' then
+    result := TFHIRReference.create
+  else if name = 'Narrative' then
+    result := TFHIRNarrative.create
+  else if name = 'Meta' then
+    result := TFHIRMeta.create
+  else
+    raise Exception.Create('Unknown type: '+name);
+end;
+
+function CreateBasicChildren(element : TFhirElement) : TFhirElement;
+begin
+  result := element;
+  if element.FhirType = 'Annotation' then
+  begin
+    TFHIRAnnotation(element).author := CreateBasicChildren(TFhirReference.Create) as TFhirReference;
+    TFHIRAnnotation(element).time := NowLocal;
+    TFHIRAnnotation(element).text := 'annotation text';
+  end
+  else if element.FhirType = 'Attachment' then
+  begin
+    TFHIRAttachment(element).contentType := 'text/plain';
+    TFHIRAttachment(element).language := 'en-US';
+    TFHIRAttachment(element).url := 'http://somewhere';
+  end
+  else if element.FhirType = 'Identifier' then
+  begin
+    TFHIRIdentifier(element).use := IdentifierUseUsual;
+    TFHIRIdentifier(element).system := 'http://unique.namepace/details';
+    TFHIRIdentifier(element).value := 'unique-id';
+  end
+  else if element.FhirType = 'CodeableConcept' then
+  begin
+    TFHIRCodeableConcept(element).text := 'text representation';
+    CreateBasicChildren(TFHIRCodeableConcept(element).codingList.Append);
+  end
+  else if element.FhirType = 'Coding' then
+  begin
+    TFHIRCoding(element).system := 'http://system.id';
+    TFHIRCoding(element).code := 'code';
+    TFHIRCoding(element).display := 'display';
+  end
+  else if element.FhirType = 'Quantity' then
+  begin
+    TFHIRQuantity(element).value := '5.4';
+    TFHIRQuantity(element).unit_ := 'mg/mL';
+    TFHIRQuantity(element).system := 'http://unitsofmeasure.org';
+    TFHIRQuantity(element).value := 'mg/mL';
+  end
+  else if element.FhirType = 'Range' then
+  begin
+    TFHIRRange(element).low := CreateBasicChildren(TFHIRQuantity.Create) as TFhirQuantity;
+    TFHIRRange(element).low.value := '4.8';
+    TFHIRRange(element).high := CreateBasicChildren(TFHIRQuantity.Create) as TFhirQuantity;
+  end
+  else if element.FhirType = 'Period' then
+  begin
+    TFHIRPeriod(element).start := NowLocal;
+    TFHIRPeriod(element).end_ := NowLocal;
+  end
+  else if element.FhirType = 'Ratio' then
+  begin
+    TFHIRRatio(element).numerator := TFhirQuantity.Create;
+    TFHIRRatio(element).numerator.value := '5.4';
+    TFHIRRatio(element).numerator.unit_ := '$';
+    TFHIRRatio(element).denominator := TFhirQuantity.Create;
+    TFHIRRatio(element).denominator.value := '1';
+    TFHIRRatio(element).denominator.unit_ := 'kg';
+  end
+  else if element.FhirType = 'Signature' then
+  begin
+    TFHIRSignature(element).type_List.Append;
+    TFHIRSignature(element).type_List[0].system := 'http://hl7.org/fhir/valueset-signature-type';
+    TFHIRSignature(element).type_List[0].code := '1.2.840.10065.1.12.1.1';
+    TFHIRSignature(element).type_List[0].display := 'AuthorID';
+    TFHIRSignature(element).when := NowUTC;
+    TFHIRSignature(element).who := CreateBasicChildren(TFhirReference.Create) as TFhirReference;
+    TFHIRSignature(element).contentType := 'application/signature+xml';
+    TFHIRSignature(element).blob := AnsiStringAsBytes('signature content');
+  end
+  else if element.FhirType = 'HumanName' then
+  begin
+    TFHIRHumanName(element).use := NameUseUsual;
+    TFHIRHumanName(element).text := 'prefix given family';
+    TFHIRHumanName(element).givenList.add('given');
+    TFHIRHumanName(element).familyList.add('family');
+    TFHIRHumanName(element).prefixList.add('prefix');
+  end
+  else if element.FhirType = 'Address' then
+  begin
+    TFHIRAddress(element).use := AddressUseHome;
+    TFHIRAddress(element).text := '13 Boring St, Erewhon, 5555 (New Zealand)';
+    TFHIRAddress(element).lineList.add('13 Boring St');
+    TFHIRAddress(element).city := 'Erewhon';
+    TFHIRAddress(element).postalCode := '5555';
+    TFHIRAddress(element).country := 'New Zealand';
+  end
+  else if element.FhirType = 'ContactPoint' then
+  begin
+    TFHIRContactPoint(element).system := ContactPointSystemPhone;
+    TFHIRContactPoint(element).value := '555-555-5555';
+    TFHIRContactPoint(element).use := ContactPointUseWork;
+  end
+  else if element.FhirType = 'Timing' then
+  begin
+    TFHIRTiming(element).eventList.Append.value := NowLocal;
+    TFHIRTiming(element).repeat_ := TFhirTimingRepeat.create;
+    TFHIRTiming(element).repeat_.duration := '1';
+    TFHIRTiming(element).repeat_.durationUnits := UnitsOfTimeH;
+    TFHIRTiming(element).repeat_.frequency := '3';
+    TFHIRTiming(element).repeat_.period := '21';
+    TFHIRTiming(element).repeat_.periodUnits := UnitsOfTimeD;
+  end
+  else if element.FhirType = 'Reference' then
+  begin
+    TFHIRReference(element).display := 'test description';
+    TFHIRReference(element).reference := 'Type/id';
+  end
+  else if element.FhirType = 'Narrative' then
+  begin
+    TFhirNarrative(element).status := NarrativeStatusAdditional;
+    TFhirNarrative(element).div_ := ParseXhtml('en', '<div xmlns="http://www.w3.org/1999/xhtml"><p>Some xhtml content</p></div>', xppAllow);
+  end
+  else if element.FhirType = 'Meta' then
+  begin
+    TFHIRMeta(element).lastUpdated := NowUTC;
+  end;
 end;
 
 end.

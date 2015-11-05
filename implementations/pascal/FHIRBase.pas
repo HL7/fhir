@@ -53,6 +53,7 @@ Uses
   AdvStringLists,
   DateSupport,
   EncodeSupport,
+  XMLBuilder,
   {$IFDEF UNICODE} EncdDecd, {$ENDIF}
   DecimalSupport;
 
@@ -159,17 +160,19 @@ type
     FName : String;
     FType : String;
     FList : TFHIRObjectList;
+    FClass : TClass;
     function GetHasValue: Boolean;
   Public
-    Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; oObject : TFHIRObject); Overload;
-    Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; oList : TFHIRObjectList); Overload;
-    Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; sValue : String); Overload;
-    Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; Value : TBytes); Overload;
+    Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; cClass : TClass; oObject : TFHIRObject); Overload;
+    Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; cClass : TClass; oList : TFHIRObjectList); Overload;
+    Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; cClass : TClass; sValue : String); Overload;
+    Constructor Create(oOwner : TFHIRObject; Const sName, sType : String; cClass : TClass; Value : TBytes); Overload;
     Destructor Destroy; Override;
 
     Property hasValue : Boolean read GetHasValue;
     Property Name : String read FName;
     Property Type_ : String read FType;
+    Property Class_ : TClass read FClass;
     Property List : TFHIRObjectList read FList;
   End;
 
@@ -216,6 +219,8 @@ type
   private
     FTags : TDictionary<String,String>;
     FTag : TAdvObject;
+    FLocationStart : TSourceLocation;
+    FLocationEnd : TSourceLocation;
     procedure SetTag(const Value: TAdvObject);
     procedure SetTags(name: String; const Value: String);
     function getTags(name: String): String;
@@ -225,12 +230,19 @@ type
   public
     Destructor Destroy; override;
     function createIterator(bInheritedProperties : Boolean) : TFHIRPropertyIterator;
+    function createPropertyList : TFHIRPropertyList;
     procedure ListChildrenByName(name : string; list : TFHIRObjectList);
     procedure setProperty(propName : string; propValue : TFHIRObject); virtual;
     Function PerformQuery(path : String):TFHIRObjectList;
     Property Tags[name : String] : String read getTags write SetTags;
     property Tag : TAdvObject read FTag write SetTag;
+
+    // populated by some parsers when parsing
+    property LocationStart : TSourceLocation read FLocationStart;
+    property LocationEnd : TSourceLocation read FLocationEnd;
   end;
+
+  TFHIRObjectClass = class of TFHIRObject;
 
   TFHIRObjectListEnumerator = class (TAdvObject)
   private
@@ -830,8 +842,8 @@ procedure TFHIRAttribute.ListProperties(oList: TFHIRPropertyList; bInheritedProp
 begin
   if (bInheritedProperties) Then
     inherited;
-  oList.add(TFHIRProperty.create(self, 'name', 'string', FName));
-  oList.add(TFHIRProperty.create(self, 'value', 'string', FValue));
+  oList.add(TFHIRProperty.create(self, 'name', 'string', nil, FName));
+  oList.add(TFHIRProperty.create(self, 'value', 'string', nil, FValue));
 end;
 
 { TFhirXHtmlNode }
@@ -1001,11 +1013,11 @@ procedure TFhirXHtmlNode.ListProperties(oList: TFHIRPropertyList; bInheritedProp
 begin
   if (bInheritedProperties) Then
     inherited;
-  oList.add(TFHIRProperty.create(self, 'type', 'string', CODES_TFHIRHtmlNodeType[FNodeType]));
-  oList.add(TFHIRProperty.create(self, 'name', 'string', FName));
-  oList.add(TFHIRProperty.create(self, 'attribute', 'Attribute', FAttributes.Link));
-  oList.add(TFHIRProperty.create(self, 'childNode', 'Node', FChildNodes.Link));
-  oList.add(TFHIRProperty.create(self, 'content', 'string', FContent));
+  oList.add(TFHIRProperty.create(self, 'type', 'string', nil, CODES_TFHIRHtmlNodeType[FNodeType]));
+  oList.add(TFHIRProperty.create(self, 'name', 'string', nil, FName));
+  oList.add(TFHIRProperty.create(self, 'attribute', 'Attribute', nil, FAttributes.Link));
+  oList.add(TFHIRProperty.create(self, 'childNode', 'Node', nil, FChildNodes.Link));
+  oList.add(TFHIRProperty.create(self, 'content', 'string', nil, FContent));
 end;
 
 function TFhirXHtmlNode.SetAttribute(name, value: String) : TFhirXHtmlNode;
@@ -1037,6 +1049,17 @@ end;
 function TFHIRObject.createIterator(bInheritedProperties: Boolean): TFHIRPropertyIterator;
 begin
   Result := TFHIRPropertyIterator.create(self, bInheritedProperties);
+end;
+
+function TFHIRObject.createPropertyList: TFHIRPropertyList;
+begin
+  result := TFHIRPropertyList.Create;
+  try
+    ListProperties(result, true);
+    result.Link;
+  finally
+    result.Free;
+  end;
 end;
 
 destructor TFHIRObject.destroy;
@@ -1135,7 +1158,7 @@ procedure TFHIRObjectText.ListProperties(oList: TFHIRPropertyList; bInheritedPro
 begin
   if (bInheritedProperties) Then
     inherited;
-  oList.add(TFHIRProperty.create(self, 'value', 'string', FValue));
+  oList.add(TFHIRProperty.create(self, 'value', 'string', nil, FValue));
 end;
 
 { TFHIRQueryProcessor }
@@ -1413,29 +1436,32 @@ end;
 
 { TFHIRProperty }
 
-constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; oObject: TFHIRObject);
+constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; cClass : TClass; oObject: TFHIRObject);
 begin
   Create;
   FName := sName;
   FType := sType;
+  FClass := cClass;
   FList := TFHIRObjectList.Create;
   if (oObject <> nil) then
   FList.Add(oObject);
 end;
 
-constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; oList: TFHIRObjectList);
+constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; cClass : TClass; oList: TFHIRObjectList);
 begin
   Create;
   FName := sName;
   FType := sType;
+  FClass := cClass;
   FList := oList.Link;
 end;
 
-constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; sValue: String);
+constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; cClass : TClass; sValue: String);
 begin
   Create;
   FName := sName;
   FType := sType;
+  FClass := cClass;
   FList := TFHIRObjectList.Create;
   if (sValue <> '') then
   FList.Add(TFhirString.Create(sValue));
@@ -1452,11 +1478,12 @@ begin
   result := (FList <> nil) and (Flist.Count > 0);
 end;
 
-constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; Value: TBytes);
+constructor TFHIRProperty.Create(oOwner: TFHIRObject; const sName, sType: String; cClass : TClass; Value: TBytes);
 begin
   Create;
   FName := sName;
   FType := sType;
+  FClass := cClass;
   FList := TFHIRObjectList.Create;
   if (length(value) > 0) then
     FList.Add(TFhirString.Create(String(EncodeBase64(@value[0], length(value)))));

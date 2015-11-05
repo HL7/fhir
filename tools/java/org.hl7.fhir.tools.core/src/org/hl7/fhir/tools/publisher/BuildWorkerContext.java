@@ -741,6 +741,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         // for this, we use the FHIR client
         if (txServer == null) {
           txServer = new FHIRToolingClient(tsServer);
+          if (System.getenv().containsKey("http.proxyHost") && System.getenv().containsKey("http.proxyPort") )
+            txServer.configureProxy(System.getenv().get("http.proxyHost"), Integer.parseInt(System.getenv().get("http.proxyPort")));
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("code", code);
@@ -771,6 +773,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         // for this, we use the FHIR client
         if (txServer == null) {
           txServer = new FHIRToolingClient(tsServer);
+          if (System.getenv().containsKey("http.proxyHost") && System.getenv().containsKey("http.proxyPort") )
+            txServer.configureProxy(System.getenv().get("http.proxyHost"), Integer.parseInt(System.getenv().get("http.proxyPort")));
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);
@@ -900,6 +904,9 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   private void loadValidationCache() throws JsonSyntaxException, Exception {
     File dir = new File(validationCachePath);
+    if (!dir.exists())
+      return;
+    
     String[] files = dir.list();
     for (String f : files) {
       String fn = Utilities.path(validationCachePath, f);
@@ -919,12 +926,16 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
           sev = IssueSeverity.fromCode(j.getAsString());
         ConceptDefinitionComponent def = null;
         j = o.get("definition");
-        if (j != null && !(j instanceof JsonNull)) {
+        if (j != null && j instanceof JsonObject) {
           def = new ConceptDefinitionComponent();
-          def.setAbstract(json.get("abstract").getAsBoolean());
-          def.setCode(json.get("code").getAsString());
-          def.setDefinition(json.get("definition").getAsString());
-          def.setDisplay(json.get("display").getAsString());
+          o = (JsonObject) j;
+          def.setAbstract(o.get("abstract").getAsBoolean());
+          if (!(o.get("code") instanceof JsonNull))
+            def.setCode(o.get("code").getAsString());
+          if (!(o.get("definition") instanceof JsonNull))
+            def.setDefinition(o.get("definition").getAsString());
+          if (!(o.get("display") instanceof JsonNull))
+            def.setDisplay(o.get("display").getAsString());
         }
         t.put(s, new ValidationResult(sev, m, def));
       }
