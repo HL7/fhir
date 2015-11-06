@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/gao-alternate" />
+  <name value="GAO Alternate" />
+  <status value="draft" />
+  <date value="2015-09-22T20:02:49+10:00" />
+  <description value="The alternate resource provides the results of an evaluation for alternative treatements that may be suggested by the decision support service." />
+  <requirements value="Similar to the result resource, the alternate resource enables the results of an evaluation to be returned.  However, because the alternate is suggested by the decision support service, the constraints on what may appear are slightly different." />
+  <fhirVersion value="1.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/w5" />
+    <name value="W5 Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <constrainedType value="Basic" />
+  <abstract value="false" />
+  <base value="http://hl7.org/fhir/StructureDefinition/Basic" />
+  <differential>
+    <element>
+      <path value="Basic" />
+      <short value="Resource for non-supported content" />
+      <definition value="Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification." />
+      <alias value="Z-resource" />
+      <alias value="Extension-resource" />
+      <alias value="Custom-resource" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Basic" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="rim" />
+        <map value="Act, Entity or Role" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="infrastructure.structure" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

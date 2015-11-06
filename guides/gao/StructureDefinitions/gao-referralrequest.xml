@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/gao-referralrequest" />
+  <name value="GAO Referral Request" />
+  <status value="draft" />
+  <date value="2015-09-22T20:02:49+10:00" />
+  <description value="Profiles the referral to ensure that the services ordered can be identified and evaluated for appropraiteness" />
+  <requirements value="The referral request resource is required to identify the referral service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
+  <fhirVersion value="1.0.1" />
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/w5" />
+    <name value="W5 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <kind value="resource" />
+  <constrainedType value="ReferralRequest" />
+  <abstract value="false" />
+  <base value="http://hl7.org/fhir/StructureDefinition/ReferralRequest" />
+  <differential>
+    <element>
+      <path value="ReferralRequest" />
+      <short value="A request for referral or transfer of care" />
+      <definition value="Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization." />
+      <alias value="ReferralRequest TransferOfCare Request" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="ReferralRequest" />
+      </type>
+      <mapping>
+        <identity value="w5" />
+        <map value="clinical.careprovision" />
+      </mapping>
+    </element>
+    <element>
+      <path value="ReferralRequest.reason" />
+      <short value="Reason for referral / transfer of care request" />
+      <definition value="Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management." />
+      <comments value="The reason for the referral SHALL be provided." />
+      <requirements value="The reason may assist in the evaluation of appropriateness." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isModifier value="false" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="example" />
+        <description value="Codes indicating why the referral is being requested." />
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="RF1-10" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="why" />
+      </mapping>
+    </element>
+    <element>
+      <path value="ReferralRequest.serviceRequested" />
+      <short value="Actions requested as part of the referral" />
+      <definition value="The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion." />
+      <comments value="At least one service requested SHALL be provided." />
+      <requirements value="The service must be described so that it can be evaluated for appropriateness." />
+      <min value="1" />
+      <max value="*" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isModifier value="false" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="example" />
+        <description value="Codes indicating the types of services that might be requested as part of a referral." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/c80-practice-codes" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="PR1-3 / OBR-4" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="what" />
+      </mapping>
+    </element>
+    <element>
+      <path value="ReferralRequest.supportingInformation" />
+      <short value="Additonal information to support referral or transfer of care request" />
+      <definition value="Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan." />
+      <comments value="Some supporting information supporting the order SHALL be provided." />
+      <requirements value="Supporting information is needed to provide the indication for the service." />
+      <min value="1" />
+      <max value="*" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+      </type>
+      <isModifier value="false" />
+      <isSummary value="true" />
+    </element>
+  </differential>
+</StructureDefinition>

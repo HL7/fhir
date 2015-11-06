@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/gao-provenance" />
+  <name value="GAO Provenance" />
+  <status value="draft" />
+  <date value="2015-09-22T20:02:49+10:00" />
+  <description value="The provenance resource is profiled to support expression of the digital signature on a Result or Alternate." />
+  <requirements value="Reports a digital signature on a result or alternate." />
+  <fhirVersion value="1.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <mapping>
+    <identity value="w3c.prov" />
+    <uri value="http://www.w3.org/ns/prov" />
+    <name value="W3C PROV" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/w5" />
+    <name value="W5 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="fhirauditevent" />
+    <uri value="http://hl7.org/fhir/auditevent" />
+    <name value="FHIR AuditEvent" />
+  </mapping>
+  <kind value="resource" />
+  <constrainedType value="Provenance" />
+  <abstract value="false" />
+  <base value="http://hl7.org/fhir/StructureDefinition/Provenance" />
+  <differential>
+    <element>
+      <path value="Provenance" />
+      <short value="Who, What, When for a set of resources" />
+      <definition value="Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies." />
+      <comments value="Some parties may be duplicated between the target resource and its provenance.  For instance, the prescriber is usually (but not always) the author of the prescription resource. This resource is defined with close consideration for W3C Provenance." />
+      <alias value="History" />
+      <alias value="Event" />
+      <alias value="Activity" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Provenance" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="rim" />
+        <map value="ControlAct[isNormalAct() and subsumes(CACT, classCode) and moodCode=EVN]" />
+      </mapping>
+      <mapping>
+        <identity value="w3c.prov" />
+        <map value="Activity" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="infrastructure.information" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

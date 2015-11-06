@@ -1,0 +1,1293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="GAOOrder" />
+  <meta>
+    <lastUpdated value="2015-04-02T14:21:09.718+02:00" />
+  </meta>
+  <url value="#GAOOrder" />
+  <name value="GAOOrder" />
+  <display value="Guideline Appropriate Order" />
+  <publisher value="IHE" />
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="http://hl7.org/fhir" />
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm" />
+    </telecom>
+  </contact>
+  <description value="Base StructureDefinition for Order Resource" />
+  <requirements value="Use of the Order resource enables the GAO profile to be extended to support other kinds of resources beyond diagnostic tests (e.g.,&#xD;&#xA;medications, procedures, referrals, et cetera). The Order resource links the order details to the reason(s), date, patient and&#xD;&#xA;provider placing the order. " />
+  <status value="draft" />
+  <date value="2015-08-05T00:00:00-04:00" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2" />
+  </mapping>
+  <type value="constraint" />
+  <base value="http://hl7.org/fhir/StructureDefinition/Order" />
+  <differential>
+    <element>
+      <path value="Order.identifier" />
+      <short value="Identifiers assigned to this order by the orderer or by the receiver" />
+      <definition value="Identifiers assigned to this order by the orderer or by the receiver." />
+      <comments value="The placer order identifier that will be associated with the order if it is placed." />
+      <requirements value="Shall be provided so that the receiver of the evaluation can verify that the order being placed was the same as an order that was authorized." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value=".id" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.use" />
+      <short value="usual | official | temp | secondary (If known)" />
+      <definition value="The purpose of this identifier." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary." />
+      <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <binding>
+        <name value="IdentifierUse" />
+        <strength value="required" />
+        <description value="Identifies the purpose for this identifier, if known" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/vs/identifier-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.type" />
+      <short value="Description of identifier" />
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
+      <comments value="Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type." />
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <name value="http://hl7.org/fhir/vs/identifier-type" />
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.type.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./codeSystem" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.type.coding.version" />
+      <short value="Version of the system - if relevant" />
+      <definition value="The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged." />
+      <comments value="Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.7" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./codeSystemVersion" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.type.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <defaultValueCode value="PLAC" />
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./code" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.type.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.2 - but note this is not well followed" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="CV.displayName" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.type.coding.primary" />
+      <short value="If this code was chosen directly by the user" />
+      <definition value="Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays)." />
+      <comments value="Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations." />
+      <requirements value="This has been identified as a clinical safety criterium - that this exact code was chosen explicitly, rather than inferred by the system based on some rules or language processing." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="Sometimes implied by being first" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="CD.codingRationale" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.type.text" />
+      <short value="Plain text representation of the concept" />
+      <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user." />
+      <comments value="Very often the text is the same as a displayName of one of the codings." />
+      <requirements value="The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.9. But note many systems use C*E.2 for this" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./originalText[mediaType/code=&quot;text/plain&quot;]/data" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.system" />
+      <short value="The namespace for the identifier" />
+      <definition value="Establishes the namespace in which set of possible id values is unique." />
+      <requirements value="There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <exampleUri value="http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the id itself is a full uri" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / EI-2-4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.root or Role.id.root" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.value" />
+      <short value="The value that is unique" />
+      <definition value="The portion of the identifier typically displayed to the user and which is unique within the context of the system." />
+      <comments value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="123456" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.1 / EI.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.period" />
+      <short value="Time period when id is/was valid for use" />
+      <definition value="Time period during which identifier is/was valid for use." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Period" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.7 + CX.8" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.effectiveTime or implied by context" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StartDate and ./EndDate" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.period.start" />
+      <short value="Starting time with inclusive boundary" />
+      <definition value="The start of the period. The boundary is inclusive." />
+      <comments value="If the low element is missing, the meaning is that the low boundary is not known." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <condition value="per-1" />
+      <mapping>
+        <identity value="v2" />
+        <map value="DR.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./low" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.period.end" />
+      <short value="End time with inclusive boundary, if not ongoing" />
+      <definition value="The end of the period. If the end of the period is missing, it means that the period is ongoing." />
+      <comments value="The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has a end value of 2012-02-03." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <condition value="per-1" />
+      <mapping>
+        <identity value="v2" />
+        <map value="DR.2" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./high" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.assigner" />
+      <short value="Organization that issued id (may be just text)" />
+      <definition value="Organization that issued/manages the identifier." />
+      <comments value="The reference may be just a text description of the assigner." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / (CX.4,CX.9,CX.10)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierIssuingAuthority" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.assigner.reference" />
+      <short value="Relative, internal or absolute URL reference" />
+      <definition value="A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources." />
+      <comments value="Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the url conforms to the structure &quot;/[type]/[id]&quot; then it should be assumed that the reference is to a FHIR RESTful server." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <condition value="ref-1" />
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.identifier.assigner.display" />
+      <short value="Text alternative for the resource" />
+      <definition value="Plain text narrative that identifies the resource in addition to the resource reference." />
+      <comments value="This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.date" />
+      <short value="When the order was made" />
+      <definition value="When the order was made." />
+      <comments value="The date associated with the order. The value shall be precise to the day" />
+      <requirements value="SHALL be provided so that the receiver of the evaluation can verify that the order was produced within a reasonable time period for accepting the evaluation according to local policies, and to enable the Decision Support Service to apply relevant guidelines. " />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="ORC-9" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value=".participation[typeCode=AUT].time" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.subject" />
+      <short value="Patient this order is about" />
+      <definition value="Patient this order is about." />
+      <comments value="The patient for whom the order is being placed." />
+      <requirements value="SHALL be provided so that relevant demographics, such as age and gender can be used to evaluate appropriateness" />
+      <alias value="Patient" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+        <aggregation value="contained" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Substance" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="PID-3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value=".participation[typeCode=SBJ].role[classCode=PAT]" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.source" />
+      <short value="Who initiated the order" />
+      <definition value="Who initiated the order." />
+      <comments value="The identifier of the provider." />
+      <requirements value="SHALL be provided in order for the receiver of the evaluation to verify that the evaluation given is associated with the correct order." />
+      <alias value="Author" />
+      <alias value="Practitioner" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+        <aggregation value="contained" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="ORC-12 / OBR-16 / RXO-14 / RXE-13 / PRT-5 (PRT-4-Participation='OP')" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value=".participation[typeCode=AUT].role" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.source.reference" />
+      <short value="Relative, internal or absolute URL reference" />
+      <definition value="A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources." />
+      <comments value="Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the url conforms to the structure &quot;/[type]/[id]&quot; then it should be assumed that the reference is to a FHIR RESTful server." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <condition value="ref-1" />
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.source.display" />
+      <short value="Text alternative for the resource" />
+      <definition value="Plain text narrative that identifies the resource in addition to the resource reference." />
+      <comments value="This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.target" />
+      <short value="Who is intended to fulfill the order" />
+      <definition value="Who is intended to fulfill the order." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="Unclear: MSH-5 / IPC-7 / BPO-8 / RXO-32 / RXE-40 / RXD-30 / RXG-11 / RXG-27 / PRT-8 (PRT-4-participation in { 'AP', 'DP', 'PO', 'RT' })" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value=".participation[typeCode=PFM].role" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.reason[x]" />
+      <short value="Text - why the order was made" />
+      <definition value="Text - why the order was made." />
+      <comments value="This field contains either a code or a contained resource that gives the reason (a.k.a. indication) for the order. This could include screening, signs or symptoms, diagnoses, diagnostic results, medications or procedures, or other resources. " />
+      <requirements value="This information must be supported and SHALL be provided to enable determination of whether the order is appropriate." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+        <aggregation value="contained" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="ORC-16.2 / OBR-31.2 / BPO-13.2-BP / RXO-20.2 / RXE-27.2 / RXD-21.2 / RXG-22.2 / RXA-19.2" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value=".reasonCode or .outboundRelationship[typeCode=RSON].target" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.authority" />
+      <short value="If required by policy" />
+      <definition value="If required by policy." />
+      <comments value="Reference will be constrained when suitable targets exist." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="if ordering provider, then ORC-12, OBR-16, etc." />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value=".participation[typeCode=RESP].role" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.authority.reference" />
+      <short value="Relative, internal or absolute URL reference" />
+      <definition value="A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources." />
+      <comments value="Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the url conforms to the structure &quot;/[type]/[id]&quot; then it should be assumed that the reference is to a FHIR RESTful server." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <condition value="ref-1" />
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.authority.display" />
+      <short value="Text alternative for the resource" />
+      <definition value="Plain text narrative that identifies the resource in addition to the resource reference." />
+      <comments value="This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when" />
+      <short value="When order should be fulfilled" />
+      <definition value="When order should be fulfilled." />
+      <min value="0" />
+      <max value="1" />
+      <constraint>
+        <key value="ord-1" />
+        <name value="Scheduling Details" />
+        <severity value="error" />
+        <human value="Provide a code or a schedule, but not both" />
+        <xpath value="exists(f:code) != exists(f:schedule)" />
+      </constraint>
+      <mapping>
+        <identity value="v2" />
+        <map value="TQ1, TQ2" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value=".effectiveTime" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.code" />
+      <short value="Code specifies when request should be done. The code may simply be a priority code" />
+      <definition value="Code specifies when request should be done. The code may simply be a priority code." />
+      <comments value="This is usually a local code agreed in the context of the ordering workflow." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <condition value="ord-1" />
+      <binding>
+        <name value="RequestedTime" />
+        <strength value="required" />
+        <description value="When a requested action should be performed  (e.g. STAT, daily, evenings, etc.)" />
+      </binding>
+      <mapping>
+        <identity value="rim" />
+        <map value="GTS is a coded value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.code.coding" />
+      <short value="Code defined by a terminology system" />
+      <definition value="A reference to a code defined by a terminology system." />
+      <comments value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the V3 Core Principles for more information.  Ordering of codings is undefined and SHALL not be used to infer meaning." />
+      <requirements value="Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Coding" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.1-8, C*E.10-22" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="union(., ./translation)" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./codeSystem" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.code.coding.version" />
+      <short value="Version of the system - if relevant" />
+      <definition value="The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged." />
+      <comments value="Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.7" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./codeSystemVersion" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./code" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.2 - but note this is not well followed" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="CV.displayName" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.code.coding.primary" />
+      <short value="If this code was chosen directly by the user" />
+      <definition value="Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays)." />
+      <comments value="Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations." />
+      <requirements value="This has been identified as a clinical safety criterium - that this exact code was chosen explicitly, rather than inferred by the system based on some rules or language processing." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="Sometimes implied by being first" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="CD.codingRationale" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.code.text" />
+      <short value="Plain text representation of the concept" />
+      <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user." />
+      <comments value="Very often the text is the same as a displayName of one of the codings." />
+      <requirements value="The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.9. But note many systems use C*E.2 for this" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./originalText[mediaType/code=&quot;text/plain&quot;]/data" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule" />
+      <short value="A formal schedule" />
+      <definition value="A formal schedule." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Timing" />
+      </type>
+      <condition value="ord-1" />
+      <mapping>
+        <identity value="rim" />
+        <map value="GTS is a complex schedule" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.event" />
+      <short value="When the event occurs" />
+      <definition value="Identifies specific times when the event occurs." />
+      <requirements value="In an MAR, for instance, you need to take a general specification, and turn it into a precise specification." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="QLIST&lt;TS&gt;" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat" />
+      <short value="When the event is to occur" />
+      <definition value="A set of rules that describe when the event should occur." />
+      <requirements value="Many timing schedules are determined by regular repetitions." />
+      <min value="0" />
+      <max value="1" />
+      <constraint>
+        <key value="tim-3" />
+        <name value="no frequency with when" />
+        <severity value="error" />
+        <human value="Either frequency or when can exist, not both" />
+        <xpath value="not(exists(f:frequency)) or not(exists(f:when))" />
+      </constraint>
+      <constraint>
+        <key value="tim-1" />
+        <name value="duration units" />
+        <severity value="error" />
+        <human value="if there's a duration, there needs to be duration units" />
+        <xpath value="not(exists(f:duration)) or exists(f:durationUnits)" />
+      </constraint>
+      <constraint>
+        <key value="tim-2" />
+        <name value="Period units" />
+        <severity value="error" />
+        <human value="if there's a period, there needs to be duration units" />
+        <xpath value="not(exists(f:period)) or exists(f:periodUnits)" />
+      </constraint>
+      <constraint>
+        <key value="tim-6" />
+        <name value="periodMax needs period" />
+        <severity value="error" />
+        <human value="If there's a periodMax, there must be a period" />
+        <xpath value="not(exists(f:periodMax)) or exists(period)" />
+      </constraint>
+      <constraint>
+        <key value="tim-7" />
+        <name value="durationMax needs duration" />
+        <severity value="error" />
+        <human value="If there's a durationMax, there must be a duration" />
+        <xpath value="not(exists(f:durationMax)) or exists(duration)" />
+      </constraint>
+      <mapping>
+        <identity value="rim" />
+        <map value="Implies PIVL or EIVL" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.bounds" />
+      <short value="Start and/or end limits" />
+      <definition value="Outer bounds for start and/or end limits of the timing schedule." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Period" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="IVL(TS) used in a QSI" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.bounds.start" />
+      <short value="Starting time with inclusive boundary" />
+      <definition value="The start of the period. The boundary is inclusive." />
+      <comments value="If the low element is missing, the meaning is that the low boundary is not known." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <condition value="per-1" />
+      <mapping>
+        <identity value="v2" />
+        <map value="DR.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./low" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.bounds.end" />
+      <short value="End time with inclusive boundary, if not ongoing" />
+      <definition value="The end of the period. If the end of the period is missing, it means that the period is ongoing." />
+      <comments value="The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has a end value of 2012-02-03." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <condition value="per-1" />
+      <mapping>
+        <identity value="v2" />
+        <map value="DR.2" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./high" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.count" />
+      <short value="Number of times to repeat" />
+      <definition value="A total count of the desired number of repetitions." />
+      <comments value="If you have both bounds and count, then this should be understand as within the bounds period, until count times happens." />
+      <requirements value="Repetitions may be limited by end time or total occurrences." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="integer" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="PIVL.count" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.duration" />
+      <short value="How long when it happens" />
+      <definition value="How long this thing happens for when it happens." />
+      <comments value="For some events the duration is part of the definition of the event (e.g. IV infusions). For others, it's part of the timing specification (e.g. exercise)." />
+      <requirements value="Some activities are not instantaneous and need to be maintained for a period of time." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="decimal" />
+      </type>
+      <constraint>
+        <key value="tim-4" />
+        <name value="Duration Positive" />
+        <severity value="error" />
+        <human value="duration SHALL be a non-negative value" />
+        <xpath value="@value &gt;= 0 or not(@value)" />
+      </constraint>
+      <mapping>
+        <identity value="rim" />
+        <map value="PIVL.phase / EIVL.offset" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.durationUnits" />
+      <short value="s | min | h | d | wk | mo | a - unit of time (UCUM)" />
+      <definition value="The units of time for the duration, in UCUM units." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <binding>
+        <name value="UnitsOfTime" />
+        <strength value="required" />
+        <description value="A unit of time (units from UCUM)" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/vs/units-of-time" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim" />
+        <map value="PIVL.phase.unit" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.frequency" />
+      <short value="Event occurs frequency times per duration" />
+      <definition value="The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided)." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="integer" />
+      </type>
+      <defaultValueInteger value="1" />
+      <mapping>
+        <identity value="rim" />
+        <map value="PIVL.phase / EIVL.offset" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.frequencyMax" />
+      <short value="Event occurs frequency times per duration" />
+      <definition value="If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="integer" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="PIVL.phase" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.period" />
+      <short value="Event occurs frequency times per period" />
+      <definition value="Indicates the duration of time over which repetitions are to occur.  E.g. to express &quot;3 times per day&quot;, 3 would be the frequency and &quot;1 day&quot; would be the period." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="decimal" />
+      </type>
+      <constraint>
+        <key value="tim-5" />
+        <name value="period positive" />
+        <severity value="error" />
+        <human value="period SHALL be a non-negative value" />
+        <xpath value="@value &gt;= 0 or not(@value)" />
+      </constraint>
+      <mapping>
+        <identity value="rim" />
+        <map value="PIVL.phase" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.periodMax" />
+      <short value="Upper limit of period (3-4 hours)" />
+      <definition value="If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as &quot;do this once every 3-5 days." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="decimal" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="PIVL.phase" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.periodUnits" />
+      <short value="s | min | h | d | wk | mo | a - unit of time (UCUM)" />
+      <definition value="The units of time for the period in UCUM units." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <binding>
+        <name value="UnitsOfTime" />
+        <strength value="required" />
+        <description value="A unit of time (units from UCUM)" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/vs/units-of-time" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim" />
+        <map value="PIVL.phase.unit" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.repeat.when" />
+      <short value="Regular life events the event is tied to" />
+      <definition value="A real world event that the occurrence of the event should be tied to." />
+      <requirements value="Timings are frequently determined by occurrences such as waking, eating and sleep." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <binding>
+        <name value="EventTiming" />
+        <strength value="required" />
+        <description value="Real world event that the schedule relates to" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/vs/event-timing" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim" />
+        <map value="EIVL.event" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.code" />
+      <short value="BID | TID | QID | AM | PM +" />
+      <definition value="A code for the timing pattern. Some codes such as BID are uniquitious, but many instutions define their own additional codes." />
+      <comments value="A repeat should always be defined except for the common codes BID, TID, QID, AM and PM, which all systems are required to understand." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <name value="TimingAbbreviation" />
+        <strength value="preferred" />
+        <description value="Code for a known / defined timing pattern" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/vs/timing-abbreviation" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim" />
+        <map value="QSC.code" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.code.coding" />
+      <short value="Code defined by a terminology system" />
+      <definition value="A reference to a code defined by a terminology system." />
+      <comments value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the V3 Core Principles for more information.  Ordering of codings is undefined and SHALL not be used to infer meaning." />
+      <requirements value="Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Coding" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.1-8, C*E.10-22" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="union(., ./translation)" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.code.coding.system" />
+      <short value="Identity of the terminology system" />
+      <definition value="The identification of the code system that defines the meaning of the symbol in the code." />
+      <comments value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously." />
+      <requirements value="Need to be unambiguous about the source of the definition of the symbol." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./codeSystem" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.code.coding.version" />
+      <short value="Version of the system - if relevant" />
+      <definition value="The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged." />
+      <comments value="Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.7" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./codeSystemVersion" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.code.coding.code" />
+      <short value="Symbol in syntax defined by the system" />
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." />
+      <requirements value="Need to refer to a particular code in the system." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./code" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.code.coding.display" />
+      <short value="Representation defined by the system" />
+      <definition value="A representation of the meaning of the code in the system, following the rules of the system." />
+      <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.2 - but note this is not well followed" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="CV.displayName" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.code.coding.primary" />
+      <short value="If this code was chosen directly by the user" />
+      <definition value="Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays)." />
+      <comments value="Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations." />
+      <requirements value="This has been identified as a clinical safety criterium - that this exact code was chosen explicitly, rather than inferred by the system based on some rules or language processing." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="Sometimes implied by being first" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="CD.codingRationale" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.when.schedule.code.text" />
+      <short value="Plain text representation of the concept" />
+      <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user." />
+      <comments value="Very often the text is the same as a displayName of one of the codings." />
+      <requirements value="The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.9. But note many systems use C*E.2 for this" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./originalText[mediaType/code=&quot;text/plain&quot;]/data" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.detail" />
+      <short value="What action is being ordered" />
+      <definition value="What action is being ordered." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+        <aggregation value="contained" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value=".outboundRelationship[typeCode=SUBJ].target" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.detail.reference" />
+      <short value="Relative, internal or absolute URL reference" />
+      <definition value="A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources." />
+      <comments value="Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the url conforms to the structure &quot;/[type]/[id]&quot; then it should be assumed that the reference is to a FHIR RESTful server." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <condition value="ref-1" />
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Order.detail.display" />
+      <short value="Text alternative for the resource" />
+      <definition value="Plain text narrative that identifies the resource in addition to the resource reference." />
+      <comments value="This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

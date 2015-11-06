@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm-no-warnings">
+    <valueInteger value="3" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/gao-questionnaire" />
+  <name value="GAO Questionnaire" />
+  <status value="draft" />
+  <date value="2015-09-22T20:02:49+10:00" />
+  <description value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order." />
+  <requirements value="This resource enables interactive question/answer implementations driven by the server, but where the user interface can be implemented by the client." />
+  <fhirVersion value="1.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/w5" />
+    <name value="W5 Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <constrainedType value="Questionnaire" />
+  <abstract value="false" />
+  <base value="http://hl7.org/fhir/StructureDefinition/Questionnaire" />
+  <differential>
+    <element>
+      <path value="Questionnaire" />
+      <short value="A structured set of questions" />
+      <definition value="A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions." />
+      <alias value="Form" />
+      <alias value="CRF" />
+      <alias value="Survey" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Questionnaire" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="Observation[moodCode=DEF]" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="infrastructure.information" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Questionnaire.group.linkId" />
+      <short value="To link questionnaire with questionnaire response" />
+      <definition value="An identifier that is unique within the Questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource." />
+      <comments value="May be omitted if there is no expectation to link answers back to a questionnaire.  This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here." />
+      <requirements value="[[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.&#xD;&#xA;&#xD;&#xA;Each group in the Questionnaire resource SHALL have a link so that it can be referenced in a QuestionnaireAnswers resource." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value=".id" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Questionnaire.group.question.linkId" />
+      <short value="To link questionnaire with questionnaire response" />
+      <definition value="An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource." />
+      <comments value="May be omitted if there is no expectation to link answers back to a questionnaire.  This *can* be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here." />
+      <requirements value="[[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.&#xD;&#xA;&#xD;&#xA;Each question in the Questionnaire resource SHALL have a link so that it can be referenced in a QuestionnaireAnswers resource." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value=".id" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Questionnaire.group.question.type" />
+      <short value="boolean | decimal | integer | date | dateTime +" />
+      <definition value="The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected." />
+      <comments value="Additional constraints on the type of answer can be conveyed by extensions." />
+      <requirements value="Defines the format in which the user is to be prompted for the answer.&#xD;&#xA;&#xD;&#xA;Each question SHALL specify the answer type. The answer type SHALL NOT be Attachment or Resource." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="The expected format of an answer." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/gao-answer-format" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A - MIF rather than RIM level" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Questionnaire.group.question.options" />
+      <short value="Valueset containing permitted answers" />
+      <definition value="Reference to a value set containing a list of codes representing permitted answers for the question." />
+      <comments value="LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist)." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-provenance" />
+      </type>
+      <condition value="que-4" />
+      <mapping>
+        <identity value="rim" />
+        <map value="Not supported - MIF/templating layer to capture value set" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

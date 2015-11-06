@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/gao-procedurerequest" />
+  <name value="GAO Procedure Request" />
+  <status value="draft" />
+  <date value="2015-09-22T20:02:49+10:00" />
+  <description value="Profiles the procedure request to ensure that the services ordered can be identified and evaluated for appropraiteness" />
+  <requirements value="The procedure request resource is required to identify the procedures that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
+  <fhirVersion value="1.0.1" />
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/w5" />
+    <name value="W5 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="quick" />
+    <uri value="http://wiki.siframework.org/CQF" />
+    <name value="Quality Improvement and Clinical Knowledge (QUICK)" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <kind value="resource" />
+  <constrainedType value="ProcedureRequest" />
+  <abstract value="false" />
+  <base value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest" />
+  <differential>
+    <element>
+      <path value="ProcedureRequest" />
+      <short value="A request for a procedure to be performed" />
+      <definition value="A request for a procedure to be performed. May be a proposal or an order." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="ProcedureRequest" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="w5" />
+        <map value="clinical.general" />
+      </mapping>
+    </element>
+    <element>
+      <path value="ProcedureRequest.code.coding" />
+      <short value="Code defined by a terminology system" />
+      <definition value="A reference to a code defined by a terminology system." />
+      <comments value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true." />
+      <requirements value="Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.&#xD;&#xA;&#xD;&#xA;The type of procedure to be performed SHALL be provided so that it can be evaluated for appropriateness." />
+      <min value="1" />
+      <max value="*" />
+      <type>
+        <code value="Coding" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.1-8, C*E.10-22" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="union(., ./translation)" />
+      </mapping>
+      <mapping>
+        <identity value="orim" />
+        <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding" />
+      </mapping>
+    </element>
+    <element>
+      <path value="ProcedureRequest.reason[x]" />
+      <short value="Why procedure should occur" />
+      <definition value="The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance." />
+      <requirements value="The indication for the procedure SHALL be provided." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Condition" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="example" />
+        <description value="A code that explains the reason why a procedure is  required." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/procedure-reason" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="quick" />
+        <map value="Action.indication.reason" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

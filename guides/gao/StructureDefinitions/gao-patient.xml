@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/gao-patient" />
+  <name value="GAO Patient" />
+  <status value="draft" />
+  <date value="2015-09-22T20:02:49+10:00" />
+  <description value="The patient resource is required to provide relevant demographics associated with the patient. Other details may be provided according to local implementation requirements. " />
+  <requirements value="Patient gender and age are often necessary to ensure that an order is appropriate." />
+  <fhirVersion value="1.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <mapping>
+    <identity value="cda" />
+    <uri value="http://hl7.org/v3/cda" />
+    <name value="CDA (R2)" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/w5" />
+    <name value="W5 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2" />
+  </mapping>
+  <mapping>
+    <identity value="loinc" />
+    <uri value="http://loinc.org" />
+    <name value="LOINC" />
+  </mapping>
+  <kind value="resource" />
+  <constrainedType value="Patient" />
+  <abstract value="false" />
+  <base value="http://hl7.org/fhir/StructureDefinition/Patient" />
+  <differential>
+    <element>
+      <path value="Patient" />
+      <short value="Information about an individual or animal receiving health care services" />
+      <definition value="Demographics and other administrative information about an individual or animal receiving care or other health-related services." />
+      <alias value="SubjectOfCare Client Resident" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Patient" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="Patient[classCode=PAT]" />
+      </mapping>
+      <mapping>
+        <identity value="cda" />
+        <map value="ClinicalDocument.recordTarget.patientRole" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="administrative.individual" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Patient.gender" />
+      <short value="male | female | other | unknown" />
+      <definition value="Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes." />
+      <comments value="The gender may not match the biological sex as determined by genetics, or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific gender aspect of interest (anatomical, chromosonal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosonal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overrideable error, not a &quot;hard&quot; error." />
+      <requirements value="Needed for identification of the individual, in combination with (at least) name and birth date. Gender of individual drives many clinical processes.&#xD;&#xA;It is required in this profile because it is often necessary to know the patient's gender to determine appropriateness of an order." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="The gender of a person used for administrative purposes." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/administrative-gender" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="PID-8" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender" />
+      </mapping>
+      <mapping>
+        <identity value="cda" />
+        <map value=".patient.administrativeGenderCode" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Patient.birthDate" />
+      <short value="The date of birth for the individual" />
+      <definition value="The date of birth for the individual." />
+      <comments value="At least an estimated year should be provided as a guess if the real DOB is unknown  There is a standard extension &quot;patient-birthTime&quot; available that should be used where Time is required (such as in maternaty/infant care systems)." />
+      <requirements value="Age of the individual drives many clinical processes.&#xD;&#xA;&#xD;&#xA;The date of birth SHALL be provided in the GAO profile. This demographic is commonly used to determine appropriateness of orders. Precision of this field may be limited to ensure compliance with local policy. " />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="date" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PID-7" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="player[classCode=PSN|ANM and determinerCode=INSTANCE]/birthTime" />
+      </mapping>
+      <mapping>
+        <identity value="cda" />
+        <map value=".patient.birthTime" />
+      </mapping>
+      <mapping>
+        <identity value="loinc" />
+        <map value="21112-8" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

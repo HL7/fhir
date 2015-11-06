@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/gao-practitioner" />
+  <name value="GAO Practitioner" />
+  <status value="draft" />
+  <date value="2015-09-22T20:02:49+10:00" />
+  <description value="Profiles the practioner resource to require an identifer." />
+  <requirements value="The practitioner resource is required to identify the provider placing the order. " />
+  <fhirVersion value="1.0.1" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <mapping>
+    <identity value="servd" />
+    <uri value="http://www.omg.org/spec/ServD/1.0/" />
+    <name value="ServD" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/w5" />
+    <name value="W5 Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <constrainedType value="Practitioner" />
+  <abstract value="false" />
+  <base value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+  <differential>
+    <element>
+      <path value="Practitioner" />
+      <short value="A person with a  formal responsibility in the provisioning of healthcare or related services" />
+      <definition value="A person who is directly or indirectly involved in the provisioning of healthcare." />
+      <comments value="Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Practitioner" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD (as one example)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="Provider" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="administrative.individual" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier" />
+      <short value="A identifier for the person as this agent" />
+      <definition value="An identifier that applies to this person in this role." />
+      <comments value="At least one identifier SHALL be provided that uniquely identifies the ordering provider. Local policy may specify the identify domain associated with this identifier (e.g., a national provider id may be required in some locales)." />
+      <requirements value="Often, specific identities are assigned for the agent." />
+      <min value="1" />
+      <max value="*" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD-7 (or XCN.1)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./id" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Identifiers" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="id" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

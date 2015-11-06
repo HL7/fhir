@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="gao" />
+  <language value="English" />
+  <url value="http://hl7.org/fhir/gao" />
+  <version value="1.0.0" />
+  <name value="Guideline Appropriate Ordering" />
+  <status value="draft" />
+  <publisher value="HL7" />
+  <date value="2015-10-30T15:44:23-04:00" />
+  <description value="The purpose of this implementation guide is to support communication of decision support guidance on whether or not an order is appropriate from EHR, hospital or departmental information systems, and enable receivers to validate that decision support was used to determine the appropriateness of those orders according to guidelines." />
+  <fhirVersion value="1.0.1" />
+  <package>
+    <name value="GAO Package" />
+    <description value="Resource profiles and extensions necessary to support Guideline Appropriate Ordering." />
+    <resource>
+      <purpose value="profile" />
+      <name value="Guideline Appropriate Order" />
+      <description value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals), and is used to link the order details to the reason(s), date, patient and provider placing the order. " />
+      <acronym value="gao-order" />
+      <sourceUri value="StructureDefinitions/gao-order.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Patient" />
+      <description value="The patient resource is required to provide relevant demographics associated with the patient. Other details may be provided according to local implementation requirements. " />
+      <acronym value="gao-patient" />
+      <sourceUri value="StructureDefinitions/gao-patient.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Practitioner" />
+      <description value="The practitioner resource is required to identify the provider placing the order. " />
+      <acronym value="gao-practitioner" />
+      <sourceUri value="StructureDefinitions/gao-practitioner.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Diagnostic Order" />
+      <description value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
+      <acronym value="gao-diagnosticorder" />
+      <sourceUri value="StructureDefinitions/gao-diagnosticorder.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Referral Request" />
+      <description value="The referral request resource is required to identify the referral service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
+      <acronym value="gao-referralrequest" />
+      <sourceUri value="StructureDefinitions/gao-referralrequest.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Medication Order" />
+      <description value="The medication prescription resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
+      <acronym value="gao-medicationorder" />
+      <sourceUri value="StructureDefinitions/gao-medicationorder.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Procedure Request" />
+      <description value="The procedure request resource is required to identify the procedures that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
+      <acronym value="gao-procedurerequest" />
+      <sourceUri value="StructureDefinitions/gao-procedurerequest.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Questionnaire" />
+      <description value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order." />
+      <acronym value="gao-questionnaire" />
+      <sourceUri value="StructureDefinitions/gao-questionnaire.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Questionnaire Response" />
+      <description value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary." />
+      <acronym value="gao-questionnaireresponse" />
+      <sourceUri value="StructureDefinitions/gao-questionnaireresponse.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Result" />
+      <description value="The result resource provides the result of the evaluation." />
+      <acronym value="gao-result" />
+      <sourceUri value="StructureDefinitions/gao-result.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Alternate" />
+      <description value="The alternate resource is used to reflect evaluations of alternate services that may be suggested by the decision support service." />
+      <acronym value="gao-alternate" />
+      <sourceUri value="StructureDefinitions/gao-alternate.xml" />
+    </resource>
+    <resource>
+      <purpose value="profile" />
+      <name value="GAO Provenance" />
+      <description value="The provenance resource is profiled to support expression of the digital signature on a Result or Alternate." />
+      <acronym value="gao-provenance" />
+      <sourceUri value="StructureDefinitions/gao-provenance.xml" />
+    </resource>
+    <resource>
+      <purpose value="extension" />
+      <name value="GAO Score" />
+      <description value="Supports capture of evaluation score from the decision support system." />
+      <sourceUri value="StructureDefinitions/gao-score.xml" />
+    </resource>
+  </package>
+  <page>
+    <source value='gao.html'/>
+    <name value="Guideline Appropriate Ordering"/>
+    <kind value="page"/>
+  </page>
+</ImplementationGuide>
