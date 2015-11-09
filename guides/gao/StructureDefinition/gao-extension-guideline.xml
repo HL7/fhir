@@ -3,18 +3,20 @@
   <meta>
     <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
   </meta>
-  <url value="http://hl7.org/fhir/StructureDefinition/gao-score" />
-  <name value="GAO Score" />
-  <display value="GAO Score" />
+  <url value="http://hl7.org/fhir/StructureDefinition/gao-extension-guideline" />
+  <name value="GAO Guideline" />
+  <display value="GAO Guideline" />
   <status value="draft" />
   <publisher value="HL7" />
   <date value="2015-09-22T20:02:49+10:00" />
-  <description value="Captures the score for an evaluation result" />
-  <requirements value="An evaluation result can return a decimal valued score.  The scale and precision is implementation dependant." />
+  <description value="References the guidelines or policies under which the evaluation was created" />
+  <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional." />
   <fhirVersion value="1.0.1" />
   <kind value="datatype" />
   <constrainedType value="Extension" />
   <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Basic" />
   <base value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <differential>
     <element>
@@ -56,7 +58,7 @@
       <min value="0" />
       <max value="1" />
       <type>
-        <code value="decimal" />
+        <code value="uri" />
       </type>
       <mapping>
         <identity value="rim" />
