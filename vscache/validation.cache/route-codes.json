@@ -2,7 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/route-codes",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|321667001|Respiratory tract",
+      "hash": "#|http://snomed.info/sct|null|394899003|oral administration of treatment",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|47625008|Intravenous route",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -12,17 +17,7 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|394899003|oral administration of treatment",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|422237004|Inhalation",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|260548002|Oral",
+      "hash": "#|http://snomed.info/sct|null|321667001|Respiratory tract",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -32,7 +27,12 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|47625008|Intravenous route",
+      "hash": "#|http://snomed.info/sct|null|260548002|Oral",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|422237004|Inhalation",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

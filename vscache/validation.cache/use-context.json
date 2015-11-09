@@ -2,14 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/use-context",
   "outcomes": [
     {
-      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@2755c51\": null"
-    },
-    {
       "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@2ef07286\": null"
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@341eff41\": null"
+    },
+    {
+      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@2abb4ce8\": null"
     },
     {
       "hash": "#|urn:iso:std:iso:3166|null|US|null",
@@ -21,6 +21,53 @@
         "definition": null,
         "display": "United States of America (the)"
       }
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "US",
+        "definition": null,
+        "display": "United States of America (the)"
+      }
+    },
+    {
+      "hash": "#|http://example.org/FBPP|null|null|FBPP Pooled Database#|http://example.org/PhenX|null|null|Demographics#|http://example.org/EligibilityCriteria|null|null|Pt. Administrative#|http://example.org/UAMSClinicalResearch|null|null|UAMS New CDEs#|http://example.org/PhenX|null|null|Substance Abuse and #|http://example.org/Category|null|null|CSAERS Adverse Event#|http://example.org/PhenX|null|null|Core: Tier 1#|http://example.org/Category|null|null|Case Report Forms#|http://example.org/Category|null|null|CSAERS Review Set#|http://example.org/Demonstration%20Applications|null|null|CIAF#|http://example.org/NIDA%20CTN%20Usage|null|null|Clinical Research#|http://example.org/NIDA%20CTN%20Usage|null|null|Electronic Health Re#|http://example.org/Condition|null|null|Barretts Esophagus#|http://example.org/Condition|null|null|Bladder Cancer#|http://example.org/Condition|null|null|Oral Leukoplakia#|http://example.org/Condition|null|null|Sulindac for Breast",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@3426d099\": null"
+    },
+    {
+      "hash": "#|http://loinc.org/type|null|null|Lab",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@4f8bc8d8\": null"
+    },
+    {
+      "hash": "#|http://loinc.org/class|null|null|PANEL.SURVEY.USSGFHT",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@19deeb3e\": null"
+    },
+    {
+      "hash": "#|http://loinc.org/type|null|null|Survey",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@3bfb9e49\": null"
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "NZ",
+        "definition": null,
+        "display": "New Zealand"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org/class|null|null|MISC",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@2e3eaff8\": null"
     },
     {
       "hash": "#|urn:iso:std:iso:3166|null|AU|null",
@@ -37,53 +84,6 @@
       "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://example.org/FBPP|null|null|FBPP Pooled Database#|http://example.org/PhenX|null|null|Demographics#|http://example.org/EligibilityCriteria|null|null|Pt. Administrative#|http://example.org/UAMSClinicalResearch|null|null|UAMS New CDEs#|http://example.org/PhenX|null|null|Substance Abuse and #|http://example.org/Category|null|null|CSAERS Adverse Event#|http://example.org/PhenX|null|null|Core: Tier 1#|http://example.org/Category|null|null|Case Report Forms#|http://example.org/Category|null|null|CSAERS Review Set#|http://example.org/Demonstration%20Applications|null|null|CIAF#|http://example.org/NIDA%20CTN%20Usage|null|null|Clinical Research#|http://example.org/NIDA%20CTN%20Usage|null|null|Electronic Health Re#|http://example.org/Condition|null|null|Barretts Esophagus#|http://example.org/Condition|null|null|Bladder Cancer#|http://example.org/Condition|null|null|Oral Leukoplakia#|http://example.org/Condition|null|null|Sulindac for Breast",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@748d2bfb\": null"
-    },
-    {
-      "hash": "#|http://loinc.org/class|null|null|MISC",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@4ecab13d\": null"
-    },
-    {
-      "hash": "#|http://loinc.org/class|null|null|PANEL.SURVEY.USSGFHT",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@2b089786\": null"
-    },
-    {
-      "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "NZ",
-        "definition": null,
-        "display": "New Zealand"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org/type|null|null|Lab",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@5d3a4434\": null"
-    },
-    {
-      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "US",
-        "definition": null,
-        "display": "United States of America (the)"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org/type|null|null|Survey",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@4113f47c\": null"
     }
   ]
 }

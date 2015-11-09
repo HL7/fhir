@@ -31,33 +31,63 @@
     </telecom>
   </contact>
   <description value="This is the code indicates the maximum degree of local invasion into or through the bowel wall."/>
-  <copyright value=""/>   <!-- Need to include the WHO copyright blurb for ICD-O codes if one exists  -->
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
+    Health Terminology Standards Development Organisation (IHTSDO), and distributed by
+    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
+    agreement"/>   <!-- Need to include the WHO copyright blurb for ICD-O codes if one exists  -->
   <status value="active"/>
   <experimental value="true"/>
   <date value="2015-06-11T16:01:03+10:00"/>
   <compose>
     <include>
-      <system value="http://example.org"/>  <!-- To be completed when the site is known  ?? http://codes.iarc.fr/ -->
+      <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="temp1"/>  <!-- To be completed when the code is known  -->
+        <code value="373200003"/>
+        <display value="Low grade (well to moderately differentiated)"/>
+      </concept>
+      <concept>
+        <code value="395706002"/>
+        <display value="pT2: Tumor invades muscularis propria (colon/rectum)"/>
+      </concept>
+      <concept>
+        <code value="395707006"/>
+        <display value="pT3: Tumor invades through the muscularis propria into the subserosa or into non-peritonealized pericolic or perirectal tissues (colon/rectum)"/>
+      </concept>
+      <concept>
+        <code value="384612007"/>
+        <display value="pT4a: Tumour penetrates visceral peritoneum (colon/rectum) (finding)"/>
+      </concept>
+      <concept>
+        <code value="395706002"/>
+        <display value="pT4b: Tumour directly invades other organs or structures (colon/rectum) (finding)"/>
+      </concept>
+      
+      
+    </include>
+  </compose>
+  <!--<compose>
+    <include>
+      <system value="http://example.org"/>  <!-\- To be completed when the site is known  ?? http://codes.iarc.fr/ -\->
+      <concept>
+        <code value="temp1"/>  <!-\- To be completed when the code is known  -\->
         <display value="pT1 Tumour invades submucosa"/>
       </concept>
       <concept>
-        <code value="temp2"/>   <!-- To be completed when the code is known  -->
+        <code value="temp2"/>   <!-\- To be completed when the code is known  -\->
         <display value="pT2 Tumour invades muscularis propria"/>
       </concept>
       <concept>
-        <code value="temp3"/>   <!-- To be completed when the code is known  -->
+        <code value="temp3"/>   <!-\- To be completed when the code is known  -\->
         <display value="pT3 Tumour invades through muscularis propria into pericolorectal tissues"/>
       </concept>
       <concept>
-        <code value="temp4"/>  <!-- To be completed when the code is known  -->
+        <code value="temp4"/>  <!-\- To be completed when the code is known  -\->
         <display value="pT4a Tumour penetrates to the surface of the visceral peritoneum"/>
       </concept>
       <concept>
-        <code value="temp5"/>  <!-- To be completed when the code is known  -->
+        <code value="temp5"/>  <!-\- To be completed when the code is known  -\->
         <display value="pT4b Tumour directly invades or is adherent to other organs or structures"/>
       </concept>
     </include>
-  </compose>
+  </compose>-->
 </ValueSet>

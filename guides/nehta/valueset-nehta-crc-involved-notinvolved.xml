@@ -2,7 +2,7 @@
 
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-nehta-crc-coexist-path-abnormalities"/>
+  <id value="valueset-nehta-crc-involved-notinvolved"/>
   <meta>
     <lastUpdated value="2015-06-11T06:01:03.224+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
@@ -16,9 +16,9 @@
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
   </extension>-->
     
-  <url value="http://hl7.org/fhir/ValueSet/nehta-crc-coexist-path-abnormalities"/>  
-  <version value="20150619"/>
-  <name value="CoexistentPathologicalAbnormalities"/>
+  <url value="http://hl7.org/fhir/ValueSet/nehta-crc-involved-notinvolved"/>  
+  <version value="20150618"/>
+  <name value="CRCInvolvedNotinvolved"/>
   <publisher value="NEHTA"/>
   <contact>
     <telecom>
@@ -30,7 +30,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="These codes are the relevant colorectal cancer associated coexistent pathological abnormalities."/>
+  <description value="Indicates whether a colorectal tumour specimen was involved or not involved."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
       Health Terminology Standards Development Organisation (IHTSDO), and distributed by
    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
@@ -42,25 +42,33 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="260413007"/>
-        <display value="None"/>
+        <code value="369708000"/>
+        <display value="Large intestine, distal surgical margin not involved by tumor (finding)"/>
       </concept>
       <concept>
-        <code value="441456002"/>  
-        <display value="Polyp"/>
+        <code value="369707005"/>
+        <display value="Large intestine, proximal surgical margin not involved by tumor (finding)"/>
       </concept>
       <concept>
-        <code value="64766004"/>
-        <display value="Ulcerative colitis"/>
+        <code value="369691009"/>
+        <display value="Large intestine, distal surgical margin, involved by tumor (finding)"/>
       </concept>
       <concept>
-        <code value="34000006"/>
-        <display value="Crohn's disease"/>
-      </concept>
-      <concept>
-        <code value="74964007"/>
-        <display value="Other"/>
+        <code value="369690005"/>
+        <display value="Large intestine, proximal surgical margin, involved by tumor (finding)"/>
       </concept>
     </include>
   </compose>
+  <codeSystem>
+ 
+   <!-- <system value="http://hl7.org/fhir/nehta-crc-involved-notinvolved"/>
+    <version value="20150619"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="not_involved"/>
+      <display value="Not involved"/>
+      <definition value="Not involved"/>
+    </concept>-->
+            
+  </codeSystem>
 </ValueSet>

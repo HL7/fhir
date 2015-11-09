@@ -2,14 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/event-timing",
   "outcomes": [
     {
-      "hash": "|null|null|C|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@42ebb032\" in system \"null\": null"
-    },
-    {
       "hash": "|null|null|HS|null",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@13675d96\" in system \"null\": null"
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@498c0e12\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|C|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@2428b349\" in system \"null\": null"
     }
   ]
 }

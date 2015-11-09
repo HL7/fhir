@@ -513,6 +513,9 @@
     <display value="Measles without mention of complication"/>
     <display value="Measles (disorder)"/>
   </concept>
+  <concept id="14410001" display="T3 category (finding)">
+    <display value="T3 category"/>
+  </concept>
   <concept id="14745005" display="Hepatitis A virus vaccine (product)">
     <display value="Hepatitis A virus vaccine (product)"/>
     <display value="Hepatitis A vaccine"/>
@@ -624,6 +627,9 @@
   <concept id="16404004" display="Induced (qualifier value)">
     <display value="Induced"/>
     <display value="Induced (qualifier value)"/>
+  </concept>
+  <concept id="16564004" display="Hartmann operation, rectal resection (procedure)">
+    <display value="Hartmann&#39;s procedure"/>
   </concept>
   <concept id="166643006" display="Liver enzymes abnormal (finding)">
     <display value="Liver enzymes abnormal"/>
@@ -1060,6 +1066,9 @@
     <display value="Carer"/>
     <display value="Carer (occupation)"/>
   </concept>
+  <concept id="23109009" display="Pseudosarcomatous carcinoma (morphologic abnormality)">
+    <display value="Sarcomatoid carcinoma"/>
+  </concept>
   <concept id="2331003" display="Carbohydrate (substance)">
     <display value="Sugars and carbohydrates"/>
     <display value="Saccharide"/>
@@ -1080,6 +1089,9 @@
   <concept id="235326000" display="Right hemicolectomy (procedure)">
     <display value="Right hemicolectomy"/>
     <display value="Right hemicolectomy (procedure)"/>
+  </concept>
+  <concept id="24028007" display="Right (qualifier value)">
+    <display value="Right"/>
   </concept>
   <concept id="240977001" display="Biopsy of skin (procedure)">
     <display value="Biopsy of skin"/>
@@ -1235,6 +1247,9 @@
   <concept id="255561001" display="Medial (qualifier value)">
     <display value="Medial"/>
     <display value="Medial (qualifier value)"/>
+  </concept>
+  <concept id="255562008" display="Mid (qualifier value)">
+    <display value="Mid"/>
   </concept>
   <concept id="255566006" display="Post-dose (qualifier value)">
     <display value="Post-dose"/>
@@ -1554,6 +1569,27 @@
     <display value="Upper"/>
     <display value="Upper (qualifier value)"/>
   </concept>
+  <concept id="261651009" display="Tumour stage T2a (finding)">
+    <display value="Tumour stage T2a"/>
+  </concept>
+  <concept id="261652002" display="Tumour stage T2b (finding)">
+    <display value="Tumour stage T2b"/>
+  </concept>
+  <concept id="261653007" display="Tumour stage T2c (finding)">
+    <display value="Tumour stage T2c"/>
+  </concept>
+  <concept id="261654001" display="Tumour stage T3a (finding)">
+    <display value="Tumour stage T3a"/>
+  </concept>
+  <concept id="261655000" display="Tumour stage T3b (finding)">
+    <display value="Tumour stage T3b"/>
+  </concept>
+  <concept id="261659006" display="Tumour stage T4a (finding)">
+    <display value="Tumour stage T4a"/>
+  </concept>
+  <concept id="261660001" display="Tumour stage T4b (finding)">
+    <display value="Tumour stage T4b"/>
+  </concept>
   <concept id="261665006" display="Unknown (qualifier value)">
     <display value="Unknown"/>
     <display value="Unknown (qualifier value)"/>
@@ -1577,6 +1613,12 @@
   </concept>
   <concept id="263796003" display="Lesser (qualifier value)">
     <display value="Lesser"/>
+  </concept>
+  <concept id="264065008" display="Left anterior (qualifier value)">
+    <display value="Left anterior"/>
+  </concept>
+  <concept id="264176005" display="Right anterior (qualifier value)">
+    <display value="Right anterior"/>
   </concept>
   <concept id="264217000" display="Superior (qualifier value)">
     <display value="Superior"/>
@@ -1738,6 +1780,12 @@
   <concept id="276986009" display="Antepartum (qualifier value)">
     <display value="Antepartum"/>
     <display value="Antepartum (qualifier value)"/>
+  </concept>
+  <concept id="277593009" display="Right posterior (qualifier value)">
+    <display value="Right posterior"/>
+  </concept>
+  <concept id="277594003" display="Left posterior (qualifier value)">
+    <display value="Left posterior"/>
   </concept>
   <concept id="277671009" display="Intraoperative (qualifier value)">
     <display value="Intraoperative"/>
@@ -1938,6 +1986,9 @@
   <concept id="308283009" display="Discharge from hospital (procedure)">
     <display value="Discharge from hospital"/>
     <display value="Discharge from hospital (procedure)"/>
+  </concept>
+  <concept id="30893008" display="M0 category (finding)">
+    <display value="M0 category"/>
   </concept>
   <concept id="309049000" display="Lesion sample (specimen)">
     <display value="Lesion sample"/>
@@ -2317,6 +2368,9 @@
     <display value="Glucose measurement, NOS"/>
     <display value="Glucose measurement (procedure)"/>
   </concept>
+  <concept id="36082003" display="Structure of base of prostate (body structure)">
+    <display value="Base of prostate"/>
+  </concept>
   <concept id="360957003" display="Hospital-based outpatient allergy clinic (environment)">
     <display value="Hospital-based outpatient allergy clinic"/>
     <display value="Hospital-based outpatient allergy clinic (environment)"/>
@@ -2422,6 +2476,18 @@
     <display value="Left forearm"/>
     <display value="Entire left forearm (body structure)"/>
   </concept>
+  <concept id="369690005" display="Large intestine, proximal surgical margin, involved by tumor (finding)">
+    <display value="Large intestine, proximal surgical margin, involved by tumor"/>
+  </concept>
+  <concept id="369691009" display="Large intestine, distal surgical margin, involved by tumor (finding)">
+    <display value="Large intestine, distal surgical margin, involved by tumor"/>
+  </concept>
+  <concept id="369707005" display="Large intestine, proximal surgical margin not involved by tumor (finding)">
+    <display value="Large intestine, proximal surgical margin not involved by tumor"/>
+  </concept>
+  <concept id="369708000" display="Large intestine, distal surgical margin not involved by tumor (finding)">
+    <display value="Large intestine, distal surgical margin not involved by tumor"/>
+  </concept>
   <concept id="36989005" display="Mumps (disorder)">
     <display value="Mumps"/>
     <display value="Mumps, NOS"/>
@@ -2429,6 +2495,15 @@
     <display value="Infectious parotitis"/>
     <display value="Mumps without mention of complication"/>
     <display value="Mumps (disorder)"/>
+  </concept>
+  <concept id="370034007" display="M1a: non-regional lymph node metastasis (finding)">
+    <display value="M1a: non-regional lymph node metastasis"/>
+  </concept>
+  <concept id="370043003" display="M1b: Bone(s) (finding)">
+    <display value="M1b: Bone(s)"/>
+  </concept>
+  <concept id="370045005" display="M1c: Other site(s) (finding)">
+    <display value="M1c: Other site(s)"/>
   </concept>
   <concept id="370140002" display="Muscularis mucosae (body structure)">
     <display value="Muscularis mucosae"/>
@@ -2445,6 +2520,9 @@
   <concept id="371924009" display="Moderate to severe (qualifier value)">
     <display value="Moderate to severe (qualifier value)"/>
     <display value="Moderate to severe"/>
+  </concept>
+  <concept id="372306004" display="Extraprostatic extension of tumor present (finding)">
+    <display value="Extraprostatic extension of tumor present"/>
   </concept>
   <concept id="372687004" display="Amoxicillin (substance)">
     <display value="Amoxicillin (substance)"/>
@@ -2463,6 +2541,9 @@
   <concept id="373067005" display="No (qualifier value)">
     <display value="No (qualifier value)"/>
     <display value="No"/>
+  </concept>
+  <concept id="373200003" display="pT1: Tumor invades submucosa (colon/rectum) (finding)">
+    <display value="pT1: Tumor invades submucosa (colon/rectum)"/>
   </concept>
   <concept id="37546005" display="Hospital-based outpatient rehabilitation clinic (environment)">
     <display value="Hospital-based outpatient rehabilitation clinic"/>
@@ -2519,6 +2600,12 @@
     <display value="Hypertension"/>
     <display value="Raised blood pressure (disorder)"/>
   </concept>
+  <concept id="384612007" display="pT4a: Tumour penetrates visceral peritoneum (colon/rectum) (finding)">
+    <display value="pT4a: Tumour penetrates visceral peritoneum (colon/rectum) (colon/rectum)"/>
+  </concept>
+  <concept id="384613002" display="pT4b:  Tumour directly invades other organs or structures (colon/rectum) (finding)">
+    <display value="pT4b: Tumour directly invades other organs or structures (colon/rectum)"/>
+  </concept>
   <concept id="385024007" display="Oral suspension (qualifier value)">
     <display value="Oral suspension (product)"/>
     <display value="Oral suspension"/>
@@ -2555,6 +2642,9 @@
     <display value="Not applicable (qualifier value)"/>
     <display value="Not applicable"/>
     <display value="N/A"/>
+  </concept>
+  <concept id="38549000" display="Carcinoma, undifferentiated (morphologic abnormality)">
+    <display value="Carcinoma, undifferentiated"/>
   </concept>
   <concept id="385669000" display="Successful (qualifier value)">
     <display value="Successful (qualifier value)"/>
@@ -2957,6 +3047,18 @@
   </concept>
   <concept id="394934009" display="Combined pre-operative chemotherapy and radiotherapy (procedure)">
     <display value="Combined pre-operative chemotherapy and radiotherapy"/>
+  </concept>
+  <concept id="395529007" display="Low grade (well to moderately differentiated) (finding)">
+    <display value="Low grade (well to moderately differentiated)"/>
+  </concept>
+  <concept id="395530002" display="High grade (poorly differentiated to undifferentiated) (finding)">
+    <display value="High grade (poorly differentiated to undifferentiated)"/>
+  </concept>
+  <concept id="395706002" display="pT1: Tumor invades submucosa (colon/rectum) (finding)">
+    <display value="pT1: Tumor invades submucosa (colon/rectum)"/>
+  </concept>
+  <concept id="395707006" display="pT3: Tumor invades through the muscularis propria into the subserosa or into non-peritonealized pericolic or perirectal tissues (colon/rectum) (finding)">
+    <display value="pT3: Tumor invades through the muscularis propria into the subserosa or into non-peritonealized pericolic or perirectal tissues (colon/rectum)"/>
   </concept>
   <concept id="39579001" display="Anaphylaxis (disorder)">
     <display value="Generalized anaphylaxis"/>
@@ -3756,6 +3858,9 @@
     <display value="Texture modified diet"/>
     <display value="Alter the consistency of foods to optimize chewing and swallowing. (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
   </concept>
+  <concept id="43674008" display="Apical (qualifier value)">
+    <display value="Apical"/>
+  </concept>
   <concept id="438660002" display="Specimen from prosthetic device (specimen)">
     <display value="Specimen from prosthetic device (specimen)"/>
     <display value="Specimen from prosthetic device"/>
@@ -3832,6 +3937,9 @@
     <display value="Wash out specimen"/>
     <display value="Specimen obtained by lavage"/>
     <display value="Wash fluid sample"/>
+  </concept>
+  <concept id="441456002" display="Polyp (disorder)">
+    <display value="Polyp"/>
   </concept>
   <concept id="441531000124102" display="Standard enteral formula (product)">
     <display value="Standard enteral formula"/>
@@ -4086,6 +4194,18 @@
     <display value="Pediatric reduced energy formula"/>
     <display value="Pediatric reduced calorie formula"/>
     <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to meet the nutritional needs of children and provide reduced calories relative to a standard formula."/>
+  </concept>
+  <concept id="444431007" display="Grade 0 on a scale of 0 to 3 (qualifier value)">
+    <display value="Grade 0 on a scale of 0 to 3"/>
+  </concept>
+  <concept id="444447009" display="Grade 3 on a scale of 0 to 3 (qualifier value)">
+    <display value="Grade 3 on a scale of 0 to 3"/>
+  </concept>
+  <concept id="444456001" display="Grade 1 on a scale of 0 to 3 (qualifier value)">
+    <display value="Grade 1 on a scale of 0 to 3"/>
+  </concept>
+  <concept id="444457005" display="Grade 2 on a scale of 0 to 3 (qualifier value)">
+    <display value="Grade 2 on a scale of 0 to 3"/>
   </concept>
   <concept id="444780001" display="Glucose in blood specimen above reference range (finding)">
     <display value="Glucose in blood specimen above reference range (finding)"/>
@@ -4365,6 +4485,9 @@
     <display value="Upper limb"/>
     <display value="Upper extremity, including shoulder, arm, forearm, wrist, and hand"/>
   </concept>
+  <concept id="53623008" display="N1 category (finding)">
+    <display value="N1 category"/>
+  </concept>
   <concept id="53786006" display="pT1 category (finding)">
     <display value="pT1 stage (finding)"/>
     <display value="pT1 category (finding)"/>
@@ -4391,6 +4514,9 @@
     <display value="Hydrocele (disorder)"/>
     <display value="Hydrocele"/>
     <display value="Hydrocele, NOS"/>
+  </concept>
+  <concept id="55440008" display="M1 category (finding)">
+    <display value="M1 category"/>
   </concept>
   <concept id="55561003" display="Active (qualifier value)">
     <display value="Active (qualifier value)"/>
@@ -4462,6 +4588,9 @@
     <display value="Hospital-based outpatient gastroenterology clinic (environment)"/>
     <display value="Hospital-based outpatient gastroenterology clinic"/>
   </concept>
+  <concept id="58790005" display="T0 category (finding)">
+    <display value="T0 category"/>
+  </concept>
   <concept id="59126009" display="Entire right upper arm (body structure)">
     <display value="Right upper arm"/>
     <display value="Entire right upper arm"/>
@@ -4473,6 +4602,9 @@
     <display value="Oxygen analyzer, device (physical object)"/>
     <display value="Oxygen analyzer"/>
     <display value="Oximeter"/>
+  </concept>
+  <concept id="59367005" display="Adenosquamous carcinoma (morphologic abnormality)">
+    <display value="Adenosquamous carcinoma"/>
   </concept>
   <concept id="59374000" display="Traveler&#39;s aid clinic (environment)">
     <display value="Traveler&#39;s aid clinic (environment)"/>
@@ -4493,6 +4625,9 @@
     <display value="Sigmoid colon structure"/>
     <display value="Sigmoid colon structure (body structure)"/>
     <display value="Sigmoid colon"/>
+  </concept>
+  <concept id="62455006" display="N0 category (finding)">
+    <display value="N0 category (finding)"/>
   </concept>
   <concept id="62480006" display="Mental hospital">
     <display value="Psychiatric hospital"/>
@@ -4518,6 +4653,9 @@
     <display value="Nettle rash"/>
     <display value="Urticaria (morphologic abnormality)"/>
     <display value="A raised, erythematous papule or cutaneous plaque, usually representing short-lived dermal edema"/>
+  </concept>
+  <concept id="64344009" display="Structure of neck of urinary bladder (body structure)">
+    <display value="Structure of neck of urinary bladder"/>
   </concept>
   <concept id="64766004" display="Ulcerative colitis (disorder)">
     <display value="Chronic ulcerative colitis"/>
@@ -4571,12 +4709,18 @@
     <display value="Appendix structure"/>
     <display value="Appendix structure (body structure)"/>
   </concept>
+  <concept id="67101007" display="TX category (finding)">
+    <display value="TX category"/>
+  </concept>
   <concept id="6736007" display="Moderate (severity modifier) (qualifier value)">
     <display value="Moderate"/>
     <display value="Midgrade"/>
     <display value="Moderate (severity modifier)"/>
     <display value="Moderately"/>
     <display value="Moderate (severity modifier) (qualifier value)"/>
+  </concept>
+  <concept id="67673008" display="T2 category (finding)">
+    <display value="T2 category"/>
   </concept>
   <concept id="67734004" display="Upper trunk structure (body structure)">
     <display value="Upper trunk"/>
@@ -4605,6 +4749,9 @@
     <display value="Nasogastric tube aspiration"/>
     <display value="Suction of nasogastric tube"/>
     <display value="Nasogastric tube aspiration (procedure)"/>
+  </concept>
+  <concept id="68756004" display="Structure of apex of prostate (body structure)">
+    <display value="Apex of prostate"/>
   </concept>
   <concept id="6902008" display="Popliteal region structure (body structure)">
     <display value="Popliteal region"/>
@@ -4732,6 +4879,9 @@
     <display value="Oral cavity structure"/>
     <display value="Oral cavity structure (body structure)"/>
   </concept>
+  <concept id="74364000" display="Small cell carcinoma (morphologic abnormality)">
+    <display value="Small cell carcinoma"/>
+  </concept>
   <concept id="74964007" display="Other (qualifier value)">
     <display value="Other"/>
     <display value="Other (qualifier value)"/>
@@ -4770,6 +4920,9 @@
     <display value="Patient currently pregnant"/>
     <display value="Patient currently pregnant (finding)"/>
   </concept>
+  <concept id="7771000" display="Left (qualifier value)">
+    <display value="Left"/>
+  </concept>
   <concept id="77931003" display="Rural health center (environment)">
     <display value="Rural health center"/>
     <display value="Rural health clinic"/>
@@ -4804,6 +4957,9 @@
     <display value="Biopsy of stomach, NOS"/>
     <display value="Gastric biopsy"/>
     <display value="Biopsy of stomach (procedure)"/>
+  </concept>
+  <concept id="79420006" display="NX category (finding)">
+    <display value="NX category"/>
   </concept>
   <concept id="79491001" display="Hospital-based radiology facility (environment)">
     <display value="Hospital-based radiology facility"/>
@@ -4852,6 +5008,9 @@
   <concept id="82242000" display="Children&#39;s hospital (environment)">
     <display value="Children&#39;s hospital"/>
     <display value="Children&#39;s hospital (environment)"/>
+  </concept>
+  <concept id="82334004" display="Indeterminate (qualifier value)">
+    <display value="Indeterminate"/>
   </concept>
   <concept id="82619000" display="Left colectomy (procedure)">
     <display value="Left colectomy"/>
@@ -4929,6 +5088,9 @@
   <concept id="86915006" display="Muscularis propria (body structure)">
     <display value="Muscularis propria"/>
   </concept>
+  <concept id="87017008" display="Focal (qualifier value)">
+    <display value="Focal"/>
+  </concept>
   <concept id="87628006" display="Bacterial infectious disease (disorder)">
     <display value="Bacterial infectious disease"/>
     <display value="Bacterial infectious disease, NOS"/>
@@ -4980,6 +5142,9 @@
   <concept id="900000000000003001" display="Fully specified name (core metadata concept)">
     <display value="Fully specified name"/>
     <display value="Fully specified name (core metadata concept)"/>
+  </concept>
+  <concept id="90069004" display="Posterolateral (qualifier value)">
+    <display value="Posterolateral"/>
   </concept>
   <concept id="901005" display="Helicopter-based care (environment)">
     <display value="Helicopter-based care"/>

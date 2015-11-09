@@ -30,27 +30,26 @@
         </telecom>
     </contact>
     <description value="Indicates the histological grade of the tumour"/>
+    <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
+        Health Terminology Standards Development Organisation (IHTSDO), and distributed by
+        agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
+        agreement"/>
     <status value="draft"/>
     <experimental value="false"/>
     <date value="2015-06-11T16:01:03+10:00"/>
-    <codeSystem>
-        <!-- DMc ?? SR says to make into a NEHTA oid -->
-        <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-            <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
-        </extension>-->
-        <system value="http://hl7.org/fhir/nehta-histological-grade"/>
-        <version value="20150623"/>
-        <caseSensitive value="true"/>
-        <concept>
-            <code value="low_grade"/>
-            <display value="Low grade – well and moderately differentiated"/>
-            <definition value="Low grade – well and moderately differentiated tumour"/>
-        </concept>
-        <concept>
-            <code value="high_grade"/>
-            <display value="High grade - poorly and undifferentiated"/>
-            <definition value="High grade - poorly and undifferentiated tumour"/>
-        </concept>
-        
-    </codeSystem>
+    <compose>
+        <include>
+            <system value="http://snomed.info/sct"/>
+            <concept>
+                <code value="395529007"/>
+                <display value="Low grade (well to moderately differentiated)"/>
+            </concept>
+            <concept>
+                <code value="395530002"/>
+                <display value="High grade (poorly differentiated to undifferentiated)"/>
+            </concept>
+            
+        </include>
+    </compose>
+    
 </ValueSet>

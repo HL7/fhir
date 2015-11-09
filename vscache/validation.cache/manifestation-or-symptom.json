@@ -13,6 +13,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|169069000|CT of thorax",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Chest CT"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|426396005|Cardiac chest pain",
       "severity": null,
       "message": null,
@@ -32,17 +43,6 @@
         "code": null,
         "definition": null,
         "display": "Computed tomography of neck (procedure)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|169069000|CT of thorax",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Chest CT"
       }
     }
   ]

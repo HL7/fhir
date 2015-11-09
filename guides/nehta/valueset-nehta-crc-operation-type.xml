@@ -73,14 +73,23 @@
         <code value="307666008"/>
         <display value="Total colectomy with ileorectal anastomosis"/>
       </concept>
-      <!--<concept>
-        <code value="??? - tba"/>
+      <concept>
+        <code value="16564004"/>
         <display value="Hartmann’s procedure"/>
-      </concept>-->
-      <!--<concept>
-        <code value="??? - tba"/>
-        <display value="Other procedure(s)"/>
-      </concept>-->
+      </concept>
+      
     </include>
   </compose>
+  <codeSystem>
+    
+    <system value="http://hl7.org/fhir/nehta-crc-operation-type"/>
+    <version value="20150618"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="other_procedures"/>
+      <display value="Other procedure(s)"/>
+      <definition value="Indicates whether other procedure(s) were undertaken"/>
+    </concept>
+    
+  </codeSystem>
 </ValueSet>

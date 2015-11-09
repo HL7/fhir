@@ -2,25 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/procedure-code",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|25267002|Insertion of intracardiac pacemaker (procedure)",
+      "hash": "#|http://snomed.info/sct|null|367336001|Chemotherapy",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Insertion of intracardiac pacemaker"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|80146002|Appendectomy (Procedure)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Appendectomy"
+        "display": "CT - Chemotherapy"
       }
     },
     {
@@ -35,25 +24,36 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|34068001|Heart valve replacement",
+      "hash": "#|http://snomed.info/sct|null|80146002|Appendectomy (Procedure)",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Replacement of unspecified heart valve"
+        "display": "Appendectomy"
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|367336001|Chemotherapy",
+      "hash": "#|http://snomed.info/sct|null|90105005|Biopsy of soft tissue of forearm (Procedure)",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "CT - Chemotherapy"
+        "display": "Biopsy of soft tissue of forearm, superficial"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|25267002|Insertion of intracardiac pacemaker (procedure)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Insertion of intracardiac pacemaker"
       }
     },
     {
@@ -90,14 +90,14 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|90105005|Biopsy of soft tissue of forearm (Procedure)",
+      "hash": "#|http://snomed.info/sct|null|34068001|Heart valve replacement",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Biopsy of soft tissue of forearm, superficial"
+        "display": "Replacement of unspecified heart valve"
       }
     }
   ]
