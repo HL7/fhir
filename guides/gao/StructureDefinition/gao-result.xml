@@ -61,14 +61,104 @@
       <path value="Basic.extension" />
       <name value="score" />
       <label value="score" />
-      <definition value="Optional Extensions Element - found in all resources." />
+      <definition value="An optional value which can be used to record a score associated with the evaluation process. " />
       <comments value="The interpretation of this value may vary depending upon guidelines and Decision Support Service actors used. " />
-      <requirements value="An optional value which can be used to record a score associated with the evaluation process. It is present to enable quality improvement efforts related to ordering." />
+      <requirements value="This may be present to enable quality improvement efforts related to ordering." />
       <min value="0" />
       <max value="*" />
       <type>
         <code value="Extension" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-score" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-score" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element>
+      <path value="Basic.extension" />
+      <name value="period" />
+      <label value="period" />
+      <definition value="Indicates the period over which the evaluation is valid." />
+      <comments value="Not required when manually issued, required otherwise." />
+      <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-period" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element>
+      <path value="Basic.extension" />
+      <name value="item" />
+      <label value="item" />
+      <definition value="Describes the services ordered." />
+      <comments value="" />
+      <requirements value="The services that are to be ordered SHALL be provided." />
+      <min value="1" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-item" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element>
+      <path value="Basic.extension" />
+      <name value="guideline" />
+      <label value="guideline" />
+      <definition value="A reference to the guidelines or policies under which the evaluation was created." />
+      <comments value="" />
+      <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-guideline" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element>
+      <path value="Basic.extension" />
+      <name value="device" />
+      <label value="device" />
+      <definition value="A reference to the Device resource describing the Decision Support Service Actor." />
+      <comments value="" />
+      <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional.  This SHALL be a reference to one of the Devices specified in the dss parameter." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-device" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element>
+      <path value="Basic.extension" />
+      <name value="practitioner" />
+      <label value="practitioner" />
+      <definition value="An identifier representing the ordering practitioner." />
+      <comments value="" />
+      <requirements value="This SHALL be provided unless the evaluation was issued manually, in which case it is optional." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-practitioner" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element>
+      <path value="Basic.extension" />
+      <name value="signature" />
+      <label value="signature" />
+      <definition value="A digital signature over this resource" />
+      <comments value="" />
+      <requirements value="This MAY be provided." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature" />
       </type>
     </element>
     <element>
