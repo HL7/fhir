@@ -23,12 +23,36 @@ func NewMongoSearcher(db *mgo.Database) *MongoSearcher {
 }
 
 // CreateQuery takes a FHIR-based Query and returns a pointer to the
-// corresponding mgo.Query.  The caller is responsible for executing
-// the returned query (allowing flexibility in how results are returned).
+// corresponding mgo.Query.  The returned mgo.Query will obey any options
+// passed in through the query string (such as _count and _offset) and will
+// also use default options when none are passed in (e.g., count = 100).
+// The caller is responsible for executing the returned query (allowing
+// additional flexibility in how results are returned).
 func (m *MongoSearcher) CreateQuery(query Query) *mgo.Query {
+	return m.createQuery(query, true)
+}
+
+// CreateQueryWithoutOptions takes a FHIR-based Query and returns a pointer to
+// the corresponding mgo.Query.  Any options passed in through the query (such
+// as _count and _offset) are ignored and no default options are applied (e.g.,
+// there is no set count / limit)  The caller is responsible for executing
+// the returned query (allowing flexibility in how results are returned).
+func (m *MongoSearcher) CreateQueryWithoutOptions(query Query) *mgo.Query {
+	return m.createQuery(query, false)
+}
+
+func (m *MongoSearcher) createQuery(query Query, withOptions bool) *mgo.Query {
 	c := m.db.C(models.PluralizeLowerResourceName(query.Resource))
-	o := m.createQueryObject(query)
-	return c.Find(o)
+	q := m.createQueryObject(query)
+	mgoQuery := c.Find(q)
+	if withOptions {
+		o := query.Options()
+		if o.Offset > 0 {
+			mgoQuery = mgoQuery.Skip(o.Offset)
+		}
+		mgoQuery = mgoQuery.Limit(o.Count)
+	}
+	return mgoQuery
 }
 
 func (m *MongoSearcher) createQueryObject(query Query) bson.M {
@@ -293,7 +317,7 @@ func (m *MongoSearcher) createReferenceQueryObject(r *ReferenceParam) bson.M {
 			var idObjs []struct {
 				ID string `bson:"_id"`
 			}
-			q := m.CreateQuery(ref.ChainedQuery)
+			q := m.CreateQueryWithoutOptions(ref.ChainedQuery)
 			q.Select(bson.M{"_id": 1}).All(&idObjs)
 			ids := make([]string, len(idObjs))
 			for i := range idObjs {

@@ -118,11 +118,13 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         generateResourceHelpers(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
         generateSearchParameterDictionary(definitions, dirs.get("searchDir"), templateGroup);
 
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "codeableconcept_ext.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "fhirdatetime.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "mongo_search.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "search_param_types.go")), new File(dirs.get("searchDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "batch_controller.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "config.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "resource_controller.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
@@ -156,18 +158,30 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.newLine();
         serverWriter.write("import (");
         serverWriter.newLine();
-        serverWriter.write("\"github.com/codegangsta/negroni\"");
+        serverWriter.write("\t\"github.com/codegangsta/negroni\"");
         serverWriter.newLine();
-        serverWriter.write("\"github.com/gorilla/mux\"");
+        serverWriter.write("\t\"github.com/gorilla/mux\"");
         serverWriter.newLine();
         serverWriter.write(")");
+        serverWriter.newLine();
         serverWriter.newLine();
         serverWriter.write("func RegisterRoutes(router *mux.Router, config map[string][]negroni.Handler) {");
         serverWriter.newLine();
         serverWriter.newLine();
+        serverWriter.write("\t// Batch Support");
+        serverWriter.newLine();
+        serverWriter.newLine();
+        serverWriter.write("\tbatchBase := router.Path(\"/\").Subrouter()");
+        serverWriter.newLine();
+        serverWriter.write("\tbatchBase.Methods(\"POST\").Handler(negroni.New(append(config[\"Batch\"], negroni.HandlerFunc(BatchHandler))...))");
+        serverWriter.newLine();
+        serverWriter.newLine();
+        serverWriter.write("\t// Resources");
+        serverWriter.newLine();
+        serverWriter.newLine();
 
         for (String name : namesAndDefinitions.keySet()) {
-            String lower = name.toLowerCase();
+            String lower = "\t" + name.toLowerCase();
             String controller = lower + "Controller";
             serverWriter.write(controller + " := ResourceController{\"" + name + "\"}");
             serverWriter.newLine();

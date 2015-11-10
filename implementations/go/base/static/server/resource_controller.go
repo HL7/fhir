@@ -6,9 +6,11 @@ package server
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
-	"os"
+	"net/url"
 	"reflect"
+	"strings"
 
 	"github.com/gorilla/context"
 	"github.com/gorilla/mux"
@@ -46,22 +48,24 @@ func (rc *ResourceController) IndexHandler(rw http.ResponseWriter, r *http.Reque
 	}()
 
 	result := models.NewSliceForResourceName(rc.Name, 0, 0)
-	c := Database.C(models.PluralizeLowerResourceName(rc.Name))
 
-	r.ParseForm()
-	if len(r.Form) == 0 {
-		iter := c.Find(nil).Limit(100).Iter()
-		err := iter.All(result)
-		if err != nil {
-			http.Error(rw, err.Error(), http.StatusInternalServerError)
-		}
-	} else {
-		searcher := search.NewMongoSearcher(Database)
-		query := search.Query{Resource: rc.Name, Query: r.URL.RawQuery}
-		err := searcher.CreateQuery(query).All(result)
-		if err != nil {
-			http.Error(rw, err.Error(), http.StatusInternalServerError)
-		}
+	// Create and execute the Mongo query based on the http query params
+	searcher := search.NewMongoSearcher(Database)
+	searchQuery := search.Query{Resource: rc.Name, Query: r.URL.RawQuery}
+	mgoQuery := searcher.CreateQuery(searchQuery)
+
+	// Horrible, horrible hack (for now) to ensure patients are sorted by name.  This is needed by
+	// the frontend, else paging won't work correctly.  This should be removed when the general
+	// sorting feature is implemented.
+	if rc.Name == "Patient" {
+		// To add insult to injury, mongo will not let us sort by family *and* given name:
+		// Executor error: BadValue cannot sort with keys that are parallel arrays
+		mgoQuery = mgoQuery.Sort("name.0.family.0" /*", name.0.given.0"*/, "_id")
+	}
+
+	err := mgoQuery.All(result)
+	if err != nil {
+		http.Error(rw, err.Error(), http.StatusInternalServerError)
 	}
 
 	var entryList []models.BundleEntryComponent
@@ -75,9 +79,27 @@ func (rc *ResourceController) IndexHandler(rw http.ResponseWriter, r *http.Reque
 	var bundle models.Bundle
 	bundle.Id = bson.NewObjectId().Hex()
 	bundle.Type = "searchset"
-	var total = uint32(resultVal.Len())
-	bundle.Total = &total
 	bundle.Entry = entryList
+
+	options := searchQuery.Options()
+
+	// Need to get the true total (not just how many were returned in this response)
+	var total uint32
+	if resultVal.Len() == options.Count || resultVal.Len() == 0 {
+		// Need to get total count from the server, since there may be more or the offset was too high
+		intTotal, err := searcher.CreateQueryWithoutOptions(searchQuery).Count()
+		if err != nil {
+			http.Error(rw, err.Error(), http.StatusInternalServerError)
+		}
+		total = uint32(intTotal)
+	} else {
+		// We can figure out the total by adding the offset and # results returned
+		total = uint32(options.Offset + resultVal.Len())
+	}
+	bundle.Total = &total
+
+	// Add links for paging
+	bundle.Link = generatePagingLinks(r, searchQuery, total)
 
 	context.Set(r, rc.Name, reflect.ValueOf(result).Elem().Interface())
 	context.Set(r, "Resource", rc.Name)
@@ -86,6 +108,58 @@ func (rc *ResourceController) IndexHandler(rw http.ResponseWriter, r *http.Reque
 	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
 	rw.Header().Set("Access-Control-Allow-Origin", "*")
 	json.NewEncoder(rw).Encode(&bundle)
+}
+
+func generatePagingLinks(r *http.Request, query search.Query, total uint32) []models.BundleLinkComponent {
+	links := make([]models.BundleLinkComponent, 0, 5)
+	values := query.NormalizedQueryValues(false)
+	options := query.Options()
+	count := uint32(options.Count)
+	offset := uint32(options.Offset)
+
+	// First create the base URL for paging
+	baseURL := responseURL(r, query.Resource)
+
+	// Self link
+	links = append(links, newLink("self", baseURL, values, count, offset))
+
+	// First link
+	links = append(links, newLink("first", baseURL, values, count, uint32(0)))
+
+	// Previous link
+	if offset > uint32(0) {
+		newOffset := offset - count
+		// Handle case where paging is uneven (e.g., count=10&offset=5)
+		if count > offset {
+			newOffset = uint32(0)
+		}
+		links = append(links, newLink("previous", baseURL, values, offset-newOffset, newOffset))
+	}
+
+	// Next Link
+	if total > (offset + count) {
+		links = append(links, newLink("next", baseURL, values, count, offset+count))
+	}
+
+	// Last Link
+	remainder := (total - offset) % count
+	if total < offset {
+		remainder = uint32(0)
+	}
+	newOffset := total - remainder
+	if remainder == uint32(0) && total > count {
+		newOffset = total - count
+	}
+	links = append(links, newLink("last", baseURL, values, count, newOffset))
+
+	return links
+}
+
+func newLink(relation string, baseURL *url.URL, values url.Values, count uint32, offset uint32) models.BundleLinkComponent {
+	values.Set(search.CountParam, fmt.Sprint(count))
+	values.Set(search.OffsetParam, fmt.Sprint(offset))
+	baseURL.RawQuery = values.Encode()
+	return models.BundleLinkComponent{Relation: relation, Url: baseURL.String()}
 }
 
 func (rc *ResourceController) LoadResource(r *http.Request) (interface{}, error) {
@@ -141,11 +215,7 @@ func (rc *ResourceController) CreateHandler(rw http.ResponseWriter, r *http.Requ
 	context.Set(r, "Resource", rc.Name)
 	context.Set(r, "Action", "create")
 
-	host, err := os.Hostname()
-	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
-	}
-	rw.Header().Add("Location", "http://"+host+":3001/"+rc.Name+"/"+i.Hex())
+	rw.Header().Add("Location", responseURL(r, rc.Name, i.Hex()).String())
 	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
 	rw.Header().Set("Access-Control-Allow-Origin", "*")
 	rw.WriteHeader(http.StatusCreated)
@@ -207,4 +277,17 @@ func (rc *ResourceController) DeleteHandler(rw http.ResponseWriter, r *http.Requ
 	context.Set(r, rc.Name, id.Hex())
 	context.Set(r, "Resource", rc.Name)
 	context.Set(r, "Action", "delete")
+}
+
+func responseURL(r *http.Request, paths ...string) *url.URL {
+	responseURL := url.URL{}
+	if r.TLS == nil {
+		responseURL.Scheme = "http"
+	} else {
+		responseURL.Scheme = "https"
+	}
+	responseURL.Host = r.Host
+	responseURL.Path = fmt.Sprintf("/%s", strings.Join(paths, "/"))
+
+	return &responseURL
 }
