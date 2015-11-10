@@ -150,6 +150,6 @@ Note: distinct may only be used in invariants and does not need to be implemente
 %sct - url for snomed ct
 %loinc - url for loinc
 %ucum - url for ucum
-%us-zip - regex [0-9]{5}(-[0-9]{4}){0,1}
-%vs-[name] - full url for the provided [name]
-%ext-[name]  
+%us:zip - regex [0-9]{5}(-[0-9]{4}){0,1}
+%vs:[name] - full url for the provided [name]
+%ext:[name]  
