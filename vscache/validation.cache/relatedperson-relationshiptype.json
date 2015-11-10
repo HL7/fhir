@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|owner|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "owner",
-        "definition": null,
-        "display": "Owner of animal"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null#|http://hl7.org/fhir/v3/RoleCode|null|WIFE|null",
       "severity": null,
       "message": null,
@@ -21,6 +10,17 @@
         "code": "partner",
         "definition": null,
         "display": "Partner"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|owner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "owner",
+        "definition": null,
+        "display": "Owner of animal"
       }
     },
     {

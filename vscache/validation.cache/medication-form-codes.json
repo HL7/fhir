@@ -7,7 +7,17 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|385218009|Injection",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|85581007|Drug Powder",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|255621006|Cream",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -17,32 +27,7 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|440131009|Oral dosage form product",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|385218009|Injection",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|42108003|Powder for Suspension",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|385219001|Injection Solution",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|421606006|Aerosol spray",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|385055001|Tablet",
+      "hash": "#|http://snomed.info/sct|null|440132002|Parenteral dosage form product",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -63,12 +48,27 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|255621006|Cream",
+      "hash": "#|http://snomed.info/sct|null|42108003|Powder for Suspension",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|440132002|Parenteral dosage form product",
+      "hash": "#|http://snomed.info/sct|null|385055001|Tablet",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|440131009|Oral dosage form product",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|385219001|Injection Solution",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|421606006|Aerosol spray",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

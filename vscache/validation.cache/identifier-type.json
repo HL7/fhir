@@ -2,22 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/identifier-type",
   "outcomes": [
     {
-      "hash": "|urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd|null|IHE XDS Metadata|submission set classificationNode",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "|http://hl7.org/fhir/identifier-type|null|SNO|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Serial Number"
-      }
-    },
-    {
       "hash": "|http://hl7.org/fhir/v2/0203|null|PRN|null",
       "severity": null,
       "message": null,
@@ -26,6 +10,17 @@
         "code": null,
         "definition": null,
         "display": "Provider number"
+      }
+    },
+    {
+      "hash": "|http://hl7.org/fhir/v2/0203|null|NI|National unique individual identifier",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "National unique individual identifier"
       }
     },
     {
@@ -40,17 +35,6 @@
       }
     },
     {
-      "hash": "|http://hl7.org/fhir/identifier-type|null|SB|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Social Beneficiary Identifier"
-      }
-    },
-    {
       "hash": "|http://hl7.org/fhir/v2/0203|null|SS|null",
       "severity": null,
       "message": null,
@@ -62,14 +46,14 @@
       }
     },
     {
-      "hash": "|http://hl7.org/fhir/identifier-type|null|PLAC|null",
+      "hash": "|http://hl7.org/fhir/identifier-type|null|SB|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Placer Identifier"
+        "display": "Social Beneficiary Identifier"
       }
     },
     {
@@ -84,14 +68,30 @@
       }
     },
     {
-      "hash": "|http://hl7.org/fhir/v2/0203|null|NI|National unique individual identifier",
+      "hash": "|http://hl7.org/fhir/identifier-type|null|SNO|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "National unique individual identifier"
+        "display": "Serial Number"
+      }
+    },
+    {
+      "hash": "|urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd|null|IHE XDS Metadata|submission set classificationNode",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "|http://hl7.org/fhir/identifier-type|null|PLAC|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Placer Identifier"
       }
     }
   ]

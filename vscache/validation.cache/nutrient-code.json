@@ -24,17 +24,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|33463005|Fluid",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Fluid"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|30820000|Phosphorus",
       "severity": null,
       "message": null,
@@ -46,14 +35,14 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
+      "hash": "#|http://snomed.info/sct|null|33463005|Fluid",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Fat"
+        "display": "Fluid"
       }
     },
     {
@@ -65,6 +54,17 @@
         "code": null,
         "definition": null,
         "display": "Na - Sodium"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fat"
       }
     }
   ]
