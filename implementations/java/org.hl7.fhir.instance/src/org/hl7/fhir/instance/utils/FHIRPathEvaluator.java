@@ -16,6 +16,20 @@ import org.hl7.fhir.utilities.Utilities;
 
 public abstract class FHIRPathEvaluator {
 
+	/**
+	 * Given an item, return all the children that conform to the pattern described in name
+	 * 
+	 * Possible patterns:
+	 *  - a simple name
+	 *  - a name with [] e.g. value[x]
+	 *  - a name with a type replacement e.g. valueCodeableConcept
+	 *  - * which means all children
+	 *  - ** which means all descendents
+	 *  
+	 * @param item
+	 * @param name
+	 * @param result
+	 */
 	abstract protected void getChildrenByName(Base item, String name, List<Base> result);
 	
 	/**
@@ -23,9 +37,10 @@ public abstract class FHIRPathEvaluator {
 	 * 
 	 * @param context - the logical type against which this path is applied
 	 * @param path - the FHIR Path statement to check
+	 * @throws Exception if the path is not valid
 	 */
-  public Expression check(String context, String path) {
-    throw new Error("Not Done Yet");
+  public Expression check(String context, String path) throws Exception {
+    return parse(path);
   }
 
   /**
@@ -148,9 +163,11 @@ public abstract class FHIRPathEvaluator {
 	}
 
 	public enum Operation {
-		Equals, NotEquals, LessThen, Greater, LessOrEqual, GreaterOrEqual, In, Plus, Minus, Divide, Multiply;
+		Equals, NotEquals, LessThen, Greater, LessOrEqual, GreaterOrEqual, In, Plus, Minus, Divide, Multiply, Or, And, Xor;
 
 		public static Operation fromCode(String name) {
+		  if (Utilities.noString(name))
+		    return null;
 			if (name.equals("="))
 				return Operation.Equals;
 			if (name.equals("!="))
@@ -173,6 +190,12 @@ public abstract class FHIRPathEvaluator {
 				return Operation.Divide;
 			if (name.equals("*"))
 				return Operation.Multiply;
+      if (name.equals("or"))
+        return Operation.Or;
+      if (name.equals("and"))
+        return Operation.And;
+      if (name.equals("xor"))
+        return Operation.Xor;
 			return null;
 			
 		}
@@ -204,7 +227,10 @@ public abstract class FHIRPathEvaluator {
 		}
 		public void setFunction(Function function) {
 			this.function = function;
+			if (parameters == null)
+			  parameters = new ArrayList<Expression>();
 		}
+		
 		public Operation getOperation() {
 			return operation;
 		}
@@ -246,7 +272,7 @@ public abstract class FHIRPathEvaluator {
 		}
 
 		public boolean isConstant() {
-			return current.charAt(1) == '"' || (current.charAt(1) >= '0' && current.charAt(1) <= '9') || current.equals("true") || current.equals("false");
+			return current.charAt(0) == '"' || (current.charAt(0) >= '0' && current.charAt(0) <= '9') || current.equals("true") || current.equals("false");
 		}
 
 		public String take() {
@@ -262,8 +288,8 @@ public abstract class FHIRPathEvaluator {
 			if (current.equals("$") || current.equals("*") || current.equals("**"))
 				return true;
 
-			if ((current.charAt(1) >= 'A' && current.charAt(1) <= 'Z') || (current.charAt(1) >= 'a' && current.charAt(1) <= 'z')) {
-				for (int i = 0; i < current.length(); i++) 
+			if ((current.charAt(0) >= 'A' && current.charAt(0) <= 'Z') || (current.charAt(0) >= 'a' && current.charAt(0) <= 'z')) {
+				for (int i = 1; i < current.length(); i++) 
 					if (!( (current.charAt(1) >= 'A' && current.charAt(1) <= 'Z') || (current.charAt(1) >= 'a' && current.charAt(1) <= 'z') ||
 							(current.charAt(1) >= '0' && current.charAt(1) <= '9')) || current.charAt(1) == '[' || current.charAt(1) == ']' || (current.charAt(1) == '*') && (i == current.length()-1))
 						return false;
@@ -334,36 +360,45 @@ public abstract class FHIRPathEvaluator {
 	}
 
 	private Expression parseExpression(Lexer lexer) throws Exception {
-		Expression result = new Expression();
-		int c = lexer.getCurrentStart();
-		if (lexer.isConstant()) 
-			result.setConstant(lexer.take());
-		else {
-			if (!lexer.isToken()) 
-				throw lexer.error("Found "+lexer.getCurrent()+" expecting a token name");
-			result.setName(lexer.take());
-			if (lexer.getCurrent().equals("(")) {
-				Function f = Function.fromCode(result.getName());  
-				if (f == null)
-					throw lexer.error("The name "+result.getName()+" is not a valid function name");
-				result.setFunction(f);
-				lexer.next();
-				while (!lexer.getCurrent().equals(")")) 
-					result.getParameters().add(parseExpression(lexer));
-				lexer.next();
-				checkParameters(lexer, c, result);
-			}
-			if (lexer.current.equals(".")) {
-				lexer.next();
-				result.setNext(parseExpression(lexer));
-			}
-		}
-		if (lexer.isOp()) {
-			result.setOperation(Operation.fromCode(lexer.getCurrent()));
-			lexer.next();
-			result.setNext(parseExpression(lexer));
-		}
-		return result;
+	  Expression result = new Expression();
+	  int c = lexer.getCurrentStart();
+	  if (lexer.isConstant()) 
+	    result.setConstant(lexer.take());
+	  else {
+	    if ("(".equals(lexer.getCurrent())) {
+	      lexer.next();
+	      Expression group = parseExpression(lexer);
+	      if (!")".equals(lexer.getCurrent())) 
+	        throw lexer.error("Found "+lexer.getCurrent()+" expecting a \")\"");
+	      lexer.next();
+	      result = group;
+	    } else {
+	      if (!lexer.isToken()) 
+	        throw lexer.error("Found "+lexer.getCurrent()+" expecting a token name");
+	      result.setName(lexer.take());
+	      if ("(".equals(lexer.getCurrent())) {
+	        Function f = Function.fromCode(result.getName());  
+	        if (f == null)
+	          throw lexer.error("The name "+result.getName()+" is not a valid function name");
+	        result.setFunction(f);
+	        lexer.next();
+	        while (!")".equals(lexer.getCurrent())) 
+	          result.getParameters().add(parseExpression(lexer));
+	        lexer.next();
+	        checkParameters(lexer, c, result);
+	      }
+	    }
+	    if (".".equals(lexer.current)) {
+	      lexer.next();
+	      result.setNext(parseExpression(lexer));
+	    }
+	  }
+	  if (lexer.isOp()) {
+	    result.setOperation(Operation.fromCode(lexer.getCurrent()));
+	    lexer.next();
+	    result.setNext(parseExpression(lexer));
+	  }
+	  return result;
 	}
 
 	private Expression parse(String path) throws Exception {
@@ -372,7 +407,7 @@ public abstract class FHIRPathEvaluator {
 			throw lexer.error("Path cannot be empty");
 		Expression result = parseExpression(lexer);
 		if (!lexer.done())
-			throw lexer.error("Premature expression termination at unexpected token");
+			throw lexer.error("Premature expression termination at unexpected token \""+lexer.current+"\"");
 		return result;
 	}
 
