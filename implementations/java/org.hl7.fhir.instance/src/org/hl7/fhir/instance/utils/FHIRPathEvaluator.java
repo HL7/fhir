@@ -6,8 +6,12 @@ import java.util.List;
 
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
+import org.hl7.fhir.instance.model.DecimalType;
+import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
 
 public abstract class FHIRPathEvaluator {
@@ -20,7 +24,7 @@ public abstract class FHIRPathEvaluator {
 	 * @param context - the logical type against which this path is applied
 	 * @param path - the FHIR Path statement to check
 	 */
-  public void check(String context, String path) {
+  public Expression check(String context, String path) {
     throw new Error("Not Done Yet");
   }
 
@@ -36,7 +40,7 @@ public abstract class FHIRPathEvaluator {
     Expression exp = parse(path);
     List<Base> list = new ArrayList<Base>();
     list.add(base);
-    return execute(list, exp, true);
+    return execute(list, list, exp, true);
   }
 
   /**
@@ -69,7 +73,6 @@ public abstract class FHIRPathEvaluator {
    * @param items - result from @evaluate
    * @return
    */
-  @SuppressWarnings("rawtypes")
 	public String convertToString(List<Base> items) {
   	StringBuilder b = new StringBuilder();
   	boolean first = true;
@@ -78,13 +81,19 @@ public abstract class FHIRPathEvaluator {
   			first = false;
   		else
   			b.append(',');
-  		if (item instanceof PrimitiveType)
-  			b.append(((PrimitiveType) item).asStringValue());
-  		else 
-  			b.append(item.getClass().getName());
+  		
+  		b.append(convertToString(item));
   	}
   	return b.toString();
   }
+
+  @SuppressWarnings("rawtypes")
+	private String convertToString(Base item) {
+	if (item instanceof PrimitiveType)
+		return ((PrimitiveType) item).asStringValue();
+	else 
+		return item.getClass().getName();
+	}
 
   /**
    * worker routine for converting a set of objects to a boolean representation (for invariants)
@@ -237,7 +246,7 @@ public abstract class FHIRPathEvaluator {
 		}
 
 		public boolean isConstant() {
-			return current.charAt(1) == '%' || (current.charAt(1) >= '0' && current.charAt(1) <= '9') || current.equals("true") || current.equals("false");
+			return current.charAt(1) == '"' || (current.charAt(1) >= '0' && current.charAt(1) <= '9') || current.equals("true") || current.equals("false");
 		}
 
 		public String take() {
@@ -406,127 +415,279 @@ public abstract class FHIRPathEvaluator {
 		return false;
 	}
 
-	private List<Base> execute(List<Base> context, Expression exp, boolean atEntry) {
+	private List<Base> execute(List<Base> originalContext, List<Base> context, Expression exp, boolean atEntry) {
 		List<Base> work = new ArrayList<Base>();
 		// functions are evaluated on the collection
 		if (exp.getFunction() != null) {
-			work.addAll(evaluateFunction(context, exp));
-		} else 
-			for (Base item : context) {
-				work.addAll(execute(item, exp, atEntry));
-			}
+			work.addAll(evaluateFunction(originalContext, context, exp));
+		} else if (exp.getConstant() != null) 
+      work.add(readConstant(exp.getConstant()));
+    else 
+			for (Base item : context) 
+				work.addAll(execute(originalContext, item, exp, atEntry));
+			
+	
 		if (exp.getNext() == null)
 			return work;
-		else
-			return execute(work, exp.getNext(), false);
+		else if (exp.getOperation() != null) {
+			List<Base> work2 = execute(originalContext, context, exp.next, false);
+      return operate(work, exp.getOperation(), work2);
+		} else
+			return execute(originalContext, work, exp.getNext(), false);
 	}
 
-	private List<Base> execute(Base item, Expression exp, boolean atEntry) {
+	private List<Base> operate(List<Base> left, Operation operation, List<Base> right) {
+		switch (operation) {
+		case Equals: return opEquals(left, right);
+		case NotEquals: return opNotEquals(left, right);
+		case LessThen: return opLessThen(left, right);
+		case Greater: return opGreater(left, right);
+		case LessOrEqual: return opLessOrEqual(left, right);
+		case GreaterOrEqual: return opGreaterOrEqual(left, right);
+		case In: return opIn(left, right);
+		case Plus: return opPlus(left, right);
+		case Minus: return opMinus(left, right);
+		case Divide: return opDivide(left, right);
+		case Multiply: return opMultiply(left, right);
+		default: 
+			return null;
+		}
+	}
+
+	private List<Base> opEquals(List<Base> left, List<Base> right) {
+	  boolean found = false;
+	  String sr = convertToString(right);
+	  for (Base item : left) {
+	    String sl = convertToString(item);
+	    found = found || (sl.equals(sr));
+	  }
+		List<Base> result = new ArrayList<Base>();
+		result.add(new BooleanType(found));
+		return result;
+	}
+
+	private List<Base> opNotEquals(List<Base> left, List<Base> right) {
+	  boolean found = false;
+	  String sr = convertToString(right);
+	  for (Base item : left) {
+	    String sl = convertToString(item);
+	    found = found || (sl.equals(sr));
+	  }
+		List<Base> result = new ArrayList<Base>();
+		result.add(new BooleanType(!found));
+		return result;
+	}
+
+	private List<Base> opLessThen(List<Base> left, List<Base> right) {
+	  throw new Error("The operation LessThen is not done yet");
+	}
+
+	private List<Base> opGreater(List<Base> left, List<Base> right) {
+	  throw new Error("The operation Greater is not done yet");
+	}
+
+	private List<Base> opLessOrEqual(List<Base> left, List<Base> right) {
+	  throw new Error("The operation LessOrEqual is not done yet");
+	}
+
+	private List<Base> opGreaterOrEqual(List<Base> left, List<Base> right) {
+	  throw new Error("The operation GreaterOrEqual is not done yet");
+	}
+
+	private List<Base> opIn(List<Base> left, List<Base> right) {
+	  throw new Error("The operation In is not done yet");
+	}
+
+	private List<Base> opPlus(List<Base> left, List<Base> right) {
+	  throw new Error("The operation Plus is not done yet");
+	}
+
+	private List<Base> opMinus(List<Base> left, List<Base> right) {
+	  throw new Error("The operation Minus is not done yet");
+	}
+
+	private List<Base> opDivide(List<Base> left, List<Base> right) {
+	  throw new Error("The operation Divide is not done yet");
+	}
+
+	private List<Base> opMultiply(List<Base> left, List<Base> right) {
+	  throw new Error("The operation Multiply is not done yet");
+	}
+
+	private Type readConstant(String constant) {
+		if (constant.equals("true")) 
+			return new BooleanType(true);
+		else if (constant.equals("false")) 
+			return new BooleanType(false);
+		else if (Utilities.isInteger(constant))
+			return new IntegerType(constant);
+		else if (Utilities.isDecimal(constant))
+			return new DecimalType(constant);
+		else
+			return new StringType(constant);
+	}
+
+	private List<Base> execute(List<Base> originalContext, Base item, Expression exp, boolean atEntry) {
 		List<Base> result = new ArrayList<Base>(); 
    if (atEntry && Character.isUpperCase(exp.getName().charAt(0))) {// special case for start up
 	   if (item instanceof Resource && ((Resource) item).getResourceType().toString().equals(exp.getName()))  
 	     result.add(item);
-   } else
+   } else if (exp.getName().equals("$"))
+     result.addAll(originalContext);
+   else
   	 getChildrenByName(item, exp.name, result);
    return result;
 	}
 
 	
-	private List<Base> evaluateFunction(List<Base> context, Expression exp) {
+	private List<Base> evaluateFunction(List<Base> originalContext, List<Base> context, Expression exp) {
 		switch (exp.getFunction()) {
-		case Empty : return funcEmpty(context, exp);
-		case Item : return funcItem(context, exp);
-		case Where : return funcWhere(context, exp);
-		case All : return funcAll(context, exp);
-		case Any : return funcAny(context, exp);
-		case First : return funcFirst(context, exp);
-		case Last : return funcLast(context, exp);
-		case Tail : return funcTail(context, exp);
-		case Count : return funcCount(context, exp);
-		case AsInteger : return funcAsInteger(context, exp);
-		case StartsWith : return funcStartsWith(context, exp);
-		case Length : return funcLength(context, exp);
-		case Matches : return funcMatches(context, exp);
-		case Distinct : return funcDistinct(context, exp);
+		case Empty : return funcEmpty(originalContext, context, exp);
+		case Item : return funcItem(originalContext, context, exp);
+		case Where : return funcWhere(originalContext, context, exp);
+		case All : return funcAll(originalContext, context, exp);
+		case Any : return funcAny(originalContext, context, exp);
+		case First : return funcFirst(originalContext, context, exp);
+		case Last : return funcLast(originalContext, context, exp);
+		case Tail : return funcTail(originalContext, context, exp);
+		case Count : return funcCount(originalContext, context, exp);
+		case AsInteger : return funcAsInteger(originalContext, context, exp);
+		case StartsWith : return funcStartsWith(originalContext, context, exp);
+		case Length : return funcLength(originalContext, context, exp);
+		case Matches : return funcMatches(originalContext, context, exp);
+		case Distinct : return funcDistinct(originalContext, context, exp);
 		}
 		throw new Error("not Implemented yet");
 	}
 
-	private List<Base> funcDistinct(List<Base> context, Expression exp) {
+	private List<Base> funcDistinct(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
 		throw new Error("not Implemented yet");
 	}
 
-	private List<Base> funcMatches(List<Base> context, Expression exp) {
+	private List<Base> funcMatches(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
-		throw new Error("not Implemented yet");
+	  String p = convertToString(execute(originalContext, context, exp.getParameters().get(0), false));
+
+	  for (Base item : context) {
+	    String s = convertToString(item);
+	    if (s.matches(p)) 
+	    	result.add(item);
+	  }
+	  return result;
 	}
 
-	private List<Base> funcLength(List<Base> context, Expression exp) {
+	private List<Base> funcLength(List<Base> originalContext, List<Base> context, Expression exp) {
+	  int l = 0;
+	  for (Base item : context) {
+	    String s = convertToString(item);
+	    l = Math.max(l, s.length());
+	  }
 		List<Base> result = new ArrayList<Base>();
-		throw new Error("not Implemented yet");
+    result.add(new IntegerType(l));
+	  return result;
 	}
 
-	private List<Base> funcStartsWith(List<Base> context, Expression exp) {
+	private List<Base> funcStartsWith(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
-		throw new Error("not Implemented yet");
+	  String sw = convertToString(execute(originalContext, context, exp.getParameters().get(0), false));
+
+	  for (Base item : context) {
+	    String s = convertToString(item);
+	    if (s.startsWith(sw)) 
+	        result.add(item);
+	  }
+	  return result;
 	}
 
-	private List<Base> funcAsInteger(List<Base> context, Expression exp) {
-		List<Base> result = new ArrayList<Base>();
-		throw new Error("not Implemented yet");
+	private List<Base> funcAsInteger(List<Base> originalContext, List<Base> context, Expression exp) {
+	  String s = convertToString(context);
+	  List<Base> result = new ArrayList<Base>();
+	  if (Utilities.isInteger(s))
+      result.add(new IntegerType(s));
+	  return result;
 	}
 
-	private List<Base> funcCount(List<Base> context, Expression exp) {
+	private List<Base> funcCount(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
-		throw new Error("not Implemented yet");
+	  result.add(new IntegerType(context.size()));
+	  return result;
 	}
 
-	private List<Base> funcTail(List<Base> context, Expression exp) {
+	private List<Base> funcTail(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
 		for (int i = 1; i < context.size(); i++)
    		result.add(context.get(i));
 	  return result;
 	}
 
-	private List<Base> funcLast(List<Base> context, Expression exp) {
+	private List<Base> funcLast(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
 		if (context.size() > 0)
    		result.add(context.get(context.size()-1));
 	  return result;
 	}
 
-	private List<Base> funcFirst(List<Base> context, Expression exp) {
+	private List<Base> funcFirst(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
 		if (context.size() > 0)
    		result.add(context.get(0));
 	  return result;
 	}
 
-	private List<Base> funcAny(List<Base> context, Expression exp) {
+	private List<Base> funcAny(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
-		throw new Error("not Implemented yet");
+		List<Base> pc = new ArrayList<Base>();
+		boolean any = false;
+		for (Base item : context) {
+			pc.clear();
+			pc.add(item);
+			if (convertToBoolean(execute(originalContext, pc, exp.getParameters().get(0), false))) {
+				any = true;
+				break;
+			}
+		}
+		result.add(new BooleanType(any));
+		return result;
 	}
 
-	private List<Base> funcAll(List<Base> context, Expression exp) {
+	private List<Base> funcAll(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
-		throw new Error("not Implemented yet");
+		List<Base> pc = new ArrayList<Base>();
+		boolean all = true;
+		for (Base item : context) {
+			pc.clear();
+			pc.add(item);
+			if (!convertToBoolean(execute(originalContext, pc, exp.getParameters().get(0), false))) {
+				all = false;
+				break;
+			}
+		}
+		result.add(new BooleanType(all));
+		return result;
 	}
 
-	private List<Base> funcWhere(List<Base> context, Expression exp) {
+	private List<Base> funcWhere(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
-		throw new Error("not Implemented yet");
+		List<Base> pc = new ArrayList<Base>();
+	  for (Base item : context) {
+	  	pc.clear();
+	  	pc.add(item);
+	  	if (convertToBoolean(execute(originalContext, pc, exp.getParameters().get(0), false)))
+	  			result.add(item);
+	  }
+	  return result;
 	}
 
-	private List<Base> funcItem(List<Base> context, Expression exp) {
+	private List<Base> funcItem(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
-		String s = convertToString(context);
-		if (Utilities.isInteger(s))
+		String s = convertToString(execute(originalContext, context, exp.getParameters().get(0), false));
+		if (Utilities.isInteger(s) && Integer.parseInt(s) < context.size())
    		result.add(context.get(Integer.parseInt(s)));
 	  return result;
 	}
 
-	private List<Base> funcEmpty(List<Base> context, Expression exp) {
+	private List<Base> funcEmpty(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();
 		result.add(new BooleanType(context.isEmpty()));
 	  return result;
