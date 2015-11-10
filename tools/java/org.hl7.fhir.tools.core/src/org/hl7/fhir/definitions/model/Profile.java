@@ -16,7 +16,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 public class Profile {
 
   public enum ConformancePackageSourceType {
-    Spreadsheet, Bundle;
+    Spreadsheet, Bundle, SturctureDefinition;
   }
 
   // settings

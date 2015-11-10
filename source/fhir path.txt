@@ -13,10 +13,12 @@ on one element in focus.
 --------------------
 1. Usage
 
-FHIR Path is used in 3 places within the specification
+FHIR Path is used in 5 places within the FHIR specifications
 - search parameter paths - used to define what contents the parameter refers to 
 - slicing discriminator - used to indicate what elements define uniqueness
 - invariants in ElementDefinition, used to apply co-occurance and other rules to the contents 
+- error message locations in OperationOutcome
+- URL templates in Smart on FHIR's cds-hooks
 
 implementations may find other uses for this as well
 
@@ -108,17 +110,17 @@ returns a collection containing the last item in the list
 
 .tail()
 
-returns a collection containing all but the last item in the list 
+returns a collection containing all but the first item in the list 
 
 .count()
 
 returns a collection with a single value which is the integer count of the collection
 
-.as-integer()
+.asInteger()
 
 converts a string to an integer (empty collection if it's not a proper integer)
 
-.starts-with()
+.startsWith()
 
 filters the list to only include elements with a string value that starst with the specified content
 

@@ -293,7 +293,7 @@ public class ClientUtils {
 	 * @return
 	 */
 	protected static Bundle unmarshalFeed(HttpResponse response, String format) {
-		Bundle feed = null;
+    Bundle feed = null;
 		InputStream instream = null;
 		HttpEntity entity = response.getEntity();
 		String contentType = response.getHeaders("Content-Type")[0].getValue();
@@ -302,10 +302,12 @@ public class ClientUtils {
 			if (entity != null) {
 			    instream = entity.getContent();
 			    if(contentType.contains(ResourceFormat.RESOURCE_XML.getHeader()) || contentType.contains("text/xml+fhir")) {
-			    	error = (OperationOutcome)getParser(ResourceFormat.RESOURCE_XML.getHeader()).parse(instream);
-			    } else {
+//			    	error = (OperationOutcome)getParser(ResourceFormat.RESOURCE_XML.getHeader()).parse(instream);
+//			    } else {
 			    	Resource rf = getParser(format).parse(instream);
-			    	if (rf instanceof OperationOutcome && hasError((OperationOutcome) rf)) {
+			    	if (rf instanceof Bundle)
+			    	  feed = (Bundle) rf;
+			    	else if (rf instanceof OperationOutcome && hasError((OperationOutcome) rf)) {
 			    		error = (OperationOutcome) rf;
 			    		} else {
 			    			throw new EFhirClientException("Error unmarshalling feed from Http Response: a resource was returned instead");

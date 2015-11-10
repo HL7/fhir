@@ -160,7 +160,20 @@ public class IgParser {
           r.setUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE, vs);
           r.setSource(new UriType(fn.getName()));
         } else if (r.getPurpose() == GuideResourcePurpose.PROFILE) {
-          throw new Error("Not implemented yet");
+          Profile pr = new Profile(igd.getCode());
+          pr.setSource(fn.getAbsolutePath());
+          StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(pr.getSource()));
+          if (!sd.hasId())
+            sd.setId(tail(sd.getUrl()));
+          pr.forceMetadata("id", sd.getId());
+          pr.setSourceType(ConformancePackageSourceType.SturctureDefinition);
+          ConstraintStructure cs = new ConstraintStructure(sd, igd);
+          pr.getProfiles().add(cs);
+          igd.getProfiles().add(pr);
+        } else if (r.getPurpose() == GuideResourcePurpose.EXTENSION) {
+          StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(fn.getAbsolutePath()));
+          ToolResourceUtilities.updateUsage(sd, igd.getCode());
+          this.context.seeExtensionDefinition("http://hl7.org/fhir", sd);
         } else if (r.getPurpose() == GuideResourcePurpose.LOGICAL) {
           fn = new CSFile(Utilities.path(myRoot, r.getSourceUriType().asStringValue()));
           StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(fn));
@@ -338,6 +351,10 @@ public class IgParser {
 //        throw new Exception("Unknown element name in IG: "+e.getNodeName());
 //      e = XMLUtil.getNextSibling(e);
 //    }    
+  }
+
+  private String tail(String url) {
+    return url.substring(url.lastIndexOf("/")+1);
   }
 
   private void processPage(ImplementationGuidePageComponent page, ImplementationGuideDefn igd) throws Exception {
