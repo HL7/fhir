@@ -3288,7 +3288,7 @@
     <Cell ss:StyleID="s82"><Data ss:Type="String">All FHIR elements must have a @value or children</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">*:notEmpty</Data><NamedCell
+    <Cell ss:StyleID="s82"><Data ss:Type="String">*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">@value|f:*|h:div</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3807,7 +3807,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>

@@ -8,7 +8,7 @@
   Context = Element
   English = All FHIR elements must have a @value or children
   XPath = @value|f:*|h:div
-  FHIRPath = *:notEmpty
+  FHIRPath = *
   Severity = error
 
 === Sheet Data Elements =====================================
