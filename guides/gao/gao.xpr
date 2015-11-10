@@ -5,5 +5,33 @@
             positiveFilePatterns="" showHiddenFiles="false"/>
         <options/>
     </meta>
-    <projectTree name="gao.xpr"/>
+    <projectTree name="gao.xpr">
+        <folder name="Examples"/>
+        <folder name="StructureDefinition">
+            <file name="StructureDefinition/gao-alternate.xml"/>
+            <file name="StructureDefinition/gao-diagnosticorder.xml"/>
+            <file name="StructureDefinition/gao-extension-device.xml"/>
+            <file name="StructureDefinition/gao-extension-guideline.xml"/>
+            <file name="StructureDefinition/gao-extension-item.xml"/>
+            <file name="StructureDefinition/gao-extension-period.xml"/>
+            <file
+                name="StructureDefinition/gao-extension-practitioner.xml"/>
+            <file name="StructureDefinition/gao-extension-score.xml"/>
+            <file name="StructureDefinition/gao-extension-signature.xml"/>
+            <file name="StructureDefinition/gao-medicationorder.xml"/>
+            <file name="StructureDefinition/gao-order.xml"/>
+            <file name="StructureDefinition/gao-patient.xml"/>
+            <file name="StructureDefinition/gao-practitioner.xml"/>
+            <file name="StructureDefinition/gao-procedurerequest.xml"/>
+            <file name="StructureDefinition/gao-provenance.xml"/>
+            <file name="StructureDefinition/gao-questionnaire.xml"/>
+            <file
+                name="StructureDefinition/gao-questionnaireresponse.xml"/>
+            <file name="StructureDefinition/gao-referralrequest.xml"/>
+            <file name="StructureDefinition/gao-result.xml"/>
+        </folder>
+        <folder name="ValueSets"/>
+        <file name="gao.html"/>
+        <file name="gao.xml"/>
+    </projectTree>
 </project>

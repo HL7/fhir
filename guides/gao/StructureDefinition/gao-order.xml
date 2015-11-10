@@ -112,7 +112,7 @@
       <min value="1" />
       <max value="1" />
       <type>
-        <code value="Patient" />
+        <code value="Reference" />
         <profile value="http://hl7.org/fhir/StructureDefinition/gao-patient" />
         <aggregation value="contained" />
       </type>
@@ -141,7 +141,7 @@
       <min value="1" />
       <max value="1" />
       <type>
-        <code value="Practitioner" />
+        <code value="Reference" />
         <profile value="http://hl7.org/fhir/StructureDefinition/gao-practitioner" />
         <aggregation value="contained" />
       </type>

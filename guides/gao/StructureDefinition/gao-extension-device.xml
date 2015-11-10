@@ -12,7 +12,7 @@
   <description value="Identifies the device performing the evaluation of the order" />
   <requirements value="A reference to the Device resource describing the Decision Support Service Actor SHALL be provided unless the evaluation was issued manually, in which case it is optional. This SHALL be a reference to one of the Devices specified in the dss parameter." />
   <fhirVersion value="1.0.1" />
-  <kind value="datatype" />
+  <kind value="resource" />
   <constrainedType value="Extension" />
   <abstract value="false" />
   <contextType value="resource" />
@@ -43,7 +43,7 @@
       <type>
         <code value="uri" />
       </type>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-score" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-extension-device" />
       <mapping>
         <identity value="rim" />
         <map value="N/A" />
@@ -58,7 +58,8 @@
       <min value="0" />
       <max value="1" />
       <type>
-        <code value="Device" />
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Device" />
       </type>
       <mapping>
         <identity value="rim" />
