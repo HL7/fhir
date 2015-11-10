@@ -172,6 +172,7 @@ public class IgParser {
           igd.getProfiles().add(pr);
         } else if (r.getPurpose() == GuideResourcePurpose.EXTENSION) {
           StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(fn.getAbsolutePath()));
+          sd.setId(tail(sd.getUrl()));
           ToolResourceUtilities.updateUsage(sd, igd.getCode());
           this.context.seeExtensionDefinition("http://hl7.org/fhir", sd);
         } else if (r.getPurpose() == GuideResourcePurpose.LOGICAL) {
