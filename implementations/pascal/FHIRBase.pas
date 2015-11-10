@@ -1560,9 +1560,8 @@ end;
 
 function TFhirPropertyListEnumerator.MoveNext : boolean;
 begin
+  inc(FIndex);
   Result := FIndex < FList.count;
-  if Result then
-    Inc(FIndex);
 end;
 
 function TFhirPropertyListEnumerator.GetCurrent : TFhirProperty;

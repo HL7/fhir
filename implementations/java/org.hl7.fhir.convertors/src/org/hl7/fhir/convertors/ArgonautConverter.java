@@ -368,7 +368,7 @@ public class ArgonautConverter extends ConverterBase {
 			stats.put(rn, new Stats());
 		}
 
-		zipsJ.get(rn).addBytes(resource.getId()+".xml", srcJ, false);
+		zipsJ.get(rn).addBytes(resource.getId()+".json", srcJ, false);
 		zipsX.get(rn).addBytes(resource.getId()+".xml", srcX, false);
 		Stats ss = stats.get(rn);
 		ss.instances++;
@@ -464,6 +464,7 @@ public class ArgonautConverter extends ConverterBase {
 		b.append(pat.getBirthDateElement().toHumanDisplay());
 		b.append(")");
 		pat.setMaritalStatus(convert.makeCodeableConceptFromCD(cda.getChild(p, "maritalStatusCode")));
+		
 		pat.addExtension(Factory.newExtension(CcdaExtensions.DAF_NAME_RACE, convert.makeCodeableConceptFromCD(cda.getChild(p, "raceCode")), false));
 		pat.addExtension(Factory.newExtension(CcdaExtensions.DAF_NAME_ETHNICITY, convert.makeCodeableConceptFromCD(cda.getChild(p, "ethnicGroupCode")), false));
 

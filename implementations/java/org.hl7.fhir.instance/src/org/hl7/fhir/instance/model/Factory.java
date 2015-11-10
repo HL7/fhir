@@ -114,7 +114,7 @@ public class Factory {
   }
 
 	public static Extension newExtension(String uri, Type value, boolean evenIfNull) throws Exception {
-		if (!evenIfNull && value == null)
+		if (!evenIfNull && (value == null || value.isEmpty()))
 			return null;
 		Extension e = new Extension();
 		e.setUrl(uri);
