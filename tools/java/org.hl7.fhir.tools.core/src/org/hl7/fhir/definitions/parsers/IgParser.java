@@ -165,7 +165,7 @@ public class IgParser {
           StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(pr.getSource()));
           if (!sd.hasId())
             sd.setId(tail(sd.getUrl()));
-          pr.forceMetadata("id", sd.getId());
+          pr.forceMetadata("id", sd.getId()+"-profile");
           pr.setSourceType(ConformancePackageSourceType.SturctureDefinition);
           ConstraintStructure cs = new ConstraintStructure(sd, igd);
           pr.getProfiles().add(cs);

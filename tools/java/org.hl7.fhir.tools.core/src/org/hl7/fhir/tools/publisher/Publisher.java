@@ -4295,7 +4295,10 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void produceConformancePackage(String resourceName, Profile pack, SectionTracker st) throws Exception {
     if (Utilities.noString(resourceName)) {
       if (pack.getProfiles().size() == 1)
-        resourceName = pack.getProfiles().get(0).getDefn().getName();
+        if (pack.getProfiles().get(0).getDefn() != null)
+          resourceName = pack.getProfiles().get(0).getDefn().getName();
+        else 
+          resourceName = pack.getProfiles().get(0).getResource().getConstrainedType();
       else if (pack.getProfiles().size() == 0) {
        // throw new Exception("Unable to determine resource name - no profiles"); no, we don't complain
       } else if (pack.getProfiles().get(0).getDefn() != null) {
