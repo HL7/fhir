@@ -1,9 +1,9 @@
 FHIR Path
 
 FHIRPath is a path based extraction language, somewhat like XPath. It
-is optimised to work best on FHIR resources. Operations are expressed
+is optimised to work on FHIR resources. Operations are expressed
 in terms of the logical content of the resources, rather than their 
-XML or JSON reprsentation. The expressions can (in theory) be convert
+XML or JSON reprsentation. The expressions can (in theory) be converted
 to XPath, JSON or OCL equivalents
 
 All FHIRPath operations result in a collection of Elements of various
@@ -15,12 +15,12 @@ with one element in focus.
 
 FHIR Path is used in 5 places within the FHIR specifications
 - search parameter paths - used to define what contents the parameter refers to 
-- slicing discriminator - used to indicate what elements define uniqueness
+- slicing discriminator - used to indicate what element(s) define uniqueness
 - invariants in ElementDefinition, used to apply co-occurance and other rules to the contents 
 - error message locations in OperationOutcome
 - URL templates in Smart on FHIR's cds-hooks
 
-implementations may find other uses for this as well
+Implementations may find other uses for this as well
 
 --------------------
 2. Path selection
@@ -81,7 +81,6 @@ as defined by the FHIR data types. Literal values such as
   0
   0.1
   "true"
-  "false"
   
 are automatically converted to the appropriate FHIR types (string,
 integer, decimal, and boolean respectively). 
@@ -108,7 +107,7 @@ This same principle applies when using the path statement in invariants.
 4. Functions
 
 In addition to selecting subelements, functions
-can be performed on the list. functions are names 
+can be performed on the list. Functions are names 
 that are followed by a () with zero or more 
 parameters, separated by ','
 
@@ -133,7 +132,7 @@ true if the collection is empty
 
 .not()
 
-returns the opposite of the boolean evaluation of a collection
+Returns the opposite of the boolean evaluation of a collection
 
 .where(criteria)
 
@@ -156,45 +155,43 @@ collection
 
 .first()
 
-returns a collection containing the first item in the list 
+Returns a collection containing the first item in the list 
 
 .last()
 
-returns a collection containing the last item in the list 
+Returns a collection containing the last item in the list 
 
 .tail()
 
-returns a collection containing all but the first item in the list 
+Returns a collection containing all but the first item in the list 
 
 .count()
 
-returns a collection with a single value which is the integer count of the collection
+Returns a collection with a single value which is the integer count of the collection
 
 .asInteger()
 
-converts a string to an integer (empty collection if it's not a proper integer)
+Converts a string to an integer (empty collection if it's not a proper integer)
 
 .startsWith()
 
-filters the list to only include elements with a string value that starst with the specified content.
+Filters the list to only include elements with a string value that starst with the specified content.
 Note that only primitive elements have a string representation
 
 .length()
 
-returns the length of characters used to represent the value (primitive types only) (does not include syntactical escapes). returns the longest item in the collection
-Note that only primitive elements have a string representation
+Returns the length of characters used to represent the value (primitive types only) (does not include syntactical escapes). Returns the longest item in the collection
+Note that only primitive elements have a string representations
 
 .matches(regex)
 
-returns a boolean for whether all the items in the collection match the given regex
+Returns a boolean for whether all the items in the collection match the given regex
 Note that only primitive elements have a string representation
 
 .distinct(path,path)
 
-returns true of all the elements in the list are distinct when using the relative paths (simple
-paths only with no functions). If the elements in the list are primitives, this can be used with no paths (e.g. :distinct()
-Note: distinct may only be used in invariants and does not need to be implemented for other uses
-
+Returns true if all the elements in the list are distinct when using the relative paths (simple
+paths only with no functions). If the elements in the list are primitives, this can be used with no paths (e.g. .distinct()
 Note: distinct is only allowed in the context of an invariant. distinct need only be implemented
 by path evaluators that are used for testing invariants
 
