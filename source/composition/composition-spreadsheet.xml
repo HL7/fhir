@@ -3793,7 +3793,7 @@
     <Cell ss:StyleID="s83"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Composition.section</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">A section can only have an emptyReason if it is empty</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">emptyReason:empty or entry:empty</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">emptyReason.empty() or entry.empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:emptyReason) and exists(f:entry))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

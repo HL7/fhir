@@ -10,17 +10,17 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-11-17T05:30:16Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16440</WindowHeight>
-  <WindowWidth>10005</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3694,7 +3694,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4256,17 +4255,17 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C6"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="39" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="39" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="57"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="109.5"/>
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="210" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="210" ss:Span="2"/>
+   <Column ss:Index="7" ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s113">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell
@@ -4283,6 +4282,8 @@
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Expression</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">Path Usage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Description</Data><Comment
@@ -4296,6 +4297,7 @@
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">RelatedPerson.identifier</Data></Cell>
     <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">A patient Identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4304,6 +4306,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.name</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A portion of name in any name part</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4311,6 +4314,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.name</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">phonetic</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A portion of name using some kind of phonetic matching algorithm</Data></Cell>
    </Row>
@@ -4320,6 +4324,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.telecom</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">The value in any kind of contact</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4327,6 +4332,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.telecom(system=phone)</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.telecom.where(system='phone')</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A value in a phone contact</Data></Cell>
    </Row>
@@ -4335,6 +4341,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.telecom(system=email)</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.telecom.where(system='email')</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A value in an email contact</Data></Cell>
    </Row>
@@ -4344,6 +4351,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.address</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">An address in any kind of address/part</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4351,6 +4359,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.address.city</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A city specified in an address</Data></Cell>
    </Row>
@@ -4360,6 +4369,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.address.state</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A state specified in an address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4367,6 +4377,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.address.postalCode</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A postal code specified in an address</Data></Cell>
    </Row>
@@ -4376,6 +4387,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.address.country</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A country specified in an address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4383,6 +4395,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.address.use</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A use code specified in an address</Data></Cell>
    </Row>
@@ -4392,6 +4405,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.birthDate</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">The Related Person's date of birth</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4399,6 +4413,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.gender</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Gender of the person</Data></Cell>
    </Row>
@@ -4408,6 +4423,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.patient</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">The patient this person is related to</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4416,13 +4432,6 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
    </Row>
@@ -4431,13 +4440,6 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
@@ -4448,13 +4450,6 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
    </Row>
@@ -4463,13 +4458,6 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
@@ -4480,13 +4468,6 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
    </Row>
@@ -4495,13 +4476,6 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
@@ -4512,13 +4486,6 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
    </Row>
@@ -4527,13 +4494,6 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
@@ -4544,13 +4504,6 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
    </Row>
@@ -4560,6 +4513,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4568,12 +4522,95 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"/>
@@ -4582,6 +4619,7 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s124"/>
@@ -4600,6 +4638,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4619,16 +4658,15 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R6:R7</RangeSelection>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R1C6" xmlns="urn:schemas-microsoft-com:office:excel">
+  <AutoFilter x:Range="R1C1:R1C7" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Operations">

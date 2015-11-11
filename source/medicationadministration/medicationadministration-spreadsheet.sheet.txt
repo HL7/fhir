@@ -98,14 +98,14 @@
   Context = MedicationAdministration
   English = Reason not given is only permitted if wasNotGiven is true
   XPath = not(exists(f:reasonNotGiven) and f:wasNotGiven/@value=false())
-  FHIRPath = reasonNotGIven:empty or wasNotGIven = \'true\'
+  FHIRPath = reasonNotGIven.empty() or wasNotGIven = \'true\'
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = MedicationAdministration
   English = Reason given is only permitted if wasNotGiven is false
   XPath = not(exists(f:reasonGiven) and f:wasNotGiven/@value=true())
-  FHIRPath = reason:empty or wasNotGIven = \'false\'
+  FHIRPath = reason.empty() or wasNotGIven = \'false\'
 
 === Sheet Data Elements =====================================
 

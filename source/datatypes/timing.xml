@@ -3793,7 +3793,7 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">if there's a duration, there needs to be duration units</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">duration:empty or durationUnits</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">duration.empty() or durationUnits</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:duration)) or exists(f:durationUnits)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3806,7 +3806,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">if there's a period, there needs to be period units</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Period:empty or periodUnits</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Period.empty() or periodUnits</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:period)) or exists(f:periodUnits)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -3817,7 +3817,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Either frequency or when can exist, not both</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">(period:empty and frequency:empty) xor when</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(period.empty() and frequency.empty()) xor when</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not((f:period or f:frequency) and f:when)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3828,7 +3828,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat.duration</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">duration SHALL be a non-negative value</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">duration &gt;= 0</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">duration:all(value &gt;= 0)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">duration.all(value &gt;= 0)</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String" x:Ticked="1">@value &gt;= 0 or not(@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3839,7 +3839,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat.period</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">period SHALL be a non-negative value</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">period:all(value &gt;= 0)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">period.all(value &gt;= 0)</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String" x:Ticked="1">@value &gt;= 0 or not(@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -3850,7 +3850,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a periodMax, there must be a period</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">periodMax:empty or period</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">periodMax.empty() or period</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:periodMax)) or exists(f:period)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -3861,7 +3861,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a durationMax, there must be a duration</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">durationMax:empty or duration</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">durationMax.empty() or duration</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:durationMax)) or exists(f:duration)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4318,7 +4318,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>

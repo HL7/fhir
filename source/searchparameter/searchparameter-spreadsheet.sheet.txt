@@ -47,7 +47,7 @@
   Context = SearchParameter
   English = If an xpath is present, there SHALL be an xpathUsage
   XPath = not(exists(f:xpath)) or exists(f:xpathUsage)
-  FHIRPath = xpath:empty or xpathUsage
+  FHIRPath = xpath.empty() or xpathUsage
   Severity = error
 
 === Sheet Data Elements =====================================

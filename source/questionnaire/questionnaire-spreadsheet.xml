@@ -4065,7 +4065,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Groups may either contain questions or groups but not both</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">group:empty or question:empty</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">group.empty() or question.empty()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:group) and exists(f:question))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4077,7 +4077,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Questionnaire</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The link ids for groups and questions must be unique within the questionnaire</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">**.linkId:distinct()</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">**.linkId.distinct()</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">count(descendant::f:linkId/@value)=count(distinct-values(descendant::f:linkId/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4097,7 +4097,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">A question must use either option or options, not both</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">option:empty or options:empty</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">option.empty() or options.empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:options and f:option)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

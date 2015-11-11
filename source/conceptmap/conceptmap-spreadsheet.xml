@@ -3987,7 +3987,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">If the map is narrower or inexact, there SHALL be some comments</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">comments or (equivalence != 'narrower and equivalence != 'inexact')</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">comments or ((equivalence != 'narrower') and (equivalence != 'inexact'))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">exists(f:comments) or ((f:equivalence/@value != 'narrower') and (f:equivalence/@value != 'inexact'))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

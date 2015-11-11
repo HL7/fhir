@@ -3950,7 +3950,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">If an xpath is present, there SHALL be an xpathUsage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">xpath:empty or xpathUsage</Data><NamedCell
+    <Cell><Data ss:Type="String">xpath.empty() or xpathUsage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">not(exists(f:xpath)) or exists(f:xpathUsage)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

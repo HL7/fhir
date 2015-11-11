@@ -4612,7 +4612,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">dataAbsentReason SHALL only be present if Observation.value[x] is not present</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">dataAbsentReason:empty or value[x]:empty</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">dataAbsentReason.empty() or value[x].empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:dataAbsentReason)) or (not(exists(*[starts-with(local-name(.), 'value')])))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
@@ -4622,7 +4622,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Component code SHALL not be same as observation code</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">component(code = $.code)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">component.where(code = $.code).empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:component/f:code)) or count(for $coding in f:code/f:coding return parent::*/f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value])=0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

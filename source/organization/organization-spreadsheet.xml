@@ -3951,7 +3951,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Organization.address</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">An address of an organization can never be of use 'home'</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">address(use = 'home'):empty</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">address.where(use = 'home').empty()</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">count(f:use[@value='home']) = 0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -3961,7 +3961,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Organization.telecom</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">The telecom of an organization can never be of use 'home'</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">telecom(use = 'home'):empty</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">telecom.where(use = 'home').empty()</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">count(f:use[@value='home']) = 0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4412,7 +4412,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

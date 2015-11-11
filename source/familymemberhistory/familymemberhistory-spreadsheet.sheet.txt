@@ -64,7 +64,7 @@
   Context = FamilyMemberHistory
   English = Can have age[x] or birth[x], but not both
   XPath = not (*[starts-with(local-name(.), \'age\')] and *[starts-with(local-name(.), \'birth\')])
-  FHIRPath = age[x]:empty or birth[x]:empty
+  FHIRPath = age[x].empty() or birth[x].empty()
 
 === Sheet Data Elements =====================================
 

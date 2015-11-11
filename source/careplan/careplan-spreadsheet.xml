@@ -4021,7 +4021,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">CarePlan.activity</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Provide a reference or detail, not both</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">detail:empty or reference:empty</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">detail.empty() or reference.empty()</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">not(exists(f:detail)) or not(exists(f:reference))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

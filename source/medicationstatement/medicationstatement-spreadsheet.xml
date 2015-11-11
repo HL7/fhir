@@ -4008,7 +4008,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Reason not taken is only permitted if wasNotTaken is true</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonNotGIven:empty or wasNotGIven = 'true'</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">reasonNotGIven.empty() or wasNotGIven = 'true'</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:reasonNotTaken) and f:wasNotTaken/@value=false())</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4020,7 +4020,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">MedicationStatement</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Reason for use is only permitted if wasNotTaken is false</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">reason:empty or wasNotGIven = 'false'</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">reason.empty() or wasNotGIven = 'false'</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(*[starts-with(local-name(.), 'reasonForUse')]) and f:wasNotTaken/@value=true())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

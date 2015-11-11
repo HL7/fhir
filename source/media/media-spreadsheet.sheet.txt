@@ -56,28 +56,28 @@
   Context = Media
   English = Height can only be used for a photo or video
   XPath = not(f:type/@value=\'audio\') or not(f:height)
-  FHIRPath = height:empty or type != \'audio\'
+  FHIRPath = height.empty() or type != \'audio\'
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Media
   English = Width can only be used for a photo or video
   XPath = not(f:type/@value=\'audio\') or not(f:width)
-  FHIRPath = width:empty or type != \'audio\'
+  FHIRPath = width.empty() or type != \'audio\'
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = Media
   English = Frames can only be used for a photo
   XPath = (f:type/@value=\'photo\') or not(f:frames)
-  FHIRPath = frames:empty or type = \'photo\'
+  FHIRPath = frames.empty() or type = \'photo\'
 
  -- Row 4 -----------------------------------
   Id = 4
   Context = Media
   English = Duration can only be used for an audio or a video
   XPath = not(f:type/@value=\'photo\') or not(f:duration)
-  FHIRPath = duration:empty or type != \'photo\'
+  FHIRPath = duration.empty() or type != \'photo\'
 
 === Sheet Data Elements =====================================
 

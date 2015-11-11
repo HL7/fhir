@@ -4396,7 +4396,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Element paths must be unique unless the structure is a constraint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">containedType or snapshot.element:distinct(path)</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">containedType or snapshot.element.distinct(path)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">exists(f:constrainedType) or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4418,7 +4418,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Each element definition in a snapshot must have a formal definition and cardinalities</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element:all(definition and min and max)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.all(definition and min and max)</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">count(f:element) = count(f:element[exists(f:definition) and exists(f:min) and exists(f:max)])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4468,7 +4468,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">In any snapshot or differential, all the elements except the first have to have a path that starts with the path of the first + &quot;.&quot;</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.tail:all(path:starts-with(snapshot.element.first.path+&quot;.&quot;)) and differential.element.tail:all(path:starts-with(differential.element.first.path+&quot;.&quot;))</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.tail.all(path.startsWith(snapshot.element.first.path+&quot;.&quot;)) and differential.element.tail.all(path.startsWith(differential.element.first.path+&quot;.&quot;))</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()&gt;1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, '.'))) then '' else $elementName,'')=''</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4478,7 +4478,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">In any snapshot or differential, no label, code or requirements on the an element without a &quot;.&quot; in the path (e.g. the first element)</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">*.element.first.label:empty and *.element.first.code:empty and *.element.first.requirements:empty</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">*.element.first.label.empty() and *.element.first.code.empty() and *.element.first.requirements.empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:snapshot/f:element[not(contains(f:path/@value, '.')) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, '.')) and (f:label or f:code or f:requirements)]))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4498,7 +4498,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a constrained type, its content must match the path name in the first element of a snapshot</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">constrainedType:empty or snapshot.element.first.path = constrainedType</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">constrainedType.empty() or snapshot.element.first.path = constrainedType</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:constrainedType)) or not(exists(f:snapshot)) or (f:constrainedType/@value = f:snapshot/f:element[1]/f:path/@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4508,7 +4508,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">element.base cannot appear if there is no base on the structure definition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.base:empty xor base</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.base.empty() xor base</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">f:base or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4518,7 +4518,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">element.base must appear if there is a base on the structure definition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.base:empty xor base</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.base.empty() xor base</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:constrainedType) or not(f:snapshot/f:element[not(f:base)])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4871,7 +4871,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>11</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

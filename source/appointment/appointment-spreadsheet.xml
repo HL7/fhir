@@ -4072,7 +4072,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Appointment</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Either start and end are specified, or neither</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">start:empty xor end</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">start.empty() xor end</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">((exists(f:start) and exists(f:end)) or (not(exists(f:start)) and not(exists(f:end))))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

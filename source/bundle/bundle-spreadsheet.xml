@@ -20,7 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3980,7 +3980,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">total only when a search or history</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">total or type ' searchset' or type = 'history'</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">total or (type = ' searchset') or (type = 'history')</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(f:total) or (f:type/@value = 'searchset') or (f:type/@value = 'history')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -3990,7 +3990,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">entry.search only when a search</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.search:empty or type = 'searchset'</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.search.empty() or (type = 'searchset')</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(f:entry/f:search) or (f:type/@value = 'searchset')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4000,7 +4000,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">entry.request only for some types of bundles</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.request:empty or type = 'batch' or type = 'transaction' or type = 'history'</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.request.empty() or type = 'batch' or type = 'transaction' or type = 'history'</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(f:entry/f:request) or (f:type/@value = 'batch') or (f:type/@value = 'transaction') or (f:type/@value = 'history')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4010,7 +4010,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">entry.response only for some types of bundles</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.response:empty or type = 'batch-response' or type = 'transaction-response'</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.response.empty() or type = 'batch-response' or type = 'transaction-response'</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(f:entry/f:response) or (f:type/@value = 'batch-response') or (f:type/@value = 'transaction-response')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4030,7 +4030,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle.entry</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">The fullUrl element must be present when a resource is present, and not present otherwise</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">fullUrl:empty xor resource</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">fullUrl.empty() xor resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">(not(exists(f:fullUrl)) and not(exists(f:resource))) or (exists(f:fullUrl) and exists(f:resource))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
@@ -4040,7 +4040,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.fullURL:distinct(value,resource.meta.versionId)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.fullURL.distinct(value,resource.meta.versionId)</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">count(for $entry in f:entry[f:resource] return $entry[count(parent::f:Bundle/f:entry[f:fullUrl/@value=$entry/f:fullUrl/@value and ((not(f:resource/*/f:meta/f:versionId/@value) and not($entry/f:resource/*/f:meta/f:versionId/@value)) or f:resource/*/f:meta/f:versionId/@value=$entry/f:resource/*/f:meta/f:versionId/@value)])!=1])=0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4372,7 +4372,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4392,6 +4391,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -4403,17 +4403,17 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C6"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="39" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="39" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="57"/>
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="109.5"/>
-   <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="210" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="382.5"/>
-   <Column ss:Index="11" ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="567"/>
+   <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="210" ss:Span="2"/>
+   <Column ss:Index="7" ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Column ss:Index="12" ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="567"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s112">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">Unique name for search parameter - required, lower-case, dash-delimited string    </ss:Data></Comment><NamedCell
@@ -4430,6 +4430,8 @@
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Expression</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">Target Types</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Description</Data><Comment
@@ -4443,6 +4445,7 @@
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Bundle.type</Data></Cell>
     <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s116"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4450,6 +4453,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource(0)</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource.item(0)</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MessageHeader</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The first resource in the bundle, if the bundle type is &quot;message&quot; - this is a message header, and this parameter provides access to search its contents</Data></Cell>
    </Row>
@@ -4458,6 +4462,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource(0)</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource.item(0)</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Composition</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The first resource in the bundle, if the bundle type is &quot;document&quot; - this is a composition, and this parameter provides access to searches its contents</Data></Cell>
    </Row>
@@ -4467,13 +4472,6 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
@@ -4482,13 +4480,6 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
@@ -4499,13 +4490,6 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
@@ -4514,13 +4498,6 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
@@ -4531,13 +4508,6 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
@@ -4546,13 +4516,6 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
@@ -4563,13 +4526,6 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
@@ -4578,13 +4534,6 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
@@ -4595,8 +4544,8 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:Index="11" ss:StyleID="s77"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
@@ -4604,8 +4553,8 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:Index="11" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
@@ -4613,8 +4562,8 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:Index="11" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
@@ -4622,8 +4571,8 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:Index="11" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
@@ -4631,8 +4580,8 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:Index="11" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
@@ -4640,8 +4589,8 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:Index="11" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
@@ -4649,8 +4598,8 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:Index="11" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
@@ -4658,8 +4607,8 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:Index="11" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
@@ -4667,8 +4616,89 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s120"/>
@@ -4676,35 +4706,36 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s123"/>
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="11" ss:StyleID="s86"/>
+    <Cell ss:Index="12" ss:StyleID="s86"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4714,6 +4745,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4733,14 +4765,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R1C6" xmlns="urn:schemas-microsoft-com:office:excel">
+  <AutoFilter x:Range="R1C1:R1C7" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Operations">

@@ -25,7 +25,7 @@
   Context = RiskAssessment.prediction.probabilityRange
   English = low and high must be percentages, if present
   XPath = (not(f:low) or f:low[f:code/@value=\'%\' and f:system/@value=\'http://unitsofmeasure.org\']) and (not(f:high) or f:high[f:code/@value=\'%\' and f:system/@value=\'http://unitsofmeasure.org\'])
-  FHIRPath = (low:empty or (low.code = \"%\" and low.system = \'http://unitsofmeasure.org\') and (high:empty or (high.code = \"%\" and high.system = \'http://unitsofmeasure.org\')
+  FHIRPath = (low.empty() or ((low.code = \"%\") and (low.system = %ucum))) and (high.empty() or ((high.code = \"%\") and (high.system = %ucum)))
 
  -- Row 2 -----------------------------------
   Id = 2

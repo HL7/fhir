@@ -3910,7 +3910,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A list can only have an emptyReason if it is empty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">emptyReason:empty or enty:empty</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">emptyReason.empty() or enty.empty()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:emptyReason) and exists(f:entry))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3922,7 +3922,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">List</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The deleted flag can only be used if the mode of the list is &quot;changes&quot;</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">mode = 'changes' or entry:deleted:empty</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">mode = 'changes' or entry.deleted.empty()</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">(f:mode/@value = 'changes') or not(exists(f:entry/f:deleted))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4382,6 +4382,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

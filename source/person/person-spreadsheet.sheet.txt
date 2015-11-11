@@ -266,6 +266,7 @@
   Type = string
   Description = A portion of name using some kind of phonetic matching algorithm
   Path = Person.name
+  Path Usage = phonetic
 
  -- Row 4 -----------------------------------
   Name = telecom

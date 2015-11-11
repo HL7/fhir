@@ -4009,7 +4009,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">DataElement.element</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">No base allowed</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">base:empty</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">base.empty()</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">not(exists(f:base))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4019,7 +4019,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">DataElement.element</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">No slicing allowed</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">slicing:empty</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">slicing.empty()</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">not(exists(f:slicing))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

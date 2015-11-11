@@ -10,18 +10,18 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-06-11T11:38:47Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16440</WindowHeight>
-  <WindowWidth>10005</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>786</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -797,6 +797,18 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s152">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -3529,7 +3541,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4094,15 +4105,15 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C6"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="37" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="37" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="57"/>
-   <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="210" ss:Span="2"/>
-   <Column ss:Index="6" ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="210" ss:Span="3"/>
+   <Column ss:Index="7" ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s112">
     <Cell ss:StyleID="s101"><Data ss:Type="String">Name</Data><Comment
       ss:Author="Lloyd McKenzie"><ss:Data
@@ -4121,7 +4132,10 @@
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Expression</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Path Usage</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Description</Data><Comment
       ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -4134,6 +4148,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Person.identifier</Data></Cell>
     <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">A person Identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4142,6 +4157,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.name</Data></Cell>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A portion of name in any name part</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4149,6 +4165,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.name</Data></Cell>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">phonetic</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A portion of name using some kind of phonetic matching algorithm</Data></Cell>
    </Row>
@@ -4158,6 +4175,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.telecom</Data></Cell>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The value in any kind of contact</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4165,6 +4183,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.telecom(system=phone)</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Person.telecom.where(system='phone')</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A value in a phone contact</Data></Cell>
    </Row>
@@ -4173,6 +4192,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.telecom(system=email)</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Person.telecom.where(system='email')</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A value in an email contact</Data></Cell>
    </Row>
@@ -4182,6 +4202,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.address</Data></Cell>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">An address in any kind of address/part</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4189,6 +4210,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.address.city</Data></Cell>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A city specified in an address</Data></Cell>
    </Row>
@@ -4198,6 +4220,7 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.address.state</Data></Cell>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A state specified in an address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4205,6 +4228,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.address.postalCode</Data></Cell>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A postal code specified in an address</Data></Cell>
    </Row>
@@ -4214,6 +4238,7 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.address.country</Data></Cell>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A country specified in an address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4221,6 +4246,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.address.use</Data></Cell>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A use code specified in an address</Data></Cell>
    </Row>
@@ -4230,6 +4256,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.gender</Data></Cell>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The gender of the person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4237,6 +4264,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.birthDate</Data></Cell>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The person's date of birth</Data></Cell>
    </Row>
@@ -4246,6 +4274,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.managingOrganization</Data></Cell>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The organization at which this person record is being managed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4253,6 +4282,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.link.target</Data></Cell>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Any link has this Patient, Person, RelatedPerson or Practitioner reference</Data></Cell>
    </Row>
@@ -4262,6 +4292,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.link.target</Data></Cell>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The Person links to this Patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4269,6 +4300,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Practitioner</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.link.target</Data></Cell>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The Person links to this Practitioner</Data></Cell>
    </Row>
@@ -4278,6 +4310,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">RelatedPerson</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Person.link.target</Data></Cell>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The Person links to this RelatedPerson</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4286,13 +4319,6 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
@@ -4300,13 +4326,6 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4318,13 +4337,6 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
@@ -4332,13 +4344,6 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4350,13 +4355,6 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
@@ -4364,13 +4362,6 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4382,6 +4373,16 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4390,11 +4391,58 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4403,6 +4451,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
@@ -4417,6 +4466,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4436,14 +4486,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R1C6" xmlns="urn:schemas-microsoft-com:office:excel">
+  <AutoFilter x:Range="R1C1:R1C7" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Operations">

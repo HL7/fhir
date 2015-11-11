@@ -4581,7 +4581,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Messaging end-point is required (and is only permitted) when statement is for an implementation</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">messaging.endpoint:empty or kind = 'instance'</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">messaging.endpoint.empty() or kind = 'instance'</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">not(exists(f:messaging/f:endpoint)) or f:kind/@value = 'instance'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
@@ -4591,7 +4591,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The set of documents must be unique by the combination of profile &amp; mode</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">document:distinct(profile,mode)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">document.distinct(profile,mode)</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">count(f:document[f:mode/@value='producer'])=count(distinct-values(f:document[f:mode/@value='producer']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value='consumer'])=count(distinct-values(f:document[f:mode/@value='consumer']/f:profile/f:reference/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4601,7 +4601,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">There can only be one REST declaration per mode</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">rest:distinct(mode)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">rest.distinct(mode)</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(f:rest)=count(distinct-values(f:rest/f:mode/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4611,7 +4611,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance.rest</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">A given resource can only be described once per RESTful mode</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">resource:distinct(type)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">resource.distinct(type)</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(f:resource)=count(distinct-values(f:resource/f:type/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4621,7 +4621,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance.rest</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">A given operation can only be described once per RESTful mode</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">operation:distinct(name)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">operation.distinct(name)</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">count(f:operation)=count(distinct-values(f:operation/f:name/@value))</Data></Cell>
     <Cell><Data ss:Type="String">Temporarly commented out until we figure out how to address &quot;everything&quot;</Data></Cell>
    </Row>
@@ -4632,7 +4632,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance.rest.resource</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Search parameter names must be unique in the context of a resource</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">searchParam:distinct(name)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">searchParam.distinct(name)</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4642,7 +4642,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s114"><Data ss:Type="String">Conformance.rest.resource.searchParam</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Search parameters can only have chain names when the search parameter type is 'reference'</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">chain:empty or type = 'reference'</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">chain.empty() or type = 'reference'</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:chain)) or (f:type/@value = 'reference')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4652,7 +4652,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance statements of kind 'requirements' do not have software or implementation elements</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">(software:empty and implementation:empty) or kind != 'requirements'</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">(software.empty() and implementation.empty()) or kind != 'requirements'</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:software) or exists(f:implementation)) or (f:kind/@value != 'requirements')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4662,7 +4662,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Conformance statements of kind 'software' do not have implementation elements</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">implementation:empty or kind != capability</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">implementation.empty() or kind != capability</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:implementation)) or (f:kind/@value != 'capability')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

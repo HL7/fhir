@@ -78,21 +78,21 @@
   Context = NamingSystem
   English = Root systems cannot have uuid or sid identifiers
   XPath = not(f:kind/@value=\'root\' and f:uniqueId/f:type/@value=(\'uuid\', \'ruid\'))
-  FHIRPath = kind != \'root\' or uniqueId in (\'uuid\', \'ruid\')
+  FHIRPath = kind != \'root\' or uniqueId in (\'uuid\' | \'ruid\')
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = NamingSystem
   English = Can\'t have more than one preferred identifier for a type
   XPath = not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:preferred/@value=true()])>1) then $type else ()))
-  FHIRPath = uniqueId(preferred = true):distinct(type)
+  FHIRPath = uniqueId.where(preferred = true).distinct(type)
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = NamingSystem
   English = Can only have replacedBy if naming system is retired
   XPath = not(f:replacedBy) or f:status/@value=\'retired\'
-  FHIRPath = replacedBy:empty or status - \'retired\'
+  FHIRPath = replacedBy.empty() or status = \'retired\'
 
 === Sheet Data Elements =====================================
 

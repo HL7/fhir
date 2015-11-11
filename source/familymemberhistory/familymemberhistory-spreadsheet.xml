@@ -3780,7 +3780,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Can have age[x] or birth[x], but not both</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">age[x]:empty or birth[x]:empty</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">age[x].empty() or birth[x].empty()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not (*[starts-with(local-name(.), 'age')] and *[starts-with(local-name(.), 'birth')])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

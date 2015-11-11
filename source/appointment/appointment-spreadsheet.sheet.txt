@@ -148,7 +148,7 @@
   Context = Appointment
   English = Either start and end are specified, or neither
   XPath = ((exists(f:start) and exists(f:end)) or (not(exists(f:start)) and not(exists(f:end))))
-  FHIRPath = start:empty xor end
+  FHIRPath = start.empty() xor end
 
  -- Row 3 -----------------------------------
   Id = 3

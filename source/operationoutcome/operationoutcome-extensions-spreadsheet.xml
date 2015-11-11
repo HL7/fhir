@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7305</WindowHeight>
-  <WindowWidth>20250</WindowWidth>
+  <WindowHeight>12975</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -811,32 +811,6 @@
   </Style>
   <Style ss:ID="s153">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s154">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s156" ss:Parent="s63">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s157">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
   </Style>
   <Style ss:ID="s158">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
@@ -4526,23 +4500,32 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">expression</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Resource</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">OperationOutcome</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">FHIR Path Location</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">FHIR Path version of error location</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The error location as specified using FHIRPath language</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Restricted to child names, and the function .item</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5439,12 +5422,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5452,14 +5436,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7008,18 +6992,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s157"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Index="3" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
@@ -7556,7 +7529,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7577,6 +7549,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

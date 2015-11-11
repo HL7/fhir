@@ -4517,7 +4517,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Either a name or a query (NOT both)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">name:empty or query:empty</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">name.empty() or query.empty()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:name)) or not(exists(f:query))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

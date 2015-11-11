@@ -3931,7 +3931,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Groups may either contain questions or groups but not both</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">group:empty xor question</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">group.empty() xor question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:group) and exists(f:question))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

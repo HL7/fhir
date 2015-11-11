@@ -107,7 +107,7 @@
   Context = MedicationDispense
   English = whenHandedOver cannot be before whenPrepared
   XPath = not(exists(f:whenHandedOver/@value)) or not(exists(f:whenPrepared/@value)) or ( f:whenHandedOver/@value >= f:whenPrepared/@value)
-  FHIRPath = whenHandedOver:empty or whenPrepare:empty or whenHandedOver < whenPrepared
+  FHIRPath = whenHandedOver.empty() or whenPrepare.empty() or whenHandedOver < whenPrepared
 
 === Sheet Data Elements =====================================
 
