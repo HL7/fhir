@@ -22,6 +22,10 @@ FHIR Path is used in 5 places within the FHIR specifications
 
 Implementations may find other uses for this as well
 
+Some features are only allowed in invariants - either because they 
+are hard to implement, or because they make constraints on the
+contexts in which the path statements can be used
+
 --------------------
 2. Path selection
 
@@ -36,13 +40,19 @@ e.g. To select all the phone numbers for a patient
 
 when the focus is "Patient". 
 
+Paths and polymorphic items:
+ path.value[x].subPath - all kinds of value
+ path.valueQuantity.subPath - only values that are quantity
+ 
 Special paths:  
  * - any child
  ** any descendent
- $ - the original context (see below for usage)
  name* - recursive uses of the element 
- path.value[x].subPath - all kinds of value
- path.valueQuantity.subPath - only values that are quantity
+ $context - the original context (see below for usage)
+ $resource - the original container resource (e.g. skip contained resources, but do not go past a root resource into a bundle, if it is contained in a bundle)
+ $parent - the element that contains $contex
+ 
+Note: $resource and $parent are only allowed in invariants
  
 There is a special case around the entry point, where the 
 type of the entry point can be represented, but is optional.
@@ -80,10 +90,16 @@ as defined by the FHIR data types. Literal values such as
   "test string"
   0
   0.1
-  "true"
+  true
+  false
   
 are automatically converted to the appropriate FHIR types (string,
 integer, decimal, and boolean respectively). 
+
+Note: string constants are surrounded by either " or ', and use
+json type escaping internally. String constants are the only 
+place that non-ascii characters are allowed in the expression.
+Unicode characters may, but do not need to be, escaped using the \u syntax.
 
 -------------------------
 3. Boolean evaluations
@@ -192,7 +208,12 @@ Note that only primitive elements have a string representation
 
 Returns true if all the elements in the list are distinct when using the relative paths (simple
 paths only with no functions). If the elements in the list are primitives, this can be used with no paths (e.g. .distinct()
-Note: distinct is only allowed in the context of an invariant. distinct need only be implemented
+.resolve()
+
+for each item in the collection, if it is a Reference, locate the target of the reference, and add it to the resulting collection.
+else, ignore it 
+
+Note: distinct() and resolve() are only allowed in the context of invariants, and need only be implemented
 by path evaluators that are used for testing invariants
 
 -----------------------------------
@@ -229,7 +250,7 @@ path expressions (e.g. expr op expr):
  <= - Less or Equal
  >= - Greater or Equal
  
- | - merge collections - merge the two collections into a single list, eliminating any duplicate values (e.g. equal)
+ | - union collections - merge the two collections into a single list, eliminating any duplicate values (e.g. equal)
  
  in - test whether all the itesm in the left collection are in the right collection.
    notes:
@@ -268,11 +289,12 @@ The following fixed values are set for all contexts:
 %ext-[name] - full url for the provided HL7 extension with id [name]
 
 Implementers should note that defining additional fixed constants is a formal 
-extension point for the langauge. HL7 affiliates are allowed to define their 
-own fixed constants, and implementers should provide some appropriate 
-configuration framework to allow these constants to be provided at run time.
+extension point for the langauge. Implementation Guides are allowed to define 
+their own fixed constants, and implementers should provide some appropriate 
+configuration framework to allow these constants to be provided to the evaluation
+engine at run time.
 
-e.g. %us-zip - regex [0-9]{5}(-[0-9]{4}){0,1}
+e.g. %us-zip = "[0-9]{5}(-[0-9]{4}){0,1}"
 
 ----------------------------------------
 8. formal grammar
@@ -283,10 +305,10 @@ brackets    = "(" expression ")"
 constant    = number, true, false, or string surrounded by either ' or ", using json escaping
 predicate   = item (ws '.' ws item)*
 term        = name | brackets | function
-name        = * | ** | & | element | element*
-element     = (a..z | A..Z | 0..9 | "[" | "]")+
+name        = "*" | "**" | "&" | element | element* | "$context" | "$parent" | "$resource"
+element     = ("a".."z" | "A".."Z" | "0".."9" | "[" | "]")+
 function    = funcname "(" expression ("," expression)* ")"
-funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct"
+funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve"
 op          = "=" | "==" | "!=" | "!=" | ">" | "<" | "<=" | ">=" | "|" | "in" | "and" | "or" | "xor" | "+" | "-" | "&"
 ws          = (any unicode whitespace)*
 
