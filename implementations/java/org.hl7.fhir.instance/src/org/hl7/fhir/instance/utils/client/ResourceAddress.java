@@ -200,7 +200,7 @@ public class ResourceAddress {
 	}
 	
 	public URI resolveMetadataUri(boolean quick) {
-		return baseServiceUri.resolve(quick ? "metadata?params=0" : "metadata");
+		return baseServiceUri.resolve(quick ? "metadata?_summary=true" : "metadata");
 	}
 	
 	/**
