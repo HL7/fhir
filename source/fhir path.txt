@@ -4,11 +4,11 @@ FHIRPath is a path based extraction language, somewhat like XPath. It
 is optimised to work best on FHIR resources. Operations are expressed
 in terms of the logical content of the resources, rather than their 
 XML or JSON reprsentation. The expressions can (in theory) be convert
-to XPath or JSON equivalents
+to XPath, JSON or OCL equivalents
 
 All FHIRPath operations result in a collection of Elements of various
 types. When the expression begins evaluating, there is a collection
-on one element in focus. 
+with one element in focus. 
 
 --------------------
 1. Usage
@@ -34,16 +34,58 @@ e.g. To select all the phone numbers for a patient
 
   telecom.value
 
-when the focus is "Patient". Note that the path never includes 
-the context - it is evaluated from the context. 
+when the focus is "Patient". 
 
 Special paths:  
  * - any child
  ** any descendent
+ $ - the original context (see below for usage)
  name* - recursive uses of the element 
  path.value[x].subPath - all kinds of value
  path.valueQuantity.subPath - only values that are quantity
  
+There is a special case around the entry point, where the 
+type of the entry point can be represented, but is optional.
+To illustrate this point, take the path 
+
+  telecom(use = 'phone).value
+
+This can be evaluated as an expression on a Patient resource,
+or other kind of resources. However, for natural human use, 
+expressions are often prefixed with the name of the context
+in which they are used:
+
+  Patient.telecom(use = 'phone).value
+  
+These 2 expressions have the same outcome, but when evaluating
+the second, the evaluation will only produce results when used
+on a Patient resource
+
+3. FHIR Types
+-------------
+
+FHIR Paths are always run against an Element or a Resource, and always 
+produce collections of Elements or Resources. All elements in a 
+collection will always have a FHIR type. The evaluation engine
+will automatically elevate primitive types into their corresponding
+primitives. 
+
+To illustrate this point, take the following path expression: 
+
+Patient.name.text
+
+This produces a collection of elements with the type "string", 
+as defined by the FHIR data types. Literal values such as
+
+  "test string"
+  0
+  0.1
+  "true"
+  "false"
+  
+are automatically converted to the appropriate FHIR types (string,
+integer, decimal, and boolean respectively). 
+
 -------------------------
 3. Boolean evaluations
 
@@ -55,18 +97,20 @@ then:
   - it has the value of the boolean
 * if it is empty
   - it is false
-* else it is true
-  
+* else 
+  - it is true
+ 
+Note that collections never contain null objects 
+
+This same principle applies when using the path statement in invariants.
+
 -------------------------
 4. Functions
 
 In addition to selecting subelements, functions
-can be performed on the list. fucntions are names 
+can be performed on the list. functions are names 
 that are followed by a () with zero or more 
-parameters. 
-
-Note? Special paths:
-  $ = reset path to original root
+parameters, separated by ','
 
 As an example:
   
@@ -75,17 +119,27 @@ As an example:
 This returns a collection of a single boolean element
 that contains true if there is no home telephone numbers. 
 
+The parameters are expressions that are evaluated with respect
+to the collection that the operation applies to, except in the
+special case where the first path segment in the parameter 
+has the value '$' - this means that the parameter is evaluated
+with respect to the context from the start of the evaulation
+
 The following operations are defined:
 
 .empty()
 
 true if the collection is empty
 
+.not()
+
+returns the opposite of the boolean evaluation of a collection
+
 .where(criteria)
 
 Filter the collection to only those elements that meet the 
 stated criteria expression. Expressions are evaluated with respect 
-to the elements that meet the path. If the criteria is true, 
+to the elements in the context. If the criteria is true, 
 they are included in the result collection.
   
 .all(criteria)
@@ -122,15 +176,18 @@ converts a string to an integer (empty collection if it's not a proper integer)
 
 .startsWith()
 
-filters the list to only include elements with a string value that starst with the specified content
+filters the list to only include elements with a string value that starst with the specified content.
+Note that only primitive elements have a string representation
 
 .length()
 
 returns the length of characters used to represent the value (primitive types only) (does not include syntactical escapes). returns the longest item in the collection
+Note that only primitive elements have a string representation
 
 .matches(regex)
 
 returns a boolean for whether all the items in the collection match the given regex
+Note that only primitive elements have a string representation
 
 .distinct(path,path)
 
@@ -138,18 +195,103 @@ returns true of all the elements in the list are distinct when using the relativ
 paths only with no functions). If the elements in the list are primitives, this can be used with no paths (e.g. :distinct()
 Note: distinct may only be used in invariants and does not need to be implemented for other uses
 
+Note: distinct is only allowed in the context of an invariant. distinct need only be implemented
+by path evaluators that are used for testing invariants
+
 -----------------------------------
 5. operations
 
-  =, !=\, >, <, >=, <=  - normal use
-  in, 
+The following operators are allowed to be used between
+path expressions (e.g. expr op expr):
 
+ = - Equals: true if the left collection is equal to the right collection
+   notes:
+     * equality is determined by comparing all the properties of the children 
+     * todo: does order matter in sub-collections? 
+     * typically, this operator is used with a single fixed values. This means that 
+       Patient.telecom.system = 'phone' will return an empty collection if there is more than 
+       one telecom with a use - typically, you'd want Patient.telecom.where(system = 'phone')
+       
+ == - Equivalent: true if the collections are the same
+   notes:
+     * string evaluation is not case sensitive 
+     * order doesn't matter
+     
+ != - Not Equals: the inverse of the equals reaction
+ 
+ !== - Not Equivalent: the inverse of the equivalent reaction
+ 
+ > - Greater Than: 
+   notes: 
+     * this and the other 3 order related operations can only be used for strings, codes, integers, and decimals
+     * unless there is only one item in each collection (left and right) this returns an empty collection
+     * code evaluation is strictly lexical, not based on any defined meaning of order
+     * comparisons involving other types always return an empty collection
+     
+ < - Less Than
+ <= - Less or Equal
+ >= - Greater or Equal
+ 
+ | - merge collections - merge the two collections into a single list, eliminating any duplicate values (e.g. equal)
+ 
+ in - test whether all the itesm in the left collection are in the right collection.
+   notes:
+     * order does not matter
+     * if the right collection is a URI, and it refers to a value set, value set membership testing will be performed
+     
+ and - left and right are converted to booleans (see #3 above) and a boolean true or false is the outcome following normal and rules
+ or - left and right are converted to booleans (see #3 above) and a boolean true or false is the outcome following normal or rules
+ xor - left and right are converted to booleans (see #3 above) and a boolean true or false is the outcome following normal xor rules
+ 
+ + - if left and right are collections with a single element, and the element type is the same, add them together (integers, decimals, strings only)
+ - - if left and right are collections with a single element, and the element type is the same, subtract right from left (integers, decimals)
+ & - if left and right are collections with a single element, and the element type is the same, concatenate them (strings only)
+ 
+Note that operations may be grouped in the classical sense by surrounding them with with ()
+
+TODO: is there operator precedence? 
+  proposed precendence levels: 
+    #1: +, -, &, |
+    #2: =, =, !=, !==, >, <, >=, <=, in
+    #3: and, xor, or
+  
 -----------------------------------
 6. Fixed constants
+
+A token introduced by a % defines a fixed constant that is automatically expanded into it's
+agreed value by the parser. Tokens consist of an introducing %, and then a sequence of 
+characters that conforms to the id data type (1-64, a..z, A..Z, 0..9, -, .)
+
+The following fixed values are set for all contexts:
 
 %sct - url for snomed ct
 %loinc - url for loinc
 %ucum - url for ucum
-%us:zip - regex [0-9]{5}(-[0-9]{4}){0,1}
-%vs:[name] - full url for the provided [name]
-%ext:[name]  
+%vs-[name] - full url for the provided HL7 value set with id [name]
+%ext-[name] - full url for the provided HL7 extension with id [name]
+
+Implementers should note that defining additional fixed constants is a formal 
+extension point for the langauge. HL7 affiliates are allowed to define their 
+own fixed constants, and implementers should provide some appropriate 
+configuration framework to allow these constants to be provided at run time.
+
+e.g. %us-zip - regex [0-9]{5}(-[0-9]{4}){0,1}
+
+----------------------------------------
+8. formal grammar
+
+expression  = ws term (ws op ws term)* ws 
+term        = constant | predicate
+brackets    = "(" expression ")"
+constant    = number, true, false, or string surrounded by either ' or ", using json escaping
+predicate   = item (ws '.' ws item)*
+term        = name | brackets | function
+name        = * | ** | & | element | element*
+element     = (a..z | A..Z | 0..9 | "[" | "]")+
+function    = funcname "(" expression ("," expression)* ")"
+funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct"
+op          = "=" | "==" | "!=" | "!=" | ">" | "<" | "<=" | ">=" | "|" | "in" | "and" | "or" | "xor" | "+" | "-" | "&"
+ws          = (any unicode whitespace)*
+
+note: non ascii (e.g. unicode) characters only allowed in constants (they do not need to be escaped in constants, but can be)
+

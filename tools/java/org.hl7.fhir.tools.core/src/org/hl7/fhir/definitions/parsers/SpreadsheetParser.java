@@ -119,6 +119,8 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.IWorkerContext.ValidationResult;
+import org.hl7.fhir.instance.utils.BuildToolPathEvaluator;
+import org.hl7.fhir.instance.utils.FHIRPathEvaluator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
@@ -291,6 +293,9 @@ public class SpreadsheetParser {
 		        throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character");
           if (Utilities.noString(inv.getExpression())) {
             throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no Expression statement (in FHIRPath format)");
+          } else {
+            FHIRPathEvaluator fp = new BuildToolPathEvaluator();
+            fp.check(null, inv.getExpression());
           }
 		    }
 		  }
@@ -707,8 +712,6 @@ public class SpreadsheetParser {
 			  inv.setSeverity(sheet.getColumn(row, "Severity"));
         inv.setTurtle(sheet.getColumn(row, "RDF"));
 
-			  if (!Utilities.noString(sheet.getColumn(row,  "Schematron")))
-			    log.log("Value found for schematron "+getLocation(row), LogMessageType.Hint);  
 			  inv.setOcl(sheet.getColumn(row, "OCL"));
 			  if (s.equals("") || result.containsKey(s))
 			    throw new Exception("duplicate or missing invariant id "
@@ -961,9 +964,16 @@ public class SpreadsheetParser {
             }
             if (!forProfile && t == SearchType.reference && pn.size() == 0 && !sheet.hasColumn(row, "Target Types"))
               throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has no path(s) "+ getLocation(row));
+            
+            
 
             sp = new SearchParameterDefn(n, d, t, pu);
             sp.getPaths().addAll(pn);
+            if (Utilities.noString(sheet.getColumn(row, "Expression")))
+              sp.getExpressions().addAll(pn);
+            else
+              for (String spp : sheet.getColumn(row, "Expression").split("\\^"))
+                sp.getExpressions().add(spp);
             if (!Utilities.noString(sheet.getColumn(row, "Target Types"))) {
               sp.setManualTypes(sheet.getColumn(row, "Target Types").split("\\,"));
             }

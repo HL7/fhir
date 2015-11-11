@@ -56,6 +56,8 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
+import org.hl7.fhir.instance.utils.BuildToolPathEvaluator;
+import org.hl7.fhir.instance.utils.FHIRPathEvaluator;
 import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -237,6 +239,14 @@ public class ResourceValidator extends BaseValidator {
       if (rule(errors, IssueType.STRUCTURE, rd.getName(), !Utilities.noString(p.getDescription()), "Search Parameter description is empty (\""+p.getCode()+"\")"))
         rule(errors, IssueType.STRUCTURE, rd.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().startsWith("e.g. ") || p.getDescription().contains("|"), "Search Parameter descriptions should start with an uppercase character(\""+p.getDescription()+"\")");
       try {
+        for (String exp : p.getExpressions()) {
+          FHIRPathEvaluator fp = new BuildToolPathEvaluator();
+          try {
+            fp.check(null, exp);
+          } catch (Exception e) {
+            rule(errors, IssueType.STRUCTURE, rd.getName(), false, "Search Parameter "+p.getCode()+" has illegal path "+exp); 
+          }
+        }
         for (String path : p.getPaths()) {
           ElementDefn e;
           String pp = trimIndexes(path);

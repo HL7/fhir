@@ -413,6 +413,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private String svnStated;
   private String singleResource;
   private String singlePage;
+  private PublisherTestSuites tester;
 
   private Map<String, Example> processingList = new HashMap<String, Example>();
 
@@ -512,12 +513,15 @@ public class Publisher implements URIResolver, SectionNumberer {
    * @throws Exception
    */
   public void execute(String folder) {
+    tester = new PublisherTestSuites();
+    
     page.log("Publish FHIR in folder " + folder + " @ " + Config.DATE_FORMAT().format(page.getGenDate().getTime()), LogMessageType.Process);
     if (web)
       page.log("Build final copy for HL7 web site", LogMessageType.Process);
     else
       page.log("Build local copy", LogMessageType.Process);
     try {
+      tester.initialTests();
       page.setFolders(new FolderManager(folder));
 
       if (isGenerate && page.getSvnRevision() == null)
