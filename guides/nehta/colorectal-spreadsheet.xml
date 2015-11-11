@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>David McKillop</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-11-04T11:54:33Z</LastSaved>
+  <LastSaved>2015-11-11T01:19:25Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -33,7 +33,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>96</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -911,6 +911,26 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s171">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s177">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFC000" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R15C1"/>
@@ -950,9 +970,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R103C29" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R103C31" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="35" ss:ExpandedRowCount="103" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="37" ss:ExpandedRowCount="103" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="246.6"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
@@ -968,8 +988,10 @@
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="170.4"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="218.39999999999998"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="235.2"/>
+   <Column ss:AutoFitWidth="0" ss:Width="166.2"/>
+   <Column ss:AutoFitWidth="0"/>
    <Column ss:StyleID="s68" ss:Width="51.6" ss:Span="1"/>
-   <Column ss:Index="17" ss:StyleID="s68" ss:AutoFitWidth="0"
+   <Column ss:Index="19" ss:StyleID="s68" ss:AutoFitWidth="0"
     ss:Width="80.400000000000006"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="120.60000000000001"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="161.4"/>
@@ -986,7 +1008,7 @@
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="78"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
     ss:Span="1"/>
-   <Column ss:Index="33" ss:StyleID="s68" ss:AutoFitWidth="0"
+   <Column ss:Index="35" ss:StyleID="s68" ss:AutoFitWidth="0"
     ss:Width="71.400000000000006"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="84"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="84"/>
@@ -1037,7 +1059,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Example 5</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Default Value</Data><Comment
+    <Cell><Data ss:Type="String">Example 6 (DHM 1)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s75"><Data ss:Type="String">Default Value</Data><Comment
       ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The value to be assumed if the element is omitted from the instance.  Only permitted for simple data types</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1118,7 +1142,7 @@
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Colorectal</Data><NamedCell
@@ -1157,7 +1181,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The subject of the report, usually, but not always, the patient</Data><NamedCell
@@ -1200,7 +1224,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Who ordered the test</Data><NamedCell
@@ -1245,7 +1269,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Responsible Diagnostic Service</Data><NamedCell
@@ -1289,7 +1313,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pre Analytic</Data><NamedCell
@@ -1308,7 +1332,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33" ss:StyleID="s100"><Data ss:Type="String">70949-3</Data></Cell>
+    <Cell ss:Index="35" ss:StyleID="s100"><Data ss:Type="String">70949-3</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Pathology report.section heading</Data></Cell>
     <Cell ss:StyleID="s102"/>
    </Row>
@@ -1332,7 +1356,8 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pre-operative radiotherapy: Unknown&#10;Presence of any distant metastases: Unknown&#10;Other: Nil&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">R colon</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Clinical information</Data><NamedCell
@@ -1351,7 +1376,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">55752-0 &#10;&#10;</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">55752-0 &#10;&#10;</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Clinical information &#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -1373,7 +1398,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Operating surgeon details</Data><NamedCell
@@ -1392,7 +1417,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">22027-7</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">22027-7</Data></Cell>
     <Cell><Data ss:Type="String">Surgeon primary</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
@@ -1416,7 +1441,8 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Absent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Perforation</Data><NamedCell
@@ -1457,7 +1483,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Nature of perforation</Data><NamedCell
@@ -1497,7 +1523,8 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Absent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Clinical obstruction</Data><NamedCell
@@ -1540,7 +1567,9 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Ascending colon</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Tumour location</Data><NamedCell
@@ -1582,7 +1611,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Synchronous tumours - other site</Data><NamedCell
@@ -1623,7 +1652,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Distance from anal verge</Data><NamedCell
@@ -1672,7 +1701,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Anterior resection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Right hemicolectomy</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">*</Data><NamedCell
@@ -1692,7 +1723,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">29306-8</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">29306-8</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Surgery procedure</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.8">
@@ -1713,7 +1744,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Procedure type</Data><NamedCell
@@ -1733,7 +1764,7 @@
     <Cell ss:StyleID="s91"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.550000000000004">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.preAnalytic.anteriorResectionType</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.preAnalytic.typeOfOperation.anteriorResectionType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1752,7 +1783,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Anterior resection type</Data><NamedCell
@@ -1795,7 +1826,8 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Unknown</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">No</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pre-operative radiotherapy</Data><NamedCell
@@ -1836,7 +1868,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Type of course</Data><NamedCell
@@ -1874,7 +1906,9 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Not stated</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Surgeons opinion of residual cancer</Data><NamedCell
@@ -1912,7 +1946,9 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Not stated</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Adjacent organ involvement</Data><NamedCell
@@ -1952,7 +1988,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">New primary cancer or recurrence</Data><NamedCell
@@ -1992,7 +2028,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Describe</Data><NamedCell
@@ -2029,7 +2065,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pathology number</Data><NamedCell
@@ -2068,7 +2104,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Other details</Data><NamedCell
@@ -2106,7 +2142,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Macroscopy</Data><NamedCell
@@ -2152,7 +2188,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">185mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">155mm</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Specimen length</Data><NamedCell
@@ -2202,7 +2240,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Rectosigmoid junction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Ascending colon</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Tumour site</Data><NamedCell
@@ -2248,7 +2288,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">60mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">23mm</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Max. tumour diameter</Data><NamedCell
@@ -2269,7 +2311,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">21889-1 </Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">21889-1 </Data></Cell>
     <Cell><Data ss:Type="String">Size </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
@@ -2295,7 +2337,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">28mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">40mm</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Dist. of tumour to the nearer proximal or distal &quot;cut end&quot;</Data><NamedCell
@@ -2337,7 +2381,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">3.5mm (10mm above the anterior peritoneal reflection)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">30mm</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Dist. of tumour to the nonperitonealised circumferential margin</Data><NamedCell
@@ -2381,7 +2427,9 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Absent</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Tumour perforation</Data><NamedCell
@@ -2423,7 +2471,7 @@
     <Cell ss:Index="13" ss:StyleID="s91"><Data ss:Type="String">Astride</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Relationship to anterior peritoneal reflection</Data><NamedCell
@@ -2467,7 +2515,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Complete (grade 3)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Intactness of mesorectum</Data><NamedCell
@@ -2516,7 +2564,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Peritoneum</Data><NamedCell
@@ -2559,7 +2607,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Received</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Lymph nodes</Data><NamedCell
@@ -2604,7 +2654,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Number of lymph nodes in each cassette</Data><NamedCell
@@ -2647,7 +2697,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Present</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Polyps</Data><NamedCell
@@ -2667,7 +2717,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">?? 33745-1</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">?? 33745-1</Data></Cell>
     <Cell><Data ss:Type="String">Polyps</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -2689,7 +2739,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">2 polyps </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The number, diameter and gross configuration of polyps should be summarised</Data><NamedCell
@@ -2730,7 +2780,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">A segment of large bowel 175mm in length with an internal diameter of up to 52mm. The bowel has been opened prior to receipt. The peritoneal reflection has not been included in the specimen. Arising at 45mm from the presumed distal margin, a raised ulcerated firm tan tumour is present measuring 55x32mm. On slicing the tumour measures up to 10mm in thickness and infiltrates into the mesocolic fat. On the antimesenteric border, the tumour abuts the serosal surface. Tumour perforation is not seen. No other lesions are identified within the mucosa elsewhere. Blocks 1, 2 - reps of tumour with mesocolic fat. Blocks 3,4,5 - tumour with peritoneal surface. Block 6 - distal resection margin. Block 7 - apical lymph node. Block 8 - one lymph node. Block 9 - four lymph nodes. Block 10 - five lymph nodes. PP. (TW.LD)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">(Query add the narrative comments here)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Other macroscopic comments</Data><NamedCell
@@ -2774,7 +2826,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Specimen 2:&#10;Specimen labelled:  Donuts&#10;&#10;1A proximal resection margin; 1B sessile polyps, vascular resection margin and most apical lymph node bisected; 1C distal resection margin with tumour; 1D and 1E representative sections of tumour and possible extension to anterior serosa; 1F possible invasion through muscularis propria into pericolic fat; 1G to 1K sections of all lymph nodes with multiple nodes in each block.  &#10;Representative sections of each donut in 2A and 2B respectively.&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Nature and site of blocks</Data><NamedCell
@@ -2812,7 +2864,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Microscopy</Data><NamedCell
@@ -2831,7 +2883,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">70949-3</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">70949-3</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Pathology report.section heading</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -2860,7 +2912,9 @@
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Adenocarcinoma</Font><Font
        html:Color="#666699">, with mucinous areas</Font></ss:Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Adenocarcinoma</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Tumour type</Data><NamedCell
@@ -2908,7 +2962,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">High grade - poorly and undifferentiated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Low grade - well and moderately differentiated</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Histological grade</Data><NamedCell
@@ -2958,7 +3014,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String"> pT3 Tumour invades through muscularis propria into pericolorectal tissues</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String"> pT3 Beyond muscularis propria</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Maximum degree of local invasion into or through the bowel wall</Data><NamedCell
@@ -2978,7 +3036,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">33759-2</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">33759-2</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Extent of invasion deepest</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="117.45">
@@ -3003,7 +3061,9 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Not invovled</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Not invovled</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Involvement of the proximal or distal resection (cut-end) margins</Data><NamedCell
@@ -3045,7 +3105,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Proximal&#10;Distal</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Involved margin(s)</Data><NamedCell
@@ -3094,6 +3154,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">&gt;10mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Microscopic Clearance</Data><NamedCell
@@ -3135,7 +3196,9 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Not invovled</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Status of the nonperitonealised circumferential margin (rectal tumours)</Data><NamedCell
@@ -3176,7 +3239,8 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">13mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">30mm</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Microscopic Clearance</Data><NamedCell
@@ -3221,7 +3285,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Present</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Lymph node involvement</Data><NamedCell
@@ -3241,7 +3305,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">?? 21892-5</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">?? 21892-5</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Lymph node involvement</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="130.19999999999999">
@@ -3267,7 +3331,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Left, 2/11</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Site(s) and numbers of lymph nodes</Data><NamedCell
@@ -3312,7 +3376,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Isolated extra-mural tumour deposits</Data><NamedCell
@@ -3356,7 +3420,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Apical node involvement</Data><NamedCell
@@ -3394,7 +3458,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Venous and small vessel invasion</Data><NamedCell
@@ -3441,7 +3505,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Intramural vein invasion</Data><NamedCell
@@ -3485,7 +3549,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Extramural vein invasion</Data><NamedCell
@@ -3529,7 +3593,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Small vessel invasion</Data><NamedCell
@@ -3576,7 +3640,7 @@
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Present</Font><Font
        html:Color="#666699"> (focal)</Font></ss:Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Perineural invasion</Data><NamedCell
@@ -3626,7 +3690,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Histologically confirmed distant metastases</Data><NamedCell
@@ -3667,7 +3731,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Histologically confirmed distant metastases - site</Data><NamedCell
@@ -3716,7 +3780,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">None noted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Relevant coexistent pathological abnormalities</Data><NamedCell
@@ -3759,7 +3823,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Two tubular adenomata confirmed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Polyp details (type, number, polyposis syndrome criteria met etc)</Data><NamedCell
@@ -3798,7 +3862,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Dysplasia</Data><NamedCell
@@ -3837,7 +3901,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Other abnormality</Data><NamedCell
@@ -3855,7 +3919,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">44624-5</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">44624-5</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Additional pathological findings</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="61.199999999999996">
@@ -3881,7 +3945,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Complete</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Microscopic residual tumour status (completeness of resection)</Data><NamedCell
@@ -3925,7 +3989,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">No prior treatment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Response to neoadjuvant therapy</Data><NamedCell
@@ -3967,7 +4031,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">The submucosal nodule 20mm from the distal margin is a well differentiated carcinoid tumour, completely excised.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Microscopic comments</Data><NamedCell
@@ -4008,7 +4072,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Immunohistochemical stains for microsatellite instability will be performed and a supplementary report issued</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Ancillary test findings</Data><NamedCell
@@ -4027,7 +4091,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">70949-3</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">70949-3</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Pathology report.section heading</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="94.8">
@@ -4050,7 +4114,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Immunohistochemistry for mismatch repair gene products:  staining of carcinoma cells for MLH-1, PMS-2, MSH-2 and MSH-6 is present.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Mismatch repair enzymes</Data><NamedCell
@@ -4091,7 +4155,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">MLH-1</Data><NamedCell
@@ -4110,7 +4174,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">50322-7 </Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">50322-7 </Data></Cell>
     <Cell><Data ss:Type="String">MLH-1 Ag</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4133,7 +4197,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">PMS-2</Data><NamedCell
@@ -4152,7 +4216,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">50328-4</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">50328-4</Data></Cell>
     <Cell><Data ss:Type="String">PMS-2 Ag</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
@@ -4175,7 +4239,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">MSH-2</Data><NamedCell
@@ -4194,7 +4258,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">50323-5</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">50323-5</Data></Cell>
     <Cell><Data ss:Type="String">MSH-2 Ag</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43.8">
@@ -4217,7 +4281,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">MSH-6</Data><NamedCell
@@ -4236,7 +4300,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">50324-3</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">50324-3</Data></Cell>
     <Cell><Data ss:Type="String">MSH-6 Ag</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="94.8">
@@ -4259,7 +4323,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Mismatch repair enzyme comments</Data><NamedCell
@@ -4277,7 +4341,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">8262-8</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">8262-8</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Service comment 02</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.2">
@@ -4300,7 +4364,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Microsatellite instability (MSI)</Data><NamedCell
@@ -4341,7 +4405,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Microsatellite instability (MSI) comments</Data><NamedCell
@@ -4360,7 +4424,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="34" ss:StyleID="s68"/>
+    <Cell ss:Index="36" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
     <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.ancillaryTests.mismatchRepairEnz.msi.LabDetails</Data><NamedCell
@@ -4380,7 +4444,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">MSI laboratory performing test and report number</Data><NamedCell
@@ -4399,7 +4463,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="34" ss:StyleID="s68"/>
+    <Cell ss:Index="36" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.550000000000004">
     <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.ancillaryTests.mismatchRepairEnz.braf</Data><NamedCell
@@ -4407,7 +4471,8 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">24,25</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4420,7 +4485,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">BRAF (V600E mutation)</Data><NamedCell
@@ -4439,7 +4504,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">58483-9 </Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">58483-9 </Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">BRAF gene mutation analysis</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.8">
@@ -4460,7 +4525,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">BRAF (V600E mutation) comments</Data><NamedCell
@@ -4478,7 +4543,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">8264-4</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">8264-4</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Service comment 03</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4499,7 +4564,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">BRAF (V600E mutation) laboratory performing test and report number</Data><NamedCell
@@ -4517,7 +4582,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="34" ss:StyleID="s68"/>
+    <Cell ss:Index="36" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
     <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.ancillaryTests.mismatchRepairEnz.kras</Data><NamedCell
@@ -4525,7 +4590,8 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">26,27</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4538,7 +4604,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">KRAS gene mutation (codons 12 and 13)</Data><NamedCell
@@ -4557,7 +4623,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">21703-4</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">21703-4</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">KRAS gene mutations tested for</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42.45">
@@ -4578,7 +4644,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">KRAS gene mutation (codons 12 and 13) comments</Data><NamedCell
@@ -4596,7 +4662,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">8266-9</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">8266-9</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Service comment 05</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60.45">
@@ -4617,7 +4683,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">KRAS gene mutation (codons 12 and 13) laboratory performing test and report number</Data><NamedCell
@@ -4635,7 +4701,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="34" ss:StyleID="s68"/>
+    <Cell ss:Index="36" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
     <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.synthesisOverview</Data><NamedCell
@@ -4655,7 +4721,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Synthesis and Overview</Data><NamedCell
@@ -4674,7 +4740,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">70949-3</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">70949-3</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Pathology report.section heading</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.800000000000004">
@@ -4700,7 +4766,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">pT3, pN1, cM0 </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Tumour stage</Data><NamedCell
@@ -4722,7 +4788,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell><Data ss:Type="Number">371508000</Data></Cell>
     <Cell><Data ss:Type="String">Tumor stage (observable entity)</Data></Cell>
-    <Cell ss:Index="34" ss:StyleID="s68"/>
+    <Cell ss:Index="36" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="176.55">
     <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.synthesisOverview.tumourStage.t</Data><NamedCell
@@ -4743,7 +4809,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">T</Data><NamedCell
@@ -4786,7 +4852,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N</Data><NamedCell
@@ -4805,7 +4871,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">21900-6</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">21900-6</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Regional lymph nodes.pathology</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="134.54999999999998">
@@ -4827,7 +4893,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">M</Data><NamedCell
@@ -4846,7 +4912,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">67211-3 </Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">67211-3 </Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">TNM pathologic staging - distant metastases - M</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="235.79999999999998">
@@ -4874,7 +4940,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">IIIB</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Stage grouping</Data><NamedCell
@@ -4894,7 +4960,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="34" ss:StyleID="s68"/>
+    <Cell ss:Index="36" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.2">
     <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.synthesisOverview.tumourStage.stagingSystemDetails</Data><NamedCell
@@ -4916,7 +4982,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">AJCC 2010, 7th edition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Year and/or edition of staging system</Data><NamedCell
@@ -4964,7 +5030,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">R0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Residual tumour status</Data><NamedCell
@@ -5006,7 +5072,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Diagnostic summary</Data><NamedCell
@@ -5026,7 +5092,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">34574-4</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">34574-4</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Path report.final diagnosis</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -5053,7 +5119,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">New primary</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">New primary cancer or recurrence</Data><NamedCell
@@ -5092,7 +5158,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Describe</Data><NamedCell
@@ -5133,7 +5199,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Mismatch repair gene deficiency is not identified.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Overarching comment</Data><NamedCell
@@ -5153,7 +5219,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:Index="33"><Data ss:Type="String">22638-1</Data></Cell>
+    <Cell ss:Index="35"><Data ss:Type="String">22638-1</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Path report.comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5171,39 +5237,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5235,39 +5269,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5299,7 +5301,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5331,7 +5333,71 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5363,7 +5429,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5394,12 +5460,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>35</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5407,6 +5474,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5414,9 +5482,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>3</ActiveCol>
-     <RangeSelection>C4</RangeSelection>
+     <ActiveRow>36</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5429,7 +5496,7 @@
    <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C27:R103C27</Range>
+   <Range>R2C29:R103C29</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;left,right,up,down,[xpixels];[ypixels]&quot;</Value>
@@ -5437,7 +5504,7 @@
    <ErrorStyle>Info</ErrorStyle>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C24:R103C26</Range>
+   <Range>R2C26:R103C28</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;N/A&quot;</Value>
@@ -5475,18 +5542,18 @@
    <Value>'\work\subversion\fhir\build\source\colorectal\Archive\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
-  <AutoFilter x:Range="R1C1:R103C29"
+  <AutoFilter x:Range="R1C1:R103C31"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C18:R103C18</Range>
+   <Range>R2C20:R103C20</Range>
    <Condition>
     <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R30C10:R31C30,R55C11:R55C30,R12C12:R12C30,R36C10:R39C30,R59C11:R59C30,R33C13:R33C30,R2C9:R11C30,R59C9,R55C9,R12C9:R12C10,R32C9:R32C30,R34C9:R35C30,R33C9:R33C11,R56C9:R58C30,R13C9:R29C30,R2C5:R97C8,R60C9:R97C30,R40C9:R54C30,R98C5:R103C30,R2C1:R103C4</Range>
+   <Range>R30C10:R31C13,R55C11:R55C13,R12C12:R12C13,R36C10:R39C13,R59C11:R59C13,R33C13,R2C9:R11C13,R59C9,R55C9,R12C9:R12C10,R32C9:R32C13,R34C9:R35C13,R33C9:R33C11,R56C9:R58C13,R13C9:R29C13,R2C5:R97C8,R60C9:R97C13,R40C9:R54C13,R98C5:R103C13,R2C1:R103C4,R2C17:R103C32,R2C14:R103C14,R27C15:R32C15,R40C15,R43C15:R44C15</Range>
    <Condition>
     <Value1>RC3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -5504,70 +5571,70 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C28,R2C6:R2C17,R2C3:R2C4</Range>
+   <Range>R2C30,R2C3:R2C4,R2C17:R2C19,R2C6:R2C14</Range>
    <Condition>
     <Value1>RC&lt;&gt;&quot;&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C3:R103C3,R2C19:R103C19</Range>
+   <Range>R3C3:R103C3,R2C21:R103C21</Range>
    <Condition>
     <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C17:R103C17,R2C9:R11C14,R30C10:R31C14,R59C9,R55C11:R55C14,R55C9,R12C9:R12C10,R12C12:R12C14,R32C9:R32C14,R36C10:R39C14,R59C11:R59C14,R34C9:R35C14,R33C9:R33C11,R33C13:R33C14,R56C9:R58C14,R13C9:R29C14,R60C9:R103C14,R40C9:R54C14</Range>
+   <Range>R2C19:R103C19,R2C9:R11C13,R30C10:R31C13,R59C9,R55C11:R55C13,R55C9,R12C9:R12C10,R12C12:R12C13,R32C9:R32C13,R36C10:R39C13,R59C11:R59C13,R34C9:R35C13,R33C9:R33C11,R33C13,R56C9:R58C13,R13C9:R29C13,R60C9:R103C13,R40C9:R54C13,R2C14:R103C14,R27C15:R32C15,R40C15,R43C15:R44C15</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,RC5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C15:R103C15,R2C17:R103C17</Range>
+   <Range>R2C17:R103C17,R2C19:R103C19</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(RC5,1),LOWER(LEFT(RC5,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C15:R103C16</Range>
+   <Range>R2C17:R103C18</Range>
    <Condition>
-    <Value1>AND(RC15&lt;&gt;&quot;&quot;,RC16&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(RC17&lt;&gt;&quot;&quot;,RC18&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C18:R103C19</Range>
+   <Range>R2C20:R103C21</Range>
    <Condition>
-    <Value1>AND(RC18&lt;&gt;&quot;&quot;,RC18=RC19)</Value1>
+    <Value1>AND(RC20&lt;&gt;&quot;&quot;,RC20=RC21)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C24:R2C25</Range>
+   <Range>R2C26:R2C27</Range>
    <Condition>
     <Value1>RC=&quot;&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C24:R103C25</Range>
+   <Range>R3C26:R103C27</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C)),RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R93C27:R103C27,R6C27,R9C27:R90C27</Range>
+   <Range>R93C29:R103C29,R6C29,R9C29:R90C29</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(R[1]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[1]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R30C10:R31C30,R55C11:R55C30,R12C12:R12C30,R36C10:R39C30,R59C11:R59C30,R33C13:R33C30,R2C9:R11C30,R59C9,R55C9,R12C9:R12C10,R32C9:R32C30,R34C9:R35C30,R33C9:R33C11,R56C9:R58C30,R13C9:R29C30,R2C5:R97C8,R60C9:R97C30,R40C9:R54C30,R98C5:R103C30,R2C1:R103C4</Range>
+   <Range>R30C10:R31C13,R55C11:R55C13,R12C12:R12C13,R36C10:R39C13,R59C11:R59C13,R33C13,R2C9:R11C13,R59C9,R55C9,R12C9:R12C10,R32C9:R32C13,R34C9:R35C13,R33C9:R33C11,R56C9:R58C13,R13C9:R29C13,R2C5:R97C8,R60C9:R97C13,R40C9:R54C13,R98C5:R103C13,R2C1:R103C4,R2C17:R103C32,R2C14:R103C14,R27C15:R32C15,R40C15,R43C15:R44C15</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -5581,7 +5648,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C27</Range>
+   <Range>R2C29</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(#REF!,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(#REF!,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -5595,14 +5662,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C27,R91C27:R92C27,R7C27</Range>
+   <Range>R5C29,R91C29:R92C29,R7C29</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(R[2]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[2]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C27:R4C27,R8C27</Range>
+   <Range>R3C29:R4C29,R8C29</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(R[3]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[3]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -5640,13 +5707,138 @@
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R15C15</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R15C15</Range>
+   <Condition>
+    <Value1>AND(SEARCH(&quot;|&quot;,RC5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R15C15</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R45C15</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R45C15</Range>
+   <Condition>
+    <Value1>AND(SEARCH(&quot;|&quot;,RC5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R45C15</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R46C15</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R46C15</Range>
+   <Condition>
+    <Value1>AND(SEARCH(&quot;|&quot;,RC5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R46C15</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R48C15</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R48C15</Range>
+   <Condition>
+    <Value1>AND(SEARCH(&quot;|&quot;,RC5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R48C15</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R36C15</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R36C15</Range>
+   <Condition>
+    <Value1>AND(SEARCH(&quot;|&quot;,RC5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R36C15</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="24" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s115" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s116" ss:AutoFitWidth="0"/>
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="115.80000000000001"/>
@@ -5692,12 +5884,12 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Colorectal.preAnalytic</Data><NamedCell
+    <Cell ss:StyleID="s171"><Data ss:Type="String">Colorectal.preAnalytic.perforation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If there is a perforation, the perforation type must be indicated.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:perforation/@value = 'present') or exists(f:natureOfPerforation)</Data><NamedCell
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'present') or exists(f:natureOfPerforation)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.550000000000004">
@@ -5705,211 +5897,247 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Distance from anal verge</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Colorectal.preAnalytic</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.preAnalytic.tumourLocation</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If the tumour location is rectum, then the distance from the anal verge must be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:tumourLocation/@value = 'Rectum') or exists(f:distanceAnalVerge)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Rectum') or exists(f:distanceAnalVerge)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="61.8">
     <Cell ss:StyleID="s122"><Data ss:Type="String">03</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Other procedure</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Colorectal.preAnalytic</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.preAnalytic.typeOfOperation</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If other procedure(s) is selected, then record the type of procedure.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:typeOfOperation/@value = 'Other procedure(s)') or exists(f:typeOfOperation.typeOfProcedure)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Other procedure(s)') or exists(f:typeOfProcedure)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="61.199999999999996">
     <Cell ss:StyleID="s122"><Data ss:Type="String">04</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Anterior resection type</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.preAnalytic.typeOfOperation</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If anterior resection is selected, record anterior resection type.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:typeOfOperation/@value = 'Anterior resection') or exists(f:anteriorResectionType)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Anterior resection') or exists(f:anteriorResectionType)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="62.550000000000004">
     <Cell ss:StyleID="s122"><Data ss:Type="String">05</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Pre-operative Radiotherapy</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.preAnalytic.preoperativeRadiotherapy</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If pre-operative radiotherapy is done, then the type of course is to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:preoperativeRadiotherapy/@value = 'Yes') or exists(f:preoperativeRadiotherapy.typeOfCourse)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Yes') or exists(f:typeOfCourse)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="92.55">
     <Cell ss:StyleID="s122"><Data ss:Type="String">06</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">New primary cancer of recurrence</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.preAnalytic.newPrimaryOrRecurrence</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If regional (local) recurrence or distant metastasis describe.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not((f:newPrimaryOrRecurrence/@value = 'Regional (local) recurrence') or (f:newPrimaryOrRecurrence/@value = 'Distant metastases')) or exists(f:newPrimaryOrRecurrence.describe)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not((@value = 'Regional (local) recurrence') or (@value = 'Distant metastases')) or exists(f:describe)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="36.449999999999996">
     <Cell ss:StyleID="s122"><Data ss:Type="String">07</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Relationship to anterior peritoneal reflection</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.macro.tumourSite</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If tumour site is rectum, the relationship to anterior peritoneal reflection is to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:tumourSite/@value = 'Rectum') or exists(f:relToAntPeritonealReflection)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Rectum') or exists(f:relToAntPeritonealReflection)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31.200000000000003">
     <Cell ss:StyleID="s122"><Data ss:Type="String">08</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Intactness of mesorectum</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.macro.tumourSite</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If tumour site is rectum, the intactness of mesorectum is to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:tumourSite/@value = 'Rectum') or exists(f:intactnessOfMesorectum)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Rectum') or exists(f:intactnessOfMesorectum)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="61.199999999999996">
     <Cell ss:StyleID="s122"><Data ss:Type="String">09</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Number of lymph nodes per cassette</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">If lymph nodes area received, record the number of nodes</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.macro.lymphNodes</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">If lymph nodes are received, record the number of nodes</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:lymphNodes/@value = 'Received') or exists(f:lymphNodes.noLymphNodesPerCassette)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Received') or exists(f:noLymphNodesPerCassette)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
     <Cell ss:StyleID="s122"><Data ss:Type="String">10</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Polyps summary</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.macro.polyps</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If polyps are present, provide a polyp summary.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:polyps/@value = 'Present') or exists(f:polyps.polypSummary)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f@value = 'Present') or exists(f:polypSummary)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="59.55">
     <Cell ss:StyleID="s122"><Data ss:Type="String">11</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Tumour involved in proximal or distal resection (cut-end) margins</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.micro.proximalOrDistalResectionMargins</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If the tumour is involved in the proximal or distal resection (‘cut-end’) margins, then record invovled margin(s).</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:proximalOrDistalResectionMargins/@value = 'Involved') or exists(f:proximalOrDistalResectionMargins.involvedMargins)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f@value = 'Involved') or exists(f:involvedMargins)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="59.55">
     <Cell ss:StyleID="s122"><Data ss:Type="String">12</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Tumour not involved in proximal or distal resection (cut-end) margins</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.micro.proximalOrDistalResectionMargins</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If the tumour is not involved in the proximal or distal resection (‘cut-end’) margins, then record the microscopic clearance.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:proximalOrDistalResectionMargins/@value = 'Not involved') or exists(f:proximalOrDistalResectionMargins.microClearance)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Not involved') or exists(f:microClearance)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="61.8">
     <Cell ss:StyleID="s122"><Data ss:Type="String">13</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Status of the nonperitonealised circumferential margin (rectal tumours)</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.macro.tumourSite</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If the tumour is a rectal tumour the status of the nonperitonealised circumferential margin (rectal tumours) is to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:Colorectal.preAnalytic.tumourLocation/@value = 'Rectum') or exists(f:Colorectal.micro.nonperitonealisedCircumMargin)</Data></Cell>
+    <Cell ss:StyleID="s177"><Data ss:Type="String">not(f:Colorectal.preAnalytic.tumourLocation/@value = 'Rectum') or exists(f:Colorectal.micro.nonperitonealisedCircumMargin)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="61.199999999999996">
     <Cell ss:StyleID="s122"><Data ss:Type="String">14</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Microscopic clearance of nonperitonealised circumferential margin (rectal tumours)</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.micro.nonperitonealisedCircumMargin</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If the tumour is a rectal tumour and the status of the nonperitonealised circumferential margin (rectal tumours) is not involved, then the clearance is to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:nonperitonealisedCircumMargin/@value = 'Not involved') or exists(f:microClearanceRectum)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Not involved') or exists(f:microClearanceRectum)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="59.55">
     <Cell ss:StyleID="s122"><Data ss:Type="String">15</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Lymph node involvement</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.macro.lymphNodes</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If lymph nodes have been received the tumour inolvement in the lymph nodes is to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:Colorectal.macro.lymphNodes/@value = 'Received') or exists(f:Colorectal.micro.lymphNodeInvolvement)</Data></Cell>
+    <Cell ss:StyleID="s177"><Data ss:Type="String">not(@value = 'Received') or exists(f:Colorectal.micro.lymphNodeInvolvement)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60.45">
     <Cell ss:StyleID="s122"><Data ss:Type="String">16</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Site(s) and numbers of lymph nodes</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.micro.lymphNodeInvolvement</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If tumour positive lymph nodes are present then record the site(s) and numbers of lymph nodes.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:lymphNodeInvolvement/@value = 'Present') or exists(f:lymphNodeInvolvement/lymphNodesDetails)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Present') or exists(f:lymphNodesDetails)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s122"><Data ss:Type="String">17</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Histologically confirmed distant metastases</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.micro.histoConfDistMetastases</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If histologically confirmed distant metastases are present then the sites are to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:histoConfDistMetastases/@value = 'Present') or exists(f:histoConfDistMetastases/site)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Present') or exists(f:site)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="58.8">
     <Cell ss:StyleID="s122"><Data ss:Type="String">18</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Polyp details (type, number, polyposis syndrome criteria met etc)</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.micro.relCoexistPathabnorm</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If polyps are present as relevant coexistent pathological abnormalities, then polyp details are to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:relCoexistPathabnorm/@value = 'Polyps') or exists(f:relCoexistPathabnorm/polypDetails)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Polyps') or exists(f:polypDetails)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60.45">
     <Cell ss:StyleID="s122"><Data ss:Type="String">19</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Ulcerative colitis diesease dysplasia</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.micro.relCoexistPathabnorm</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If Ulcerative colitis is present as relevant coexistent pathological abnormality, then dysplasia is to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:relCoexistPathabnorm/@value = 'Ulcerative colitis') or exists(f:relCoexistPathabnorm.dysplasia)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Ulcerative colitis') or exists(f:dysplasia)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.800000000000004">
     <Cell ss:StyleID="s122"><Data ss:Type="String">20</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Crohns disease dysplasia</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.micro.relCoexistPathabnorm</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If Crohn's disease is present as relevant coexistent pathological abnormality, then dysplasia is to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:relCoexistPathabnorm/@value = 'Crohns disease') or exists(f:relCoexistPathabnorm.dysplasia)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Crohns disease') or exists(f:dysplasia)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="58.2">
     <Cell ss:StyleID="s122"><Data ss:Type="String">21</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Other abnormality details</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.micro.relCoexistPathabnorm</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If other abnormalities is selected as relevant coexistent pathological abnormality, then other abnormaily details are to be recorded.</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:relCoexistPathabnorm/@value = 'Other') or exists(f:relCoexistPathabnorm.otherAbnormality)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Other') or exists(f:otherAbnormality)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="59.55">
     <Cell ss:StyleID="s122"><Data ss:Type="String">22</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">MSI unstable - lab performing test</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.ancillaryTests</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.ancillaryTests.mismatchRepairEnz.msi</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If MSI unstable, record laboratory performing test and report number</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:mismatchRepairEnz.msi/@value = 'Unstable') or exists(f:mismatchRepairEnz.msi.LabDetails)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Unstable') or exists(f:LabDetails)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="58.8">
     <Cell ss:StyleID="s122"><Data ss:Type="String">23</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">MSI stable - lab performing test</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.ancillaryTests</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.ancillaryTests.mismatchRepairEnz.msi</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">If MSI stable, record laboratory performing test and report number</Data></Cell>
     <Cell ss:StyleID="s96"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">not(f:mismatchRepairEnz.msi/@value = 'Stable') or exists(f:mismatchRepairEnz.msi.LabDetails)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Stable') or exists(f:LabDetails)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="31.799999999999997">
+    <Cell><Data ss:Type="String">24</Data></Cell>
+    <Cell><Data ss:Type="String">BRAF mutated - lab performing test</Data></Cell>
+    <Cell><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.ancillaryTests.mismatchRepairEnz.braf</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">If BRAF mutated, record laboratory performing test and report number</Data></Cell>
+    <Cell ss:StyleID="s96"/>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Mutated') or exists(f:LabDetails)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="31.799999999999997">
+    <Cell><Data ss:Type="String">25</Data></Cell>
+    <Cell><Data ss:Type="String">BRAF wild type - lab performing test</Data></Cell>
+    <Cell><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.ancillaryTests.mismatchRepairEnz.braf</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">If BRAF wild type, record laboratory performing test and report number</Data></Cell>
+    <Cell ss:StyleID="s96"/>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Wild type') or exists(f:LabDetails)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="31.799999999999997">
+    <Cell><Data ss:Type="String">26</Data></Cell>
+    <Cell><Data ss:Type="String">KRAS mutated - lab performing test</Data></Cell>
+    <Cell><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.ancillaryTests.mismatchRepairEnz.kras</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">If KRAS mutated, record laboratory performing test and report number</Data></Cell>
+    <Cell ss:StyleID="s96"/>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Mutated') or exists(f:LabDetails)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="31.799999999999997">
+    <Cell><Data ss:Type="String">27</Data></Cell>
+    <Cell><Data ss:Type="String">KRAS wild type - lab performing test</Data></Cell>
+    <Cell><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Colorectal.ancillaryTests.mismatchRepairEnz.kras</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">If KRAS wild type, record laboratory performing test and report number</Data></Cell>
+    <Cell ss:StyleID="s96"/>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">not(@value = 'Wild type') or exists(f:LabDetails)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -5924,11 +6152,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5941,10 +6168,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5956,20 +6185,10 @@
    <CellRangeList/>
    <Value>&quot;error,warning&quot;</Value>
   </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R22C4</Range>
-   <Type>List</Type>
-   <Value>'[colorectal-spreadsheet.xlsx]Data Elements'!#REF!</Value>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R23C4:R24C4</Range>
-   <Type>List</Type>
-   <Value>'[colorectal-spreadsheet.-invariants.xml]Data Elements'!#REF!</Value>
-  </DataValidation>
   <AutoFilter x:Range="R1C1:R2C7" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R24C7</Range>
+   <Range>R2C1:R24C3,R2C5:R24C7</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -5983,17 +6202,776 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R24C2,R2C4:R24C5,R2C7:R24C7</Range>
+   <Range>R2C2:R24C2,R2C7:R24C7,R2C5:R24C5</Range>
    <Condition>
     <Value1>(RC1&lt;&gt;&quot;&quot;)&lt;&gt;(RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R24C7</Range>
+   <Range>R2C1:R24C3,R2C5:R24C7</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[1048574]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R5C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R5C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R5C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R6C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R6C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R6C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R7C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R7C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R7C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R9C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R9C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R9C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R14C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R14C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R14C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R10C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R10C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R10C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R24C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R16C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R16C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R16C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R11C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R11C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R11C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R12C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R12C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R12C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R13C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R13C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R13C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R15C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R15C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R15C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R17C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R17C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R17C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R18C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R18C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R18C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R19C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R19C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R19C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R20C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R20C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R20C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R21C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R21C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R21C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R22C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R22C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R22C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R23C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R23C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R23C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R24C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R24C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R25C5:R25C7</Range>
+   <Condition>
+    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R25C7,R25C5</Range>
+   <Condition>
+    <Value1>(RC1&lt;&gt;&quot;&quot;)&lt;&gt;(RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R25C5:R25C7</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R25C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R25C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R25C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C5:R26C7</Range>
+   <Condition>
+    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C7,R26C5</Range>
+   <Condition>
+    <Value1>(RC1&lt;&gt;&quot;&quot;)&lt;&gt;(RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C5:R26C7</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R26C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R27C5:R27C7</Range>
+   <Condition>
+    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R27C7,R27C5</Range>
+   <Condition>
+    <Value1>(RC1&lt;&gt;&quot;&quot;)&lt;&gt;(RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R27C5:R27C7</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R27C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R27C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R27C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R28C5:R28C7</Range>
+   <Condition>
+    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R28C7,R28C5</Range>
+   <Condition>
+    <Value1>(RC1&lt;&gt;&quot;&quot;)&lt;&gt;(RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R28C5:R28C7</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R28C4</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R28C4</Range>
+   <Condition>
+    <Value1>RC3=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R28C4</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>

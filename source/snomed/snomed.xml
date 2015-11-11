@@ -4274,6 +4274,9 @@
     <display value="Ultrasonography of abdomen, NOS"/>
     <display value="Ultrasonography of abdomen (procedure)"/>
   </concept>
+  <concept id="45410002" display="Acinar cell carcinoma (morphologic abnormality)">
+    <display value="Acinar cell carcinoma"/>
+  </concept>
   <concept id="4558008" display="Anterior resection of rectum (procedure)">
     <display value="Anterior resection of rectum (procedure)"/>
     <display value="Anterior resection of rectum"/>

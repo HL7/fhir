@@ -345,163 +345,191 @@
 
  -- Row 1 -----------------------------------
   Id = 01
-  Context = Colorectal.preAnalytic
+  Context = Colorectal.preAnalytic.perforation
   English = If there is a perforation, the perforation type must be indicated.
-  XPath = not(f:perforation/@value = \'present\') or exists(f:natureOfPerforation)
+  XPath = not(@value = \'present\') or exists(f:natureOfPerforation)
   Severity = error
 
  -- Row 2 -----------------------------------
   Id = 02
-  Context = Colorectal.preAnalytic
+  Context = Colorectal.preAnalytic.tumourLocation
   English = If the tumour location is rectum, then the distance from the anal verge must be recorded.
-  XPath = not(f:tumourLocation/@value = \'Rectum\') or exists(f:distanceAnalVerge)
+  XPath = not(@value = \'Rectum\') or exists(f:distanceAnalVerge)
   Severity = error
 
  -- Row 3 -----------------------------------
   Id = 03
-  Context = Colorectal.preAnalytic
+  Context = Colorectal.preAnalytic.typeOfOperation
   English = If other procedure(s) is selected, then record the type of procedure.
-  XPath = not(f:typeOfOperation/@value = \'Other procedure(s)\') or exists(f:typeOfOperation.typeOfProcedure)
+  XPath = not(@value = \'Other procedure(s)\') or exists(f:typeOfProcedure)
   Severity = error
 
  -- Row 4 -----------------------------------
   Id = 04
-  Context = Colorectal.preAnalytic
+  Context = Colorectal.preAnalytic.typeOfOperation
   English = If anterior resection is selected, record anterior resection type.
-  XPath = not(f:typeOfOperation/@value = \'Anterior resection\') or exists(f:anteriorResectionType)
+  XPath = not(@value = \'Anterior resection\') or exists(f:anteriorResectionType)
   Severity = error
 
  -- Row 5 -----------------------------------
   Id = 05
-  Context = Colorectal.preAnalytic
+  Context = Colorectal.preAnalytic.preoperativeRadiotherapy
   English = If pre-operative radiotherapy is done, then the type of course is to be recorded.
-  XPath = not(f:preoperativeRadiotherapy/@value = \'Yes\') or exists(f:preoperativeRadiotherapy.typeOfCourse)
+  XPath = not(@value = \'Yes\') or exists(f:typeOfCourse)
   Severity = error
 
  -- Row 6 -----------------------------------
   Id = 06
-  Context = Colorectal.preAnalytic
+  Context = Colorectal.preAnalytic.newPrimaryOrRecurrence
   English = If regional (local) recurrence or distant metastasis describe.
-  XPath = not((f:newPrimaryOrRecurrence/@value = \'Regional (local) recurrence\') or (f:newPrimaryOrRecurrence/@value = \'Distant metastases\')) or exists(f:newPrimaryOrRecurrence.describe)
+  XPath = not((@value = \'Regional (local) recurrence\') or (@value = \'Distant metastases\')) or exists(f:describe)
   Severity = error
 
  -- Row 7 -----------------------------------
   Id = 07
-  Context = Colorectal.macro
+  Context = Colorectal.macro.tumourSite
   English = If tumour site is rectum, the relationship to anterior peritoneal reflection is to be recorded.
-  XPath = not(f:tumourSite/@value = \'Rectum\') or exists(f:relToAntPeritonealReflection)
+  XPath = not(@value = \'Rectum\') or exists(f:relToAntPeritonealReflection)
   Severity = error
 
  -- Row 8 -----------------------------------
   Id = 08
-  Context = Colorectal.macro
+  Context = Colorectal.macro.tumourSite
   English = If tumour site is rectum, the intactness of mesorectum is to be recorded.
-  XPath = not(f:tumourSite/@value = \'Rectum\') or exists(f:intactnessOfMesorectum)
+  XPath = not(@value = \'Rectum\') or exists(f:intactnessOfMesorectum)
   Severity = error
 
  -- Row 9 -----------------------------------
   Id = 09
-  Context = Colorectal.macro
-  English = If lymph nodes area received, record the number of nodes
-  XPath = not(f:lymphNodes/@value = \'Received\') or exists(f:lymphNodes.noLymphNodesPerCassette)
+  Context = Colorectal.macro.lymphNodes
+  English = If lymph nodes are received, record the number of nodes
+  XPath = not(@value = \'Received\') or exists(f:noLymphNodesPerCassette)
   Severity = error
 
  -- Row 10 -----------------------------------
   Id = 10
-  Context = Colorectal.macro
+  Context = Colorectal.macro.polyps
   English = If polyps are present, provide a polyp summary.
-  XPath = not(f:polyps/@value = \'Present\') or exists(f:polyps.polypSummary)
+  XPath = not(f@value = \'Present\') or exists(f:polypSummary)
   Severity = error
 
  -- Row 11 -----------------------------------
   Id = 11
-  Context = Colorectal.micro
+  Context = Colorectal.micro.proximalOrDistalResectionMargins
   English = If the tumour is involved in the proximal or distal resection (‘cut-end’) margins, then record invovled margin(s).
-  XPath = not(f:proximalOrDistalResectionMargins/@value = \'Involved\') or exists(f:proximalOrDistalResectionMargins.involvedMargins)
+  XPath = not(f@value = \'Involved\') or exists(f:involvedMargins)
   Severity = error
 
  -- Row 12 -----------------------------------
   Id = 12
-  Context = Colorectal.micro
+  Context = Colorectal.micro.proximalOrDistalResectionMargins
   English = If the tumour is not involved in the proximal or distal resection (‘cut-end’) margins, then record the microscopic clearance.
-  XPath = not(f:proximalOrDistalResectionMargins/@value = \'Not involved\') or exists(f:proximalOrDistalResectionMargins.microClearance)
+  XPath = not(@value = \'Not involved\') or exists(f:microClearance)
   Severity = error
 
  -- Row 13 -----------------------------------
   Id = 13
-  Context = Colorectal.macro
+  Context = Colorectal.macro.tumourSite
   English = If the tumour is a rectal tumour the status of the nonperitonealised circumferential margin (rectal tumours) is to be recorded.
   XPath = not(f:Colorectal.preAnalytic.tumourLocation/@value = \'Rectum\') or exists(f:Colorectal.micro.nonperitonealisedCircumMargin)
   Severity = error
 
  -- Row 14 -----------------------------------
   Id = 14
-  Context = Colorectal.micro
+  Context = Colorectal.micro.nonperitonealisedCircumMargin
   English = If the tumour is a rectal tumour and the status of the nonperitonealised circumferential margin (rectal tumours) is not involved, then the clearance is to be recorded.
-  XPath = not(f:nonperitonealisedCircumMargin/@value = \'Not involved\') or exists(f:microClearanceRectum)
+  XPath = not(@value = \'Not involved\') or exists(f:microClearanceRectum)
   Severity = error
 
  -- Row 15 -----------------------------------
   Id = 15
-  Context = Colorectal.macro
+  Context = Colorectal.macro.lymphNodes
   English = If lymph nodes have been received the tumour inolvement in the lymph nodes is to be recorded.
-  XPath = not(f:Colorectal.macro.lymphNodes/@value = \'Received\') or exists(f:Colorectal.micro.lymphNodeInvolvement)
+  XPath = not(@value = \'Received\') or exists(f:Colorectal.micro.lymphNodeInvolvement)
   Severity = error
 
  -- Row 16 -----------------------------------
   Id = 16
-  Context = Colorectal.micro
+  Context = Colorectal.micro.lymphNodeInvolvement
   English = If tumour positive lymph nodes are present then record the site(s) and numbers of lymph nodes.
-  XPath = not(f:lymphNodeInvolvement/@value = \'Present\') or exists(f:lymphNodeInvolvement/lymphNodesDetails)
+  XPath = not(@value = \'Present\') or exists(f:lymphNodesDetails)
   Severity = error
 
  -- Row 17 -----------------------------------
   Id = 17
-  Context = Colorectal.micro
+  Context = Colorectal.micro.histoConfDistMetastases
   English = If histologically confirmed distant metastases are present then the sites are to be recorded.
-  XPath = not(f:histoConfDistMetastases/@value = \'Present\') or exists(f:histoConfDistMetastases/site)
+  XPath = not(@value = \'Present\') or exists(f:site)
   Severity = error
 
  -- Row 18 -----------------------------------
   Id = 18
-  Context = Colorectal.micro
+  Context = Colorectal.micro.relCoexistPathabnorm
   English = If polyps are present as relevant coexistent pathological abnormalities, then polyp details are to be recorded.
-  XPath = not(f:relCoexistPathabnorm/@value = \'Polyps\') or exists(f:relCoexistPathabnorm/polypDetails)
+  XPath = not(@value = \'Polyps\') or exists(f:polypDetails)
   Severity = error
 
  -- Row 19 -----------------------------------
   Id = 19
-  Context = Colorectal.micro
+  Context = Colorectal.micro.relCoexistPathabnorm
   English = If Ulcerative colitis is present as relevant coexistent pathological abnormality, then dysplasia is to be recorded.
-  XPath = not(f:relCoexistPathabnorm/@value = \'Ulcerative colitis\') or exists(f:relCoexistPathabnorm.dysplasia)
+  XPath = not(@value = \'Ulcerative colitis\') or exists(f:dysplasia)
   Severity = error
 
  -- Row 20 -----------------------------------
   Id = 20
-  Context = Colorectal.micro
+  Context = Colorectal.micro.relCoexistPathabnorm
   English = If Crohn\'s disease is present as relevant coexistent pathological abnormality, then dysplasia is to be recorded.
-  XPath = not(f:relCoexistPathabnorm/@value = \'Crohns disease\') or exists(f:relCoexistPathabnorm.dysplasia)
+  XPath = not(@value = \'Crohns disease\') or exists(f:dysplasia)
   Severity = error
 
  -- Row 21 -----------------------------------
   Id = 21
-  Context = Colorectal.micro
+  Context = Colorectal.micro.relCoexistPathabnorm
   English = If other abnormalities is selected as relevant coexistent pathological abnormality, then other abnormaily details are to be recorded.
-  XPath = not(f:relCoexistPathabnorm/@value = \'Other\') or exists(f:relCoexistPathabnorm.otherAbnormality)
+  XPath = not(@value = \'Other\') or exists(f:otherAbnormality)
   Severity = error
 
  -- Row 22 -----------------------------------
   Id = 22
-  Context = Colorectal.ancillaryTests
+  Context = Colorectal.ancillaryTests.mismatchRepairEnz.msi
   English = If MSI unstable, record laboratory performing test and report number
-  XPath = not(f:mismatchRepairEnz.msi/@value = \'Unstable\') or exists(f:mismatchRepairEnz.msi.LabDetails)
+  XPath = not(@value = \'Unstable\') or exists(f:LabDetails)
   Severity = error
 
  -- Row 23 -----------------------------------
   Id = 23
-  Context = Colorectal.ancillaryTests
+  Context = Colorectal.ancillaryTests.mismatchRepairEnz.msi
   English = If MSI stable, record laboratory performing test and report number
-  XPath = not(f:mismatchRepairEnz.msi/@value = \'Stable\') or exists(f:mismatchRepairEnz.msi.LabDetails)
+  XPath = not(@value = \'Stable\') or exists(f:LabDetails)
+  Severity = error
+
+ -- Row 24 -----------------------------------
+  Id = 24
+  Context = Colorectal.ancillaryTests.mismatchRepairEnz.braf
+  English = If BRAF mutated, record laboratory performing test and report number
+  XPath = not(@value = \'Mutated\') or exists(f:LabDetails)
+  Severity = error
+
+ -- Row 25 -----------------------------------
+  Id = 25
+  Context = Colorectal.ancillaryTests.mismatchRepairEnz.braf
+  English = If BRAF wild type, record laboratory performing test and report number
+  XPath = not(@value = \'Wild type\') or exists(f:LabDetails)
+  Severity = error
+
+ -- Row 26 -----------------------------------
+  Id = 26
+  Context = Colorectal.ancillaryTests.mismatchRepairEnz.kras
+  English = If KRAS mutated, record laboratory performing test and report number
+  XPath = not(@value = \'Mutated\') or exists(f:LabDetails)
+  Severity = error
+
+ -- Row 27 -----------------------------------
+  Id = 27
+  Context = Colorectal.ancillaryTests.mismatchRepairEnz.kras
+  English = If KRAS wild type, record laboratory performing test and report number
+  XPath = not(@value = \'Wild type\') or exists(f:LabDetails)
   Severity = error
 
 === Sheet Data Elements =====================================
@@ -646,7 +674,7 @@
   Definition = Type of procedure
 
  -- Row 16 -----------------------------------
-  Element = Colorectal.preAnalytic.anteriorResectionType
+  Element = Colorectal.preAnalytic.typeOfOperation.anteriorResectionType
   Card. = 0..1
   Type = code
   Binding = AnteriorResectionType
@@ -1184,6 +1212,7 @@
  -- Row 78 -----------------------------------
   Element = Colorectal.ancillaryTests.mismatchRepairEnz.braf
   Card. = 0..1
+  Inv. = 24,25
   Type = code
   Binding = Braf
   Short Label = BRAF (V600E mutation)
@@ -1207,6 +1236,7 @@
  -- Row 81 -----------------------------------
   Element = Colorectal.ancillaryTests.mismatchRepairEnz.kras
   Card. = 0..1
+  Inv. = 26,27
   Type = code
   Binding = Kras
   Short Label = KRAS gene mutation (codons 12 and 13)

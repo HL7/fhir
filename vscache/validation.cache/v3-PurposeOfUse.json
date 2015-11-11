@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/v3-PurposeOfUse",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/sct|null|3457005|Referral",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://hl7.org/fhir/v3/ActReason|null|TREAT|treatment",
       "severity": null,
       "message": null,
@@ -11,11 +16,6 @@
         "definition": null,
         "display": "treatment"
       }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|3457005|Referral",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
     }
   ]
 }
