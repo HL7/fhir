@@ -19,26 +19,6 @@ import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 
-/*
-  
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Binary.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\DocumentReference.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Encounter.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Organization.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Procedure.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\AllergyIntolerance.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Condition.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Immunization.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\MedicationStatement.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Observation-gen.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Observation-res.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Observation-sh.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\Observation-vs.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\List.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\List-res.xml.zip"
-"C:\work\com.healthintersections.fhir\argonaut\output\xml\type\List-vs.xml.zip"
-  
-*/
 public class BatchLoader {
 
 	public static void main(String[] args) throws Exception {
@@ -49,6 +29,7 @@ public class BatchLoader {
 	  	String file = args[1];
 	  	IParser p = args[2].equals("json") ? new JsonParser() : new XmlParser();
 	  	int size = Integer.parseInt(args[3]);
+	  	size = 500;
 	  	if (file.endsWith(".xml")) {
 	  		throw new Exception("Unimplemented file type "+file);
 	  	} else if (file.endsWith(".json")) {
@@ -64,16 +45,16 @@ public class BatchLoader {
 
 	private static void LoadDirectory(String server, String file, IParser p, int size) throws Exception {
 //    LoadZipFile(server, Utilities.path(file, "Patient.xml.zip"), p, size, 200, -1);
-    LoadZipFile(server, Utilities.path(file, "Binary.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "DocumentReference.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "Encounter.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "Organization.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "Procedure.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "AllergyIntolerance.xml.zip"), p, size, 0, -1);
+//    LoadZipFile(server, Utilities.path(file, "Binary.xml.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "DocumentReference.xml.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "Encounter.xml.zip"), p, size, 0, -1);
+	  LoadZipFile(server, Utilities.path(file, "Organization.xml.zip"), p, size, 1030, -1);
+	  LoadZipFile(server, Utilities.path(file, "Procedure.xml.zip"), p, size, 5788, -1);
+//	  LoadZipFile(server, Utilities.path(file, "AllergyIntolerance.xml.zip"), p, size, 0, -1);
 	  LoadZipFile(server, Utilities.path(file, "Condition.xml.zip"), p, size, 0, -1);
 	  LoadZipFile(server, Utilities.path(file, "Immunization.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "MedicationStatement.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "Observation-gen.xml.zip"), p, size, 0, -1);
+	  LoadZipFile(server, Utilities.path(file, "MedicationStatement.xml.zip"), p, size, 9400, -1);
+	  LoadZipFile(server, Utilities.path(file, "Observation-gen.xml.zip"), p, size, 2262, -1);
 	  LoadZipFile(server, Utilities.path(file, "Observation-res.xml.zip"), p, size, 0, -1);
 	  LoadZipFile(server, Utilities.path(file, "Observation-sh.xml.zip"), p, size, 0, -1);
 	  LoadZipFile(server, Utilities.path(file, "Observation-vs.xml.zip"), p, size, 0, -1);
@@ -99,7 +80,7 @@ public class BatchLoader {
 	}
 
 	private static int loadBundle(String server, Bundle b, int size, int start, int end) throws URISyntaxException {
-		System.out.println("Post to "+server+". size = "+Integer.toString(size)+", total = "+Integer.toString(b.getEntry().size()));
+		System.out.println("Post to "+server+". size = "+Integer.toString(size)+", start = "+Integer.toString(start)+", total = "+Integer.toString(b.getEntry().size()));
 		FHIRToolingClient client = new FHIRToolingClient(server);
 	  int c = start;
 	  if (end == -1)

@@ -127,7 +127,7 @@ public abstract class FHIRPathEvaluator {
 	
 	//the expression will have one of either name or constant
 	public enum Function {
-		Empty, Item, Where, All, Any, First, Last, Tail, Count, AsInteger, StartsWith, Length, Matches, Distinct;
+		Empty, Item, Where, All, Any, First, Last, Tail, Count, AsInteger, StartsWith, Length, Matches, Distinct, Not;
 
 		public static Function fromCode(String name) {
 			if (name.equals("empty"))
@@ -156,14 +156,16 @@ public abstract class FHIRPathEvaluator {
 				return Function.Length;
 			if (name.equals("matches"))
 				return Function.Matches;
-			if (name.equals("distinct"))
-				return Function.Distinct;
+      if (name.equals("distinct"))
+        return Function.Distinct;
+      if (name.equals("not"))
+        return Function.Not;
 			return null;
 		}
 	}
 
 	public enum Operation {
-		Equals, NotEquals, LessThen, Greater, LessOrEqual, GreaterOrEqual, In, Plus, Minus, Divide, Multiply, Or, And, Xor;
+		Equals, NotEquals, LessThen, Greater, LessOrEqual, GreaterOrEqual, In, Plus, Minus, Divide, Multiply, Or, And, Xor, Collect;
 
 		public static Operation fromCode(String name) {
 		  if (Utilities.noString(name))
@@ -195,6 +197,8 @@ public abstract class FHIRPathEvaluator {
       if (name.equals("and"))
         return Operation.And;
       if (name.equals("xor"))
+        return Operation.Xor;
+      if (name.equals("|"))
         return Operation.Xor;
 			return null;
 			
@@ -254,7 +258,7 @@ public abstract class FHIRPathEvaluator {
 		private String current;
 		private int currentStart;
 
-		public Lexer(String path) {
+		public Lexer(String path) throws Exception {
 			this.path = path;
 			next();
 		}
@@ -275,7 +279,7 @@ public abstract class FHIRPathEvaluator {
 			return current.charAt(0) == '"' || (current.charAt(0) >= '0' && current.charAt(0) <= '9') || current.equals("true") || current.equals("false");
 		}
 
-		public String take() {
+		public String take() throws Exception {
 			String s = current;
 			next();
 			return s;
@@ -306,7 +310,7 @@ public abstract class FHIRPathEvaluator {
 			return new Exception("Error in "+path+" at "+Integer.toString(offset+1)+": "+msg);
 		}
 
-		public void next() {
+		public void next() throws Exception {
 			//	  procedure Grab(length : Integer);
 			//	  begin
 			//	    FCurrent := copy(path, FCurrentStart, length);
@@ -342,7 +346,24 @@ public abstract class FHIRPathEvaluator {
 					while (cursor < path.length() && ((path.charAt(cursor) >= 'A' && path.charAt(cursor) <= 'Z') || (path.charAt(cursor) >= 'a' && path.charAt(cursor) <= 'z') || 
 							(path.charAt(cursor) >= '0' && path.charAt(cursor) <= '9') || path.charAt(cursor) == ':' || path.charAt(cursor) == '-'))
 						cursor++;
-					current = path.substring(currentStart, cursor);
+					current = replaceFixedConstant(path.substring(currentStart, cursor));
+				} else if (ch == '"' || ch == '\''){
+				  cursor++;
+				  char ech = ch;
+				  boolean escape = false;
+				  while (cursor < path.length() && (escape || path.charAt(cursor) != ech)) {
+				    if (escape)
+				      escape = false;
+				    else 
+				      escape = (path.charAt(cursor) == '\\');
+				    cursor++;
+				  }
+				  if (cursor == path.length())
+				    throw error("Unterminated string");
+          cursor++;
+          current = path.substring(currentStart, cursor);
+          if (ech == '\'')
+            current = "\""+current.substring(1, current.length() - 1)+"\"";
 				} else { // if CharInSet(ch, ['.', ',', '(', ')', '=', '$']) then
 					cursor++;
 					current = path.substring(currentStart, cursor);
@@ -350,7 +371,24 @@ public abstract class FHIRPathEvaluator {
 			}
 		}
 
-		public boolean isOp() {
+		private String replaceFixedConstant(String s) throws Exception {
+		  if (s.equals("%sct"))
+		    return "\"http://snomed.info/sct\"";
+		  else if (s.equals("%loinc"))
+		    return "\"http://loinc.org\"";
+		  else if (s.equals("%ucum"))
+		    return "\"http://unitsofmeasure.org\"";
+		  else if (s.equals("%us-zip"))
+		    return "\"[0-9]{5}(-[0-9]{4}){0,1}\"";
+		  else if (s.startsWith("%vs-"))
+		    return "\"http://hl7.org/fhir/ValueSet/"+s.substring(4)+"\"";
+		  else if (s.startsWith("%ext-"))
+		    return "\"http://hl7.org/fhir/StructureDefinition/"+s.substring(5)+"\"";
+		  else
+		    throw error("Unknown fixed constant '"+s+"'");
+		}
+		
+    public boolean isOp() {
 			return Operation.fromCode(current) != null;
 		}
 		public boolean done() {
@@ -362,9 +400,9 @@ public abstract class FHIRPathEvaluator {
 	private Expression parseExpression(Lexer lexer) throws Exception {
 	  Expression result = new Expression();
 	  int c = lexer.getCurrentStart();
-	  if (lexer.isConstant()) 
-	    result.setConstant(lexer.take());
-	  else {
+	  if (lexer.isConstant()) {
+	    result.setConstant(cleanConstant(lexer.take()));
+	  } else {
 	    if ("(".equals(lexer.getCurrent())) {
 	      lexer.next();
 	      Expression group = parseExpression(lexer);
@@ -382,8 +420,13 @@ public abstract class FHIRPathEvaluator {
 	          throw lexer.error("The name "+result.getName()+" is not a valid function name");
 	        result.setFunction(f);
 	        lexer.next();
-	        while (!")".equals(lexer.getCurrent())) 
+	        while (!")".equals(lexer.getCurrent())) { 
 	          result.getParameters().add(parseExpression(lexer));
+	          if (",".equals(lexer.getCurrent()))
+	            lexer.next();
+            else if (!")".equals(lexer.getCurrent()))
+              throw lexer.error("The token "+lexer.getCurrent()+" is not expected here - either a \",\" or a \")\" expected");
+	        }
 	        lexer.next();
 	        checkParameters(lexer, c, result);
 	      }
@@ -401,7 +444,15 @@ public abstract class FHIRPathEvaluator {
 	  return result;
 	}
 
-	private Expression parse(String path) throws Exception {
+	private String cleanConstant(String s) {
+	  if (s.startsWith("\"") && s.endsWith("\"")) {
+	    s = s.substring(1, s.length()-1);
+	    return s.replace("\\t", "\t").replace("\\r", "\r").replace("\\n", "\n").replace("\\\"", "\"").replace("\\'", "'").replace("\\\\", "\\");
+	  } else
+	    return s;
+  }
+
+  private Expression parse(String path) throws Exception {
 		Lexer lexer = new Lexer(path);
 		if (lexer.done())
 			throw lexer.error("Path cannot be empty");
@@ -444,8 +495,8 @@ public abstract class FHIRPathEvaluator {
 		case StartsWith: return checkParamCount(lexer, offset, exp, 1);
 		case Length: return checkNoParameters(lexer, offset, exp);
 		case Matches: return checkParamCount(lexer, offset, exp, 1);
-		case Distinct: ; // no chECK
-		return true;
+    case Not: return checkNoParameters(lexer, offset, exp);
+    case Distinct: return true; // no chECK
 		}
 		return false;
 	}
@@ -590,7 +641,8 @@ public abstract class FHIRPathEvaluator {
 		case StartsWith : return funcStartsWith(originalContext, context, exp);
 		case Length : return funcLength(originalContext, context, exp);
 		case Matches : return funcMatches(originalContext, context, exp);
-		case Distinct : return funcDistinct(originalContext, context, exp);
+    case Distinct : return funcDistinct(originalContext, context, exp);
+    case Not : return funcNot(originalContext, context, exp);
 		}
 		throw new Error("not Implemented yet");
 	}
@@ -727,4 +779,10 @@ public abstract class FHIRPathEvaluator {
 		result.add(new BooleanType(context.isEmpty()));
 	  return result;
 	}
+	
+	 private List<Base> funcNot(List<Base> originalContext, List<Base> context, Expression exp) {
+	    List<Base> result = new ArrayList<Base>();
+	    result.add(new BooleanType(!convertToBoolean(context)));
+	    return result;
+	 }
 }
