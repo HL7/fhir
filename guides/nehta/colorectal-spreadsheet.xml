@@ -989,7 +989,7 @@
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="218.39999999999998"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="235.2"/>
    <Column ss:AutoFitWidth="0" ss:Width="166.2"/>
-   <Column ss:AutoFitWidth="0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="112.2"/>
    <Column ss:StyleID="s68" ss:Width="51.6" ss:Span="1"/>
    <Column ss:Index="19" ss:StyleID="s68" ss:AutoFitWidth="0"
     ss:Width="80.400000000000006"/>
@@ -1061,7 +1061,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Example 6 (DHM 1)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s75"><Data ss:Type="String">Default Value</Data><Comment
+    <Cell><Data ss:Type="String">Example 7 (DHM 1)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Default Value</Data><Comment
       ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The value to be assumed if the element is omitted from the instance.  Only permitted for simple data types</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5464,7 +5466,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>35</TopRowBottomPane>
+   <TopRowBottomPane>41</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5482,7 +5484,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>36</ActiveRow>
+     <ActiveRow>35</ActiveRow>
      <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
