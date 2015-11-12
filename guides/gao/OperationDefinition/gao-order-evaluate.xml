@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OperationDefinition xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir file:/C:/hl7/FHIR/current/build/schema/fhir-single.xsd">
+  <id value="gao-order-evaluate"/>
+  <url value="http://hl7.org/fhir/OperationDefinition/gao-order-evaluate"/>
+  <name value="GAO Evaluate Order"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <experimental value="false"/>
+  <description value="The evaluate operation examines an order, comparing it against known guidelines for appropriate use and returns the result of that evaluation to the caller."/><!-- 0..1 Natural language description of the operation -->
+  <requirements value="This operation enables clinical decision support to be invoked prior to ordering to ensure appropriate use of resources."/>
+  <idempotent value="true"/>
+  <code value="evaluate"/>
+  <notes value="This operation is normally idempotent, but can depend upon the algorithm used."/>
+  <system value="false"/>
+  <type value="Order"/>
+  <instance value="false"/>
+  <parameter>  
+    <name value="order"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The order to evaluate"/>
+    <type value="Order"/>
+    <profile><reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/></profile>
+  </parameter>
+  <parameter>  
+    <name value="coverage"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Optional resources describing the patient’s coverage."/>
+    <type value="Coverage"/>
+  </parameter>
+  <parameter>  
+    <name value="answers"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Optional answers to any questions which have been or may be posed by the Decision Support Service"/>
+    <type value="QuestionnaireResponse"/>
+    <profile><reference value="http://hl7.org/fhir/StructureDefinition/gao-questionnaireresponse"/></profile>
+  </parameter>
+  <parameter>  
+    <name value="order"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The order that was evaluated. This is a copy of the order provided on input."/>
+    <type value="Order"/>
+    <profile><reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/></profile>
+  </parameter>
+  <parameter>  
+    <name value="answers"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Answers to any questions posed by the Decision Support Service. This SHALL be a copy of the answers provided on input."/>
+    <type value="QuestionnaireResponse"/>
+    <profile><reference value="http://hl7.org/fhir/StructureDefinition/gao-questionnaireresponse"/></profile>
+  </parameter>
+  <parameter>  
+    <name value="result"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="A Basic resource indicating the status of the evaluation produced by evaluating the order."/><!-- 0..1 Description of meaning/use -->
+    <type value="Basic"/>
+    <profile><reference value="http://hl7.org/fhir/StructureDefinition/gao-result"/></profile>
+  </parameter>
+  <parameter>  
+    <name value="alternative"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Basic resources indicating the status of evaluations produced by evaluating alternative orders suggested by the Decision Support Service Actor."/>
+    <type value="Basic"/>
+    <profile><reference value="http://hl7.org/fhir/StructureDefinition/gao-alternate"/></profile>
+  </parameter>
+  <parameter>  
+    <name value="provenance"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Provenance resources for the Result and Alternatives that can be used to verify that those Resources came from a specific Decision Support Service.  
+      If the Decision Support Service implements the Digital Signature option, there SHALL be one Provenance resource for each Result or Alternate present in the output parameters."/>
+    <type value="Provenance"/>
+  </parameter>
+  <parameter>  
+    <name value="dss"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="*"/>
+    <documentation value="The Device resource shall identify the Decision Support Service device or devices which evaluated the appropriateness of the order."/>
+    <type value="Device"/>
+  </parameter>
+  <parameter>  
+    <name value="questions"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="A reference to one or more Questionnaire resources, which, if completed might generate a different response from the Decision Support Service."/>
+    <type value="Questionnaire"/>
+  </parameter>
+  <parameter>  
+    <name value="questionaireURI"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Specifies a web endpoint where Questionnaire Resources returned by the Decision Support Service can be invoked interactively. When the Decision Support Service implements the Conversational Interaction Option and the questions parameter is populated, this field SHALL be populated."/>
+    <type value="uri"/>
+  </parameter>
+  
+</OperationDefinition>
