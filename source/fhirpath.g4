@@ -3,35 +3,37 @@ grammar fhirpath;
 // Grammar rules
 
 expr:
-        expr '.' method_invocation |
+        expr '.' function |
+        expr '[' array_expr ']' |
         '-' expr |
         '!' expr |
         expr ('*' | '/') expr |
         expr ('+' | '-') expr |
-        expr '|' expr |
-        expr '&' expr |
+        expr ('|' | '&') expr |
         expr COMP expr |
         expr LOGIC expr |
         '(' expr ')' |
-        path |
+        predicate |
         const;
 
-path : part ('.' part)* ;
-part: ID CHOICE? recurse? | method_invocation | axis_spec;
+predicate : item ('.' item)* ;
+item: element recurse? | function | axis_spec;
+element: ID CHOICE?;
+recurse: '*';
+axis_spec: '*' | '**' | '$context' | '$resource' | '$parent' ;
 
-method_invocation: ID '(' param_list? ')';
+function: ID '(' param_list? ')';
 param_list: param (',' param)*;
 param: expr;
 
+array_expr:
+    expr |
+    expr '..' expr;
 
 const: STRING |
        NUMBER |
        BOOL |
        CONST;
-
-recurse: '*';
-
-axis_spec: '*' | '**' | '$context' | '$resource' | '$parent' ;
 
 
 // Lexical rules
@@ -49,9 +51,9 @@ fragment ESC: '\\' (["'\\/bfnrt] | UNICODE);    // allow \", \', \\, \/, \b, etc
 fragment UNICODE: 'u' HEX HEX HEX HEX;
 fragment HEX: [0-9a-fA-F];
 
-NUMBER: '-'? INT '.' [0-9]+ EXP? |
-        '-'? INT EXP |
-        '-'? INT;
+NUMBER: INT '.' [0-9]+ EXP? |
+        INT EXP |
+        INT;
 
 fragment INT: '0' | [1-9][0-9]*;
 fragment EXP: [Ee] [+\-]? INT;
