@@ -5,9 +5,11 @@ grammar fhirpath;
 //version without precedence and left-recursion
 //expression: term (righthand)*;
 //righthand: op term | '.' function;
-//term: unary_op expression | '(' expression ')' | const | predicate;
-//op: '*' | '+' | '-' | '/';
-//unary_op: '-' | '!';
+//term: '(' expression ')' | const | predicate;
+//op: LOGIC | COMP | '*' | '/' | '+' | '-' | '|' | '&';
+
+prog: expr (';' expr)* ';'?;
+//prog: expression (';' expression)* ';'?;
 
 expr:
         expr '.' function |
@@ -29,9 +31,9 @@ axis_spec: '*' | '**' | '$context' | '$resource' | '$parent' ;
 function: ID '(' param_list? ')';
 param_list: expr (',' expr)*;
 
-array_expr:
-    expr |
-    expr '..' expr;
+//array_expr:
+//    expr |
+//    expr '..' expr;
 
 const: STRING |
        '-'? NUMBER |
@@ -45,7 +47,7 @@ LOGIC: 'and' | 'or' | 'xor';
 COMP: '=' | '~' | '!=' | '!~' | '>' | '<' | '<=' | '>=' | 'in';
 BOOL: 'true' | 'false';
 
-CONST: '%'[a-zA-Z][a-zA-Z0-9\-.]*;
+CONST: '%' ALPHANUM (ALPHANUM | [\-.])*;
 
 STRING: '"' (ESC | ~["\\])* '"' |           // " delineated string
         '\'' (ESC | ~[\'\\])* '\'';         // ' delineated string
@@ -61,7 +63,11 @@ NUMBER: INT '.' [0-9]+ EXP? |
 fragment INT: '0' | [1-9][0-9]*;
 fragment EXP: [Ee] [+\-]? INT;
 
+
 CHOICE: '[x]';
-ID: [a-zA-Z]+ ;
+ID: ALPHA ALPHANUM* ;
+
+fragment ALPHA: [a-zA-Z];
+fragment ALPHANUM: ALPHA | [0-9];
 
 WS: [ \r\n\t]+ -> skip;
