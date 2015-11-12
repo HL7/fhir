@@ -50,7 +50,7 @@ Special paths:
  name* - recursive uses of the element 
  $context - the original context (see below for usage)
  $resource - the original container resource (e.g. skip contained resources, but do not go past a root resource into a bundle, if it is contained in a bundle)
- $parent - the element that contains $context
+ $parent - the element that contains $contex
  
 Note: $resource and $parent are only allowed in invariants
  
@@ -77,8 +77,7 @@ on a Patient resource
 FHIR Paths are always run against an Element or a Resource, and always 
 produce collections of Elements or Resources. All elements in a 
 collection will always have a FHIR type. The evaluation engine
-will automatically elevate primitive types into their corresponding
-primitives. 
+will automatically elevate constants to the right FHIR type. 
 
 To illustrate this point, take the following path expression: 
 
@@ -135,10 +134,8 @@ This returns a collection of a single boolean element
 that contains true if there is no home telephone numbers. 
 
 The parameters are expressions that are evaluated with respect
-to the collection that the operation applies to, except in the
-special case where the first path segment in the parameter 
-has the value '$context' - this means that the parameter is evaluated
-with respect to the context from the start of the evaulation
+to the collection that the operation applies to, which can be modified
+by the special paths given in section 2.
 
 The following operations are defined:
 
@@ -184,6 +181,18 @@ Returns a collection containing the last item in the list
 .tail()
 
 Returns a collection containing all but the first item in the list 
+
+.skip(num)
+
+Returns a collection containing all but the first num items in the list
+
+.take(num)
+
+Returns a collection containing the first num items in the list
+
+.substring(start[,length])
+
+Returns a part of the string.
 
 .count()
 
@@ -239,14 +248,14 @@ path expressions (e.g. expr op expr):
        Patient.telecom.system = 'phone' will return an empty collection if there is more than 
        one telecom with a use - typically, you'd want Patient.telecom.where(system = 'phone')
        
- ~= - Equivalent: true if the collections are the same
+ ~ - Equivalent: true if the collections are the same
    notes:
      * string evaluation is not case sensitive 
      * order doesn't matter
      
  != - Not Equals: the inverse of the equals reaction
  
- !~= - Not Equivalent: the inverse of the equivalent reaction
+ !~ - Not Equivalent: the inverse of the equivalent reaction
  
  > - Greater Than: 
    notes: 
@@ -277,9 +286,11 @@ path expressions (e.g. expr op expr):
 Note that operations may be grouped in the classical sense by surrounding them with with ()
 
 Operator precedence: 
-    #1: +, -, &, |
-    #2: =, =, !=, !==, >, <, >=, <=, in
-    #3: and, xor, or
+    #1 . (function invocation)
+    #2: *, /
+    #3: +, -, &, |
+    #4: =, ~, !=, !~, >, <, >=, <=, in
+    #5: and, xor, or
   
 -----------------------------------
 6. Fixed constants
@@ -304,22 +315,26 @@ engine at run time.
 
 e.g. %us-zip = "[0-9]{5}(-[0-9]{4}){0,1}"
 
-----------------------------------------
-8. formal grammar
+-----------------------------------
+7. formal grammar
 
-expression   = ws term (ws op ws term)* ws 
-term         = constant | predicate
-brackets     = "(" expression ")"
-constant     = number | "true" | "false" | percentfixed | string // surrounded by either ' or ", using json escaping
-percentfixed = "%" ("a.."z" | "A".."Z" | "0".."9" | "-" | ".")[1..64]
-predicate    = item (ws '.' ws item)*
-item         = name | brackets | function
-name         = "*" | "**" | "&" | element | element* | "$context" | "$parent" | "$resource"
-element      = ("a".."z" | "A".."Z" | "0".."9" | "[" | "]")+
-function     = funcname "(" (expression ("," expression)*) ")"
-funcname     = "empty" | "not" | "where" | "all" | "any" | "item" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve" | "contains"
-op           = "=" | "==" | "!=" | "!=" | ">" | "<" | "<=" | ">=" | "|" | "in" | "and" | "or" | "xor" | "+" | "-" | "&"
-ws           = (any unicode whitespace)*
+expression  = term (righthand)*
+righthand   = op term | "." function
+term        = "(" expression ")" | primitive | predicate
+primitive   = number | "true" | "false" | constant | string
+predicate   = item (ws '.' ws item)*
+item        = element "*"? | function | axis_spec
+axis_spec   = "*" | "**" | "$context" | "$parent" | "$resource"
+element     = ("a".."z" | "A".."Z" | "0".."9")+ "[x]"?
+function    = funcname "(" param_list? ")"
+param_list  = expr ("," expr)*
+funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve" | "contains" | "substring" | "skip" | "take"
+op          = "*" | "/" | "+" | "-" | "|" | "&" | "=" | "~" | "!=" | "!~" | ">" | "<" | "<=" | ">=" | "in" | "and" | "or" | "xor" 
+number      = number as used in json
+string      = sequence of unicode characters, surrounded by either ' or ", using json escaping.
+constant    = "%" ("a"-"z" | "A-Z")("a-z" | "A-Z" | "0-9" | "-" | ".")* 
 
-note: non ascii (e.g. unicode) characters only allowed in constants (they do not need to be escaped in constants, but can be)
+Note:
+* Unicode whitespace is not explicitly shown in the grammar, but may be present around all terms and tokens in the grammar.
+* Non ascii (e.g. unicode) characters only allowed in constants (they do not need to be escaped in constants, but can be)
 
