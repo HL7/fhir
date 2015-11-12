@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="gao-answer-format"/>
+  <url value="http://hl7.org/fhir/ValueSet/gao-answer-format"/>
+  <version value="1.0.0"/>
+  <name value="GAO Answer Format"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <description value="Codes indicating the types of questions allowed in a questionnaire for evaluation of orders against guidelines."/>
+  <immutable value="false"/>
+  <requirements value="Limits the questions to the kinds of questions commonly supported by clinical decision support systems."/>
+  <extensible value="false"/>
+  <compose>
+    <import value="http://hl7.org/fhir/ValueSet/answer-format"/>
+    <exclude>
+      <system value="http://hl7.org/fhir/answer-format"/>
+      <concept>
+        <code value="reference"/>
+      </concept>
+      <concept>
+        <code value="attachment"/>
+      </concept>
+    </exclude>
+  </compose>
+</ValueSet>
