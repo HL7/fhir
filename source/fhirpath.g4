@@ -2,11 +2,15 @@ grammar fhirpath;
 
 // Grammar rules
 
+//version without precedence and left-recursion
+//expression: term (righthand)*;
+//righthand: op term | '.' function;
+//term: unary_op expression | '(' expression ')' | const | predicate;
+//op: '*' | '+' | '-' | '/';
+//unary_op: '-' | '!';
+
 expr:
         expr '.' function |
-        expr '[' array_expr ']' |
-        '-' expr |
-        '!' expr |
         expr ('*' | '/') expr |
         expr ('+' | '-') expr |
         expr ('|' | '&') expr |
@@ -23,15 +27,14 @@ recurse: '*';
 axis_spec: '*' | '**' | '$context' | '$resource' | '$parent' ;
 
 function: ID '(' param_list? ')';
-param_list: param (',' param)*;
-param: expr;
+param_list: expr (',' expr)*;
 
 array_expr:
     expr |
     expr '..' expr;
 
 const: STRING |
-       NUMBER |
+       '-'? NUMBER |
        BOOL |
        CONST;
 
@@ -39,10 +42,10 @@ const: STRING |
 // Lexical rules
 
 LOGIC: 'and' | 'or' | 'xor';
-COMP: '=' | '==' | '!=' | '!==' | '>' | '<' | '<=' | '>=' | 'in';
+COMP: '=' | '~' | '!=' | '!~' | '>' | '<' | '<=' | '>=' | 'in';
 BOOL: 'true' | 'false';
 
-CONST: '%'[a-zA-Z0-9\-.]+;
+CONST: '%'[a-zA-Z][a-zA-Z0-9\-.]*;
 
 STRING: '"' (ESC | ~["\\])* '"' |           // " delineated string
         '\'' (ESC | ~[\'\\])* '\'';         // ' delineated string
