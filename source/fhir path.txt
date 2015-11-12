@@ -50,7 +50,7 @@ Special paths:
  name* - recursive uses of the element 
  $context - the original context (see below for usage)
  $resource - the original container resource (e.g. skip contained resources, but do not go past a root resource into a bundle, if it is contained in a bundle)
- $parent - the element that contains $contex
+ $parent - the element that contains $context
  
 Note: $resource and $parent are only allowed in invariants
  
@@ -137,7 +137,7 @@ that contains true if there is no home telephone numbers.
 The parameters are expressions that are evaluated with respect
 to the collection that the operation applies to, except in the
 special case where the first path segment in the parameter 
-has the value '$' - this means that the parameter is evaluated
+has the value '$context' - this means that the parameter is evaluated
 with respect to the context from the start of the evaulation
 
 The following operations are defined:
@@ -168,6 +168,10 @@ collection
 true if any items in the collection meet the criteria (and false if the 
 collection is empty). The criteria is evaluated for each item in the 
 collection
+
+.item(index)
+
+Returns the indexth item in the collection (0 based index)
 
 .first()
 
@@ -201,7 +205,8 @@ Note that only primitive elements have a string representations
 
 .matches(regex)
 
-Returns a boolean for whether all the items in the collection match the given regex
+Returns a boolean for whether all the items in the collection match the given regex (which is a string - usually a constant)
+
 Note that only primitive elements have a string representation
 
 .contains(string)
@@ -234,14 +239,14 @@ path expressions (e.g. expr op expr):
        Patient.telecom.system = 'phone' will return an empty collection if there is more than 
        one telecom with a use - typically, you'd want Patient.telecom.where(system = 'phone')
        
- == - Equivalent: true if the collections are the same
+ ~= - Equivalent: true if the collections are the same
    notes:
      * string evaluation is not case sensitive 
      * order doesn't matter
      
  != - Not Equals: the inverse of the equals reaction
  
- !== - Not Equivalent: the inverse of the equivalent reaction
+ !~= - Not Equivalent: the inverse of the equivalent reaction
  
  > - Greater Than: 
    notes: 
@@ -302,18 +307,19 @@ e.g. %us-zip = "[0-9]{5}(-[0-9]{4}){0,1}"
 ----------------------------------------
 8. formal grammar
 
-expression  = ws term (ws op ws term)* ws 
-term        = constant | predicate
-brackets    = "(" expression ")"
-constant    = number, true, false, or string surrounded by either ' or ", using json escaping
-predicate   = item (ws '.' ws item)*
-term        = name | brackets | function
-name        = "*" | "**" | "&" | element | element* | "$context" | "$parent" | "$resource"
-element     = ("a".."z" | "A".."Z" | "0".."9" | "[" | "]")+
-function    = funcname "(" expression ("," expression)* ")"
-funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve" | "contains"
-op          = "=" | "==" | "!=" | "!=" | ">" | "<" | "<=" | ">=" | "|" | "in" | "and" | "or" | "xor" | "+" | "-" | "&"
-ws          = (any unicode whitespace)*
+expression   = ws term (ws op ws term)* ws 
+term         = constant | predicate
+brackets     = "(" expression ")"
+constant     = number | "true" | "false" | percentfixed | string // surrounded by either ' or ", using json escaping
+percentfixed = "%" ("a.."z" | "A".."Z" | "0".."9" | "-" | ".")[1..64]
+predicate    = item (ws '.' ws item)*
+item         = name | brackets | function
+name         = "*" | "**" | "&" | element | element* | "$context" | "$parent" | "$resource"
+element      = ("a".."z" | "A".."Z" | "0".."9" | "[" | "]")+
+function     = funcname "(" (expression ("," expression)*) ")"
+funcname     = "empty" | "not" | "where" | "all" | "any" | "item" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve" | "contains"
+op           = "=" | "==" | "!=" | "!=" | ">" | "<" | "<=" | ">=" | "|" | "in" | "and" | "or" | "xor" | "+" | "-" | "&"
+ws           = (any unicode whitespace)*
 
 note: non ascii (e.g. unicode) characters only allowed in constants (they do not need to be escaped in constants, but can be)
 
