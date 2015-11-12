@@ -54,6 +54,7 @@
   Context = minOccurs
   English = minOccurs can\'t be more than one if required is false
   XPath = f:valueInteger/@value=0 or parent::*/f:required/@value=true()
+  Expression = valueInteger = 0 or $parent.value
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -61,6 +62,7 @@
   Context = maxOccurs
   English = maxOccurs can\'t be more than one if repeats is false
   XPath = f:valueInteger/@value<=1 or parent::*/f:repeats/@value=true()
+  Expression = valueInteger <= 1 or $parent.value
   Severity = error
 
 === Sheet Search =====================================

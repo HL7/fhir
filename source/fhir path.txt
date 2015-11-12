@@ -204,6 +204,10 @@ Note that only primitive elements have a string representations
 Returns a boolean for whether all the items in the collection match the given regex
 Note that only primitive elements have a string representation
 
+.contains(string)
+
+A simpler variation of matches that returns a boolean for a matching character sequence
+
 .distinct(path,path)
 
 Returns true if all the elements in the list are distinct when using the relative paths (simple
@@ -307,7 +311,7 @@ term        = name | brackets | function
 name        = "*" | "**" | "&" | element | element* | "$context" | "$parent" | "$resource"
 element     = ("a".."z" | "A".."Z" | "0".."9" | "[" | "]")+
 function    = funcname "(" expression ("," expression)* ")"
-funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve"
+funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve" | "contains"
 op          = "=" | "==" | "!=" | "!=" | ">" | "<" | "<=" | ">=" | "|" | "in" | "and" | "or" | "xor" | "+" | "-" | "&"
 ws          = (any unicode whitespace)*
 

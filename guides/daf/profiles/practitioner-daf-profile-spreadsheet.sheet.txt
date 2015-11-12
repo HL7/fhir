@@ -8,6 +8,7 @@
   Context = Practitioner
   English = Shall havePractitioner.name and/or Practitioner.identifier.
   XPath = exists(f:name) or exists(f:identifier)
+  Expression = name or identifier
   Severity = error
 
 === Sheet DAF-Pract =====================================

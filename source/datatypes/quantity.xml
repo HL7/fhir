@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-04-12T14:22:05Z</LastSaved>
+  <LastSaved>2015-11-12T02:46:12Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4093,7 +4093,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4124,10 +4123,11 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Restrictions">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s112" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="91.5" ss:Span="1"/>
    <Column ss:Index="3" ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="493.5"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="321"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="528.75"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="397.5"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="105.75"/>
@@ -4135,6 +4135,7 @@
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Rules</Data></Cell>
+    <Cell><Data ss:Type="String">Expression</Data></Cell>
     <Cell><Data ss:Type="String">XPath</Data></Cell>
     <Cell><Data ss:Type="String">RDF</Data></Cell>
     <Cell><Data ss:Type="String">Structure</Data></Cell>
@@ -4143,43 +4144,50 @@
     <Cell><Data ss:Type="String">SimpleQuantity</Data></Cell>
     <Cell><Data ss:Type="String">A fixed quantity (no comparator)</Data></Cell>
     <Cell><Data ss:Type="String">The comparator is not used on a SimpleQuantity</Data></Cell>
+    <Cell><Data ss:Type="String">comparator.empty()</Data></Cell>
     <Cell><Data ss:Type="String">not(exists(f:comparator))</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">comparator.max=0;comparator.defn=Not allowed to be used in this context</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">comparator.max=0;comparator.defn=Not allowed to be used in this context</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Duration</Data></Cell>
     <Cell><Data ss:Type="String">A length of time</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Distance</Data></Cell>
     <Cell><Data ss:Type="String">A measure of distance</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Count</Data></Cell>
     <Cell><Data ss:Type="String">A count of a discrete element (no unit)</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code with a value of &quot;1&quot; if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.  If present, the value SHALL a whole number.</Data></Cell>
+    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum) and (code.empty() or code = '1') and (value.empty() or value.contains('.').not())</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or (f:system/@value='http://unitsofmeasure.org' and f:code/@value='1')) and not(contains(f:value/@value, '.')) </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Money</Data></Cell>
     <Cell><Data ss:Type="String">An amount of money. With regard to precision, see [Decimal Precision](datatypes.html#precision)</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = &quot;urn:iso:std:iso:4217&quot; - currency).</Data></Cell>
+    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:iso:std:iso:4217')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">CodedQuantity</Data></Cell>
     <Cell><Data ss:Type="String">A quantity with a UCUM unit</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value.  If system is present, it SHALL be UCUM.</Data></Cell>
+    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Age</Data></Cell>
     <Cell><Data ss:Type="String">A duration (length of time) with a UCUM code</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.  If value is present, it SHALL be positive.</Data></Cell>
+    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum) and (value.empty() or value.contains('.').not())</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org') and not(contains(f:value/@value, '-'))</Data></Cell>
    </Row>
   </Table>
@@ -4191,10 +4199,13 @@
    </PageSetup>
    <Unsynced/>
    <TabColorIndex>9</TabColorIndex>
+   <Selected/>
+   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

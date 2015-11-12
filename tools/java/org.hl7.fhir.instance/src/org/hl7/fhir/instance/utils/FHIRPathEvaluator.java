@@ -127,7 +127,7 @@ public abstract class FHIRPathEvaluator {
 	
 	//the expression will have one of either name or constant
 	public enum Function {
-		Empty, Item, Where, All, Any, First, Last, Tail, Count, AsInteger, StartsWith, Length, Matches, Distinct, Not;
+		Empty, Item, Where, All, Any, First, Last, Tail, Count, AsInteger, StartsWith, Length, Matches, Contains, Distinct, Not;
 
 		public static Function fromCode(String name) {
 			if (name.equals("empty"))
@@ -154,8 +154,10 @@ public abstract class FHIRPathEvaluator {
 				return Function.StartsWith;
 			if (name.equals("length"))
 				return Function.Length;
-			if (name.equals("matches"))
-				return Function.Matches;
+      if (name.equals("matches"))
+        return Function.Matches;
+      if (name.equals("contains"))
+        return Function.Contains;
       if (name.equals("distinct"))
         return Function.Distinct;
       if (name.equals("not"))
@@ -641,6 +643,7 @@ public abstract class FHIRPathEvaluator {
 		case StartsWith : return funcStartsWith(originalContext, context, exp);
 		case Length : return funcLength(originalContext, context, exp);
 		case Matches : return funcMatches(originalContext, context, exp);
+		case Contains : return funcContains(originalContext, context, exp);
     case Distinct : return funcDistinct(originalContext, context, exp);
     case Not : return funcNot(originalContext, context, exp);
 		}
@@ -663,6 +666,18 @@ public abstract class FHIRPathEvaluator {
 	  }
 	  return result;
 	}
+
+  private List<Base> funcContains(List<Base> originalContext, List<Base> context, Expression exp) {
+    List<Base> result = new ArrayList<Base>();
+    String p = convertToString(execute(originalContext, context, exp.getParameters().get(0), false));
+
+    for (Base item : context) {
+      String s = convertToString(item);
+      if (s.contains(p)) 
+        result.add(item);
+    }
+    return result;
+  }
 
 	private List<Base> funcLength(List<Base> originalContext, List<Base> context, Expression exp) {
 	  int l = 0;

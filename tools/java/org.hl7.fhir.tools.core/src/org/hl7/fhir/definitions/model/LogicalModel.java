@@ -50,4 +50,8 @@ public class LogicalModel {
     return resource != null;
   }
 
+  public void setDefinition(StructureDefinition definition) {
+    this.definition = definition;
+  }
+
 }

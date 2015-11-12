@@ -40,20 +40,27 @@ public class ProfileValidator extends BaseValidator {
         checkExtensions(profile, errors, "snapshot", ed);
         for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
           if (forBuild) {
-//            Extension exprExt = ToolingExtensions.getExtension(inv, ToolingExtensions.EXT_EXPRESSION);
-//            if (rule(errors, IssueType.BUSINESSRULE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, "The invariant has no FHIR Path expression ("+inv.getXpath()+")")) {
-//              String expr = ((StringType) exprExt.getValue()).asStringValue();
-//              try {
-//                new BuildToolPathEvaluator().check(null, expr);
-//              } catch (Exception e) {
-//                rule(errors, IssueType.STRUCTURE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, e.getMessage());
-//              }
-//            } 
+            Extension exprExt = ToolingExtensions.getExtension(inv, ToolingExtensions.EXT_EXPRESSION);
+            if (!inExemptList(inv.getKey())) {
+              if (rule(errors, IssueType.BUSINESSRULE, profile.getId()+"::"+ed.getPath()+"::"+inv.getKey(), exprExt != null, "The invariant has no FHIR Path expression ("+inv.getXpath()+")")) {
+                String expr = ((StringType) exprExt.getValue()).asStringValue();
+                try {
+                  new BuildToolPathEvaluator().check(null, expr);
+                } catch (Exception e) {
+                  rule(errors, IssueType.STRUCTURE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, e.getMessage());
+                }
+              } 
+            }
           }
         }
       }
     }
     return errors;
+  }
+
+  // these are special cases
+  private boolean inExemptList(String key) {
+    return key.startsWith("txt-");
   }
 
   private void checkExtensions(StructureDefinition profile, List<ValidationMessage> errors, String kind, ElementDefinition ec) throws Exception {

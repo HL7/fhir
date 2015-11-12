@@ -103,6 +103,7 @@ import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
+import org.hl7.fhir.instance.utils.BuildToolPathEvaluator;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
@@ -526,8 +527,11 @@ public class ProfileGenerator {
     inv.setRequirements(pt.getInvariant().getRequirements());
     inv.setSeverity(ConstraintSeverity.ERROR);
     inv.setHuman(pt.getInvariant().getEnglish());
-    if (!"n/a".equals(pt.getInvariant()))
+    if (!"n/a".equals(pt.getInvariant().getExpression())) {
+      BuildToolPathEvaluator fp = new BuildToolPathEvaluator();
+      fp.check(null, pt.getInvariant().getExpression());
       ToolingExtensions.addStringExtension(inv, ToolingExtensions.EXT_EXPRESSION, pt.getInvariant().getExpression());
+    }
     inv.setXpath(pt.getInvariant().getXpath());
     e.getConstraint().add(inv);
     p.setDifferential(new StructureDefinitionDifferentialComponent());
@@ -1125,6 +1129,12 @@ public class ProfileGenerator {
     ce.setDefaultValue(e.getDefaultValue());
     ce.setMeaningWhenMissing(e.getMeaningWhenMissing());
     ce.setExample(e.getExample());
+    for (Integer i : e.getOtherExamples().keySet()) {
+      Extension ex = ce.addExtension();
+      ex.setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-example");
+      ex.addExtension().setUrl("index").setValue(new StringType(i.toString()));
+      ex.addExtension().setUrl("exValue").setValue(e.getOtherExamples().get(i));      
+    }
     for (String s : e.getAliases())
       ce.addAlias(s);
 
@@ -1489,7 +1499,7 @@ public class ProfileGenerator {
     } else {
       ElementDefn url = src.getElements().get(0);
       if (!url.getName().equals("url"))
-        throw new Exception("first child of extension should be "+url);
+        throw new Exception("first child of extension should be 'url', not "+url.getName()+" for structure definition "+ed.getUrl());
       convertElements(url, ed, thisPath+".url");
       if (!hasValue(src)) {
         ElementDefn value = new ElementDefn();
@@ -1620,6 +1630,44 @@ public class ProfileGenerator {
     for (ElementDefinition ed : p.getSnapshot().getElement())
       if (!ed.hasType() && !ed.hasNameReference() && !(ed.getPath().equals("Resource") || ed.getPath().equals("Element")) && !ed.hasRepresentation())
         throw new Error("No Type on "+ed.getPath());
+  }
+
+  public StructureDefinition generateLogicalModel(ImplementationGuideDefn igd, ResourceDefn r) throws Exception {
+    StructureDefinition p = new StructureDefinition();
+    p.setId(r.getRoot().getName());
+    p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
+    p.setKind(StructureDefinitionKind.LOGICAL);
+    p.setAbstract(false);
+    p.setUserData("filename", r.getName().toLowerCase());
+    p.setUserData("path", igd.getPrefix()+ r.getName().toLowerCase()+".html");
+    p.setDisplay(r.getName());
+    p.setFhirVersion(version);
+
+    ToolResourceUtilities.updateUsage(p, igd.getCode());
+    p.setName(r.getRoot().getName());
+    p.setPublisher("Health Level Seven International"+(r.getWg() == null ? " "+igd.getCommittee() : " ("+r.getWg().getName()+")"));
+    p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
+    if (r.getWg() != null)
+      p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, r.getWg().getUrl()));
+    p.setDescription("Logical Model: "+r.getDefinition());
+    p.setRequirements(r.getRoot().getRequirements());
+    if (!p.hasRequirements())
+      p.setRequirements(r.getRoot().getRequirements());
+    p.setDate(genDate.getTime());
+    p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
+
+    Set<String> containedSlices = new HashSet<String>();
+
+    // first, the differential
+    p.setSnapshot(new StructureDefinitionSnapshotComponent());
+    defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "Element");
+
+    XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
+    div.addText("to do");
+    p.setText(new Narrative());
+    p.getText().setStatus(NarrativeStatus.GENERATED);
+    p.getText().setDiv(div);
+    return p;
   }
 
 

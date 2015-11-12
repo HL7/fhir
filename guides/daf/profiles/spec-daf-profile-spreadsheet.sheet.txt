@@ -22,6 +22,7 @@
   Context = Specimen.receivedTime
   English = Datetime must be at least to the day.
   XPath = f:matches(.,/\\d{4}-[01]\\d-[0-3])/)
+  Expression = length() >= 10
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -29,6 +30,7 @@
   Context = Specimen.collection.collected[x]
   English = Datetime must be at least to the day.
   XPath = f:matches(.,/\\d{4}-[01]\\d-[0-3])/)
+  Expression = length() >= 10
   Severity = error
 
 === Sheet DAF-Spec =====================================

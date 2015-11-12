@@ -39,6 +39,7 @@
   Context = AllergyIntolerance
   English = extension: reasonRefuted is only permitted if status is refuted
   XPath = not(f:status/@value != \'refuted\' and f:extension/@url=\'http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted\')
+  Expression = status = \'refuted\' or extension.where(url=\'http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted\').empty
   Severity = error
 
 === Sheet QICore-AllergyIntolerance =====================================

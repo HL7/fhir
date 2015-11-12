@@ -427,7 +427,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     //
 
     Publisher pub = new Publisher();
-    pub.page = new PageProcessor(PageProcessor.DEF_TS_SERVER);
+    pub.page = new PageProcessor(PageProcessor.DEV_TS_SERVER);
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
     if (hasParam(args, "-rdf")) {
       pub.isGenerate = false;
@@ -809,6 +809,14 @@ public class Publisher implements URIResolver, SectionNumberer {
         processProfile(ap, p, ap.getId());
     }
 
+    page.log(" ...process logical models", LogMessageType.Process);
+    for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
+      for (LogicalModel lm : ig.getLogicalModels()) {
+        page.log(" ...process logical model " + lm.getId(), LogMessageType.Process);
+        if (lm.getDefinition() == null)
+          lm.setDefinition(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements).generateLogicalModel(ig, lm.getResource()));
+      }
+    }
 
     // now, validate the profiles
     for (Profile ap : page.getDefinitions().getPackList())
