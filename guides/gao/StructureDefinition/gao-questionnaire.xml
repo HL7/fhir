@@ -15,7 +15,7 @@
   <date value="2015-09-22T20:02:49+10:00" />
   <description value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order." />
   <requirements value="This resource enables interactive question/answer implementations driven by the server, but where the user interface can be implemented by the client." />
-  <fhirVersion value="1.0.1" />
+  <fhirVersion value="1.0.2" />
   <mapping>
     <identity value="rim" />
     <uri value="http://hl7.org/v3" />

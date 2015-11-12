@@ -7,8 +7,11 @@
     </meta>
     <projectTree name="gao.xpr">
         <folder name="Examples"/>
+        <folder name="OperationDefinition">
+            <file name="OperationDefinition/gao-order-evaluate.xml"/>
+        </folder>
         <folder name="StructureDefinition">
-            <file name="StructureDefinition/gao-alternate.xml"/>
+            <file name="StructureDefinition/gao-alternative.xml"/>
             <file name="StructureDefinition/gao-diagnosticorder.xml"/>
             <file name="StructureDefinition/gao-extension-device.xml"/>
             <file name="StructureDefinition/gao-extension-guideline.xml"/>
@@ -30,8 +33,12 @@
             <file name="StructureDefinition/gao-referralrequest.xml"/>
             <file name="StructureDefinition/gao-result.xml"/>
         </folder>
-        <folder name="ValueSets"/>
+        <folder name="ValueSet">
+            <file name="ValueSet/gao-answer-format.xml"/>
+            <file name="ValueSet/gao-evaluation-result-code.xml"/>
+        </folder>
         <file name="gao.html"/>
         <file name="gao.xml"/>
+        <file name="switcheroo.xsl"/>
     </projectTree>
 </project>

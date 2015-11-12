@@ -6,12 +6,19 @@
   <name value="Guideline Appropriate Ordering"/>
   <status value="draft"/>
   <publisher value="HL7"/>
-  <date value="2015-11-09T22:47:56-05:00"/>
+  <date value="2015-11-11T22:41:03-05:00"/>
   <description value="The purpose of this implementation guide is to support communication of decision support guidance on whether or not an order is appropriate from EHR, hospital or departmental information systems, and enable receivers to validate that decision support was used to determine the appropriateness of those orders according to guidelines."/>
-  <fhirVersion value="1.0.1"/>
+  <fhirVersion value="1.0.2"/>
   <package>
     <name value="GAO Package"/>
     <description value="Resource profiles and extensions necessary to support Guideline Appropriate Ordering."/>
+    <resource>
+      <purpose value="example"/>
+      <name value="GAO Evaluate Order"/>
+      <description value="The evaluate operation examines an order, comparing it against known guidelines for appropriate use and returns the result of that evaluation to the caller."/>
+      <acronym value="gao-order-evaluate"/>
+      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="OperationDefinition/gao-order-evaluate.xml"/>
+    </resource>
     <resource>
       <purpose value="profile"/>
       <name value="Guideline Appropriate Order"/>
@@ -138,10 +145,179 @@
       <description value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-extension-signature.xml"/>
     </resource>
+    <resource>
+      <purpose value="terminology"/>
+      <name value="GAO Evaluation Result Codes"/>
+      <description value="A set of codes which indicates the result of an evaluation of an order."/>
+      <acronym value="gao-result-code"/>
+      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="ValueSet/gao-evaluation-result-code.xml"/>
+    </resource>
+    <resource>
+      <purpose value="terminology"/>
+      <name value="GAO Answer Format Codes"/>
+      <description value="The set of question types allowed in a questionnaire used for evaluation of orders."/>
+      <acronym value="gao-answer-format"/>
+      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="ValueSet/gao-answer-format.xml"/>
+    </resource>
   </package>
   <page>
     <source value="gao.html"/>
     <name value="Guideline Appropriate Ordering"/>
     <kind value="page"/>
+  </page>
+  <page>
+    <source value="gao-toc.html"/>
+    <name value="Table of Contents"/>
+    <kind value="toc"/>
+  </page>
+  <page>
+    <source value="gao-order-evaluate.html"/>
+    <name value="GAO Order Evaluate Operation"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-order.html"/>
+    <name value="GAO Order"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-patient.html"/>
+    <name value="GAO Patient"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-practitioner.html"/>
+    <name value="GAO Practitioner"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-order.html"/>
+    <name value="GAO Order"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-diagnosticorder.html"/>
+    <name value="GAO Diagnostic Order"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-referralrequest.html"/>
+    <name value="GAO Referral Request"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-medicationorder.html"/>
+    <name value="GAO Medication Order"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-procedurerequest.html"/>
+    <name value="GAO Procedure Request"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-order.html"/>
+    <name value="GAO Order"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-order.html"/>
+    <name value="GAO Order"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-questionnaireanswers.html"/>
+    <name value="GAO Questionnaire Answers"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-result.html"/>
+    <name value="GAO Result"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-alternative.html"/>
+    <name value="GAO Alternative"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-provenance.html"/>
+    <name value="GAO Provenance"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="gao-questionnaire.html"/>
+    <name value="GAO Questionnaire"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="valueset-gao-evaluation-result-code.html"/>
+    <name value="GAO Evalutation Result Code"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="valueset-gao-answer-format.html"/>
+    <name value="GAO Answer Format"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="extension-gao-extension-score.html"/>
+    <name value="GAO Score Extension"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="extension-gao-extension-period.html"/>
+    <name value="GAO Period Extension"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="extension-gao-extension-item.html"/>
+    <name value="GAO Item Extension"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="extension-gao-extension-guideline.html"/>
+    <name value="GAO Guideline Extension"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="extension-gao-extension-device.html"/>
+    <name value="GAO Device Extension"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="extension-gao-extension-practitioner.html"/>
+    <name value="GAO Practitioner Extension"/>
+    <kind value="page"/>
+    <format value="generated"/>
+  </page>
+  <page>
+    <source value="extension-gao-extension-signature.html"/>
+    <name value="GAO Signature Extension"/>
+    <kind value="page"/>
+    <format value="generated"/>
   </page>
 </ImplementationGuide>

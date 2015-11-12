@@ -12,7 +12,7 @@
   <date value="2015-09-22T20:02:49+10:00" />
   <description value="The result resource provides the result of the evaluation." />
   <requirements value="Enables the evaluation results to be reported." />
-  <fhirVersion value="1.0.1" />
+  <fhirVersion value="1.0.2" />
   <mapping>
     <identity value="rim" />
     <uri value="http://hl7.org/v3" />
@@ -74,6 +74,20 @@
     </element>
     <element>
       <path value="Basic.extension" />
+      <name value="item" />
+      <label value="item" />
+      <short value="Ordered Service Item" />
+      <definition value="Optional Extensions Element - found in all resources." />
+      <requirements value="At least one item SHALL be present in the order to describe the service being performed so that it can be evaluated." />
+      <min value="1" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-item" />
+      </type>
+    </element>
+    <element>
+      <path value="Basic.extension" />
       <name value="period" />
       <label value="period" />
       <definition value="Indicates the period over which the evaluation is valid." />
@@ -84,21 +98,6 @@
       <type>
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-period" />
-      </type>
-      <mustSupport value="true" />
-    </element>
-    <element>
-      <path value="Basic.extension" />
-      <name value="item" />
-      <label value="item" />
-      <definition value="Describes the services ordered." />
-      <comments value="" />
-      <requirements value="The services that are to be ordered SHALL be provided." />
-      <min value="1" />
-      <max value="*" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-item" />
       </type>
       <mustSupport value="true" />
     </element>
@@ -195,10 +194,10 @@
       <isModifier value="true" />
       <isSummary value="true" />
       <binding>
-        <strength value="example" />
+        <strength value="extensible" />
         <description value="Codes for identifying types of resources not yet defined by FHIR" />
         <valueSetReference>
-          <reference value="http://hl7.org/fhir/ValueSet/gao-result" />
+          <reference value="http://hl7.org/fhir/ValueSet/gao-evaluation-result-code" />
         </valueSetReference>
       </binding>
       <mapping>

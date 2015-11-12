@@ -12,7 +12,7 @@
   <date value="2015-09-22T20:02:49+10:00" />
   <description value="The provenance resource is profiled to support expression of the digital signature on a Result or Alternate." />
   <requirements value="Reports a digital signature on a result or alternate." />
-  <fhirVersion value="1.0.1" />
+  <fhirVersion value="1.0.2" />
   <mapping>
     <identity value="rim" />
     <uri value="http://hl7.org/v3" />

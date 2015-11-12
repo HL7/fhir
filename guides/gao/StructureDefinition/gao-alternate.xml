@@ -12,7 +12,7 @@
   <date value="2015-09-22T20:02:49+10:00" />
   <description value="The alternate resource provides the results of an evaluation for alternative treatements that may be suggested by the decision support service." />
   <requirements value="Similar to the result resource, the alternate resource enables the results of an evaluation to be returned.  However, because the alternate is suggested by the decision support service, the constraints on what may appear are slightly different." />
-  <fhirVersion value="1.0.1" />
+  <fhirVersion value="1.0.2" />
   <mapping>
     <identity value="rim" />
     <uri value="http://hl7.org/v3" />

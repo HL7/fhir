@@ -12,7 +12,7 @@
   <date value="2015-09-22T20:02:49+10:00" />
   <description value="Profiles the practioner resource to require an identifer." />
   <requirements value="The practitioner resource is required to identify the provider placing the order. " />
-  <fhirVersion value="1.0.1" />
+  <fhirVersion value="1.0.2" />
   <mapping>
     <identity value="v2" />
     <uri value="http://hl7.org/v2" />

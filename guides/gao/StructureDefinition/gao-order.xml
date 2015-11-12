@@ -15,7 +15,7 @@
   <date value="2015-09-22T20:02:49+10:00" />
   <description value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals)." />
   <requirements value="This resource is profiled to link the order details to the reason(s), date, patient and provider placing the order. " />
-  <fhirVersion value="1.0.1" />
+  <fhirVersion value="1.0.2" />
   <mapping>
     <identity value="rim" />
     <uri value="http://hl7.org/v3" />
@@ -135,7 +135,7 @@
       <short value="Who initiated the order" />
       <definition value="Who initiated the order." />
       <comments value="The identifier of the provider SHALL be provided." />
-      <requirements value="The identifier of the provider is provided in order for the receiver of the evaluation to verify that the evaluation given is associated with the correct order." />
+      <requirements value="The identifier of the provider is provided in order for the receiver of the evaluation to verify that the evaluation given is associated with the correct order. " />
       <alias value="Author" />
       <alias value="Practitioner" />
       <min value="1" />

@@ -11,7 +11,7 @@
   <date value="2015-09-22T20:02:49+10:00" />
   <description value="Indicates the period over which the evaluation is valid." />
   <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional." />
-  <fhirVersion value="1.0.1" />
+  <fhirVersion value="1.0.2" />
   <kind value="datatype" />
   <constrainedType value="Extension" />
   <abstract value="false" />

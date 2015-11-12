@@ -12,7 +12,7 @@
   <date value="2015-09-22T20:02:49+10:00" />
   <description value="Profiles the referral to ensure that the services ordered can be identified and evaluated for appropraiteness" />
   <requirements value="The referral request resource is required to identify the referral service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
-  <fhirVersion value="1.0.1" />
+  <fhirVersion value="1.0.2" />
   <mapping>
     <identity value="w5" />
     <uri value="http://hl7.org/fhir/w5" />

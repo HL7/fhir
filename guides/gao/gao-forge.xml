@@ -7,9 +7,9 @@
   <name value="Guideline Appropriate Ordering" />
   <status value="draft" />
   <publisher value="HL7" />
-  <date value="2015-11-09T22:47:56-05:00" />
+  <date value="2015-11-11T22:41:03-05:00" />
   <description value="The purpose of this implementation guide is to support communication of decision support guidance on whether or not an order is appropriate from EHR, hospital or departmental information systems, and enable receivers to validate that decision support was used to determine the appropriateness of those orders according to guidelines." />
-  <fhirVersion value="1.0.1" />
+  <fhirVersion value="1.0.2" />
   <package>
     <name value="GAO Package" />
     <description value="Resource profiles and extensions necessary to support Guideline Appropriate Ordering." />
@@ -175,6 +175,15 @@
       <description value="Supports identification of the decision support system used to evaluate the order." />
       <sourceReference>
         <reference value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature" />
+      </sourceReference>
+    </resource>
+    <resource>
+      <purpose value="terminology" />
+      <name value="GAO Evaluation Result Codes" />
+      <description value="A set of codes which indicates the result of an evaluation of an order." />
+      <acronym value="gao-result-code" />
+      <sourceReference>
+        <reference value="http://hl7.org/fhir/ValueSet/gao-evaluation-result-code" />
       </sourceReference>
     </resource>
   </package>

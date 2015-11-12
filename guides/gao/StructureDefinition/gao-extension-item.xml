@@ -1,17 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <meta>
-    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
-  </meta>
+  <id value="gao-extension-item" />
   <url value="http://hl7.org/fhir/StructureDefinition/gao-extension-item" />
   <name value="GAO Item" />
   <display value="GAO Item" />
   <status value="draft" />
   <publisher value="HL7" />
-  <date value="2015-09-22T20:02:49+10:00" />
-  <description value="Identifies the services that were ordered." />
-  <requirements value="The services that are to be ordered SHALL be provided." />
-  <fhirVersion value="1.0.1" />
+  <contact>
+    <telecom>
+      <system value="other" />
+      <value value="http://www.hl7.org" />
+    </telecom>
+  </contact>
+  <date value="2013-07-04" />
+  <description value="Describes an orderable service being evaluated." />
+  <requirements value="In order to evaluate an order, the service that may be ordered must be identified." />
+  <fhirVersion value="1.0.2" />
   <kind value="datatype" />
   <constrainedType value="Extension" />
   <abstract value="false" />
@@ -21,16 +25,86 @@
   <differential>
     <element>
       <path value="Extension" />
-      <definition value="Optional Extensions Element - found in all resources." />
+      <short value="A description of the service to be evaluated for appropriateness." />
+      <definition value="A description of the service to be evaluated for appropriateness" />
       <min value="0" />
       <max value="*" />
       <type>
-        <code value="Element" />
+        <code value="Extension" />
       </type>
       <mapping>
         <identity value="rim" />
         <map value="N/A" />
       </mapping>
+    </element>
+    <element>
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator value="url" />
+        <rules value="openAtEnd" />
+      </slicing>
+    </element>
+    <element>
+      <path value="Extension.extension" />
+      <name value="code" />
+      <short value="Code describing the service" />
+      <definition value="A code describing the service that may be ordered." />
+      <requirements value="The service being ordered must be described if it is to be evaluated against guidelines." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+      </type>
+    </element>
+    <element>
+      <path value="Extension.extension.extension" />
+      <name value="extension" />
+      <max value="0" />
+    </element>
+    <element>
+      <path value="Extension.extension.url" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="code" />
+    </element>
+    <element>
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element>
+      <path value="Extension.extension" />
+      <name value="bodySite" />
+      <short value="The body site where the service is to be performed." />
+      <definition value="The body site where the service is to be performed." />
+      <requirements value="The body site where the service will be performed may be useful in its evaluation." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+      </type>
+    </element>
+    <element>
+      <path value="Extension.extension.extension" />
+      <name value="extension" />
+      <max value="0" />
+    </element>
+    <element>
+      <path value="Extension.extension.url" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="bodySite" />
+    </element>
+    <element>
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
     </element>
     <element>
       <path value="Extension.url" />
@@ -43,7 +117,7 @@
       <type>
         <code value="uri" />
       </type>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-score" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-extension-item" />
       <mapping>
         <identity value="rim" />
         <map value="N/A" />
@@ -53,12 +127,106 @@
       <path value="Extension.value[x]" />
       <short value="Value of extension" />
       <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." />
-      <comments value="An optional value which can be used to record a score associated with the evaluation process. The interpretation of this value may vary depending upon guidelines and Decision Support Service actors used. " />
-      <requirements value="This property is supported to enable quality improvement efforts related to ordering." />
       <min value="0" />
-      <max value="1" />
+      <max value="0" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <type>
+        <code value="integer" />
+      </type>
       <type>
         <code value="decimal" />
+      </type>
+      <type>
+        <code value="base64Binary" />
+      </type>
+      <type>
+        <code value="instant" />
+      </type>
+      <type>
+        <code value="string" />
+      </type>
+      <type>
+        <code value="uri" />
+      </type>
+      <type>
+        <code value="date" />
+      </type>
+      <type>
+        <code value="dateTime" />
+      </type>
+      <type>
+        <code value="time" />
+      </type>
+      <type>
+        <code value="code" />
+      </type>
+      <type>
+        <code value="oid" />
+      </type>
+      <type>
+        <code value="id" />
+      </type>
+      <type>
+        <code value="unsignedInt" />
+      </type>
+      <type>
+        <code value="positiveInt" />
+      </type>
+      <type>
+        <code value="markdown" />
+      </type>
+      <type>
+        <code value="Annotation" />
+      </type>
+      <type>
+        <code value="Attachment" />
+      </type>
+      <type>
+        <code value="Identifier" />
+      </type>
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <type>
+        <code value="Coding" />
+      </type>
+      <type>
+        <code value="Quantity" />
+      </type>
+      <type>
+        <code value="Range" />
+      </type>
+      <type>
+        <code value="Period" />
+      </type>
+      <type>
+        <code value="Ratio" />
+      </type>
+      <type>
+        <code value="SampledData" />
+      </type>
+      <type>
+        <code value="Signature" />
+      </type>
+      <type>
+        <code value="HumanName" />
+      </type>
+      <type>
+        <code value="Address" />
+      </type>
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <type>
+        <code value="Timing" />
+      </type>
+      <type>
+        <code value="Reference" />
+      </type>
+      <type>
+        <code value="Meta" />
       </type>
       <mapping>
         <identity value="rim" />
