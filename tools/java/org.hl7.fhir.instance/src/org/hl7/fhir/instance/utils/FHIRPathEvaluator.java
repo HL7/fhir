@@ -127,7 +127,7 @@ public abstract class FHIRPathEvaluator {
 	
 	//the expression will have one of either name or constant
 	public enum Function {
-		Empty, Item, Where, All, Any, First, Last, Tail, Count, AsInteger, StartsWith, Length, Matches, Contains, Distinct, Not;
+		Empty, Item, Where, All, Any, First, Last, Tail, Count, AsInteger, StartsWith, Length, Matches, Substring, Contains, Distinct, Not;
 
 		public static Function fromCode(String name) {
 			if (name.equals("empty"))
@@ -158,6 +158,8 @@ public abstract class FHIRPathEvaluator {
         return Function.Matches;
       if (name.equals("contains"))
         return Function.Contains;
+      if (name.equals("substring"))
+        return Function.Substring;
       if (name.equals("distinct"))
         return Function.Distinct;
       if (name.equals("not"))
@@ -252,6 +254,12 @@ public abstract class FHIRPathEvaluator {
 		public List<Expression> getParameters() {
 			return parameters;
 		}
+    public boolean checkName() {
+      if (name.startsWith("$"))
+        return name.equals("$context") || name.equals("$resource") || name.equals("$parent");  
+      else
+        return true;
+    }
 	}
 
 	private class Lexer {
@@ -291,6 +299,9 @@ public abstract class FHIRPathEvaluator {
 			if (Utilities.noString(current))
 				return false;
 
+      if (current.startsWith("$"))
+        return true;
+      
 			if (current.equals("$") || current.equals("*") || current.equals("**"))
 				return true;
 
@@ -349,6 +360,11 @@ public abstract class FHIRPathEvaluator {
 							(path.charAt(cursor) >= '0' && path.charAt(cursor) <= '9') || path.charAt(cursor) == ':' || path.charAt(cursor) == '-'))
 						cursor++;
 					current = replaceFixedConstant(path.substring(currentStart, cursor));
+        } else if (ch == '$') {
+          cursor++;
+          while (cursor < path.length() && (path.charAt(cursor) >= 'a' && path.charAt(cursor) <= 'z'))
+            cursor++;
+          current = path.substring(currentStart, cursor);
 				} else if (ch == '"' || ch == '\''){
 				  cursor++;
 				  char ech = ch;
@@ -416,6 +432,8 @@ public abstract class FHIRPathEvaluator {
 	      if (!lexer.isToken()) 
 	        throw lexer.error("Found "+lexer.getCurrent()+" expecting a token name");
 	      result.setName(lexer.take());
+	      if (!result.checkName())
+          throw lexer.error("Found "+result.getName()+" expecting a valid token name");
 	      if ("(".equals(lexer.getCurrent())) {
 	        Function f = Function.fromCode(result.getName());  
 	        if (f == null)
@@ -482,6 +500,12 @@ public abstract class FHIRPathEvaluator {
 		return true;
 	}
 
+  private boolean checkParamCountRange(Lexer lexer, int offset, Expression exp, int countMin, int countMax) throws Exception {
+    if (exp.getParameters().size() < countMin || exp.getParameters().size() > countMax)
+      throw lexer.error("The function \""+exp.name+"\" requires between "+Integer.toString(countMin)+" and "+Integer.toString(countMax)+" parameters", offset);
+    return true;
+  }
+
 	private boolean checkParameters(Lexer lexer, int offset, Expression exp) throws Exception {
 		switch (exp.getFunction()) {
 		case Empty: return checkNoParameters(lexer, offset, exp);
@@ -496,7 +520,9 @@ public abstract class FHIRPathEvaluator {
 		case AsInteger: return checkNoParameters(lexer, offset, exp);
 		case StartsWith: return checkParamCount(lexer, offset, exp, 1);
 		case Length: return checkNoParameters(lexer, offset, exp);
-		case Matches: return checkParamCount(lexer, offset, exp, 1);
+    case Matches: return checkParamCount(lexer, offset, exp, 1);
+    case Contains: return checkParamCount(lexer, offset, exp, 1);
+    case Substring: return checkParamCountRange(lexer, offset, exp, 1, 2);
     case Not: return checkNoParameters(lexer, offset, exp);
     case Distinct: return true; // no chECK
 		}
@@ -644,6 +670,7 @@ public abstract class FHIRPathEvaluator {
 		case Length : return funcLength(originalContext, context, exp);
 		case Matches : return funcMatches(originalContext, context, exp);
 		case Contains : return funcContains(originalContext, context, exp);
+		case Substring : return funcSubString(originalContext, context, exp);
     case Distinct : return funcDistinct(originalContext, context, exp);
     case Not : return funcNot(originalContext, context, exp);
 		}
@@ -701,6 +728,11 @@ public abstract class FHIRPathEvaluator {
 	  }
 	  return result;
 	}
+
+  private List<Base> funcSubString(List<Base> originalContext, List<Base> context, Expression exp) {
+    List<Base> result = new ArrayList<Base>();
+    throw new Error("not done yet");
+  }
 
 	private List<Base> funcAsInteger(List<Base> originalContext, List<Base> context, Expression exp) {
 	  String s = convertToString(context);
