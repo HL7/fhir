@@ -286,7 +286,7 @@ path expressions (e.g. expr op expr):
 Note that operations may be grouped in the classical sense by surrounding them with with ()
 
 Operator precedence: 
-    #1 . (function invocation)
+    #1 . (path/function invocation)
     #2: *, /
     #3: +, -, &, |
     #4: =, ~, !=, !~, >, <, >=, <=, in
@@ -322,17 +322,17 @@ expression  = term (righthand)*
 righthand   = op term | "." function
 term        = "(" expression ")" | primitive | predicate
 primitive   = number | "true" | "false" | constant | string
-predicate   = item (ws '.' ws item)*
+predicate   = item ('.' item)*
 item        = element "*"? | function | axis_spec
 axis_spec   = "*" | "**" | "$context" | "$parent" | "$resource"
-element     = ("a".."z" | "A".."Z" | "0".."9")+ "[x]"?
+element     = ("a".."z" | "A".."Z") ("a".."z" | "A".."Z" | "0".."9")* "[x]"?
 function    = funcname "(" param_list? ")"
 param_list  = expr ("," expr)*
 funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve" | "contains" | "substring" | "skip" | "take"
 op          = "*" | "/" | "+" | "-" | "|" | "&" | "=" | "~" | "!=" | "!~" | ">" | "<" | "<=" | ">=" | "in" | "and" | "or" | "xor" 
 number      = number as used in json
 string      = sequence of unicode characters, surrounded by either ' or ", using json escaping.
-constant    = "%" ("a"-"z" | "A-Z")("a-z" | "A-Z" | "0-9" | "-" | ".")* 
+constant    = "%" ("a"-"z" | "A-Z" | "0-9") ("a-z" | "A-Z" | "0-9" | "-" | ".")* 
 
 Note:
 * Unicode whitespace is not explicitly shown in the grammar, but may be present around all terms and tokens in the grammar.
