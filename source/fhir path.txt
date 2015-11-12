@@ -208,16 +208,16 @@ Note that only primitive elements have a string representation
 
 Returns true if all the elements in the list are distinct when using the relative paths (simple
 paths only with no functions). If the elements in the list are primitives, this can be used with no paths (e.g. .distinct()
+
 .resolve()
 
-for each item in the collection, if it is a Reference, locate the target of the reference, and add it to the resulting collection.
-else, ignore it 
+for each item in the collection, if it is a Reference, locate the target of the reference, and add it to the resulting collection. Else, ignore it 
 
 Note: distinct() and resolve() are only allowed in the context of invariants, and need only be implemented
 by path evaluators that are used for testing invariants
 
 -----------------------------------
-5. operations
+5. Operations
 
 The following operators are allowed to be used between
 path expressions (e.g. expr op expr):
@@ -267,8 +267,7 @@ path expressions (e.g. expr op expr):
  
 Note that operations may be grouped in the classical sense by surrounding them with with ()
 
-TODO: is there operator precedence? 
-  proposed precendence levels: 
+Operator precedence: 
     #1: +, -, &, |
     #2: =, =, !=, !==, >, <, >=, <=, in
     #3: and, xor, or

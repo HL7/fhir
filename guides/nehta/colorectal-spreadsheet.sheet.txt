@@ -345,9 +345,9 @@
 
  -- Row 1 -----------------------------------
   Id = 01
-  Context = Colorectal.preAnalytic.perforation
+  Context = Colorectal.preAnalytic
   English = If there is a perforation, the perforation type must be indicated.
-  XPath = not(@value = \'present\') or exists(f:natureOfPerforation)
+  XPath = not(f:perforation/@value = \'present\') or exists(f:natureOfPerforation)
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -401,9 +401,9 @@
 
  -- Row 9 -----------------------------------
   Id = 09
-  Context = Colorectal.macro.lymphNodes
+  Context = Colorectal.macro
   English = If lymph nodes are received, record the number of nodes
-  XPath = not(@value = \'Received\') or exists(f:noLymphNodesPerCassette)
+  XPath = not(f:lymphNodes/@value = \'Received\') or exists(f:noLymphNodesPerCassette)
   Severity = error
 
  -- Row 10 -----------------------------------
@@ -443,9 +443,9 @@
 
  -- Row 15 -----------------------------------
   Id = 15
-  Context = Colorectal.macro.lymphNodes
+  Context = Colorectal.macro
   English = If lymph nodes have been received the tumour inolvement in the lymph nodes is to be recorded.
-  XPath = not(@value = \'Received\') or exists(f:Colorectal.micro.lymphNodeInvolvement)
+  XPath = not(lymphNodes/@value = \'Received\') or exists(f:.lymphNodeInvolvement)
   Severity = error
 
  -- Row 16 -----------------------------------
@@ -492,42 +492,42 @@
 
  -- Row 22 -----------------------------------
   Id = 22
-  Context = Colorectal.ancillaryTests.mismatchRepairEnz.msi
+  Context = Colorectal.ancillaryTests.msi
   English = If MSI unstable, record laboratory performing test and report number
   XPath = not(@value = \'Unstable\') or exists(f:LabDetails)
   Severity = error
 
  -- Row 23 -----------------------------------
   Id = 23
-  Context = Colorectal.ancillaryTests.mismatchRepairEnz.msi
+  Context = Colorectal.ancillaryTests.msi
   English = If MSI stable, record laboratory performing test and report number
   XPath = not(@value = \'Stable\') or exists(f:LabDetails)
   Severity = error
 
  -- Row 24 -----------------------------------
   Id = 24
-  Context = Colorectal.ancillaryTests.mismatchRepairEnz.braf
+  Context = Colorectal.ancillaryTests.braf
   English = If BRAF mutated, record laboratory performing test and report number
   XPath = not(@value = \'Mutated\') or exists(f:LabDetails)
   Severity = error
 
  -- Row 25 -----------------------------------
   Id = 25
-  Context = Colorectal.ancillaryTests.mismatchRepairEnz.braf
+  Context = Colorectal.ancillaryTests.braf
   English = If BRAF wild type, record laboratory performing test and report number
   XPath = not(@value = \'Wild type\') or exists(f:LabDetails)
   Severity = error
 
  -- Row 26 -----------------------------------
   Id = 26
-  Context = Colorectal.ancillaryTests.mismatchRepairEnz.kras
+  Context = Colorectal.ancillaryTests.kras
   English = If KRAS mutated, record laboratory performing test and report number
   XPath = not(@value = \'Mutated\') or exists(f:LabDetails)
   Severity = error
 
  -- Row 27 -----------------------------------
   Id = 27
-  Context = Colorectal.ancillaryTests.mismatchRepairEnz.kras
+  Context = Colorectal.ancillaryTests.kras
   English = If KRAS wild type, record laboratory performing test and report number
   XPath = not(@value = \'Wild type\') or exists(f:LabDetails)
   Severity = error
@@ -536,9 +536,10 @@
 
  -- Row 1 -----------------------------------
   Element = Colorectal
-  Type = DomainResource
+  Type = Logical
   Short Label = Colorectal
   Definition = Colorectal cancer
+  Logical Mapping = DiagnosticReport
 
  -- Row 2 -----------------------------------
   Element = Colorectal.subject
@@ -548,6 +549,7 @@
   Type = Reference(Patient|Group)
   Short Label = The subject of the report, usually, but not always, the patient
   Definition = The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
+  Logical Mapping = DiagnosticReport.subject
   v2 Mapping = PID-3-Patient ID List (no V2 mapping for Group or Device)
   RIM Mapping = participation[typeCode=SBJ]
 
@@ -558,6 +560,7 @@
   Type = Reference(Practitioner)
   Short Label = Who ordered the test
   Definition = The practitioner that holds legal responsibility for ordering the investigation
+  Logical Mapping = @req = DiagnosticReport.request->DiagnosticOrder\nreq.orderer
   RIM Mapping = participation[typeCode=AUT].role
   To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
 
@@ -571,6 +574,7 @@
   Definition = The diagnostic service that is responsible for issuing the report
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
   Comments = This is not necessarily the source of the atomic data items - it is the entity that takes responsibility for the clinical report.
+  Logical Mapping = DiagnosticReport.performer
   v2 Mapping = PRT-8-Participation Organization (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
   To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
@@ -578,7 +582,6 @@
  -- Row 5 -----------------------------------
   Element = Colorectal.preAnalytic
   Card. = 0..1
-  Type = string
   Short Label = Pre Analytic
   Definition = Pre Analytic component - information collection prior to specimen receipt at laboratory.
   Comments = This is just a group/section header and is not a result field
@@ -589,14 +592,16 @@
   Type = string
   Short Label = Clinical information
   Definition = Clinical information provided on request form
+  Logical Mapping = req.reason.text
 
  -- Row 7 -----------------------------------
-  Element = Colorectal.operatingSurgeonDetails
+  Element = Colorectal.preAnalytic.operatingSurgeonDetails
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner)
   Short Label = Operating surgeon details
   Definition = The operating surgeon name and contact details
+  Logical Mapping = @sp = DiagnosticReport.specimen->Specimen\nspecimen.collection.collector
   To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.  Query if relevant for operating surgeon.
 
  -- Row 8 -----------------------------------
@@ -608,14 +613,16 @@
   Short Label = Perforation
   Definition = Presence or absence of a perforation
   Requirements = If present, record the nature of perforation
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??).valueCodeableConcept
 
  -- Row 9 -----------------------------------
-  Element = Colorectal.preAnalytic.perforation.natureOfPerforation
+  Element = Colorectal.preAnalytic.natureOfPerforation
   Card. = 0..*
   Type = code
   Binding = NatureOfPerforation
   Short Label = Nature of perforation
   Definition = The type of perforation
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??).valueCodeableConcept
   To Do = Query if need to:\nadd invariant =1 & add the xpath expression to the invariant tab
 
  -- Row 10 -----------------------------------
@@ -625,6 +632,7 @@
   Binding = ClinicalObstructionStatus
   Short Label = Clinical obstruction
   Definition = Whether a clinical obstruction is present or absent.
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??)\npo.valueCodeableConcept
 
  -- Row 11 -----------------------------------
   Element = Colorectal.preAnalytic.tumourLocation
@@ -634,6 +642,7 @@
   Binding = TumourLocation
   Short Label = Tumour location
   Definition = Anatomical location of the tumour from a given list.
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??)\npo.valueCodeableConcept
   To Do = ? - add UNK to codeset
 
  -- Row 12 -----------------------------------
@@ -644,6 +653,7 @@
   Definition = For synchronous tumours indicate each other site
   Requirements = Conditional on rectum being selected.\nMeasured in cm for RCPA requirements.
   Comments = Note\n: Synchronous tumours should be reported separately – this serves only to identify the presence of other synchronous tumours for which separate reports will be submitted.
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??)\npo.valueString
   To Do = ? If there needs to be an invariant due to this being conditional on Rectum being selected as site.
 
  -- Row 13 -----------------------------------
@@ -654,6 +664,7 @@
   Definition = Quantitative measurement of distance from anal verge
   Requirements = Conditional on rectum being selected.\nMeasured in cm for RCPA requirements.
   Comments = Conditional on rectum being selected\nNote : Measured in cm by longstanding surgical convention
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??)\npo.valueCodeableConcept
 
  -- Row 14 -----------------------------------
   Element = Colorectal.preAnalytic.typeOfOperation
@@ -664,23 +675,26 @@
   Short Label = *
   Definition = The type of operation selected from a list
   Requirements = Single selection value list.\nIf other procedure(s) is selected, record type of procedure.\nIf anterior resection is selected, record anterior resection type.
+  Logical Mapping = @too = req.supportingInformation -> Observation(loinc = ??)\npo.valueCodeableConcept\ntoo.coding
   To Do = ? - add UNK to codeset
 
  -- Row 15 -----------------------------------
-  Element = Colorectal.preAnalytic.typeOfOperation.typeOfProcedure
+  Element = Colorectal.preAnalytic.typeOfProcedure
   Card. = 0..1
   Type = string
   Short Label = Procedure type
   Definition = Type of procedure
+  Logical Mapping = too.text
 
  -- Row 16 -----------------------------------
-  Element = Colorectal.preAnalytic.typeOfOperation.anteriorResectionType
+  Element = Colorectal.preAnalytic.anteriorResectionType
   Card. = 0..1
   Type = code
   Binding = AnteriorResectionType
   Short Label = Anterior resection type
   Definition = The type of anterior resection
   Requirements = Single selection value list.
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??)\npo.valueCodeableConcept
   To Do = Check with RCPA about Definition\n? - add UNK to codeset
 
  -- Row 17 -----------------------------------
@@ -692,15 +706,17 @@
   Short Label = Pre-operative radiotherapy
   Definition = An indication of pre-operative radiotherapy
   Requirements = Single selection value list.\nIf yes, record type of course
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??)\npo.valueCodeableConcept
   To Do = ? add an invariant to accommodate the conditional statement \"if Yes …\"
 
  -- Row 18 -----------------------------------
-  Element = Colorectal.preAnalytic.preoperativeRadiotherapy.typeOfCourse
+  Element = Colorectal.preAnalytic.typeOfCourse
   Card. = 0..1
   Type = code
   Binding = TypeOfCourse
   Short Label = Type of course
   Definition = The type of course of pre-operative radiotherapy
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??)\npo.valueCodeableConcept
 
  -- Row 19 -----------------------------------
   Element = Colorectal.preAnalytic.surgeonsOpinion
@@ -708,6 +724,7 @@
   Type = string
   Short Label = Surgeons opinion of residual cancer
   Definition = Surgeons opinion on the existence of local residual cancer postsurgery
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??)\npo.valueString
   To Do = FYI - short label & definition did not like apostrophe s ie surgeon\'s
 
  -- Row 20 -----------------------------------
@@ -716,6 +733,7 @@
   Type = string
   Short Label = Adjacent organ involvement
   Definition = Involvement of adjacent organs
+  Logical Mapping = req.supportingInformation -> Observation(loinc = ??)\npo.valueString
 
  -- Row 21 -----------------------------------
   Element = Colorectal.preAnalytic.newPrimaryOrRecurrence
@@ -727,13 +745,15 @@
   Definition = An indication of whether a new primary cancer or a recurrence
   Requirements = Single selection value list.\nIf regional (local) recurrence or distant metastasis describe.
   Comments = ? If need to make an invariant due to the conditional statement
+  Logical Mapping = @pno = req.supportingInformation -> Observation(loinc = ??)\npno.valueCodeableConcept
 
  -- Row 22 -----------------------------------
-  Element = Colorectal.preAnalytic.newPrimaryOrRecurrence.describe
+  Element = Colorectal.preAnalytic.RecurrenceDescription
   Card. = 0..1
   Type = string
   Short Label = Describe
   Definition = Description of regional (local) recurrence or distant metastases
+  Logical Mapping = pno.component(loinc:??).valueCodeableConcept
 
  -- Row 23 -----------------------------------
   Element = Colorectal.preAnalytic.pathologyAccessionNumber
@@ -741,6 +761,7 @@
   Type = string
   Short Label = Pathology number
   Definition = Pathology accession number
+  Logical Mapping = DiagnosticReport.identifier
 
  -- Row 24 -----------------------------------
   Element = Colorectal.preAnalytic.otherRelevantDetails
@@ -748,14 +769,15 @@
   Type = string
   Short Label = Other details
   Definition = Other relevant details
+  Logical Mapping = DiagnosticOrder.note.text
 
  -- Row 25 -----------------------------------
   Element = Colorectal.macro
   Card. = 0..1
-  Type = string
   Short Label = Macroscopy
   Definition = Macroscopic findings
   Comments = This is just a group/section header and is not a result field
+  Logical Mapping = @macro = DiagnosticReport.result->Observation(loinc:??)
 
  -- Row 26 -----------------------------------
   Element = Colorectal.macro.specimenLength
@@ -765,6 +787,7 @@
   Definition = The length of the specimen
   Requirements = measurement in mm.
   Comments = Query if measurements are in mm is international ie USA and query if this comment needs to be refined to AUS?\nDitto for subsequent metric measurements.
+  Logical Mapping = sp.collection.quantity
 
  -- Row 27 -----------------------------------
   Element = Colorectal.macro.tumourSite
@@ -774,6 +797,7 @@
   Binding = TumourSite
   Short Label = Tumour site
   Definition = The site of the tumour
+  Logical Mapping = sp.collection.bodySite
 
  -- Row 28 -----------------------------------
   Element = Colorectal.macro.maxTumourDiameter
@@ -782,6 +806,7 @@
   Short Label = Max. tumour diameter
   Definition = Maximum tumour diameter
   Requirements = measurement in mm.
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueQuantity
 
  -- Row 29 -----------------------------------
   Element = Colorectal.macro.distanceNearerProxOrDistal
@@ -790,6 +815,7 @@
   Short Label = Dist. of tumour to the nearer proximal or distal \"cut end\"
   Definition = Distance of tumour to the nearer proximal or distal \"cut end\"
   Requirements = measurement in mm.
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueQuantity
 
  -- Row 30 -----------------------------------
   Element = Colorectal.macro.distNonperitonCircumMargin
@@ -798,6 +824,7 @@
   Short Label = Dist. of tumour to the nonperitonealised circumferential margin
   Definition = Distance of tumour to the nonperitonealised circumferential margin
   Requirements = measurement in mm.
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueQuantity
 
  -- Row 31 -----------------------------------
   Element = Colorectal.macro.tumourPerforation
@@ -807,6 +834,7 @@
   Short Label = Tumour perforation
   Definition = The presence or absence of tumour perforation
   Requirements = Single selection value list.
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 32 -----------------------------------
   Element = Colorectal.macro.relToAntPeritonealReflection
@@ -816,6 +844,7 @@
   Short Label = Relationship to anterior peritoneal reflection
   Definition = Site of tumour in relation to the anterior level of the peritoneal reflection
   Requirements = Single selection value list.\nConditional on rectum being selected in Tumour Site
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
   To Do = ? Make an invariant on rectum in tumour site
 
  -- Row 33 -----------------------------------
@@ -826,6 +855,7 @@
   Short Label = Intactness of mesorectum
   Definition = For rectal resections the intactness of the mesorectum must be recorded.
   Requirements = Single selection value list.\nConditional on rectum being selected in Tumour Site
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
   To Do = ? Make an invariant on rectum in tumour site
 
  -- Row 34 -----------------------------------
@@ -836,6 +866,7 @@
   Short Label = Peritoneum
   Definition = Any involvement of the peritoneum should be recorded.
   Requirements = Single selection value list.
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 35 -----------------------------------
   Element = Colorectal.macro.lymphNodes
@@ -846,14 +877,16 @@
   Short Label = Lymph nodes
   Definition = If lymph nodes are received, then they should be recorded.
   Requirements = Conditional:\nIf received, record the number of nodes
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 36 -----------------------------------
-  Element = Colorectal.macro.lymphNodes.noLymphNodesPerCassette
+  Element = Colorectal.macro.noLymphNodesPerCassette
   Card. = 0..*
-  Type = SimpleQuantity
+  Type = string
   Short Label = Number of lymph nodes in each cassette
   Definition = The number of lymph nodes placed in each cassette should be recorded.
   Comments = The RCPA require the following be recorded:\n\"Numeric: ___ in cassette: ___\"\nQuery how to record this?
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 37 -----------------------------------
   Element = Colorectal.macro.polyps
@@ -864,13 +897,15 @@
   Short Label = Polyps
   Definition = The presence or absence of polyps should be recorded
   Requirements = Conditional:\nIf present, provide a polyp summary.
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 38 -----------------------------------
-  Element = Colorectal.macro.polyps.polypSummary
+  Element = Colorectal.macro.polypSummary
   Card. = 0..1
   Type = string
   Short Label = The number, diameter and gross configuration of polyps should be summarised
   Definition = The polyp summary should include the numbers, diameter range and gross appearance
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 39 -----------------------------------
   Element = Colorectal.macro.otherMacroComments
@@ -878,6 +913,7 @@
   Type = string
   Short Label = Other macroscopic comments
   Definition = A descriptive or narrative field should be provided to record any macroscopic information that is not recorded in the above standards and guidelines, and that would normally form part of the macroscopic description.
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 40 -----------------------------------
   Element = Colorectal.macro.natureAndSiteOfBlocks
@@ -885,14 +921,15 @@
   Type = string
   Short Label = Nature and site of blocks
   Definition = The nature and sites of all blocks must be recorded.
+  Logical Mapping = macro.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 41 -----------------------------------
   Element = Colorectal.micro
   Card. = 0..1
-  Type = string
   Short Label = Microscopy
   Definition = Microscopy of the sample
   Comments = This is just a group/section header and is not a result field
+  Logical Mapping = @micro = DiagnosticReport.result->Observation(loinc:??)
 
  -- Row 42 -----------------------------------
   Element = Colorectal.micro.tumourType
@@ -903,6 +940,7 @@
   Definition = A single selection value list from WHO Classification of Tumours.
   Requirements = Single selection value list from WHO Classification of Tumours. Pathology and Genetics of Tumours of the Digestive System (2010).
   Comments = How to represent this result group which has heading and components cf the bindings file is a flat file??
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 43 -----------------------------------
   Element = Colorectal.micro.histologicalGrade
@@ -912,6 +950,7 @@
   Short Label = Histological grade
   Definition = The histological grading of the tumour must be recorded.
   Requirements = Single selection value list.
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 44 -----------------------------------
   Element = Colorectal.micro.maxDegreeLocalInvasion
@@ -921,6 +960,7 @@
   Short Label = Maximum degree of local invasion into or through the bowel wall
   Definition = The maximum degree of local invasion into or through the bowel wall must be recorded.
   Requirements = Single selection value list.
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 45 -----------------------------------
   Element = Colorectal.micro.proximalOrDistalResectionMargins
@@ -931,24 +971,27 @@
   Short Label = Involvement of the proximal or distal resection (cut-end) margins
   Definition = Involvement of the proximal or distal resection margins (cut-end margins) by tumour must be recorded. If the margin is less than 10 mm, the clearance must be recorded.
   Requirements = Single selection value list.\nIf involved is selected, record involved margin(s)\nIf not involved is selected, record microscopic clearance.
+  Logical Mapping = \'micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 46 -----------------------------------
-  Element = Colorectal.micro.proximalOrDistalResectionMargins.involvedMargins
+  Element = Colorectal.micro.involvedMargins
   Card. = 1..*
   Type = code
   Binding = InvolvedMargin-s
   Short Label = Involved margin(s)
   Definition = Involvement of the proximal or distal resection margins (cut-end margins) by tumour must be recorded. If the margin is less than 10 mm, the clearance must be recorded.
   Requirements = Multi select value list (select all that apply).\nThis is a conditional field.
+  Logical Mapping = \'micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 47 -----------------------------------
-  Element = Colorectal.micro.proximalOrDistalResectionMargins.microClearance
+  Element = Colorectal.micro.marginsMicroClearance
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Microscopic Clearance
   Definition = If the margin is less than 10 mm, the clearance must be recorded.
   Requirements = Numeric: ___mm (if the margin is less than 10 mm)\nOR Clearance is ≥10mm
   Comments = Query how to achieve this??
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueQuantity
 
  -- Row 48 -----------------------------------
   Element = Colorectal.micro.nonperitonealisedCircumMargin
@@ -959,6 +1002,7 @@
   Short Label = Status of the nonperitonealised circumferential margin (rectal tumours)
   Definition = The status of the nonperitonealised circumferential margin in rectal tumours must be recorded.
   Requirements = Single selection value list.\nConditional on rectum being selected in S2.02\nIf not involved is selected, record microscopic clearance.
+  Logical Mapping = \'micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 49 -----------------------------------
   Element = Colorectal.micro.microClearanceRectum
@@ -967,6 +1011,7 @@
   Short Label = Microscopic Clearance
   Definition = In rectal tumours, the minimum distance in millimetres between the tumour and the nonperitonealised (circumferential, radial) margin must be recorded from the histological slides.
   Requirements = Is conditional
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueQuantity
 
  -- Row 50 -----------------------------------
   Element = Colorectal.micro.lymphNodeInvolvement
@@ -977,15 +1022,17 @@
   Short Label = Lymph node involvement
   Definition = Results of lymph node histopathology must be recorded.
   Requirements = Single selection value list.\nConditional on nodes being received in G2.02. If G2.02 has been recorded as “not received” this standard is not required.\nIf present, record site(s) and number of lymph nodes
+  Logical Mapping = \'micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 51 -----------------------------------
-  Element = Colorectal.micro.lymphNodeInvolvement.lymphNodesDetails
+  Element = Colorectal.micro.lymphNodesDetails
   Card. = 0..*
   Type = string
   Short Label = Site(s) and numbers of lymph nodes
   Definition = If lymph node(s) received then the site(s) and numbers of lymph nodes must be recorded.
   Requirements = Text: Site of lymph node\nAND\nNumeric: ____/_____\n(Number of positive nodes/ Total number of nodes from this site)\nSite is the LN drainage relevant to the site of tumour being reported.
   Comments = Query if this field needs to be broken in to a number of fields??
+  Logical Mapping = \'micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 52 -----------------------------------
   Element = Colorectal.micro.extramuralTumourDeposits
@@ -995,6 +1042,7 @@
   Short Label = Isolated extra-mural tumour deposits
   Definition = The presence or absence of isolated extra-mural tumour deposits is to be recorded.
   Requirements = Single selection value list.
+  Logical Mapping = \'micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 53 -----------------------------------
   Element = Colorectal.micro.apicalNodeInvolvement
@@ -1004,6 +1052,7 @@
   Short Label = Apical node involvement
   Definition = Involvement of the apical lymph node should be recorded.
   Requirements = Single selection value list.
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 54 -----------------------------------
   Element = Colorectal.micro.venousSmallVesselInvasion
@@ -1012,6 +1061,7 @@
   Short Label = Venous and small vessel invasion
   Definition = For all tumours, venous and small vessel invasion must be reported and its anatomic location specified as intramural or extramural.
   Comments = This is just a header and is not a data field\n?? How to be entered in the resource
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 55 -----------------------------------
   Element = Colorectal.micro.intramuralVeinInvasion
@@ -1021,6 +1071,7 @@
   Short Label = Intramural vein invasion
   Definition = Intramural invasion must be reported on
   Requirements = Single selection value list.
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 56 -----------------------------------
   Element = Colorectal.micro.extramuralVeinInvasion
@@ -1030,6 +1081,7 @@
   Short Label = Extramural vein invasion
   Definition = Extramural invasion must be reported on
   Requirements = Single selection value list.
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 57 -----------------------------------
   Element = Colorectal.micro.smallVesselInvasion
@@ -1039,6 +1091,7 @@
   Short Label = Small vessel invasion
   Definition = Small vessel invasion must be reported on
   Requirements = Single selection value list.
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 58 -----------------------------------
   Element = Colorectal.micro.perineuralInvasion
@@ -1048,6 +1101,7 @@
   Short Label = Perineural invasion
   Definition = Perineural invasion must be reported on
   Requirements = Single selection value list.
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 59 -----------------------------------
   Element = Colorectal.micro.histoConfDistMetastases
@@ -1058,14 +1112,16 @@
   Short Label = Histologically confirmed distant metastases
   Definition = The presence or absence of histologically confirmed distant metastases must be recorded
   Requirements = Single selection value list.\nIf present, record sites
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 60 -----------------------------------
-  Element = Colorectal.micro.histoConfDistMetastases.site
+  Element = Colorectal.micro.histoConfDistMetastasesSite
   Card. = 0..1
   Type = string
   Short Label = Histologically confirmed distant metastases - site
   Definition = The site of histologically confirmed distant metastases must be recorded
   Requirements = Is conditional
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 61 -----------------------------------
   Element = Colorectal.micro.relCoexistPathabnorm
@@ -1076,17 +1132,19 @@
   Short Label = Relevant coexistent pathological abnormalities
   Definition = The relevant coexistent pathological abnormalities must be recorded
   Requirements = Multi select value list (select all that apply).\n?? How is this indicated??\nIf Polyps is selected provide details\nIf Ulcerative colitis or Crohn’s disease is selected record dysplasia\nIf other is selected, provide details in “other abnormality”
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 62 -----------------------------------
-  Element = Colorectal.micro.relCoexistPathabnorm.polypDetails
+  Element = Colorectal.micro.polypDetails
   Card. = 0..1
   Type = string
   Short Label = Polyp details (type, number, polyposis syndrome criteria met etc)
   Definition = The polyp details (type, number, polyposis syndrome criteria met etc) is to be recorded
   Requirements = Is conditional
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 63 -----------------------------------
-  Element = Colorectal.micro.relCoexistPathabnorm.dysplasia
+  Element = Colorectal.micro.dysplasia
   Card. = 0..1
   Type = code
   Binding = Dysplasia
@@ -1094,13 +1152,15 @@
   Definition = If Ulcerative colitis or Crohns disease is selected for relevant coexistent pathological abnormalities record dysplasia
   Requirements = Single selection value list.\nIs conditional
   Comments = Cannot have an apostrophe in a spreadsheet eg Crohn apostrophe s
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 64 -----------------------------------
-  Element = Colorectal.micro.relCoexistPathabnorm.otherAbnormality
+  Element = Colorectal.micro.otherAbnormality
   Card. = 0..1
   Type = string
   Short Label = Other abnormality
   Definition = Record any other abnormality
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 65 -----------------------------------
   Element = Colorectal.micro.microResidualTumourStatus
@@ -1108,6 +1168,7 @@
   Type = string
   Short Label = Microscopic residual tumour status (completeness of resection)
   Definition = The microscopic residual tumour status (completeness of resection) is to be recorded
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 66 -----------------------------------
   Element = Colorectal.micro.neoadjuvantTherapy
@@ -1116,6 +1177,7 @@
   Binding = ResponseToNeoadjuvantTherapy
   Short Label = Response to neoadjuvant therapy
   Definition = The response to neoadjuvant therapy should be recorded
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 67 -----------------------------------
   Element = Colorectal.micro.microComments
@@ -1123,6 +1185,7 @@
   Type = string
   Short Label = Microscopic comments
   Definition = Other Microscopic comments should be recorded
+  Logical Mapping = micro.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 68 -----------------------------------
   Element = Colorectal.ancillaryTests
@@ -1131,60 +1194,66 @@
   Short Label = Ancillary test findings
   Definition = Ancillary test findings are to be recorded
   Comments = This is just a group/section header and is not a result field, but some example reports this field was used as a comment field.
+  Logical Mapping = @ancillary = DiagnosticReport.result->Observation(loinc:??)
 
  -- Row 69 -----------------------------------
   Element = Colorectal.ancillaryTests.mismatchRepairEnz
-  Card. = 0..1
-  Type = string
+  Card. = 1..1
   Short Label = Mismatch repair enzymes
   Definition = Mismatch repair enzymes are to be recorded
   Comments = This is just a sub-group/sub-section header and is not a result field
+  Logical Mapping = $spacer
 
  -- Row 70 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.mlh1
+  Element = Colorectal.ancillaryTests.mlh1
   Card. = 0..1
   Type = code
   Binding = Mlh1
   Short Label = MLH-1
   Definition = MLH-1 testing
   Requirements = Single selection value list.
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 71 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.pms2
+  Element = Colorectal.ancillaryTests.pms2
   Card. = 0..1
   Type = code
   Binding = Pms2
   Short Label = PMS-2
   Definition = PMS-2 testing
   Requirements = Single selection value list.
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 72 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msh2
+  Element = Colorectal.ancillaryTests.msh2
   Card. = 0..1
   Type = code
   Binding = Msh2
   Short Label = MSH-2
   Definition = MSH-2 testing
   Requirements = Single selection value list.
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 73 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msh6
+  Element = Colorectal.ancillaryTests.msh6
   Card. = 0..1
   Type = code
   Binding = Msh6
   Short Label = MSH-6
   Definition = MSH-6 testing
   Requirements = Single selection value list.
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 74 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.comments
+  Element = Colorectal.ancillaryTests.comments
   Card. = 0..1
   Type = string
   Short Label = Mismatch repair enzyme comments
   Definition = Mismatch repair enzyme comments can be recorded
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 75 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msi
+  Element = Colorectal.ancillaryTests.msi
   Card. = 0..1
   Inv. = 22,23
   Type = code
@@ -1192,25 +1261,28 @@
   Short Label = Microsatellite instability (MSI)
   Definition = Microsatellite instability (MSI) to be recorded
   Requirements = Single selection value list.\nIf unstable or stable, record laboratory performing test and report number
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 76 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msi.comments
+  Element = Colorectal.ancillaryTests.msiComments
   Card. = 0..1
   Type = string
   Short Label = Microsatellite instability (MSI) comments
   Definition = Microsatellite instability (MSI) comments can be recorded
   Requirements = Conditional
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 77 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.msi.LabDetails
+  Element = Colorectal.ancillaryTests.msiLabDetails
   Card. = 0..1
   Type = string
   Short Label = MSI laboratory performing test and report number
   Definition = Microsatellite instability (MSI) laboratory performing test and report number can be recorded
   Requirements = Conditional
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 78 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.braf
+  Element = Colorectal.ancillaryTests.braf
   Card. = 0..1
   Inv. = 24,25
   Type = code
@@ -1218,89 +1290,105 @@
   Short Label = BRAF (V600E mutation)
   Definition = BRAF (V600E mutation) testing
   Requirements = Single selection value list.\nIf mutated or wild type, record laboratory performing test and report number
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
  -- Row 79 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.braf.comments
+  Element = Colorectal.ancillaryTests.brafComments
   Card. = 0..1
   Type = string
   Short Label = BRAF (V600E mutation) comments
   Definition = BRAF (V600E mutation) comments can be recorded
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 80 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.braf.labDetails
+  Element = Colorectal.ancillaryTests.brafLabDetails
   Card. = 0..1
   Type = string
   Short Label = BRAF (V600E mutation) laboratory performing test and report number
   Definition = BRAF (V600E mutation) laboratory performing test and report number can be recorded
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
  -- Row 81 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.kras
+  Element = Colorectal.ancillaryTests.kras
   Card. = 0..1
   Inv. = 26,27
-  Type = code
-  Binding = Kras
   Short Label = KRAS gene mutation (codons 12 and 13)
   Definition = KRAS gene mutation (codons 12 and 13) testing
 
  -- Row 82 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.kras.comments
+  Element = Colorectal.ancillaryTests.kras.code
+  Card. = 1..1
+  Type = code
+  Binding = Kras
+  Short Label = KRAS gene mutation (codons 12 and 13)
+  Definition = KRAS gene mutation (codons 12 and 13) testing
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
+
+ -- Row 83 -----------------------------------
+  Element = Colorectal.ancillaryTests.kras.comments
   Card. = 0..1
   Type = string
   Short Label = KRAS gene mutation (codons 12 and 13) comments
   Definition = KRAS gene mutation (codons 12 and 13) comments can be recorded
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
- -- Row 83 -----------------------------------
-  Element = Colorectal.ancillaryTests.mismatchRepairEnz.kras.labDetails
+ -- Row 84 -----------------------------------
+  Element = Colorectal.ancillaryTests.kras.labDetails
   Card. = 0..1
   Type = string
   Short Label = KRAS gene mutation (codons 12 and 13) laboratory performing test and report number
   Definition = KRAS gene mutation (codons 12 and 13) laboratory performing test and report number can be recorded
+  Logical Mapping = ancillary.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
- -- Row 84 -----------------------------------
+ -- Row 85 -----------------------------------
   Element = Colorectal.synthesisOverview
   Card. = 0..1
-  Type = string
   Short Label = Synthesis and Overview
   Definition = Synthesis and Overview are to be recorded
   Comments = This is just a group/section header and is not a result field
+  Logical Mapping = @synthesis = DiagnosticReport.result->Observation(loinc:??)
 
- -- Row 85 -----------------------------------
+ -- Row 86 -----------------------------------
   Element = Colorectal.synthesisOverview.tumourStage
   Card. = 1..1
   Type = string
   Short Label = Tumour stage
   Definition = Tumour stage is to be recorded
   Comments = This is just a sub-group/sub-section header and is not a result field
+  Logical Mapping = synthesis.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
- -- Row 86 -----------------------------------
-  Element = Colorectal.synthesisOverview.tumourStage.t
+ -- Row 87 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStageT
   Card. = 0..1
   Type = code
   Binding = TumourStageT
   Short Label = T
   Definition = Tumour stage T is to be recorded
   Requirements = Single selection value list.
+  Logical Mapping = synthesis.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
- -- Row 87 -----------------------------------
-  Element = Colorectal.synthesisOverview.tumourStage.n
+ -- Row 88 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStageN
   Card. = 0..1
   Type = code
   Binding = TumourStageN
   Short Label = N
   Definition = Tumour stage N is to be recorded
   Requirements = Single selection value list.
+  Logical Mapping = synthesis.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
- -- Row 88 -----------------------------------
-  Element = Colorectal.synthesisOverview.tumourStage.m
+ -- Row 89 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStageM
   Card. = 0..1
   Type = code
   Binding = TumourStageM
   Short Label = M
   Definition = Tumour stage M is to be recorded
   Requirements = Single selection value list.
+  Logical Mapping = synthesis.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
- -- Row 89 -----------------------------------
-  Element = Colorectal.synthesisOverview.tumourStage.grouping
+ -- Row 90 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStageGrouping
   Card. = 1..1
   Type = code
   Binding = TumourStageGrouping
@@ -1308,25 +1396,28 @@
   Definition = Tumour stage grouping is to be recorded
   Requirements = Single selection value list.
   Comments = Check the formatting of the result group
+  Logical Mapping = synthesis.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
   Example = 0 Tis N0 M0   |\nI T1 N0 M0   |\nT2 N0 M0   |\nIIA T3 N0 M0   |\nIIB T4a N0 M0   |\nIIC T4b N0 M0   |\nIIIA T1-T2 N1/N1c M0   |\nT1 N2a M0   |\nIIIB T3-T4a N1/N1c M0   |\nT2-T3 N2a M0   |\nT1-T2 N2b M0   |\nIIIC T4a N2a M0   |\nT3-T4a N2b M0   |\nT4b N1-N2 M0   |\nIVA Any T Any N M1a   |\nIVB Any T Any N M1b
 
- -- Row 90 -----------------------------------
-  Element = Colorectal.synthesisOverview.tumourStage.stagingSystemDetails
+ -- Row 91 -----------------------------------
+  Element = Colorectal.synthesisOverview.tumourStagingSystem
   Card. = 1..1
   Type = string
   Short Label = Year and/or edition of staging system
   Definition = Year and/or edition of staging system is to be recorded
   Requirements = Numeric: year\nAND/OR\nText: Edition eg 1st, 2nd etc
+  Logical Mapping = synthesis.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
- -- Row 91 -----------------------------------
+ -- Row 92 -----------------------------------
   Element = Colorectal.synthesisOverview.residualTumourStatus
   Card. = 1..1
   Type = string
   Binding = ResidualTumourStatus
   Short Label = Residual tumour status
   Definition = The residual tumour status must be recorded according to the AJCC Cancer Staging Manual (7th Edition)
+  Logical Mapping = synthesis.related(type=\'has-member\').target->Observation(code=loinc:??).valueString
 
- -- Row 92 -----------------------------------
+ -- Row 93 -----------------------------------
   Element = Colorectal.synthesisOverview.diagnosticSummary
   Card. = 0..1
   Summary = Y
@@ -1334,8 +1425,9 @@
   Short Label = Diagnostic summary
   Definition = Diagnostic summary is to be recorded
   Requirements = Include:\na. specimen type\nb. tumour site\nc. tumour type\nd. tumour stage\ne. completeness of excision
+  Logical Mapping = DiagnosticReport.conclusion
 
- -- Row 93 -----------------------------------
+ -- Row 94 -----------------------------------
   Element = Colorectal.synthesisOverview.newPrimaryOrRecurrence
   Card. = 0..1
   Type = code
@@ -1343,19 +1435,21 @@
   Short Label = New primary cancer or recurrence
   Definition = New primary cancer or recurrence is to be recorded
   Requirements = Single selection value list.\nIf regional (local) recurrence or distant metastasis describe.
+  Logical Mapping = synthesis.related(type=\'has-member\').target->Observation(code=loinc:??).valueCodeableConcept
 
- -- Row 94 -----------------------------------
-  Element = Colorectal.synthesisOverview.newPrimaryOrRecurrence.describe
+ -- Row 95 -----------------------------------
+  Element = Colorectal.synthesisOverview.newDescription
   Card. = 0..1
   Type = string
   Short Label = Describe
   Definition = Description of regional (local) recurrence or distant metastases
   Requirements = Conditional
 
- -- Row 95 -----------------------------------
+ -- Row 96 -----------------------------------
   Element = Colorectal.synthesisOverview.overarchingComment
   Card. = 0..1
   Type = string
   Short Label = Overarching comment
   Definition = Synthesis and overview overarching comment
   Requirements = Conditional
+  Logical Mapping = synthesis.related(type=\'has-member\').target->Observation(code=loinc:??).valueString

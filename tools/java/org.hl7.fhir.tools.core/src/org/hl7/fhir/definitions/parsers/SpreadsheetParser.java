@@ -682,7 +682,7 @@ public class SpreadsheetParser {
     tabfmt.column("Context");
     tabfmt.column("English");
     tabfmt.column("XPath");
-    tabfmt.column("FHIRPath");
+    tabfmt.column("Expression");
     tabfmt.column("Severity");
     tabfmt.column("RDF");
 

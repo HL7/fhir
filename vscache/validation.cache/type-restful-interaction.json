@@ -32,14 +32,14 @@
       "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@3e3f089b\" in system \"null\": null"
     },
     {
-      "hash": "|null|null|update|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@15141316\" in system \"null\": null"
-    },
-    {
       "hash": "|null|null|vread|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@796fb6da\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|update|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@15141316\" in system \"null\": null"
     },
     {
       "hash": "|null|null|validate|null",

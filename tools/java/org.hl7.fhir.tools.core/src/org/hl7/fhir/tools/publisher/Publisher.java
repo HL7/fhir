@@ -818,6 +818,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       for (Profile ap : r.getConformancePackages())
         for (ConstraintStructure p : ap.getProfiles())
           validateProfile(p);
+    checkAllOk();
   }
 
   private void processExtension(StructureDefinition ex) throws Exception {
@@ -831,26 +832,10 @@ public class Publisher implements URIResolver, SectionNumberer {
     return result;
   }
 
-  private void validateProfile(StructureDefinition rd) throws Exception {
-    ProfileValidator pv = new ProfileValidator();
-    pv.setContext(page.getWorkerContext());
-    List<String> errors = pv.validate(rd);
-    if (errors.size() > 0) {
-      for (String e : errors)
-        page.log(e, LogMessageType.Error);
-      throw new Exception("Error validating " + rd.getName());
-    }
-  }
-
   private void validateProfile(ConstraintStructure p) throws Exception {
     ProfileValidator pv = new ProfileValidator();
     pv.setContext(page.getWorkerContext());
-    List<String> errors = pv.validate(p.getResource());
-    if (errors.size() > 0) {
-      for (String e : errors)
-        page.log(e, LogMessageType.Error);
-      throw new Exception("Error validating " + p.getId());
-    }
+    page.getValidationErrors().addAll(pv.validate(p.getResource(), true));
   }
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
@@ -1509,6 +1494,8 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void validate() throws Exception {
     page.log("Validating", LogMessageType.Process);
     ResourceValidator val = new ResourceValidator(page.getDefinitions(), page.getTranslations(), page.getCodeSystems(), page.getFolders().srcDir);
+    ProfileValidator valp = new ProfileValidator();
+    valp.setContext(page.getWorkerContext());
 
     for (String n : page.getDefinitions().getTypes().keySet())
       page.getValidationErrors().addAll(val.checkStucture(n, page.getDefinitions().getTypes().get(n)));
@@ -1522,6 +1509,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       checkExampleLinks(page.getValidationErrors(), r);
     }
+    
     val.report();
     val.summariseSearchTypes(page.getSearchTypeUsage());
     val.dumpParams();

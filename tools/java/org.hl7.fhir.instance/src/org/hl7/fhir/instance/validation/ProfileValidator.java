@@ -1,13 +1,21 @@
 package org.hl7.fhir.instance.validation;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
+import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.utils.BuildToolPathEvaluator;
 import org.hl7.fhir.instance.utils.IWorkerContext;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
+import org.hl7.fhir.utilities.Utilities;
 
-public class ProfileValidator {
+public class ProfileValidator extends BaseValidator {
 
   IWorkerContext context;
 
@@ -15,26 +23,44 @@ public class ProfileValidator {
     this.context = context;    
   }
 
-  public List<String> validate(StructureDefinition profile) throws Exception {
-    List<String> errors = new ArrayList<String>();
+  protected boolean rule(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg) {
+    String rn = path.contains(".") ? path.substring(0, path.indexOf(".")) : path;
+    return super.rule(errors, type, path, b, msg, "<a href=\""+(rn.toLowerCase())+".html\">"+rn+"</a>: "+Utilities.escapeXml(msg));
+  }
+
+  public List<ValidationMessage> validate(StructureDefinition profile, boolean forBuild) throws Exception {
+    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
+    
     // first check: extensions must exist
     for (ElementDefinition ec : profile.getDifferential().getElement()) {
       checkExtensions(profile, errors, "differential", ec);
     }
-    if (!profile.hasSnapshot())
-      errors.add("missing Snapshot at "+profile.getName()+"."+profile.getName());
-    else for (ElementDefinition ec : profile.getSnapshot().getElement()) {
-      checkExtensions(profile, errors, "snapshot", ec);
+    if (rule(errors, IssueType.STRUCTURE, profile.getId(), profile.hasSnapshot(), "A snapshot is required")) {
+      for (ElementDefinition ed : profile.getSnapshot().getElement()) {
+        checkExtensions(profile, errors, "snapshot", ed);
+        for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
+          if (forBuild) {
+//            Extension exprExt = ToolingExtensions.getExtension(inv, ToolingExtensions.EXT_EXPRESSION);
+//            if (rule(errors, IssueType.BUSINESSRULE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, "The invariant has no FHIR Path expression ("+inv.getXpath()+")")) {
+//              String expr = ((StringType) exprExt.getValue()).asStringValue();
+//              try {
+//                new BuildToolPathEvaluator().check(null, expr);
+//              } catch (Exception e) {
+//                rule(errors, IssueType.STRUCTURE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, e.getMessage());
+//              }
+//            } 
+          }
+        }
+      }
     }
     return errors;
   }
 
-  private void checkExtensions(StructureDefinition profile, List<String> errors, String kind, ElementDefinition ec) throws Exception {
+  private void checkExtensions(StructureDefinition profile, List<ValidationMessage> errors, String kind, ElementDefinition ec) throws Exception {
     if (!ec.getType().isEmpty() && "Extension".equals(ec.getType().get(0).getCode()) && ec.getType().get(0).hasProfile()) {
       String url = ec.getType().get(0).getProfile().get(0).getValue();
       StructureDefinition defn = context.fetchResource(StructureDefinition.class, url);
-      if (defn == null)
-        errors.add("Unable to find Extension '"+url+"' referenced at "+profile.getUrl()+" "+kind+" "+ec.getPath()+" ("+ec.getName()+")");
+      rule(errors, IssueType.BUSINESSRULE, profile.getId(), defn != null, "Unable to find Extension '"+url+"' referenced at "+profile.getUrl()+" "+kind+" "+ec.getPath()+" ("+ec.getName()+")");
     }
   }
   

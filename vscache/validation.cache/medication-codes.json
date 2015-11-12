@@ -132,11 +132,6 @@
       }
     },
     {
-      "hash": "#|http://hc-sc.gc.ca|null|00885916|Amox S 250 Sus 250mg/5ml",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|387544009|Flucloxacillin",
       "severity": null,
       "message": null,
@@ -148,7 +143,7 @@
       }
     },
     {
-      "hash": "#|http://hc-sc.gc.ca|null|02181061|Tylenol No. 1 Caplets",
+      "hash": "#|http://hc-sc.gc.ca|null|00885916|Amox S 250 Sus 250mg/5ml",
       "severity": "error",
       "message": "The code provided is not  valid"
     },
@@ -162,6 +157,11 @@
         "definition": null,
         "display": "Docetaxel (product)"
       }
+    },
+    {
+      "hash": "#|http://hc-sc.gc.ca|null|02181061|Tylenol No. 1 Caplets",
+      "severity": "error",
+      "message": "The code provided is not  valid"
     },
     {
       "hash": "#|http://hc-sc.gc.ca|null|00021695|Novo-Prednisone",
@@ -180,17 +180,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|96068000|Amoxicillin trihydrate",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Amoxicilline trihydrate"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|318475005|Metoprolol tartrate 50mg tablet",
       "severity": null,
       "message": null,
@@ -202,6 +191,22 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|96068000|Amoxicillin trihydrate",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Amoxicilline trihydrate"
+      }
+    },
+    {
+      "hash": "#|http://www.accessdata.fda.gov/scripts/cder/ndc/dsp_searchresult.cfm|null|0173068220|Ventolin Aerosol ",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|134623009|Capecitabine 150mg tablet (product)",
       "severity": null,
       "message": null,
@@ -211,11 +216,6 @@
         "definition": null,
         "display": "Capecitabine 150mg tablet (product)"
       }
-    },
-    {
-      "hash": "#|http://www.accessdata.fda.gov/scripts/cder/ndc/dsp_searchresult.cfm|null|0173068220|Ventolin Aerosol ",
-      "severity": "error",
-      "message": "The code provided is not  valid"
     }
   ]
 }
