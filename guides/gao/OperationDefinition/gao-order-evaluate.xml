@@ -8,7 +8,7 @@
   <status value="draft"/>
   <kind value="operation"/>
   <experimental value="false"/>
-  <description value="The evaluate operation examines an order, comparing it against known guidelines for appropriate use and returns the result of that evaluation to the caller."/><!-- 0..1 Natural language description of the operation -->
+  <description value="The evaluate operation examines an order, comparing it against known guidelines for appropriate use and returns the result of that evaluation to the caller."/>
   <requirements value="This operation enables clinical decision support to be invoked prior to ordering to ensure appropriate use of resources."/>
   <idempotent value="true"/>
   <code value="evaluate"/>

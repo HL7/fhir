@@ -1,24 +1,163 @@
 <!DOCTYPE HTML>
-
-
-      
-[%settitle Guideline Appropriate Ordering Implementation Guide%]
+<!-- [%settitle Guideline Appropriate Ordering Implementation Guide%] -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
+  <head>
 [%file newheader%]
-</head>
-<body>
-[%file newnavbar%]
-
-<div class="col-9">
-
-<a name="GAO"> </a> 
-<h2>Guideline Appropriate Ordering FHIR Implementation Guide (IG)</h2>
-<p>The Guideline Appropriate Ordering Implementationg Guide does a bunch of stuff, see <a href='gao-toc.html'>Table of Contents</a></p>
-  
-</div>
-
-[%file newfooter%]
-
-</body>
+  </head>
+  <body> 
+[%file newnavbar%] 
+    <div class="col-9">
+      <a name="GAO"> </a>
+      <h2>Guideline Appropriate Ordering FHIR Implementation Guide (IG)</h2>
+      <p>The Guideline Appropriate Ordering Implementationg Guide does a bunch of stuff, see <a
+          href="gao-toc.html">Table of Contents</a></p>
+      <p>The Guideline Appropriate Ordering Profile supplies a mechanism by which EHR and
+        departmental systems can evaluate orders to determine whether these orders conform to
+        guidelines. The profile enables the results of the evaluation to be stored and transmitted,
+        and the receiver of those results to verify that an order was evaluated with regard to
+        appropriateness.</p>
+      <p> Under a new US law<sup><a href="#fn1">1</a></sup>, starting in 2017, providers ordering
+        imaging procedures must use physician approved appropriateness guidelines to reduce
+        unnecessary imaging in patients for whom it is not appropriate. In order to be paid for
+        Medicare outpatient care, facilities and physicians who perform certain imaging procedures
+        (either the technical or the clinical component) have to be able to show that decision
+        support was used in the ordering process<sup><a href="#fn2">2</a></sup>. The European
+        Society of Cardiology and the European Association of Cardiovascular Imaging have also
+        identified a need for use of appropriateness criteria in cardiovascular imaging<sup><a
+            href="#fn3">3</a></sup>.</p>
+      <h3>Scope</h3>
+      <p>This implementation guide is intended to support the use cases where a Clinical Decision
+        Support is consulted during the processing of an order to ensure that the requested services
+        are appropriate according to clinical guidelines at the time of order entry. It does not
+        address orders proposed by a clinical decision support system because it is presumed that
+        the CDS system has already ensured that any proposed service is clinically appropriate.</p>
+      <p>The focus of this guide is on ensuring that clinical decision support can be integrated
+        into the ordering process. As far as this guide is concerned, the operation of CDS service
+        itself is a black box. This guide does not express which guides are selected for the
+        evaluation, how the evaluation is performed, or the formats used to express the guidance. </p>
+      <p>However, we are interested in ensuring that this implementation guide is compatible with
+        other mechanisms associated with clinical decision support, including <a
+          href="http://www.hl7.org/special/Committees/projman/searchableProjectIndex.cfm?action=edit&amp;ProjectNumber=1187"
+          >CDS on FHIR</a>. </p>
+      <h3>Overview</h3>
+      <p/>
+      <h3>Operations</h3>
+      <p>This guide defines the following operations.</p>
+      <table class="codes">
+        <tr><td><b>Operation</b></td><td><b>Description</b></td></tr>
+        <tr><td><a href="gao-order-evaluate.html">[base]/Order/$evaluate</a></td>
+          <td>The evaluate operation examines an order, comparing it against known guidelines for
+            appropriate use and returns the result of that evaluation to the caller. </td></tr>
+      </table>
+      <h3>Resource Profiles</h3>
+      <p>This guide defines the following profiles.</p>
+      <table class="codes">
+        <tr><td><b>Profile Name</b></td><td><b>Description</b></td></tr>
+        <tr><td><a href="gao-order.html">GAO Order</a></td><td>The Order resource references the
+            request being evaluated (for diagnostic tests, medications, procedures,
+          referrals).</td></tr>
+        <tr><td>&#xA0;<a href="gao-patient.html">GAO Patient</a></td><td>The patient resource is
+            required to provide relevant demographics associated with the patient. Other details may
+            be provided according to local implementation requirements. </td></tr>
+        <tr><td>&#xA0;<a href="gao-practitioner.html">GAO Practitioner</a></td><td>Profiles the
+            practioner resource to require an identifer.</td></tr>
+        <tr><td>&#xA0;<a href="gao-diagnosticorder.html">GAO Diagnostic Order</a></td><td>Profiles
+            the diagnostic order to ensure that the services ordered can be identified and evaluated
+            for appropriateness</td></tr>
+        <tr><td>&#xA0;<a href="gao-medicationorder.html">GAO Medication Order</a></td><td>Profiles
+            the medication order to ensure that the services ordered can be identified and evaluated
+            for appropriateness</td></tr>
+        <tr><td>&#xA0;<a href="gao-referralrequest.html">GAO Referral Request</a></td><td>Profiles
+            the referral to ensure that the services ordered can be identified and evaluated for
+            appropriateness</td></tr>
+        <tr><td>&#xA0;<a href="gao-procedurerequest.html">GAO Procedure Request</a></td><td>Profiles
+            the procedure request to ensure that the services ordered can be identified and
+            evaluated for appropraiteness</td></tr>
+        <tr><td><a href="gao-result.html">GAO result</a></td><td>The result resource provides the
+            result of the evaluation.</td></tr>
+        <tr><td>&#xA0;<a href="gao-provenance.html">GAO Provenance</a></td><td>The provenance
+            resource is profiled to support expression of the digital signature on a Result or
+            Alternate.</td></tr>
+        <tr><td><a href="gao-alternate.html">GAO Alternate</a></td><td>The alternate resource
+            provides the results of an evaluation for alternative treatements that may be suggested
+            by the decision support service.</td></tr>
+        <tr><td><a href="gao-questionnaire.html">GAO Questionnaire</a></td><td>The Questionnaire
+            resource is used to support an interactive question/answer implementation driven by the
+            client. This interaction may result in a more favorable evaluation of the proposed
+            order.</td></tr>
+        <tr><td><a href="gao-questionnaireresponse.html">GAO Questionnaireresponse</a></td><td>A
+            QuestionnaireAnswers resource is used to answer questions that have been asked in order
+            to determine the appropriateness of the order. A requester may pre-emptively provide
+            answers to questions for orders it suspects may be necessary.</td></tr>
+      </table>
+      <h3>Extensions</h3>
+      <p>The following extensions have been defined to support the return of the evaluation result.
+        These extensions are used within the <a href="gao-result.html">GAO Result</a> and <a
+          href="gao-alternate.html">GAO Alternate</a> profiles on the <a href="../basic.html"
+          >Basic</a> Resource. </p>
+      <table class="codes">
+        <tr>
+          <td><b>Extension</b></td><td><b>Definition</b></td>
+        </tr>
+        <tr>
+          <td><a href="extension-gao-extension-score.html">gao-extension-score</a></td>
+          <td>An optional value which can be used to record a score associated with the evaluation
+            process. The interpretation of this value may vary depending upon guidelines and
+            Decision Support Service actors used. It is present to enable quality improvement
+            efforts related to ordering.</td>
+        </tr>
+        <tr>
+          <td><a href="extension-gao-extension-period.html"/>gao-extension-period</td>
+          <td>Indicates the period over which the evaluation is valid.</td>
+        </tr>
+        <tr><td><a href="extension-gao-extension-practitioner.html"/>gao-extension-practitioner</td>
+          <td>An identifier representing the ordering practitioner.</td>
+        </tr>
+        <tr><td><a href="extension-gao-extension-item.html"/>gao-extension-item</td>
+          <td>Describes an orderable service being evaluated.</td>
+        </tr>
+        <tr><td><a href="extension-gao-extension-device.html"/>gao-extension-device</td>
+          <td>Identifies the device performing the evaluation of the order</td>
+        </tr>
+        <tr>
+          <td><a href="extension-gao-extension-guideline.html"/>gao-extension-guideline</td>
+          <td>References the guidelines or policies under which the evaluation was created</td>
+        </tr>
+        <tr>
+          <td><a href="extension-gao-extension-signature.html">gao-extension-signature</a></td>
+          <td>Enables a digital signature of the evaluation resource to be provided.</td>
+        </tr>
+      </table>
+      <h3>Value Sets and Terminologies</h3>
+      <table class="codes">
+        <tr><td><b>Name</b></td><td><b>Definition</b></td></tr>
+        <tr><td colspan="2" style="background: #DFDFDF"><b>Namespace:
+            </b>http://hl7.org/fhir/ValueSet</td></tr>
+        <tr><td><a href="valueset-gao-answer-format.html">gao-answer-format</a></td><td>Codes
+            indicating the types of questions allowed in a questionnaire for evaluation of orders
+            against guidelines.</td></tr>
+        <tr><td><a href="valueset-gao-evaluation-result-code.html"
+            >gao-evaluation-result-code</a></td><td>Codes indicating the appropriateness of an order
+            based upon established clinical guidelines.</td></tr>
+      </table>
+      <h3>References</h3>
+      <p><sup><a name="fn1">1</a></sup> H.R.4302. Protecting Access to Medicare Act of 2014.
+        03-JAN-15. Available on the web at <a
+          href="http://www.gpo.gov/fdsys/pkg/BILLS-113hr4302enr/pdf/BILLS-113hr4302enr.pdf"
+          >http://www.gpo.gov/fdsys/pkg/BILLS-113hr4302enr/pdf/BILLS-113hr4302enr.pdf</a>
+      </p>
+      <p><sup><a name="fn2">2</a></sup> Burhmal, R. New Law Mandates Use of Imaging Appropriateness
+        Criteria. RSNA. 01-JUN-14. Available on the web at <a
+          href="http://rsna.org/NewsDetail.aspx?id=12360"
+          >http://rsna.org/NewsDetail.aspx?id=12360</a>
+      </p>
+      <p><sup><a name="fn3">3</a></sup> Garbi, M et al. Appropriateness criteria for cardiovascular
+        imaging use in heart failure: report of literature review. European Heart Journal –
+        Cardiovascular Imaging (2015) 16, 147–153. 30-DEC-14. Available on the web at <a
+          href="http://www.escardio.org/communities/EACVI/publications/Documents/EHJCI-appropriateness-criteria-garbi.pdf"
+          >http://www.escardio.org/communities/EACVI/publications/Documents/EHJCI-appropriateness-criteria-garbi.pdf</a>
+      </p>
+  </div>
+  [%file newfooter%]
+  </body>
 </html>

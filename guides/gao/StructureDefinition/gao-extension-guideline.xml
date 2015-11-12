@@ -43,7 +43,7 @@
       <type>
         <code value="uri" />
       </type>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-score" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-extension-guideline" />
       <mapping>
         <identity value="rim" />
         <map value="N/A" />
