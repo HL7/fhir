@@ -140,28 +140,28 @@
   Context = Questionnaire.group
   English = Groups may either contain questions or groups but not both
   XPath = not(exists(f:group) and exists(f:question))
-  FHIRPath = group.empty() or question.empty()
+  Expression = group.empty() or question.empty()
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Questionnaire
   English = The link ids for groups and questions must be unique within the questionnaire
   XPath = count(descendant::f:linkId/@value)=count(distinct-values(descendant::f:linkId/@value))
-  FHIRPath = **.linkId.distinct()
+  Expression = **.linkId.distinct()
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = Questionnaire
   English = If root group must be \"required\"
   XPath = f:group/f:required/@value=true()
-  FHIRPath = group.required = true
+  Expression = group.required = true
 
  -- Row 4 -----------------------------------
   Id = 4
   Context = Questionnaire.group.question
   English = A question must use either option or options, not both
   XPath = not(f:options and f:option)
-  FHIRPath = option.empty() or options.empty()
+  Expression = option.empty() or options.empty()
 
 === Sheet Data Elements =====================================
 

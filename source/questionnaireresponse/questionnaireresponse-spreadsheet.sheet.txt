@@ -42,7 +42,7 @@
   Context = QuestionnaireResponse.group
   English = Groups may either contain questions or groups but not both
   XPath = not(exists(f:group) and exists(f:question))
-  FHIRPath = group.empty() xor question
+  Expression = group.empty() xor question
 
 === Sheet Data Elements =====================================
 
