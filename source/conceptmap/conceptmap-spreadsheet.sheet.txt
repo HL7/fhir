@@ -8,7 +8,7 @@
   Context = ConceptMap.element.target
   English = If the map is narrower or inexact, there SHALL be some comments
   XPath = exists(f:comments) or ((f:equivalence/@value != \'narrower\') and (f:equivalence/@value != \'inexact\'))
-  Expression = comments or ((equivalence != \'narrower\') and (equivalence != \'inexact\'))
+  FHIRPath = comments or ((equivalence != \'narrower\') and (equivalence != \'inexact\'))
 
 === Sheet Data Elements =====================================
 
