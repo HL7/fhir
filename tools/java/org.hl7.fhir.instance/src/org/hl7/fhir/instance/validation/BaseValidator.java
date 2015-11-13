@@ -233,6 +233,13 @@ public class BaseValidator {
     return thePass;
   }
 
+  static public boolean rule(List<ValidationMessage> errors, Source source, IssueType type, String path, boolean thePass, String msg) {
+    if (!thePass) {
+      errors.add(new ValidationMessage(source, type, -1, -1, path, msg, IssueSeverity.ERROR));
+    }
+    return thePass;
+  }
+
   /**
    * Test a rule and add a {@link IssueSeverity#ERROR} validation message if the validation fails
    * 

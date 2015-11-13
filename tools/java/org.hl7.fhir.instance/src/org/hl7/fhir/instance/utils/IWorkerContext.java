@@ -1,6 +1,7 @@
 package org.hl7.fhir.instance.utils;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.ParserType;
@@ -132,6 +133,10 @@ public interface IWorkerContext {
    */
   public <T extends Resource> boolean hasResource(Class<T> class_, String uri);
 
+  // -- profile services ---------------------------------------------------------
+  
+  public List<String> getResourceNames();
+  
   // -- Terminology services ------------------------------------------------------
 
   // these are the terminology services used internally by the tools

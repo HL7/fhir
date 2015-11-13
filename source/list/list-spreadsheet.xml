@@ -3910,7 +3910,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A list can only have an emptyReason if it is empty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">emptyReason.empty() or enty.empty()</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">emptyReason.empty() or entry.empty()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:emptyReason) and exists(f:entry))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

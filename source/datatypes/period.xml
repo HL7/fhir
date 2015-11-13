@@ -3565,7 +3565,7 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">If present, start SHALL have a lower value than end</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">start.empty() or end.empty() or (start.value &lt;= end.value)</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">start.empty() or end.empty() or (start &lt;= end)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:start)) or not(exists(f:end)) or (f:start/@value &lt;= f:end/@value)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

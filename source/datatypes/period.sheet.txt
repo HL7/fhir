@@ -8,7 +8,7 @@
   Context = Period
   English = If present, start SHALL have a lower value than end
   XPath = not(exists(f:start)) or not(exists(f:end)) or (f:start/@value <= f:end/@value)
-  FHIRPath = start.empty() or end.empty() or (start.value <= end.value)
+  Expression = start.empty() or end.empty() or (start <= end)
 
 === Sheet Data Elements =====================================
 

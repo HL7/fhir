@@ -2,7 +2,9 @@ package org.hl7.fhir.instance.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
@@ -30,17 +32,43 @@ public abstract class FHIRPathEvaluator {
 	 * @param name
 	 * @param result
 	 */
-	abstract protected void getChildrenByName(Base item, String name, List<Base> result);
+  abstract protected void getChildrenByName(Base item, String name, List<Base> result);
+  
+  /**
+   * This is called by the syntax check to find out what the possible child types 
+   * of this element would be. For anonymous element/backbone element, just return 
+   * #[path]
+   *
+   * throw an exception if the name is not valid - that's the point of this routine!
+   * 
+   * @param item
+   * @param name
+   * @param result
+   * @throws Exception 
+   */
+  abstract protected void getChildTypesByName(String type, String name, Set<String> result) throws Exception;
 	
 	/**
 	 * syntax check and determine if the paths referred to in the path are valid
+	 * 
+	 * xPathStartsWithValueRef is a hack work around for the fact that FHIR Path sometimes needs a different starting point than the xpath
 	 * 
 	 * @param context - the logical type against which this path is applied
 	 * @param path - the FHIR Path statement to check
 	 * @throws Exception if the path is not valid
 	 */
-  public Expression check(String context, String path) throws Exception {
-    return parse(path);
+  public Expression check(String resourceType, String context, String path, boolean xPathStartsWithValueRef) throws Exception {
+    Expression expr = parse(path);
+    if (!Utilities.noString(context)) {
+      Set<String> types = new HashSet<String>();
+      if (xPathStartsWithValueRef && context.contains(".") && path.startsWith(context.substring(context.lastIndexOf(".")+1)))
+        types.add(context.substring(0, context.lastIndexOf(".")));
+      else 
+        types.add(context);
+      types = executeType(resourceType, types, types, expr, true);
+//      System.out.println("the expression "+path+" in the context "+context+" results in "+types.toString());
+    }
+    return expr;
   }
 
   /**
@@ -169,7 +197,7 @@ public abstract class FHIRPathEvaluator {
 	}
 
 	public enum Operation {
-		Equals, NotEquals, LessThen, Greater, LessOrEqual, GreaterOrEqual, In, Plus, Minus, Divide, Multiply, Or, And, Xor, Collect;
+		Equals, NotEquals, LessThen, Greater, LessOrEqual, GreaterOrEqual, In, Plus, Minus, Or, And, Xor, Collect;
 
 		public static Operation fromCode(String name) {
 		  if (Utilities.noString(name))
@@ -192,10 +220,6 @@ public abstract class FHIRPathEvaluator {
 				return Operation.Plus;
 			if (name.equals("-"))
 				return Operation.Minus;
-			if (name.equals("/"))
-				return Operation.Divide;
-			if (name.equals("*"))
-				return Operation.Multiply;
       if (name.equals("or"))
         return Operation.Or;
       if (name.equals("and"))
@@ -215,8 +239,10 @@ public abstract class FHIRPathEvaluator {
 		private String constant;
 		private Function function;
 		private List<Expression> parameters; // will be created if there is a function
+    private Expression inner;
 		private Operation operation;
-		private Expression next;
+		private boolean proximal; // a proximal operation is the first in the sequence of operations. This is significant when evaluating the outcomes
+		private Expression opNext;
 
 		public String getName() {
 			return name;
@@ -239,17 +265,29 @@ public abstract class FHIRPathEvaluator {
 			  parameters = new ArrayList<Expression>();
 		}
 		
-		public Operation getOperation() {
+		public boolean isProximal() {
+      return proximal;
+    }
+    public void setProximal(boolean proximal) {
+      this.proximal = proximal;
+    }
+    public Operation getOperation() {
 			return operation;
 		}
 		public void setOperation(Operation operation) {
 			this.operation = operation;
 		}
-		public Expression getNext() {
-			return next;
-		}
-		public void setNext(Expression next) {
-			this.next = next;
+    public Expression getInner() {
+      return inner;
+    }
+    public void setInner(Expression value) {
+      this.inner = value;
+    }
+    public Expression getOpNext() {
+      return opNext;
+    }
+		public void setOpNext(Expression value) {
+			this.opNext = value;
 		}
 		public List<Expression> getParameters() {
 			return parameters;
@@ -415,7 +453,7 @@ public abstract class FHIRPathEvaluator {
 
 	}
 
-	private Expression parseExpression(Lexer lexer) throws Exception {
+	private Expression parseExpression(Lexer lexer, boolean proximal) throws Exception {
 	  Expression result = new Expression();
 	  int c = lexer.getCurrentStart();
 	  if (lexer.isConstant()) {
@@ -423,7 +461,7 @@ public abstract class FHIRPathEvaluator {
 	  } else {
 	    if ("(".equals(lexer.getCurrent())) {
 	      lexer.next();
-	      Expression group = parseExpression(lexer);
+	      Expression group = parseExpression(lexer, true);
 	      if (!")".equals(lexer.getCurrent())) 
 	        throw lexer.error("Found "+lexer.getCurrent()+" expecting a \")\"");
 	      lexer.next();
@@ -441,7 +479,7 @@ public abstract class FHIRPathEvaluator {
 	        result.setFunction(f);
 	        lexer.next();
 	        while (!")".equals(lexer.getCurrent())) { 
-	          result.getParameters().add(parseExpression(lexer));
+	          result.getParameters().add(parseExpression(lexer, true));
 	          if (",".equals(lexer.getCurrent()))
 	            lexer.next();
             else if (!")".equals(lexer.getCurrent()))
@@ -453,14 +491,18 @@ public abstract class FHIRPathEvaluator {
 	    }
 	    if (".".equals(lexer.current)) {
 	      lexer.next();
-	      result.setNext(parseExpression(lexer));
+	      result.setInner(parseExpression(lexer, false));
+	      assert(!result.getInner().isProximal());
 	    }
 	  }
-	  if (lexer.isOp()) {
-	    result.setOperation(Operation.fromCode(lexer.getCurrent()));
-	    lexer.next();
-	    result.setNext(parseExpression(lexer));
+	  if (proximal) {
+	    while (lexer.isOp()) {
+	      result.setOperation(Operation.fromCode(lexer.getCurrent()));
+	      lexer.next();
+  	    result.setOpNext(parseExpression(lexer, false));
+	    }
 	  }
+    result.setProximal(proximal);
 	  return result;
 	}
 
@@ -476,7 +518,7 @@ public abstract class FHIRPathEvaluator {
 		Lexer lexer = new Lexer(path);
 		if (lexer.done())
 			throw lexer.error("Path cannot be empty");
-		Expression result = parseExpression(lexer);
+		Expression result = parseExpression(lexer, true);
 		if (!lexer.done())
 			throw lexer.error("Premature expression termination at unexpected token \""+lexer.current+"\"");
 		return result;
@@ -540,15 +582,51 @@ public abstract class FHIRPathEvaluator {
 			for (Base item : context) 
 				work.addAll(execute(originalContext, item, exp, atEntry));
 			
-	
-		if (exp.getNext() == null)
+		if (exp.proximal && exp.getOperation() != null) {
+      Expression next = exp.getOpNext();
+      Expression last = exp;
+      while (next != null) {
+        List<Base> work2 = execute(originalContext, context, next, false);
+        work = operate(work, last.getOperation(), work2);
+        last = next;
+        next = next.getOpNext();
+      }
+      return work;
+    } else if (exp.getInner() == null)
 			return work;
-		else if (exp.getOperation() != null) {
-			List<Base> work2 = execute(originalContext, context, exp.next, false);
-      return operate(work, exp.getOperation(), work2);
-		} else
-			return execute(originalContext, work, exp.getNext(), false);
+		else 
+			return execute(originalContext, work, exp.getInner(), false);
 	}
+
+  private Set<String> executeType(String resourceType, Set<String> originalContext, Set<String> context, Expression exp, boolean atEntry) throws Exception {
+    Set<String> work = new HashSet<String>();
+    // functions are evaluated on the collection
+    if (exp.getFunction() != null) {
+      work.addAll(evaluateFunctionType(resourceType, originalContext, context, exp));
+    } else if (exp.getConstant() != null) 
+      work.add(readConstantType(exp.getConstant()));
+    else {
+      for (String s : context) 
+        work.addAll(executeType(resourceType, originalContext, s, exp, atEntry));
+      if (work.isEmpty()) 
+        throw new Exception("The name "+exp.getName()+" was not valid for any of the possible types: "+context.toString());
+    }
+  
+    if (exp.getInner() != null)
+      work = executeType(resourceType, originalContext, work, exp.getInner(), false);
+    
+    if (exp.proximal && exp.getOperation() != null) {
+      Expression next = exp.getOpNext();
+      Expression last = exp;
+      while (next != null) {
+        Set<String> work2 = executeType(resourceType, originalContext, context, next, false);
+        work = operateTypes(work, last.getOperation(), work2);
+        last = next;
+        next = next.getOpNext();
+      }
+    }
+    return work;
+  }
 
 	private List<Base> operate(List<Base> left, Operation operation, List<Base> right) {
 		switch (operation) {
@@ -561,14 +639,45 @@ public abstract class FHIRPathEvaluator {
 		case In: return opIn(left, right);
 		case Plus: return opPlus(left, right);
 		case Minus: return opMinus(left, right);
-		case Divide: return opDivide(left, right);
-		case Multiply: return opMultiply(left, right);
 		default: 
 			return null;
 		}
 	}
 
-	private List<Base> opEquals(List<Base> left, List<Base> right) {
+  private Set<String> operateTypes(Set<String> left, Operation operation, Set<String> right) {
+    switch (operation) {
+    case Equals: return typeSet("boolean");
+    case NotEquals: return typeSet("boolean");
+    case LessThen: return typeSet("boolean");
+    case Greater: return typeSet("boolean");
+    case LessOrEqual: return typeSet("boolean");
+    case GreaterOrEqual: return typeSet("boolean");
+    case In: return typeSet("boolean");
+    case Plus: return typeSet("string");
+    case Minus: return typeSet("string");
+    case Or: return typeSet("boolean");
+    case And: return typeSet("boolean");
+    case Xor: return typeSet("boolean");
+    case Collect: return union(left, right);
+    default: 
+      return null;
+    }
+  }
+
+	private Set<String> union(Set<String> left, Set<String> right) {
+	  Set<String> result = new HashSet<String>();
+    result.addAll(left);
+    result.addAll(right);
+    return result;
+  }
+
+  private Set<String> typeSet(String string) {
+	  Set<String> result = new HashSet<String>();
+	  result.add(string);
+    return result;
+  }
+
+  private List<Base> opEquals(List<Base> left, List<Base> right) {
 	  boolean found = false;
 	  String sr = convertToString(right);
 	  for (Base item : left) {
@@ -620,13 +729,6 @@ public abstract class FHIRPathEvaluator {
 	  throw new Error("The operation Minus is not done yet");
 	}
 
-	private List<Base> opDivide(List<Base> left, List<Base> right) {
-	  throw new Error("The operation Divide is not done yet");
-	}
-
-	private List<Base> opMultiply(List<Base> left, List<Base> right) {
-	  throw new Error("The operation Multiply is not done yet");
-	}
 
 	private Type readConstant(String constant) {
 		if (constant.equals("true")) 
@@ -641,41 +743,109 @@ public abstract class FHIRPathEvaluator {
 			return new StringType(constant);
 	}
 
-	private List<Base> execute(List<Base> originalContext, Base item, Expression exp, boolean atEntry) {
-		List<Base> result = new ArrayList<Base>(); 
+  private String readConstantType(String constant) {
+    if (constant.equals("true")) 
+      return "boolean";
+    else if (constant.equals("false")) 
+      return "boolean";
+    else if (Utilities.isInteger(constant))
+      return "integer";
+    else if (Utilities.isDecimal(constant))
+      return "decimal";
+    else
+      return "string";
+  }
+
+  private List<Base> execute(List<Base> originalContext, Base item, Expression exp, boolean atEntry) {
+    List<Base> result = new ArrayList<Base>(); 
    if (atEntry && Character.isUpperCase(exp.getName().charAt(0))) {// special case for start up
-	   if (item instanceof Resource && ((Resource) item).getResourceType().toString().equals(exp.getName()))  
-	     result.add(item);
-   } else if (exp.getName().equals("$"))
+     if (item instanceof Resource && ((Resource) item).getResourceType().toString().equals(exp.getName()))  
+       result.add(item);
+   } else if (exp.getName().equals("$context"))
      result.addAll(originalContext);
    else
-  	 getChildrenByName(item, exp.name, result);
+     getChildrenByName(item, exp.name, result);
    return result;
-	}
+  }
+
+  private Set<String> executeType(String resourceType, Set<String> originalContext, String type, Expression exp, boolean atEntry) throws Exception {
+    Set<String> result = new HashSet<String>(); 
+   if (atEntry && Character.isUpperCase(exp.getName().charAt(0))) {// special case for start up
+     if (type.equals(exp.getName()))  
+       result.add(type);
+   } else if (exp.getName().equals("$context"))
+     result.addAll(originalContext);
+   else if (exp.getName().equals("$resource")) {
+     if (resourceType != null)
+       result.add(resourceType);
+     else
+       result.add("DomainResource");
+   } else
+     getChildTypesByName(type, exp.name, result);
+   return result;
+  }
 
 	
-	private List<Base> evaluateFunction(List<Base> originalContext, List<Base> context, Expression exp) {
+	private Set<String> evaluateFunctionType(String resourceType, Set<String> originalContext, Set<String> context, Expression exp) throws Exception {
+	  for (Expression expr : exp.getParameters()) {
+	    executeType(resourceType, originalContext, context, expr, false);
+	  }
 		switch (exp.getFunction()) {
-		case Empty : return funcEmpty(originalContext, context, exp);
-		case Item : return funcItem(originalContext, context, exp);
-		case Where : return funcWhere(originalContext, context, exp);
-		case All : return funcAll(originalContext, context, exp);
-		case Any : return funcAny(originalContext, context, exp);
-		case First : return funcFirst(originalContext, context, exp);
-		case Last : return funcLast(originalContext, context, exp);
-		case Tail : return funcTail(originalContext, context, exp);
-		case Count : return funcCount(originalContext, context, exp);
-		case AsInteger : return funcAsInteger(originalContext, context, exp);
-		case StartsWith : return funcStartsWith(originalContext, context, exp);
-		case Length : return funcLength(originalContext, context, exp);
-		case Matches : return funcMatches(originalContext, context, exp);
-		case Contains : return funcContains(originalContext, context, exp);
-		case Substring : return funcSubString(originalContext, context, exp);
-    case Distinct : return funcDistinct(originalContext, context, exp);
-    case Not : return funcNot(originalContext, context, exp);
+		case Empty : return typeSet("boolean");
+		case Item : return context;
+		case Where : return context;
+		case All : return typeSet("boolean");
+		case Any : return typeSet("boolean");
+		case First : return context;
+		case Last : return context;
+		case Tail : return context;
+		case Count : return typeSet("integer");
+		case AsInteger : return typeSet("integer");
+		case StartsWith : return primitives(context);
+		case Length : return typeSet("integer");
+		case Matches : return primitives(context);
+		case Contains : return primitives(context);
+		case Substring : return typeSet("integer");
+    case Distinct : return typeSet("boolean");
+    case Not : return typeSet("boolean");
 		}
 		throw new Error("not Implemented yet");
 	}
+
+  private Set<String> primitives(Set<String> context) {
+    Set<String> result = new HashSet<String>();
+    for (String s : context)
+      if (isPrimitiveType(s))
+        result.add(s);
+    return result;
+  }
+
+  private boolean isPrimitiveType(String s) {
+    return s.equals("boolean") || s.equals("integer") || s.equals("decimal") || s.equals("base64Binary") || s.equals("instant") || s.equals("string") || s.equals("uri") || s.equals("date") || s.equals("dateTime") || s.equals("time") || s.equals("code") || s.equals("oid") || s.equals("id") || s.equals("unsignedInt") || s.equals("positiveInt") || s.equals("markdown");
+  }
+
+  private List<Base> evaluateFunction(List<Base> originalContext, List<Base> context, Expression exp) {
+    switch (exp.getFunction()) {
+    case Empty : return funcEmpty(originalContext, context, exp);
+    case Item : return funcItem(originalContext, context, exp);
+    case Where : return funcWhere(originalContext, context, exp);
+    case All : return funcAll(originalContext, context, exp);
+    case Any : return funcAny(originalContext, context, exp);
+    case First : return funcFirst(originalContext, context, exp);
+    case Last : return funcLast(originalContext, context, exp);
+    case Tail : return funcTail(originalContext, context, exp);
+    case Count : return funcCount(originalContext, context, exp);
+    case AsInteger : return funcAsInteger(originalContext, context, exp);
+    case StartsWith : return funcStartsWith(originalContext, context, exp);
+    case Length : return funcLength(originalContext, context, exp);
+    case Matches : return funcMatches(originalContext, context, exp);
+    case Contains : return funcContains(originalContext, context, exp);
+    case Substring : return funcSubString(originalContext, context, exp);
+    case Distinct : return funcDistinct(originalContext, context, exp);
+    case Not : return funcNot(originalContext, context, exp);
+    }
+    throw new Error("not Implemented yet");
+  }
 
 	private List<Base> funcDistinct(List<Base> originalContext, List<Base> context, Expression exp) {
 		List<Base> result = new ArrayList<Base>();

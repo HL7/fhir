@@ -90,15 +90,17 @@ public class ResourceValidator extends BaseValidator {
   private final Map<String, ValueSet> codeSystems;
   private SpellChecker speller;
   private int maxElementLength;
+  private List<FHIRPathUsage> fpUsages;
   
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
-	public ResourceValidator(Definitions definitions, Translations translations, Map<String, ValueSet> map, String srcFolder) throws IOException {
+	public ResourceValidator(Definitions definitions, Translations translations, Map<String, ValueSet> map, String srcFolder, List<FHIRPathUsage> fpUsages) throws IOException {
 		super();
 		source = Source.ResourceValidator;
 		this.definitions = definitions;
 		this.translations = translations;
 		this.codeSystems = map;
+		this.fpUsages = fpUsages;
 		speller = new SpellChecker(srcFolder, definitions);
 		int l = 0;
 		for (String n : definitions.getTypes().keySet())
@@ -239,14 +241,8 @@ public class ResourceValidator extends BaseValidator {
       if (rule(errors, IssueType.STRUCTURE, rd.getName(), !Utilities.noString(p.getDescription()), "Search Parameter description is empty (\""+p.getCode()+"\")"))
         rule(errors, IssueType.STRUCTURE, rd.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().startsWith("e.g. ") || p.getDescription().contains("|"), "Search Parameter descriptions should start with an uppercase character(\""+p.getDescription()+"\")");
       try {
-        for (String exp : p.getExpressions()) {
-          FHIRPathEvaluator fp = new BuildToolPathEvaluator();
-          try {
-            fp.check(null, exp);
-          } catch (Exception e) {
-            rule(errors, IssueType.STRUCTURE, rd.getName(), false, "Search Parameter "+p.getCode()+" has illegal path "+exp); 
-          }
-        }
+        for (String exp : p.getExpressions())
+          fpUsages.add(new FHIRPathUsage(rd.getName()+"::"+p.getCode(), rd.getName(), rd.getName(), p.getDescription(), exp));
         for (String path : p.getPaths()) {
           ElementDefn e;
           String pp = trimIndexes(path);

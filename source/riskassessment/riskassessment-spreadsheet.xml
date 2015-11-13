@@ -17,7 +17,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>12975</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -3915,7 +3915,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">RiskAssessment.prediction.probabilityDecimal</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Must be &lt;= 100</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">value &lt;= 100</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">probabilityDecimal &lt;= 100</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">@value &lt;= 100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4375,7 +4375,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12975</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>8400</WindowHeight>
+  <WindowWidth>13410</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -3806,7 +3806,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">if there's a period, there needs to be period units</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Period.empty() or periodUnits</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">period.empty() or periodUnits</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:period)) or exists(f:periodUnits)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -3828,7 +3828,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat.duration</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">duration SHALL be a non-negative value</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">duration &gt;= 0</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">duration.all(value &gt;= 0)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">duration &gt;= 0</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String" x:Ticked="1">@value &gt;= 0 or not(@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3839,7 +3839,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat.period</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">period SHALL be a non-negative value</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">period.all(value &gt;= 0)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">period &gt;= 0</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String" x:Ticked="1">@value &gt;= 0 or not(@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4318,7 +4318,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>

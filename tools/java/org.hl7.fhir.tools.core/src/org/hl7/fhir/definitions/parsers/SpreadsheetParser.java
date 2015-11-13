@@ -75,6 +75,7 @@ import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
+import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.W5Entry;
@@ -174,8 +175,9 @@ public class SpreadsheetParser {
   private TabDelimitedSpreadSheet tabfmt;
   private Map<String, ConstraintStructure> profileIds;
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
-  
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds) throws Exception {
+  private List<FHIRPathUsage> fpUsages;
+
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, name);	
@@ -200,6 +202,7 @@ public class SpreadsheetParser {
 		this.pkp = pkp;
 		this.ini = ini;
 		this.committee = committee;
+		this.fpUsages = fpUsages;
 		tabfmt = new TabDelimitedSpreadSheet();
 		tabfmt.setFileName(((CSFileInputStream) in).getPath(), Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".sheet.txt"));
 		this.profileIds = profileIds;
@@ -238,7 +241,7 @@ public class SpreadsheetParser {
 
 	public TypeDefn parseCompositeType() throws Exception {
 		isProfile = false;
-		return parseCommonTypeColumns().getRoot();
+		return parseCommonTypeColumns(false).getRoot();
 	}
 
 	private Sheet loadSheet(String name) {
@@ -256,7 +259,7 @@ public class SpreadsheetParser {
       return "inv";
   }
 	
-	private ResourceDefn parseCommonTypeColumns() throws Exception {
+	private ResourceDefn parseCommonTypeColumns(boolean isResource) throws Exception {
 		ResourceDefn resource = new ResourceDefn();
 		
 		Sheet sheet = loadSheet("Bindings");
@@ -294,8 +297,7 @@ public class SpreadsheetParser {
           if (Utilities.noString(inv.getExpression())) {
             throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no Expression statement (in FHIRPath format)");
           } else {
-            FHIRPathEvaluator fp = new BuildToolPathEvaluator();
-            fp.check(null, inv.getExpression());
+            fpUsages.add(new FHIRPathUsage(inv.getContext(), isResource ? resource.getName() : null, inv.getContext(), null, inv.getExpression(), inv.getXpath()));
           }
 		    }
 		  }
@@ -401,7 +403,7 @@ public class SpreadsheetParser {
 	
 	public ResourceDefn parseResource() throws Exception {
 	  isProfile = false;
-	  ResourceDefn root = parseCommonTypeColumns();
+	  ResourceDefn root = parseCommonTypeColumns(true);
 
 	  readInheritedMappings(root, loadSheet("Inherited Mappings"));
 	  readEvents(loadSheet("Events"));
@@ -2091,7 +2093,7 @@ public class SpreadsheetParser {
       row++;
     }
 	  
-    new ProfileGenerator(definitions, null, pkp, null, null, null).convertElements(exe, ex, null);
+    new ProfileGenerator(definitions, null, pkp, null, null, null, fpUsages).convertElements(exe, ex, null);
     StructureDefinition base = definitions != null ? definitions.getSnapShotForType("Extension") : this.context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();
     new ProfileUtilities(this.context).sortDifferential(base, ex, "extension "+ex.getUrl(), pkp, errors);

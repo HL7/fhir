@@ -17,12 +17,12 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>12975</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>694</TabRatio>
   <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4551,7 +4551,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Fixed value may only be specified if there is one type</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">fixed[x].empty() or (type.count = 1)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">fixed[x].empty() or (type.count() = 1)</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'fixed')])) or (count(f:type)=1)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4562,7 +4562,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pattern may only be specified if there is one type</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">pattern[x].empty() or (typecount = 1)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">pattern[x].empty() or (type.count() = 1)</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'pattern')])) or (count(f:type)=1)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4584,7 +4584,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition.binding</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">provide either a reference or a description (or both)</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">value[x] or description</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">valueSet[x] or description</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">(exists(f:valueSetUri) or exists(f:valueSetReference)) or exists(f:description)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -4606,7 +4606,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition.binding.valueSetUri</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">URI SHALL start with http:// or https://</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">value.startsWith('http:') or value.startsWith('https')</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">startsWith('http:') or startsWith('https')</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">starts-with(string(@value), 'http:') or starts-with(string(@value), 'https:')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -4639,7 +4639,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">default value and meaningWhenMissing are mutually exclusive</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">default[x].empty() or meaningWhenMissing.empty()</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">defaultValue[x].empty() or meaningWhenMissing.empty()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'fixed')])) or not(exists(f:meaningWhenMissing))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

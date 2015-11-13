@@ -57,6 +57,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.TypeParser;
+import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
@@ -125,6 +126,7 @@ public class ProfileGenerator {
 
   private BuildWorkerContext context;
   private Definitions definitions;
+  private List<FHIRPathUsage> fpUsages;
 
   // status
   // note that once we start slicing, the slices keep their own maps, but all share the master pathname list
@@ -140,7 +142,7 @@ public class ProfileGenerator {
     private Map<String, ElementDefinition> paths = new HashMap<String, ElementDefinition>();
   }
 
-  public ProfileGenerator(Definitions definitions, BuildWorkerContext context, ProfileKnowledgeProvider pkp, Calendar genDate, String version, Bundle dataElements) {
+  public ProfileGenerator(Definitions definitions, BuildWorkerContext context, ProfileKnowledgeProvider pkp, Calendar genDate, String version, Bundle dataElements, List<FHIRPathUsage> fpUsages) {
     super();
     this.definitions = definitions;
     this.context = context;
@@ -148,6 +150,7 @@ public class ProfileGenerator {
     this.genDate = genDate;
     this.version = version;
     this.dataElements = dataElements;
+    this.fpUsages = fpUsages;
     if (dataElements != null) {
       for (BundleEntryComponent be : dataElements.getEntry()) {
         if (be.getResource() instanceof DataElement)
@@ -528,8 +531,7 @@ public class ProfileGenerator {
     inv.setSeverity(ConstraintSeverity.ERROR);
     inv.setHuman(pt.getInvariant().getEnglish());
     if (!"n/a".equals(pt.getInvariant().getExpression())) {
-      BuildToolPathEvaluator fp = new BuildToolPathEvaluator();
-      fp.check(null, pt.getInvariant().getExpression());
+      fpUsages.add(new FHIRPathUsage(pt.getName(), pt.getName(), pt.getName(), null, pt.getInvariant().getExpression()));
       ToolingExtensions.addStringExtension(inv, ToolingExtensions.EXT_EXPRESSION, pt.getInvariant().getExpression());
     }
     inv.setXpath(pt.getInvariant().getXpath());

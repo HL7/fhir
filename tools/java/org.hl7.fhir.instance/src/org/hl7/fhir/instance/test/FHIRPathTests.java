@@ -3,24 +3,10 @@ package org.hl7.fhir.instance.test;
 import java.util.List;
 
 import org.hl7.fhir.instance.model.Base;
-import org.hl7.fhir.instance.test.FHIRPathTests.TestFHIRPathEvaluator;
+import org.hl7.fhir.instance.utils.BuildToolPathEvaluator;
 import org.hl7.fhir.instance.utils.FHIRPathEvaluator;
 
 public class FHIRPathTests {
-
-  public class TestFHIRPathEvaluator extends FHIRPathEvaluator {
-
-    @Override
-    protected void getChildrenByName(Base item, String name, List<Base> result) {
-      throw new Error("not done yet");
-    }
-
-  }
-
-  public static void main(String[] args) {
-    // TODO Auto-generated method stub
-
-  }
 
   public void testPaths() throws Exception {
     check("aggregation.empty() or (code = \"Reference\")");
@@ -33,7 +19,7 @@ public class FHIRPathTests {
   }
 
   private void check(String path) throws Exception {
-    new TestFHIRPathEvaluator().check(null, path);   
+    new BuildToolPathEvaluator(null).check(null, null, path, false);   
   }
   
 }

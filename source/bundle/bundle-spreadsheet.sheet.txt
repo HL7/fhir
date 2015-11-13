@@ -128,7 +128,7 @@
   Context = Bundle
   English = total only when a search or history
   XPath = not(f:total) or (f:type/@value = \'searchset\') or (f:type/@value = \'history\')
-  FHIRPath = total or (type = \' searchset\') or (type = \'history\')
+  Expression = total or (type = \' searchset\') or (type = \'history\')
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -136,7 +136,7 @@
   Context = Bundle
   English = entry.search only when a search
   XPath = not(f:entry/f:search) or (f:type/@value = \'searchset\')
-  FHIRPath = entry.search.empty() or (type = \'searchset\')
+  Expression = entry.search.empty() or (type = \'searchset\')
   Severity = error
 
  -- Row 3 -----------------------------------
@@ -144,7 +144,7 @@
   Context = Bundle
   English = entry.request only for some types of bundles
   XPath = not(f:entry/f:request) or (f:type/@value = \'batch\') or (f:type/@value = \'transaction\') or (f:type/@value = \'history\')
-  FHIRPath = entry.request.empty() or type = \'batch\' or type = \'transaction\' or type = \'history\'
+  Expression = entry.request.empty() or type = \'batch\' or type = \'transaction\' or type = \'history\'
   Severity = error
 
  -- Row 4 -----------------------------------
@@ -152,7 +152,7 @@
   Context = Bundle
   English = entry.response only for some types of bundles
   XPath = not(f:entry/f:response) or (f:type/@value = \'batch-response\') or (f:type/@value = \'transaction-response\')
-  FHIRPath = entry.response.empty() or type = \'batch-response\' or type = \'transaction-response\'
+  Expression = entry.response.empty() or type = \'batch-response\' or type = \'transaction-response\'
   Severity = error
 
  -- Row 5 -----------------------------------
@@ -160,7 +160,7 @@
   Context = Bundle.entry
   English = must be a resource unless there\'s a request or response
   XPath = f:resource or f:request or f:response
-  FHIRPath = resource or request or response
+  Expression = resource or request or response
   Severity = error
 
  -- Row 6 -----------------------------------
@@ -168,7 +168,7 @@
   Context = Bundle.entry
   English = The fullUrl element must be present when a resource is present, and not present otherwise
   XPath = (not(exists(f:fullUrl)) and not(exists(f:resource))) or (exists(f:fullUrl) and exists(f:resource))
-  FHIRPath = fullUrl.empty() xor resource
+  Expression = fullUrl.empty() xor resource
   Severity = error
 
  -- Row 7 -----------------------------------
@@ -176,7 +176,7 @@
   Context = Bundle
   English = FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId
   XPath = count(for $entry in f:entry[f:resource] return $entry[count(parent::f:Bundle/f:entry[f:fullUrl/@value=$entry/f:fullUrl/@value and ((not(f:resource/*/f:meta/f:versionId/@value) and not($entry/f:resource/*/f:meta/f:versionId/@value)) or f:resource/*/f:meta/f:versionId/@value=$entry/f:resource/*/f:meta/f:versionId/@value)])!=1])=0
-  FHIRPath = entry.fullURL.distinct(value,resource.meta.versionId)
+  Expression = entry.distinct(fullUrl,resource.meta.versionId)
   Severity = error
 
 === Sheet Data Elements =====================================

@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12975</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>16575</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
@@ -4449,7 +4449,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A value set with only one import SHALL also have an include and/or an exclude unless the value set includes and inline code system</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">compose.import.count != 1 or compose.include or copose.exclude or codeSystem</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">compose.import.count() != 1 or compose.include or compose.exclude or codeSystem</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude) or exists(f:codeSystem))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4489,7 +4489,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">A defined code system (if present) SHALL have a different url than the value set url</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">codeSystem.empty() or (codeSystem.url != url)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">codeSystem.empty() or (codeSystem.system != url)</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">not(f:codeSystem/f:system/@value = f:url/@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4917,7 +4917,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

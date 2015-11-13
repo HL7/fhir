@@ -438,77 +438,77 @@
   Context = Conformance
   English = A Conformance statement SHALL have at least one of REST, messaging or document
   XPath = exists(f:rest) or exists(f:messaging) or exists(f:document)
-  FHIRPath = rest or messaging or document
+  Expression = rest or messaging or document
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Conformance
   English = A Conformance statement SHALL have at least one of description, software, or implementation
   XPath = count(f:software | f:implementation | f:description) > 0
-  FHIRPath = description or software or implementation
+  Expression = description or software or implementation
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = Conformance
   English = Messaging end-point is required (and is only permitted) when statement is for an implementation
   XPath = not(exists(f:messaging/f:endpoint)) or f:kind/@value = \'instance\'
-  FHIRPath = messaging.endpoint.empty() or kind = \'instance\'
+  Expression = messaging.endpoint.empty() or kind = \'instance\'
 
  -- Row 4 -----------------------------------
   Id = 7
   Context = Conformance
   English = The set of documents must be unique by the combination of profile & mode
   XPath = count(f:document[f:mode/@value=\'producer\'])=count(distinct-values(f:document[f:mode/@value=\'producer\']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=\'consumer\'])=count(distinct-values(f:document[f:mode/@value=\'consumer\']/f:profile/f:reference/@value))
-  FHIRPath = document.distinct(profile,mode)
+  Expression = document.distinct(profile,mode)
 
  -- Row 5 -----------------------------------
   Id = 8
   Context = Conformance
   English = There can only be one REST declaration per mode
   XPath = count(f:rest)=count(distinct-values(f:rest/f:mode/@value))
-  FHIRPath = rest.distinct(mode)
+  Expression = rest.distinct(mode)
 
  -- Row 6 -----------------------------------
   Id = 9
   Context = Conformance.rest
   English = A given resource can only be described once per RESTful mode
   XPath = count(f:resource)=count(distinct-values(f:resource/f:type/@value))
-  FHIRPath = resource.distinct(type)
+  Expression = resource.distinct(type)
 
  -- Row 7 -----------------------------------
   Id = !10
   Context = Conformance.rest
   English = A given operation can only be described once per RESTful mode
   XPath = count(f:operation)=count(distinct-values(f:operation/f:name/@value))
-  FHIRPath = operation.distinct(name)
+  Expression = operation.distinct(name)
 
  -- Row 8 -----------------------------------
   Id = 12
   Context = Conformance.rest.resource
   English = Search parameter names must be unique in the context of a resource
   XPath = count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))
-  FHIRPath = searchParam.distinct(name)
+  Expression = searchParam.distinct(name)
 
  -- Row 9 -----------------------------------
   Id = 13
   Context = Conformance.rest.resource.searchParam
   English = Search parameters can only have chain names when the search parameter type is \'reference\'
   XPath = not(exists(f:chain)) or (f:type/@value = \'reference\')
-  FHIRPath = chain.empty() or type = \'reference\'
+  Expression = chain.empty() or type = \'reference\'
 
  -- Row 10 -----------------------------------
   Id = 14
   Context = Conformance
   English = Conformance statements of kind \'requirements\' do not have software or implementation elements
   XPath = not(exists(f:software) or exists(f:implementation)) or (f:kind/@value != \'requirements\')
-  FHIRPath = (software.empty() and implementation.empty()) or kind != \'requirements\'
+  Expression = (software.empty() and implementation.empty()) or kind != \'requirements\'
 
  -- Row 11 -----------------------------------
   Id = 15
   Context = Conformance
   English = Conformance statements of kind \'software\' do not have implementation elements
   XPath = not(exists(f:implementation)) or (f:kind/@value != \'capability\')
-  FHIRPath = implementation.empty() or kind != capability
+  Expression = implementation.empty() or kind != \'capability\'
 
 === Sheet Data Elements =====================================
 

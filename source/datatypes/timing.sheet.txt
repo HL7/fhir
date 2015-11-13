@@ -193,49 +193,49 @@
   Context = Timing.repeat
   English = if there\'s a duration, there needs to be duration units
   XPath = not(exists(f:duration)) or exists(f:durationUnits)
-  FHIRPath = duration.empty() or durationUnits
+  Expression = duration.empty() or durationUnits
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Timing.repeat
   English = if there\'s a period, there needs to be period units
   XPath = not(exists(f:period)) or exists(f:periodUnits)
-  FHIRPath = Period.empty() or periodUnits
+  Expression = period.empty() or periodUnits
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = Timing.repeat
   English = Either frequency or when can exist, not both
   XPath = not((f:period or f:frequency) and f:when)
-  FHIRPath = (period.empty() and frequency.empty()) xor when
+  Expression = (period.empty() and frequency.empty()) xor when
 
  -- Row 4 -----------------------------------
   Id = 4
   Context = Timing.repeat.duration
   English = duration SHALL be a non-negative value
   XPath = @value >= 0 or not(@value)
-  FHIRPath = duration.all(value >= 0)
+  Expression = duration >= 0
 
  -- Row 5 -----------------------------------
   Id = 5
   Context = Timing.repeat.period
   English = period SHALL be a non-negative value
   XPath = @value >= 0 or not(@value)
-  FHIRPath = period.all(value >= 0)
+  Expression = period >= 0
 
  -- Row 6 -----------------------------------
   Id = 6
   Context = Timing.repeat
   English = If there\'s a periodMax, there must be a period
   XPath = not(exists(f:periodMax)) or exists(f:period)
-  FHIRPath = periodMax.empty() or period
+  Expression = periodMax.empty() or period
 
  -- Row 7 -----------------------------------
   Id = 7
   Context = Timing.repeat
   English = If there\'s a durationMax, there must be a duration
   XPath = not(exists(f:durationMax)) or exists(f:duration)
-  FHIRPath = durationMax.empty() or duration
+  Expression = durationMax.empty() or duration
 
 === Sheet Data Elements =====================================
 

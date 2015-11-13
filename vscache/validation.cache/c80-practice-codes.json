@@ -2,7 +2,7 @@
   "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes",
   "outcomes": [
     {
-      "hash": "#|null|null|45|Physiotherapy",
+      "hash": "#|http://www.ihe.net/xds/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -12,7 +12,7 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://www.ihe.net/xds/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
+      "hash": "#|null|null|45|Physiotherapy",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -27,6 +27,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|null|null|52|General Discussion",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|394587001|Psychiatry",
       "severity": null,
       "message": null,
@@ -36,11 +41,6 @@
         "definition": null,
         "display": "Psychiatry"
       }
-    },
-    {
-      "hash": "#|null|null|52|General Discussion",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|394913002|Psychotherapy",

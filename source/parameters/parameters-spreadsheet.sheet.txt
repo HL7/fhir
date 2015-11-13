@@ -8,14 +8,14 @@
   Context = Parameters.parameter
   English = A parameter must have a value or a resource, but not both
   XPath = exists(f:value) or exists(f:resource) and not(exists(f:value) and exists(f:resource))
-  FHIRPath = value xor resource
+  Expression = value[x] xor resource
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Parameters.parameter.part
   English = A part must have a value or a resource, but not both
   XPath = exists(f:value) or exists(f:resource) and not(exists(f:value) and exists(f:resource))
-  FHIRPath = value xor resource
+  Expression = value[x] xor resource
 
 === Sheet Data Elements =====================================
 

@@ -4,9 +4,12 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -31,6 +34,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
@@ -237,6 +241,17 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	public void setCache(ValueSetExpansionCache cache) {
 	  this.expansionCache = cache;	
 	}
+
+  @Override
+  public List<String> getResourceNames() {
+    List<String> result = new ArrayList<String>();
+    for (StructureDefinition sd : structures.values()) {
+      if (sd.getKind() == StructureDefinitionKind.RESOURCE && !sd.hasConstrainedType())
+        result.add(sd.getName());
+    }
+    Collections.sort(result);
+    return result;
+  }
 
 
 
