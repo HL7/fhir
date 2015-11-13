@@ -1,6 +1,7 @@
 package org.hl7.fhir.instance.utils;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.ParserType;
@@ -33,7 +34,7 @@ import org.hl7.fhir.instance.validation.IResourceValidator;
  *    (typically, these terminology service requests are just
  *    passed through to the local implementation's terminology
  *    service)    
- * 
+ *  
  * @author Grahame
  */
 public interface IWorkerContext {
@@ -109,7 +110,7 @@ public interface IWorkerContext {
    *  - a full URL e.g. http://acme.org/fhir/ValueSet/[id]
    *  - a relative URL e.g. ValueSet/[id]
    *  - a logical id e.g. [id]
-   * 
+   *  
    * It's an error if the second form doesn't agree with class_. It's an 
    * error if class_ is null for the last form
    * 
@@ -132,10 +133,14 @@ public interface IWorkerContext {
    */
   public <T extends Resource> boolean hasResource(Class<T> class_, String uri);
 
+  // -- profile services ---------------------------------------------------------
+  
+  public List<String> getResourceNames();
+  
   // -- Terminology services ------------------------------------------------------
 
   // these are the terminology services used internally by the tools
-	/**
+  /**
    * Find a value set for the nominated system uri. 
    * return null if there isn't one (then the tool might try 
    * supportsSystem)
@@ -173,7 +178,7 @@ public interface IWorkerContext {
    * @return
    */
   public ValueSetExpansionOutcome expandVS(ValueSet source, boolean cacheOk);
-
+  
   /**
    * Value set expanion inside the internal expansion engine - used 
    * for references to supported system (see "supportsSystem") for
@@ -188,7 +193,7 @@ public interface IWorkerContext {
     private ConceptDefinitionComponent definition;
     private IssueSeverity severity;
     private String message;
-
+    
     public ValidationResult(IssueSeverity severity, String message) {
       this.severity = severity;
       this.message = message;
@@ -223,7 +228,6 @@ public interface IWorkerContext {
     public String getMessage() {
       return message;
     }
-
   }
 
   /**
@@ -273,7 +277,7 @@ public interface IWorkerContext {
    * @param display
    * @return
    */
-  public ValidationResult validateCode(String system, String code, String display, ConceptSetComponent vsi);  
-  
+  public ValidationResult validateCode(String system, String code, String display, ConceptSetComponent vsi);
+
 
 }

@@ -24,6 +24,7 @@ import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Condition;
+import org.hl7.fhir.instance.model.Condition.ConditionVerificationStatus;
 import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DocumentReference;
@@ -98,10 +99,10 @@ public class ArgonautConverter extends ConverterBase {
 	public static void main(String[] args) {
 		try {
 			ArgonautConverter c = new ArgonautConverter(new UcumEssenceService(UCUM_PATH), Utilities.path(SRC_PATH, "validation.xml.zip"));
-			c.destFolder = "C:\\work\\com.healthintersections.fhir\\argonaut\\output";
-			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_emergency", EncounterClass.EMERGENCY);
-			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\file_ed", EncounterClass.INPATIENT);
-			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\fileX", EncounterClass.AMBULATORY);
+			c.destFolder = "C:\\work\\com.healthintersections.fhir\\argonaut\\fhir";
+			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\cda\\file_emergency", EncounterClass.EMERGENCY);
+			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\cda\\file_ed", EncounterClass.INPATIENT);
+			c.convert("C:\\work\\com.healthintersections.fhir\\argonaut\\cda\\fileX", EncounterClass.AMBULATORY);
 			c.printSectionSummaries();
 			c.closeZips();
 			System.out.println("All done. "+Integer.toString(c.getErrors())+" errors, "+Integer.toString(c.getWarnings())+" warnings");
@@ -680,8 +681,15 @@ public class ArgonautConverter extends ConverterBase {
 	}
 
 	private void buildNarrative(DomainResource resource, Element child) {
-		if (!Utilities.noString(child.getTextContent()))
-			resource.setText(new Narrative().setStatus(NarrativeStatus.ADDITIONAL).setDiv(new XhtmlNode(NodeType.Text).setContent(child.getTextContent())));
+		if (!Utilities.noString(child.getTextContent())) {
+			XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
+			String s = child.getTextContent().trim();
+			if (Utilities.noString(s))
+			  div.addText("No Narrative provided in the source CDA document");
+			else
+			  div.addText(s);
+			resource.setText(new Narrative().setStatus(NarrativeStatus.ADDITIONAL).setDiv(div));
+		}
 	}
 
 	private void processProcedureSection(CDAUtilities cda, Convert convert, Element sect, Context context) throws DOMException, Exception {
@@ -782,6 +790,7 @@ public class ArgonautConverter extends ConverterBase {
 			i++;
 			cond.setPatient(context.subjectRef);
 			cond.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
+			cond.setVerificationStatus(getVerificationStatusFromAct(cda.getChild(pca, "statusCode")));
 
 			cond.setDateRecordedElement(convert.makeDateFromTS(cda.getChild(cda.getChild(pca, "effectiveTime"), "low")));
 
@@ -812,6 +821,13 @@ public class ArgonautConverter extends ConverterBase {
 			}
 		}
 		saveResource(list);
+	}
+
+	private ConditionVerificationStatus getVerificationStatusFromAct(Element child) {
+	  String s = child.getAttribute("code");
+	  if (!"active".equals(s))
+	  	System.out.println(s);
+	  return ConditionVerificationStatus.CONFIRMED;
 	}
 
 	private void processAllergiesSection(CDAUtilities cda, Convert convert, Element section, Context context) throws Exception {

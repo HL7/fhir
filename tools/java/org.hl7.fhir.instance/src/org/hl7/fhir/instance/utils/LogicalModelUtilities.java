@@ -6,7 +6,6 @@ import java.util.UUID;
 
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
 
 public class LogicalModelUtilities {
