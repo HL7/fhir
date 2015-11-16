@@ -324,7 +324,7 @@ item        = element "*"? | function | axis_spec
 axis_spec   = "*" | "**" | "$context" | "$parent" | "$resource"
 element     = ("a".."z" | "A".."Z") ("a".."z" | "A".."Z" | "0".."9")* "[x]"?
 function    = funcname "(" param_list? ")"
-param_list  = expr ("," expr)*
+param_list  = expression ("," expression)*
 funcname    = "empty" | "not" | "where" | "all" | "any" | "first" | "last" | "tail" | "count" | "asInteger" | "startsWith" | "length" | "matches" | "distinct" | "resolve" | "contains" | "substring" | "skip" | "take"
 op          = "*" | "/" | "+" | "-" | "|" | "&" | "=" | "~" | "!=" | "!~" | ">" | "<" | "<=" | ">=" | "in" | "and" | "or" | "xor" 
 number      = number as used in json
