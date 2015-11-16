@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -120,6 +120,20 @@ public class DetectedIssue extends DomainResource {
         if ("low".equals(codeString))
           return DetectedIssueSeverity.LOW;
         throw new IllegalArgumentException("Unknown DetectedIssueSeverity code '"+codeString+"'");
+        }
+        public Enumeration<DetectedIssueSeverity> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("high".equals(codeString))
+          return new Enumeration<DetectedIssueSeverity>(this, DetectedIssueSeverity.HIGH);
+        if ("moderate".equals(codeString))
+          return new Enumeration<DetectedIssueSeverity>(this, DetectedIssueSeverity.MODERATE);
+        if ("low".equals(codeString))
+          return new Enumeration<DetectedIssueSeverity>(this, DetectedIssueSeverity.LOW);
+        throw new Exception("Unknown DetectedIssueSeverity code '"+codeString+"'");
         }
     public String toCode(DetectedIssueSeverity code) {
       if (code == DetectedIssueSeverity.HIGH)
@@ -300,6 +314,35 @@ public class DetectedIssue extends DomainResource {
           childrenList.add(new Property("date", "dateTime", "Indicates when the mitigating action was documented.", 0, java.lang.Integer.MAX_VALUE, date));
           childrenList.add(new Property("author", "Reference(Practitioner)", "Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.", 0, java.lang.Integer.MAX_VALUE, author));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("action"))
+          this.action = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("author"))
+          this.author = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("action")) {
+          this.action = new CodeableConcept();
+          return this.action;
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type DetectedIssue.date");
+        }
+        else if (name.equals("author")) {
+          this.author = new Reference();
+          return this.author;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DetectedIssueMitigationComponent copy() {
         DetectedIssueMitigationComponent dst = new DetectedIssueMitigationComponent();
@@ -860,6 +903,72 @@ public class DetectedIssue extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Business identifier associated with the detected issue record.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("reference", "uri", "The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified.", 0, java.lang.Integer.MAX_VALUE, reference));
         childrenList.add(new Property("mitigation", "", "Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.", 0, java.lang.Integer.MAX_VALUE, mitigation));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("category"))
+          this.category = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("severity"))
+          this.severity = new DetectedIssueSeverityEnumFactory().fromType(value); // Enumeration<DetectedIssueSeverity>
+        else if (name.equals("implicated"))
+          this.getImplicated().add(castToReference(value));
+        else if (name.equals("detail"))
+          this.detail = castToString(value); // StringType
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("author"))
+          this.author = castToReference(value); // Reference
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("reference"))
+          this.reference = castToUri(value); // UriType
+        else if (name.equals("mitigation"))
+          this.getMitigation().add((DetectedIssueMitigationComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
+        }
+        else if (name.equals("severity")) {
+          throw new Exception("Cannot call addChild on a primitive type DetectedIssue.severity");
+        }
+        else if (name.equals("implicated")) {
+          return addImplicated();
+        }
+        else if (name.equals("detail")) {
+          throw new Exception("Cannot call addChild on a primitive type DetectedIssue.detail");
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type DetectedIssue.date");
+        }
+        else if (name.equals("author")) {
+          this.author = new Reference();
+          return this.author;
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("reference")) {
+          throw new Exception("Cannot call addChild on a primitive type DetectedIssue.reference");
+        }
+        else if (name.equals("mitigation")) {
+          return addMitigation();
+        }
+        else
+          return super.addChild(name);
       }
 
       public DetectedIssue copy() {

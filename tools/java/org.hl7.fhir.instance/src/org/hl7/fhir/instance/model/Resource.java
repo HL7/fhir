@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -259,6 +259,39 @@ public abstract class Resource extends BaseResource implements IAnyResource {
         childrenList.add(new Property("meta", "Meta", "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.", 0, java.lang.Integer.MAX_VALUE, meta));
         childrenList.add(new Property("implicitRules", "uri", "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.", 0, java.lang.Integer.MAX_VALUE, implicitRules));
         childrenList.add(new Property("language", "code", "The base language in which the resource is written.", 0, java.lang.Integer.MAX_VALUE, language));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("id"))
+          this.id = castToId(value); // IdType
+        else if (name.equals("meta"))
+          this.meta = castToMeta(value); // Meta
+        else if (name.equals("implicitRules"))
+          this.implicitRules = castToUri(value); // UriType
+        else if (name.equals("language"))
+          this.language = castToCode(value); // CodeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("id")) {
+          throw new Exception("Cannot call addChild on a primitive type Resource.id");
+        }
+        else if (name.equals("meta")) {
+          this.meta = new Meta();
+          return this.meta;
+        }
+        else if (name.equals("implicitRules")) {
+          throw new Exception("Cannot call addChild on a primitive type Resource.implicitRules");
+        }
+        else if (name.equals("language")) {
+          throw new Exception("Cannot call addChild on a primitive type Resource.language");
+        }
+        else
+          return super.addChild(name);
       }
 
       public abstract Resource copy();

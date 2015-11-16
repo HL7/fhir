@@ -279,5 +279,13 @@ public interface IWorkerContext {
    */
   public ValidationResult validateCode(String system, String code, String display, ConceptSetComponent vsi);
 
+  /**
+   * returns the recommended tla for the type 
+   * 
+   * @param name
+   * @return
+   */
+  public String getAbbreviation(String name);
+
 
 }

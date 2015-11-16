@@ -44,9 +44,6 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.instance.model.Extension;
-import org.hl7.fhir.instance.model.api.IBaseConformance;
-import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -245,6 +242,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			generateTypeSpecificAccessors(name, clss);
 			
 			generateChildrenRegister(root, "    ", isAbstract);
+      generatePropertySetter(root, "    ");
+      generateChildAdder(root, "    ", classname);
 		} else {
       write("    private static final long serialVersionUID = "+inheritedHash+"L;\r\n\r\n");
 		}
@@ -421,6 +420,136 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      write(indent+"    childrenList.add(new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, java.lang.Integer.MAX_VALUE, "+getElementName(e.getName(), true)+"));\r\n");    
 	  }
 	  write(indent+"  }\r\n\r\n");  
+  }
+
+  private void generatePropertySetter(ElementDefn p, String indent) throws Exception {
+    write(indent+"  @Override\r\n");
+    write(indent+"  public void setProperty(String name, Base value) throws Exception {\r\n");
+    boolean first = true;
+    for (ElementDefn e : p.getElements()) {
+      String tn = typeNames.get(e);
+      if (!e.typeCode().equals("xhtml")) {
+        if (first) 
+          write(indent+"    ");
+        else
+          write(indent+"    else ");
+        first = false;
+        write(           "if (name.equals(\""+e.getName()+"\"))\r\n");
+        String name = e.getName().replace("[x]", "");
+        String cn = "("+tn+") value";
+        if (tn.contains("Enumeration<")) { // enumeration
+          cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
+        } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
+          cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
+        }
+        if (e.unbounded()) {
+          write(indent+"      this.get"+upFirst(name)+"().add("+cn+");\r\n");
+        } else {
+          write(indent+"      this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
+        }
+      }
+    }
+    if (!first)
+      write(indent+"    else\r\n");
+    write(indent+"      super.setProperty(name, value);\r\n");
+    write(indent+"  }\r\n\r\n");  
+  }
+
+  private void generateChildAdder(ElementDefn p, String indent, String parent) throws Exception {
+    write(indent+"  @Override\r\n");
+    write(indent+"  public Base addChild(String name) throws Exception {\r\n");
+    boolean first = true;
+    for (ElementDefn e : p.getElements()) {
+      if (!e.typeCode().equals("xhtml")) { 
+      if (e.getTypes().size() <= 1 && !e.typeCode().equals("*")) {
+        String tn = typeNames.get(e);
+        String name = e.getName();
+        String namet = e.getName();
+        first = generateChildAddItem(indent, parent, first, e, tn, name, namet);
+      } else {
+        for (TypeRef t : getTypes(e.getTypes())) {
+          String tn = getTypename(t);
+          String name = e.getName().replace("[x]", "");
+          String namet = e.getName().replace("[x]", upFirst(t.getName()));
+          first = generateChildAddItem(indent, parent, first, e, tn, name, namet);
+        }
+      }
+      }
+    }
+    if (!first)
+      write(indent+"    else\r\n");
+    write(indent+"      return super.addChild(name);\r\n");
+    write(indent+"  }\r\n\r\n");  
+  }
+
+  private boolean generateChildAddItem(String indent, String parent, boolean first, ElementDefn e, String tn, String name, String namet) throws IOException {
+    if (first) 
+      write(indent+"    ");
+    else
+      write(indent+"    else ");
+    first = false;
+    write(           "if (name.equals(\""+namet+"\")) {\r\n");
+    if (isPrimitive(e.typeCode()))
+      write(indent+"      throw new Exception(\"Cannot call addChild on a primitive type "+parent+"."+e.getName()+"\");\r\n"); 
+    else if (isAbstract(e.typeCode()))
+      write(indent+"      throw new Exception(\"Cannot call addChild on an abstract type "+parent+"."+e.getName()+"\");\r\n"); 
+    else if (e.unbounded()) {
+      write(indent+"      return add"+upFirst(name)+"();\r\n");
+    } else {
+      write(indent+"      this."+getElementName(name, true)+" = new "+tn+"();\r\n");
+      write(indent+"      return this."+getElementName(name, true)+";\r\n");
+    }
+    write(indent+"    }\r\n");
+    return first;
+  }
+
+  private List<TypeRef> getTypes(List<TypeRef> types) {
+    if (types.size() == 1 && types.get(0).getName().equals("*")) {
+      List<TypeRef> t = new ArrayList<TypeRef>();
+      t.add(new TypeRef("boolean"));
+      t.add(new TypeRef("integer"));
+      t.add(new TypeRef("decimal"));
+      t.add(new TypeRef("base64Binary"));
+      t.add(new TypeRef("instant"));
+      t.add(new TypeRef("string"));
+      t.add(new TypeRef("uri"));
+      t.add(new TypeRef("date"));
+      t.add(new TypeRef("dateTime"));
+      t.add(new TypeRef("time"));
+      t.add(new TypeRef("code"));
+      t.add(new TypeRef("oid"));
+      t.add(new TypeRef("id"));
+      t.add(new TypeRef("unsignedInt"));
+      t.add(new TypeRef("positiveInt"));
+      t.add(new TypeRef("markdown"));
+      t.add(new TypeRef("Annotation"));
+      t.add(new TypeRef("Attachment"));
+      t.add(new TypeRef("Identifier"));
+      t.add(new TypeRef("CodeableConcept"));
+      t.add(new TypeRef("Coding"));
+      t.add(new TypeRef("Quantity"));
+      t.add(new TypeRef("Range"));
+      t.add(new TypeRef("Period"));
+      t.add(new TypeRef("Ratio"));
+      t.add(new TypeRef("SampledData"));
+      t.add(new TypeRef("Signature"));
+      t.add(new TypeRef("HumanName"));
+      t.add(new TypeRef("Address"));
+      t.add(new TypeRef("ContactPoint"));
+      t.add(new TypeRef("Timing"));
+      t.add(new TypeRef("Reference"));
+      t.add(new TypeRef("Meta"));
+      return t;
+    }
+    else
+      return types;
+  }
+
+  private boolean isAbstract(String typeCode) {
+    if (typeCode.equals("Resource"))
+      return true;
+    else
+      return false;
   }
 
   private void generateConstructor(String className, List<ElementDefn> params, String indent) throws IOException {
@@ -621,6 +750,21 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     }   
     write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
+    write("        public Enumeration<"+tns+"> fromType(Base code) throws Exception {\r\n");
+    write("          if (code == null || code.isEmpty())\r\n");
+    write("            return null;\r\n");
+    write("          String codeString = ((PrimitiveType) code).asStringValue();\r\n");
+    write("          if (codeString == null || \"\".equals(codeString))\r\n");
+    write("            return null;\r\n");
+    for (DefinedCode c : codes) {
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
+      write("          return new Enumeration<"+tns+">(this, "+tns+"."+cc+");\r\n");
+    }   
+    write("        throw new Exception(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
+    write("        }\r\n"); 
+
     write("    public String toCode("+tns+" code) {\r\n");
     for (DefinedCode c : codes) {
       String cc = Utilities.camelCase(c.getCode());
@@ -664,6 +808,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			generateAccessors(e, c, "        ", tn);
 		}
     generateChildrenRegister(e, "      ", false);
+    generatePropertySetter(e, "    ");
+    generateChildAdder(e, "    ", classname);
     generateCopy(e, tn, true, false);
     generateEquals(e, tn, true, false);
     generateIsEmpty(e, tn, true, false);

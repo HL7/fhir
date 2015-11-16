@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -166,6 +166,28 @@ public class ConceptMap extends DomainResource {
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the concept map.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.name");
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConceptMapContactComponent copy() {
         ConceptMapContactComponent dst = new ConceptMapContactComponent();
@@ -382,6 +404,33 @@ public class ConceptMap extends DomainResource {
           childrenList.add(new Property("code", "code", "Identity (code or path) or the element/item being mapped.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("target", "", "A concept from the target value set that this concept maps to.", 0, java.lang.Integer.MAX_VALUE, target));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("codeSystem"))
+          this.codeSystem = castToUri(value); // UriType
+        else if (name.equals("code"))
+          this.code = castToCode(value); // CodeType
+        else if (name.equals("target"))
+          this.getTarget().add((TargetElementComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("codeSystem")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.codeSystem");
+        }
+        else if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.code");
+        }
+        else if (name.equals("target")) {
+          return addTarget();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SourceElementComponent copy() {
         SourceElementComponent dst = new SourceElementComponent();
@@ -767,6 +816,48 @@ public class ConceptMap extends DomainResource {
           childrenList.add(new Property("product", "@ConceptMap.element.target.dependsOn", "A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.", 0, java.lang.Integer.MAX_VALUE, product));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("codeSystem"))
+          this.codeSystem = castToUri(value); // UriType
+        else if (name.equals("code"))
+          this.code = castToCode(value); // CodeType
+        else if (name.equals("equivalence"))
+          this.equivalence = new ConceptMapEquivalenceEnumFactory().fromType(value); // Enumeration<ConceptMapEquivalence>
+        else if (name.equals("comments"))
+          this.comments = castToString(value); // StringType
+        else if (name.equals("dependsOn"))
+          this.getDependsOn().add((OtherElementComponent) value);
+        else if (name.equals("product"))
+          this.getProduct().add((OtherElementComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("codeSystem")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.codeSystem");
+        }
+        else if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.code");
+        }
+        else if (name.equals("equivalence")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.equivalence");
+        }
+        else if (name.equals("comments")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.comments");
+        }
+        else if (name.equals("dependsOn")) {
+          return addDependsOn();
+        }
+        else if (name.equals("product")) {
+          return addProduct();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public TargetElementComponent copy() {
         TargetElementComponent dst = new TargetElementComponent();
         copyValues(dst);
@@ -1001,6 +1092,33 @@ public class ConceptMap extends DomainResource {
           childrenList.add(new Property("codeSystem", "uri", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
           childrenList.add(new Property("code", "string", "Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.", 0, java.lang.Integer.MAX_VALUE, code));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("element"))
+          this.element = castToUri(value); // UriType
+        else if (name.equals("codeSystem"))
+          this.codeSystem = castToUri(value); // UriType
+        else if (name.equals("code"))
+          this.code = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("element")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.element");
+        }
+        else if (name.equals("codeSystem")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.codeSystem");
+        }
+        else if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.code");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public OtherElementComponent copy() {
         OtherElementComponent dst = new OtherElementComponent();
@@ -1905,6 +2023,109 @@ public class ConceptMap extends DomainResource {
         childrenList.add(new Property("source[x]", "uri|Reference(ValueSet|StructureDefinition)", "The source value set that specifies the concepts that are being mapped.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("target[x]", "uri|Reference(ValueSet|StructureDefinition)", "The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("element", "", "Mappings for an individual concept in the source to one or more concepts in the target.", 0, java.lang.Integer.MAX_VALUE, element));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("status"))
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        else if (name.equals("experimental"))
+          this.experimental = castToBoolean(value); // BooleanType
+        else if (name.equals("publisher"))
+          this.publisher = castToString(value); // StringType
+        else if (name.equals("contact"))
+          this.getContact().add((ConceptMapContactComponent) value);
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("useContext"))
+          this.getUseContext().add(castToCodeableConcept(value));
+        else if (name.equals("requirements"))
+          this.requirements = castToString(value); // StringType
+        else if (name.equals("copyright"))
+          this.copyright = castToString(value); // StringType
+        else if (name.equals("source[x]"))
+          this.source = (Type) value; // Type
+        else if (name.equals("target[x]"))
+          this.target = (Type) value; // Type
+        else if (name.equals("element"))
+          this.getElement().add((SourceElementComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.url");
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.version");
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.name");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.status");
+        }
+        else if (name.equals("experimental")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.experimental");
+        }
+        else if (name.equals("publisher")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.publisher");
+        }
+        else if (name.equals("contact")) {
+          return addContact();
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.date");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.description");
+        }
+        else if (name.equals("useContext")) {
+          return addUseContext();
+        }
+        else if (name.equals("requirements")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.requirements");
+        }
+        else if (name.equals("copyright")) {
+          throw new Exception("Cannot call addChild on a primitive type ConceptMap.copyright");
+        }
+        else if (name.equals("sourceUri")) {
+          this.source = new UriType();
+          return this.source;
+        }
+        else if (name.equals("sourceReference")) {
+          this.source = new Reference();
+          return this.source;
+        }
+        else if (name.equals("targetUri")) {
+          this.target = new UriType();
+          return this.target;
+        }
+        else if (name.equals("targetReference")) {
+          this.target = new Reference();
+          return this.target;
+        }
+        else if (name.equals("element")) {
+          return addElement();
+        }
+        else
+          return super.addChild(name);
       }
 
       public ConceptMap copy() {

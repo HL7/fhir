@@ -1246,7 +1246,7 @@ public class ArgonautConverter extends ConverterBase {
 			imm.setPatient(context.subjectRef);
 			imm.setEncounter(new Reference().setReference("Encounter/"+context.encounter.getId()));
 			imm.setWasNotGiven("true".equals(sa.getAttribute("negationInd")));
-
+      imm.setStatus(convertImmunizationStatus(cda.getChild(sa, "statusCode")));
 			boolean found = false;
 			for (Element e : cda.getChildren(sa, "id")) {
 				Identifier id = convert.makeIdentifierFromII(e);
@@ -1287,6 +1287,13 @@ public class ArgonautConverter extends ConverterBase {
 			}
 		}
 		saveResource(list);
+	}
+
+	private String convertImmunizationStatus(Element child) {
+		String s = child.getAttribute("code");
+		if (s.equals("completed"))
+  		return "completed"; 
+		throw new Error("Unexpected status "+s); 
 	}
 
 	private void makeBinary(String sourceFolder, String filename, Context context) throws Exception {

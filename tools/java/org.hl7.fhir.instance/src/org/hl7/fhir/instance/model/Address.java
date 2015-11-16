@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class Address extends Type implements ICompositeType {
           return AddressUse.OLD;
         throw new IllegalArgumentException("Unknown AddressUse code '"+codeString+"'");
         }
+        public Enumeration<AddressUse> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("home".equals(codeString))
+          return new Enumeration<AddressUse>(this, AddressUse.HOME);
+        if ("work".equals(codeString))
+          return new Enumeration<AddressUse>(this, AddressUse.WORK);
+        if ("temp".equals(codeString))
+          return new Enumeration<AddressUse>(this, AddressUse.TEMP);
+        if ("old".equals(codeString))
+          return new Enumeration<AddressUse>(this, AddressUse.OLD);
+        throw new Exception("Unknown AddressUse code '"+codeString+"'");
+        }
     public String toCode(AddressUse code) {
       if (code == AddressUse.HOME)
         return "home";
@@ -219,6 +235,20 @@ public class Address extends Type implements ICompositeType {
         if ("both".equals(codeString))
           return AddressType.BOTH;
         throw new IllegalArgumentException("Unknown AddressType code '"+codeString+"'");
+        }
+        public Enumeration<AddressType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("postal".equals(codeString))
+          return new Enumeration<AddressType>(this, AddressType.POSTAL);
+        if ("physical".equals(codeString))
+          return new Enumeration<AddressType>(this, AddressType.PHYSICAL);
+        if ("both".equals(codeString))
+          return new Enumeration<AddressType>(this, AddressType.BOTH);
+        throw new Exception("Unknown AddressType code '"+codeString+"'");
         }
     public String toCode(AddressType code) {
       if (code == AddressType.POSTAL)
@@ -792,6 +822,69 @@ public class Address extends Type implements ICompositeType {
         childrenList.add(new Property("postalCode", "string", "A postal code designating a region defined by the postal service.", 0, java.lang.Integer.MAX_VALUE, postalCode));
         childrenList.add(new Property("country", "string", "Country - a nation as commonly understood or generally accepted.", 0, java.lang.Integer.MAX_VALUE, country));
         childrenList.add(new Property("period", "Period", "Time period when address was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("use"))
+          this.use = new AddressUseEnumFactory().fromType(value); // Enumeration<AddressUse>
+        else if (name.equals("type"))
+          this.type = new AddressTypeEnumFactory().fromType(value); // Enumeration<AddressType>
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else if (name.equals("line"))
+          this.getLine().add(castToString(value));
+        else if (name.equals("city"))
+          this.city = castToString(value); // StringType
+        else if (name.equals("district"))
+          this.district = castToString(value); // StringType
+        else if (name.equals("state"))
+          this.state = castToString(value); // StringType
+        else if (name.equals("postalCode"))
+          this.postalCode = castToString(value); // StringType
+        else if (name.equals("country"))
+          this.country = castToString(value); // StringType
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("use")) {
+          throw new Exception("Cannot call addChild on a primitive type Address.use");
+        }
+        else if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type Address.type");
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type Address.text");
+        }
+        else if (name.equals("line")) {
+          throw new Exception("Cannot call addChild on a primitive type Address.line");
+        }
+        else if (name.equals("city")) {
+          throw new Exception("Cannot call addChild on a primitive type Address.city");
+        }
+        else if (name.equals("district")) {
+          throw new Exception("Cannot call addChild on a primitive type Address.district");
+        }
+        else if (name.equals("state")) {
+          throw new Exception("Cannot call addChild on a primitive type Address.state");
+        }
+        else if (name.equals("postalCode")) {
+          throw new Exception("Cannot call addChild on a primitive type Address.postalCode");
+        }
+        else if (name.equals("country")) {
+          throw new Exception("Cannot call addChild on a primitive type Address.country");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
       }
 
       public Address copy() {

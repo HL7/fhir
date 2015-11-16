@@ -114,7 +114,7 @@ public class Factory {
   }
 
 	public static Extension newExtension(String uri, Type value, boolean evenIfNull) throws Exception {
-		if (!evenIfNull && value == null)
+		if (!evenIfNull && (value == null || value.isEmpty()))
 			return null;
 		Extension e = new Extension();
 		e.setUrl(uri);
@@ -172,4 +172,74 @@ public static Coding makeCoding(String code) throws Exception {
     return "urn:uuid:"+UUID.randomUUID().toString().toLowerCase();
   }
 
+  public Type create(String name) throws Exception {
+    if (name.equals("boolean"))
+      return new BooleanType();
+    else if (name.equals("integer"))
+      return new IntegerType();
+    else if (name.equals("decimal"))
+      return new DecimalType();
+    else if (name.equals("base64Binary"))
+      return new Base64BinaryType();
+    else if (name.equals("instant"))
+      return new InstantType();
+    else if (name.equals("string"))
+      return new StringType();
+    else if (name.equals("uri"))
+      return new UriType();
+    else if (name.equals("date"))
+      return new DateType();
+    else if (name.equals("dateTime"))
+      return new DateTimeType();
+    else if (name.equals("time"))
+      return new TimeType();
+    else if (name.equals("code"))
+      return new CodeType();
+    else if (name.equals("oid"))
+      return new OidType();
+    else if (name.equals("id"))
+      return new IdType();
+    else if (name.equals("unsignedInt"))
+      return new UnsignedIntType();
+    else if (name.equals("positiveInt"))
+      return new PositiveIntType();
+    else if (name.equals("markdown"))
+      return new MarkdownType();
+    else if (name.equals("Annotation"))
+      return new Annotation();
+    else if (name.equals("Attachment"))
+      return new Attachment();
+    else if (name.equals("Identifier"))
+      return new Identifier();
+    else if (name.equals("CodeableConcept"))
+      return new CodeableConcept();
+    else if (name.equals("Coding"))
+      return new Coding();
+    else if (name.equals("Quantity"))
+      return new Quantity();
+    else if (name.equals("Range"))
+      return new Range();
+    else if (name.equals("Period"))
+      return new Period();
+    else if (name.equals("Ratio"))
+      return new Ratio();
+    else if (name.equals("SampledData"))
+      return new SampledData();
+    else if (name.equals("Signature"))
+      return new Signature();
+    else if (name.equals("HumanName"))
+      return new HumanName();
+    else if (name.equals("Address"))
+      return new Address();
+    else if (name.equals("ContactPoint"))
+      return new ContactPoint();
+    else if (name.equals("Timing"))
+      return new Timing();
+    else if (name.equals("Reference"))
+      return new Reference();
+    else if (name.equals("Meta"))
+      return new Meta();
+    else
+      throw new Exception("Unknown data type name "+name);
+  }
 }

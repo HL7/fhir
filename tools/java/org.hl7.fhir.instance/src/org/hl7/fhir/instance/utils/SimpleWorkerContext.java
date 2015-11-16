@@ -253,6 +253,11 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     return result;
   }
 
+  @Override
+  public String getAbbreviation(String name) {
+    return "xxx";
+  }
+
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -157,6 +157,26 @@ public class Condition extends DomainResource {
           return ConditionVerificationStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown ConditionVerificationStatus code '"+codeString+"'");
         }
+        public Enumeration<ConditionVerificationStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("provisional".equals(codeString))
+          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.PROVISIONAL);
+        if ("differential".equals(codeString))
+          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.DIFFERENTIAL);
+        if ("confirmed".equals(codeString))
+          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.CONFIRMED);
+        if ("refuted".equals(codeString))
+          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.REFUTED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.ENTEREDINERROR);
+        if ("unknown".equals(codeString))
+          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.UNKNOWN);
+        throw new Exception("Unknown ConditionVerificationStatus code '"+codeString+"'");
+        }
     public String toCode(ConditionVerificationStatus code) {
       if (code == ConditionVerificationStatus.PROVISIONAL)
         return "provisional";
@@ -282,6 +302,29 @@ public class Condition extends DomainResource {
           childrenList.add(new Property("summary", "CodeableConcept", "A simple summary of the stage such as \"Stage 3\". The determination of the stage is disease-specific.", 0, java.lang.Integer.MAX_VALUE, summary));
           childrenList.add(new Property("assessment", "Reference(ClinicalImpression|DiagnosticReport|Observation)", "Reference to a formal record of the evidence on which the staging assessment is based.", 0, java.lang.Integer.MAX_VALUE, assessment));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("summary"))
+          this.summary = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("assessment"))
+          this.getAssessment().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("summary")) {
+          this.summary = new CodeableConcept();
+          return this.summary;
+        }
+        else if (name.equals("assessment")) {
+          return addAssessment();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConditionStageComponent copy() {
         ConditionStageComponent dst = new ConditionStageComponent();
@@ -430,6 +473,29 @@ public class Condition extends DomainResource {
           childrenList.add(new Property("code", "CodeableConcept", "A manifestation or symptom that led to the recording of this condition.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("detail", "Reference(Any)", "Links to other relevant information, including pathology reports.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("detail"))
+          this.getDetail().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("detail")) {
+          return addDetail();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConditionEvidenceComponent copy() {
         ConditionEvidenceComponent dst = new ConditionEvidenceComponent();
@@ -1350,6 +1416,143 @@ public class Condition extends DomainResource {
         childrenList.add(new Property("evidence", "", "Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.", 0, java.lang.Integer.MAX_VALUE, evidence));
         childrenList.add(new Property("bodySite", "CodeableConcept", "The anatomical location where this condition manifests itself.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("notes", "string", "Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.", 0, java.lang.Integer.MAX_VALUE, notes));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("asserter"))
+          this.asserter = castToReference(value); // Reference
+        else if (name.equals("dateRecorded"))
+          this.dateRecorded = castToDate(value); // DateType
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("category"))
+          this.category = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("clinicalStatus"))
+          this.clinicalStatus = castToCode(value); // CodeType
+        else if (name.equals("verificationStatus"))
+          this.verificationStatus = new ConditionVerificationStatusEnumFactory().fromType(value); // Enumeration<ConditionVerificationStatus>
+        else if (name.equals("severity"))
+          this.severity = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("onset[x]"))
+          this.onset = (Type) value; // Type
+        else if (name.equals("abatement[x]"))
+          this.abatement = (Type) value; // Type
+        else if (name.equals("stage"))
+          this.stage = (ConditionStageComponent) value; // ConditionStageComponent
+        else if (name.equals("evidence"))
+          this.getEvidence().add((ConditionEvidenceComponent) value);
+        else if (name.equals("bodySite"))
+          this.getBodySite().add(castToCodeableConcept(value));
+        else if (name.equals("notes"))
+          this.notes = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("asserter")) {
+          this.asserter = new Reference();
+          return this.asserter;
+        }
+        else if (name.equals("dateRecorded")) {
+          throw new Exception("Cannot call addChild on a primitive type Condition.dateRecorded");
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
+        }
+        else if (name.equals("clinicalStatus")) {
+          throw new Exception("Cannot call addChild on a primitive type Condition.clinicalStatus");
+        }
+        else if (name.equals("verificationStatus")) {
+          throw new Exception("Cannot call addChild on a primitive type Condition.verificationStatus");
+        }
+        else if (name.equals("severity")) {
+          this.severity = new CodeableConcept();
+          return this.severity;
+        }
+        else if (name.equals("onsetDateTime")) {
+          this.onset = new DateTimeType();
+          return this.onset;
+        }
+        else if (name.equals("onsetAge")) {
+          this.onset = new Age();
+          return this.onset;
+        }
+        else if (name.equals("onsetPeriod")) {
+          this.onset = new Period();
+          return this.onset;
+        }
+        else if (name.equals("onsetRange")) {
+          this.onset = new Range();
+          return this.onset;
+        }
+        else if (name.equals("onsetString")) {
+          this.onset = new StringType();
+          return this.onset;
+        }
+        else if (name.equals("abatementDateTime")) {
+          this.abatement = new DateTimeType();
+          return this.abatement;
+        }
+        else if (name.equals("abatementAge")) {
+          this.abatement = new Age();
+          return this.abatement;
+        }
+        else if (name.equals("abatementBoolean")) {
+          this.abatement = new BooleanType();
+          return this.abatement;
+        }
+        else if (name.equals("abatementPeriod")) {
+          this.abatement = new Period();
+          return this.abatement;
+        }
+        else if (name.equals("abatementRange")) {
+          this.abatement = new Range();
+          return this.abatement;
+        }
+        else if (name.equals("abatementString")) {
+          this.abatement = new StringType();
+          return this.abatement;
+        }
+        else if (name.equals("stage")) {
+          this.stage = new ConditionStageComponent();
+          return this.stage;
+        }
+        else if (name.equals("evidence")) {
+          return addEvidence();
+        }
+        else if (name.equals("bodySite")) {
+          return addBodySite();
+        }
+        else if (name.equals("notes")) {
+          throw new Exception("Cannot call addChild on a primitive type Condition.notes");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Condition copy() {

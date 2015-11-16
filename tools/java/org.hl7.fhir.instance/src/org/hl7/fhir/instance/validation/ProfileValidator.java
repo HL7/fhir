@@ -10,7 +10,7 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.utils.BuildToolPathEvaluator;
+import org.hl7.fhir.instance.utils.FHIRPathEvaluator;
 import org.hl7.fhir.instance.utils.IWorkerContext;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
@@ -32,9 +32,12 @@ public class ProfileValidator extends BaseValidator {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     
     // first check: extensions must exist
-    for (ElementDefinition ec : profile.getDifferential().getElement()) {
+    for (ElementDefinition ec : profile.getDifferential().getElement())
       checkExtensions(profile, errors, "differential", ec);
-    }
+    rule(errors, IssueType.STRUCTURE, profile.getId(), profile.hasSnapshot(), "missing Snapshot at "+profile.getName()+"."+profile.getName());
+    for (ElementDefinition ec : profile.getSnapshot().getElement()) 
+      checkExtensions(profile, errors, "snapshot", ec);
+
     if (rule(errors, IssueType.STRUCTURE, profile.getId(), profile.hasSnapshot(), "A snapshot is required")) {
       for (ElementDefinition ed : profile.getSnapshot().getElement()) {
         checkExtensions(profile, errors, "snapshot", ed);
@@ -45,9 +48,9 @@ public class ProfileValidator extends BaseValidator {
               if (rule(errors, IssueType.BUSINESSRULE, profile.getId()+"::"+ed.getPath()+"::"+inv.getKey(), exprExt != null, "The invariant has no FHIR Path expression ("+inv.getXpath()+")")) {
                 String expr = ((StringType) exprExt.getValue()).asStringValue();
                 try {
-                  new BuildToolPathEvaluator(context).check(profile.getConstrainedType(), ed.getPath(), expr, inv.hasXpath() && inv.getXpath().startsWith("@value"));
+                  new FHIRPathEvaluator(context).check(null, profile.getConstrainedType(), ed.getPath(), expr, inv.hasXpath() && inv.getXpath().startsWith("@value"));
                 } catch (Exception e) {
-                  rule(errors, IssueType.STRUCTURE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, e.getMessage());
+//                  rule(errors, IssueType.STRUCTURE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, e.getMessage());
                 }
               } 
             }

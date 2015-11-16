@@ -1289,7 +1289,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return s;
   }
 
-  private void renderIdentifier(Identifier ii, XhtmlNode x) {
+  private void renderIdentifier(Identifier ii, XhtmlNode x) throws Exception {
     x.addText(displayIdentifier(ii));
   }
 
@@ -1550,7 +1550,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private String displayIdentifier(Identifier ii) {
+  private String displayIdentifier(Identifier ii) throws Exception {
     String s = Utilities.noString(ii.getValue()) ? "??" : ii.getValue();
 
     if (ii.hasType()) {
@@ -1559,7 +1559,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     	else if (ii.getType().hasCoding() && ii.getType().getCoding().get(0).hasDisplay())
     		s = ii.getType().getCoding().get(0).getDisplay()+" = "+s;
     	else if (ii.getType().hasCoding() && ii.getType().getCoding().get(0).hasCode())
-    		s = ii.getType().getCoding().get(0).getCode()+" = "+s;
+    		s = lookupCode(ii.getType().getCoding().get(0).getSystem(), ii.getType().getCoding().get(0).getCode())+" = "+s;
     }
 
     if (ii.hasUse())

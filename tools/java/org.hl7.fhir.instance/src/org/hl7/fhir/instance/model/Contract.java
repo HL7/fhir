@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -169,6 +169,29 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("entity", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)", "Who or what actors are assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, entity));
           childrenList.add(new Property("role", "CodeableConcept", "Role type of actors assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, role));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("entity"))
+          this.entity = castToReference(value); // Reference
+        else if (name.equals("role"))
+          this.getRole().add(castToCodeableConcept(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("entity")) {
+          this.entity = new Reference();
+          return this.entity;
+        }
+        else if (name.equals("role")) {
+          return addRole();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ActorComponent copy() {
         ActorComponent dst = new ActorComponent();
@@ -576,6 +599,67 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("net", "Money", "Expresses the product of the Contract Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("entity[x]"))
+          this.entity = (Type) value; // Type
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("effectiveTime"))
+          this.effectiveTime = castToDateTime(value); // DateTimeType
+        else if (name.equals("quantity"))
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("unitPrice"))
+          this.unitPrice = castToMoney(value); // Money
+        else if (name.equals("factor"))
+          this.factor = castToDecimal(value); // DecimalType
+        else if (name.equals("points"))
+          this.points = castToDecimal(value); // DecimalType
+        else if (name.equals("net"))
+          this.net = castToMoney(value); // Money
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("entityCodeableConcept")) {
+          this.entity = new CodeableConcept();
+          return this.entity;
+        }
+        else if (name.equals("entityReference")) {
+          this.entity = new Reference();
+          return this.entity;
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("effectiveTime")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.effectiveTime");
+        }
+        else if (name.equals("quantity")) {
+          this.quantity = new SimpleQuantity();
+          return this.quantity;
+        }
+        else if (name.equals("unitPrice")) {
+          this.unitPrice = new Money();
+          return this.unitPrice;
+        }
+        else if (name.equals("factor")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.factor");
+        }
+        else if (name.equals("points")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.points");
+        }
+        else if (name.equals("net")) {
+          this.net = new Money();
+          return this.net;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ValuedItemComponent copy() {
         ValuedItemComponent dst = new ValuedItemComponent();
         copyValues(dst);
@@ -783,6 +867,35 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("party", "Reference(Organization|Patient|Practitioner|RelatedPerson)", "Party which is a signator to this Contract.", 0, java.lang.Integer.MAX_VALUE, party));
           childrenList.add(new Property("signature", "string", "Legally binding Contract DSIG signature contents in Base64.", 0, java.lang.Integer.MAX_VALUE, signature));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("party"))
+          this.party = castToReference(value); // Reference
+        else if (name.equals("signature"))
+          this.signature = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("party")) {
+          this.party = new Reference();
+          return this.party;
+        }
+        else if (name.equals("signature")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.signature");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SignatoryComponent copy() {
         SignatoryComponent dst = new SignatoryComponent();
@@ -1370,6 +1483,83 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("group", "@Contract.term", "Nested group of Contract Provisions.", 0, java.lang.Integer.MAX_VALUE, group));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("issued"))
+          this.issued = castToDateTime(value); // DateTimeType
+        else if (name.equals("applies"))
+          this.applies = castToPeriod(value); // Period
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("subType"))
+          this.subType = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("action"))
+          this.getAction().add(castToCodeableConcept(value));
+        else if (name.equals("actionReason"))
+          this.getActionReason().add(castToCodeableConcept(value));
+        else if (name.equals("actor"))
+          this.getActor().add((TermActorComponent) value);
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else if (name.equals("valuedItem"))
+          this.getValuedItem().add((TermValuedItemComponent) value);
+        else if (name.equals("group"))
+          this.getGroup().add((TermComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("issued")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.issued");
+        }
+        else if (name.equals("applies")) {
+          this.applies = new Period();
+          return this.applies;
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("subType")) {
+          this.subType = new CodeableConcept();
+          return this.subType;
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("action")) {
+          return addAction();
+        }
+        else if (name.equals("actionReason")) {
+          return addActionReason();
+        }
+        else if (name.equals("actor")) {
+          return addActor();
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.text");
+        }
+        else if (name.equals("valuedItem")) {
+          return addValuedItem();
+        }
+        else if (name.equals("group")) {
+          return addGroup();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public TermComponent copy() {
         TermComponent dst = new TermComponent();
         copyValues(dst);
@@ -1564,6 +1754,29 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("entity", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)", "The actor assigned a role in this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, entity));
           childrenList.add(new Property("role", "CodeableConcept", "Role played by the actor assigned this role in this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, role));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("entity"))
+          this.entity = castToReference(value); // Reference
+        else if (name.equals("role"))
+          this.getRole().add(castToCodeableConcept(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("entity")) {
+          this.entity = new Reference();
+          return this.entity;
+        }
+        else if (name.equals("role")) {
+          return addRole();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public TermActorComponent copy() {
         TermActorComponent dst = new TermActorComponent();
@@ -1971,6 +2184,67 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("net", "Money", "Expresses the product of the Contract Provision Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("entity[x]"))
+          this.entity = (Type) value; // Type
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("effectiveTime"))
+          this.effectiveTime = castToDateTime(value); // DateTimeType
+        else if (name.equals("quantity"))
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("unitPrice"))
+          this.unitPrice = castToMoney(value); // Money
+        else if (name.equals("factor"))
+          this.factor = castToDecimal(value); // DecimalType
+        else if (name.equals("points"))
+          this.points = castToDecimal(value); // DecimalType
+        else if (name.equals("net"))
+          this.net = castToMoney(value); // Money
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("entityCodeableConcept")) {
+          this.entity = new CodeableConcept();
+          return this.entity;
+        }
+        else if (name.equals("entityReference")) {
+          this.entity = new Reference();
+          return this.entity;
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("effectiveTime")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.effectiveTime");
+        }
+        else if (name.equals("quantity")) {
+          this.quantity = new SimpleQuantity();
+          return this.quantity;
+        }
+        else if (name.equals("unitPrice")) {
+          this.unitPrice = new Money();
+          return this.unitPrice;
+        }
+        else if (name.equals("factor")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.factor");
+        }
+        else if (name.equals("points")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.points");
+        }
+        else if (name.equals("net")) {
+          this.net = new Money();
+          return this.net;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public TermValuedItemComponent copy() {
         TermValuedItemComponent dst = new TermValuedItemComponent();
         copyValues(dst);
@@ -2093,6 +2367,28 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("content[x]", "Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)", "Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.", 0, java.lang.Integer.MAX_VALUE, content));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("content[x]"))
+          this.content = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("contentAttachment")) {
+          this.content = new Attachment();
+          return this.content;
+        }
+        else if (name.equals("contentReference")) {
+          this.content = new Reference();
+          return this.content;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public FriendlyLanguageComponent copy() {
         FriendlyLanguageComponent dst = new FriendlyLanguageComponent();
         copyValues(dst);
@@ -2202,6 +2498,28 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("content[x]", "Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)", "Contract legal text in human renderable form.", 0, java.lang.Integer.MAX_VALUE, content));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("content[x]"))
+          this.content = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("contentAttachment")) {
+          this.content = new Attachment();
+          return this.content;
+        }
+        else if (name.equals("contentReference")) {
+          this.content = new Reference();
+          return this.content;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public LegalLanguageComponent copy() {
         LegalLanguageComponent dst = new LegalLanguageComponent();
         copyValues(dst);
@@ -2310,6 +2628,28 @@ public class Contract extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("content[x]", "Attachment|Reference(DocumentReference)", "Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).", 0, java.lang.Integer.MAX_VALUE, content));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("content[x]"))
+          this.content = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("contentAttachment")) {
+          this.content = new Attachment();
+          return this.content;
+        }
+        else if (name.equals("contentReference")) {
+          this.content = new Reference();
+          return this.content;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ComputableLanguageComponent copy() {
         ComputableLanguageComponent dst = new ComputableLanguageComponent();
@@ -3251,6 +3591,116 @@ public class Contract extends DomainResource {
         childrenList.add(new Property("friendly", "", "The \"patient friendly language\" versionof the Contract in whole or in parts. \"Patient friendly language\" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.", 0, java.lang.Integer.MAX_VALUE, friendly));
         childrenList.add(new Property("legal", "", "List of Legal expressions or representations of this Contract.", 0, java.lang.Integer.MAX_VALUE, legal));
         childrenList.add(new Property("rule", "", "List of Computable Policy Rule Language Representations of this Contract.", 0, java.lang.Integer.MAX_VALUE, rule));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("issued"))
+          this.issued = castToDateTime(value); // DateTimeType
+        else if (name.equals("applies"))
+          this.applies = castToPeriod(value); // Period
+        else if (name.equals("subject"))
+          this.getSubject().add(castToReference(value));
+        else if (name.equals("authority"))
+          this.getAuthority().add(castToReference(value));
+        else if (name.equals("domain"))
+          this.getDomain().add(castToReference(value));
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("subType"))
+          this.getSubType().add(castToCodeableConcept(value));
+        else if (name.equals("action"))
+          this.getAction().add(castToCodeableConcept(value));
+        else if (name.equals("actionReason"))
+          this.getActionReason().add(castToCodeableConcept(value));
+        else if (name.equals("actor"))
+          this.getActor().add((ActorComponent) value);
+        else if (name.equals("valuedItem"))
+          this.getValuedItem().add((ValuedItemComponent) value);
+        else if (name.equals("signer"))
+          this.getSigner().add((SignatoryComponent) value);
+        else if (name.equals("term"))
+          this.getTerm().add((TermComponent) value);
+        else if (name.equals("binding[x]"))
+          this.binding = (Type) value; // Type
+        else if (name.equals("friendly"))
+          this.getFriendly().add((FriendlyLanguageComponent) value);
+        else if (name.equals("legal"))
+          this.getLegal().add((LegalLanguageComponent) value);
+        else if (name.equals("rule"))
+          this.getRule().add((ComputableLanguageComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("issued")) {
+          throw new Exception("Cannot call addChild on a primitive type Contract.issued");
+        }
+        else if (name.equals("applies")) {
+          this.applies = new Period();
+          return this.applies;
+        }
+        else if (name.equals("subject")) {
+          return addSubject();
+        }
+        else if (name.equals("authority")) {
+          return addAuthority();
+        }
+        else if (name.equals("domain")) {
+          return addDomain();
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("subType")) {
+          return addSubType();
+        }
+        else if (name.equals("action")) {
+          return addAction();
+        }
+        else if (name.equals("actionReason")) {
+          return addActionReason();
+        }
+        else if (name.equals("actor")) {
+          return addActor();
+        }
+        else if (name.equals("valuedItem")) {
+          return addValuedItem();
+        }
+        else if (name.equals("signer")) {
+          return addSigner();
+        }
+        else if (name.equals("term")) {
+          return addTerm();
+        }
+        else if (name.equals("bindingAttachment")) {
+          this.binding = new Attachment();
+          return this.binding;
+        }
+        else if (name.equals("bindingReference")) {
+          this.binding = new Reference();
+          return this.binding;
+        }
+        else if (name.equals("friendly")) {
+          return addFriendly();
+        }
+        else if (name.equals("legal")) {
+          return addLegal();
+        }
+        else if (name.equals("rule")) {
+          return addRule();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Contract copy() {

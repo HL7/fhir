@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -379,6 +379,51 @@ public class Practitioner extends DomainResource {
           childrenList.add(new Property("healthcareService", "Reference(HealthcareService)", "The list of healthcare services that this worker provides for this role's Organization/Location(s).", 0, java.lang.Integer.MAX_VALUE, healthcareService));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("managingOrganization"))
+          this.managingOrganization = castToReference(value); // Reference
+        else if (name.equals("role"))
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("specialty"))
+          this.getSpecialty().add(castToCodeableConcept(value));
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("location"))
+          this.getLocation().add(castToReference(value));
+        else if (name.equals("healthcareService"))
+          this.getHealthcareService().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("managingOrganization")) {
+          this.managingOrganization = new Reference();
+          return this.managingOrganization;
+        }
+        else if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else if (name.equals("specialty")) {
+          return addSpecialty();
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("location")) {
+          return addLocation();
+        }
+        else if (name.equals("healthcareService")) {
+          return addHealthcareService();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public PractitionerPractitionerRoleComponent copy() {
         PractitionerPractitionerRoleComponent dst = new PractitionerPractitionerRoleComponent();
         copyValues(dst);
@@ -624,6 +669,41 @@ public class Practitioner extends DomainResource {
           childrenList.add(new Property("period", "Period", "Period during which the qualification is valid.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("issuer", "Reference(Organization)", "Organization that regulates and issues the qualification.", 0, java.lang.Integer.MAX_VALUE, issuer));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("issuer"))
+          this.issuer = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("issuer")) {
+          this.issuer = new Reference();
+          return this.issuer;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public PractitionerQualificationComponent copy() {
         PractitionerQualificationComponent dst = new PractitionerQualificationComponent();
@@ -1215,6 +1295,74 @@ public class Practitioner extends DomainResource {
         childrenList.add(new Property("communication", "CodeableConcept", "A language the practitioner is able to use in patient communication.", 0, java.lang.Integer.MAX_VALUE, communication));
       }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("active"))
+          this.active = castToBoolean(value); // BooleanType
+        else if (name.equals("name"))
+          this.name = castToHumanName(value); // HumanName
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else if (name.equals("address"))
+          this.getAddress().add(castToAddress(value));
+        else if (name.equals("gender"))
+          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+        else if (name.equals("birthDate"))
+          this.birthDate = castToDate(value); // DateType
+        else if (name.equals("photo"))
+          this.getPhoto().add(castToAttachment(value));
+        else if (name.equals("practitionerRole"))
+          this.getPractitionerRole().add((PractitionerPractitionerRoleComponent) value);
+        else if (name.equals("qualification"))
+          this.getQualification().add((PractitionerQualificationComponent) value);
+        else if (name.equals("communication"))
+          this.getCommunication().add(castToCodeableConcept(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("active")) {
+          throw new Exception("Cannot call addChild on a primitive type Practitioner.active");
+        }
+        else if (name.equals("name")) {
+          this.name = new HumanName();
+          return this.name;
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else if (name.equals("address")) {
+          return addAddress();
+        }
+        else if (name.equals("gender")) {
+          throw new Exception("Cannot call addChild on a primitive type Practitioner.gender");
+        }
+        else if (name.equals("birthDate")) {
+          throw new Exception("Cannot call addChild on a primitive type Practitioner.birthDate");
+        }
+        else if (name.equals("photo")) {
+          return addPhoto();
+        }
+        else if (name.equals("practitionerRole")) {
+          return addPractitionerRole();
+        }
+        else if (name.equals("qualification")) {
+          return addQualification();
+        }
+        else if (name.equals("communication")) {
+          return addCommunication();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public Practitioner copy() {
         Practitioner dst = new Practitioner();
         copyValues(dst);
@@ -1302,7 +1450,7 @@ public class Practitioner extends DomainResource {
     return ResourceType.Practitioner;
    }
 
-  @SearchParamDefinition(name="phone", path="Practitioner.telecom(system=phone)", description="A value in a phone contact", type="token" )
+  @SearchParamDefinition(name="phone", path="Practitioner.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
   public static final String SP_PHONE = "phone";
   @SearchParamDefinition(name="phonetic", path="Practitioner.name", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
@@ -1320,7 +1468,7 @@ public class Practitioner extends DomainResource {
   public static final String SP_ADDRESSSTATE = "address-state";
   @SearchParamDefinition(name="given", path="Practitioner.name.given", description="A portion of the given name", type="string" )
   public static final String SP_GIVEN = "given";
-  @SearchParamDefinition(name="email", path="Practitioner.telecom(system=email)", description="A value in an email contact", type="token" )
+  @SearchParamDefinition(name="email", path="Practitioner.telecom.where(system='email')", description="A value in an email contact", type="token" )
   public static final String SP_EMAIL = "email";
   @SearchParamDefinition(name="address", path="Practitioner.address", description="An address in any kind of address/part", type="string" )
   public static final String SP_ADDRESS = "address";

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -527,6 +527,72 @@ public class RelatedPerson extends DomainResource {
         childrenList.add(new Property("period", "Period", "The period of time that this relationship is considered to be valid. If there are no dates defined, then the interval is unknown.", 0, java.lang.Integer.MAX_VALUE, period));
       }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("relationship"))
+          this.relationship = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("name"))
+          this.name = castToHumanName(value); // HumanName
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else if (name.equals("gender"))
+          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+        else if (name.equals("birthDate"))
+          this.birthDate = castToDate(value); // DateType
+        else if (name.equals("address"))
+          this.getAddress().add(castToAddress(value));
+        else if (name.equals("photo"))
+          this.getPhoto().add(castToAttachment(value));
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("relationship")) {
+          this.relationship = new CodeableConcept();
+          return this.relationship;
+        }
+        else if (name.equals("name")) {
+          this.name = new HumanName();
+          return this.name;
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else if (name.equals("gender")) {
+          throw new Exception("Cannot call addChild on a primitive type RelatedPerson.gender");
+        }
+        else if (name.equals("birthDate")) {
+          throw new Exception("Cannot call addChild on a primitive type RelatedPerson.birthDate");
+        }
+        else if (name.equals("address")) {
+          return addAddress();
+        }
+        else if (name.equals("photo")) {
+          return addPhoto();
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public RelatedPerson copy() {
         RelatedPerson dst = new RelatedPerson();
         copyValues(dst);
@@ -598,7 +664,7 @@ public class RelatedPerson extends DomainResource {
     return ResourceType.RelatedPerson;
    }
 
-  @SearchParamDefinition(name="phone", path="RelatedPerson.telecom(system=phone)", description="A value in a phone contact", type="token" )
+  @SearchParamDefinition(name="phone", path="RelatedPerson.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
   public static final String SP_PHONE = "phone";
   @SearchParamDefinition(name="phonetic", path="RelatedPerson.name", description="A portion of name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
@@ -610,7 +676,7 @@ public class RelatedPerson extends DomainResource {
   public static final String SP_ADDRESSCITY = "address-city";
   @SearchParamDefinition(name="address-state", path="RelatedPerson.address.state", description="A state specified in an address", type="string" )
   public static final String SP_ADDRESSSTATE = "address-state";
-  @SearchParamDefinition(name="email", path="RelatedPerson.telecom(system=email)", description="A value in an email contact", type="token" )
+  @SearchParamDefinition(name="email", path="RelatedPerson.telecom.where(system='email')", description="A value in an email contact", type="token" )
   public static final String SP_EMAIL = "email";
   @SearchParamDefinition(name="address", path="RelatedPerson.address", description="An address in any kind of address/part", type="string" )
   public static final String SP_ADDRESS = "address";

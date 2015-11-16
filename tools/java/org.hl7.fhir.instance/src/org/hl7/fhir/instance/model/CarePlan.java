@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -145,6 +145,24 @@ public class CarePlan extends DomainResource {
           return CarePlanStatus.CANCELLED;
         throw new IllegalArgumentException("Unknown CarePlanStatus code '"+codeString+"'");
         }
+        public Enumeration<CarePlanStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("proposed".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.PROPOSED);
+        if ("draft".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.DRAFT);
+        if ("active".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.ACTIVE);
+        if ("completed".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.COMPLETED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.CANCELLED);
+        throw new Exception("Unknown CarePlanStatus code '"+codeString+"'");
+        }
     public String toCode(CarePlanStatus code) {
       if (code == CarePlanStatus.PROPOSED)
         return "proposed";
@@ -234,6 +252,20 @@ public class CarePlan extends DomainResource {
         if ("fulfills".equals(codeString))
           return CarePlanRelationship.FULFILLS;
         throw new IllegalArgumentException("Unknown CarePlanRelationship code '"+codeString+"'");
+        }
+        public Enumeration<CarePlanRelationship> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("includes".equals(codeString))
+          return new Enumeration<CarePlanRelationship>(this, CarePlanRelationship.INCLUDES);
+        if ("replaces".equals(codeString))
+          return new Enumeration<CarePlanRelationship>(this, CarePlanRelationship.REPLACES);
+        if ("fulfills".equals(codeString))
+          return new Enumeration<CarePlanRelationship>(this, CarePlanRelationship.FULFILLS);
+        throw new Exception("Unknown CarePlanRelationship code '"+codeString+"'");
         }
     public String toCode(CarePlanRelationship code) {
       if (code == CarePlanRelationship.INCLUDES)
@@ -356,6 +388,26 @@ public class CarePlan extends DomainResource {
         if ("cancelled".equals(codeString))
           return CarePlanActivityStatus.CANCELLED;
         throw new IllegalArgumentException("Unknown CarePlanActivityStatus code '"+codeString+"'");
+        }
+        public Enumeration<CarePlanActivityStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("not-started".equals(codeString))
+          return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.NOTSTARTED);
+        if ("scheduled".equals(codeString))
+          return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.SCHEDULED);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.INPROGRESS);
+        if ("on-hold".equals(codeString))
+          return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.ONHOLD);
+        if ("completed".equals(codeString))
+          return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.COMPLETED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.CANCELLED);
+        throw new Exception("Unknown CarePlanActivityStatus code '"+codeString+"'");
         }
     public String toCode(CarePlanActivityStatus code) {
       if (code == CarePlanActivityStatus.NOTSTARTED)
@@ -511,6 +563,29 @@ public class CarePlan extends DomainResource {
           childrenList.add(new Property("plan", "Reference(CarePlan)", "A reference to the plan to which a relationship is asserted.", 0, java.lang.Integer.MAX_VALUE, plan));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = new CarePlanRelationshipEnumFactory().fromType(value); // Enumeration<CarePlanRelationship>
+        else if (name.equals("plan"))
+          this.plan = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type CarePlan.code");
+        }
+        else if (name.equals("plan")) {
+          this.plan = new Reference();
+          return this.plan;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public CarePlanRelatedPlanComponent copy() {
         CarePlanRelatedPlanComponent dst = new CarePlanRelatedPlanComponent();
         copyValues(dst);
@@ -644,6 +719,30 @@ public class CarePlan extends DomainResource {
           childrenList.add(new Property("role", "CodeableConcept", "Indicates specific responsibility of an individual within the care plan; e.g. \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("member", "Reference(Practitioner|RelatedPerson|Patient|Organization)", "The specific person or organization who is participating/expected to participate in the care plan.", 0, java.lang.Integer.MAX_VALUE, member));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("role"))
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("member"))
+          this.member = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else if (name.equals("member")) {
+          this.member = new Reference();
+          return this.member;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public CarePlanParticipantComponent copy() {
         CarePlanParticipantComponent dst = new CarePlanParticipantComponent();
@@ -888,6 +987,40 @@ public class CarePlan extends DomainResource {
           childrenList.add(new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("detail", "", "A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("actionResulting"))
+          this.getActionResulting().add(castToReference(value));
+        else if (name.equals("progress"))
+          this.getProgress().add(castToAnnotation(value));
+        else if (name.equals("reference"))
+          this.reference = castToReference(value); // Reference
+        else if (name.equals("detail"))
+          this.detail = (CarePlanActivityDetailComponent) value; // CarePlanActivityDetailComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("actionResulting")) {
+          return addActionResulting();
+        }
+        else if (name.equals("progress")) {
+          return addProgress();
+        }
+        else if (name.equals("reference")) {
+          this.reference = new Reference();
+          return this.reference;
+        }
+        else if (name.equals("detail")) {
+          this.detail = new CarePlanActivityDetailComponent();
+          return this.detail;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public CarePlanActivityComponent copy() {
         CarePlanActivityComponent dst = new CarePlanActivityComponent();
@@ -1718,6 +1851,113 @@ public class CarePlan extends DomainResource {
           childrenList.add(new Property("quantity", "SimpleQuantity", "Identifies the quantity expected to be supplied, administered or consumed by the subject.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("description", "string", "This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.", 0, java.lang.Integer.MAX_VALUE, description));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("category"))
+          this.category = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("reasonCode"))
+          this.getReasonCode().add(castToCodeableConcept(value));
+        else if (name.equals("reasonReference"))
+          this.getReasonReference().add(castToReference(value));
+        else if (name.equals("goal"))
+          this.getGoal().add(castToReference(value));
+        else if (name.equals("status"))
+          this.status = new CarePlanActivityStatusEnumFactory().fromType(value); // Enumeration<CarePlanActivityStatus>
+        else if (name.equals("statusReason"))
+          this.statusReason = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("prohibited"))
+          this.prohibited = castToBoolean(value); // BooleanType
+        else if (name.equals("scheduled[x]"))
+          this.scheduled = (Type) value; // Type
+        else if (name.equals("location"))
+          this.location = castToReference(value); // Reference
+        else if (name.equals("performer"))
+          this.getPerformer().add(castToReference(value));
+        else if (name.equals("product[x]"))
+          this.product = (Type) value; // Type
+        else if (name.equals("dailyAmount"))
+          this.dailyAmount = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("quantity"))
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("reasonCode")) {
+          return addReasonCode();
+        }
+        else if (name.equals("reasonReference")) {
+          return addReasonReference();
+        }
+        else if (name.equals("goal")) {
+          return addGoal();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type CarePlan.status");
+        }
+        else if (name.equals("statusReason")) {
+          this.statusReason = new CodeableConcept();
+          return this.statusReason;
+        }
+        else if (name.equals("prohibited")) {
+          throw new Exception("Cannot call addChild on a primitive type CarePlan.prohibited");
+        }
+        else if (name.equals("scheduledTiming")) {
+          this.scheduled = new Timing();
+          return this.scheduled;
+        }
+        else if (name.equals("scheduledPeriod")) {
+          this.scheduled = new Period();
+          return this.scheduled;
+        }
+        else if (name.equals("scheduledString")) {
+          this.scheduled = new StringType();
+          return this.scheduled;
+        }
+        else if (name.equals("location")) {
+          this.location = new Reference();
+          return this.location;
+        }
+        else if (name.equals("performer")) {
+          return addPerformer();
+        }
+        else if (name.equals("productCodeableConcept")) {
+          this.product = new CodeableConcept();
+          return this.product;
+        }
+        else if (name.equals("productReference")) {
+          this.product = new Reference();
+          return this.product;
+        }
+        else if (name.equals("dailyAmount")) {
+          this.dailyAmount = new SimpleQuantity();
+          return this.dailyAmount;
+        }
+        else if (name.equals("quantity")) {
+          this.quantity = new SimpleQuantity();
+          return this.quantity;
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type CarePlan.description");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public CarePlanActivityDetailComponent copy() {
         CarePlanActivityDetailComponent dst = new CarePlanActivityDetailComponent();
@@ -2661,6 +2901,102 @@ public class CarePlan extends DomainResource {
         childrenList.add(new Property("goal", "Reference(Goal)", "Describes the intended objective(s) of carrying out the care plan.", 0, java.lang.Integer.MAX_VALUE, goal));
         childrenList.add(new Property("activity", "", "Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.", 0, java.lang.Integer.MAX_VALUE, activity));
         childrenList.add(new Property("note", "Annotation", "General notes about the care plan not covered elsewhere.", 0, java.lang.Integer.MAX_VALUE, note));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("status"))
+          this.status = new CarePlanStatusEnumFactory().fromType(value); // Enumeration<CarePlanStatus>
+        else if (name.equals("context"))
+          this.context = castToReference(value); // Reference
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("author"))
+          this.getAuthor().add(castToReference(value));
+        else if (name.equals("modified"))
+          this.modified = castToDateTime(value); // DateTimeType
+        else if (name.equals("category"))
+          this.getCategory().add(castToCodeableConcept(value));
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("addresses"))
+          this.getAddresses().add(castToReference(value));
+        else if (name.equals("support"))
+          this.getSupport().add(castToReference(value));
+        else if (name.equals("relatedPlan"))
+          this.getRelatedPlan().add((CarePlanRelatedPlanComponent) value);
+        else if (name.equals("participant"))
+          this.getParticipant().add((CarePlanParticipantComponent) value);
+        else if (name.equals("goal"))
+          this.getGoal().add(castToReference(value));
+        else if (name.equals("activity"))
+          this.getActivity().add((CarePlanActivityComponent) value);
+        else if (name.equals("note"))
+          this.note = castToAnnotation(value); // Annotation
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type CarePlan.status");
+        }
+        else if (name.equals("context")) {
+          this.context = new Reference();
+          return this.context;
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("author")) {
+          return addAuthor();
+        }
+        else if (name.equals("modified")) {
+          throw new Exception("Cannot call addChild on a primitive type CarePlan.modified");
+        }
+        else if (name.equals("category")) {
+          return addCategory();
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type CarePlan.description");
+        }
+        else if (name.equals("addresses")) {
+          return addAddresses();
+        }
+        else if (name.equals("support")) {
+          return addSupport();
+        }
+        else if (name.equals("relatedPlan")) {
+          return addRelatedPlan();
+        }
+        else if (name.equals("participant")) {
+          return addParticipant();
+        }
+        else if (name.equals("goal")) {
+          return addGoal();
+        }
+        else if (name.equals("activity")) {
+          return addActivity();
+        }
+        else if (name.equals("note")) {
+          this.note = new Annotation();
+          return this.note;
+        }
+        else
+          return super.addChild(name);
       }
 
       public CarePlan copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -167,6 +167,28 @@ public class HumanName extends Type implements ICompositeType {
         if ("maiden".equals(codeString))
           return NameUse.MAIDEN;
         throw new IllegalArgumentException("Unknown NameUse code '"+codeString+"'");
+        }
+        public Enumeration<NameUse> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("usual".equals(codeString))
+          return new Enumeration<NameUse>(this, NameUse.USUAL);
+        if ("official".equals(codeString))
+          return new Enumeration<NameUse>(this, NameUse.OFFICIAL);
+        if ("temp".equals(codeString))
+          return new Enumeration<NameUse>(this, NameUse.TEMP);
+        if ("nickname".equals(codeString))
+          return new Enumeration<NameUse>(this, NameUse.NICKNAME);
+        if ("anonymous".equals(codeString))
+          return new Enumeration<NameUse>(this, NameUse.ANONYMOUS);
+        if ("old".equals(codeString))
+          return new Enumeration<NameUse>(this, NameUse.OLD);
+        if ("maiden".equals(codeString))
+          return new Enumeration<NameUse>(this, NameUse.MAIDEN);
+        throw new Exception("Unknown NameUse code '"+codeString+"'");
         }
     public String toCode(NameUse code) {
       if (code == NameUse.USUAL)
@@ -592,6 +614,54 @@ public class HumanName extends Type implements ICompositeType {
         childrenList.add(new Property("prefix", "string", "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.", 0, java.lang.Integer.MAX_VALUE, prefix));
         childrenList.add(new Property("suffix", "string", "Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.", 0, java.lang.Integer.MAX_VALUE, suffix));
         childrenList.add(new Property("period", "Period", "Indicates the period of time when this name was valid for the named person.", 0, java.lang.Integer.MAX_VALUE, period));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("use"))
+          this.use = new NameUseEnumFactory().fromType(value); // Enumeration<NameUse>
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else if (name.equals("family"))
+          this.getFamily().add(castToString(value));
+        else if (name.equals("given"))
+          this.getGiven().add(castToString(value));
+        else if (name.equals("prefix"))
+          this.getPrefix().add(castToString(value));
+        else if (name.equals("suffix"))
+          this.getSuffix().add(castToString(value));
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("use")) {
+          throw new Exception("Cannot call addChild on a primitive type HumanName.use");
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type HumanName.text");
+        }
+        else if (name.equals("family")) {
+          throw new Exception("Cannot call addChild on a primitive type HumanName.family");
+        }
+        else if (name.equals("given")) {
+          throw new Exception("Cannot call addChild on a primitive type HumanName.given");
+        }
+        else if (name.equals("prefix")) {
+          throw new Exception("Cannot call addChild on a primitive type HumanName.prefix");
+        }
+        else if (name.equals("suffix")) {
+          throw new Exception("Cannot call addChild on a primitive type HumanName.suffix");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
       }
 
       public HumanName copy() {

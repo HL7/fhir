@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -334,6 +334,58 @@ public class RiskAssessment extends DomainResource {
           childrenList.add(new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, java.lang.Integer.MAX_VALUE, when));
           childrenList.add(new Property("rationale", "string", "Additional information explaining the basis for the prediction.", 0, java.lang.Integer.MAX_VALUE, rationale));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("outcome"))
+          this.outcome = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("probability[x]"))
+          this.probability = (Type) value; // Type
+        else if (name.equals("relativeRisk"))
+          this.relativeRisk = castToDecimal(value); // DecimalType
+        else if (name.equals("when[x]"))
+          this.when = (Type) value; // Type
+        else if (name.equals("rationale"))
+          this.rationale = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("outcome")) {
+          this.outcome = new CodeableConcept();
+          return this.outcome;
+        }
+        else if (name.equals("probabilityDecimal")) {
+          this.probability = new DecimalType();
+          return this.probability;
+        }
+        else if (name.equals("probabilityRange")) {
+          this.probability = new Range();
+          return this.probability;
+        }
+        else if (name.equals("probabilityCodeableConcept")) {
+          this.probability = new CodeableConcept();
+          return this.probability;
+        }
+        else if (name.equals("relativeRisk")) {
+          throw new Exception("Cannot call addChild on a primitive type RiskAssessment.relativeRisk");
+        }
+        else if (name.equals("whenPeriod")) {
+          this.when = new Period();
+          return this.when;
+        }
+        else if (name.equals("whenRange")) {
+          this.when = new Range();
+          return this.when;
+        }
+        else if (name.equals("rationale")) {
+          throw new Exception("Cannot call addChild on a primitive type RiskAssessment.rationale");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public RiskAssessmentPredictionComponent copy() {
         RiskAssessmentPredictionComponent dst = new RiskAssessmentPredictionComponent();
@@ -893,6 +945,74 @@ public class RiskAssessment extends DomainResource {
         childrenList.add(new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
         childrenList.add(new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction));
         childrenList.add(new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, java.lang.Integer.MAX_VALUE, mitigation));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("condition"))
+          this.condition = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("performer"))
+          this.performer = castToReference(value); // Reference
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("method"))
+          this.method = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("basis"))
+          this.getBasis().add(castToReference(value));
+        else if (name.equals("prediction"))
+          this.getPrediction().add((RiskAssessmentPredictionComponent) value);
+        else if (name.equals("mitigation"))
+          this.mitigation = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type RiskAssessment.date");
+        }
+        else if (name.equals("condition")) {
+          this.condition = new Reference();
+          return this.condition;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("performer")) {
+          this.performer = new Reference();
+          return this.performer;
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("method")) {
+          this.method = new CodeableConcept();
+          return this.method;
+        }
+        else if (name.equals("basis")) {
+          return addBasis();
+        }
+        else if (name.equals("prediction")) {
+          return addPrediction();
+        }
+        else if (name.equals("mitigation")) {
+          throw new Exception("Cannot call addChild on a primitive type RiskAssessment.mitigation");
+        }
+        else
+          return super.addChild(name);
       }
 
       public RiskAssessment copy() {

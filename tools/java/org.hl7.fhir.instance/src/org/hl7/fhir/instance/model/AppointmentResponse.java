@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -156,6 +156,26 @@ public class AppointmentResponse extends DomainResource {
         if ("needs-action".equals(codeString))
           return ParticipantStatus.NEEDSACTION;
         throw new IllegalArgumentException("Unknown ParticipantStatus code '"+codeString+"'");
+        }
+        public Enumeration<ParticipantStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("accepted".equals(codeString))
+          return new Enumeration<ParticipantStatus>(this, ParticipantStatus.ACCEPTED);
+        if ("declined".equals(codeString))
+          return new Enumeration<ParticipantStatus>(this, ParticipantStatus.DECLINED);
+        if ("tentative".equals(codeString))
+          return new Enumeration<ParticipantStatus>(this, ParticipantStatus.TENTATIVE);
+        if ("in-process".equals(codeString))
+          return new Enumeration<ParticipantStatus>(this, ParticipantStatus.INPROCESS);
+        if ("completed".equals(codeString))
+          return new Enumeration<ParticipantStatus>(this, ParticipantStatus.COMPLETED);
+        if ("needs-action".equals(codeString))
+          return new Enumeration<ParticipantStatus>(this, ParticipantStatus.NEEDSACTION);
+        throw new Exception("Unknown ParticipantStatus code '"+codeString+"'");
         }
     public String toCode(ParticipantStatus code) {
       if (code == ParticipantStatus.ACCEPTED)
@@ -623,6 +643,60 @@ public class AppointmentResponse extends DomainResource {
         childrenList.add(new Property("actor", "Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)", "A Person, Location/HealthcareService or Device that is participating in the appointment.", 0, java.lang.Integer.MAX_VALUE, actor));
         childrenList.add(new Property("participantStatus", "code", "Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.", 0, java.lang.Integer.MAX_VALUE, participantStatus));
         childrenList.add(new Property("comment", "string", "Additional comments about the appointment.", 0, java.lang.Integer.MAX_VALUE, comment));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("appointment"))
+          this.appointment = castToReference(value); // Reference
+        else if (name.equals("start"))
+          this.start = castToInstant(value); // InstantType
+        else if (name.equals("end"))
+          this.end = castToInstant(value); // InstantType
+        else if (name.equals("participantType"))
+          this.getParticipantType().add(castToCodeableConcept(value));
+        else if (name.equals("actor"))
+          this.actor = castToReference(value); // Reference
+        else if (name.equals("participantStatus"))
+          this.participantStatus = new ParticipantStatusEnumFactory().fromType(value); // Enumeration<ParticipantStatus>
+        else if (name.equals("comment"))
+          this.comment = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("appointment")) {
+          this.appointment = new Reference();
+          return this.appointment;
+        }
+        else if (name.equals("start")) {
+          throw new Exception("Cannot call addChild on a primitive type AppointmentResponse.start");
+        }
+        else if (name.equals("end")) {
+          throw new Exception("Cannot call addChild on a primitive type AppointmentResponse.end");
+        }
+        else if (name.equals("participantType")) {
+          return addParticipantType();
+        }
+        else if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
+        }
+        else if (name.equals("participantStatus")) {
+          throw new Exception("Cannot call addChild on a primitive type AppointmentResponse.participantStatus");
+        }
+        else if (name.equals("comment")) {
+          throw new Exception("Cannot call addChild on a primitive type AppointmentResponse.comment");
+        }
+        else
+          return super.addChild(name);
       }
 
       public AppointmentResponse copy() {

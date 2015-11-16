@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -120,6 +120,20 @@ public class Flag extends DomainResource {
         if ("entered-in-error".equals(codeString))
           return FlagStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown FlagStatus code '"+codeString+"'");
+        }
+        public Enumeration<FlagStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<FlagStatus>(this, FlagStatus.ACTIVE);
+        if ("inactive".equals(codeString))
+          return new Enumeration<FlagStatus>(this, FlagStatus.INACTIVE);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<FlagStatus>(this, FlagStatus.ENTEREDINERROR);
+        throw new Exception("Unknown FlagStatus code '"+codeString+"'");
         }
     public String toCode(FlagStatus code) {
       if (code == FlagStatus.ACTIVE)
@@ -511,6 +525,64 @@ public class Flag extends DomainResource {
         childrenList.add(new Property("encounter", "Reference(Encounter)", "This alert is only relevant during the encounter.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("author", "Reference(Device|Organization|Patient|Practitioner)", "The person, organization or device that created the flag.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("code", "CodeableConcept", "The coded value or textual component of the flag to display to the user.", 0, java.lang.Integer.MAX_VALUE, code));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("category"))
+          this.category = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("status"))
+          this.status = new FlagStatusEnumFactory().fromType(value); // Enumeration<FlagStatus>
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("author"))
+          this.author = castToReference(value); // Reference
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Flag.status");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("author")) {
+          this.author = new Reference();
+          return this.author;
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else
+          return super.addChild(name);
       }
 
       public Flag copy() {

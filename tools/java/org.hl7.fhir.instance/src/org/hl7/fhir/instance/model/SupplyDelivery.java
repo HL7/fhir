@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -120,6 +120,20 @@ public class SupplyDelivery extends DomainResource {
         if ("abandoned".equals(codeString))
           return SupplyDeliveryStatus.ABANDONED;
         throw new IllegalArgumentException("Unknown SupplyDeliveryStatus code '"+codeString+"'");
+        }
+        public Enumeration<SupplyDeliveryStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("in-progress".equals(codeString))
+          return new Enumeration<SupplyDeliveryStatus>(this, SupplyDeliveryStatus.INPROGRESS);
+        if ("completed".equals(codeString))
+          return new Enumeration<SupplyDeliveryStatus>(this, SupplyDeliveryStatus.COMPLETED);
+        if ("abandoned".equals(codeString))
+          return new Enumeration<SupplyDeliveryStatus>(this, SupplyDeliveryStatus.ABANDONED);
+        throw new Exception("Unknown SupplyDeliveryStatus code '"+codeString+"'");
         }
     public String toCode(SupplyDeliveryStatus code) {
       if (code == SupplyDeliveryStatus.INPROGRESS)
@@ -682,6 +696,81 @@ public class SupplyDelivery extends DomainResource {
         childrenList.add(new Property("time", "dateTime", "The time the dispensed item was sent or handed to the patient (or agent).", 0, java.lang.Integer.MAX_VALUE, time));
         childrenList.add(new Property("destination", "Reference(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
         childrenList.add(new Property("receiver", "Reference(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("status"))
+          this.status = new SupplyDeliveryStatusEnumFactory().fromType(value); // Enumeration<SupplyDeliveryStatus>
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("quantity"))
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("suppliedItem"))
+          this.suppliedItem = castToReference(value); // Reference
+        else if (name.equals("supplier"))
+          this.supplier = castToReference(value); // Reference
+        else if (name.equals("whenPrepared"))
+          this.whenPrepared = castToPeriod(value); // Period
+        else if (name.equals("time"))
+          this.time = castToDateTime(value); // DateTimeType
+        else if (name.equals("destination"))
+          this.destination = castToReference(value); // Reference
+        else if (name.equals("receiver"))
+          this.getReceiver().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type SupplyDelivery.status");
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("quantity")) {
+          this.quantity = new SimpleQuantity();
+          return this.quantity;
+        }
+        else if (name.equals("suppliedItem")) {
+          this.suppliedItem = new Reference();
+          return this.suppliedItem;
+        }
+        else if (name.equals("supplier")) {
+          this.supplier = new Reference();
+          return this.supplier;
+        }
+        else if (name.equals("whenPrepared")) {
+          this.whenPrepared = new Period();
+          return this.whenPrepared;
+        }
+        else if (name.equals("time")) {
+          throw new Exception("Cannot call addChild on a primitive type SupplyDelivery.time");
+        }
+        else if (name.equals("destination")) {
+          this.destination = new Reference();
+          return this.destination;
+        }
+        else if (name.equals("receiver")) {
+          return addReceiver();
+        }
+        else
+          return super.addChild(name);
       }
 
       public SupplyDelivery copy() {

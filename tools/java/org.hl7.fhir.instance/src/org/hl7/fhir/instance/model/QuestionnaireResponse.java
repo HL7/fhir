@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -120,6 +120,20 @@ public class QuestionnaireResponse extends DomainResource {
         if ("amended".equals(codeString))
           return QuestionnaireResponseStatus.AMENDED;
         throw new IllegalArgumentException("Unknown QuestionnaireResponseStatus code '"+codeString+"'");
+        }
+        public Enumeration<QuestionnaireResponseStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("in-progress".equals(codeString))
+          return new Enumeration<QuestionnaireResponseStatus>(this, QuestionnaireResponseStatus.INPROGRESS);
+        if ("completed".equals(codeString))
+          return new Enumeration<QuestionnaireResponseStatus>(this, QuestionnaireResponseStatus.COMPLETED);
+        if ("amended".equals(codeString))
+          return new Enumeration<QuestionnaireResponseStatus>(this, QuestionnaireResponseStatus.AMENDED);
+        throw new Exception("Unknown QuestionnaireResponseStatus code '"+codeString+"'");
         }
     public String toCode(QuestionnaireResponseStatus code) {
       if (code == QuestionnaireResponseStatus.INPROGRESS)
@@ -466,6 +480,49 @@ public class QuestionnaireResponse extends DomainResource {
           childrenList.add(new Property("question", "", "Set of questions within this group. The order of questions within the group is relevant.", 0, java.lang.Integer.MAX_VALUE, question));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("linkId"))
+          this.linkId = castToString(value); // StringType
+        else if (name.equals("title"))
+          this.title = castToString(value); // StringType
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("group"))
+          this.getGroup().add((GroupComponent) value);
+        else if (name.equals("question"))
+          this.getQuestion().add((QuestionComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("linkId")) {
+          throw new Exception("Cannot call addChild on a primitive type QuestionnaireResponse.linkId");
+        }
+        else if (name.equals("title")) {
+          throw new Exception("Cannot call addChild on a primitive type QuestionnaireResponse.title");
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type QuestionnaireResponse.text");
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("group")) {
+          return addGroup();
+        }
+        else if (name.equals("question")) {
+          return addQuestion();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public GroupComponent copy() {
         GroupComponent dst = new GroupComponent();
         copyValues(dst);
@@ -693,6 +750,33 @@ public class QuestionnaireResponse extends DomainResource {
           childrenList.add(new Property("text", "string", "The actual question as shown to the user to prompt them for an answer.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("answer", "", "The respondent's answer(s) to the question.", 0, java.lang.Integer.MAX_VALUE, answer));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("linkId"))
+          this.linkId = castToString(value); // StringType
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else if (name.equals("answer"))
+          this.getAnswer().add((QuestionAnswerComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("linkId")) {
+          throw new Exception("Cannot call addChild on a primitive type QuestionnaireResponse.linkId");
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type QuestionnaireResponse.text");
+        }
+        else if (name.equals("answer")) {
+          return addAnswer();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public QuestionComponent copy() {
         QuestionComponent dst = new QuestionComponent();
@@ -993,6 +1077,77 @@ public class QuestionnaireResponse extends DomainResource {
           childrenList.add(new Property("value[x]", "boolean|decimal|integer|date|dateTime|instant|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "The answer (or one of the answers) provided by the respondent to the question.", 0, java.lang.Integer.MAX_VALUE, value));
           childrenList.add(new Property("group", "@QuestionnaireResponse.group", "Nested group, containing nested question for this question. The order of groups within the question is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("value[x]"))
+          this.value = (Type) value; // Type
+        else if (name.equals("group"))
+          this.getGroup().add((GroupComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("valueBoolean")) {
+          this.value = new BooleanType();
+          return this.value;
+        }
+        else if (name.equals("valueDecimal")) {
+          this.value = new DecimalType();
+          return this.value;
+        }
+        else if (name.equals("valueInteger")) {
+          this.value = new IntegerType();
+          return this.value;
+        }
+        else if (name.equals("valueDate")) {
+          this.value = new DateType();
+          return this.value;
+        }
+        else if (name.equals("valueDateTime")) {
+          this.value = new DateTimeType();
+          return this.value;
+        }
+        else if (name.equals("valueInstant")) {
+          this.value = new InstantType();
+          return this.value;
+        }
+        else if (name.equals("valueTime")) {
+          this.value = new TimeType();
+          return this.value;
+        }
+        else if (name.equals("valueString")) {
+          this.value = new StringType();
+          return this.value;
+        }
+        else if (name.equals("valueUri")) {
+          this.value = new UriType();
+          return this.value;
+        }
+        else if (name.equals("valueAttachment")) {
+          this.value = new Attachment();
+          return this.value;
+        }
+        else if (name.equals("valueCoding")) {
+          this.value = new Coding();
+          return this.value;
+        }
+        else if (name.equals("valueQuantity")) {
+          this.value = new Quantity();
+          return this.value;
+        }
+        else if (name.equals("valueReference")) {
+          this.value = new Reference();
+          return this.value;
+        }
+        else if (name.equals("group")) {
+          return addGroup();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public QuestionAnswerComponent copy() {
         QuestionAnswerComponent dst = new QuestionAnswerComponent();
@@ -1496,6 +1651,70 @@ public class QuestionnaireResponse extends DomainResource {
         childrenList.add(new Property("source", "Reference(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "Encounter during which this set of questionnaire response were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("group", "", "A group of questions to a possibly similarly grouped set of questions in the questionnaire response.", 0, java.lang.Integer.MAX_VALUE, group));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("questionnaire"))
+          this.questionnaire = castToReference(value); // Reference
+        else if (name.equals("status"))
+          this.status = new QuestionnaireResponseStatusEnumFactory().fromType(value); // Enumeration<QuestionnaireResponseStatus>
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("author"))
+          this.author = castToReference(value); // Reference
+        else if (name.equals("authored"))
+          this.authored = castToDateTime(value); // DateTimeType
+        else if (name.equals("source"))
+          this.source = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("group"))
+          this.group = (GroupComponent) value; // GroupComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("questionnaire")) {
+          this.questionnaire = new Reference();
+          return this.questionnaire;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type QuestionnaireResponse.status");
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("author")) {
+          this.author = new Reference();
+          return this.author;
+        }
+        else if (name.equals("authored")) {
+          throw new Exception("Cannot call addChild on a primitive type QuestionnaireResponse.authored");
+        }
+        else if (name.equals("source")) {
+          this.source = new Reference();
+          return this.source;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("group")) {
+          this.group = new GroupComponent();
+          return this.group;
+        }
+        else
+          return super.addChild(name);
       }
 
       public QuestionnaireResponse copy() {

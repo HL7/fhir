@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.instance.model.SearchParameter;
-import org.hl7.fhir.instance.utils.BuildToolPathEvaluator;
-import org.hl7.fhir.instance.utils.FHIRPathEvaluator;
 
 /*
 Copyright (c) 2011+, HL7, Inc

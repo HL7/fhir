@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -144,6 +144,24 @@ public class MedicationAdministration extends DomainResource {
         if ("stopped".equals(codeString))
           return MedicationAdministrationStatus.STOPPED;
         throw new IllegalArgumentException("Unknown MedicationAdministrationStatus code '"+codeString+"'");
+        }
+        public Enumeration<MedicationAdministrationStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("in-progress".equals(codeString))
+          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.INPROGRESS);
+        if ("on-hold".equals(codeString))
+          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.ONHOLD);
+        if ("completed".equals(codeString))
+          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.ENTEREDINERROR);
+        if ("stopped".equals(codeString))
+          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.STOPPED);
+        throw new Exception("Unknown MedicationAdministrationStatus code '"+codeString+"'");
         }
     public String toCode(MedicationAdministrationStatus code) {
       if (code == MedicationAdministrationStatus.INPROGRESS)
@@ -433,6 +451,61 @@ public class MedicationAdministration extends DomainResource {
           childrenList.add(new Property("quantity", "SimpleQuantity", "The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("rate[x]", "Ratio|Range", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Currently we do not specify a default of '1' in the denominator, but this is being discussed.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else if (name.equals("site[x]"))
+          this.site = (Type) value; // Type
+        else if (name.equals("route"))
+          this.route = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("method"))
+          this.method = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("quantity"))
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("rate[x]"))
+          this.rate = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationAdministration.text");
+        }
+        else if (name.equals("siteCodeableConcept")) {
+          this.site = new CodeableConcept();
+          return this.site;
+        }
+        else if (name.equals("siteReference")) {
+          this.site = new Reference();
+          return this.site;
+        }
+        else if (name.equals("route")) {
+          this.route = new CodeableConcept();
+          return this.route;
+        }
+        else if (name.equals("method")) {
+          this.method = new CodeableConcept();
+          return this.method;
+        }
+        else if (name.equals("quantity")) {
+          this.quantity = new SimpleQuantity();
+          return this.quantity;
+        }
+        else if (name.equals("rateRatio")) {
+          this.rate = new Ratio();
+          return this.rate;
+        }
+        else if (name.equals("rateRange")) {
+          this.rate = new Range();
+          return this.rate;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public MedicationAdministrationDosageComponent copy() {
         MedicationAdministrationDosageComponent dst = new MedicationAdministrationDosageComponent();
@@ -1240,6 +1313,103 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("device", "Reference(Device)", "The device used in administering the medication to the patient.  For example, a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("note", "string", "Extra information about the medication administration that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("dosage", "", "Describes the medication dosage information details e.g. dose, rate, site, route, etc.", 0, java.lang.Integer.MAX_VALUE, dosage));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new MedicationAdministrationStatusEnumFactory().fromType(value); // Enumeration<MedicationAdministrationStatus>
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("practitioner"))
+          this.practitioner = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("prescription"))
+          this.prescription = castToReference(value); // Reference
+        else if (name.equals("wasNotGiven"))
+          this.wasNotGiven = castToBoolean(value); // BooleanType
+        else if (name.equals("reasonNotGiven"))
+          this.getReasonNotGiven().add(castToCodeableConcept(value));
+        else if (name.equals("reasonGiven"))
+          this.getReasonGiven().add(castToCodeableConcept(value));
+        else if (name.equals("effectiveTime[x]"))
+          this.effectiveTime = (Type) value; // Type
+        else if (name.equals("medication[x]"))
+          this.medication = (Type) value; // Type
+        else if (name.equals("device"))
+          this.getDevice().add(castToReference(value));
+        else if (name.equals("note"))
+          this.note = castToString(value); // StringType
+        else if (name.equals("dosage"))
+          this.dosage = (MedicationAdministrationDosageComponent) value; // MedicationAdministrationDosageComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationAdministration.status");
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("practitioner")) {
+          this.practitioner = new Reference();
+          return this.practitioner;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("prescription")) {
+          this.prescription = new Reference();
+          return this.prescription;
+        }
+        else if (name.equals("wasNotGiven")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationAdministration.wasNotGiven");
+        }
+        else if (name.equals("reasonNotGiven")) {
+          return addReasonNotGiven();
+        }
+        else if (name.equals("reasonGiven")) {
+          return addReasonGiven();
+        }
+        else if (name.equals("effectiveTimeDateTime")) {
+          this.effectiveTime = new DateTimeType();
+          return this.effectiveTime;
+        }
+        else if (name.equals("effectiveTimePeriod")) {
+          this.effectiveTime = new Period();
+          return this.effectiveTime;
+        }
+        else if (name.equals("medicationCodeableConcept")) {
+          this.medication = new CodeableConcept();
+          return this.medication;
+        }
+        else if (name.equals("medicationReference")) {
+          this.medication = new Reference();
+          return this.medication;
+        }
+        else if (name.equals("device")) {
+          return addDevice();
+        }
+        else if (name.equals("note")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationAdministration.note");
+        }
+        else if (name.equals("dosage")) {
+          this.dosage = new MedicationAdministrationDosageComponent();
+          return this.dosage;
+        }
+        else
+          return super.addChild(name);
       }
 
       public MedicationAdministration copy() {

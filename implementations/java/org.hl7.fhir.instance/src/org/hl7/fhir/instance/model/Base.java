@@ -82,6 +82,14 @@ private Map<String, Object> userData;
   }  
   
 	protected abstract void listChildren(List<Property> result) ;
+	
+	public void setProperty(String name, Base value) throws Exception {
+	  throw new Exception("Attempt to set unknown property "+name);
+	}
+	
+	public Base addChild(String name) throws Exception {
+    throw new Exception("Attempt to add child with unknown name "+name);
+  }
 
   /**
    * Supports iterating the children elements in some generic processor or browser
@@ -185,4 +193,290 @@ private Map<String, Object> userData;
 			return false;
 		return e1.equalsShallow(e2);
   }
+	
+	// -- converters for property setters
+	
+
+	public BooleanType castToBoolean(Base b) throws Exception {
+		if (b instanceof BooleanType)
+			return (BooleanType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Boolean");
+	}
+	
+	public IntegerType castToInteger(Base b) throws Exception {
+		if (b instanceof IntegerType)
+			return (IntegerType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Integer");
+	}
+	
+	public DecimalType castToDecimal(Base b) throws Exception {
+		if (b instanceof DecimalType)
+			return (DecimalType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Decimal");
+	}
+	
+	public Base64BinaryType castToBase64Binary(Base b) throws Exception {
+		if (b instanceof Base64BinaryType)
+			return (Base64BinaryType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Base64Binary");
+	}
+	
+	public InstantType castToInstant(Base b) throws Exception {
+		if (b instanceof InstantType)
+			return (InstantType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Instant");
+	}
+	
+	public StringType castToString(Base b) throws Exception {
+		if (b instanceof StringType)
+			return (StringType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a String");
+	}
+	
+	public UriType castToUri(Base b) throws Exception {
+		if (b instanceof UriType)
+			return (UriType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Uri");
+	}
+	
+	public DateType castToDate(Base b) throws Exception {
+		if (b instanceof DateType)
+			return (DateType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Date");
+	}
+	
+	public DateTimeType castToDateTime(Base b) throws Exception {
+		if (b instanceof DateTimeType)
+			return (DateTimeType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a DateTime");
+	}
+	
+	public TimeType castToTime(Base b) throws Exception {
+		if (b instanceof TimeType)
+			return (TimeType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Time");
+	}
+	
+	public CodeType castToCode(Base b) throws Exception {
+		if (b instanceof CodeType)
+			return (CodeType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Code");
+	}
+	
+	public OidType castToOid(Base b) throws Exception {
+		if (b instanceof OidType)
+			return (OidType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Oid");
+	}
+	
+	public IdType castToId(Base b) throws Exception {
+		if (b instanceof IdType)
+			return (IdType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Id");
+	}
+	
+	public UnsignedIntType castToUnsignedInt(Base b) throws Exception {
+		if (b instanceof UnsignedIntType)
+			return (UnsignedIntType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a UnsignedInt");
+	}
+	
+	public PositiveIntType castToPositiveInt(Base b) throws Exception {
+		if (b instanceof PositiveIntType)
+			return (PositiveIntType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a PositiveInt");
+	}
+	
+  public MarkdownType castToMarkdown(Base b) throws Exception {
+		if (b instanceof MarkdownType)
+			return (MarkdownType) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Markdown");
+	}
+		
+	public Annotation castToAnnotation(Base b) throws Exception {
+		if (b instanceof Annotation)
+			return (Annotation) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to an Annotation");
+	}
+	
+	public Attachment castToAttachment(Base b) throws Exception {
+		if (b instanceof Attachment)
+			return (Attachment) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to an Attachment");
+	}
+	
+	public Identifier castToIdentifier(Base b) throws Exception {
+		if (b instanceof Identifier)
+			return (Identifier) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to an Identifier");
+	}
+	
+	public CodeableConcept castToCodeableConcept(Base b) throws Exception {
+		if (b instanceof CodeableConcept)
+			return (CodeableConcept) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a CodeableConcept");
+	}
+	
+	public Coding castToCoding(Base b) throws Exception {
+		if (b instanceof Coding)
+			return (Coding) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Coding");
+	}
+	
+	public Quantity castToQuantity(Base b) throws Exception {
+		if (b instanceof Quantity)
+			return (Quantity) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to an Quantity");
+	}
+	
+	public Money castToMoney(Base b) throws Exception {
+		if (b instanceof Money)
+			return (Money) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to an Money");
+	}
+	
+	public Duration castToDuration(Base b) throws Exception {
+		if (b instanceof Duration)
+			return (Duration) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to an Duration");
+	}
+	
+	public SimpleQuantity castToSimpleQuantity(Base b) throws Exception {
+		if (b instanceof SimpleQuantity)
+			return (SimpleQuantity) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to an SimpleQuantity");
+	}
+	
+	public Range castToRange(Base b) throws Exception {
+		if (b instanceof Range)
+			return (Range) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Range");
+	}
+	
+	public Period castToPeriod(Base b) throws Exception {
+		if (b instanceof Period)
+			return (Period) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Period");
+	}
+	
+	public Ratio castToRatio(Base b) throws Exception {
+		if (b instanceof Ratio)
+			return (Ratio) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Ratio");
+	}
+	
+	public SampledData castToSampledData(Base b) throws Exception {
+		if (b instanceof SampledData)
+			return (SampledData) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a SampledData");
+	}
+	
+	public Signature castToSignature(Base b) throws Exception {
+		if (b instanceof Signature)
+			return (Signature) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Signature");
+	}
+	
+	public HumanName castToHumanName(Base b) throws Exception {
+		if (b instanceof HumanName)
+			return (HumanName) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a HumanName");
+	}
+	
+	public Address castToAddress(Base b) throws Exception {
+		if (b instanceof Address)
+			return (Address) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Address");
+	}
+	
+	public ContactPoint castToContactPoint(Base b) throws Exception {
+		if (b instanceof ContactPoint)
+			return (ContactPoint) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a ContactPoint");
+	}
+	
+	public Timing castToTiming(Base b) throws Exception {
+		if (b instanceof Timing)
+			return (Timing) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Timing");
+	}
+	
+	public Reference castToReference(Base b) throws Exception {
+		if (b instanceof Reference)
+			return (Reference) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Reference");
+	}
+	
+	public Meta castToMeta(Base b) throws Exception {
+		if (b instanceof Meta)
+			return (Meta) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Meta");
+	}
+	
+	public Extension castToExtension(Base b) throws Exception {
+		if (b instanceof Extension)
+			return (Extension) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Extension");
+	}
+	
+	public Resource castToResource(Base b) throws Exception {
+		if (b instanceof Resource)
+			return (Resource) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Resource");
+	}
+	
+	public Narrative castToNarrative(Base b) throws Exception {
+		if (b instanceof Narrative)
+			return (Narrative) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a Narrative");
+	}
+	
+	
+	public ElementDefinition castToElementDefinition(Base b) throws Exception {
+		if (b instanceof ElementDefinition)
+			return (ElementDefinition) b;
+		else
+			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a ElementDefinition");
+	}
+	
+
 }

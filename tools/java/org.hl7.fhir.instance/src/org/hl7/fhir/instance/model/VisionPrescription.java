@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -109,6 +109,18 @@ public class VisionPrescription extends DomainResource {
         if ("left".equals(codeString))
           return VisionEyes.LEFT;
         throw new IllegalArgumentException("Unknown VisionEyes code '"+codeString+"'");
+        }
+        public Enumeration<VisionEyes> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("right".equals(codeString))
+          return new Enumeration<VisionEyes>(this, VisionEyes.RIGHT);
+        if ("left".equals(codeString))
+          return new Enumeration<VisionEyes>(this, VisionEyes.LEFT);
+        throw new Exception("Unknown VisionEyes code '"+codeString+"'");
         }
     public String toCode(VisionEyes code) {
       if (code == VisionEyes.RIGHT)
@@ -205,6 +217,22 @@ public class VisionPrescription extends DomainResource {
         if ("out".equals(codeString))
           return VisionBase.OUT;
         throw new IllegalArgumentException("Unknown VisionBase code '"+codeString+"'");
+        }
+        public Enumeration<VisionBase> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("up".equals(codeString))
+          return new Enumeration<VisionBase>(this, VisionBase.UP);
+        if ("down".equals(codeString))
+          return new Enumeration<VisionBase>(this, VisionBase.DOWN);
+        if ("in".equals(codeString))
+          return new Enumeration<VisionBase>(this, VisionBase.IN);
+        if ("out".equals(codeString))
+          return new Enumeration<VisionBase>(this, VisionBase.OUT);
+        throw new Exception("Unknown VisionBase code '"+codeString+"'");
         }
     public String toCode(VisionBase code) {
       if (code == VisionBase.UP)
@@ -1043,6 +1071,95 @@ public class VisionPrescription extends DomainResource {
           childrenList.add(new Property("notes", "string", "Notes for special requirements such as coatings and lens materials.", 0, java.lang.Integer.MAX_VALUE, notes));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("product"))
+          this.product = castToCoding(value); // Coding
+        else if (name.equals("eye"))
+          this.eye = new VisionEyesEnumFactory().fromType(value); // Enumeration<VisionEyes>
+        else if (name.equals("sphere"))
+          this.sphere = castToDecimal(value); // DecimalType
+        else if (name.equals("cylinder"))
+          this.cylinder = castToDecimal(value); // DecimalType
+        else if (name.equals("axis"))
+          this.axis = castToInteger(value); // IntegerType
+        else if (name.equals("prism"))
+          this.prism = castToDecimal(value); // DecimalType
+        else if (name.equals("base"))
+          this.base = new VisionBaseEnumFactory().fromType(value); // Enumeration<VisionBase>
+        else if (name.equals("add"))
+          this.add = castToDecimal(value); // DecimalType
+        else if (name.equals("power"))
+          this.power = castToDecimal(value); // DecimalType
+        else if (name.equals("backCurve"))
+          this.backCurve = castToDecimal(value); // DecimalType
+        else if (name.equals("diameter"))
+          this.diameter = castToDecimal(value); // DecimalType
+        else if (name.equals("duration"))
+          this.duration = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("color"))
+          this.color = castToString(value); // StringType
+        else if (name.equals("brand"))
+          this.brand = castToString(value); // StringType
+        else if (name.equals("notes"))
+          this.notes = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("product")) {
+          this.product = new Coding();
+          return this.product;
+        }
+        else if (name.equals("eye")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.eye");
+        }
+        else if (name.equals("sphere")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.sphere");
+        }
+        else if (name.equals("cylinder")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.cylinder");
+        }
+        else if (name.equals("axis")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.axis");
+        }
+        else if (name.equals("prism")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.prism");
+        }
+        else if (name.equals("base")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.base");
+        }
+        else if (name.equals("add")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.add");
+        }
+        else if (name.equals("power")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.power");
+        }
+        else if (name.equals("backCurve")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.backCurve");
+        }
+        else if (name.equals("diameter")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.diameter");
+        }
+        else if (name.equals("duration")) {
+          this.duration = new SimpleQuantity();
+          return this.duration;
+        }
+        else if (name.equals("color")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.color");
+        }
+        else if (name.equals("brand")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.brand");
+        }
+        else if (name.equals("notes")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.notes");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public VisionPrescriptionDispenseComponent copy() {
         VisionPrescriptionDispenseComponent dst = new VisionPrescriptionDispenseComponent();
         copyValues(dst);
@@ -1492,6 +1609,61 @@ public class VisionPrescription extends DomainResource {
         childrenList.add(new Property("encounter", "Reference(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Condition)", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("dispense", "", "Deals with details of the dispense part of the supply specification.", 0, java.lang.Integer.MAX_VALUE, dispense));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("dateWritten"))
+          this.dateWritten = castToDateTime(value); // DateTimeType
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("prescriber"))
+          this.prescriber = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("reason[x]"))
+          this.reason = (Type) value; // Type
+        else if (name.equals("dispense"))
+          this.getDispense().add((VisionPrescriptionDispenseComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("dateWritten")) {
+          throw new Exception("Cannot call addChild on a primitive type VisionPrescription.dateWritten");
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("prescriber")) {
+          this.prescriber = new Reference();
+          return this.prescriber;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("reasonCodeableConcept")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else if (name.equals("reasonReference")) {
+          this.reason = new Reference();
+          return this.reason;
+        }
+        else if (name.equals("dispense")) {
+          return addDispense();
+        }
+        else
+          return super.addChild(name);
       }
 
       public VisionPrescription copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -409,6 +409,59 @@ public class PaymentReconciliation extends DomainResource {
           childrenList.add(new Property("amount", "Money", "Amount paid for this detail.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("request"))
+          this.request = castToReference(value); // Reference
+        else if (name.equals("responce"))
+          this.responce = castToReference(value); // Reference
+        else if (name.equals("submitter"))
+          this.submitter = castToReference(value); // Reference
+        else if (name.equals("payee"))
+          this.payee = castToReference(value); // Reference
+        else if (name.equals("date"))
+          this.date = castToDate(value); // DateType
+        else if (name.equals("amount"))
+          this.amount = castToMoney(value); // Money
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("request")) {
+          this.request = new Reference();
+          return this.request;
+        }
+        else if (name.equals("responce")) {
+          this.responce = new Reference();
+          return this.responce;
+        }
+        else if (name.equals("submitter")) {
+          this.submitter = new Reference();
+          return this.submitter;
+        }
+        else if (name.equals("payee")) {
+          this.payee = new Reference();
+          return this.payee;
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type PaymentReconciliation.date");
+        }
+        else if (name.equals("amount")) {
+          this.amount = new Money();
+          return this.amount;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public DetailsComponent copy() {
         DetailsComponent dst = new DetailsComponent();
         copyValues(dst);
@@ -556,6 +609,29 @@ public class PaymentReconciliation extends DomainResource {
           childrenList.add(new Property("type", "Coding", "The note purpose: Print/Display.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("text", "string", "The note text.", 0, java.lang.Integer.MAX_VALUE, text));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type PaymentReconciliation.text");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public NotesComponent copy() {
         NotesComponent dst = new NotesComponent();
@@ -1314,6 +1390,102 @@ public class PaymentReconciliation extends DomainResource {
         childrenList.add(new Property("form", "Coding", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
         childrenList.add(new Property("total", "Money", "Total payment amount.", 0, java.lang.Integer.MAX_VALUE, total));
         childrenList.add(new Property("note", "", "Suite of notes.", 0, java.lang.Integer.MAX_VALUE, note));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("request"))
+          this.request = castToReference(value); // Reference
+        else if (name.equals("outcome"))
+          this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
+        else if (name.equals("disposition"))
+          this.disposition = castToString(value); // StringType
+        else if (name.equals("ruleset"))
+          this.ruleset = castToCoding(value); // Coding
+        else if (name.equals("originalRuleset"))
+          this.originalRuleset = castToCoding(value); // Coding
+        else if (name.equals("created"))
+          this.created = castToDateTime(value); // DateTimeType
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("organization"))
+          this.organization = castToReference(value); // Reference
+        else if (name.equals("requestProvider"))
+          this.requestProvider = castToReference(value); // Reference
+        else if (name.equals("requestOrganization"))
+          this.requestOrganization = castToReference(value); // Reference
+        else if (name.equals("detail"))
+          this.getDetail().add((DetailsComponent) value);
+        else if (name.equals("form"))
+          this.form = castToCoding(value); // Coding
+        else if (name.equals("total"))
+          this.total = castToMoney(value); // Money
+        else if (name.equals("note"))
+          this.getNote().add((NotesComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("request")) {
+          this.request = new Reference();
+          return this.request;
+        }
+        else if (name.equals("outcome")) {
+          throw new Exception("Cannot call addChild on a primitive type PaymentReconciliation.outcome");
+        }
+        else if (name.equals("disposition")) {
+          throw new Exception("Cannot call addChild on a primitive type PaymentReconciliation.disposition");
+        }
+        else if (name.equals("ruleset")) {
+          this.ruleset = new Coding();
+          return this.ruleset;
+        }
+        else if (name.equals("originalRuleset")) {
+          this.originalRuleset = new Coding();
+          return this.originalRuleset;
+        }
+        else if (name.equals("created")) {
+          throw new Exception("Cannot call addChild on a primitive type PaymentReconciliation.created");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("organization")) {
+          this.organization = new Reference();
+          return this.organization;
+        }
+        else if (name.equals("requestProvider")) {
+          this.requestProvider = new Reference();
+          return this.requestProvider;
+        }
+        else if (name.equals("requestOrganization")) {
+          this.requestOrganization = new Reference();
+          return this.requestOrganization;
+        }
+        else if (name.equals("detail")) {
+          return addDetail();
+        }
+        else if (name.equals("form")) {
+          this.form = new Coding();
+          return this.form;
+        }
+        else if (name.equals("total")) {
+          this.total = new Money();
+          return this.total;
+        }
+        else if (name.equals("note")) {
+          return addNote();
+        }
+        else
+          return super.addChild(name);
       }
 
       public PaymentReconciliation copy() {

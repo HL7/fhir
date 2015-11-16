@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -730,6 +730,95 @@ public class Coverage extends DomainResource {
         childrenList.add(new Property("subscriber", "Reference(Patient)", "The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.", 0, java.lang.Integer.MAX_VALUE, subscriber));
         childrenList.add(new Property("network", "Identifier", "The identifier for a community of providers.", 0, java.lang.Integer.MAX_VALUE, network));
         childrenList.add(new Property("contract", "Reference(Contract)", "The policy(s) which constitute this insurance coverage.", 0, java.lang.Integer.MAX_VALUE, contract));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("issuer"))
+          this.issuer = castToReference(value); // Reference
+        else if (name.equals("bin"))
+          this.bin = castToIdentifier(value); // Identifier
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("subscriberId"))
+          this.subscriberId = castToIdentifier(value); // Identifier
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("group"))
+          this.group = castToString(value); // StringType
+        else if (name.equals("plan"))
+          this.plan = castToString(value); // StringType
+        else if (name.equals("subPlan"))
+          this.subPlan = castToString(value); // StringType
+        else if (name.equals("dependent"))
+          this.dependent = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("sequence"))
+          this.sequence = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("subscriber"))
+          this.subscriber = castToReference(value); // Reference
+        else if (name.equals("network"))
+          this.network = castToIdentifier(value); // Identifier
+        else if (name.equals("contract"))
+          this.getContract().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("issuer")) {
+          this.issuer = new Reference();
+          return this.issuer;
+        }
+        else if (name.equals("bin")) {
+          this.bin = new Identifier();
+          return this.bin;
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("subscriberId")) {
+          this.subscriberId = new Identifier();
+          return this.subscriberId;
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("group")) {
+          throw new Exception("Cannot call addChild on a primitive type Coverage.group");
+        }
+        else if (name.equals("plan")) {
+          throw new Exception("Cannot call addChild on a primitive type Coverage.plan");
+        }
+        else if (name.equals("subPlan")) {
+          throw new Exception("Cannot call addChild on a primitive type Coverage.subPlan");
+        }
+        else if (name.equals("dependent")) {
+          throw new Exception("Cannot call addChild on a primitive type Coverage.dependent");
+        }
+        else if (name.equals("sequence")) {
+          throw new Exception("Cannot call addChild on a primitive type Coverage.sequence");
+        }
+        else if (name.equals("subscriber")) {
+          this.subscriber = new Reference();
+          return this.subscriber;
+        }
+        else if (name.equals("network")) {
+          this.network = new Identifier();
+          return this.network;
+        }
+        else if (name.equals("contract")) {
+          return addContract();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Coverage copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class Identifier extends Type implements ICompositeType {
         if ("secondary".equals(codeString))
           return IdentifierUse.SECONDARY;
         throw new IllegalArgumentException("Unknown IdentifierUse code '"+codeString+"'");
+        }
+        public Enumeration<IdentifierUse> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("usual".equals(codeString))
+          return new Enumeration<IdentifierUse>(this, IdentifierUse.USUAL);
+        if ("official".equals(codeString))
+          return new Enumeration<IdentifierUse>(this, IdentifierUse.OFFICIAL);
+        if ("temp".equals(codeString))
+          return new Enumeration<IdentifierUse>(this, IdentifierUse.TEMP);
+        if ("secondary".equals(codeString))
+          return new Enumeration<IdentifierUse>(this, IdentifierUse.SECONDARY);
+        throw new Exception("Unknown IdentifierUse code '"+codeString+"'");
         }
     public String toCode(IdentifierUse code) {
       if (code == IdentifierUse.USUAL)
@@ -449,6 +465,51 @@ public class Identifier extends Type implements ICompositeType {
         childrenList.add(new Property("value", "string", "The portion of the identifier typically displayed to the user and which is unique within the context of the system.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("period", "Period", "Time period during which identifier is/was valid for use.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("assigner", "Reference(Organization)", "Organization that issued/manages the identifier.", 0, java.lang.Integer.MAX_VALUE, assigner));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("use"))
+          this.use = new IdentifierUseEnumFactory().fromType(value); // Enumeration<IdentifierUse>
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("system"))
+          this.system = castToUri(value); // UriType
+        else if (name.equals("value"))
+          this.value = castToString(value); // StringType
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("assigner"))
+          this.assigner = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("use")) {
+          throw new Exception("Cannot call addChild on a primitive type Identifier.use");
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("system")) {
+          throw new Exception("Cannot call addChild on a primitive type Identifier.system");
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type Identifier.value");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("assigner")) {
+          this.assigner = new Reference();
+          return this.assigner;
+        }
+        else
+          return super.addChild(name);
       }
 
       public Identifier copy() {

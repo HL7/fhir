@@ -2,13 +2,17 @@ package org.hl7.fhir.instance.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
+import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.DecimalType;
+import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.PrimitiveType;
@@ -17,11 +21,27 @@ import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.utilities.Utilities;
 
-public abstract class FHIRPathEvaluator {
+/**
+ * 
+ * @author Grahame Grieve
+ *
+ */
+public class FHIRPathEvaluator {
 
   private IWorkerContext worker;
+  private IConstantResolver constantResolver;
+  protected boolean mappingExtensions;
+
+  // if the fhir path expressions are allowed to use constants beyond those defined in the specification
+  // the application can implement them by providing a constant resolver 
+  public interface IConstantResolver {
+    public Type resolveConstant(Object appContext, String name) throws Exception;
+    public String resolveConstantType(Object appContext, String name) throws Exception;
+  }
+  
 
   /**
    * @param worker - used when validating paths (@check), and used doing value set membership when executing tests (once that's defined)
@@ -30,6 +50,21 @@ public abstract class FHIRPathEvaluator {
     super();
     this.worker = worker;
   }
+
+  
+  // --- 3 methods to override in children -------------------------------------------------------
+  // if you don't override, it falls through to the using the base reference implementation 
+  // HAPI overrides to these to support extensing the base model
+  
+  public IConstantResolver getConstantResolver() {
+    return constantResolver;
+  }
+
+
+  public void setConstantResolver(IConstantResolver constantResolver) {
+    this.constantResolver = constantResolver;
+  }
+
 
   /**
    * Given an item, return all the children that conform to the pattern described in name
@@ -45,8 +80,40 @@ public abstract class FHIRPathEvaluator {
    * @param name
    * @param result
    */
-  abstract protected void getChildrenByName(Base item, String name, List<Base> result);
+  protected void getChildrenByName(Base item, String name, List<Base> result) {
+    for (Base v : item.listChildrenByName(name))
+      if (v != null)
+        result.add(v);
+  }
+  
+  /**
+   * ensure that a property of the given name exists, and return the value
+   * if the property is a collection, add an instance to the collection and return it
+   * 
+   * @param focus - the object being affected
+   * @param name - the name of the property to set
+   * @return - the value of the created object 
+   * @throws Exception if the property doesn't exist, or it has a primitive type 
+   *  
+   */
+  protected Base addChildProperty(Base focus, String name) throws Exception {
+    return focus.addChild(name);
+  }
+  
+  /**
+   * given a value, assign it to a child property
+   * if the property is a collection, add it to the collection
+   * 
+   * @param focus - the object being affected
+   * @param name - the name of the property to set
+   * @param value - the value of the property 
+   * @throws Exception -  if the property doesn't exist, or the value is the wrong type
+   */
+  protected void setChildProperty(Base focus, String name, Type value) throws Exception {
+    focus.setProperty(name, value);  
+  }
 
+  // --- public API -------------------------------------------------------
   /**
    * Parse a path for later use using execute
    * 
@@ -55,7 +122,7 @@ public abstract class FHIRPathEvaluator {
    * @throws Exception
    */
   public Expression parse(String path) throws Exception {
-    Lexer lexer = new Lexer(path);
+    Lexer lexer = new Lexer(path, false);
     if (lexer.done())
       throw lexer.error("Path cannot be empty");
     Expression result = parseExpression(lexer, true);
@@ -75,14 +142,14 @@ public abstract class FHIRPathEvaluator {
    * @param path - the FHIR Path statement to check
    * @throws Exception if the path is not valid
    */
-  public Set<String> check(String resourceType, String context, String path, boolean xPathStartsWithValueRef) throws Exception {
+  public Set<String> check(Object appContext, String resourceType, String context, String path, boolean xPathStartsWithValueRef) throws Exception {
     Expression expr = parse(path);
     Set<String> types = new HashSet<String>();
     if (xPathStartsWithValueRef && context.contains(".") && path.startsWith(context.substring(context.lastIndexOf(".")+1)))
       types.add(context.substring(0, context.lastIndexOf(".")));
     else 
       types.add(context);
-    return executeType(resourceType, types, types, expr, true);
+    return executeType(new ExecutionTypeContext(appContext, resourceType, context), types, expr, true);
   }
 
   /**
@@ -95,8 +162,9 @@ public abstract class FHIRPathEvaluator {
    */
   public List<Base> evaluate(Base base, Expression expression) throws Exception {
     List<Base> list = new ArrayList<Base>();
+    if (base != null)
     list.add(base);
-    return execute(null, list, list, expression, true);
+    return execute(new ExecutionContext(null, null, base), list, expression, true);
   }
 
   /**
@@ -110,8 +178,9 @@ public abstract class FHIRPathEvaluator {
   public List<Base> evaluate(Base base, String path) throws Exception {
     Expression exp = parse(path);
     List<Base> list = new ArrayList<Base>();
+    if (base != null)
     list.add(base);
-    return execute(null, list, list, exp, true);
+    return execute(new ExecutionContext(null, null, base), list, exp, true);
   }
 
   /**
@@ -122,10 +191,11 @@ public abstract class FHIRPathEvaluator {
    * @return
    * @throws Exception 
    */
-  public List<Base> evaluate(Resource resource, Base base, Expression expression) throws Exception {
+  public List<Base> evaluate(Object appContext, Resource resource, Base base, Expression expression) throws Exception {
     List<Base> list = new ArrayList<Base>();
+    if (base != null)
     list.add(base);
-    return execute(resource, list, list, expression, true);
+    return execute(new ExecutionContext(appContext, resource, base), list, expression, true);
   }
 
   /**
@@ -136,11 +206,12 @@ public abstract class FHIRPathEvaluator {
    * @return
    * @throws Exception 
    */
-  public List<Base> evaluate(Resource resource, Base base, String path) throws Exception {
+  public List<Base> evaluate(Object appContext, Resource resource, Base base, String path) throws Exception {
     Expression exp = parse(path);
     List<Base> list = new ArrayList<Base>();
+    if (base != null)
     list.add(base);
-    return execute(resource, list, list, exp, true);
+    return execute(new ExecutionContext(appContext, resource, base), list, exp, true);
   }
 
   /**
@@ -152,7 +223,7 @@ public abstract class FHIRPathEvaluator {
    * @throws Exception 
    */
   public boolean evaluateToBoolean(Resource resource, Base base, String path) throws Exception {
-    return convertToBoolean(evaluate(resource, base, path));
+    return convertToBoolean(evaluate(null, resource, base, path));
   }
 
   /**
@@ -212,7 +283,7 @@ public abstract class FHIRPathEvaluator {
 
   //the expression will have one of either name or constant
   public enum Function {
-    Empty, Item, Where, All, Any, First, Last, Tail, Count, AsInteger, StartsWith, Length, Matches, Substring, Contains, Distinct, Not;
+    Empty, Item, Where, All, Any, First, Last, Tail, Count, AsInteger, StartsWith, Length, Matches, Substring, Contains, Distinct, Not, Resolve;
 
     public static Function fromCode(String name) {
       if (name.equals("empty"))
@@ -249,20 +320,26 @@ public abstract class FHIRPathEvaluator {
         return Function.Distinct;
       if (name.equals("not"))
         return Function.Not;
+      if (name.equals("resolve"))
+        return Function.Resolve;
       return null;
     }
   }
 
   public enum Operation {
-    Equals, NotEquals, LessThen, Greater, LessOrEqual, GreaterOrEqual, In, Plus, Minus, Or, And, Xor, Collect;
+    Equals, Equivalent, NotEquals, NotEquivalent, LessThen, Greater, LessOrEqual, GreaterOrEqual, Union, In, Or, And, Xor, Plus, Minus, Concatenate;
 
     public static Operation fromCode(String name) {
       if (Utilities.noString(name))
         return null;
       if (name.equals("="))
         return Operation.Equals;
+      if (name.equals("~"))
+        return Operation.Equivalent;
       if (name.equals("!="))
         return Operation.NotEquals;
+      if (name.equals("!~"))
+        return Operation.NotEquivalent;
       if (name.equals(">"))
         return Operation.Greater;
       if (name.equals("<"))
@@ -271,20 +348,22 @@ public abstract class FHIRPathEvaluator {
         return Operation.GreaterOrEqual;
       if (name.equals("<="))
         return Operation.LessOrEqual;
+      if (name.equals("|"))
+        return Operation.Union;
       if (name.equals("in"))
         return Operation.In;
-      if (name.equals("+"))
-        return Operation.Plus;
-      if (name.equals("-"))
-        return Operation.Minus;
       if (name.equals("or"))
         return Operation.Or;
       if (name.equals("and"))
         return Operation.And;
       if (name.equals("xor"))
         return Operation.Xor;
-      if (name.equals("|"))
-        return Operation.Xor;
+      if (name.equals("+"))
+        return Operation.Plus;
+      if (name.equals("-"))
+        return Operation.Minus;
+      if (name.equals("&"))
+        return Operation.Concatenate;
       return null;
 
     }
@@ -350,25 +429,27 @@ public abstract class FHIRPathEvaluator {
       return parameters;
     }
     public boolean checkName() {
-      if (name.startsWith("$"))
-        return name.equals("$context") || name.equals("$resource") || name.equals("$parent");  
-      else
+      if (!name.startsWith("$"))
         return true;
+      else if (mappingExtensions && name.equals("$value"))
+        return true;
+      else
+        return name.equals("$context") || name.equals("$resource") || name.equals("$parent");  
     }
   }
 
   private class Lexer {
-    private String path;
+    private String source;
     private int cursor;
     private String current;
     private int currentStart;
 
-    public Lexer(String path) throws Exception {
-      this.path = path;
-      next();
+    public Lexer(String source, boolean forMap) throws Exception {
+      this.source = source;
+      next(forMap);
     }
-    public String getPath() {
-      return path;
+    public String getSource() {
+      return source;
     }
     public int getCursor() {
       return cursor;
@@ -381,12 +462,12 @@ public abstract class FHIRPathEvaluator {
     }
 
     public boolean isConstant() {
-      return current.charAt(0) == '"' || (current.charAt(0) >= '0' && current.charAt(0) <= '9') || current.equals("true") || current.equals("false");
+      return current.charAt(0) == '"' || current.charAt(0) == '%' || (current.charAt(0) >= '0' && current.charAt(0) <= '9') || current.equals("true") || current.equals("false");
     }
 
-    public String take() throws Exception {
+    public String take(boolean forMap) throws Exception {
       String s = current;
-      next();
+      next(forMap);
       return s;
     }
 
@@ -415,118 +496,172 @@ public abstract class FHIRPathEvaluator {
     }
 
     private Exception error(String msg, int offset) {
-      return new Exception("Error in "+path+" at "+Integer.toString(offset+1)+": "+msg);
+      return new Exception("Error in "+source+" at "+Integer.toString(offset+1)+": "+msg);
     }
 
-    public void next() throws Exception {
+    public void next(boolean forMapping) throws Exception {
       //	  procedure Grab(length : Integer);
       //	  begin
       //	    FCurrent := copy(path, FCurrentStart, length);
       //	    inc(cursor, length);
       //	  end;
       current = null;
-      while (cursor < path.length() && Character.isWhitespace(path.charAt(cursor)))
+      while (cursor < source.length() && Character.isWhitespace(source.charAt(cursor)))
         cursor++;
       currentStart = cursor;
-      if (cursor < path.length()) {
-        char ch = path.charAt(cursor);
-        if (ch == '!' || ch == '>' || ch == '<')  {
+      if (cursor < source.length()) {
+        char ch = source.charAt(cursor);
+        if (ch == '!' || ch == '>' || ch == '<' || ch == ':')  {
           cursor++;
-          if (cursor < path.length() && path.charAt(cursor) == '=') 
+          if (cursor < source.length() && source.charAt(cursor) == '=') 
             cursor++;
-          current = path.substring(currentStart, cursor);
+          current = source.substring(currentStart, cursor);
         } else if (ch == '*') {
           cursor++;
-          if (cursor < path.length() && path.charAt(cursor) == '*') 
+          if (cursor < source.length() && source.charAt(cursor) == '*') 
             cursor++;
-          current = path.substring(currentStart, cursor);
+          current = source.substring(currentStart, cursor);
+        } else if (ch == '-') {
+          cursor++;
+          if (cursor < source.length() && source.charAt(cursor) == '>') 
+            cursor++;
+          current = source.substring(currentStart, cursor);
         } else if (ch >= '0' && ch <= '9') {
-          while (cursor < path.length() && ((path.charAt(cursor) >= '0' && path.charAt(cursor) <= '9') || path.charAt(cursor) == '.')) 
+          while (cursor < source.length() && ((source.charAt(cursor) >= '0' && source.charAt(cursor) <= '9') || source.charAt(cursor) == '.')) 
             cursor++;
-          current = path.substring(currentStart, cursor);
+          current = source.substring(currentStart, cursor);
         }  else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
-          while (cursor < path.length() && ((path.charAt(cursor) >= 'A' && path.charAt(cursor) <= 'Z') || (path.charAt(cursor) >= 'a' && path.charAt(cursor) <= 'z') || 
-              (path.charAt(cursor) >= '0' && path.charAt(cursor) <= '9') || path.charAt(cursor) == '[' || path.charAt(cursor) == ']' || path.charAt(cursor) == '*')) 
+          while (cursor < source.length() && ((source.charAt(cursor) >= 'A' && source.charAt(cursor) <= 'Z') || (source.charAt(cursor) >= 'a' && source.charAt(cursor) <= 'z') || 
+              (source.charAt(cursor) >= '0' && source.charAt(cursor) <= '9') || (!forMapping && (source.charAt(cursor) == '[' || source.charAt(cursor) == ']')) || source.charAt(cursor) == '*')) 
             cursor++;
-          current = path.substring(currentStart, cursor);
+          current = source.substring(currentStart, cursor);
         } else if (ch == '%') {
           cursor++;
-          while (cursor < path.length() && ((path.charAt(cursor) >= 'A' && path.charAt(cursor) <= 'Z') || (path.charAt(cursor) >= 'a' && path.charAt(cursor) <= 'z') || 
-              (path.charAt(cursor) >= '0' && path.charAt(cursor) <= '9') || path.charAt(cursor) == ':' || path.charAt(cursor) == '-'))
+          while (cursor < source.length() && ((source.charAt(cursor) >= 'A' && source.charAt(cursor) <= 'Z') || (source.charAt(cursor) >= 'a' && source.charAt(cursor) <= 'z') || 
+              (source.charAt(cursor) >= '0' && source.charAt(cursor) <= '9') || source.charAt(cursor) == ':' || source.charAt(cursor) == '-'))
             cursor++;
-          current = replaceFixedConstant(path.substring(currentStart, cursor));
+          current = source.substring(currentStart, cursor);
         } else if (ch == '$') {
           cursor++;
-          while (cursor < path.length() && (path.charAt(cursor) >= 'a' && path.charAt(cursor) <= 'z'))
+          while (cursor < source.length() && (source.charAt(cursor) >= 'a' && source.charAt(cursor) <= 'z'))
             cursor++;
-          current = path.substring(currentStart, cursor);
+          current = source.substring(currentStart, cursor);
         } else if (ch == '"' || ch == '\''){
           cursor++;
           char ech = ch;
           boolean escape = false;
-          while (cursor < path.length() && (escape || path.charAt(cursor) != ech)) {
+          while (cursor < source.length() && (escape || source.charAt(cursor) != ech)) {
             if (escape)
               escape = false;
             else 
-              escape = (path.charAt(cursor) == '\\');
+              escape = (source.charAt(cursor) == '\\');
             cursor++;
           }
-          if (cursor == path.length())
+          if (cursor == source.length())
             throw error("Unterminated string");
           cursor++;
-          current = path.substring(currentStart, cursor);
+          current = source.substring(currentStart, cursor);
           if (ech == '\'')
             current = "\""+current.substring(1, current.length() - 1)+"\"";
         } else { // if CharInSet(ch, ['.', ',', '(', ')', '=', '$']) then
           cursor++;
-          current = path.substring(currentStart, cursor);
+          current = source.substring(currentStart, cursor);
         }
       }
     }
 
-    private String replaceFixedConstant(String s) throws Exception {
-      if (s.equals("%sct"))
-        return "\"http://snomed.info/sct\"";
-      else if (s.equals("%loinc"))
-        return "\"http://loinc.org\"";
-      else if (s.equals("%ucum"))
-        return "\"http://unitsofmeasure.org\"";
-      else if (s.equals("%us-zip"))
-        return "\"[0-9]{5}(-[0-9]{4}){0,1}\"";
-      else if (s.startsWith("%vs-"))
-        return "\"http://hl7.org/fhir/ValueSet/"+s.substring(4)+"\"";
-      else if (s.startsWith("%ext-"))
-        return "\"http://hl7.org/fhir/StructureDefinition/"+s.substring(5)+"\"";
-      else
-        throw error("Unknown fixed constant '"+s+"'");
-    }
 
     public boolean isOp() {
       return Operation.fromCode(current) != null;
     }
     public boolean done() {
-      return currentStart >= path.length();
+      return currentStart >= source.length();
     }
 
   }
 
+  private class ExecutionContext {
+    private Object appContext;
+    private Resource resource;
+    private Base original;
+    private Base value; // for mapping
+    public ExecutionContext(Object appContext, Resource resource, Base original) {
+      this.appContext = appContext;
+      this.resource = resource; 
+      this.original = original;
+    }
+    public Resource getResource() {
+      return resource;
+    }
+    public void setResource(Resource resource) {
+      this.resource = resource;
+    }
+    public Base getOriginal() {
+      return original;
+    }
+    public void setOriginal(Base original) {
+      this.original = original;
+    }
+    public Base getValue() {
+      return value;
+    }
+    public void setValue(Base value) {
+      this.value = value;
+    }
+
+  }
+
+  private class ExecutionTypeContext {
+    private Object appContext; 
+    private String resource;
+    private String original;
+    private String value; // for mapping
+    
+    
+    public ExecutionTypeContext(Object appContext, String resource, String original) {
+      super();
+      this.appContext = appContext;
+      this.resource = resource;
+      this.original = original;
+    }
+    public String getResource() {
+      return resource;
+    }
+    public void setResource(String resource) {
+      this.resource = resource;
+    }
+    public String getOriginal() {
+      return original;
+    }
+    public void setOriginal(String original) {
+      this.original = original;
+    }
+    public String getValue() {
+      return value;
+    }
+    public void setValue(String value) {
+      this.value = value;
+    }
+    
+    
+  }
   private Expression parseExpression(Lexer lexer, boolean proximal) throws Exception {
     Expression result = new Expression();
     int c = lexer.getCurrentStart();
     if (lexer.isConstant()) {
-      result.setConstant(cleanConstant(lexer.take()));
+      result.setConstant(cleanConstant(lexer.take(false), lexer));
     } else {
       if ("(".equals(lexer.getCurrent())) {
-        lexer.next();
+        lexer.next(false);
         Expression group = parseExpression(lexer, true);
         if (!")".equals(lexer.getCurrent())) 
           throw lexer.error("Found "+lexer.getCurrent()+" expecting a \")\"");
-        lexer.next();
+        lexer.next(false);
         result = group;
       } else {
         if (!lexer.isToken()) 
           throw lexer.error("Found "+lexer.getCurrent()+" expecting a token name");
-        result.setName(lexer.take());
+        result.setName(lexer.take(false));
         if (!result.checkName())
           throw lexer.error("Found "+result.getName()+" expecting a valid token name");
         if ("(".equals(lexer.getCurrent())) {
@@ -534,20 +669,20 @@ public abstract class FHIRPathEvaluator {
           if (f == null)
             throw lexer.error("The name "+result.getName()+" is not a valid function name");
           result.setFunction(f);
-          lexer.next();
+          lexer.next(false);
           while (!")".equals(lexer.getCurrent())) { 
             result.getParameters().add(parseExpression(lexer, true));
             if (",".equals(lexer.getCurrent()))
-              lexer.next();
+              lexer.next(false);
             else if (!")".equals(lexer.getCurrent()))
               throw lexer.error("The token "+lexer.getCurrent()+" is not expected here - either a \",\" or a \")\" expected");
           }
-          lexer.next();
+          lexer.next(false);
           checkParameters(lexer, c, result);
         }
       }
       if (".".equals(lexer.current)) {
-        lexer.next();
+        lexer.next(false);
         result.setInner(parseExpression(lexer, false));
         assert(!result.getInner().isProximal());
       }
@@ -555,7 +690,7 @@ public abstract class FHIRPathEvaluator {
     if (proximal) {
       while (lexer.isOp()) {
         result.setOperation(Operation.fromCode(lexer.getCurrent()));
-        lexer.next();
+        lexer.next(false);
         result.setOpNext(parseExpression(lexer, false));
       }
     }
@@ -563,8 +698,28 @@ public abstract class FHIRPathEvaluator {
     return result;
   }
 
-  private String cleanConstant(String s) {
+  private String cleanConstant(String s, Lexer lexer) throws Exception {
     if (s.startsWith("\"") && s.endsWith("\"")) {
+    	StringBuilder b = new StringBuilder();
+    	boolean inEscape = false;
+    	for (int i = 1; i < s.length()-1; i++) {
+    		char ch = s.charAt(i);
+    		if (inEscape) { 
+    			switch (ch) {
+    			case 't': b.append('\t'); break;
+    			case 'r': b.append('\r'); break;
+    			case 'n': b.append('\n'); break;
+    			case '\'': b.append('\''); break;
+    			case '"': b.append('"'); break;
+    			case '\\': b.append('\\'); break;
+    			default: throw lexer.error("Unknown character escape \\"+ch);
+    			}
+    			inEscape = false;
+    		} else if (ch == '\\')
+    			inEscape = true;
+    		else
+    			b.append(ch);
+    	}
       s = s.substring(1, s.length()-1);
       return s.replace("\\t", "\t").replace("\\r", "\r").replace("\\n", "\n").replace("\\\"", "\"").replace("\\'", "'").replace("\\\\", "\\");
     } else
@@ -618,28 +773,31 @@ public abstract class FHIRPathEvaluator {
     return false;
   }
 
-  private List<Base> execute(Resource resource, List<Base> originalContext, List<Base> context, Expression exp, boolean atEntry) {
+  private List<Base> execute(ExecutionContext context, List<Base> focus, Expression exp, boolean atEntry) throws Exception {
     List<Base> work = new ArrayList<Base>();
     if (exp.getFunction() != null) {
-      work.addAll(evaluateFunction(resource, originalContext, context, exp));
+      work.addAll(evaluateFunction(context, focus, exp));
     } else if (exp.getConstant() != null) 
-      work.add(readConstant(exp.getConstant()));
+      work.add(readConstant(context.appContext, exp.getConstant()));
     else if (exp.getName().equals("$resource"))
-      work.add(resource);
+      work.add(context.getResource());
     else if (exp.getName().equals("$context"))
-      work.addAll(originalContext);
-    else 
-      for (Base item : context) 
-        work.addAll(execute(resource, originalContext, item, exp, atEntry));
+      work.add(context.getOriginal());
+    else if (exp.getName().equals("$value")) {
+      if (context.getValue() != null)
+        work.add(context.getValue());
+    } else 
+      for (Base item : focus) 
+        work.addAll(execute(context, item, exp, atEntry));
 
     if (exp.getInner() != null)
-      work = execute(resource, originalContext, work, exp.getInner(), false);
+      work = execute(context, work, exp.getInner(), false);
     
     if (exp.proximal && exp.getOperation() != null) {
       Expression next = exp.getOpNext();
       Expression last = exp;
       while (next != null) {
-        List<Base> work2 = execute(resource, originalContext, context, next, false);
+        List<Base> work2 = execute(context, focus, next, false);
         work = operate(work, last.getOperation(), work2);
         last = next;
         next = next.getOpNext();
@@ -648,27 +806,35 @@ public abstract class FHIRPathEvaluator {
     return work;
   }
 
-  private Set<String> executeType(String resourceType, Set<String> originalContext, Set<String> context, Expression exp, boolean atEntry) throws Exception {
+  private Set<String> executeType(ExecutionTypeContext context, Set<String> focus, Expression exp, boolean atEntry) throws Exception {
     Set<String> work = new HashSet<String>();
     if (exp.getFunction() != null) {
-      work.addAll(evaluateFunctionType(resourceType, originalContext, context, exp));
+      work.addAll(evaluateFunctionType(context, focus, exp));
     } else if (exp.getConstant() != null) 
-      work.add(readConstantType(exp.getConstant()));
+      work.add(readConstantType(context.appContext, exp.getConstant()));
+    else if (exp.getName().equals("$context"))
+      work.add(context.getOriginal());
+    else if (exp.getName().equals("$resource")) {
+      if (context.getResource() != null)
+        work.add(context.getResource());
+      else
+        work.add("DomainResource");
+    }     
     else {
-      for (String s : context) 
-        work.addAll(executeType(resourceType, originalContext, s, exp, atEntry));
+      for (String s : focus) 
+        work.addAll(executeType(s, exp, atEntry));
       if (work.isEmpty()) 
-        throw new Exception("The name "+exp.getName()+" was not valid for any of the possible types: "+context.toString());
+        throw new Exception("The name "+exp.getName()+" was not valid for any of the possible types: "+focus.toString());
     }
 
     if (exp.getInner() != null)
-      work = executeType(resourceType, originalContext, work, exp.getInner(), false);
+      work = executeType(context, work, exp.getInner(), false);
 
     if (exp.proximal && exp.getOperation() != null) {
       Expression next = exp.getOpNext();
       Expression last = exp;
       while (next != null) {
-        Set<String> work2 = executeType(resourceType, originalContext, context, next, false);
+        Set<String> work2 = executeType(context, focus, next, false);
         work = operateTypes(work, last.getOperation(), work2);
         last = next;
         next = next.getOpNext();
@@ -707,7 +873,7 @@ public abstract class FHIRPathEvaluator {
     case Or: return typeSet("boolean");
     case And: return typeSet("boolean");
     case Xor: return typeSet("boolean");
-    case Collect: return union(left, right);
+    case Union: return union(left, right);
     default: 
       return null;
     }
@@ -779,7 +945,7 @@ public abstract class FHIRPathEvaluator {
   }
 
 
-  private Type readConstant(String constant) {
+  private Type readConstant(Object appContext, String constant) throws Exception {
     if (constant.equals("true")) 
       return new BooleanType(true);
     else if (constant.equals("false")) 
@@ -788,11 +954,32 @@ public abstract class FHIRPathEvaluator {
       return new IntegerType(constant);
     else if (Utilities.isDecimal(constant))
       return new DecimalType(constant);
+    else if (constant.startsWith("%"))
+      return resolveConstant(appContext, constant);
     else
       return new StringType(constant);
   }
 
-  private String readConstantType(String constant) {
+  private Type resolveConstant(Object appContext, String s) throws Exception {
+    if (s.equals("%sct"))
+      return new StringType("\"http://snomed.info/sct\"");
+    else if (s.equals("%loinc"))
+      return new StringType("\"http://loinc.org\"");
+    else if (s.equals("%ucum"))
+      return new StringType("\"http://unitsofmeasure.org\"");
+    else if (s.equals("%us-zip"))
+      return new StringType("\"[0-9]{5}(-[0-9]{4}){0,1}\"");
+    else if (s.startsWith("%vs-"))
+      return new StringType("\"http://hl7.org/fhir/ValueSet/"+s.substring(4)+"\"");
+    else if (s.startsWith("%ext-"))
+      return new StringType("\"http://hl7.org/fhir/StructureDefinition/"+s.substring(5)+"\"");
+    else if (constantResolver == null)
+      throw new Exception("Unknown fixed constant '"+s+"'");
+    else
+      return constantResolver.resolveConstant(appContext, s);
+  }
+
+  private String readConstantType(Object appContext, String constant) throws Exception {
     if (constant.equals("true")) 
       return "boolean";
     else if (constant.equals("false")) 
@@ -801,11 +988,34 @@ public abstract class FHIRPathEvaluator {
       return "integer";
     else if (Utilities.isDecimal(constant))
       return "decimal";
+    else if (constant.startsWith("%"))
+      return resolveConstantType(appContext, constant);
     else
       return "string";
   }
 
-  private List<Base> execute(Resource resource, List<Base> originalContext, Base item, Expression exp, boolean atEntry) {
+  private String resolveConstantType(Object appContext, String s) throws Exception {
+    if (s.equals("%sct"))
+      return "string";
+    else if (s.equals("%loinc"))
+      return "string";
+    else if (s.equals("%ucum"))
+      return "string";
+    else if (s.equals("%map-codes"))
+      return "string";
+    else if (s.equals("%us-zip"))
+      return "string";
+    else if (s.startsWith("%vs-"))
+      return "string";
+    else if (s.startsWith("%ext-"))
+      return "string";
+    else if (constantResolver == null)
+      throw new Exception("Unknown fixed constant type for '"+s+"'");
+    else
+      return constantResolver.resolveConstantType(appContext, s);
+  }
+
+  private List<Base> execute(ExecutionContext context, Base item, Expression exp, boolean atEntry) {
     List<Base> result = new ArrayList<Base>(); 
     if (atEntry && Character.isUpperCase(exp.getName().charAt(0))) {// special case for start up
       if (item instanceof Resource && ((Resource) item).getResourceType().toString().equals(exp.getName()))  
@@ -815,43 +1025,36 @@ public abstract class FHIRPathEvaluator {
     return result;
   }
 
-  private Set<String> executeType(String resourceType, Set<String> originalContext, String type, Expression exp, boolean atEntry) throws Exception {
+  private Set<String> executeType(String type, Expression exp, boolean atEntry) throws Exception {
     Set<String> result = new HashSet<String>(); 
     if (atEntry && Character.isUpperCase(exp.getName().charAt(0))) {// special case for start up
       if (type.equals(exp.getName()))  
         result.add(type);
-    } else if (exp.getName().equals("$context"))
-      result.addAll(originalContext);
-    else if (exp.getName().equals("$resource")) {
-      if (resourceType != null)
-        result.add(resourceType);
-      else
-        result.add("DomainResource");
     } else
       getChildTypesByName(type, exp.name, result);
     return result;
   }
 
 
-  private Set<String> evaluateFunctionType(String resourceType, Set<String> originalContext, Set<String> context, Expression exp) throws Exception {
+  private Set<String> evaluateFunctionType(ExecutionTypeContext context, Set<String> focus, Expression exp) throws Exception {
     for (Expression expr : exp.getParameters()) {
-      executeType(resourceType, originalContext, context, expr, false);
+      executeType(context, focus, expr, false);
     }
     switch (exp.getFunction()) {
     case Empty : return typeSet("boolean");
-    case Item : return context;
-    case Where : return context;
+    case Item : return focus;
+    case Where : return focus;
     case All : return typeSet("boolean");
     case Any : return typeSet("boolean");
-    case First : return context;
-    case Last : return context;
-    case Tail : return context;
+    case First : return focus;
+    case Last : return focus;
+    case Tail : return focus;
     case Count : return typeSet("integer");
     case AsInteger : return typeSet("integer");
-    case StartsWith : return primitives(context);
+    case StartsWith : return primitives(focus);
     case Length : return typeSet("integer");
-    case Matches : return primitives(context);
-    case Contains : return primitives(context);
+    case Matches : return primitives(focus);
+    case Contains : return primitives(focus);
     case Substring : return typeSet("integer");
     case Distinct : return typeSet("boolean");
     case Not : return typeSet("boolean");
@@ -871,39 +1074,39 @@ public abstract class FHIRPathEvaluator {
     return s.equals("boolean") || s.equals("integer") || s.equals("decimal") || s.equals("base64Binary") || s.equals("instant") || s.equals("string") || s.equals("uri") || s.equals("date") || s.equals("dateTime") || s.equals("time") || s.equals("code") || s.equals("oid") || s.equals("id") || s.equals("unsignedInt") || s.equals("positiveInt") || s.equals("markdown");
   }
 
-  private List<Base> evaluateFunction(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> evaluateFunction(ExecutionContext context, List<Base> focus, Expression exp) throws Exception {
     switch (exp.getFunction()) {
-    case Empty : return funcEmpty(resource, originalContext, context, exp);
-    case Item : return funcItem(resource, originalContext, context, exp);
-    case Where : return funcWhere(resource, originalContext, context, exp);
-    case All : return funcAll(resource, originalContext, context, exp);
-    case Any : return funcAny(resource, originalContext, context, exp);
-    case First : return funcFirst(resource, originalContext, context, exp);
-    case Last : return funcLast(resource, originalContext, context, exp);
-    case Tail : return funcTail(resource, originalContext, context, exp);
-    case Count : return funcCount(resource, originalContext, context, exp);
-    case AsInteger : return funcAsInteger(resource, originalContext, context, exp);
-    case StartsWith : return funcStartsWith(resource, originalContext, context, exp);
-    case Length : return funcLength(resource, originalContext, context, exp);
-    case Matches : return funcMatches(resource, originalContext, context, exp);
-    case Contains : return funcContains(resource, originalContext, context, exp);
-    case Substring : return funcSubString(resource, originalContext, context, exp);
-    case Distinct : return funcDistinct(resource, originalContext, context, exp);
-    case Not : return funcNot(resource, originalContext, context, exp);
+    case Empty : return funcEmpty(context, focus, exp);
+    case Item : return funcItem(context, focus, exp);
+    case Where : return funcWhere(context, focus, exp);
+    case All : return funcAll(context, focus, exp);
+    case Any : return funcAny(context, focus, exp);
+    case First : return funcFirst(context, focus, exp);
+    case Last : return funcLast(context, focus, exp);
+    case Tail : return funcTail(context, focus, exp);
+    case Count : return funcCount(context, focus, exp);
+    case AsInteger : return funcAsInteger(context, focus, exp);
+    case StartsWith : return funcStartsWith(context, focus, exp);
+    case Length : return funcLength(context, focus, exp);
+    case Matches : return funcMatches(context, focus, exp);
+    case Contains : return funcContains(context, focus, exp);
+    case Substring : return funcSubString(context, focus, exp);
+    case Distinct : return funcDistinct(context, focus, exp);
+    case Not : return funcNot(context, focus, exp);
     }
     throw new Error("not Implemented yet");
   }
 
-  private List<Base> funcDistinct(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcDistinct(ExecutionContext context, List<Base> focus, Expression exp) {
     List<Base> result = new ArrayList<Base>();
     throw new Error("not Implemented yet");
   }
 
-  private List<Base> funcMatches(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcMatches(ExecutionContext context, List<Base> focus, Expression exp) throws Exception {
     List<Base> result = new ArrayList<Base>();
-    String p = convertToString(execute(resource, originalContext, context, exp.getParameters().get(0), false));
+    String p = convertToString(execute(context, focus, exp.getParameters().get(0), false));
 
-    for (Base item : context) {
+    for (Base item : focus) {
       String s = convertToString(item);
       if (s.matches(p)) 
         result.add(item);
@@ -911,11 +1114,11 @@ public abstract class FHIRPathEvaluator {
     return result;
   }
 
-  private List<Base> funcContains(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcContains(ExecutionContext context, List<Base> focus, Expression exp) throws Exception {
     List<Base> result = new ArrayList<Base>();
-    String p = convertToString(execute(resource, originalContext, context, exp.getParameters().get(0), false));
+    String p = convertToString(execute(context, focus, exp.getParameters().get(0), false));
 
-    for (Base item : context) {
+    for (Base item : focus) {
       String s = convertToString(item);
       if (s.contains(p)) 
         result.add(item);
@@ -923,9 +1126,9 @@ public abstract class FHIRPathEvaluator {
     return result;
   }
 
-  private List<Base> funcLength(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcLength(ExecutionContext context, List<Base> focus, Expression exp) {
     int l = 0;
-    for (Base item : context) {
+    for (Base item : focus) {
       String s = convertToString(item);
       l = Math.max(l, s.length());
     }
@@ -934,11 +1137,11 @@ public abstract class FHIRPathEvaluator {
     return result;
   }
 
-  private List<Base> funcStartsWith(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcStartsWith(ExecutionContext context, List<Base> focus, Expression exp) throws Exception {
     List<Base> result = new ArrayList<Base>();
-    String sw = convertToString(execute(resource, originalContext, context, exp.getParameters().get(0), false));
+    String sw = convertToString(execute(context, focus, exp.getParameters().get(0), false));
 
-    for (Base item : context) {
+    for (Base item : focus) {
       String s = convertToString(item);
       if (s.startsWith(sw)) 
         result.add(item);
@@ -946,54 +1149,54 @@ public abstract class FHIRPathEvaluator {
     return result;
   }
 
-  private List<Base> funcSubString(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcSubString(ExecutionContext context, List<Base> focus, Expression exp) {
     List<Base> result = new ArrayList<Base>();
     throw new Error("not done yet");
   }
 
-  private List<Base> funcAsInteger(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
-    String s = convertToString(context);
+  private List<Base> funcAsInteger(ExecutionContext context, List<Base> focus, Expression exp) {
+    String s = convertToString(focus);
     List<Base> result = new ArrayList<Base>();
     if (Utilities.isInteger(s))
       result.add(new IntegerType(s));
     return result;
   }
 
-  private List<Base> funcCount(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcCount(ExecutionContext context, List<Base> focus, Expression exp) {
     List<Base> result = new ArrayList<Base>();
-    result.add(new IntegerType(context.size()));
+    result.add(new IntegerType(focus.size()));
     return result;
   }
 
-  private List<Base> funcTail(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcTail(ExecutionContext context, List<Base> focus, Expression exp) {
     List<Base> result = new ArrayList<Base>();
-    for (int i = 1; i < context.size(); i++)
-      result.add(context.get(i));
+    for (int i = 1; i < focus.size(); i++)
+      result.add(focus.get(i));
     return result;
   }
 
-  private List<Base> funcLast(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcLast(ExecutionContext context, List<Base> focus, Expression exp) {
     List<Base> result = new ArrayList<Base>();
-    if (context.size() > 0)
-      result.add(context.get(context.size()-1));
+    if (focus.size() > 0)
+      result.add(focus.get(focus.size()-1));
     return result;
   }
 
-  private List<Base> funcFirst(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcFirst(ExecutionContext context, List<Base> focus, Expression exp) {
     List<Base> result = new ArrayList<Base>();
-    if (context.size() > 0)
-      result.add(context.get(0));
+    if (focus.size() > 0)
+      result.add(focus.get(0));
     return result;
   }
 
-  private List<Base> funcAny(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcAny(ExecutionContext context, List<Base> focus, Expression exp) throws Exception {
     List<Base> result = new ArrayList<Base>();
     List<Base> pc = new ArrayList<Base>();
     boolean any = false;
-    for (Base item : context) {
+    for (Base item : focus) {
       pc.clear();
       pc.add(item);
-      if (convertToBoolean(execute(resource, originalContext, pc, exp.getParameters().get(0), false))) {
+      if (convertToBoolean(execute(context, pc, exp.getParameters().get(0), false))) {
         any = true;
         break;
       }
@@ -1002,14 +1205,14 @@ public abstract class FHIRPathEvaluator {
     return result;
   }
 
-  private List<Base> funcAll(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcAll(ExecutionContext context, List<Base> focus, Expression exp) throws Exception {
     List<Base> result = new ArrayList<Base>();
     List<Base> pc = new ArrayList<Base>();
     boolean all = true;
-    for (Base item : context) {
+    for (Base item : focus) {
       pc.clear();
       pc.add(item);
-      if (!convertToBoolean(execute(resource, originalContext, pc, exp.getParameters().get(0), false))) {
+      if (!convertToBoolean(execute(context, pc, exp.getParameters().get(0), false))) {
         all = false;
         break;
       }
@@ -1018,35 +1221,35 @@ public abstract class FHIRPathEvaluator {
     return result;
   }
 
-  private List<Base> funcWhere(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcWhere(ExecutionContext context, List<Base> focus, Expression exp) throws Exception {
     List<Base> result = new ArrayList<Base>();
     List<Base> pc = new ArrayList<Base>();
-    for (Base item : context) {
+    for (Base item : focus) {
       pc.clear();
       pc.add(item);
-      if (convertToBoolean(execute(resource, originalContext, pc, exp.getParameters().get(0), false)))
+      if (convertToBoolean(execute(context, pc, exp.getParameters().get(0), false)))
         result.add(item);
     }
     return result;
   }
 
-  private List<Base> funcItem(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcItem(ExecutionContext context, List<Base> focus, Expression exp) throws Exception {
     List<Base> result = new ArrayList<Base>();
-    String s = convertToString(execute(resource, originalContext, context, exp.getParameters().get(0), false));
-    if (Utilities.isInteger(s) && Integer.parseInt(s) < context.size())
-      result.add(context.get(Integer.parseInt(s)));
+    String s = convertToString(execute(context, focus, exp.getParameters().get(0), false));
+    if (Utilities.isInteger(s) && Integer.parseInt(s) < focus.size())
+      result.add(focus.get(Integer.parseInt(s)));
     return result;
   }
 
-  private List<Base> funcEmpty(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcEmpty(ExecutionContext context, List<Base> focus, Expression exp) {
     List<Base> result = new ArrayList<Base>();
-    result.add(new BooleanType(context.isEmpty()));
+    result.add(new BooleanType(focus.isEmpty()));
     return result;
   }
 
-  private List<Base> funcNot(Resource resource, List<Base> originalContext, List<Base> context, Expression exp) {
+  private List<Base> funcNot(ExecutionContext context, List<Base> focus, Expression exp) {
     List<Base> result = new ArrayList<Base>();
-    result.add(new BooleanType(!convertToBoolean(context)));
+    result.add(new BooleanType(!convertToBoolean(focus)));
     return result;
   }
 
@@ -1087,12 +1290,19 @@ public abstract class FHIRPathEvaluator {
     if (type.contains("."))
       m = getElementDefinition(sd, type);
     if (m != null && hasDataType(m.definition)) {
-      for (TypeRefComponent t : m.definition.getType()) {
-        StructureDefinition dt = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t.getCode());
+    	if (m.fixedType != null)
+    	 {
+        StructureDefinition dt = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+m.fixedType);
         if (dt == null)
-          throw new Exception("unknown data type "+t.getCode());
+          throw new Exception("unknown data type "+m.fixedType);
         sdl.add(dt);
-      }
+      } else
+	      for (TypeRefComponent t : m.definition.getType()) {
+	        StructureDefinition dt = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t.getCode());
+	        if (dt == null)
+	          throw new Exception("unknown data type "+t.getCode());
+	        sdl.add(dt);
+	      }
     } else {
       sdl.add(sd);
       if (type.contains("."))
@@ -1165,8 +1375,8 @@ public abstract class FHIRPathEvaluator {
         } else
           return new ElementDefinitionMatch(ed, null);
       }
-      if (ed.getPath().endsWith("[x]") && path.startsWith(ed.getPath().substring(0, ed.getPath().length()-3)))
-        return new ElementDefinitionMatch(ed, ed.getPath().substring(ed.getPath().length()-3));
+      if (ed.getPath().endsWith("[x]") && path.startsWith(ed.getPath().substring(0, ed.getPath().length()-3)) && hasType(ed, path.substring(ed.getPath().length()-3)))
+        return new ElementDefinitionMatch(ed, path.substring(ed.getPath().length()-3));
       if (ed.hasNameReference() && path.startsWith(ed.getPath()+".")) {
         ElementDefinitionMatch m = getElementDefinitionByName(sd, ed.getNameReference());
         return getElementDefinition(sd, m.definition.getPath()+path.substring(ed.getPath().length()));
@@ -1175,7 +1385,14 @@ public abstract class FHIRPathEvaluator {
     return null;
   }
 
-  private boolean hasDataType(ElementDefinition ed) {
+  private boolean hasType(ElementDefinition ed, String s) {
+  	for (TypeRefComponent t : ed.getType()) 
+  		if (s.equals(t.getCode()))
+  			return true;
+  	return false;
+	}
+
+	private boolean hasDataType(ElementDefinition ed) {
     return ed.hasType() && !(ed.getType().get(0).getCode().equals("Element") || ed.getType().get(0).getCode().equals("BackboneElement"));
   }
 
@@ -1185,6 +1402,341 @@ public abstract class FHIRPathEvaluator {
         return new ElementDefinitionMatch(ed, null);
     }
     return null;
+  }
+
+  // ----- Mapping Extensions -----------------------------------------------------------------------------------
+  
+  /*
+   * This assumes that you have some source material in some kind of table that
+   * defines a heirarchy of content, with a FHIR type for each, and a mapping statement
+   * for each
+   * 
+   * To use this:
+   *   - construct a Mapping context
+   *   - work through the set of mapping statements, parsing them.
+   *   - work through the source, constructing appropriate FHIR types (usually primitives)
+   *     - for each, call all the maps for it   
+   */
+  public class PropertyAssignment {
+    private String element;
+    private Expression value;
+    public PropertyAssignment(String element, Expression value) {
+      super();
+      this.element = element;
+      this.value = value;
+    }
+    public String getElement() {
+      return element;
+    }
+    public Expression getValue() {
+      return value;
+    }
+    
+  }
+  
+  public class MapTerm {
+    private String elementName;
+    private List<PropertyAssignment> properties;
+    private boolean linkToResource; // source used -> instead '.'
+    private MapTerm next;
+    public String getElementName() {
+      return elementName;
+    }
+    public void setElementName(String elementName) {
+      this.elementName = elementName;
+    }
+    public List<PropertyAssignment> getProperties() {
+      if (properties == null)
+        properties = new ArrayList<PropertyAssignment>();
+      return properties;
+    }
+    public void setProperties(List<PropertyAssignment> properties) {
+      this.properties = properties;
+    }
+    public boolean isLinkToResource() {
+      return linkToResource;
+    }
+    public void setLinkToResource(boolean linkToResource) {
+      this.linkToResource = linkToResource;
+    }
+    public MapTerm getNext() {
+      return next;
+    }
+    public void setNext(MapTerm next) {
+      this.next = next;
+    }
+    
+  }
+  
+  public class MapExpression extends MapTerm {
+    private Expression condition;
+    private String varName; // assignment
+    public Expression getCondition() {
+      return condition;
+    }
+    public void setCondition(Expression condition) {
+      this.condition = condition;
+    }
+    public String getVarName() {
+      return varName;
+    }
+    public void setVarName(String varName) {
+      this.varName = varName;
+    }
+    
+  }
+  
+  public interface ResourceFactory {
+    public Resource createResource(MappingContext context, String name) throws Exception;
+  }
+  
+  public static class MappingContext {
+    private List<MapExpression> allMaps = new ArrayList<MapExpression>();
+    private Map<String, Base> variables = new HashMap<String, Base>();
+    private ResourceFactory factory; // provided by the host
+    protected IWorkerContext worker;
+    
+    public ResourceFactory getFactory() {
+      return factory;
+    }
+    
+    public void setFactory(ResourceFactory factory) {
+      this.factory = factory;
+    }
+
+    private void reset(IWorkerContext worker) throws Exception {
+      this.worker = worker;
+      if (factory == null)
+        throw new Exception("No Factory method provided");
+      for (String n : variables.keySet()) {
+        variables.put(n, null);
+      }
+    }
+  }
+  
+  public static class BundleMappingContext extends MappingContext implements ResourceFactory {
+    private Bundle bundle;
+    private Map<String, Integer> ids = new HashMap<String, Integer>();
+    
+    public BundleMappingContext(Bundle bundle) {
+      super();
+      this.bundle = bundle;
+      setFactory(this);
+    }
+
+    @Override
+    public Resource createResource(MappingContext context, String name) throws Exception {
+      Resource resource = org.hl7.fhir.instance.model.ResourceFactory.createResource(name);
+
+      String abbrev = worker.getAbbreviation(name);
+      if (!ids.containsKey(abbrev))
+        ids.put(abbrev, 0);
+      Integer i = ids.get(abbrev)+1;
+      ids.put(abbrev, i);
+      resource.setId(abbrev+"-"+i.toString());
+      bundle.addEntry().setResource(resource);
+      return resource;
+    }
+    
+  }
+  public void initMapping(MappingContext context) throws Exception {
+    context.reset(worker);
+  }
+  
+  public List<MapExpression> parseMap(MappingContext context, String mapping) throws Exception{
+    List<MapExpression> results = new ArrayList<MapExpression>();
+    Lexer lexer = new Lexer(mapping, true);
+    while (!lexer.done()) {
+      results.add(parseMapExpression(context, lexer));
+      if (!lexer.done()) {
+        if (";".equals(lexer.current))
+          lexer.next(true);
+        else
+          throw lexer.error("Unexpected token \""+lexer.current+"\" expecting \";\"");
+      }
+    }
+    return results;    
+  }
+  
+  public void performMapping(MappingContext context, Object appContext, Element value, List<MapExpression> maps) throws Exception {
+    for (MapExpression map : maps) {
+      performMapping(context, appContext, value, map);
+    }
+  }
+  
+  public void closeMapping(MappingContext context) {
+    
+  }
+  
+  private MapExpression parseMapExpression(MappingContext context, Lexer lexer) throws Exception {
+    mappingExtensions = true;
+    MapExpression result = new MapExpression();
+    String token = getElementOrTypeName(lexer, true);
+    if (token.equals("if")) {
+      if (!"(".equals(lexer.current))
+        throw lexer.error("Unexpected token \""+lexer.current+"\" expecting \"(\"");
+      lexer.next(true);
+      result.setCondition(parseExpression(lexer, true));
+      if (!")".equals(lexer.current))
+        throw lexer.error("Unexpected token \""+lexer.current+"\" expecting \")\"");
+      lexer.next(true);
+      token = lexer.take(true);
+    }
+    if (":=".equals(lexer.current)) {
+      result.setVarName(checkVarName(token, lexer));
+      if (context.variables.containsKey(result.getVarName()))
+        throw lexer.error("Duplicate variable name "+result.getVarName());
+      else
+        context.variables.put(result.getVarName(), null);
+      lexer.next(true);
+      result.setElementName(getElementOrTypeName(lexer, true));
+    } else
+      result.setElementName(token);
+    parseMapTerm(lexer, result);
+    return result;
+  }
+
+  private String checkVarName(String s, Lexer lexer) throws Exception {
+    for (int i = 0; i < s.length(); i++) {
+      char ch = s.charAt(i);
+      if (i == 0) {
+        if (ch < 'a' || ch > 'z')
+          throw lexer.error("Illegal character \""+ch+"\" in variable name '|"+s+"\"");
+      } else 
+        if ((ch < 'a' || ch > 'z') && (ch < 'A' || ch > 'Z') && (ch < '0' || ch > '9'))
+          throw lexer.error("Illegal character \""+ch+"\" in variable name '|"+s+"\"");
+    }
+    return s;
+  }
+
+  private void parseMapTerm(Lexer lexer, MapTerm result) throws Exception {
+    if ("[".equals(lexer.current)) {
+      lexer.next(false);
+      while (!lexer.done() && !"]".equals(lexer.current)) {
+        result.getProperties().add(parseAssignment(lexer));
+        if (";".equals(lexer.current))
+          lexer.next(false);
+      }
+      if (!"]".equals(lexer.current)) 
+        throw lexer.error("Unexpected end of mapping statement expecting \"]\"");
+      else
+        lexer.next(true);
+    }
+    if ("->".equals(lexer.current)) {
+      result.setLinkToResource(true);
+      lexer.next(true);
+      result.setNext(new MapTerm());
+      result.getNext().setElementName(getResourceName(lexer, true));
+    } else if (".".equals(lexer.current)) {
+      result.setLinkToResource(false);
+      lexer.next(true);
+      result.setNext(new MapTerm());
+      result.getNext().setElementName(getElementName(lexer, true));
+    }  
+    if (result.getNext() != null)
+      parseMapTerm(lexer, result.getNext());
+  }
+
+  private PropertyAssignment parseAssignment(Lexer lexer) throws Exception {
+    String element = getElementName(lexer, false);
+    if (!":=".equals(lexer.current))
+      throw lexer.error("Unexpected token \""+lexer.current+"\" expecting \":=\"");
+    lexer.next(false);
+    return new PropertyAssignment(element, parseExpression(lexer, true));
+  }
+
+  private String getElementName(Lexer lexer, boolean forMap) throws Exception {
+    String s = lexer.current;
+    for (int i = 0; i < s.length(); i++) {
+      char ch = s.charAt(i);
+      if (i == 0) {
+        if (ch < 'a' || ch > 'z')
+          throw lexer.error("Illegal character \""+ch+"\" in element name '|"+lexer.current+"\"");
+      } else 
+        if ((ch < 'a' || ch > 'z') && (ch < 'A' || ch > 'Z') && (ch < '0' || ch > '9') && ch != '[' && ch != ']')
+          throw lexer.error("Illegal character \""+ch+"\" in element name '|"+lexer.current+"\"");
+    }
+    return lexer.take(forMap);
+  }
+
+  private String getElementOrTypeName(Lexer lexer, boolean forMap) throws Exception {
+    String s = lexer.current;
+    for (int i = 0; i < s.length(); i++) {
+      char ch = s.charAt(i);
+      if (i == 0) {
+        if ((ch < 'a' || ch > 'z') && (ch < 'A' || ch > 'Z'))
+          throw lexer.error("Illegal character \""+ch+"\" in element name '|"+lexer.current+"\"");
+      } else 
+        if ((ch < 'a' || ch > 'z') && (ch < 'A' || ch > 'Z') && (ch < '0' || ch > '9') && ch != '[' && ch != ']')
+          throw lexer.error("Illegal character \""+ch+"\" in element name '|"+lexer.current+"\"");
+    }
+    return lexer.take(forMap);
+  }
+
+  private String getResourceName(Lexer lexer, boolean forMap) throws Exception {
+    if (!worker.getResourceNames().contains(lexer.current))
+      throw lexer.error("Unknown resource name \""+lexer.current+"\"");
+    return lexer.take(forMap);
+  }
+
+  private void performMapping(MappingContext context, Object appContext, Element value, MapExpression map) throws Exception {
+    // at this entry point we don't have any context. 
+    if (map.getCondition() != null) {
+      if (!convertToBoolean(evaluate(null, map.getCondition())))
+        return;
+    }
+    
+    // Our first business is to sort out the context
+    String n = map.getElementName();
+    Base focus = null;
+    
+    if (Character.isUpperCase(n.charAt(0))) {
+      // type name
+      if (worker.getResourceNames().contains(n))
+        focus = context.factory.createResource(context, n);
+      else 
+        focus = new Factory().create(n);
+    } else {
+      // var name
+      if (!context.variables.containsKey(n))
+        throw new Exception("Unknown Variable name "+n);
+      else {
+        focus = context.variables.get(n);
+        if (focus == null)
+          throw new Exception("Uninitialised Variable name "+n);  
+      }
+    }
+    // ok, so we got here, we have ourselves a focus
+    focus = processMappingDetails(context, appContext, focus, value, map);
+    if (map.getVarName() != null) {
+      context.variables.put(map.getVarName(), focus);
+    }    
+  }
+
+  private Base processMappingDetails(MappingContext context, Object appContext, Base focus, Element value, MapTerm map) throws Exception {
+    // ok, handle the properties on the focus object first
+    for (PropertyAssignment t : map.getProperties()) {
+      List<Base> list = new ArrayList<Base>();
+      ExecutionContext ec = new ExecutionContext(appContext, null, null);
+      ec.value = value;
+      List<Base> v = execute(ec, list, t.value, true);
+      if (v.size() > 1)
+        throw new Exception("Error: Assignment property value had more than one item in the outcome");
+      if (v.size() > 0)
+      focus.setProperty(t.element, v.get(0));
+    }
+    
+    // now, see if there's nore to do 
+    if (map.getNext() == null)
+      return focus;
+    else if (map.isLinkToResource()) {
+      Resource r = context.factory.createResource(context, map.getNext().elementName);
+      setChildProperty(focus, "reference", new StringType(map.getNext().elementName+"/"+r.getId()));
+      return processMappingDetails(context, appContext, r, value, map.getNext()); 
+    } else {
+      Base b = addChildProperty(focus, map.getNext().elementName);
+      return processMappingDetails(context, appContext, b, value, map.getNext());
+    }
   }
 
 }

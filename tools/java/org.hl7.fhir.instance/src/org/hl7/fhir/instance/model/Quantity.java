@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class Quantity extends Type implements ICompositeType {
         if (">".equals(codeString))
           return QuantityComparator.GREATER_THAN;
         throw new IllegalArgumentException("Unknown QuantityComparator code '"+codeString+"'");
+        }
+        public Enumeration<QuantityComparator> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("<".equals(codeString))
+          return new Enumeration<QuantityComparator>(this, QuantityComparator.LESS_THAN);
+        if ("<=".equals(codeString))
+          return new Enumeration<QuantityComparator>(this, QuantityComparator.LESS_OR_EQUAL);
+        if (">=".equals(codeString))
+          return new Enumeration<QuantityComparator>(this, QuantityComparator.GREATER_OR_EQUAL);
+        if (">".equals(codeString))
+          return new Enumeration<QuantityComparator>(this, QuantityComparator.GREATER_THAN);
+        throw new Exception("Unknown QuantityComparator code '"+codeString+"'");
         }
     public String toCode(QuantityComparator code) {
       if (code == QuantityComparator.LESS_THAN)
@@ -442,6 +458,43 @@ public class Quantity extends Type implements ICompositeType {
         childrenList.add(new Property("unit", "string", "A human-readable form of the unit.", 0, java.lang.Integer.MAX_VALUE, unit));
         childrenList.add(new Property("system", "uri", "The identification of the system that provides the coded form of the unit.", 0, java.lang.Integer.MAX_VALUE, system));
         childrenList.add(new Property("code", "code", "A computer processable form of the unit in some unit representation system.", 0, java.lang.Integer.MAX_VALUE, code));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("value"))
+          this.value = castToDecimal(value); // DecimalType
+        else if (name.equals("comparator"))
+          this.comparator = new QuantityComparatorEnumFactory().fromType(value); // Enumeration<QuantityComparator>
+        else if (name.equals("unit"))
+          this.unit = castToString(value); // StringType
+        else if (name.equals("system"))
+          this.system = castToUri(value); // UriType
+        else if (name.equals("code"))
+          this.code = castToCode(value); // CodeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type Quantity.value");
+        }
+        else if (name.equals("comparator")) {
+          throw new Exception("Cannot call addChild on a primitive type Quantity.comparator");
+        }
+        else if (name.equals("unit")) {
+          throw new Exception("Cannot call addChild on a primitive type Quantity.unit");
+        }
+        else if (name.equals("system")) {
+          throw new Exception("Cannot call addChild on a primitive type Quantity.system");
+        }
+        else if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type Quantity.code");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Quantity copy() {

@@ -36,8 +36,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
-import org.hl7.fhir.definitions.model.Definitions.PageInformation;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.NamingSystem;
 import org.hl7.fhir.instance.model.StructureDefinition;

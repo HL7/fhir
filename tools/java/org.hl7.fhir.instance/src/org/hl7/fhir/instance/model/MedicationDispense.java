@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -144,6 +144,24 @@ public class MedicationDispense extends DomainResource {
         if ("stopped".equals(codeString))
           return MedicationDispenseStatus.STOPPED;
         throw new IllegalArgumentException("Unknown MedicationDispenseStatus code '"+codeString+"'");
+        }
+        public Enumeration<MedicationDispenseStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("in-progress".equals(codeString))
+          return new Enumeration<MedicationDispenseStatus>(this, MedicationDispenseStatus.INPROGRESS);
+        if ("on-hold".equals(codeString))
+          return new Enumeration<MedicationDispenseStatus>(this, MedicationDispenseStatus.ONHOLD);
+        if ("completed".equals(codeString))
+          return new Enumeration<MedicationDispenseStatus>(this, MedicationDispenseStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<MedicationDispenseStatus>(this, MedicationDispenseStatus.ENTEREDINERROR);
+        if ("stopped".equals(codeString))
+          return new Enumeration<MedicationDispenseStatus>(this, MedicationDispenseStatus.STOPPED);
+        throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
         }
     public String toCode(MedicationDispenseStatus code) {
       if (code == MedicationDispenseStatus.INPROGRESS)
@@ -614,6 +632,93 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else if (name.equals("additionalInstructions"))
+          this.additionalInstructions = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("timing"))
+          this.timing = castToTiming(value); // Timing
+        else if (name.equals("asNeeded[x]"))
+          this.asNeeded = (Type) value; // Type
+        else if (name.equals("site[x]"))
+          this.site = (Type) value; // Type
+        else if (name.equals("route"))
+          this.route = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("method"))
+          this.method = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("dose[x]"))
+          this.dose = (Type) value; // Type
+        else if (name.equals("rate[x]"))
+          this.rate = (Type) value; // Type
+        else if (name.equals("maxDosePerPeriod"))
+          this.maxDosePerPeriod = castToRatio(value); // Ratio
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationDispense.text");
+        }
+        else if (name.equals("additionalInstructions")) {
+          this.additionalInstructions = new CodeableConcept();
+          return this.additionalInstructions;
+        }
+        else if (name.equals("timing")) {
+          this.timing = new Timing();
+          return this.timing;
+        }
+        else if (name.equals("asNeededBoolean")) {
+          this.asNeeded = new BooleanType();
+          return this.asNeeded;
+        }
+        else if (name.equals("asNeededCodeableConcept")) {
+          this.asNeeded = new CodeableConcept();
+          return this.asNeeded;
+        }
+        else if (name.equals("siteCodeableConcept")) {
+          this.site = new CodeableConcept();
+          return this.site;
+        }
+        else if (name.equals("siteReference")) {
+          this.site = new Reference();
+          return this.site;
+        }
+        else if (name.equals("route")) {
+          this.route = new CodeableConcept();
+          return this.route;
+        }
+        else if (name.equals("method")) {
+          this.method = new CodeableConcept();
+          return this.method;
+        }
+        else if (name.equals("doseRange")) {
+          this.dose = new Range();
+          return this.dose;
+        }
+        else if (name.equals("doseSimpleQuantity")) {
+          this.dose = new SimpleQuantity();
+          return this.dose;
+        }
+        else if (name.equals("rateRatio")) {
+          this.rate = new Ratio();
+          return this.rate;
+        }
+        else if (name.equals("rateRange")) {
+          this.rate = new Range();
+          return this.rate;
+        }
+        else if (name.equals("maxDosePerPeriod")) {
+          this.maxDosePerPeriod = new Ratio();
+          return this.maxDosePerPeriod;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public MedicationDispenseDosageInstructionComponent copy() {
         MedicationDispenseDosageInstructionComponent dst = new MedicationDispenseDosageInstructionComponent();
         copyValues(dst);
@@ -839,6 +944,34 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           childrenList.add(new Property("reason", "CodeableConcept", "Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("responsibleParty", "Reference(Practitioner)", "The person or organization that has primary responsibility for the substitution.", 0, java.lang.Integer.MAX_VALUE, responsibleParty));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("reason"))
+          this.getReason().add(castToCodeableConcept(value));
+        else if (name.equals("responsibleParty"))
+          this.getResponsibleParty().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("reason")) {
+          return addReason();
+        }
+        else if (name.equals("responsibleParty")) {
+          return addResponsibleParty();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public MedicationDispenseSubstitutionComponent copy() {
         MedicationDispenseSubstitutionComponent dst = new MedicationDispenseSubstitutionComponent();
@@ -1700,6 +1833,111 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         childrenList.add(new Property("note", "string", "Extra information about the dispense that could not be conveyed in the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("dosageInstruction", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.", 0, java.lang.Integer.MAX_VALUE, substitution));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("status"))
+          this.status = new MedicationDispenseStatusEnumFactory().fromType(value); // Enumeration<MedicationDispenseStatus>
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("dispenser"))
+          this.dispenser = castToReference(value); // Reference
+        else if (name.equals("authorizingPrescription"))
+          this.getAuthorizingPrescription().add(castToReference(value));
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("quantity"))
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("daysSupply"))
+          this.daysSupply = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("medication[x]"))
+          this.medication = (Type) value; // Type
+        else if (name.equals("whenPrepared"))
+          this.whenPrepared = castToDateTime(value); // DateTimeType
+        else if (name.equals("whenHandedOver"))
+          this.whenHandedOver = castToDateTime(value); // DateTimeType
+        else if (name.equals("destination"))
+          this.destination = castToReference(value); // Reference
+        else if (name.equals("receiver"))
+          this.getReceiver().add(castToReference(value));
+        else if (name.equals("note"))
+          this.note = castToString(value); // StringType
+        else if (name.equals("dosageInstruction"))
+          this.getDosageInstruction().add((MedicationDispenseDosageInstructionComponent) value);
+        else if (name.equals("substitution"))
+          this.substitution = (MedicationDispenseSubstitutionComponent) value; // MedicationDispenseSubstitutionComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationDispense.status");
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("dispenser")) {
+          this.dispenser = new Reference();
+          return this.dispenser;
+        }
+        else if (name.equals("authorizingPrescription")) {
+          return addAuthorizingPrescription();
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("quantity")) {
+          this.quantity = new SimpleQuantity();
+          return this.quantity;
+        }
+        else if (name.equals("daysSupply")) {
+          this.daysSupply = new SimpleQuantity();
+          return this.daysSupply;
+        }
+        else if (name.equals("medicationCodeableConcept")) {
+          this.medication = new CodeableConcept();
+          return this.medication;
+        }
+        else if (name.equals("medicationReference")) {
+          this.medication = new Reference();
+          return this.medication;
+        }
+        else if (name.equals("whenPrepared")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationDispense.whenPrepared");
+        }
+        else if (name.equals("whenHandedOver")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationDispense.whenHandedOver");
+        }
+        else if (name.equals("destination")) {
+          this.destination = new Reference();
+          return this.destination;
+        }
+        else if (name.equals("receiver")) {
+          return addReceiver();
+        }
+        else if (name.equals("note")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationDispense.note");
+        }
+        else if (name.equals("dosageInstruction")) {
+          return addDosageInstruction();
+        }
+        else if (name.equals("substitution")) {
+          this.substitution = new MedicationDispenseSubstitutionComponent();
+          return this.substitution;
+        }
+        else
+          return super.addChild(name);
       }
 
       public MedicationDispense copy() {

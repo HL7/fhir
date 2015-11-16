@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -189,6 +189,34 @@ public class Medication extends DomainResource {
           childrenList.add(new Property("batch", "", "Information about a group of medication produced or packaged from one production run.", 0, java.lang.Integer.MAX_VALUE, batch));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("form"))
+          this.form = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("ingredient"))
+          this.getIngredient().add((MedicationProductIngredientComponent) value);
+        else if (name.equals("batch"))
+          this.getBatch().add((MedicationProductBatchComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("form")) {
+          this.form = new CodeableConcept();
+          return this.form;
+        }
+        else if (name.equals("ingredient")) {
+          return addIngredient();
+        }
+        else if (name.equals("batch")) {
+          return addBatch();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public MedicationProductComponent copy() {
         MedicationProductComponent dst = new MedicationProductComponent();
         copyValues(dst);
@@ -340,6 +368,30 @@ public class Medication extends DomainResource {
           childrenList.add(new Property("item", "Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, java.lang.Integer.MAX_VALUE, item));
           childrenList.add(new Property("amount", "Ratio", "Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("item"))
+          this.item = castToReference(value); // Reference
+        else if (name.equals("amount"))
+          this.amount = castToRatio(value); // Ratio
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("item")) {
+          this.item = new Reference();
+          return this.item;
+        }
+        else if (name.equals("amount")) {
+          this.amount = new Ratio();
+          return this.amount;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public MedicationProductIngredientComponent copy() {
         MedicationProductIngredientComponent dst = new MedicationProductIngredientComponent();
@@ -505,6 +557,28 @@ public class Medication extends DomainResource {
           childrenList.add(new Property("expirationDate", "dateTime", "When this specific batch of product will expire.", 0, java.lang.Integer.MAX_VALUE, expirationDate));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("lotNumber"))
+          this.lotNumber = castToString(value); // StringType
+        else if (name.equals("expirationDate"))
+          this.expirationDate = castToDateTime(value); // DateTimeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("lotNumber")) {
+          throw new Exception("Cannot call addChild on a primitive type Medication.lotNumber");
+        }
+        else if (name.equals("expirationDate")) {
+          throw new Exception("Cannot call addChild on a primitive type Medication.expirationDate");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public MedicationProductBatchComponent copy() {
         MedicationProductBatchComponent dst = new MedicationProductBatchComponent();
         copyValues(dst);
@@ -636,6 +710,29 @@ public class Medication extends DomainResource {
           childrenList.add(new Property("container", "CodeableConcept", "The kind of container that this package comes as.", 0, java.lang.Integer.MAX_VALUE, container));
           childrenList.add(new Property("content", "", "A set of components that go to make up the described item.", 0, java.lang.Integer.MAX_VALUE, content));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("container"))
+          this.container = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("content"))
+          this.getContent().add((MedicationPackageContentComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("container")) {
+          this.container = new CodeableConcept();
+          return this.container;
+        }
+        else if (name.equals("content")) {
+          return addContent();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public MedicationPackageComponent copy() {
         MedicationPackageComponent dst = new MedicationPackageComponent();
@@ -787,6 +884,30 @@ public class Medication extends DomainResource {
           childrenList.add(new Property("item", "Reference(Medication)", "Identifies one of the items in the package.", 0, java.lang.Integer.MAX_VALUE, item));
           childrenList.add(new Property("amount", "SimpleQuantity", "The amount of the product that is in the package.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("item"))
+          this.item = castToReference(value); // Reference
+        else if (name.equals("amount"))
+          this.amount = castToSimpleQuantity(value); // SimpleQuantity
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("item")) {
+          this.item = new Reference();
+          return this.item;
+        }
+        else if (name.equals("amount")) {
+          this.amount = new SimpleQuantity();
+          return this.amount;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public MedicationPackageContentComponent copy() {
         MedicationPackageContentComponent dst = new MedicationPackageContentComponent();
@@ -1040,6 +1161,47 @@ public class Medication extends DomainResource {
         childrenList.add(new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         childrenList.add(new Property("product", "", "Information that only applies to products (not packages).", 0, java.lang.Integer.MAX_VALUE, product));
         childrenList.add(new Property("package", "", "Information that only applies to packages (not products).", 0, java.lang.Integer.MAX_VALUE, package_));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("isBrand"))
+          this.isBrand = castToBoolean(value); // BooleanType
+        else if (name.equals("manufacturer"))
+          this.manufacturer = castToReference(value); // Reference
+        else if (name.equals("product"))
+          this.product = (MedicationProductComponent) value; // MedicationProductComponent
+        else if (name.equals("package"))
+          this.package_ = (MedicationPackageComponent) value; // MedicationPackageComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("isBrand")) {
+          throw new Exception("Cannot call addChild on a primitive type Medication.isBrand");
+        }
+        else if (name.equals("manufacturer")) {
+          this.manufacturer = new Reference();
+          return this.manufacturer;
+        }
+        else if (name.equals("product")) {
+          this.product = new MedicationProductComponent();
+          return this.product;
+        }
+        else if (name.equals("package")) {
+          this.package_ = new MedicationPackageComponent();
+          return this.package_;
+        }
+        else
+          return super.addChild(name);
       }
 
       public Medication copy() {

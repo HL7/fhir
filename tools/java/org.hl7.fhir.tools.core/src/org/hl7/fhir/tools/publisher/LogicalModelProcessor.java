@@ -1,5 +1,7 @@
 package org.hl7.fhir.tools.publisher;
 
+import java.util.Map;
+
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
@@ -13,13 +15,15 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor {
   StructureDefinition definition;
   String tx;
   String dict;
+  private Map<String, String> examples;
   
-  public LogicalModelProcessor(String title, PageProcessor page, ImplementationGuideDefn ig, String name, String type, String pagePath, StructureDefinition definition, String tx, String dict) {
+  public LogicalModelProcessor(String title, PageProcessor page, ImplementationGuideDefn ig, String name, String type, String pagePath, StructureDefinition definition, String tx, String dict, Map<String, String> examples) {
     super(title, ig.getLevel(), page, ig, name, type, pagePath);
     this.definition = definition;
     this.tx = tx;
     this.dict = dict;
-  }
+    this.examples = examples;
+    }
 
   @Override
   protected String processCommand(String command, String[] com) throws Exception {
@@ -39,6 +43,8 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor {
       return genLogicalModelTable(definition, genlevel());
     else if (com[0].equals("dictionary"))
       return dict;
+    else if (com[0].equals("lmexamples"))
+      return genExampleList();      
     else if (com[0].equals("resref"))
       return "{todo}";      
     else if (com[0].equals("maponthispage"))
@@ -49,6 +55,16 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor {
       return super.processCommand(command, com);
   }
 
+
+  private String genExampleList() {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"list\">\r\n");
+    for (String n : examples.keySet()) {
+      b.append("<tr><td>"+examples.get(n)+"</td><td><a href=\""+n+".xml.html\">XML</a></td><td><a href=\""+n+".json.html\">JSON</a></td></tr>\r\n");
+    }
+    b.append("</table>\r\n");
+    return b.toString();
+  }
 
   private String lmHeader(String n, String title, String mode, boolean hasXMlJson) throws Exception {
     StringBuilder b = new StringBuilder();

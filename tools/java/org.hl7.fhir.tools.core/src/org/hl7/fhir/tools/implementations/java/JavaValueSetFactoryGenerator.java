@@ -29,15 +29,12 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.definitions.Config;
-import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
 /*

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -121,6 +121,20 @@ public class Conformance extends DomainResource implements IBaseConformance {
         if ("requirements".equals(codeString))
           return ConformanceStatementKind.REQUIREMENTS;
         throw new IllegalArgumentException("Unknown ConformanceStatementKind code '"+codeString+"'");
+        }
+        public Enumeration<ConformanceStatementKind> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("instance".equals(codeString))
+          return new Enumeration<ConformanceStatementKind>(this, ConformanceStatementKind.INSTANCE);
+        if ("capability".equals(codeString))
+          return new Enumeration<ConformanceStatementKind>(this, ConformanceStatementKind.CAPABILITY);
+        if ("requirements".equals(codeString))
+          return new Enumeration<ConformanceStatementKind>(this, ConformanceStatementKind.REQUIREMENTS);
+        throw new Exception("Unknown ConformanceStatementKind code '"+codeString+"'");
         }
     public String toCode(ConformanceStatementKind code) {
       if (code == ConformanceStatementKind.INSTANCE)
@@ -220,6 +234,22 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return UnknownContentCode.BOTH;
         throw new IllegalArgumentException("Unknown UnknownContentCode code '"+codeString+"'");
         }
+        public Enumeration<UnknownContentCode> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("no".equals(codeString))
+          return new Enumeration<UnknownContentCode>(this, UnknownContentCode.NO);
+        if ("extensions".equals(codeString))
+          return new Enumeration<UnknownContentCode>(this, UnknownContentCode.EXTENSIONS);
+        if ("elements".equals(codeString))
+          return new Enumeration<UnknownContentCode>(this, UnknownContentCode.ELEMENTS);
+        if ("both".equals(codeString))
+          return new Enumeration<UnknownContentCode>(this, UnknownContentCode.BOTH);
+        throw new Exception("Unknown UnknownContentCode code '"+codeString+"'");
+        }
     public String toCode(UnknownContentCode code) {
       if (code == UnknownContentCode.NO)
         return "no";
@@ -295,6 +325,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
         if ("server".equals(codeString))
           return RestfulConformanceMode.SERVER;
         throw new IllegalArgumentException("Unknown RestfulConformanceMode code '"+codeString+"'");
+        }
+        public Enumeration<RestfulConformanceMode> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("client".equals(codeString))
+          return new Enumeration<RestfulConformanceMode>(this, RestfulConformanceMode.CLIENT);
+        if ("server".equals(codeString))
+          return new Enumeration<RestfulConformanceMode>(this, RestfulConformanceMode.SERVER);
+        throw new Exception("Unknown RestfulConformanceMode code '"+codeString+"'");
         }
     public String toCode(RestfulConformanceMode code) {
       if (code == RestfulConformanceMode.CLIENT)
@@ -452,6 +494,32 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return TypeRestfulInteraction.SEARCHTYPE;
         throw new IllegalArgumentException("Unknown TypeRestfulInteraction code '"+codeString+"'");
         }
+        public Enumeration<TypeRestfulInteraction> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("read".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.READ);
+        if ("vread".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.VREAD);
+        if ("update".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.UPDATE);
+        if ("delete".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.DELETE);
+        if ("history-instance".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.HISTORYINSTANCE);
+        if ("validate".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.VALIDATE);
+        if ("history-type".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.HISTORYTYPE);
+        if ("create".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.CREATE);
+        if ("search-type".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.SEARCHTYPE);
+        throw new Exception("Unknown TypeRestfulInteraction code '"+codeString+"'");
+        }
     public String toCode(TypeRestfulInteraction code) {
       if (code == TypeRestfulInteraction.READ)
         return "read";
@@ -550,6 +618,20 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return ResourceVersionPolicy.VERSIONEDUPDATE;
         throw new IllegalArgumentException("Unknown ResourceVersionPolicy code '"+codeString+"'");
         }
+        public Enumeration<ResourceVersionPolicy> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("no-version".equals(codeString))
+          return new Enumeration<ResourceVersionPolicy>(this, ResourceVersionPolicy.NOVERSION);
+        if ("versioned".equals(codeString))
+          return new Enumeration<ResourceVersionPolicy>(this, ResourceVersionPolicy.VERSIONED);
+        if ("versioned-update".equals(codeString))
+          return new Enumeration<ResourceVersionPolicy>(this, ResourceVersionPolicy.VERSIONEDUPDATE);
+        throw new Exception("Unknown ResourceVersionPolicy code '"+codeString+"'");
+        }
     public String toCode(ResourceVersionPolicy code) {
       if (code == ResourceVersionPolicy.NOVERSION)
         return "no-version";
@@ -635,6 +717,20 @@ public class Conformance extends DomainResource implements IBaseConformance {
         if ("multiple".equals(codeString))
           return ConditionalDeleteStatus.MULTIPLE;
         throw new IllegalArgumentException("Unknown ConditionalDeleteStatus code '"+codeString+"'");
+        }
+        public Enumeration<ConditionalDeleteStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("not-supported".equals(codeString))
+          return new Enumeration<ConditionalDeleteStatus>(this, ConditionalDeleteStatus.NOTSUPPORTED);
+        if ("single".equals(codeString))
+          return new Enumeration<ConditionalDeleteStatus>(this, ConditionalDeleteStatus.SINGLE);
+        if ("multiple".equals(codeString))
+          return new Enumeration<ConditionalDeleteStatus>(this, ConditionalDeleteStatus.MULTIPLE);
+        throw new Exception("Unknown ConditionalDeleteStatus code '"+codeString+"'");
         }
     public String toCode(ConditionalDeleteStatus code) {
       if (code == ConditionalDeleteStatus.NOTSUPPORTED)
@@ -806,6 +902,34 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return SearchModifierCode.TYPE;
         throw new IllegalArgumentException("Unknown SearchModifierCode code '"+codeString+"'");
         }
+        public Enumeration<SearchModifierCode> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("missing".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.MISSING);
+        if ("exact".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.EXACT);
+        if ("contains".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.CONTAINS);
+        if ("not".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.NOT);
+        if ("text".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.TEXT);
+        if ("in".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.IN);
+        if ("not-in".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.NOTIN);
+        if ("below".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.BELOW);
+        if ("above".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.ABOVE);
+        if ("type".equals(codeString))
+          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.TYPE);
+        throw new Exception("Unknown SearchModifierCode code '"+codeString+"'");
+        }
     public String toCode(SearchModifierCode code) {
       if (code == SearchModifierCode.MISSING)
         return "missing";
@@ -906,6 +1030,20 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return SystemRestfulInteraction.HISTORYSYSTEM;
         throw new IllegalArgumentException("Unknown SystemRestfulInteraction code '"+codeString+"'");
         }
+        public Enumeration<SystemRestfulInteraction> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("transaction".equals(codeString))
+          return new Enumeration<SystemRestfulInteraction>(this, SystemRestfulInteraction.TRANSACTION);
+        if ("search-system".equals(codeString))
+          return new Enumeration<SystemRestfulInteraction>(this, SystemRestfulInteraction.SEARCHSYSTEM);
+        if ("history-system".equals(codeString))
+          return new Enumeration<SystemRestfulInteraction>(this, SystemRestfulInteraction.HISTORYSYSTEM);
+        throw new Exception("Unknown SystemRestfulInteraction code '"+codeString+"'");
+        }
     public String toCode(SystemRestfulInteraction code) {
       if (code == SystemRestfulInteraction.TRANSACTION)
         return "transaction";
@@ -1004,6 +1142,22 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return TransactionMode.BOTH;
         throw new IllegalArgumentException("Unknown TransactionMode code '"+codeString+"'");
         }
+        public Enumeration<TransactionMode> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("not-supported".equals(codeString))
+          return new Enumeration<TransactionMode>(this, TransactionMode.NOTSUPPORTED);
+        if ("batch".equals(codeString))
+          return new Enumeration<TransactionMode>(this, TransactionMode.BATCH);
+        if ("transaction".equals(codeString))
+          return new Enumeration<TransactionMode>(this, TransactionMode.TRANSACTION);
+        if ("both".equals(codeString))
+          return new Enumeration<TransactionMode>(this, TransactionMode.BOTH);
+        throw new Exception("Unknown TransactionMode code '"+codeString+"'");
+        }
     public String toCode(TransactionMode code) {
       if (code == TransactionMode.NOTSUPPORTED)
         return "not-supported";
@@ -1092,6 +1246,20 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return MessageSignificanceCategory.NOTIFICATION;
         throw new IllegalArgumentException("Unknown MessageSignificanceCategory code '"+codeString+"'");
         }
+        public Enumeration<MessageSignificanceCategory> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("Consequence".equals(codeString))
+          return new Enumeration<MessageSignificanceCategory>(this, MessageSignificanceCategory.CONSEQUENCE);
+        if ("Currency".equals(codeString))
+          return new Enumeration<MessageSignificanceCategory>(this, MessageSignificanceCategory.CURRENCY);
+        if ("Notification".equals(codeString))
+          return new Enumeration<MessageSignificanceCategory>(this, MessageSignificanceCategory.NOTIFICATION);
+        throw new Exception("Unknown MessageSignificanceCategory code '"+codeString+"'");
+        }
     public String toCode(MessageSignificanceCategory code) {
       if (code == MessageSignificanceCategory.CONSEQUENCE)
         return "Consequence";
@@ -1166,6 +1334,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return ConformanceEventMode.RECEIVER;
         throw new IllegalArgumentException("Unknown ConformanceEventMode code '"+codeString+"'");
         }
+        public Enumeration<ConformanceEventMode> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("sender".equals(codeString))
+          return new Enumeration<ConformanceEventMode>(this, ConformanceEventMode.SENDER);
+        if ("receiver".equals(codeString))
+          return new Enumeration<ConformanceEventMode>(this, ConformanceEventMode.RECEIVER);
+        throw new Exception("Unknown ConformanceEventMode code '"+codeString+"'");
+        }
     public String toCode(ConformanceEventMode code) {
       if (code == ConformanceEventMode.SENDER)
         return "sender";
@@ -1237,6 +1417,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
         if ("consumer".equals(codeString))
           return DocumentMode.CONSUMER;
         throw new IllegalArgumentException("Unknown DocumentMode code '"+codeString+"'");
+        }
+        public Enumeration<DocumentMode> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("producer".equals(codeString))
+          return new Enumeration<DocumentMode>(this, DocumentMode.PRODUCER);
+        if ("consumer".equals(codeString))
+          return new Enumeration<DocumentMode>(this, DocumentMode.CONSUMER);
+        throw new Exception("Unknown DocumentMode code '"+codeString+"'");
         }
     public String toCode(DocumentMode code) {
       if (code == DocumentMode.PRODUCER)
@@ -1366,6 +1558,28 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the conformance.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.name");
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConformanceContactComponent copy() {
         ConformanceContactComponent dst = new ConformanceContactComponent();
@@ -1596,6 +1810,33 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("releaseDate", "dateTime", "Date this version of the software released.", 0, java.lang.Integer.MAX_VALUE, releaseDate));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("releaseDate"))
+          this.releaseDate = castToDateTime(value); // DateTimeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.name");
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.version");
+        }
+        else if (name.equals("releaseDate")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.releaseDate");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConformanceSoftwareComponent copy() {
         ConformanceSoftwareComponent dst = new ConformanceSoftwareComponent();
         copyValues(dst);
@@ -1766,6 +2007,28 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("description", "string", "Information about the specific installation that this conformance statement relates to.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("url", "uri", "An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.", 0, java.lang.Integer.MAX_VALUE, url));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.description");
+        }
+        else if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.url");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConformanceImplementationComponent copy() {
         ConformanceImplementationComponent dst = new ConformanceImplementationComponent();
@@ -2278,6 +2541,64 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("compartment", "uri", "An absolute URI which is a reference to the definition of a compartment hosted by the system.", 0, java.lang.Integer.MAX_VALUE, compartment));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("mode"))
+          this.mode = new RestfulConformanceModeEnumFactory().fromType(value); // Enumeration<RestfulConformanceMode>
+        else if (name.equals("documentation"))
+          this.documentation = castToString(value); // StringType
+        else if (name.equals("security"))
+          this.security = (ConformanceRestSecurityComponent) value; // ConformanceRestSecurityComponent
+        else if (name.equals("resource"))
+          this.getResource().add((ConformanceRestResourceComponent) value);
+        else if (name.equals("interaction"))
+          this.getInteraction().add((SystemInteractionComponent) value);
+        else if (name.equals("transactionMode"))
+          this.transactionMode = new TransactionModeEnumFactory().fromType(value); // Enumeration<TransactionMode>
+        else if (name.equals("searchParam"))
+          this.getSearchParam().add((ConformanceRestResourceSearchParamComponent) value);
+        else if (name.equals("operation"))
+          this.getOperation().add((ConformanceRestOperationComponent) value);
+        else if (name.equals("compartment"))
+          this.getCompartment().add(castToUri(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("mode")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.mode");
+        }
+        else if (name.equals("documentation")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.documentation");
+        }
+        else if (name.equals("security")) {
+          this.security = new ConformanceRestSecurityComponent();
+          return this.security;
+        }
+        else if (name.equals("resource")) {
+          return addResource();
+        }
+        else if (name.equals("interaction")) {
+          return addInteraction();
+        }
+        else if (name.equals("transactionMode")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.transactionMode");
+        }
+        else if (name.equals("searchParam")) {
+          return addSearchParam();
+        }
+        else if (name.equals("operation")) {
+          return addOperation();
+        }
+        else if (name.equals("compartment")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.compartment");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConformanceRestComponent copy() {
         ConformanceRestComponent dst = new ConformanceRestComponent();
         copyValues(dst);
@@ -2568,6 +2889,38 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("certificate", "", "Certificates associated with security profiles.", 0, java.lang.Integer.MAX_VALUE, certificate));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("cors"))
+          this.cors = castToBoolean(value); // BooleanType
+        else if (name.equals("service"))
+          this.getService().add(castToCodeableConcept(value));
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("certificate"))
+          this.getCertificate().add((ConformanceRestSecurityCertificateComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("cors")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.cors");
+        }
+        else if (name.equals("service")) {
+          return addService();
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.description");
+        }
+        else if (name.equals("certificate")) {
+          return addCertificate();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConformanceRestSecurityComponent copy() {
         ConformanceRestSecurityComponent dst = new ConformanceRestSecurityComponent();
         copyValues(dst);
@@ -2743,6 +3096,28 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("type", "code", "Mime type for certificate.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("blob", "base64Binary", "Actual certificate.", 0, java.lang.Integer.MAX_VALUE, blob));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCode(value); // CodeType
+        else if (name.equals("blob"))
+          this.blob = castToBase64Binary(value); // Base64BinaryType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.type");
+        }
+        else if (name.equals("blob")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.blob");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConformanceRestSecurityCertificateComponent copy() {
         ConformanceRestSecurityCertificateComponent dst = new ConformanceRestSecurityCertificateComponent();
@@ -3458,6 +3833,79 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("searchParam", "", "Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCode(value); // CodeType
+        else if (name.equals("profile"))
+          this.profile = castToReference(value); // Reference
+        else if (name.equals("interaction"))
+          this.getInteraction().add((ResourceInteractionComponent) value);
+        else if (name.equals("versioning"))
+          this.versioning = new ResourceVersionPolicyEnumFactory().fromType(value); // Enumeration<ResourceVersionPolicy>
+        else if (name.equals("readHistory"))
+          this.readHistory = castToBoolean(value); // BooleanType
+        else if (name.equals("updateCreate"))
+          this.updateCreate = castToBoolean(value); // BooleanType
+        else if (name.equals("conditionalCreate"))
+          this.conditionalCreate = castToBoolean(value); // BooleanType
+        else if (name.equals("conditionalUpdate"))
+          this.conditionalUpdate = castToBoolean(value); // BooleanType
+        else if (name.equals("conditionalDelete"))
+          this.conditionalDelete = new ConditionalDeleteStatusEnumFactory().fromType(value); // Enumeration<ConditionalDeleteStatus>
+        else if (name.equals("searchInclude"))
+          this.getSearchInclude().add(castToString(value));
+        else if (name.equals("searchRevInclude"))
+          this.getSearchRevInclude().add(castToString(value));
+        else if (name.equals("searchParam"))
+          this.getSearchParam().add((ConformanceRestResourceSearchParamComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.type");
+        }
+        else if (name.equals("profile")) {
+          this.profile = new Reference();
+          return this.profile;
+        }
+        else if (name.equals("interaction")) {
+          return addInteraction();
+        }
+        else if (name.equals("versioning")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.versioning");
+        }
+        else if (name.equals("readHistory")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.readHistory");
+        }
+        else if (name.equals("updateCreate")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.updateCreate");
+        }
+        else if (name.equals("conditionalCreate")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.conditionalCreate");
+        }
+        else if (name.equals("conditionalUpdate")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.conditionalUpdate");
+        }
+        else if (name.equals("conditionalDelete")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.conditionalDelete");
+        }
+        else if (name.equals("searchInclude")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.searchInclude");
+        }
+        else if (name.equals("searchRevInclude")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.searchRevInclude");
+        }
+        else if (name.equals("searchParam")) {
+          return addSearchParam();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConformanceRestResourceComponent copy() {
         ConformanceRestResourceComponent dst = new ConformanceRestResourceComponent();
         copyValues(dst);
@@ -3665,6 +4113,28 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("code", "code", "Coded identifier of the operation, supported by the system resource.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = new TypeRestfulInteractionEnumFactory().fromType(value); // Enumeration<TypeRestfulInteraction>
+        else if (name.equals("documentation"))
+          this.documentation = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.code");
+        }
+        else if (name.equals("documentation")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.documentation");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ResourceInteractionComponent copy() {
         ResourceInteractionComponent dst = new ResourceInteractionComponent();
@@ -4131,6 +4601,53 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("chain", "string", "Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.", 0, java.lang.Integer.MAX_VALUE, chain));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("definition"))
+          this.definition = castToUri(value); // UriType
+        else if (name.equals("type"))
+          this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
+        else if (name.equals("documentation"))
+          this.documentation = castToString(value); // StringType
+        else if (name.equals("target"))
+          this.getTarget().add(castToCode(value));
+        else if (name.equals("modifier"))
+          this.getModifier().add(new SearchModifierCodeEnumFactory().fromType(value));
+        else if (name.equals("chain"))
+          this.getChain().add(castToString(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.name");
+        }
+        else if (name.equals("definition")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.definition");
+        }
+        else if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.type");
+        }
+        else if (name.equals("documentation")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.documentation");
+        }
+        else if (name.equals("target")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.target");
+        }
+        else if (name.equals("modifier")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.modifier");
+        }
+        else if (name.equals("chain")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.chain");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConformanceRestResourceSearchParamComponent copy() {
         ConformanceRestResourceSearchParamComponent dst = new ConformanceRestResourceSearchParamComponent();
         copyValues(dst);
@@ -4322,6 +4839,28 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = new SystemRestfulInteractionEnumFactory().fromType(value); // Enumeration<SystemRestfulInteraction>
+        else if (name.equals("documentation"))
+          this.documentation = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.code");
+        }
+        else if (name.equals("documentation")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.documentation");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public SystemInteractionComponent copy() {
         SystemInteractionComponent dst = new SystemInteractionComponent();
         copyValues(dst);
@@ -4490,6 +5029,29 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("name", "string", "The name of a query, which is used in the _query parameter when the query is called.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, java.lang.Integer.MAX_VALUE, definition));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("definition"))
+          this.definition = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.name");
+        }
+        else if (name.equals("definition")) {
+          this.definition = new Reference();
+          return this.definition;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConformanceRestOperationComponent copy() {
         ConformanceRestOperationComponent dst = new ConformanceRestOperationComponent();
@@ -4747,6 +5309,38 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("event", "", "A description of the solution's support for an event at this end-point.", 0, java.lang.Integer.MAX_VALUE, event));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("endpoint"))
+          this.getEndpoint().add((ConformanceMessagingEndpointComponent) value);
+        else if (name.equals("reliableCache"))
+          this.reliableCache = castToUnsignedInt(value); // UnsignedIntType
+        else if (name.equals("documentation"))
+          this.documentation = castToString(value); // StringType
+        else if (name.equals("event"))
+          this.getEvent().add((ConformanceMessagingEventComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("endpoint")) {
+          return addEndpoint();
+        }
+        else if (name.equals("reliableCache")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.reliableCache");
+        }
+        else if (name.equals("documentation")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.documentation");
+        }
+        else if (name.equals("event")) {
+          return addEvent();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConformanceMessagingComponent copy() {
         ConformanceMessagingComponent dst = new ConformanceMessagingComponent();
         copyValues(dst);
@@ -4903,6 +5497,29 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("protocol", "Coding", "A list of the messaging transport protocol(s) identifiers, supported by this endpoint.", 0, java.lang.Integer.MAX_VALUE, protocol));
           childrenList.add(new Property("address", "uri", "The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.", 0, java.lang.Integer.MAX_VALUE, address));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("protocol"))
+          this.protocol = castToCoding(value); // Coding
+        else if (name.equals("address"))
+          this.address = castToUri(value); // UriType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("protocol")) {
+          this.protocol = new Coding();
+          return this.protocol;
+        }
+        else if (name.equals("address")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.address");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConformanceMessagingEndpointComponent copy() {
         ConformanceMessagingEndpointComponent dst = new ConformanceMessagingEndpointComponent();
@@ -5332,6 +5949,56 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("documentation", "string", "Guidance on how this event is handled, such as internal system trigger points, business rules, etc.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCoding(value); // Coding
+        else if (name.equals("category"))
+          this.category = new MessageSignificanceCategoryEnumFactory().fromType(value); // Enumeration<MessageSignificanceCategory>
+        else if (name.equals("mode"))
+          this.mode = new ConformanceEventModeEnumFactory().fromType(value); // Enumeration<ConformanceEventMode>
+        else if (name.equals("focus"))
+          this.focus = castToCode(value); // CodeType
+        else if (name.equals("request"))
+          this.request = castToReference(value); // Reference
+        else if (name.equals("response"))
+          this.response = castToReference(value); // Reference
+        else if (name.equals("documentation"))
+          this.documentation = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new Coding();
+          return this.code;
+        }
+        else if (name.equals("category")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.category");
+        }
+        else if (name.equals("mode")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.mode");
+        }
+        else if (name.equals("focus")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.focus");
+        }
+        else if (name.equals("request")) {
+          this.request = new Reference();
+          return this.request;
+        }
+        else if (name.equals("response")) {
+          this.response = new Reference();
+          return this.response;
+        }
+        else if (name.equals("documentation")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.documentation");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConformanceMessagingEventComponent copy() {
         ConformanceMessagingEventComponent dst = new ConformanceMessagingEventComponent();
         copyValues(dst);
@@ -5567,6 +6234,34 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("documentation", "string", "A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A constraint on a resource used in the document.", 0, java.lang.Integer.MAX_VALUE, profile));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("mode"))
+          this.mode = new DocumentModeEnumFactory().fromType(value); // Enumeration<DocumentMode>
+        else if (name.equals("documentation"))
+          this.documentation = castToString(value); // StringType
+        else if (name.equals("profile"))
+          this.profile = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("mode")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.mode");
+        }
+        else if (name.equals("documentation")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.documentation");
+        }
+        else if (name.equals("profile")) {
+          this.profile = new Reference();
+          return this.profile;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConformanceDocumentComponent copy() {
         ConformanceDocumentComponent dst = new ConformanceDocumentComponent();
@@ -6740,6 +7435,125 @@ public class Conformance extends DomainResource implements IBaseConformance {
         childrenList.add(new Property("rest", "", "A definition of the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));
         childrenList.add(new Property("messaging", "", "A description of the messaging capabilities of the solution.", 0, java.lang.Integer.MAX_VALUE, messaging));
         childrenList.add(new Property("document", "", "A document definition.", 0, java.lang.Integer.MAX_VALUE, document));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("status"))
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        else if (name.equals("experimental"))
+          this.experimental = castToBoolean(value); // BooleanType
+        else if (name.equals("publisher"))
+          this.publisher = castToString(value); // StringType
+        else if (name.equals("contact"))
+          this.getContact().add((ConformanceContactComponent) value);
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("requirements"))
+          this.requirements = castToString(value); // StringType
+        else if (name.equals("copyright"))
+          this.copyright = castToString(value); // StringType
+        else if (name.equals("kind"))
+          this.kind = new ConformanceStatementKindEnumFactory().fromType(value); // Enumeration<ConformanceStatementKind>
+        else if (name.equals("software"))
+          this.software = (ConformanceSoftwareComponent) value; // ConformanceSoftwareComponent
+        else if (name.equals("implementation"))
+          this.implementation = (ConformanceImplementationComponent) value; // ConformanceImplementationComponent
+        else if (name.equals("fhirVersion"))
+          this.fhirVersion = castToId(value); // IdType
+        else if (name.equals("acceptUnknown"))
+          this.acceptUnknown = new UnknownContentCodeEnumFactory().fromType(value); // Enumeration<UnknownContentCode>
+        else if (name.equals("format"))
+          this.getFormat().add(castToCode(value));
+        else if (name.equals("profile"))
+          this.getProfile().add(castToReference(value));
+        else if (name.equals("rest"))
+          this.getRest().add((ConformanceRestComponent) value);
+        else if (name.equals("messaging"))
+          this.getMessaging().add((ConformanceMessagingComponent) value);
+        else if (name.equals("document"))
+          this.getDocument().add((ConformanceDocumentComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.url");
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.version");
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.name");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.status");
+        }
+        else if (name.equals("experimental")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.experimental");
+        }
+        else if (name.equals("publisher")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.publisher");
+        }
+        else if (name.equals("contact")) {
+          return addContact();
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.date");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.description");
+        }
+        else if (name.equals("requirements")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.requirements");
+        }
+        else if (name.equals("copyright")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.copyright");
+        }
+        else if (name.equals("kind")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.kind");
+        }
+        else if (name.equals("software")) {
+          this.software = new ConformanceSoftwareComponent();
+          return this.software;
+        }
+        else if (name.equals("implementation")) {
+          this.implementation = new ConformanceImplementationComponent();
+          return this.implementation;
+        }
+        else if (name.equals("fhirVersion")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.fhirVersion");
+        }
+        else if (name.equals("acceptUnknown")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.acceptUnknown");
+        }
+        else if (name.equals("format")) {
+          throw new Exception("Cannot call addChild on a primitive type Conformance.format");
+        }
+        else if (name.equals("profile")) {
+          return addProfile();
+        }
+        else if (name.equals("rest")) {
+          return addRest();
+        }
+        else if (name.equals("messaging")) {
+          return addMessaging();
+        }
+        else if (name.equals("document")) {
+          return addDocument();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Conformance copy() {

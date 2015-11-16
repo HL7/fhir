@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -150,6 +150,29 @@ public class ProcessResponse extends DomainResource {
           childrenList.add(new Property("type", "Coding", "The note purpose: Print/Display.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("text", "string", "The note text.", 0, java.lang.Integer.MAX_VALUE, text));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessResponse.text");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ProcessResponseNotesComponent copy() {
         ProcessResponseNotesComponent dst = new ProcessResponseNotesComponent();
@@ -806,6 +829,91 @@ public class ProcessResponse extends DomainResource {
         childrenList.add(new Property("form", "Coding", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
         childrenList.add(new Property("notes", "", "Suite of processing note or additional requirements is the processing has been held.", 0, java.lang.Integer.MAX_VALUE, notes));
         childrenList.add(new Property("error", "Coding", "Processing errors.", 0, java.lang.Integer.MAX_VALUE, error));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("request"))
+          this.request = castToReference(value); // Reference
+        else if (name.equals("outcome"))
+          this.outcome = castToCoding(value); // Coding
+        else if (name.equals("disposition"))
+          this.disposition = castToString(value); // StringType
+        else if (name.equals("ruleset"))
+          this.ruleset = castToCoding(value); // Coding
+        else if (name.equals("originalRuleset"))
+          this.originalRuleset = castToCoding(value); // Coding
+        else if (name.equals("created"))
+          this.created = castToDateTime(value); // DateTimeType
+        else if (name.equals("organization"))
+          this.organization = castToReference(value); // Reference
+        else if (name.equals("requestProvider"))
+          this.requestProvider = castToReference(value); // Reference
+        else if (name.equals("requestOrganization"))
+          this.requestOrganization = castToReference(value); // Reference
+        else if (name.equals("form"))
+          this.form = castToCoding(value); // Coding
+        else if (name.equals("notes"))
+          this.getNotes().add((ProcessResponseNotesComponent) value);
+        else if (name.equals("error"))
+          this.getError().add(castToCoding(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("request")) {
+          this.request = new Reference();
+          return this.request;
+        }
+        else if (name.equals("outcome")) {
+          this.outcome = new Coding();
+          return this.outcome;
+        }
+        else if (name.equals("disposition")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessResponse.disposition");
+        }
+        else if (name.equals("ruleset")) {
+          this.ruleset = new Coding();
+          return this.ruleset;
+        }
+        else if (name.equals("originalRuleset")) {
+          this.originalRuleset = new Coding();
+          return this.originalRuleset;
+        }
+        else if (name.equals("created")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessResponse.created");
+        }
+        else if (name.equals("organization")) {
+          this.organization = new Reference();
+          return this.organization;
+        }
+        else if (name.equals("requestProvider")) {
+          this.requestProvider = new Reference();
+          return this.requestProvider;
+        }
+        else if (name.equals("requestOrganization")) {
+          this.requestOrganization = new Reference();
+          return this.requestOrganization;
+        }
+        else if (name.equals("form")) {
+          this.form = new Coding();
+          return this.form;
+        }
+        else if (name.equals("notes")) {
+          return addNotes();
+        }
+        else if (name.equals("error")) {
+          return addError();
+        }
+        else
+          return super.addChild(name);
       }
 
       public ProcessResponse copy() {

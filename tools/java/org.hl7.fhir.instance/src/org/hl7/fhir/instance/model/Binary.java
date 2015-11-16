@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -173,6 +173,28 @@ public class Binary extends BaseBinary implements IBaseBinary {
         super.listChildren(childrenList);
         childrenList.add(new Property("contentType", "code", "MimeType of the binary content represented as a standard MimeType (BCP 13).", 0, java.lang.Integer.MAX_VALUE, contentType));
         childrenList.add(new Property("content", "base64Binary", "The actual content, base64 encoded.", 0, java.lang.Integer.MAX_VALUE, content));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("contentType"))
+          this.contentType = castToCode(value); // CodeType
+        else if (name.equals("content"))
+          this.content = castToBase64Binary(value); // Base64BinaryType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("contentType")) {
+          throw new Exception("Cannot call addChild on a primitive type Binary.contentType");
+        }
+        else if (name.equals("content")) {
+          throw new Exception("Cannot call addChild on a primitive type Binary.content");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Binary copy() {

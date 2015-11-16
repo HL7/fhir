@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -161,6 +161,28 @@ public class CodeableConcept extends Type implements ICompositeType {
         super.listChildren(childrenList);
         childrenList.add(new Property("coding", "Coding", "A reference to a code defined by a terminology system.", 0, java.lang.Integer.MAX_VALUE, coding));
         childrenList.add(new Property("text", "string", "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 0, java.lang.Integer.MAX_VALUE, text));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("coding"))
+          this.getCoding().add(castToCoding(value));
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("coding")) {
+          return addCoding();
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type CodeableConcept.text");
+        }
+        else
+          return super.addChild(name);
       }
 
       public CodeableConcept copy() {

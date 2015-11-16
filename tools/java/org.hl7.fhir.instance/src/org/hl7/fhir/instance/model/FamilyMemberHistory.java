@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -133,6 +133,22 @@ public class FamilyMemberHistory extends DomainResource {
         if ("health-unknown".equals(codeString))
           return FamilyHistoryStatus.HEALTHUNKNOWN;
         throw new IllegalArgumentException("Unknown FamilyHistoryStatus code '"+codeString+"'");
+        }
+        public Enumeration<FamilyHistoryStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("partial".equals(codeString))
+          return new Enumeration<FamilyHistoryStatus>(this, FamilyHistoryStatus.PARTIAL);
+        if ("completed".equals(codeString))
+          return new Enumeration<FamilyHistoryStatus>(this, FamilyHistoryStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<FamilyHistoryStatus>(this, FamilyHistoryStatus.ENTEREDINERROR);
+        if ("health-unknown".equals(codeString))
+          return new Enumeration<FamilyHistoryStatus>(this, FamilyHistoryStatus.HEALTHUNKNOWN);
+        throw new Exception("Unknown FamilyHistoryStatus code '"+codeString+"'");
         }
     public String toCode(FamilyHistoryStatus code) {
       if (code == FamilyHistoryStatus.PARTIAL)
@@ -344,6 +360,54 @@ public class FamilyMemberHistory extends DomainResource {
           childrenList.add(new Property("onset[x]", "Age|Range|Period|string", "Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.", 0, java.lang.Integer.MAX_VALUE, onset));
           childrenList.add(new Property("note", "Annotation", "An area where general notes can be placed about this specific condition.", 0, java.lang.Integer.MAX_VALUE, note));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("outcome"))
+          this.outcome = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("onset[x]"))
+          this.onset = (Type) value; // Type
+        else if (name.equals("note"))
+          this.note = castToAnnotation(value); // Annotation
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("outcome")) {
+          this.outcome = new CodeableConcept();
+          return this.outcome;
+        }
+        else if (name.equals("onsetAge")) {
+          this.onset = new Age();
+          return this.onset;
+        }
+        else if (name.equals("onsetRange")) {
+          this.onset = new Range();
+          return this.onset;
+        }
+        else if (name.equals("onsetPeriod")) {
+          this.onset = new Period();
+          return this.onset;
+        }
+        else if (name.equals("onsetString")) {
+          this.onset = new StringType();
+          return this.onset;
+        }
+        else if (name.equals("note")) {
+          this.note = new Annotation();
+          return this.note;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public FamilyMemberHistoryConditionComponent copy() {
         FamilyMemberHistoryConditionComponent dst = new FamilyMemberHistoryConditionComponent();
@@ -1069,6 +1133,116 @@ public class FamilyMemberHistory extends DomainResource {
         childrenList.add(new Property("deceased[x]", "boolean|Age|Range|date|string", "Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.", 0, java.lang.Integer.MAX_VALUE, deceased));
         childrenList.add(new Property("note", "Annotation", "This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("condition", "", "The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.", 0, java.lang.Integer.MAX_VALUE, condition));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("status"))
+          this.status = new FamilyHistoryStatusEnumFactory().fromType(value); // Enumeration<FamilyHistoryStatus>
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("relationship"))
+          this.relationship = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("gender"))
+          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+        else if (name.equals("born[x]"))
+          this.born = (Type) value; // Type
+        else if (name.equals("age[x]"))
+          this.age = (Type) value; // Type
+        else if (name.equals("deceased[x]"))
+          this.deceased = (Type) value; // Type
+        else if (name.equals("note"))
+          this.note = castToAnnotation(value); // Annotation
+        else if (name.equals("condition"))
+          this.getCondition().add((FamilyMemberHistoryConditionComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type FamilyMemberHistory.date");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type FamilyMemberHistory.status");
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type FamilyMemberHistory.name");
+        }
+        else if (name.equals("relationship")) {
+          this.relationship = new CodeableConcept();
+          return this.relationship;
+        }
+        else if (name.equals("gender")) {
+          throw new Exception("Cannot call addChild on a primitive type FamilyMemberHistory.gender");
+        }
+        else if (name.equals("bornPeriod")) {
+          this.born = new Period();
+          return this.born;
+        }
+        else if (name.equals("bornDate")) {
+          this.born = new DateType();
+          return this.born;
+        }
+        else if (name.equals("bornString")) {
+          this.born = new StringType();
+          return this.born;
+        }
+        else if (name.equals("ageAge")) {
+          this.age = new Age();
+          return this.age;
+        }
+        else if (name.equals("ageRange")) {
+          this.age = new Range();
+          return this.age;
+        }
+        else if (name.equals("ageString")) {
+          this.age = new StringType();
+          return this.age;
+        }
+        else if (name.equals("deceasedBoolean")) {
+          this.deceased = new BooleanType();
+          return this.deceased;
+        }
+        else if (name.equals("deceasedAge")) {
+          this.deceased = new Age();
+          return this.deceased;
+        }
+        else if (name.equals("deceasedRange")) {
+          this.deceased = new Range();
+          return this.deceased;
+        }
+        else if (name.equals("deceasedDate")) {
+          this.deceased = new DateType();
+          return this.deceased;
+        }
+        else if (name.equals("deceasedString")) {
+          this.deceased = new StringType();
+          return this.deceased;
+        }
+        else if (name.equals("note")) {
+          this.note = new Annotation();
+          return this.note;
+        }
+        else if (name.equals("condition")) {
+          return addCondition();
+        }
+        else
+          return super.addChild(name);
       }
 
       public FamilyMemberHistory copy() {

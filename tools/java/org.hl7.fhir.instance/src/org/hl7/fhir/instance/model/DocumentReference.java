@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -133,6 +133,22 @@ public class DocumentReference extends DomainResource {
         if ("appends".equals(codeString))
           return DocumentRelationshipType.APPENDS;
         throw new IllegalArgumentException("Unknown DocumentRelationshipType code '"+codeString+"'");
+        }
+        public Enumeration<DocumentRelationshipType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("replaces".equals(codeString))
+          return new Enumeration<DocumentRelationshipType>(this, DocumentRelationshipType.REPLACES);
+        if ("transforms".equals(codeString))
+          return new Enumeration<DocumentRelationshipType>(this, DocumentRelationshipType.TRANSFORMS);
+        if ("signs".equals(codeString))
+          return new Enumeration<DocumentRelationshipType>(this, DocumentRelationshipType.SIGNS);
+        if ("appends".equals(codeString))
+          return new Enumeration<DocumentRelationshipType>(this, DocumentRelationshipType.APPENDS);
+        throw new Exception("Unknown DocumentRelationshipType code '"+codeString+"'");
         }
     public String toCode(DocumentRelationshipType code) {
       if (code == DocumentRelationshipType.REPLACES)
@@ -281,6 +297,29 @@ public class DocumentReference extends DomainResource {
           childrenList.add(new Property("target", "Reference(DocumentReference)", "The target document of this relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = new DocumentRelationshipTypeEnumFactory().fromType(value); // Enumeration<DocumentRelationshipType>
+        else if (name.equals("target"))
+          this.target = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type DocumentReference.code");
+        }
+        else if (name.equals("target")) {
+          this.target = new Reference();
+          return this.target;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public DocumentReferenceRelatesToComponent copy() {
         DocumentReferenceRelatesToComponent dst = new DocumentReferenceRelatesToComponent();
         copyValues(dst);
@@ -418,6 +457,29 @@ public class DocumentReference extends DomainResource {
           childrenList.add(new Property("attachment", "Attachment", "The document or url of the document along with critical metadata to prove content has integrity.", 0, java.lang.Integer.MAX_VALUE, attachment));
           childrenList.add(new Property("format", "Coding", "An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.", 0, java.lang.Integer.MAX_VALUE, format));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("attachment"))
+          this.attachment = castToAttachment(value); // Attachment
+        else if (name.equals("format"))
+          this.getFormat().add(castToCoding(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("attachment")) {
+          this.attachment = new Attachment();
+          return this.attachment;
+        }
+        else if (name.equals("format")) {
+          return addFormat();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DocumentReferenceContentComponent copy() {
         DocumentReferenceContentComponent dst = new DocumentReferenceContentComponent();
@@ -779,6 +841,58 @@ public class DocumentReference extends DomainResource {
           childrenList.add(new Property("related", "", "Related identifiers or resources associated with the DocumentReference.", 0, java.lang.Integer.MAX_VALUE, related));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("event"))
+          this.getEvent().add(castToCodeableConcept(value));
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("facilityType"))
+          this.facilityType = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("practiceSetting"))
+          this.practiceSetting = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("sourcePatientInfo"))
+          this.sourcePatientInfo = castToReference(value); // Reference
+        else if (name.equals("related"))
+          this.getRelated().add((DocumentReferenceContextRelatedComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("event")) {
+          return addEvent();
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("facilityType")) {
+          this.facilityType = new CodeableConcept();
+          return this.facilityType;
+        }
+        else if (name.equals("practiceSetting")) {
+          this.practiceSetting = new CodeableConcept();
+          return this.practiceSetting;
+        }
+        else if (name.equals("sourcePatientInfo")) {
+          this.sourcePatientInfo = new Reference();
+          return this.sourcePatientInfo;
+        }
+        else if (name.equals("related")) {
+          return addRelated();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public DocumentReferenceContextComponent copy() {
         DocumentReferenceContextComponent dst = new DocumentReferenceContextComponent();
         copyValues(dst);
@@ -930,6 +1044,30 @@ public class DocumentReference extends DomainResource {
           childrenList.add(new Property("identifier", "Identifier", "Related identifier to this DocumentReference. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("ref", "Reference(Any)", "Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.", 0, java.lang.Integer.MAX_VALUE, ref));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("ref"))
+          this.ref = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("ref")) {
+          this.ref = new Reference();
+          return this.ref;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DocumentReferenceContextRelatedComponent copy() {
         DocumentReferenceContextRelatedComponent dst = new DocumentReferenceContextRelatedComponent();
@@ -1782,6 +1920,111 @@ public class DocumentReference extends DomainResource {
         childrenList.add(new Property("securityLabel", "CodeableConcept", "A set of Security-Tag codes specifying the level of privacy/security of the Document. Note that DocumentReference.meta.security contains the security labels of the \"reference\" to the document, while DocumentReference.securityLabel contains a snapshot of the security labels on the document the reference refers to.", 0, java.lang.Integer.MAX_VALUE, securityLabel));
         childrenList.add(new Property("content", "", "The document and format referenced. There may be multiple content element repetitions, each with a different format.", 0, java.lang.Integer.MAX_VALUE, content));
         childrenList.add(new Property("context", "", "The clinical context in which the document was prepared.", 0, java.lang.Integer.MAX_VALUE, context));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("masterIdentifier"))
+          this.masterIdentifier = castToIdentifier(value); // Identifier
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("class"))
+          this.class_ = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("author"))
+          this.getAuthor().add(castToReference(value));
+        else if (name.equals("custodian"))
+          this.custodian = castToReference(value); // Reference
+        else if (name.equals("authenticator"))
+          this.authenticator = castToReference(value); // Reference
+        else if (name.equals("created"))
+          this.created = castToDateTime(value); // DateTimeType
+        else if (name.equals("indexed"))
+          this.indexed = castToInstant(value); // InstantType
+        else if (name.equals("status"))
+          this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
+        else if (name.equals("docStatus"))
+          this.docStatus = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("relatesTo"))
+          this.getRelatesTo().add((DocumentReferenceRelatesToComponent) value);
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("securityLabel"))
+          this.getSecurityLabel().add(castToCodeableConcept(value));
+        else if (name.equals("content"))
+          this.getContent().add((DocumentReferenceContentComponent) value);
+        else if (name.equals("context"))
+          this.context = (DocumentReferenceContextComponent) value; // DocumentReferenceContextComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("masterIdentifier")) {
+          this.masterIdentifier = new Identifier();
+          return this.masterIdentifier;
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("class")) {
+          this.class_ = new CodeableConcept();
+          return this.class_;
+        }
+        else if (name.equals("author")) {
+          return addAuthor();
+        }
+        else if (name.equals("custodian")) {
+          this.custodian = new Reference();
+          return this.custodian;
+        }
+        else if (name.equals("authenticator")) {
+          this.authenticator = new Reference();
+          return this.authenticator;
+        }
+        else if (name.equals("created")) {
+          throw new Exception("Cannot call addChild on a primitive type DocumentReference.created");
+        }
+        else if (name.equals("indexed")) {
+          throw new Exception("Cannot call addChild on a primitive type DocumentReference.indexed");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type DocumentReference.status");
+        }
+        else if (name.equals("docStatus")) {
+          this.docStatus = new CodeableConcept();
+          return this.docStatus;
+        }
+        else if (name.equals("relatesTo")) {
+          return addRelatesTo();
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type DocumentReference.description");
+        }
+        else if (name.equals("securityLabel")) {
+          return addSecurityLabel();
+        }
+        else if (name.equals("content")) {
+          return addContent();
+        }
+        else if (name.equals("context")) {
+          this.context = new DocumentReferenceContextComponent();
+          return this.context;
+        }
+        else
+          return super.addChild(name);
       }
 
       public DocumentReference copy() {

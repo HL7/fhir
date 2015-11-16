@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -120,6 +120,20 @@ public class DeviceMetric extends DomainResource {
         if ("standby".equals(codeString))
           return DeviceMetricOperationalStatus.STANDBY;
         throw new IllegalArgumentException("Unknown DeviceMetricOperationalStatus code '"+codeString+"'");
+        }
+        public Enumeration<DeviceMetricOperationalStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("on".equals(codeString))
+          return new Enumeration<DeviceMetricOperationalStatus>(this, DeviceMetricOperationalStatus.ON);
+        if ("off".equals(codeString))
+          return new Enumeration<DeviceMetricOperationalStatus>(this, DeviceMetricOperationalStatus.OFF);
+        if ("standby".equals(codeString))
+          return new Enumeration<DeviceMetricOperationalStatus>(this, DeviceMetricOperationalStatus.STANDBY);
+        throw new Exception("Unknown DeviceMetricOperationalStatus code '"+codeString+"'");
         }
     public String toCode(DeviceMetricOperationalStatus code) {
       if (code == DeviceMetricOperationalStatus.ON)
@@ -267,6 +281,30 @@ public class DeviceMetric extends DomainResource {
           return DeviceMetricColor.WHITE;
         throw new IllegalArgumentException("Unknown DeviceMetricColor code '"+codeString+"'");
         }
+        public Enumeration<DeviceMetricColor> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("black".equals(codeString))
+          return new Enumeration<DeviceMetricColor>(this, DeviceMetricColor.BLACK);
+        if ("red".equals(codeString))
+          return new Enumeration<DeviceMetricColor>(this, DeviceMetricColor.RED);
+        if ("green".equals(codeString))
+          return new Enumeration<DeviceMetricColor>(this, DeviceMetricColor.GREEN);
+        if ("yellow".equals(codeString))
+          return new Enumeration<DeviceMetricColor>(this, DeviceMetricColor.YELLOW);
+        if ("blue".equals(codeString))
+          return new Enumeration<DeviceMetricColor>(this, DeviceMetricColor.BLUE);
+        if ("magenta".equals(codeString))
+          return new Enumeration<DeviceMetricColor>(this, DeviceMetricColor.MAGENTA);
+        if ("cyan".equals(codeString))
+          return new Enumeration<DeviceMetricColor>(this, DeviceMetricColor.CYAN);
+        if ("white".equals(codeString))
+          return new Enumeration<DeviceMetricColor>(this, DeviceMetricColor.WHITE);
+        throw new Exception("Unknown DeviceMetricColor code '"+codeString+"'");
+        }
     public String toCode(DeviceMetricColor code) {
       if (code == DeviceMetricColor.BLACK)
         return "black";
@@ -375,6 +413,22 @@ public class DeviceMetric extends DomainResource {
           return DeviceMetricCategory.UNSPECIFIED;
         throw new IllegalArgumentException("Unknown DeviceMetricCategory code '"+codeString+"'");
         }
+        public Enumeration<DeviceMetricCategory> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("measurement".equals(codeString))
+          return new Enumeration<DeviceMetricCategory>(this, DeviceMetricCategory.MEASUREMENT);
+        if ("setting".equals(codeString))
+          return new Enumeration<DeviceMetricCategory>(this, DeviceMetricCategory.SETTING);
+        if ("calculation".equals(codeString))
+          return new Enumeration<DeviceMetricCategory>(this, DeviceMetricCategory.CALCULATION);
+        if ("unspecified".equals(codeString))
+          return new Enumeration<DeviceMetricCategory>(this, DeviceMetricCategory.UNSPECIFIED);
+        throw new Exception("Unknown DeviceMetricCategory code '"+codeString+"'");
+        }
     public String toCode(DeviceMetricCategory code) {
       if (code == DeviceMetricCategory.MEASUREMENT)
         return "measurement";
@@ -475,6 +529,22 @@ public class DeviceMetric extends DomainResource {
           return DeviceMetricCalibrationType.TWOPOINT;
         throw new IllegalArgumentException("Unknown DeviceMetricCalibrationType code '"+codeString+"'");
         }
+        public Enumeration<DeviceMetricCalibrationType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("unspecified".equals(codeString))
+          return new Enumeration<DeviceMetricCalibrationType>(this, DeviceMetricCalibrationType.UNSPECIFIED);
+        if ("offset".equals(codeString))
+          return new Enumeration<DeviceMetricCalibrationType>(this, DeviceMetricCalibrationType.OFFSET);
+        if ("gain".equals(codeString))
+          return new Enumeration<DeviceMetricCalibrationType>(this, DeviceMetricCalibrationType.GAIN);
+        if ("two-point".equals(codeString))
+          return new Enumeration<DeviceMetricCalibrationType>(this, DeviceMetricCalibrationType.TWOPOINT);
+        throw new Exception("Unknown DeviceMetricCalibrationType code '"+codeString+"'");
+        }
     public String toCode(DeviceMetricCalibrationType code) {
       if (code == DeviceMetricCalibrationType.UNSPECIFIED)
         return "unspecified";
@@ -574,6 +644,22 @@ public class DeviceMetric extends DomainResource {
         if ("unspecified".equals(codeString))
           return DeviceMetricCalibrationState.UNSPECIFIED;
         throw new IllegalArgumentException("Unknown DeviceMetricCalibrationState code '"+codeString+"'");
+        }
+        public Enumeration<DeviceMetricCalibrationState> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("not-calibrated".equals(codeString))
+          return new Enumeration<DeviceMetricCalibrationState>(this, DeviceMetricCalibrationState.NOTCALIBRATED);
+        if ("calibration-required".equals(codeString))
+          return new Enumeration<DeviceMetricCalibrationState>(this, DeviceMetricCalibrationState.CALIBRATIONREQUIRED);
+        if ("calibrated".equals(codeString))
+          return new Enumeration<DeviceMetricCalibrationState>(this, DeviceMetricCalibrationState.CALIBRATED);
+        if ("unspecified".equals(codeString))
+          return new Enumeration<DeviceMetricCalibrationState>(this, DeviceMetricCalibrationState.UNSPECIFIED);
+        throw new Exception("Unknown DeviceMetricCalibrationState code '"+codeString+"'");
         }
     public String toCode(DeviceMetricCalibrationState code) {
       if (code == DeviceMetricCalibrationState.NOTCALIBRATED)
@@ -773,6 +859,33 @@ public class DeviceMetric extends DomainResource {
           childrenList.add(new Property("state", "code", "Describes the state of the calibration.", 0, java.lang.Integer.MAX_VALUE, state));
           childrenList.add(new Property("time", "instant", "Describes the time last calibration has been performed.", 0, java.lang.Integer.MAX_VALUE, time));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = new DeviceMetricCalibrationTypeEnumFactory().fromType(value); // Enumeration<DeviceMetricCalibrationType>
+        else if (name.equals("state"))
+          this.state = new DeviceMetricCalibrationStateEnumFactory().fromType(value); // Enumeration<DeviceMetricCalibrationState>
+        else if (name.equals("time"))
+          this.time = castToInstant(value); // InstantType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceMetric.type");
+        }
+        else if (name.equals("state")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceMetric.state");
+        }
+        else if (name.equals("time")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceMetric.time");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DeviceMetricCalibrationComponent copy() {
         DeviceMetricCalibrationComponent dst = new DeviceMetricCalibrationComponent();
@@ -1290,6 +1403,74 @@ public class DeviceMetric extends DomainResource {
         childrenList.add(new Property("category", "code", "Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("measurementPeriod", "Timing", "Describes the measurement repetition time. This is not necessarily the same as the update period. The measurement repetition time can range from milliseconds up to hours. An example for a measurement repetition time in the range of milliseconds is the sampling rate of an ECG. An example for a measurement repetition time in the range of hours is a NIBP that is triggered automatically every hour. The update period may be different than the measurement repetition time, if the device does not update the published observed value with the same frequency as it was measured.", 0, java.lang.Integer.MAX_VALUE, measurementPeriod));
         childrenList.add(new Property("calibration", "", "Describes the calibrations that have been performed or that are required to be performed.", 0, java.lang.Integer.MAX_VALUE, calibration));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("unit"))
+          this.unit = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("source"))
+          this.source = castToReference(value); // Reference
+        else if (name.equals("parent"))
+          this.parent = castToReference(value); // Reference
+        else if (name.equals("operationalStatus"))
+          this.operationalStatus = new DeviceMetricOperationalStatusEnumFactory().fromType(value); // Enumeration<DeviceMetricOperationalStatus>
+        else if (name.equals("color"))
+          this.color = new DeviceMetricColorEnumFactory().fromType(value); // Enumeration<DeviceMetricColor>
+        else if (name.equals("category"))
+          this.category = new DeviceMetricCategoryEnumFactory().fromType(value); // Enumeration<DeviceMetricCategory>
+        else if (name.equals("measurementPeriod"))
+          this.measurementPeriod = castToTiming(value); // Timing
+        else if (name.equals("calibration"))
+          this.getCalibration().add((DeviceMetricCalibrationComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("unit")) {
+          this.unit = new CodeableConcept();
+          return this.unit;
+        }
+        else if (name.equals("source")) {
+          this.source = new Reference();
+          return this.source;
+        }
+        else if (name.equals("parent")) {
+          this.parent = new Reference();
+          return this.parent;
+        }
+        else if (name.equals("operationalStatus")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceMetric.operationalStatus");
+        }
+        else if (name.equals("color")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceMetric.color");
+        }
+        else if (name.equals("category")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceMetric.category");
+        }
+        else if (name.equals("measurementPeriod")) {
+          this.measurementPeriod = new Timing();
+          return this.measurementPeriod;
+        }
+        else if (name.equals("calibration")) {
+          return addCalibration();
+        }
+        else
+          return super.addChild(name);
       }
 
       public DeviceMetric copy() {

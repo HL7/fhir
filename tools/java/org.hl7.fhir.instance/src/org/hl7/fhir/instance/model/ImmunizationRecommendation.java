@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -457,6 +457,61 @@ public class ImmunizationRecommendation extends DomainResource {
           childrenList.add(new Property("supportingPatientInformation", "Reference(Observation|AllergyIntolerance)", "Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.", 0, java.lang.Integer.MAX_VALUE, supportingPatientInformation));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("vaccineCode"))
+          this.vaccineCode = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("doseNumber"))
+          this.doseNumber = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("forecastStatus"))
+          this.forecastStatus = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("dateCriterion"))
+          this.getDateCriterion().add((ImmunizationRecommendationRecommendationDateCriterionComponent) value);
+        else if (name.equals("protocol"))
+          this.protocol = (ImmunizationRecommendationRecommendationProtocolComponent) value; // ImmunizationRecommendationRecommendationProtocolComponent
+        else if (name.equals("supportingImmunization"))
+          this.getSupportingImmunization().add(castToReference(value));
+        else if (name.equals("supportingPatientInformation"))
+          this.getSupportingPatientInformation().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type ImmunizationRecommendation.date");
+        }
+        else if (name.equals("vaccineCode")) {
+          this.vaccineCode = new CodeableConcept();
+          return this.vaccineCode;
+        }
+        else if (name.equals("doseNumber")) {
+          throw new Exception("Cannot call addChild on a primitive type ImmunizationRecommendation.doseNumber");
+        }
+        else if (name.equals("forecastStatus")) {
+          this.forecastStatus = new CodeableConcept();
+          return this.forecastStatus;
+        }
+        else if (name.equals("dateCriterion")) {
+          return addDateCriterion();
+        }
+        else if (name.equals("protocol")) {
+          this.protocol = new ImmunizationRecommendationRecommendationProtocolComponent();
+          return this.protocol;
+        }
+        else if (name.equals("supportingImmunization")) {
+          return addSupportingImmunization();
+        }
+        else if (name.equals("supportingPatientInformation")) {
+          return addSupportingPatientInformation();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ImmunizationRecommendationRecommendationComponent copy() {
         ImmunizationRecommendationRecommendationComponent dst = new ImmunizationRecommendationRecommendationComponent();
         copyValues(dst);
@@ -624,6 +679,29 @@ public class ImmunizationRecommendation extends DomainResource {
           childrenList.add(new Property("code", "CodeableConcept", "Date classification of recommendation.  For example, earliest date to give, latest date to give, etc.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("value", "dateTime", "The date whose meaning is specified by dateCriterion.code.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("value"))
+          this.value = castToDateTime(value); // DateTimeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type ImmunizationRecommendation.value");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ImmunizationRecommendationRecommendationDateCriterionComponent copy() {
         ImmunizationRecommendationRecommendationDateCriterionComponent dst = new ImmunizationRecommendationRecommendationDateCriterionComponent();
@@ -899,6 +977,39 @@ public class ImmunizationRecommendation extends DomainResource {
           childrenList.add(new Property("series", "string", "One possible path to achieve presumed immunity against a disease - within the context of an authority.", 0, java.lang.Integer.MAX_VALUE, series));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("doseSequence"))
+          this.doseSequence = castToInteger(value); // IntegerType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("authority"))
+          this.authority = castToReference(value); // Reference
+        else if (name.equals("series"))
+          this.series = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("doseSequence")) {
+          throw new Exception("Cannot call addChild on a primitive type ImmunizationRecommendation.doseSequence");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type ImmunizationRecommendation.description");
+        }
+        else if (name.equals("authority")) {
+          this.authority = new Reference();
+          return this.authority;
+        }
+        else if (name.equals("series")) {
+          throw new Exception("Cannot call addChild on a primitive type ImmunizationRecommendation.series");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ImmunizationRecommendationRecommendationProtocolComponent copy() {
         ImmunizationRecommendationRecommendationProtocolComponent dst = new ImmunizationRecommendationRecommendationProtocolComponent();
         copyValues(dst);
@@ -1110,6 +1221,34 @@ public class ImmunizationRecommendation extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier assigned to this particular recommendation record.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient for whom the recommendations are for.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("recommendation", "", "Vaccine administration recommendations.", 0, java.lang.Integer.MAX_VALUE, recommendation));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("recommendation"))
+          this.getRecommendation().add((ImmunizationRecommendationRecommendationComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("recommendation")) {
+          return addRecommendation();
+        }
+        else
+          return super.addChild(name);
       }
 
       public ImmunizationRecommendation copy() {

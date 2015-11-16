@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -110,6 +110,18 @@ public class OperationDefinition extends DomainResource {
           return OperationKind.QUERY;
         throw new IllegalArgumentException("Unknown OperationKind code '"+codeString+"'");
         }
+        public Enumeration<OperationKind> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("operation".equals(codeString))
+          return new Enumeration<OperationKind>(this, OperationKind.OPERATION);
+        if ("query".equals(codeString))
+          return new Enumeration<OperationKind>(this, OperationKind.QUERY);
+        throw new Exception("Unknown OperationKind code '"+codeString+"'");
+        }
     public String toCode(OperationKind code) {
       if (code == OperationKind.OPERATION)
         return "operation";
@@ -181,6 +193,18 @@ public class OperationDefinition extends DomainResource {
         if ("out".equals(codeString))
           return OperationParameterUse.OUT;
         throw new IllegalArgumentException("Unknown OperationParameterUse code '"+codeString+"'");
+        }
+        public Enumeration<OperationParameterUse> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("in".equals(codeString))
+          return new Enumeration<OperationParameterUse>(this, OperationParameterUse.IN);
+        if ("out".equals(codeString))
+          return new Enumeration<OperationParameterUse>(this, OperationParameterUse.OUT);
+        throw new Exception("Unknown OperationParameterUse code '"+codeString+"'");
         }
     public String toCode(OperationParameterUse code) {
       if (code == OperationParameterUse.IN)
@@ -310,6 +334,28 @@ public class OperationDefinition extends DomainResource {
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the operation definition.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.name");
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public OperationDefinitionContactComponent copy() {
         OperationDefinitionContactComponent dst = new OperationDefinitionContactComponent();
@@ -839,6 +885,65 @@ public class OperationDefinition extends DomainResource {
           childrenList.add(new Property("part", "@OperationDefinition.parameter", "The parts of a Tuple Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToCode(value); // CodeType
+        else if (name.equals("use"))
+          this.use = new OperationParameterUseEnumFactory().fromType(value); // Enumeration<OperationParameterUse>
+        else if (name.equals("min"))
+          this.min = castToInteger(value); // IntegerType
+        else if (name.equals("max"))
+          this.max = castToString(value); // StringType
+        else if (name.equals("documentation"))
+          this.documentation = castToString(value); // StringType
+        else if (name.equals("type"))
+          this.type = castToCode(value); // CodeType
+        else if (name.equals("profile"))
+          this.profile = castToReference(value); // Reference
+        else if (name.equals("binding"))
+          this.binding = (OperationDefinitionParameterBindingComponent) value; // OperationDefinitionParameterBindingComponent
+        else if (name.equals("part"))
+          this.getPart().add((OperationDefinitionParameterComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.name");
+        }
+        else if (name.equals("use")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.use");
+        }
+        else if (name.equals("min")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.min");
+        }
+        else if (name.equals("max")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.max");
+        }
+        else if (name.equals("documentation")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.documentation");
+        }
+        else if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.type");
+        }
+        else if (name.equals("profile")) {
+          this.profile = new Reference();
+          return this.profile;
+        }
+        else if (name.equals("binding")) {
+          this.binding = new OperationDefinitionParameterBindingComponent();
+          return this.binding;
+        }
+        else if (name.equals("part")) {
+          return addPart();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public OperationDefinitionParameterComponent copy() {
         OperationDefinitionParameterComponent dst = new OperationDefinitionParameterComponent();
         copyValues(dst);
@@ -1021,6 +1126,33 @@ public class OperationDefinition extends DomainResource {
           childrenList.add(new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, java.lang.Integer.MAX_VALUE, strength));
           childrenList.add(new Property("valueSet[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, valueSet));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("strength"))
+          this.strength = new BindingStrengthEnumFactory().fromType(value); // Enumeration<BindingStrength>
+        else if (name.equals("valueSet[x]"))
+          this.valueSet = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("strength")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.strength");
+        }
+        else if (name.equals("valueSetUri")) {
+          this.valueSet = new UriType();
+          return this.valueSet;
+        }
+        else if (name.equals("valueSetReference")) {
+          this.valueSet = new Reference();
+          return this.valueSet;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public OperationDefinitionParameterBindingComponent copy() {
         OperationDefinitionParameterBindingComponent dst = new OperationDefinitionParameterBindingComponent();
@@ -2119,6 +2251,114 @@ public class OperationDefinition extends DomainResource {
         childrenList.add(new Property("type", "code", "Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("instance", "boolean", "Indicates whether this operation can be invoked on a particular instance of one of the given types.", 0, java.lang.Integer.MAX_VALUE, instance));
         childrenList.add(new Property("parameter", "", "The parameters for the operation/query.", 0, java.lang.Integer.MAX_VALUE, parameter));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("status"))
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        else if (name.equals("kind"))
+          this.kind = new OperationKindEnumFactory().fromType(value); // Enumeration<OperationKind>
+        else if (name.equals("experimental"))
+          this.experimental = castToBoolean(value); // BooleanType
+        else if (name.equals("publisher"))
+          this.publisher = castToString(value); // StringType
+        else if (name.equals("contact"))
+          this.getContact().add((OperationDefinitionContactComponent) value);
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("requirements"))
+          this.requirements = castToString(value); // StringType
+        else if (name.equals("idempotent"))
+          this.idempotent = castToBoolean(value); // BooleanType
+        else if (name.equals("code"))
+          this.code = castToCode(value); // CodeType
+        else if (name.equals("notes"))
+          this.notes = castToString(value); // StringType
+        else if (name.equals("base"))
+          this.base = castToReference(value); // Reference
+        else if (name.equals("system"))
+          this.system = castToBoolean(value); // BooleanType
+        else if (name.equals("type"))
+          this.getType().add(castToCode(value));
+        else if (name.equals("instance"))
+          this.instance = castToBoolean(value); // BooleanType
+        else if (name.equals("parameter"))
+          this.getParameter().add((OperationDefinitionParameterComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.url");
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.version");
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.name");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.status");
+        }
+        else if (name.equals("kind")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.kind");
+        }
+        else if (name.equals("experimental")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.experimental");
+        }
+        else if (name.equals("publisher")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.publisher");
+        }
+        else if (name.equals("contact")) {
+          return addContact();
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.date");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.description");
+        }
+        else if (name.equals("requirements")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.requirements");
+        }
+        else if (name.equals("idempotent")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.idempotent");
+        }
+        else if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.code");
+        }
+        else if (name.equals("notes")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.notes");
+        }
+        else if (name.equals("base")) {
+          this.base = new Reference();
+          return this.base;
+        }
+        else if (name.equals("system")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.system");
+        }
+        else if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.type");
+        }
+        else if (name.equals("instance")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationDefinition.instance");
+        }
+        else if (name.equals("parameter")) {
+          return addParameter();
+        }
+        else
+          return super.addChild(name);
       }
 
       public OperationDefinition copy() {

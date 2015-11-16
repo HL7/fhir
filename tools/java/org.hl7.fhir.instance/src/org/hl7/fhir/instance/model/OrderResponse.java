@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -192,6 +192,32 @@ public class OrderResponse extends DomainResource {
         if ("completed".equals(codeString))
           return OrderStatus.COMPLETED;
         throw new IllegalArgumentException("Unknown OrderStatus code '"+codeString+"'");
+        }
+        public Enumeration<OrderStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("pending".equals(codeString))
+          return new Enumeration<OrderStatus>(this, OrderStatus.PENDING);
+        if ("review".equals(codeString))
+          return new Enumeration<OrderStatus>(this, OrderStatus.REVIEW);
+        if ("rejected".equals(codeString))
+          return new Enumeration<OrderStatus>(this, OrderStatus.REJECTED);
+        if ("error".equals(codeString))
+          return new Enumeration<OrderStatus>(this, OrderStatus.ERROR);
+        if ("accepted".equals(codeString))
+          return new Enumeration<OrderStatus>(this, OrderStatus.ACCEPTED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<OrderStatus>(this, OrderStatus.CANCELLED);
+        if ("replaced".equals(codeString))
+          return new Enumeration<OrderStatus>(this, OrderStatus.REPLACED);
+        if ("aborted".equals(codeString))
+          return new Enumeration<OrderStatus>(this, OrderStatus.ABORTED);
+        if ("completed".equals(codeString))
+          return new Enumeration<OrderStatus>(this, OrderStatus.COMPLETED);
+        throw new Exception("Unknown OrderStatus code '"+codeString+"'");
         }
     public String toCode(OrderStatus code) {
       if (code == OrderStatus.PENDING)
@@ -622,6 +648,55 @@ public class OrderResponse extends DomainResource {
         childrenList.add(new Property("orderStatus", "code", "What this response says about the status of the original order.", 0, java.lang.Integer.MAX_VALUE, orderStatus));
         childrenList.add(new Property("description", "string", "Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("fulfillment", "Reference(Any)", "Links to resources that provide details of the outcome of performing the order; e.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.", 0, java.lang.Integer.MAX_VALUE, fulfillment));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("request"))
+          this.request = castToReference(value); // Reference
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("who"))
+          this.who = castToReference(value); // Reference
+        else if (name.equals("orderStatus"))
+          this.orderStatus = new OrderStatusEnumFactory().fromType(value); // Enumeration<OrderStatus>
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("fulfillment"))
+          this.getFulfillment().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("request")) {
+          this.request = new Reference();
+          return this.request;
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type OrderResponse.date");
+        }
+        else if (name.equals("who")) {
+          this.who = new Reference();
+          return this.who;
+        }
+        else if (name.equals("orderStatus")) {
+          throw new Exception("Cannot call addChild on a primitive type OrderResponse.orderStatus");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type OrderResponse.description");
+        }
+        else if (name.equals("fulfillment")) {
+          return addFulfillment();
+        }
+        else
+          return super.addChild(name);
       }
 
       public OrderResponse copy() {

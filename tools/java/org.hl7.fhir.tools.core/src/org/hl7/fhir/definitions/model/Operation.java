@@ -3,8 +3,6 @@ package org.hl7.fhir.definitions.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.definitions.model.Operation.OperationExample;
-
 public class Operation {
 
   public static class OperationExample {

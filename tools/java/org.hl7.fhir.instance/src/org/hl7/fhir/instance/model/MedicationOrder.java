@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -156,6 +156,26 @@ public class MedicationOrder extends DomainResource {
         if ("draft".equals(codeString))
           return MedicationOrderStatus.DRAFT;
         throw new IllegalArgumentException("Unknown MedicationOrderStatus code '"+codeString+"'");
+        }
+        public Enumeration<MedicationOrderStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.ACTIVE);
+        if ("on-hold".equals(codeString))
+          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.ONHOLD);
+        if ("completed".equals(codeString))
+          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.ENTEREDINERROR);
+        if ("stopped".equals(codeString))
+          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.STOPPED);
+        if ("draft".equals(codeString))
+          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.DRAFT);
+        throw new Exception("Unknown MedicationOrderStatus code '"+codeString+"'");
         }
     public String toCode(MedicationOrderStatus code) {
       if (code == MedicationOrderStatus.ACTIVE)
@@ -618,6 +638,93 @@ public class MedicationOrder extends DomainResource {
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else if (name.equals("additionalInstructions"))
+          this.additionalInstructions = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("timing"))
+          this.timing = castToTiming(value); // Timing
+        else if (name.equals("asNeeded[x]"))
+          this.asNeeded = (Type) value; // Type
+        else if (name.equals("site[x]"))
+          this.site = (Type) value; // Type
+        else if (name.equals("route"))
+          this.route = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("method"))
+          this.method = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("dose[x]"))
+          this.dose = (Type) value; // Type
+        else if (name.equals("rate[x]"))
+          this.rate = (Type) value; // Type
+        else if (name.equals("maxDosePerPeriod"))
+          this.maxDosePerPeriod = castToRatio(value); // Ratio
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationOrder.text");
+        }
+        else if (name.equals("additionalInstructions")) {
+          this.additionalInstructions = new CodeableConcept();
+          return this.additionalInstructions;
+        }
+        else if (name.equals("timing")) {
+          this.timing = new Timing();
+          return this.timing;
+        }
+        else if (name.equals("asNeededBoolean")) {
+          this.asNeeded = new BooleanType();
+          return this.asNeeded;
+        }
+        else if (name.equals("asNeededCodeableConcept")) {
+          this.asNeeded = new CodeableConcept();
+          return this.asNeeded;
+        }
+        else if (name.equals("siteCodeableConcept")) {
+          this.site = new CodeableConcept();
+          return this.site;
+        }
+        else if (name.equals("siteReference")) {
+          this.site = new Reference();
+          return this.site;
+        }
+        else if (name.equals("route")) {
+          this.route = new CodeableConcept();
+          return this.route;
+        }
+        else if (name.equals("method")) {
+          this.method = new CodeableConcept();
+          return this.method;
+        }
+        else if (name.equals("doseRange")) {
+          this.dose = new Range();
+          return this.dose;
+        }
+        else if (name.equals("doseSimpleQuantity")) {
+          this.dose = new SimpleQuantity();
+          return this.dose;
+        }
+        else if (name.equals("rateRatio")) {
+          this.rate = new Ratio();
+          return this.rate;
+        }
+        else if (name.equals("rateRange")) {
+          this.rate = new Range();
+          return this.rate;
+        }
+        else if (name.equals("maxDosePerPeriod")) {
+          this.maxDosePerPeriod = new Ratio();
+          return this.maxDosePerPeriod;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public MedicationOrderDosageInstructionComponent copy() {
         MedicationOrderDosageInstructionComponent dst = new MedicationOrderDosageInstructionComponent();
         copyValues(dst);
@@ -884,6 +991,51 @@ public class MedicationOrder extends DomainResource {
           childrenList.add(new Property("expectedSupplyDuration", "Duration", "Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.", 0, java.lang.Integer.MAX_VALUE, expectedSupplyDuration));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("medication[x]"))
+          this.medication = (Type) value; // Type
+        else if (name.equals("validityPeriod"))
+          this.validityPeriod = castToPeriod(value); // Period
+        else if (name.equals("numberOfRepeatsAllowed"))
+          this.numberOfRepeatsAllowed = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("quantity"))
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("expectedSupplyDuration"))
+          this.expectedSupplyDuration = castToDuration(value); // Duration
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("medicationCodeableConcept")) {
+          this.medication = new CodeableConcept();
+          return this.medication;
+        }
+        else if (name.equals("medicationReference")) {
+          this.medication = new Reference();
+          return this.medication;
+        }
+        else if (name.equals("validityPeriod")) {
+          this.validityPeriod = new Period();
+          return this.validityPeriod;
+        }
+        else if (name.equals("numberOfRepeatsAllowed")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationOrder.numberOfRepeatsAllowed");
+        }
+        else if (name.equals("quantity")) {
+          this.quantity = new SimpleQuantity();
+          return this.quantity;
+        }
+        else if (name.equals("expectedSupplyDuration")) {
+          this.expectedSupplyDuration = new Duration();
+          return this.expectedSupplyDuration;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public MedicationOrderDispenseRequestComponent copy() {
         MedicationOrderDispenseRequestComponent dst = new MedicationOrderDispenseRequestComponent();
         copyValues(dst);
@@ -1011,6 +1163,30 @@ public class MedicationOrder extends DomainResource {
           childrenList.add(new Property("type", "CodeableConcept", "A code signifying whether a different drug should be dispensed from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("reason", "CodeableConcept", "Indicates the reason for the substitution, or why substitution must or must not be performed.", 0, java.lang.Integer.MAX_VALUE, reason));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("reason"))
+          this.reason = castToCodeableConcept(value); // CodeableConcept
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public MedicationOrderSubstitutionComponent copy() {
         MedicationOrderSubstitutionComponent dst = new MedicationOrderSubstitutionComponent();
@@ -1820,6 +1996,110 @@ public class MedicationOrder extends DomainResource {
         childrenList.add(new Property("dispenseRequest", "", "Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.", 0, java.lang.Integer.MAX_VALUE, dispenseRequest));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, java.lang.Integer.MAX_VALUE, substitution));
         childrenList.add(new Property("priorPrescription", "Reference(MedicationOrder)", "A link to a resource representing an earlier order or prescription that this order supersedes.", 0, java.lang.Integer.MAX_VALUE, priorPrescription));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("dateWritten"))
+          this.dateWritten = castToDateTime(value); // DateTimeType
+        else if (name.equals("status"))
+          this.status = new MedicationOrderStatusEnumFactory().fromType(value); // Enumeration<MedicationOrderStatus>
+        else if (name.equals("dateEnded"))
+          this.dateEnded = castToDateTime(value); // DateTimeType
+        else if (name.equals("reasonEnded"))
+          this.reasonEnded = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("prescriber"))
+          this.prescriber = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("reason[x]"))
+          this.reason = (Type) value; // Type
+        else if (name.equals("note"))
+          this.note = castToString(value); // StringType
+        else if (name.equals("medication[x]"))
+          this.medication = (Type) value; // Type
+        else if (name.equals("dosageInstruction"))
+          this.getDosageInstruction().add((MedicationOrderDosageInstructionComponent) value);
+        else if (name.equals("dispenseRequest"))
+          this.dispenseRequest = (MedicationOrderDispenseRequestComponent) value; // MedicationOrderDispenseRequestComponent
+        else if (name.equals("substitution"))
+          this.substitution = (MedicationOrderSubstitutionComponent) value; // MedicationOrderSubstitutionComponent
+        else if (name.equals("priorPrescription"))
+          this.priorPrescription = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("dateWritten")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationOrder.dateWritten");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationOrder.status");
+        }
+        else if (name.equals("dateEnded")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationOrder.dateEnded");
+        }
+        else if (name.equals("reasonEnded")) {
+          this.reasonEnded = new CodeableConcept();
+          return this.reasonEnded;
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("prescriber")) {
+          this.prescriber = new Reference();
+          return this.prescriber;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("reasonCodeableConcept")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else if (name.equals("reasonReference")) {
+          this.reason = new Reference();
+          return this.reason;
+        }
+        else if (name.equals("note")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationOrder.note");
+        }
+        else if (name.equals("medicationCodeableConcept")) {
+          this.medication = new CodeableConcept();
+          return this.medication;
+        }
+        else if (name.equals("medicationReference")) {
+          this.medication = new Reference();
+          return this.medication;
+        }
+        else if (name.equals("dosageInstruction")) {
+          return addDosageInstruction();
+        }
+        else if (name.equals("dispenseRequest")) {
+          this.dispenseRequest = new MedicationOrderDispenseRequestComponent();
+          return this.dispenseRequest;
+        }
+        else if (name.equals("substitution")) {
+          this.substitution = new MedicationOrderSubstitutionComponent();
+          return this.substitution;
+        }
+        else if (name.equals("priorPrescription")) {
+          this.priorPrescription = new Reference();
+          return this.priorPrescription;
+        }
+        else
+          return super.addChild(name);
       }
 
       public MedicationOrder copy() {

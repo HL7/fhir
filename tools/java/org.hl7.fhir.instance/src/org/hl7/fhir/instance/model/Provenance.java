@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class Provenance extends DomainResource {
         if ("source".equals(codeString))
           return ProvenanceEntityRole.SOURCE;
         throw new IllegalArgumentException("Unknown ProvenanceEntityRole code '"+codeString+"'");
+        }
+        public Enumeration<ProvenanceEntityRole> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("derivation".equals(codeString))
+          return new Enumeration<ProvenanceEntityRole>(this, ProvenanceEntityRole.DERIVATION);
+        if ("revision".equals(codeString))
+          return new Enumeration<ProvenanceEntityRole>(this, ProvenanceEntityRole.REVISION);
+        if ("quotation".equals(codeString))
+          return new Enumeration<ProvenanceEntityRole>(this, ProvenanceEntityRole.QUOTATION);
+        if ("source".equals(codeString))
+          return new Enumeration<ProvenanceEntityRole>(this, ProvenanceEntityRole.SOURCE);
+        throw new Exception("Unknown ProvenanceEntityRole code '"+codeString+"'");
         }
     public String toCode(ProvenanceEntityRole code) {
       if (code == ProvenanceEntityRole.DERIVATION)
@@ -333,6 +349,41 @@ public class Provenance extends DomainResource {
           childrenList.add(new Property("relatedAgent", "", "A relationship between two the agents referenced in this resource. This is defined to allow for explicit description of the delegation between agents.  For example, this human author used this device, or one person acted on another's behest.", 0, java.lang.Integer.MAX_VALUE, relatedAgent));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("role"))
+          this.role = castToCoding(value); // Coding
+        else if (name.equals("actor"))
+          this.actor = castToReference(value); // Reference
+        else if (name.equals("userId"))
+          this.userId = castToIdentifier(value); // Identifier
+        else if (name.equals("relatedAgent"))
+          this.getRelatedAgent().add((ProvenanceAgentRelatedAgentComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("role")) {
+          this.role = new Coding();
+          return this.role;
+        }
+        else if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
+        }
+        else if (name.equals("userId")) {
+          this.userId = new Identifier();
+          return this.userId;
+        }
+        else if (name.equals("relatedAgent")) {
+          return addRelatedAgent();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ProvenanceAgentComponent copy() {
         ProvenanceAgentComponent dst = new ProvenanceAgentComponent();
         copyValues(dst);
@@ -484,6 +535,29 @@ public class Provenance extends DomainResource {
           childrenList.add(new Property("type", "CodeableConcept", "The type of relationship between agents.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("target", "uri", "An internal reference to another agent listed in this provenance by its identifier.", 0, java.lang.Integer.MAX_VALUE, target));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("target"))
+          this.target = castToUri(value); // UriType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("target")) {
+          throw new Exception("Cannot call addChild on a primitive type Provenance.target");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ProvenanceAgentRelatedAgentComponent copy() {
         ProvenanceAgentRelatedAgentComponent dst = new ProvenanceAgentRelatedAgentComponent();
@@ -771,6 +845,45 @@ public class Provenance extends DomainResource {
           childrenList.add(new Property("display", "string", "Human-readable description of the entity.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("agent", "@Provenance.agent", "The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.", 0, java.lang.Integer.MAX_VALUE, agent));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("role"))
+          this.role = new ProvenanceEntityRoleEnumFactory().fromType(value); // Enumeration<ProvenanceEntityRole>
+        else if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("reference"))
+          this.reference = castToUri(value); // UriType
+        else if (name.equals("display"))
+          this.display = castToString(value); // StringType
+        else if (name.equals("agent"))
+          this.agent = (ProvenanceAgentComponent) value; // ProvenanceAgentComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("role")) {
+          throw new Exception("Cannot call addChild on a primitive type Provenance.role");
+        }
+        else if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("reference")) {
+          throw new Exception("Cannot call addChild on a primitive type Provenance.reference");
+        }
+        else if (name.equals("display")) {
+          throw new Exception("Cannot call addChild on a primitive type Provenance.display");
+        }
+        else if (name.equals("agent")) {
+          this.agent = new ProvenanceAgentComponent();
+          return this.agent;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ProvenanceEntityComponent copy() {
         ProvenanceEntityComponent dst = new ProvenanceEntityComponent();
@@ -1322,6 +1435,71 @@ public class Provenance extends DomainResource {
         childrenList.add(new Property("agent", "", "An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity));
         childrenList.add(new Property("signature", "Signature", "A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.", 0, java.lang.Integer.MAX_VALUE, signature));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("target"))
+          this.getTarget().add(castToReference(value));
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("recorded"))
+          this.recorded = castToInstant(value); // InstantType
+        else if (name.equals("reason"))
+          this.getReason().add(castToCodeableConcept(value));
+        else if (name.equals("activity"))
+          this.activity = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("location"))
+          this.location = castToReference(value); // Reference
+        else if (name.equals("policy"))
+          this.getPolicy().add(castToUri(value));
+        else if (name.equals("agent"))
+          this.getAgent().add((ProvenanceAgentComponent) value);
+        else if (name.equals("entity"))
+          this.getEntity().add((ProvenanceEntityComponent) value);
+        else if (name.equals("signature"))
+          this.getSignature().add(castToSignature(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("target")) {
+          return addTarget();
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("recorded")) {
+          throw new Exception("Cannot call addChild on a primitive type Provenance.recorded");
+        }
+        else if (name.equals("reason")) {
+          return addReason();
+        }
+        else if (name.equals("activity")) {
+          this.activity = new CodeableConcept();
+          return this.activity;
+        }
+        else if (name.equals("location")) {
+          this.location = new Reference();
+          return this.location;
+        }
+        else if (name.equals("policy")) {
+          throw new Exception("Cannot call addChild on a primitive type Provenance.policy");
+        }
+        else if (name.equals("agent")) {
+          return addAgent();
+        }
+        else if (name.equals("entity")) {
+          return addEntity();
+        }
+        else if (name.equals("signature")) {
+          return addSignature();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Provenance copy() {

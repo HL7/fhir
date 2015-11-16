@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -121,6 +121,20 @@ public class NamingSystem extends DomainResource {
         if ("root".equals(codeString))
           return NamingSystemType.ROOT;
         throw new IllegalArgumentException("Unknown NamingSystemType code '"+codeString+"'");
+        }
+        public Enumeration<NamingSystemType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("codesystem".equals(codeString))
+          return new Enumeration<NamingSystemType>(this, NamingSystemType.CODESYSTEM);
+        if ("identifier".equals(codeString))
+          return new Enumeration<NamingSystemType>(this, NamingSystemType.IDENTIFIER);
+        if ("root".equals(codeString))
+          return new Enumeration<NamingSystemType>(this, NamingSystemType.ROOT);
+        throw new Exception("Unknown NamingSystemType code '"+codeString+"'");
         }
     public String toCode(NamingSystemType code) {
       if (code == NamingSystemType.CODESYSTEM)
@@ -219,6 +233,22 @@ public class NamingSystem extends DomainResource {
         if ("other".equals(codeString))
           return NamingSystemIdentifierType.OTHER;
         throw new IllegalArgumentException("Unknown NamingSystemIdentifierType code '"+codeString+"'");
+        }
+        public Enumeration<NamingSystemIdentifierType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("oid".equals(codeString))
+          return new Enumeration<NamingSystemIdentifierType>(this, NamingSystemIdentifierType.OID);
+        if ("uuid".equals(codeString))
+          return new Enumeration<NamingSystemIdentifierType>(this, NamingSystemIdentifierType.UUID);
+        if ("uri".equals(codeString))
+          return new Enumeration<NamingSystemIdentifierType>(this, NamingSystemIdentifierType.URI);
+        if ("other".equals(codeString))
+          return new Enumeration<NamingSystemIdentifierType>(this, NamingSystemIdentifierType.OTHER);
+        throw new Exception("Unknown NamingSystemIdentifierType code '"+codeString+"'");
         }
     public String toCode(NamingSystemIdentifierType code) {
       if (code == NamingSystemIdentifierType.OID)
@@ -352,6 +382,28 @@ public class NamingSystem extends DomainResource {
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the naming system.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.name");
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public NamingSystemContactComponent copy() {
         NamingSystemContactComponent dst = new NamingSystemContactComponent();
@@ -606,6 +658,39 @@ public class NamingSystem extends DomainResource {
           childrenList.add(new Property("preferred", "boolean", "Indicates whether this identifier is the \"preferred\" identifier of this type.", 0, java.lang.Integer.MAX_VALUE, preferred));
           childrenList.add(new Property("period", "Period", "Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic.", 0, java.lang.Integer.MAX_VALUE, period));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = new NamingSystemIdentifierTypeEnumFactory().fromType(value); // Enumeration<NamingSystemIdentifierType>
+        else if (name.equals("value"))
+          this.value = castToString(value); // StringType
+        else if (name.equals("preferred"))
+          this.preferred = castToBoolean(value); // BooleanType
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.type");
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.value");
+        }
+        else if (name.equals("preferred")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.preferred");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public NamingSystemUniqueIdComponent copy() {
         NamingSystemUniqueIdComponent dst = new NamingSystemUniqueIdComponent();
@@ -1341,6 +1426,85 @@ public class NamingSystem extends DomainResource {
         childrenList.add(new Property("usage", "string", "Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.", 0, java.lang.Integer.MAX_VALUE, usage));
         childrenList.add(new Property("uniqueId", "", "Indicates how the system may be identified when referenced in electronic exchange.", 0, java.lang.Integer.MAX_VALUE, uniqueId));
         childrenList.add(new Property("replacedBy", "Reference(NamingSystem)", "For naming systems that are retired, indicates the naming system that should be used in their place (if any).", 0, java.lang.Integer.MAX_VALUE, replacedBy));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("status"))
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        else if (name.equals("kind"))
+          this.kind = new NamingSystemTypeEnumFactory().fromType(value); // Enumeration<NamingSystemType>
+        else if (name.equals("publisher"))
+          this.publisher = castToString(value); // StringType
+        else if (name.equals("contact"))
+          this.getContact().add((NamingSystemContactComponent) value);
+        else if (name.equals("responsible"))
+          this.responsible = castToString(value); // StringType
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("useContext"))
+          this.getUseContext().add(castToCodeableConcept(value));
+        else if (name.equals("usage"))
+          this.usage = castToString(value); // StringType
+        else if (name.equals("uniqueId"))
+          this.getUniqueId().add((NamingSystemUniqueIdComponent) value);
+        else if (name.equals("replacedBy"))
+          this.replacedBy = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.name");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.status");
+        }
+        else if (name.equals("kind")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.kind");
+        }
+        else if (name.equals("publisher")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.publisher");
+        }
+        else if (name.equals("contact")) {
+          return addContact();
+        }
+        else if (name.equals("responsible")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.responsible");
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.date");
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.description");
+        }
+        else if (name.equals("useContext")) {
+          return addUseContext();
+        }
+        else if (name.equals("usage")) {
+          throw new Exception("Cannot call addChild on a primitive type NamingSystem.usage");
+        }
+        else if (name.equals("uniqueId")) {
+          return addUniqueId();
+        }
+        else if (name.equals("replacedBy")) {
+          this.replacedBy = new Reference();
+          return this.replacedBy;
+        }
+        else
+          return super.addChild(name);
       }
 
       public NamingSystem copy() {

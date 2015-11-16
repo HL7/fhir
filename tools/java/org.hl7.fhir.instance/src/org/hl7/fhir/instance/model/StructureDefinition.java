@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -121,6 +121,20 @@ public class StructureDefinition extends DomainResource {
         if ("logical".equals(codeString))
           return StructureDefinitionKind.LOGICAL;
         throw new IllegalArgumentException("Unknown StructureDefinitionKind code '"+codeString+"'");
+        }
+        public Enumeration<StructureDefinitionKind> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("datatype".equals(codeString))
+          return new Enumeration<StructureDefinitionKind>(this, StructureDefinitionKind.DATATYPE);
+        if ("resource".equals(codeString))
+          return new Enumeration<StructureDefinitionKind>(this, StructureDefinitionKind.RESOURCE);
+        if ("logical".equals(codeString))
+          return new Enumeration<StructureDefinitionKind>(this, StructureDefinitionKind.LOGICAL);
+        throw new Exception("Unknown StructureDefinitionKind code '"+codeString+"'");
         }
     public String toCode(StructureDefinitionKind code) {
       if (code == StructureDefinitionKind.DATATYPE)
@@ -219,6 +233,22 @@ public class StructureDefinition extends DomainResource {
         if ("extension".equals(codeString))
           return ExtensionContext.EXTENSION;
         throw new IllegalArgumentException("Unknown ExtensionContext code '"+codeString+"'");
+        }
+        public Enumeration<ExtensionContext> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("resource".equals(codeString))
+          return new Enumeration<ExtensionContext>(this, ExtensionContext.RESOURCE);
+        if ("datatype".equals(codeString))
+          return new Enumeration<ExtensionContext>(this, ExtensionContext.DATATYPE);
+        if ("mapping".equals(codeString))
+          return new Enumeration<ExtensionContext>(this, ExtensionContext.MAPPING);
+        if ("extension".equals(codeString))
+          return new Enumeration<ExtensionContext>(this, ExtensionContext.EXTENSION);
+        throw new Exception("Unknown ExtensionContext code '"+codeString+"'");
         }
     public String toCode(ExtensionContext code) {
       if (code == ExtensionContext.RESOURCE)
@@ -352,6 +382,28 @@ public class StructureDefinition extends DomainResource {
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the structure definition.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.name");
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public StructureDefinitionContactComponent copy() {
         StructureDefinitionContactComponent dst = new StructureDefinitionContactComponent();
@@ -639,6 +691,38 @@ public class StructureDefinition extends DomainResource {
           childrenList.add(new Property("comments", "string", "Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.", 0, java.lang.Integer.MAX_VALUE, comments));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identity"))
+          this.identity = castToId(value); // IdType
+        else if (name.equals("uri"))
+          this.uri = castToUri(value); // UriType
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("comments"))
+          this.comments = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identity")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.identity");
+        }
+        else if (name.equals("uri")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.uri");
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.name");
+        }
+        else if (name.equals("comments")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.comments");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public StructureDefinitionMappingComponent copy() {
         StructureDefinitionMappingComponent dst = new StructureDefinitionMappingComponent();
         copyValues(dst);
@@ -741,6 +825,23 @@ public class StructureDefinition extends DomainResource {
           childrenList.add(new Property("element", "ElementDefinition", "Captures constraints on each element within the resource.", 0, java.lang.Integer.MAX_VALUE, element));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("element"))
+          this.getElement().add(castToElementDefinition(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("element")) {
+          return addElement();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public StructureDefinitionSnapshotComponent copy() {
         StructureDefinitionSnapshotComponent dst = new StructureDefinitionSnapshotComponent();
         copyValues(dst);
@@ -840,6 +941,23 @@ public class StructureDefinition extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("element", "ElementDefinition", "Captures constraints on each element within the resource.", 0, java.lang.Integer.MAX_VALUE, element));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("element"))
+          this.getElement().add(castToElementDefinition(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("element")) {
+          return addElement();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public StructureDefinitionDifferentialComponent copy() {
         StructureDefinitionDifferentialComponent dst = new StructureDefinitionDifferentialComponent();
@@ -2212,6 +2330,145 @@ public class StructureDefinition extends DomainResource {
         childrenList.add(new Property("base", "uri", "An absolute URI that is the base structure from which this set of constraints is derived.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, java.lang.Integer.MAX_VALUE, snapshot));
         childrenList.add(new Property("differential", "", "A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.", 0, java.lang.Integer.MAX_VALUE, differential));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("display"))
+          this.display = castToString(value); // StringType
+        else if (name.equals("status"))
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        else if (name.equals("experimental"))
+          this.experimental = castToBoolean(value); // BooleanType
+        else if (name.equals("publisher"))
+          this.publisher = castToString(value); // StringType
+        else if (name.equals("contact"))
+          this.getContact().add((StructureDefinitionContactComponent) value);
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("useContext"))
+          this.getUseContext().add(castToCodeableConcept(value));
+        else if (name.equals("requirements"))
+          this.requirements = castToString(value); // StringType
+        else if (name.equals("copyright"))
+          this.copyright = castToString(value); // StringType
+        else if (name.equals("code"))
+          this.getCode().add(castToCoding(value));
+        else if (name.equals("fhirVersion"))
+          this.fhirVersion = castToId(value); // IdType
+        else if (name.equals("mapping"))
+          this.getMapping().add((StructureDefinitionMappingComponent) value);
+        else if (name.equals("kind"))
+          this.kind = new StructureDefinitionKindEnumFactory().fromType(value); // Enumeration<StructureDefinitionKind>
+        else if (name.equals("constrainedType"))
+          this.constrainedType = castToCode(value); // CodeType
+        else if (name.equals("abstract"))
+          this.abstract_ = castToBoolean(value); // BooleanType
+        else if (name.equals("contextType"))
+          this.contextType = new ExtensionContextEnumFactory().fromType(value); // Enumeration<ExtensionContext>
+        else if (name.equals("context"))
+          this.getContext().add(castToString(value));
+        else if (name.equals("base"))
+          this.base = castToUri(value); // UriType
+        else if (name.equals("snapshot"))
+          this.snapshot = (StructureDefinitionSnapshotComponent) value; // StructureDefinitionSnapshotComponent
+        else if (name.equals("differential"))
+          this.differential = (StructureDefinitionDifferentialComponent) value; // StructureDefinitionDifferentialComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.url");
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.version");
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.name");
+        }
+        else if (name.equals("display")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.display");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.status");
+        }
+        else if (name.equals("experimental")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.experimental");
+        }
+        else if (name.equals("publisher")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.publisher");
+        }
+        else if (name.equals("contact")) {
+          return addContact();
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.date");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.description");
+        }
+        else if (name.equals("useContext")) {
+          return addUseContext();
+        }
+        else if (name.equals("requirements")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.requirements");
+        }
+        else if (name.equals("copyright")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.copyright");
+        }
+        else if (name.equals("code")) {
+          return addCode();
+        }
+        else if (name.equals("fhirVersion")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.fhirVersion");
+        }
+        else if (name.equals("mapping")) {
+          return addMapping();
+        }
+        else if (name.equals("kind")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.kind");
+        }
+        else if (name.equals("constrainedType")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.constrainedType");
+        }
+        else if (name.equals("abstract")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.abstract");
+        }
+        else if (name.equals("contextType")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.contextType");
+        }
+        else if (name.equals("context")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.context");
+        }
+        else if (name.equals("base")) {
+          throw new Exception("Cannot call addChild on a primitive type StructureDefinition.base");
+        }
+        else if (name.equals("snapshot")) {
+          this.snapshot = new StructureDefinitionSnapshotComponent();
+          return this.snapshot;
+        }
+        else if (name.equals("differential")) {
+          this.differential = new StructureDefinitionDifferentialComponent();
+          return this.differential;
+        }
+        else
+          return super.addChild(name);
       }
 
       public StructureDefinition copy() {

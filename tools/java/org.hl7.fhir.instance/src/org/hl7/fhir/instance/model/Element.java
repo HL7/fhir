@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -177,6 +177,28 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       protected void listChildren(List<Property> childrenList) {
         childrenList.add(new Property("id", "id", "unique id for the element within a resource (for internal references).", 0, java.lang.Integer.MAX_VALUE, id));
         childrenList.add(new Property("extension", "Extension", "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.", 0, java.lang.Integer.MAX_VALUE, extension));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("id"))
+          this.id = castToId(value); // IdType
+        else if (name.equals("extension"))
+          this.getExtension().add(castToExtension(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("id")) {
+          throw new Exception("Cannot call addChild on a primitive type Element.id");
+        }
+        else if (name.equals("extension")) {
+          return addExtension();
+        }
+        else
+          return super.addChild(name);
       }
 
       public abstract Element copy();

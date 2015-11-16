@@ -27,7 +27,7 @@ public class BatchLoader {
 	  } else {
 	  	String server = args[0];
 	  	String file = args[1];
-	  	IParser p = args[2].equals("json") ? new JsonParser() : new XmlParser();
+	  	IParser p = new JsonParser(); // args[2].equals("json") ? new JsonParser() : new XmlParser();
 	  	int size = Integer.parseInt(args[3]);
 	  	size = 500;
 	  	if (file.endsWith(".xml")) {
@@ -44,25 +44,25 @@ public class BatchLoader {
 	}
 
 	private static void LoadDirectory(String server, String file, IParser p, int size) throws Exception {
-//    LoadZipFile(server, Utilities.path(file, "Patient.xml.zip"), p, size, 200, -1);
-//    LoadZipFile(server, Utilities.path(file, "Binary.xml.zip"), p, size, 0, -1);
-//	  LoadZipFile(server, Utilities.path(file, "DocumentReference.xml.zip"), p, size, 0, -1);
-//	  LoadZipFile(server, Utilities.path(file, "Encounter.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "Organization.xml.zip"), p, size, 1030, -1);
-	  LoadZipFile(server, Utilities.path(file, "Procedure.xml.zip"), p, size, 5788, -1);
-//	  LoadZipFile(server, Utilities.path(file, "AllergyIntolerance.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "Condition.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "Immunization.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "MedicationStatement.xml.zip"), p, size, 9400, -1);
-	  LoadZipFile(server, Utilities.path(file, "Observation-gen.xml.zip"), p, size, 2262, -1);
-	  LoadZipFile(server, Utilities.path(file, "Observation-res.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "Observation-sh.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "Observation-vs.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "List.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "List-res.xml.zip"), p, size, 0, -1);
-	  LoadZipFile(server, Utilities.path(file, "List-vs.xml.zip"), p, size, 0, -1);
-    
+//    LoadZipFile(server, Utilities.path(file, "Patient.json.zip"), p, size, 1000, -1);
+//    LoadZipFile(server, Utilities.path(file, "Binary.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "DocumentReference.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "Encounter.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "Organization.json.zip"), p, size, 0, -1);
+//	    LoadZipFile(server, Utilities.path(file, "Procedure.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "AllergyIntolerance.json.zip"), p, size, 1500, -1);
+//	    LoadZipFile(server, Utilities.path(file, "Condition.json.zip"), p, size, 0, -1);
+	    LoadZipFile(server, Utilities.path(file, "Immunization.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "MedicationStatement.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "Observation-res.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "Observation-sh.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "Observation-vs.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "Observation-gen.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "List.json.zip"), p, size, 6500, -1);
+//	  LoadZipFile(server, Utilities.path(file, "List-res.json.zip"), p, size, 0, -1);
+//	  LoadZipFile(server, Utilities.path(file, "List-vs.json.zip"), p, size, 0, -1);
   }
+    
 
   private static void LoadZipFile(String server, String file, IParser p, int size, int start, int end) throws Exception {
 		System.out.println("Load Zip file "+file);
@@ -73,12 +73,17 @@ public class BatchLoader {
 	 	ZipEntry entry;
     while((entry = zip.getNextEntry())!=null)
     {
+    	try {
     	Resource r = p.parse(zip);
     	b.addEntry().setResource(r);
+    	} catch (Exception e) {
+    		throw new Exception("Error parsing "+entry.getName()+": "+e.getMessage(), e);
+    	}
     }
 	 	loadBundle(server, b, size, start, end);
 	}
 
+  
 	private static int loadBundle(String server, Bundle b, int size, int start, int end) throws URISyntaxException {
 		System.out.println("Post to "+server+". size = "+Integer.toString(size)+", start = "+Integer.toString(start)+", total = "+Integer.toString(b.getEntry().size()));
 		FHIRToolingClient client = new FHIRToolingClient(server);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -168,6 +168,28 @@ public class DiagnosticReport extends DomainResource {
         if ("entered-in-error".equals(codeString))
           return DiagnosticReportStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown DiagnosticReportStatus code '"+codeString+"'");
+        }
+        public Enumeration<DiagnosticReportStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("registered".equals(codeString))
+          return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.REGISTERED);
+        if ("partial".equals(codeString))
+          return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.PARTIAL);
+        if ("final".equals(codeString))
+          return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.FINAL);
+        if ("corrected".equals(codeString))
+          return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.CORRECTED);
+        if ("appended".equals(codeString))
+          return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.APPENDED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.CANCELLED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.ENTEREDINERROR);
+        throw new Exception("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
     public String toCode(DiagnosticReportStatus code) {
       if (code == DiagnosticReportStatus.REGISTERED)
@@ -324,6 +346,29 @@ public class DiagnosticReport extends DomainResource {
           childrenList.add(new Property("comment", "string", "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.", 0, java.lang.Integer.MAX_VALUE, comment));
           childrenList.add(new Property("link", "Reference(Media)", "Reference to the image source.", 0, java.lang.Integer.MAX_VALUE, link));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("comment"))
+          this.comment = castToString(value); // StringType
+        else if (name.equals("link"))
+          this.link = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("comment")) {
+          throw new Exception("Cannot call addChild on a primitive type DiagnosticReport.comment");
+        }
+        else if (name.equals("link")) {
+          this.link = new Reference();
+          return this.link;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DiagnosticReportImageComponent copy() {
         DiagnosticReportImageComponent dst = new DiagnosticReportImageComponent();
@@ -1289,6 +1334,113 @@ public class DiagnosticReport extends DomainResource {
         childrenList.add(new Property("conclusion", "string", "Concise and clinically contextualized narrative interpretation of the diagnostic report.", 0, java.lang.Integer.MAX_VALUE, conclusion));
         childrenList.add(new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis));
         childrenList.add(new Property("presentedForm", "Attachment", "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.", 0, java.lang.Integer.MAX_VALUE, presentedForm));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new DiagnosticReportStatusEnumFactory().fromType(value); // Enumeration<DiagnosticReportStatus>
+        else if (name.equals("category"))
+          this.category = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("effective[x]"))
+          this.effective = (Type) value; // Type
+        else if (name.equals("issued"))
+          this.issued = castToInstant(value); // InstantType
+        else if (name.equals("performer"))
+          this.performer = castToReference(value); // Reference
+        else if (name.equals("request"))
+          this.getRequest().add(castToReference(value));
+        else if (name.equals("specimen"))
+          this.getSpecimen().add(castToReference(value));
+        else if (name.equals("result"))
+          this.getResult().add(castToReference(value));
+        else if (name.equals("imagingStudy"))
+          this.getImagingStudy().add(castToReference(value));
+        else if (name.equals("image"))
+          this.getImage().add((DiagnosticReportImageComponent) value);
+        else if (name.equals("conclusion"))
+          this.conclusion = castToString(value); // StringType
+        else if (name.equals("codedDiagnosis"))
+          this.getCodedDiagnosis().add(castToCodeableConcept(value));
+        else if (name.equals("presentedForm"))
+          this.getPresentedForm().add(castToAttachment(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type DiagnosticReport.status");
+        }
+        else if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("effectiveDateTime")) {
+          this.effective = new DateTimeType();
+          return this.effective;
+        }
+        else if (name.equals("effectivePeriod")) {
+          this.effective = new Period();
+          return this.effective;
+        }
+        else if (name.equals("issued")) {
+          throw new Exception("Cannot call addChild on a primitive type DiagnosticReport.issued");
+        }
+        else if (name.equals("performer")) {
+          this.performer = new Reference();
+          return this.performer;
+        }
+        else if (name.equals("request")) {
+          return addRequest();
+        }
+        else if (name.equals("specimen")) {
+          return addSpecimen();
+        }
+        else if (name.equals("result")) {
+          return addResult();
+        }
+        else if (name.equals("imagingStudy")) {
+          return addImagingStudy();
+        }
+        else if (name.equals("image")) {
+          return addImage();
+        }
+        else if (name.equals("conclusion")) {
+          throw new Exception("Cannot call addChild on a primitive type DiagnosticReport.conclusion");
+        }
+        else if (name.equals("codedDiagnosis")) {
+          return addCodedDiagnosis();
+        }
+        else if (name.equals("presentedForm")) {
+          return addPresentedForm();
+        }
+        else
+          return super.addChild(name);
       }
 
       public DiagnosticReport copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -120,6 +120,20 @@ public class ClinicalImpression extends DomainResource {
         if ("entered-in-error".equals(codeString))
           return ClinicalImpressionStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown ClinicalImpressionStatus code '"+codeString+"'");
+        }
+        public Enumeration<ClinicalImpressionStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("in-progress".equals(codeString))
+          return new Enumeration<ClinicalImpressionStatus>(this, ClinicalImpressionStatus.INPROGRESS);
+        if ("completed".equals(codeString))
+          return new Enumeration<ClinicalImpressionStatus>(this, ClinicalImpressionStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<ClinicalImpressionStatus>(this, ClinicalImpressionStatus.ENTEREDINERROR);
+        throw new Exception("Unknown ClinicalImpressionStatus code '"+codeString+"'");
         }
     public String toCode(ClinicalImpressionStatus code) {
       if (code == ClinicalImpressionStatus.INPROGRESS)
@@ -248,6 +262,29 @@ public class ClinicalImpression extends DomainResource {
           childrenList.add(new Property("code", "CodeableConcept", "A name/code for the group (\"set\") of investigations. Typically, this will be something like \"signs\", \"symptoms\", \"clinical\", \"diagnostic\", but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("item", "Reference(Observation|QuestionnaireResponse|FamilyMemberHistory|DiagnosticReport)", "A record of a specific investigation that was undertaken.", 0, java.lang.Integer.MAX_VALUE, item));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("item"))
+          this.getItem().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("item")) {
+          return addItem();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ClinicalImpressionInvestigationsComponent copy() {
         ClinicalImpressionInvestigationsComponent dst = new ClinicalImpressionInvestigationsComponent();
@@ -400,6 +437,29 @@ public class ClinicalImpression extends DomainResource {
           childrenList.add(new Property("cause", "string", "Which investigations support finding or diagnosis.", 0, java.lang.Integer.MAX_VALUE, cause));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("item"))
+          this.item = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("cause"))
+          this.cause = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("item")) {
+          this.item = new CodeableConcept();
+          return this.item;
+        }
+        else if (name.equals("cause")) {
+          throw new Exception("Cannot call addChild on a primitive type ClinicalImpression.cause");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ClinicalImpressionFindingComponent copy() {
         ClinicalImpressionFindingComponent dst = new ClinicalImpressionFindingComponent();
         copyValues(dst);
@@ -546,6 +606,29 @@ public class ClinicalImpression extends DomainResource {
           childrenList.add(new Property("item", "CodeableConcept", "Specific text of code for diagnosis.", 0, java.lang.Integer.MAX_VALUE, item));
           childrenList.add(new Property("reason", "string", "Grounds for elimination.", 0, java.lang.Integer.MAX_VALUE, reason));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("item"))
+          this.item = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("reason"))
+          this.reason = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("item")) {
+          this.item = new CodeableConcept();
+          return this.item;
+        }
+        else if (name.equals("reason")) {
+          throw new Exception("Cannot call addChild on a primitive type ClinicalImpression.reason");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ClinicalImpressionRuledOutComponent copy() {
         ClinicalImpressionRuledOutComponent dst = new ClinicalImpressionRuledOutComponent();
@@ -1542,6 +1625,111 @@ public class ClinicalImpression extends DomainResource {
         childrenList.add(new Property("prognosis", "string", "Estimate of likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosis));
         childrenList.add(new Property("plan", "Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticOrder|MedicationOrder|NutritionOrder|Order|ProcedureRequest|ProcessRequest|ReferralRequest|SupplyRequest|VisionPrescription)", "Plan of action after assessment.", 0, java.lang.Integer.MAX_VALUE, plan));
         childrenList.add(new Property("action", "Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationOrder|DiagnosticOrder|NutritionOrder|SupplyRequest|Appointment)", "Actions taken during assessment.", 0, java.lang.Integer.MAX_VALUE, action));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("assessor"))
+          this.assessor = castToReference(value); // Reference
+        else if (name.equals("status"))
+          this.status = new ClinicalImpressionStatusEnumFactory().fromType(value); // Enumeration<ClinicalImpressionStatus>
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("previous"))
+          this.previous = castToReference(value); // Reference
+        else if (name.equals("problem"))
+          this.getProblem().add(castToReference(value));
+        else if (name.equals("trigger[x]"))
+          this.trigger = (Type) value; // Type
+        else if (name.equals("investigations"))
+          this.getInvestigations().add((ClinicalImpressionInvestigationsComponent) value);
+        else if (name.equals("protocol"))
+          this.protocol = castToUri(value); // UriType
+        else if (name.equals("summary"))
+          this.summary = castToString(value); // StringType
+        else if (name.equals("finding"))
+          this.getFinding().add((ClinicalImpressionFindingComponent) value);
+        else if (name.equals("resolved"))
+          this.getResolved().add(castToCodeableConcept(value));
+        else if (name.equals("ruledOut"))
+          this.getRuledOut().add((ClinicalImpressionRuledOutComponent) value);
+        else if (name.equals("prognosis"))
+          this.prognosis = castToString(value); // StringType
+        else if (name.equals("plan"))
+          this.getPlan().add(castToReference(value));
+        else if (name.equals("action"))
+          this.getAction().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("assessor")) {
+          this.assessor = new Reference();
+          return this.assessor;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type ClinicalImpression.status");
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type ClinicalImpression.date");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type ClinicalImpression.description");
+        }
+        else if (name.equals("previous")) {
+          this.previous = new Reference();
+          return this.previous;
+        }
+        else if (name.equals("problem")) {
+          return addProblem();
+        }
+        else if (name.equals("triggerCodeableConcept")) {
+          this.trigger = new CodeableConcept();
+          return this.trigger;
+        }
+        else if (name.equals("triggerReference")) {
+          this.trigger = new Reference();
+          return this.trigger;
+        }
+        else if (name.equals("investigations")) {
+          return addInvestigations();
+        }
+        else if (name.equals("protocol")) {
+          throw new Exception("Cannot call addChild on a primitive type ClinicalImpression.protocol");
+        }
+        else if (name.equals("summary")) {
+          throw new Exception("Cannot call addChild on a primitive type ClinicalImpression.summary");
+        }
+        else if (name.equals("finding")) {
+          return addFinding();
+        }
+        else if (name.equals("resolved")) {
+          return addResolved();
+        }
+        else if (name.equals("ruledOut")) {
+          return addRuledOut();
+        }
+        else if (name.equals("prognosis")) {
+          throw new Exception("Cannot call addChild on a primitive type ClinicalImpression.prognosis");
+        }
+        else if (name.equals("plan")) {
+          return addPlan();
+        }
+        else if (name.equals("action")) {
+          return addAction();
+        }
+        else
+          return super.addChild(name);
       }
 
       public ClinicalImpression copy() {

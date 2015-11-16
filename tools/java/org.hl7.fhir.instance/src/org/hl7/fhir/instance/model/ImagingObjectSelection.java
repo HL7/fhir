@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -284,6 +284,39 @@ public class ImagingObjectSelection extends DomainResource {
           childrenList.add(new Property("series", "", "Series identity and locating information of the DICOM SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, series));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("uid"))
+          this.uid = castToOid(value); // OidType
+        else if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("imagingStudy"))
+          this.imagingStudy = castToReference(value); // Reference
+        else if (name.equals("series"))
+          this.getSeries().add((SeriesComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("uid")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.uid");
+        }
+        else if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.url");
+        }
+        else if (name.equals("imagingStudy")) {
+          this.imagingStudy = new Reference();
+          return this.imagingStudy;
+        }
+        else if (name.equals("series")) {
+          return addSeries();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public StudyComponent copy() {
         StudyComponent dst = new StudyComponent();
         copyValues(dst);
@@ -502,6 +535,33 @@ public class ImagingObjectSelection extends DomainResource {
           childrenList.add(new Property("url", "uri", "WADO-RS URL to retrieve the series. Note that this URL retrieves all SOP instances of the series not only those in the selection.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("instance", "", "Identity and locating information of the selected DICOM SOP instances.", 0, java.lang.Integer.MAX_VALUE, instance));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("uid"))
+          this.uid = castToOid(value); // OidType
+        else if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("instance"))
+          this.getInstance().add((InstanceComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("uid")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.uid");
+        }
+        else if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.url");
+        }
+        else if (name.equals("instance")) {
+          return addInstance();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SeriesComponent copy() {
         SeriesComponent dst = new SeriesComponent();
@@ -776,6 +836,38 @@ public class ImagingObjectSelection extends DomainResource {
           childrenList.add(new Property("frames", "", "Identity and location information of the frames in the selected instance.", 0, java.lang.Integer.MAX_VALUE, frames));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("sopClass"))
+          this.sopClass = castToOid(value); // OidType
+        else if (name.equals("uid"))
+          this.uid = castToOid(value); // OidType
+        else if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("frames"))
+          this.getFrames().add((FramesComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("sopClass")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.sopClass");
+        }
+        else if (name.equals("uid")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.uid");
+        }
+        else if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.url");
+        }
+        else if (name.equals("frames")) {
+          return addFrames();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public InstanceComponent copy() {
         InstanceComponent dst = new InstanceComponent();
         copyValues(dst);
@@ -956,6 +1048,28 @@ public class ImagingObjectSelection extends DomainResource {
           childrenList.add(new Property("frameNumbers", "unsignedInt", "The frame numbers in the frame set.", 0, java.lang.Integer.MAX_VALUE, frameNumbers));
           childrenList.add(new Property("url", "uri", "WADO-RS URL to retrieve the DICOM frames.", 0, java.lang.Integer.MAX_VALUE, url));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("frameNumbers"))
+          this.getFrameNumbers().add(castToUnsignedInt(value));
+        else if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("frameNumbers")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.frameNumbers");
+        }
+        else if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.url");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public FramesComponent copy() {
         FramesComponent dst = new FramesComponent();
@@ -1373,6 +1487,56 @@ public class ImagingObjectSelection extends DomainResource {
         childrenList.add(new Property("author", "Reference(Practitioner|Device|Organization|Patient|RelatedPerson)", "Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("authoringTime", "dateTime", "Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).", 0, java.lang.Integer.MAX_VALUE, authoringTime));
         childrenList.add(new Property("study", "", "Study identity and locating information of the DICOM SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, study));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("uid"))
+          this.uid = castToOid(value); // OidType
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("title"))
+          this.title = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("author"))
+          this.author = castToReference(value); // Reference
+        else if (name.equals("authoringTime"))
+          this.authoringTime = castToDateTime(value); // DateTimeType
+        else if (name.equals("study"))
+          this.getStudy().add((StudyComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("uid")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.uid");
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("title")) {
+          this.title = new CodeableConcept();
+          return this.title;
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.description");
+        }
+        else if (name.equals("author")) {
+          this.author = new Reference();
+          return this.author;
+        }
+        else if (name.equals("authoringTime")) {
+          throw new Exception("Cannot call addChild on a primitive type ImagingObjectSelection.authoringTime");
+        }
+        else if (name.equals("study")) {
+          return addStudy();
+        }
+        else
+          return super.addChild(name);
       }
 
       public ImagingObjectSelection copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -134,6 +134,22 @@ public class ProcessRequest extends DomainResource {
           return ActionList.STATUS;
         throw new IllegalArgumentException("Unknown ActionList code '"+codeString+"'");
         }
+        public Enumeration<ActionList> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("cancel".equals(codeString))
+          return new Enumeration<ActionList>(this, ActionList.CANCEL);
+        if ("poll".equals(codeString))
+          return new Enumeration<ActionList>(this, ActionList.POLL);
+        if ("reprocess".equals(codeString))
+          return new Enumeration<ActionList>(this, ActionList.REPROCESS);
+        if ("status".equals(codeString))
+          return new Enumeration<ActionList>(this, ActionList.STATUS);
+        throw new Exception("Unknown ActionList code '"+codeString+"'");
+        }
     public String toCode(ActionList code) {
       if (code == ActionList.CANCEL)
         return "cancel";
@@ -222,6 +238,23 @@ public class ProcessRequest extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("sequenceLinkId"))
+          this.sequenceLinkId = castToInteger(value); // IntegerType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("sequenceLinkId")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessRequest.sequenceLinkId");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ItemsComponent copy() {
         ItemsComponent dst = new ItemsComponent();
@@ -1086,6 +1119,106 @@ public class ProcessRequest extends DomainResource {
         childrenList.add(new Property("include", "string", "Names of resource types to include.", 0, java.lang.Integer.MAX_VALUE, include));
         childrenList.add(new Property("exclude", "string", "Names of resource types to exclude.", 0, java.lang.Integer.MAX_VALUE, exclude));
         childrenList.add(new Property("period", "Period", "A period of time during which the fulfilling resources would have been created.", 0, java.lang.Integer.MAX_VALUE, period));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("action"))
+          this.action = new ActionListEnumFactory().fromType(value); // Enumeration<ActionList>
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("ruleset"))
+          this.ruleset = castToCoding(value); // Coding
+        else if (name.equals("originalRuleset"))
+          this.originalRuleset = castToCoding(value); // Coding
+        else if (name.equals("created"))
+          this.created = castToDateTime(value); // DateTimeType
+        else if (name.equals("target"))
+          this.target = castToReference(value); // Reference
+        else if (name.equals("provider"))
+          this.provider = castToReference(value); // Reference
+        else if (name.equals("organization"))
+          this.organization = castToReference(value); // Reference
+        else if (name.equals("request"))
+          this.request = castToReference(value); // Reference
+        else if (name.equals("response"))
+          this.response = castToReference(value); // Reference
+        else if (name.equals("nullify"))
+          this.nullify = castToBoolean(value); // BooleanType
+        else if (name.equals("reference"))
+          this.reference = castToString(value); // StringType
+        else if (name.equals("item"))
+          this.getItem().add((ItemsComponent) value);
+        else if (name.equals("include"))
+          this.getInclude().add(castToString(value));
+        else if (name.equals("exclude"))
+          this.getExclude().add(castToString(value));
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("action")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessRequest.action");
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("ruleset")) {
+          this.ruleset = new Coding();
+          return this.ruleset;
+        }
+        else if (name.equals("originalRuleset")) {
+          this.originalRuleset = new Coding();
+          return this.originalRuleset;
+        }
+        else if (name.equals("created")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessRequest.created");
+        }
+        else if (name.equals("target")) {
+          this.target = new Reference();
+          return this.target;
+        }
+        else if (name.equals("provider")) {
+          this.provider = new Reference();
+          return this.provider;
+        }
+        else if (name.equals("organization")) {
+          this.organization = new Reference();
+          return this.organization;
+        }
+        else if (name.equals("request")) {
+          this.request = new Reference();
+          return this.request;
+        }
+        else if (name.equals("response")) {
+          this.response = new Reference();
+          return this.response;
+        }
+        else if (name.equals("nullify")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessRequest.nullify");
+        }
+        else if (name.equals("reference")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessRequest.reference");
+        }
+        else if (name.equals("item")) {
+          return addItem();
+        }
+        else if (name.equals("include")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessRequest.include");
+        }
+        else if (name.equals("exclude")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcessRequest.exclude");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
       }
 
       public ProcessRequest copy() {

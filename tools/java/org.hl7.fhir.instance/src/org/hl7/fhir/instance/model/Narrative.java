@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -132,6 +132,22 @@ public class Narrative extends BaseNarrative implements INarrative {
         if ("empty".equals(codeString))
           return NarrativeStatus.EMPTY;
         throw new IllegalArgumentException("Unknown NarrativeStatus code '"+codeString+"'");
+        }
+        public Enumeration<NarrativeStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("generated".equals(codeString))
+          return new Enumeration<NarrativeStatus>(this, NarrativeStatus.GENERATED);
+        if ("extensions".equals(codeString))
+          return new Enumeration<NarrativeStatus>(this, NarrativeStatus.EXTENSIONS);
+        if ("additional".equals(codeString))
+          return new Enumeration<NarrativeStatus>(this, NarrativeStatus.ADDITIONAL);
+        if ("empty".equals(codeString))
+          return new Enumeration<NarrativeStatus>(this, NarrativeStatus.EMPTY);
+        throw new Exception("Unknown NarrativeStatus code '"+codeString+"'");
         }
     public String toCode(NarrativeStatus code) {
       if (code == NarrativeStatus.GENERATED)
@@ -250,6 +266,23 @@ public class Narrative extends BaseNarrative implements INarrative {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("status", "code", "The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.", 0, java.lang.Integer.MAX_VALUE, status));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("status"))
+          this.status = new NarrativeStatusEnumFactory().fromType(value); // Enumeration<NarrativeStatus>
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Narrative.status");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Narrative copy() {

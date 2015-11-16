@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -133,6 +133,22 @@ public class SupplyRequest extends DomainResource {
           return SupplyRequestStatus.CANCELLED;
         throw new IllegalArgumentException("Unknown SupplyRequestStatus code '"+codeString+"'");
         }
+        public Enumeration<SupplyRequestStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("requested".equals(codeString))
+          return new Enumeration<SupplyRequestStatus>(this, SupplyRequestStatus.REQUESTED);
+        if ("completed".equals(codeString))
+          return new Enumeration<SupplyRequestStatus>(this, SupplyRequestStatus.COMPLETED);
+        if ("failed".equals(codeString))
+          return new Enumeration<SupplyRequestStatus>(this, SupplyRequestStatus.FAILED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<SupplyRequestStatus>(this, SupplyRequestStatus.CANCELLED);
+        throw new Exception("Unknown SupplyRequestStatus code '"+codeString+"'");
+        }
     public String toCode(SupplyRequestStatus code) {
       if (code == SupplyRequestStatus.REQUESTED)
         return "requested";
@@ -224,6 +240,30 @@ public class SupplyRequest extends DomainResource {
           childrenList.add(new Property("code", "CodeableConcept", "Code indicating when the request should be fulfilled.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("schedule", "Timing", "Formal fulfillment schedule.", 0, java.lang.Integer.MAX_VALUE, schedule));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("schedule"))
+          this.schedule = castToTiming(value); // Timing
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("schedule")) {
+          this.schedule = new Timing();
+          return this.schedule;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SupplyRequestWhenComponent copy() {
         SupplyRequestWhenComponent dst = new SupplyRequestWhenComponent();
@@ -769,6 +809,79 @@ public class SupplyRequest extends DomainResource {
         childrenList.add(new Property("supplier", "Reference(Organization)", "Who is intended to fulfill the request.", 0, java.lang.Integer.MAX_VALUE, supplier));
         childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Any)", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("when", "", "When the request should be fulfilled.", 0, java.lang.Integer.MAX_VALUE, when));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("source"))
+          this.source = castToReference(value); // Reference
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("status"))
+          this.status = new SupplyRequestStatusEnumFactory().fromType(value); // Enumeration<SupplyRequestStatus>
+        else if (name.equals("kind"))
+          this.kind = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("orderedItem"))
+          this.orderedItem = castToReference(value); // Reference
+        else if (name.equals("supplier"))
+          this.getSupplier().add(castToReference(value));
+        else if (name.equals("reason[x]"))
+          this.reason = (Type) value; // Type
+        else if (name.equals("when"))
+          this.when = (SupplyRequestWhenComponent) value; // SupplyRequestWhenComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("source")) {
+          this.source = new Reference();
+          return this.source;
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type SupplyRequest.date");
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type SupplyRequest.status");
+        }
+        else if (name.equals("kind")) {
+          this.kind = new CodeableConcept();
+          return this.kind;
+        }
+        else if (name.equals("orderedItem")) {
+          this.orderedItem = new Reference();
+          return this.orderedItem;
+        }
+        else if (name.equals("supplier")) {
+          return addSupplier();
+        }
+        else if (name.equals("reasonCodeableConcept")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else if (name.equals("reasonReference")) {
+          this.reason = new Reference();
+          return this.reason;
+        }
+        else if (name.equals("when")) {
+          this.when = new SupplyRequestWhenComponent();
+          return this.when;
+        }
+        else
+          return super.addChild(name);
       }
 
       public SupplyRequest copy() {

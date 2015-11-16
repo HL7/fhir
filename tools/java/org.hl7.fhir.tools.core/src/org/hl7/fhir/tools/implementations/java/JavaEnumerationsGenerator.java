@@ -39,7 +39,6 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
-import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
 /*
@@ -184,6 +183,20 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
       write("          return "+tns+"."+cc+";\r\n");
     }   
     write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
+    write("        }\r\n"); 
+    write("        public Enumeration<"+tns+"> fromType(Base code) throws Exception {\r\n");
+    write("          if (code == null || code.isEmpty())\r\n");
+    write("            return null;\r\n");
+    write("          String codeString = ((PrimitiveType) code).asStringValue();\r\n");
+    write("          if (codeString == null || \"\".equals(codeString))\r\n");
+    write("            return null;\r\n");
+    for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
+      write("          return new Enumeration<"+tns+">(this, "+tns+"."+cc+");\r\n");
+    }   
+    write("        throw new Exception(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
     write("    public String toCode("+tns+" code) {\r\n");
     for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {

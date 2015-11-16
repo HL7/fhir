@@ -46,7 +46,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected ValueSetExpanderFactory expansionCache = new ValueSetExpansionCache(this);
   protected boolean cacheValidation; // if true, do an expansion and cache the expansion
   private Set<String> failed = new HashSet<String>(); // value sets for which we don't try to do expansion, since the first attempt to get a comprehensive expansion was not successful
-  private Map<String, Map<String, ValidationResult>> validationCache = new HashMap<String, Map<String,ValidationResult>>();
+  protected Map<String, Map<String, ValidationResult>> validationCache = new HashMap<String, Map<String,ValidationResult>>();
   
   // private ValueSetExpansionCache expansionCache; //   
 
@@ -170,7 +170,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     Parameters pin = new Parameters();
     pin.addParameter().setName("coding").setValue(coding);
     pin.addParameter().setName("valueSet").setResource(vs);
-    return serverValidateCode(pin);
+    res = serverValidateCode(pin);
+    Map<String, ValidationResult> cache = validationCache.get(vs.getUrl());
+    cache.put(cacheId(coding), res);
+    return res;
   }
   
   private ValidationResult verifyCodeExternal(ValueSet vs, CodeableConcept cc, boolean tryCache) {
@@ -180,7 +183,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     Parameters pin = new Parameters();
     pin.addParameter().setName("codeableConcept").setValue(cc);
     pin.addParameter().setName("valueSet").setResource(vs);
-    return serverValidateCode(pin);
+    res = serverValidateCode(pin);
+    Map<String, ValidationResult> cache = validationCache.get(vs.getUrl());
+    cache.put(cacheId(cc), res);
+    return res;
   }
 
   private ValidationResult serverValidateCode(Parameters pin) {

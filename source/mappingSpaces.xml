@@ -218,4 +218,12 @@
     <id>qidam</id>
     <sort>27</sort>
   </space>
+  <space>
+    <url>http://cap.org/ecc</url>
+    <columnName>CAP Code</columnName>
+    <title>CAP Code</title>
+    <id>cap</id>
+    <sort>28</sort>
+  </space>
+  
 </mappingSpaces>

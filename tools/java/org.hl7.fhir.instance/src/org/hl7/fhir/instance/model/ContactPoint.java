@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -144,6 +144,24 @@ public class ContactPoint extends Type implements ICompositeType {
           return ContactPointSystem.OTHER;
         throw new IllegalArgumentException("Unknown ContactPointSystem code '"+codeString+"'");
         }
+        public Enumeration<ContactPointSystem> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("phone".equals(codeString))
+          return new Enumeration<ContactPointSystem>(this, ContactPointSystem.PHONE);
+        if ("fax".equals(codeString))
+          return new Enumeration<ContactPointSystem>(this, ContactPointSystem.FAX);
+        if ("email".equals(codeString))
+          return new Enumeration<ContactPointSystem>(this, ContactPointSystem.EMAIL);
+        if ("pager".equals(codeString))
+          return new Enumeration<ContactPointSystem>(this, ContactPointSystem.PAGER);
+        if ("other".equals(codeString))
+          return new Enumeration<ContactPointSystem>(this, ContactPointSystem.OTHER);
+        throw new Exception("Unknown ContactPointSystem code '"+codeString+"'");
+        }
     public String toCode(ContactPointSystem code) {
       if (code == ContactPointSystem.PHONE)
         return "phone";
@@ -257,6 +275,24 @@ public class ContactPoint extends Type implements ICompositeType {
         if ("mobile".equals(codeString))
           return ContactPointUse.MOBILE;
         throw new IllegalArgumentException("Unknown ContactPointUse code '"+codeString+"'");
+        }
+        public Enumeration<ContactPointUse> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("home".equals(codeString))
+          return new Enumeration<ContactPointUse>(this, ContactPointUse.HOME);
+        if ("work".equals(codeString))
+          return new Enumeration<ContactPointUse>(this, ContactPointUse.WORK);
+        if ("temp".equals(codeString))
+          return new Enumeration<ContactPointUse>(this, ContactPointUse.TEMP);
+        if ("old".equals(codeString))
+          return new Enumeration<ContactPointUse>(this, ContactPointUse.OLD);
+        if ("mobile".equals(codeString))
+          return new Enumeration<ContactPointUse>(this, ContactPointUse.MOBILE);
+        throw new Exception("Unknown ContactPointUse code '"+codeString+"'");
         }
     public String toCode(ContactPointUse code) {
       if (code == ContactPointUse.HOME)
@@ -540,6 +576,44 @@ public class ContactPoint extends Type implements ICompositeType {
         childrenList.add(new Property("use", "code", "Identifies the purpose for the contact point.", 0, java.lang.Integer.MAX_VALUE, use));
         childrenList.add(new Property("rank", "positiveInt", "Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.", 0, java.lang.Integer.MAX_VALUE, rank));
         childrenList.add(new Property("period", "Period", "Time period when the contact point was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("system"))
+          this.system = new ContactPointSystemEnumFactory().fromType(value); // Enumeration<ContactPointSystem>
+        else if (name.equals("value"))
+          this.value = castToString(value); // StringType
+        else if (name.equals("use"))
+          this.use = new ContactPointUseEnumFactory().fromType(value); // Enumeration<ContactPointUse>
+        else if (name.equals("rank"))
+          this.rank = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("system")) {
+          throw new Exception("Cannot call addChild on a primitive type ContactPoint.system");
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type ContactPoint.value");
+        }
+        else if (name.equals("use")) {
+          throw new Exception("Cannot call addChild on a primitive type ContactPoint.use");
+        }
+        else if (name.equals("rank")) {
+          throw new Exception("Cannot call addChild on a primitive type ContactPoint.rank");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
       }
 
       public ContactPoint copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -157,6 +157,26 @@ public class EpisodeOfCare extends DomainResource {
           return EpisodeOfCareStatus.CANCELLED;
         throw new IllegalArgumentException("Unknown EpisodeOfCareStatus code '"+codeString+"'");
         }
+        public Enumeration<EpisodeOfCareStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("planned".equals(codeString))
+          return new Enumeration<EpisodeOfCareStatus>(this, EpisodeOfCareStatus.PLANNED);
+        if ("waitlist".equals(codeString))
+          return new Enumeration<EpisodeOfCareStatus>(this, EpisodeOfCareStatus.WAITLIST);
+        if ("active".equals(codeString))
+          return new Enumeration<EpisodeOfCareStatus>(this, EpisodeOfCareStatus.ACTIVE);
+        if ("onhold".equals(codeString))
+          return new Enumeration<EpisodeOfCareStatus>(this, EpisodeOfCareStatus.ONHOLD);
+        if ("finished".equals(codeString))
+          return new Enumeration<EpisodeOfCareStatus>(this, EpisodeOfCareStatus.FINISHED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<EpisodeOfCareStatus>(this, EpisodeOfCareStatus.CANCELLED);
+        throw new Exception("Unknown EpisodeOfCareStatus code '"+codeString+"'");
+        }
     public String toCode(EpisodeOfCareStatus code) {
       if (code == EpisodeOfCareStatus.PLANNED)
         return "planned";
@@ -282,6 +302,29 @@ public class EpisodeOfCare extends DomainResource {
           childrenList.add(new Property("status", "code", "planned | waitlist | active | onhold | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("period", "Period", "The period during this EpisodeOfCare that the specific status applied.", 0, java.lang.Integer.MAX_VALUE, period));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("status"))
+          this.status = new EpisodeOfCareStatusEnumFactory().fromType(value); // Enumeration<EpisodeOfCareStatus>
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type EpisodeOfCare.status");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public EpisodeOfCareStatusHistoryComponent copy() {
         EpisodeOfCareStatusHistoryComponent dst = new EpisodeOfCareStatusHistoryComponent();
@@ -464,6 +507,35 @@ public class EpisodeOfCare extends DomainResource {
           childrenList.add(new Property("period", "Period", "The period of time this practitioner is performing some role within the episode of care.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("member", "Reference(Practitioner|Organization)", "The practitioner (or Organization) within the team.", 0, java.lang.Integer.MAX_VALUE, member));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("role"))
+          this.getRole().add(castToCodeableConcept(value));
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("member"))
+          this.member = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("role")) {
+          return addRole();
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("member")) {
+          this.member = new Reference();
+          return this.member;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public EpisodeOfCareCareTeamComponent copy() {
         EpisodeOfCareCareTeamComponent dst = new EpisodeOfCareCareTeamComponent();
@@ -1122,6 +1194,77 @@ public class EpisodeOfCare extends DomainResource {
         childrenList.add(new Property("referralRequest", "Reference(ReferralRequest)", "Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.", 0, java.lang.Integer.MAX_VALUE, referralRequest));
         childrenList.add(new Property("careManager", "Reference(Practitioner)", "The practitioner that is the care manager/care co-ordinator for this patient.", 0, java.lang.Integer.MAX_VALUE, careManager));
         childrenList.add(new Property("careTeam", "", "The list of practitioners that may be facilitating this episode of care for specific purposes.", 0, java.lang.Integer.MAX_VALUE, careTeam));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new EpisodeOfCareStatusEnumFactory().fromType(value); // Enumeration<EpisodeOfCareStatus>
+        else if (name.equals("statusHistory"))
+          this.getStatusHistory().add((EpisodeOfCareStatusHistoryComponent) value);
+        else if (name.equals("type"))
+          this.getType().add(castToCodeableConcept(value));
+        else if (name.equals("condition"))
+          this.getCondition().add(castToReference(value));
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("managingOrganization"))
+          this.managingOrganization = castToReference(value); // Reference
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("referralRequest"))
+          this.getReferralRequest().add(castToReference(value));
+        else if (name.equals("careManager"))
+          this.careManager = castToReference(value); // Reference
+        else if (name.equals("careTeam"))
+          this.getCareTeam().add((EpisodeOfCareCareTeamComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type EpisodeOfCare.status");
+        }
+        else if (name.equals("statusHistory")) {
+          return addStatusHistory();
+        }
+        else if (name.equals("type")) {
+          return addType();
+        }
+        else if (name.equals("condition")) {
+          return addCondition();
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("managingOrganization")) {
+          this.managingOrganization = new Reference();
+          return this.managingOrganization;
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("referralRequest")) {
+          return addReferralRequest();
+        }
+        else if (name.equals("careManager")) {
+          this.careManager = new Reference();
+          return this.careManager;
+        }
+        else if (name.equals("careTeam")) {
+          return addCareTeam();
+        }
+        else
+          return super.addChild(name);
       }
 
       public EpisodeOfCare copy() {

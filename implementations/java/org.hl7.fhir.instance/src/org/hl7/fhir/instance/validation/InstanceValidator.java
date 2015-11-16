@@ -192,9 +192,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
           ValueSet valueset = resolveBindingReference(binding.getValueSet());
           if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(binding.getValueSet()) + " not found")) {
-          	CodeableConcept cc = null;
           	try {
-          		cc = readAsCodeableConcept(element);
+              CodeableConcept cc = readAsCodeableConcept(element);
               if (!cc.hasCoding()) {
                 if (binding.getStrength() == BindingStrength.REQUIRED)
                   rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "No code provided, and a code is required from the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl());
@@ -264,9 +263,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
               ValueSet valueset = resolveBindingReference(binding.getValueSet());
               if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(binding.getValueSet()) + " not found")) {
-              	Coding c = null;
               	try {
-              		c = readAsCoding(element);
+                  Coding c = readAsCoding(element);
               		ValidationResult vr = context.validateCode(c, valueset);
                 	if (!vr.isOk()) {
                     if (binding.getStrength() == BindingStrength.REQUIRED)
@@ -624,8 +622,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return;
 
     String value = element.getAttribute("value");
-    String system = null;
-    String display = null;
     // System.out.println("check "+value+" in "+path);
 
     // firstly, resolve the value set
@@ -633,7 +629,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
       ValueSet vs = resolveBindingReference(binding.getValueSet());
       if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "ValueSet {0} not found", describeReference(binding.getValueSet()))) {
-      	ValidationResult vr = context.validateCode(system, value, display, vs);
+        ValidationResult vr = context.validateCode(null, value, null, vs);
       	if (!vr.isOk()) {
       		if (binding.getStrength() == BindingStrength.REQUIRED)
       			warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is required from this value set");

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -282,6 +282,38 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("detail", "", "The second tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("sequenceLinkId"))
+          this.sequenceLinkId = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("noteNumber"))
+          this.getNoteNumber().add(castToPositiveInt(value));
+        else if (name.equals("adjudication"))
+          this.getAdjudication().add((ItemAdjudicationComponent) value);
+        else if (name.equals("detail"))
+          this.getDetail().add((ItemDetailComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("sequenceLinkId")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
+        }
+        else if (name.equals("noteNumber")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
+        }
+        else if (name.equals("adjudication")) {
+          return addAdjudication();
+        }
+        else if (name.equals("detail")) {
+          return addDetail();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ItemsComponent copy() {
         ItemsComponent dst = new ItemsComponent();
         copyValues(dst);
@@ -477,6 +509,35 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("amount", "Money", "Monetary amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCoding(value); // Coding
+        else if (name.equals("amount"))
+          this.amount = castToMoney(value); // Money
+        else if (name.equals("value"))
+          this.value = castToDecimal(value); // DecimalType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new Coding();
+          return this.code;
+        }
+        else if (name.equals("amount")) {
+          this.amount = new Money();
+          return this.amount;
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.value");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ItemAdjudicationComponent copy() {
         ItemAdjudicationComponent dst = new ItemAdjudicationComponent();
@@ -687,6 +748,33 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("subDetail", "", "The third tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("sequenceLinkId"))
+          this.sequenceLinkId = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("adjudication"))
+          this.getAdjudication().add((DetailAdjudicationComponent) value);
+        else if (name.equals("subDetail"))
+          this.getSubDetail().add((SubDetailComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("sequenceLinkId")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
+        }
+        else if (name.equals("adjudication")) {
+          return addAdjudication();
+        }
+        else if (name.equals("subDetail")) {
+          return addSubDetail();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ItemDetailComponent copy() {
         ItemDetailComponent dst = new ItemDetailComponent();
         copyValues(dst);
@@ -876,6 +964,35 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCoding(value); // Coding
+        else if (name.equals("amount"))
+          this.amount = castToMoney(value); // Money
+        else if (name.equals("value"))
+          this.value = castToDecimal(value); // DecimalType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new Coding();
+          return this.code;
+        }
+        else if (name.equals("amount")) {
+          this.amount = new Money();
+          return this.amount;
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.value");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public DetailAdjudicationComponent copy() {
         DetailAdjudicationComponent dst = new DetailAdjudicationComponent();
         copyValues(dst);
@@ -1036,6 +1153,28 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("sequenceLinkId", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
           childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("sequenceLinkId"))
+          this.sequenceLinkId = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("adjudication"))
+          this.getAdjudication().add((SubdetailAdjudicationComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("sequenceLinkId")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
+        }
+        else if (name.equals("adjudication")) {
+          return addAdjudication();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SubDetailComponent copy() {
         SubDetailComponent dst = new SubDetailComponent();
@@ -1220,6 +1359,35 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("amount", "Money", "Monetary amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCoding(value); // Coding
+        else if (name.equals("amount"))
+          this.amount = castToMoney(value); // Money
+        else if (name.equals("value"))
+          this.value = castToDecimal(value); // DecimalType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new Coding();
+          return this.code;
+        }
+        else if (name.equals("amount")) {
+          this.amount = new Money();
+          return this.amount;
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.value");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SubdetailAdjudicationComponent copy() {
         SubdetailAdjudicationComponent dst = new SubdetailAdjudicationComponent();
@@ -1565,6 +1733,50 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("detail", "", "The second tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("sequenceLinkId"))
+          this.getSequenceLinkId().add(castToPositiveInt(value));
+        else if (name.equals("service"))
+          this.service = castToCoding(value); // Coding
+        else if (name.equals("fee"))
+          this.fee = castToMoney(value); // Money
+        else if (name.equals("noteNumberLinkId"))
+          this.getNoteNumberLinkId().add(castToPositiveInt(value));
+        else if (name.equals("adjudication"))
+          this.getAdjudication().add((AddedItemAdjudicationComponent) value);
+        else if (name.equals("detail"))
+          this.getDetail().add((AddedItemsDetailComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("sequenceLinkId")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
+        }
+        else if (name.equals("service")) {
+          this.service = new Coding();
+          return this.service;
+        }
+        else if (name.equals("fee")) {
+          this.fee = new Money();
+          return this.fee;
+        }
+        else if (name.equals("noteNumberLinkId")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.noteNumberLinkId");
+        }
+        else if (name.equals("adjudication")) {
+          return addAdjudication();
+        }
+        else if (name.equals("detail")) {
+          return addDetail();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public AddedItemComponent copy() {
         AddedItemComponent dst = new AddedItemComponent();
         copyValues(dst);
@@ -1769,6 +1981,35 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCoding(value); // Coding
+        else if (name.equals("amount"))
+          this.amount = castToMoney(value); // Money
+        else if (name.equals("value"))
+          this.value = castToDecimal(value); // DecimalType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new Coding();
+          return this.code;
+        }
+        else if (name.equals("amount")) {
+          this.amount = new Money();
+          return this.amount;
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.value");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public AddedItemAdjudicationComponent copy() {
         AddedItemAdjudicationComponent dst = new AddedItemAdjudicationComponent();
         copyValues(dst);
@@ -1940,6 +2181,35 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
           childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("service"))
+          this.service = castToCoding(value); // Coding
+        else if (name.equals("fee"))
+          this.fee = castToMoney(value); // Money
+        else if (name.equals("adjudication"))
+          this.getAdjudication().add((AddedItemDetailAdjudicationComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("service")) {
+          this.service = new Coding();
+          return this.service;
+        }
+        else if (name.equals("fee")) {
+          this.fee = new Money();
+          return this.fee;
+        }
+        else if (name.equals("adjudication")) {
+          return addAdjudication();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public AddedItemsDetailComponent copy() {
         AddedItemsDetailComponent dst = new AddedItemsDetailComponent();
@@ -2125,6 +2395,35 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("amount", "Money", "Monetary amount associated with the code.", 0, java.lang.Integer.MAX_VALUE, amount));
           childrenList.add(new Property("value", "decimal", "A non-monetary value for example a percentage. Mutually exclusive to the amount element above.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCoding(value); // Coding
+        else if (name.equals("amount"))
+          this.amount = castToMoney(value); // Money
+        else if (name.equals("value"))
+          this.value = castToDecimal(value); // DecimalType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new Coding();
+          return this.code;
+        }
+        else if (name.equals("amount")) {
+          this.amount = new Money();
+          return this.amount;
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.value");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public AddedItemDetailAdjudicationComponent copy() {
         AddedItemDetailAdjudicationComponent dst = new AddedItemDetailAdjudicationComponent();
@@ -2377,6 +2676,39 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("code", "Coding", "An error code,froma specified code system, which details why the claim could not be adjudicated.", 0, java.lang.Integer.MAX_VALUE, code));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("sequenceLinkId"))
+          this.sequenceLinkId = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("detailSequenceLinkId"))
+          this.detailSequenceLinkId = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("subdetailSequenceLinkId"))
+          this.subdetailSequenceLinkId = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("code"))
+          this.code = castToCoding(value); // Coding
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("sequenceLinkId")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
+        }
+        else if (name.equals("detailSequenceLinkId")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.detailSequenceLinkId");
+        }
+        else if (name.equals("subdetailSequenceLinkId")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.subdetailSequenceLinkId");
+        }
+        else if (name.equals("code")) {
+          this.code = new Coding();
+          return this.code;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ErrorsComponent copy() {
         ErrorsComponent dst = new ErrorsComponent();
         copyValues(dst);
@@ -2574,6 +2906,34 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("type", "Coding", "The note purpose: Print/Display.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("text", "string", "The note text.", 0, java.lang.Integer.MAX_VALUE, text));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("number"))
+          this.number = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("number")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.number");
+        }
+        else if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.text");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public NotesComponent copy() {
         NotesComponent dst = new NotesComponent();
@@ -3040,6 +3400,62 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("claimResponse", "Reference(ClaimResponse)", "The Coverages adjudication details.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
           childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("sequence"))
+          this.sequence = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("focal"))
+          this.focal = castToBoolean(value); // BooleanType
+        else if (name.equals("coverage"))
+          this.coverage = castToReference(value); // Reference
+        else if (name.equals("businessArrangement"))
+          this.businessArrangement = castToString(value); // StringType
+        else if (name.equals("relationship"))
+          this.relationship = castToCoding(value); // Coding
+        else if (name.equals("preAuthRef"))
+          this.getPreAuthRef().add(castToString(value));
+        else if (name.equals("claimResponse"))
+          this.claimResponse = castToReference(value); // Reference
+        else if (name.equals("originalRuleset"))
+          this.originalRuleset = castToCoding(value); // Coding
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("sequence")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.sequence");
+        }
+        else if (name.equals("focal")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.focal");
+        }
+        else if (name.equals("coverage")) {
+          this.coverage = new Reference();
+          return this.coverage;
+        }
+        else if (name.equals("businessArrangement")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.businessArrangement");
+        }
+        else if (name.equals("relationship")) {
+          this.relationship = new Coding();
+          return this.relationship;
+        }
+        else if (name.equals("preAuthRef")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.preAuthRef");
+        }
+        else if (name.equals("claimResponse")) {
+          this.claimResponse = new Reference();
+          return this.claimResponse;
+        }
+        else if (name.equals("originalRuleset")) {
+          this.originalRuleset = new Coding();
+          return this.originalRuleset;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public CoverageComponent copy() {
         CoverageComponent dst = new CoverageComponent();
@@ -4232,6 +4648,164 @@ public class ClaimResponse extends DomainResource {
         childrenList.add(new Property("form", "Coding", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
         childrenList.add(new Property("note", "", "Note text.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("request"))
+          this.request = castToReference(value); // Reference
+        else if (name.equals("ruleset"))
+          this.ruleset = castToCoding(value); // Coding
+        else if (name.equals("originalRuleset"))
+          this.originalRuleset = castToCoding(value); // Coding
+        else if (name.equals("created"))
+          this.created = castToDateTime(value); // DateTimeType
+        else if (name.equals("organization"))
+          this.organization = castToReference(value); // Reference
+        else if (name.equals("requestProvider"))
+          this.requestProvider = castToReference(value); // Reference
+        else if (name.equals("requestOrganization"))
+          this.requestOrganization = castToReference(value); // Reference
+        else if (name.equals("outcome"))
+          this.outcome = new RemittanceOutcomeEnumFactory().fromType(value); // Enumeration<RemittanceOutcome>
+        else if (name.equals("disposition"))
+          this.disposition = castToString(value); // StringType
+        else if (name.equals("payeeType"))
+          this.payeeType = castToCoding(value); // Coding
+        else if (name.equals("item"))
+          this.getItem().add((ItemsComponent) value);
+        else if (name.equals("addItem"))
+          this.getAddItem().add((AddedItemComponent) value);
+        else if (name.equals("error"))
+          this.getError().add((ErrorsComponent) value);
+        else if (name.equals("totalCost"))
+          this.totalCost = castToMoney(value); // Money
+        else if (name.equals("unallocDeductable"))
+          this.unallocDeductable = castToMoney(value); // Money
+        else if (name.equals("totalBenefit"))
+          this.totalBenefit = castToMoney(value); // Money
+        else if (name.equals("paymentAdjustment"))
+          this.paymentAdjustment = castToMoney(value); // Money
+        else if (name.equals("paymentAdjustmentReason"))
+          this.paymentAdjustmentReason = castToCoding(value); // Coding
+        else if (name.equals("paymentDate"))
+          this.paymentDate = castToDate(value); // DateType
+        else if (name.equals("paymentAmount"))
+          this.paymentAmount = castToMoney(value); // Money
+        else if (name.equals("paymentRef"))
+          this.paymentRef = castToIdentifier(value); // Identifier
+        else if (name.equals("reserved"))
+          this.reserved = castToCoding(value); // Coding
+        else if (name.equals("form"))
+          this.form = castToCoding(value); // Coding
+        else if (name.equals("note"))
+          this.getNote().add((NotesComponent) value);
+        else if (name.equals("coverage"))
+          this.getCoverage().add((CoverageComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("request")) {
+          this.request = new Reference();
+          return this.request;
+        }
+        else if (name.equals("ruleset")) {
+          this.ruleset = new Coding();
+          return this.ruleset;
+        }
+        else if (name.equals("originalRuleset")) {
+          this.originalRuleset = new Coding();
+          return this.originalRuleset;
+        }
+        else if (name.equals("created")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.created");
+        }
+        else if (name.equals("organization")) {
+          this.organization = new Reference();
+          return this.organization;
+        }
+        else if (name.equals("requestProvider")) {
+          this.requestProvider = new Reference();
+          return this.requestProvider;
+        }
+        else if (name.equals("requestOrganization")) {
+          this.requestOrganization = new Reference();
+          return this.requestOrganization;
+        }
+        else if (name.equals("outcome")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.outcome");
+        }
+        else if (name.equals("disposition")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.disposition");
+        }
+        else if (name.equals("payeeType")) {
+          this.payeeType = new Coding();
+          return this.payeeType;
+        }
+        else if (name.equals("item")) {
+          return addItem();
+        }
+        else if (name.equals("addItem")) {
+          return addAddItem();
+        }
+        else if (name.equals("error")) {
+          return addError();
+        }
+        else if (name.equals("totalCost")) {
+          this.totalCost = new Money();
+          return this.totalCost;
+        }
+        else if (name.equals("unallocDeductable")) {
+          this.unallocDeductable = new Money();
+          return this.unallocDeductable;
+        }
+        else if (name.equals("totalBenefit")) {
+          this.totalBenefit = new Money();
+          return this.totalBenefit;
+        }
+        else if (name.equals("paymentAdjustment")) {
+          this.paymentAdjustment = new Money();
+          return this.paymentAdjustment;
+        }
+        else if (name.equals("paymentAdjustmentReason")) {
+          this.paymentAdjustmentReason = new Coding();
+          return this.paymentAdjustmentReason;
+        }
+        else if (name.equals("paymentDate")) {
+          throw new Exception("Cannot call addChild on a primitive type ClaimResponse.paymentDate");
+        }
+        else if (name.equals("paymentAmount")) {
+          this.paymentAmount = new Money();
+          return this.paymentAmount;
+        }
+        else if (name.equals("paymentRef")) {
+          this.paymentRef = new Identifier();
+          return this.paymentRef;
+        }
+        else if (name.equals("reserved")) {
+          this.reserved = new Coding();
+          return this.reserved;
+        }
+        else if (name.equals("form")) {
+          this.form = new Coding();
+          return this.form;
+        }
+        else if (name.equals("note")) {
+          return addNote();
+        }
+        else if (name.equals("coverage")) {
+          return addCoverage();
+        }
+        else
+          return super.addChild(name);
       }
 
       public ClaimResponse copy() {

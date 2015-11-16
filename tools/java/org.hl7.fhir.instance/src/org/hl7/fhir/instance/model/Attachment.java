@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -509,6 +509,58 @@ public class Attachment extends Type implements ICompositeType {
         childrenList.add(new Property("hash", "base64Binary", "The calculated hash of the data using SHA-1. Represented using base64.", 0, java.lang.Integer.MAX_VALUE, hash));
         childrenList.add(new Property("title", "string", "A label or set of text to display in place of the data.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("creation", "dateTime", "The date that the attachment was first created.", 0, java.lang.Integer.MAX_VALUE, creation));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("contentType"))
+          this.contentType = castToCode(value); // CodeType
+        else if (name.equals("language"))
+          this.language = castToCode(value); // CodeType
+        else if (name.equals("data"))
+          this.data = castToBase64Binary(value); // Base64BinaryType
+        else if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("size"))
+          this.size = castToUnsignedInt(value); // UnsignedIntType
+        else if (name.equals("hash"))
+          this.hash = castToBase64Binary(value); // Base64BinaryType
+        else if (name.equals("title"))
+          this.title = castToString(value); // StringType
+        else if (name.equals("creation"))
+          this.creation = castToDateTime(value); // DateTimeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("contentType")) {
+          throw new Exception("Cannot call addChild on a primitive type Attachment.contentType");
+        }
+        else if (name.equals("language")) {
+          throw new Exception("Cannot call addChild on a primitive type Attachment.language");
+        }
+        else if (name.equals("data")) {
+          throw new Exception("Cannot call addChild on a primitive type Attachment.data");
+        }
+        else if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type Attachment.url");
+        }
+        else if (name.equals("size")) {
+          throw new Exception("Cannot call addChild on a primitive type Attachment.size");
+        }
+        else if (name.equals("hash")) {
+          throw new Exception("Cannot call addChild on a primitive type Attachment.hash");
+        }
+        else if (name.equals("title")) {
+          throw new Exception("Cannot call addChild on a primitive type Attachment.title");
+        }
+        else if (name.equals("creation")) {
+          throw new Exception("Cannot call addChild on a primitive type Attachment.creation");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Attachment copy() {

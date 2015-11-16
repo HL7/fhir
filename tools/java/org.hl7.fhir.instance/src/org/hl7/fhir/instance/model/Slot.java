@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class Slot extends DomainResource {
         if ("busy-tentative".equals(codeString))
           return SlotStatus.BUSYTENTATIVE;
         throw new IllegalArgumentException("Unknown SlotStatus code '"+codeString+"'");
+        }
+        public Enumeration<SlotStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("busy".equals(codeString))
+          return new Enumeration<SlotStatus>(this, SlotStatus.BUSY);
+        if ("free".equals(codeString))
+          return new Enumeration<SlotStatus>(this, SlotStatus.FREE);
+        if ("busy-unavailable".equals(codeString))
+          return new Enumeration<SlotStatus>(this, SlotStatus.BUSYUNAVAILABLE);
+        if ("busy-tentative".equals(codeString))
+          return new Enumeration<SlotStatus>(this, SlotStatus.BUSYTENTATIVE);
+        throw new Exception("Unknown SlotStatus code '"+codeString+"'");
         }
     public String toCode(SlotStatus code) {
       if (code == SlotStatus.BUSY)
@@ -574,6 +590,60 @@ public class Slot extends DomainResource {
         childrenList.add(new Property("end", "instant", "Date/Time that the slot is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
         childrenList.add(new Property("overbooked", "boolean", "This slot has already been overbooked, appointments are unlikely to be accepted for this time.", 0, java.lang.Integer.MAX_VALUE, overbooked));
         childrenList.add(new Property("comment", "string", "Comments on the slot to describe any extended information. Such as custom constraints on the slot.", 0, java.lang.Integer.MAX_VALUE, comment));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("schedule"))
+          this.schedule = castToReference(value); // Reference
+        else if (name.equals("freeBusyType"))
+          this.freeBusyType = new SlotStatusEnumFactory().fromType(value); // Enumeration<SlotStatus>
+        else if (name.equals("start"))
+          this.start = castToInstant(value); // InstantType
+        else if (name.equals("end"))
+          this.end = castToInstant(value); // InstantType
+        else if (name.equals("overbooked"))
+          this.overbooked = castToBoolean(value); // BooleanType
+        else if (name.equals("comment"))
+          this.comment = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("schedule")) {
+          this.schedule = new Reference();
+          return this.schedule;
+        }
+        else if (name.equals("freeBusyType")) {
+          throw new Exception("Cannot call addChild on a primitive type Slot.freeBusyType");
+        }
+        else if (name.equals("start")) {
+          throw new Exception("Cannot call addChild on a primitive type Slot.start");
+        }
+        else if (name.equals("end")) {
+          throw new Exception("Cannot call addChild on a primitive type Slot.end");
+        }
+        else if (name.equals("overbooked")) {
+          throw new Exception("Cannot call addChild on a primitive type Slot.overbooked");
+        }
+        else if (name.equals("comment")) {
+          throw new Exception("Cannot call addChild on a primitive type Slot.comment");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Slot copy() {

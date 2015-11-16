@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -169,6 +169,28 @@ public class AllergyIntolerance extends DomainResource {
           return AllergyIntoleranceStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown AllergyIntoleranceStatus code '"+codeString+"'");
         }
+        public Enumeration<AllergyIntoleranceStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<AllergyIntoleranceStatus>(this, AllergyIntoleranceStatus.ACTIVE);
+        if ("unconfirmed".equals(codeString))
+          return new Enumeration<AllergyIntoleranceStatus>(this, AllergyIntoleranceStatus.UNCONFIRMED);
+        if ("confirmed".equals(codeString))
+          return new Enumeration<AllergyIntoleranceStatus>(this, AllergyIntoleranceStatus.CONFIRMED);
+        if ("inactive".equals(codeString))
+          return new Enumeration<AllergyIntoleranceStatus>(this, AllergyIntoleranceStatus.INACTIVE);
+        if ("resolved".equals(codeString))
+          return new Enumeration<AllergyIntoleranceStatus>(this, AllergyIntoleranceStatus.RESOLVED);
+        if ("refuted".equals(codeString))
+          return new Enumeration<AllergyIntoleranceStatus>(this, AllergyIntoleranceStatus.REFUTED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<AllergyIntoleranceStatus>(this, AllergyIntoleranceStatus.ENTEREDINERROR);
+        throw new Exception("Unknown AllergyIntoleranceStatus code '"+codeString+"'");
+        }
     public String toCode(AllergyIntoleranceStatus code) {
       if (code == AllergyIntoleranceStatus.ACTIVE)
         return "active";
@@ -263,6 +285,20 @@ public class AllergyIntolerance extends DomainResource {
           return AllergyIntoleranceCriticality.CRITU;
         throw new IllegalArgumentException("Unknown AllergyIntoleranceCriticality code '"+codeString+"'");
         }
+        public Enumeration<AllergyIntoleranceCriticality> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("CRITL".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCriticality>(this, AllergyIntoleranceCriticality.CRITL);
+        if ("CRITH".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCriticality>(this, AllergyIntoleranceCriticality.CRITH);
+        if ("CRITU".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCriticality>(this, AllergyIntoleranceCriticality.CRITU);
+        throw new Exception("Unknown AllergyIntoleranceCriticality code '"+codeString+"'");
+        }
     public String toCode(AllergyIntoleranceCriticality code) {
       if (code == AllergyIntoleranceCriticality.CRITL)
         return "CRITL";
@@ -336,6 +372,18 @@ public class AllergyIntolerance extends DomainResource {
         if ("intolerance".equals(codeString))
           return AllergyIntoleranceType.INTOLERANCE;
         throw new IllegalArgumentException("Unknown AllergyIntoleranceType code '"+codeString+"'");
+        }
+        public Enumeration<AllergyIntoleranceType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("allergy".equals(codeString))
+          return new Enumeration<AllergyIntoleranceType>(this, AllergyIntoleranceType.ALLERGY);
+        if ("intolerance".equals(codeString))
+          return new Enumeration<AllergyIntoleranceType>(this, AllergyIntoleranceType.INTOLERANCE);
+        throw new Exception("Unknown AllergyIntoleranceType code '"+codeString+"'");
         }
     public String toCode(AllergyIntoleranceType code) {
       if (code == AllergyIntoleranceType.ALLERGY)
@@ -433,6 +481,22 @@ public class AllergyIntolerance extends DomainResource {
           return AllergyIntoleranceCategory.OTHER;
         throw new IllegalArgumentException("Unknown AllergyIntoleranceCategory code '"+codeString+"'");
         }
+        public Enumeration<AllergyIntoleranceCategory> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("food".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCategory>(this, AllergyIntoleranceCategory.FOOD);
+        if ("medication".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCategory>(this, AllergyIntoleranceCategory.MEDICATION);
+        if ("environment".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCategory>(this, AllergyIntoleranceCategory.ENVIRONMENT);
+        if ("other".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCategory>(this, AllergyIntoleranceCategory.OTHER);
+        throw new Exception("Unknown AllergyIntoleranceCategory code '"+codeString+"'");
+        }
     public String toCode(AllergyIntoleranceCategory code) {
       if (code == AllergyIntoleranceCategory.FOOD)
         return "food";
@@ -521,6 +585,20 @@ public class AllergyIntolerance extends DomainResource {
           return AllergyIntoleranceCertainty.CONFIRMED;
         throw new IllegalArgumentException("Unknown AllergyIntoleranceCertainty code '"+codeString+"'");
         }
+        public Enumeration<AllergyIntoleranceCertainty> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("unlikely".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCertainty>(this, AllergyIntoleranceCertainty.UNLIKELY);
+        if ("likely".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCertainty>(this, AllergyIntoleranceCertainty.LIKELY);
+        if ("confirmed".equals(codeString))
+          return new Enumeration<AllergyIntoleranceCertainty>(this, AllergyIntoleranceCertainty.CONFIRMED);
+        throw new Exception("Unknown AllergyIntoleranceCertainty code '"+codeString+"'");
+        }
     public String toCode(AllergyIntoleranceCertainty code) {
       if (code == AllergyIntoleranceCertainty.UNLIKELY)
         return "unlikely";
@@ -606,6 +684,20 @@ public class AllergyIntolerance extends DomainResource {
         if ("severe".equals(codeString))
           return AllergyIntoleranceSeverity.SEVERE;
         throw new IllegalArgumentException("Unknown AllergyIntoleranceSeverity code '"+codeString+"'");
+        }
+        public Enumeration<AllergyIntoleranceSeverity> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("mild".equals(codeString))
+          return new Enumeration<AllergyIntoleranceSeverity>(this, AllergyIntoleranceSeverity.MILD);
+        if ("moderate".equals(codeString))
+          return new Enumeration<AllergyIntoleranceSeverity>(this, AllergyIntoleranceSeverity.MODERATE);
+        if ("severe".equals(codeString))
+          return new Enumeration<AllergyIntoleranceSeverity>(this, AllergyIntoleranceSeverity.SEVERE);
+        throw new Exception("Unknown AllergyIntoleranceSeverity code '"+codeString+"'");
         }
     public String toCode(AllergyIntoleranceSeverity code) {
       if (code == AllergyIntoleranceSeverity.MILD)
@@ -1004,6 +1096,61 @@ public class AllergyIntolerance extends DomainResource {
           childrenList.add(new Property("exposureRoute", "CodeableConcept", "Identification of the route by which the subject was exposed to the substance.", 0, java.lang.Integer.MAX_VALUE, exposureRoute));
           childrenList.add(new Property("note", "Annotation", "Additional text about the adverse reaction event not captured in other fields.", 0, java.lang.Integer.MAX_VALUE, note));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("substance"))
+          this.substance = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("certainty"))
+          this.certainty = new AllergyIntoleranceCertaintyEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceCertainty>
+        else if (name.equals("manifestation"))
+          this.getManifestation().add(castToCodeableConcept(value));
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("onset"))
+          this.onset = castToDateTime(value); // DateTimeType
+        else if (name.equals("severity"))
+          this.severity = new AllergyIntoleranceSeverityEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceSeverity>
+        else if (name.equals("exposureRoute"))
+          this.exposureRoute = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("note"))
+          this.note = castToAnnotation(value); // Annotation
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("substance")) {
+          this.substance = new CodeableConcept();
+          return this.substance;
+        }
+        else if (name.equals("certainty")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.certainty");
+        }
+        else if (name.equals("manifestation")) {
+          return addManifestation();
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.description");
+        }
+        else if (name.equals("onset")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.onset");
+        }
+        else if (name.equals("severity")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.severity");
+        }
+        else if (name.equals("exposureRoute")) {
+          this.exposureRoute = new CodeableConcept();
+          return this.exposureRoute;
+        }
+        else if (name.equals("note")) {
+          this.note = new Annotation();
+          return this.note;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public AllergyIntoleranceReactionComponent copy() {
         AllergyIntoleranceReactionComponent dst = new AllergyIntoleranceReactionComponent();
@@ -1795,6 +1942,93 @@ public class AllergyIntolerance extends DomainResource {
         childrenList.add(new Property("lastOccurence", "dateTime", "Represents the date and/or time of the last known occurrence of a reaction event.", 0, java.lang.Integer.MAX_VALUE, lastOccurence));
         childrenList.add(new Property("note", "Annotation", "Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("reaction", "", "Details about each adverse reaction event linked to exposure to the identified Substance.", 0, java.lang.Integer.MAX_VALUE, reaction));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("onset"))
+          this.onset = castToDateTime(value); // DateTimeType
+        else if (name.equals("recordedDate"))
+          this.recordedDate = castToDateTime(value); // DateTimeType
+        else if (name.equals("recorder"))
+          this.recorder = castToReference(value); // Reference
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("reporter"))
+          this.reporter = castToReference(value); // Reference
+        else if (name.equals("substance"))
+          this.substance = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("status"))
+          this.status = new AllergyIntoleranceStatusEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceStatus>
+        else if (name.equals("criticality"))
+          this.criticality = new AllergyIntoleranceCriticalityEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceCriticality>
+        else if (name.equals("type"))
+          this.type = new AllergyIntoleranceTypeEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceType>
+        else if (name.equals("category"))
+          this.category = new AllergyIntoleranceCategoryEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceCategory>
+        else if (name.equals("lastOccurence"))
+          this.lastOccurence = castToDateTime(value); // DateTimeType
+        else if (name.equals("note"))
+          this.note = castToAnnotation(value); // Annotation
+        else if (name.equals("reaction"))
+          this.getReaction().add((AllergyIntoleranceReactionComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("onset")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.onset");
+        }
+        else if (name.equals("recordedDate")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.recordedDate");
+        }
+        else if (name.equals("recorder")) {
+          this.recorder = new Reference();
+          return this.recorder;
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("reporter")) {
+          this.reporter = new Reference();
+          return this.reporter;
+        }
+        else if (name.equals("substance")) {
+          this.substance = new CodeableConcept();
+          return this.substance;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.status");
+        }
+        else if (name.equals("criticality")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.criticality");
+        }
+        else if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.type");
+        }
+        else if (name.equals("category")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.category");
+        }
+        else if (name.equals("lastOccurence")) {
+          throw new Exception("Cannot call addChild on a primitive type AllergyIntolerance.lastOccurence");
+        }
+        else if (name.equals("note")) {
+          this.note = new Annotation();
+          return this.note;
+        }
+        else if (name.equals("reaction")) {
+          return addReaction();
+        }
+        else
+          return super.addChild(name);
       }
 
       public AllergyIntolerance copy() {

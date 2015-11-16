@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -156,6 +156,28 @@ public class Immunization extends DomainResource {
           childrenList.add(new Property("reason", "CodeableConcept", "Reasons why a vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "Reason why a vaccine was not administered.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("reason"))
+          this.getReason().add(castToCodeableConcept(value));
+        else if (name.equals("reasonNotGiven"))
+          this.getReasonNotGiven().add(castToCodeableConcept(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("reason")) {
+          return addReason();
+        }
+        else if (name.equals("reasonNotGiven")) {
+          return addReasonNotGiven();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ImmunizationExplanationComponent copy() {
         ImmunizationExplanationComponent dst = new ImmunizationExplanationComponent();
@@ -382,6 +404,34 @@ public class Immunization extends DomainResource {
           childrenList.add(new Property("detail", "Reference(Observation)", "Details of the reaction.", 0, java.lang.Integer.MAX_VALUE, detail));
           childrenList.add(new Property("reported", "boolean", "Self-reported indicator.", 0, java.lang.Integer.MAX_VALUE, reported));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("detail"))
+          this.detail = castToReference(value); // Reference
+        else if (name.equals("reported"))
+          this.reported = castToBoolean(value); // BooleanType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.date");
+        }
+        else if (name.equals("detail")) {
+          this.detail = new Reference();
+          return this.detail;
+        }
+        else if (name.equals("reported")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.reported");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ImmunizationReactionComponent copy() {
         ImmunizationReactionComponent dst = new ImmunizationReactionComponent();
@@ -832,6 +882,61 @@ public class Immunization extends DomainResource {
           childrenList.add(new Property("doseStatus", "CodeableConcept", "Indicates if the immunization event should \"count\" against  the protocol.", 0, java.lang.Integer.MAX_VALUE, doseStatus));
           childrenList.add(new Property("doseStatusReason", "CodeableConcept", "Provides an explanation as to why an immunization event should or should not count against the protocol.", 0, java.lang.Integer.MAX_VALUE, doseStatusReason));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("doseSequence"))
+          this.doseSequence = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("authority"))
+          this.authority = castToReference(value); // Reference
+        else if (name.equals("series"))
+          this.series = castToString(value); // StringType
+        else if (name.equals("seriesDoses"))
+          this.seriesDoses = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("targetDisease"))
+          this.getTargetDisease().add(castToCodeableConcept(value));
+        else if (name.equals("doseStatus"))
+          this.doseStatus = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("doseStatusReason"))
+          this.doseStatusReason = castToCodeableConcept(value); // CodeableConcept
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("doseSequence")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.doseSequence");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.description");
+        }
+        else if (name.equals("authority")) {
+          this.authority = new Reference();
+          return this.authority;
+        }
+        else if (name.equals("series")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.series");
+        }
+        else if (name.equals("seriesDoses")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.seriesDoses");
+        }
+        else if (name.equals("targetDisease")) {
+          return addTargetDisease();
+        }
+        else if (name.equals("doseStatus")) {
+          this.doseStatus = new CodeableConcept();
+          return this.doseStatus;
+        }
+        else if (name.equals("doseStatusReason")) {
+          this.doseStatusReason = new CodeableConcept();
+          return this.doseStatusReason;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ImmunizationVaccinationProtocolComponent copy() {
         ImmunizationVaccinationProtocolComponent dst = new ImmunizationVaccinationProtocolComponent();
@@ -1931,6 +2036,134 @@ public class Immunization extends DomainResource {
         childrenList.add(new Property("explanation", "", "Reasons why a vaccine was or was not administered.", 0, java.lang.Integer.MAX_VALUE, explanation));
         childrenList.add(new Property("reaction", "", "Categorical data indicating that an adverse event is associated in time to an immunization.", 0, java.lang.Integer.MAX_VALUE, reaction));
         childrenList.add(new Property("vaccinationProtocol", "", "Contains information about the protocol(s) under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, vaccinationProtocol));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = castToCode(value); // CodeType
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("vaccineCode"))
+          this.vaccineCode = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("wasNotGiven"))
+          this.wasNotGiven = castToBoolean(value); // BooleanType
+        else if (name.equals("reported"))
+          this.reported = castToBoolean(value); // BooleanType
+        else if (name.equals("performer"))
+          this.performer = castToReference(value); // Reference
+        else if (name.equals("requester"))
+          this.requester = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("manufacturer"))
+          this.manufacturer = castToReference(value); // Reference
+        else if (name.equals("location"))
+          this.location = castToReference(value); // Reference
+        else if (name.equals("lotNumber"))
+          this.lotNumber = castToString(value); // StringType
+        else if (name.equals("expirationDate"))
+          this.expirationDate = castToDate(value); // DateType
+        else if (name.equals("site"))
+          this.site = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("route"))
+          this.route = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("doseQuantity"))
+          this.doseQuantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("note"))
+          this.getNote().add(castToAnnotation(value));
+        else if (name.equals("explanation"))
+          this.explanation = (ImmunizationExplanationComponent) value; // ImmunizationExplanationComponent
+        else if (name.equals("reaction"))
+          this.getReaction().add((ImmunizationReactionComponent) value);
+        else if (name.equals("vaccinationProtocol"))
+          this.getVaccinationProtocol().add((ImmunizationVaccinationProtocolComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.status");
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.date");
+        }
+        else if (name.equals("vaccineCode")) {
+          this.vaccineCode = new CodeableConcept();
+          return this.vaccineCode;
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("wasNotGiven")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.wasNotGiven");
+        }
+        else if (name.equals("reported")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.reported");
+        }
+        else if (name.equals("performer")) {
+          this.performer = new Reference();
+          return this.performer;
+        }
+        else if (name.equals("requester")) {
+          this.requester = new Reference();
+          return this.requester;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("manufacturer")) {
+          this.manufacturer = new Reference();
+          return this.manufacturer;
+        }
+        else if (name.equals("location")) {
+          this.location = new Reference();
+          return this.location;
+        }
+        else if (name.equals("lotNumber")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.lotNumber");
+        }
+        else if (name.equals("expirationDate")) {
+          throw new Exception("Cannot call addChild on a primitive type Immunization.expirationDate");
+        }
+        else if (name.equals("site")) {
+          this.site = new CodeableConcept();
+          return this.site;
+        }
+        else if (name.equals("route")) {
+          this.route = new CodeableConcept();
+          return this.route;
+        }
+        else if (name.equals("doseQuantity")) {
+          this.doseQuantity = new SimpleQuantity();
+          return this.doseQuantity;
+        }
+        else if (name.equals("note")) {
+          return addNote();
+        }
+        else if (name.equals("explanation")) {
+          this.explanation = new ImmunizationExplanationComponent();
+          return this.explanation;
+        }
+        else if (name.equals("reaction")) {
+          return addReaction();
+        }
+        else if (name.equals("vaccinationProtocol")) {
+          return addVaccinationProtocol();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Immunization copy() {

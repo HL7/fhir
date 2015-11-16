@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class MedicationStatement extends DomainResource {
         if ("intended".equals(codeString))
           return MedicationStatementStatus.INTENDED;
         throw new IllegalArgumentException("Unknown MedicationStatementStatus code '"+codeString+"'");
+        }
+        public Enumeration<MedicationStatementStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.ACTIVE);
+        if ("completed".equals(codeString))
+          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.ENTEREDINERROR);
+        if ("intended".equals(codeString))
+          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.INTENDED);
+        throw new Exception("Unknown MedicationStatementStatus code '"+codeString+"'");
         }
     public String toCode(MedicationStatementStatus code) {
       if (code == MedicationStatementStatus.ACTIVE)
@@ -567,6 +583,87 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           childrenList.add(new Property("rate[x]", "Ratio|Range", "Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else if (name.equals("timing"))
+          this.timing = castToTiming(value); // Timing
+        else if (name.equals("asNeeded[x]"))
+          this.asNeeded = (Type) value; // Type
+        else if (name.equals("site[x]"))
+          this.site = (Type) value; // Type
+        else if (name.equals("route"))
+          this.route = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("method"))
+          this.method = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("quantity[x]"))
+          this.quantity = (Type) value; // Type
+        else if (name.equals("rate[x]"))
+          this.rate = (Type) value; // Type
+        else if (name.equals("maxDosePerPeriod"))
+          this.maxDosePerPeriod = castToRatio(value); // Ratio
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationStatement.text");
+        }
+        else if (name.equals("timing")) {
+          this.timing = new Timing();
+          return this.timing;
+        }
+        else if (name.equals("asNeededBoolean")) {
+          this.asNeeded = new BooleanType();
+          return this.asNeeded;
+        }
+        else if (name.equals("asNeededCodeableConcept")) {
+          this.asNeeded = new CodeableConcept();
+          return this.asNeeded;
+        }
+        else if (name.equals("siteCodeableConcept")) {
+          this.site = new CodeableConcept();
+          return this.site;
+        }
+        else if (name.equals("siteReference")) {
+          this.site = new Reference();
+          return this.site;
+        }
+        else if (name.equals("route")) {
+          this.route = new CodeableConcept();
+          return this.route;
+        }
+        else if (name.equals("method")) {
+          this.method = new CodeableConcept();
+          return this.method;
+        }
+        else if (name.equals("quantitySimpleQuantity")) {
+          this.quantity = new SimpleQuantity();
+          return this.quantity;
+        }
+        else if (name.equals("quantityRange")) {
+          this.quantity = new Range();
+          return this.quantity;
+        }
+        else if (name.equals("rateRatio")) {
+          this.rate = new Ratio();
+          return this.rate;
+        }
+        else if (name.equals("rateRange")) {
+          this.rate = new Range();
+          return this.rate;
+        }
+        else if (name.equals("maxDosePerPeriod")) {
+          this.maxDosePerPeriod = new Ratio();
+          return this.maxDosePerPeriod;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public MedicationStatementDosageComponent copy() {
         MedicationStatementDosageComponent dst = new MedicationStatementDosageComponent();
@@ -1330,6 +1427,100 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         childrenList.add(new Property("supportingInformation", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("dosage", "", "Indicates how the medication is/was used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("informationSource"))
+          this.informationSource = castToReference(value); // Reference
+        else if (name.equals("dateAsserted"))
+          this.dateAsserted = castToDateTime(value); // DateTimeType
+        else if (name.equals("status"))
+          this.status = new MedicationStatementStatusEnumFactory().fromType(value); // Enumeration<MedicationStatementStatus>
+        else if (name.equals("wasNotTaken"))
+          this.wasNotTaken = castToBoolean(value); // BooleanType
+        else if (name.equals("reasonNotTaken"))
+          this.getReasonNotTaken().add(castToCodeableConcept(value));
+        else if (name.equals("reasonForUse[x]"))
+          this.reasonForUse = (Type) value; // Type
+        else if (name.equals("effective[x]"))
+          this.effective = (Type) value; // Type
+        else if (name.equals("note"))
+          this.note = castToString(value); // StringType
+        else if (name.equals("supportingInformation"))
+          this.getSupportingInformation().add(castToReference(value));
+        else if (name.equals("medication[x]"))
+          this.medication = (Type) value; // Type
+        else if (name.equals("dosage"))
+          this.getDosage().add((MedicationStatementDosageComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("informationSource")) {
+          this.informationSource = new Reference();
+          return this.informationSource;
+        }
+        else if (name.equals("dateAsserted")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationStatement.dateAsserted");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationStatement.status");
+        }
+        else if (name.equals("wasNotTaken")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationStatement.wasNotTaken");
+        }
+        else if (name.equals("reasonNotTaken")) {
+          return addReasonNotTaken();
+        }
+        else if (name.equals("reasonForUseCodeableConcept")) {
+          this.reasonForUse = new CodeableConcept();
+          return this.reasonForUse;
+        }
+        else if (name.equals("reasonForUseReference")) {
+          this.reasonForUse = new Reference();
+          return this.reasonForUse;
+        }
+        else if (name.equals("effectiveDateTime")) {
+          this.effective = new DateTimeType();
+          return this.effective;
+        }
+        else if (name.equals("effectivePeriod")) {
+          this.effective = new Period();
+          return this.effective;
+        }
+        else if (name.equals("note")) {
+          throw new Exception("Cannot call addChild on a primitive type MedicationStatement.note");
+        }
+        else if (name.equals("supportingInformation")) {
+          return addSupportingInformation();
+        }
+        else if (name.equals("medicationCodeableConcept")) {
+          this.medication = new CodeableConcept();
+          return this.medication;
+        }
+        else if (name.equals("medicationReference")) {
+          this.medication = new Reference();
+          return this.medication;
+        }
+        else if (name.equals("dosage")) {
+          return addDosage();
+        }
+        else
+          return super.addChild(name);
       }
 
       public MedicationStatement copy() {

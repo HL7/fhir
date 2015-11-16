@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -157,6 +157,26 @@ public class ValueSet extends DomainResource {
         if ("not-in".equals(codeString))
           return FilterOperator.NOTIN;
         throw new IllegalArgumentException("Unknown FilterOperator code '"+codeString+"'");
+        }
+        public Enumeration<FilterOperator> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("=".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.EQUAL);
+        if ("is-a".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.ISA);
+        if ("is-not-a".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.ISNOTA);
+        if ("regex".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.REGEX);
+        if ("in".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.IN);
+        if ("not-in".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.NOTIN);
+        throw new Exception("Unknown FilterOperator code '"+codeString+"'");
         }
     public String toCode(FilterOperator code) {
       if (code == FilterOperator.EQUAL)
@@ -294,6 +314,28 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the value set.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.name");
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ValueSetContactComponent copy() {
         ValueSetContactComponent dst = new ValueSetContactComponent();
@@ -567,6 +609,38 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("caseSensitive", "boolean", "If code comparison is case sensitive when codes within this system are compared to each other.", 0, java.lang.Integer.MAX_VALUE, caseSensitive));
           childrenList.add(new Property("concept", "", "Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are.", 0, java.lang.Integer.MAX_VALUE, concept));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("system"))
+          this.system = castToUri(value); // UriType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("caseSensitive"))
+          this.caseSensitive = castToBoolean(value); // BooleanType
+        else if (name.equals("concept"))
+          this.getConcept().add((ConceptDefinitionComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("system")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.system");
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.version");
+        }
+        else if (name.equals("caseSensitive")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.caseSensitive");
+        }
+        else if (name.equals("concept")) {
+          return addConcept();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ValueSetCodeSystemComponent copy() {
         ValueSetCodeSystemComponent dst = new ValueSetCodeSystemComponent();
@@ -951,6 +1025,48 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("concept", "@ValueSet.codeSystem.concept", "Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts.", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCode(value); // CodeType
+        else if (name.equals("abstract"))
+          this.abstract_ = castToBoolean(value); // BooleanType
+        else if (name.equals("display"))
+          this.display = castToString(value); // StringType
+        else if (name.equals("definition"))
+          this.definition = castToString(value); // StringType
+        else if (name.equals("designation"))
+          this.getDesignation().add((ConceptDefinitionDesignationComponent) value);
+        else if (name.equals("concept"))
+          this.getConcept().add((ConceptDefinitionComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.code");
+        }
+        else if (name.equals("abstract")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.abstract");
+        }
+        else if (name.equals("display")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.display");
+        }
+        else if (name.equals("definition")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.definition");
+        }
+        else if (name.equals("designation")) {
+          return addDesignation();
+        }
+        else if (name.equals("concept")) {
+          return addConcept();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConceptDefinitionComponent copy() {
         ConceptDefinitionComponent dst = new ConceptDefinitionComponent();
         copyValues(dst);
@@ -1168,6 +1284,34 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("value", "string", "The text value for this designation.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("language"))
+          this.language = castToCode(value); // CodeType
+        else if (name.equals("use"))
+          this.use = castToCoding(value); // Coding
+        else if (name.equals("value"))
+          this.value = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("language")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.language");
+        }
+        else if (name.equals("use")) {
+          this.use = new Coding();
+          return this.use;
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.value");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConceptDefinitionDesignationComponent copy() {
         ConceptDefinitionDesignationComponent dst = new ConceptDefinitionDesignationComponent();
         copyValues(dst);
@@ -1377,6 +1521,33 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("include", "", "Include one or more codes from a code system.", 0, java.lang.Integer.MAX_VALUE, include));
           childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("import"))
+          this.getImport().add(castToUri(value));
+        else if (name.equals("include"))
+          this.getInclude().add((ConceptSetComponent) value);
+        else if (name.equals("exclude"))
+          this.getExclude().add((ConceptSetComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("import")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.import");
+        }
+        else if (name.equals("include")) {
+          return addInclude();
+        }
+        else if (name.equals("exclude")) {
+          return addExclude();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ValueSetComposeComponent copy() {
         ValueSetComposeComponent dst = new ValueSetComposeComponent();
@@ -1656,6 +1827,38 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("filter", "", "Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.", 0, java.lang.Integer.MAX_VALUE, filter));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("system"))
+          this.system = castToUri(value); // UriType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("concept"))
+          this.getConcept().add((ConceptReferenceComponent) value);
+        else if (name.equals("filter"))
+          this.getFilter().add((ConceptSetFilterComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("system")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.system");
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.version");
+        }
+        else if (name.equals("concept")) {
+          return addConcept();
+        }
+        else if (name.equals("filter")) {
+          return addFilter();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConceptSetComponent copy() {
         ConceptSetComponent dst = new ConceptSetComponent();
         copyValues(dst);
@@ -1883,6 +2086,33 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("designation", "@ValueSet.codeSystem.concept.designation", "Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.", 0, java.lang.Integer.MAX_VALUE, designation));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCode(value); // CodeType
+        else if (name.equals("display"))
+          this.display = castToString(value); // StringType
+        else if (name.equals("designation"))
+          this.getDesignation().add((ConceptDefinitionDesignationComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.code");
+        }
+        else if (name.equals("display")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.display");
+        }
+        else if (name.equals("designation")) {
+          return addDesignation();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ConceptReferenceComponent copy() {
         ConceptReferenceComponent dst = new ConceptReferenceComponent();
         copyValues(dst);
@@ -2107,6 +2337,33 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("op", "code", "The kind of operation to perform as a part of the filter criteria.", 0, java.lang.Integer.MAX_VALUE, op));
           childrenList.add(new Property("value", "code", "The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("property"))
+          this.property = castToCode(value); // CodeType
+        else if (name.equals("op"))
+          this.op = new FilterOperatorEnumFactory().fromType(value); // Enumeration<FilterOperator>
+        else if (name.equals("value"))
+          this.value = castToCode(value); // CodeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("property")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.property");
+        }
+        else if (name.equals("op")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.op");
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.value");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ConceptSetFilterComponent copy() {
         ConceptSetFilterComponent dst = new ConceptSetFilterComponent();
@@ -2478,6 +2735,48 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("contains", "", "The codes that are contained in the value set expansion.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToUri(value); // UriType
+        else if (name.equals("timestamp"))
+          this.timestamp = castToDateTime(value); // DateTimeType
+        else if (name.equals("total"))
+          this.total = castToInteger(value); // IntegerType
+        else if (name.equals("offset"))
+          this.offset = castToInteger(value); // IntegerType
+        else if (name.equals("parameter"))
+          this.getParameter().add((ValueSetExpansionParameterComponent) value);
+        else if (name.equals("contains"))
+          this.getContains().add((ValueSetExpansionContainsComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.identifier");
+        }
+        else if (name.equals("timestamp")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.timestamp");
+        }
+        else if (name.equals("total")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.total");
+        }
+        else if (name.equals("offset")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.offset");
+        }
+        else if (name.equals("parameter")) {
+          return addParameter();
+        }
+        else if (name.equals("contains")) {
+          return addContains();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ValueSetExpansionComponent copy() {
         ValueSetExpansionComponent dst = new ValueSetExpansionComponent();
         copyValues(dst);
@@ -2709,6 +3008,49 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("name", "string", "The name of the parameter.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("value[x]", "string|boolean|integer|decimal|uri|code", "The value of the parameter.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("value[x]"))
+          this.value = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.name");
+        }
+        else if (name.equals("valueString")) {
+          this.value = new StringType();
+          return this.value;
+        }
+        else if (name.equals("valueBoolean")) {
+          this.value = new BooleanType();
+          return this.value;
+        }
+        else if (name.equals("valueInteger")) {
+          this.value = new IntegerType();
+          return this.value;
+        }
+        else if (name.equals("valueDecimal")) {
+          this.value = new DecimalType();
+          return this.value;
+        }
+        else if (name.equals("valueUri")) {
+          this.value = new UriType();
+          return this.value;
+        }
+        else if (name.equals("valueCode")) {
+          this.value = new CodeType();
+          return this.value;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ValueSetExpansionParameterComponent copy() {
         ValueSetExpansionParameterComponent dst = new ValueSetExpansionParameterComponent();
@@ -3088,6 +3430,48 @@ public class ValueSet extends DomainResource {
           childrenList.add(new Property("display", "string", "The recommended display for this item in the expansion.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("contains", "@ValueSet.expansion.contains", "Other codes and entries contained under this entry in the hierarchy.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("system"))
+          this.system = castToUri(value); // UriType
+        else if (name.equals("abstract"))
+          this.abstract_ = castToBoolean(value); // BooleanType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("code"))
+          this.code = castToCode(value); // CodeType
+        else if (name.equals("display"))
+          this.display = castToString(value); // StringType
+        else if (name.equals("contains"))
+          this.getContains().add((ValueSetExpansionContainsComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("system")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.system");
+        }
+        else if (name.equals("abstract")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.abstract");
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.version");
+        }
+        else if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.code");
+        }
+        else if (name.equals("display")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.display");
+        }
+        else if (name.equals("contains")) {
+          return addContains();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ValueSetExpansionContainsComponent copy() {
         ValueSetExpansionContainsComponent dst = new ValueSetExpansionContainsComponent();
@@ -4104,6 +4488,117 @@ public class ValueSet extends DomainResource {
         childrenList.add(new Property("codeSystem", "", "A definition of a code system, inlined into the value set (as a packaging convenience). Note that the inline code system may be used from other value sets by referring to its (codeSystem.system) directly.", 0, java.lang.Integer.MAX_VALUE, codeSystem));
         childrenList.add(new Property("compose", "", "A set of criteria that provide the content logical definition of the value set by including or excluding codes from outside this value set.", 0, java.lang.Integer.MAX_VALUE, compose));
         childrenList.add(new Property("expansion", "", "A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, java.lang.Integer.MAX_VALUE, expansion));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("status"))
+          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+        else if (name.equals("experimental"))
+          this.experimental = castToBoolean(value); // BooleanType
+        else if (name.equals("publisher"))
+          this.publisher = castToString(value); // StringType
+        else if (name.equals("contact"))
+          this.getContact().add((ValueSetContactComponent) value);
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("lockedDate"))
+          this.lockedDate = castToDate(value); // DateType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("useContext"))
+          this.getUseContext().add(castToCodeableConcept(value));
+        else if (name.equals("immutable"))
+          this.immutable = castToBoolean(value); // BooleanType
+        else if (name.equals("requirements"))
+          this.requirements = castToString(value); // StringType
+        else if (name.equals("copyright"))
+          this.copyright = castToString(value); // StringType
+        else if (name.equals("extensible"))
+          this.extensible = castToBoolean(value); // BooleanType
+        else if (name.equals("codeSystem"))
+          this.codeSystem = (ValueSetCodeSystemComponent) value; // ValueSetCodeSystemComponent
+        else if (name.equals("compose"))
+          this.compose = (ValueSetComposeComponent) value; // ValueSetComposeComponent
+        else if (name.equals("expansion"))
+          this.expansion = (ValueSetExpansionComponent) value; // ValueSetExpansionComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.url");
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.version");
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.name");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.status");
+        }
+        else if (name.equals("experimental")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.experimental");
+        }
+        else if (name.equals("publisher")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.publisher");
+        }
+        else if (name.equals("contact")) {
+          return addContact();
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.date");
+        }
+        else if (name.equals("lockedDate")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.lockedDate");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.description");
+        }
+        else if (name.equals("useContext")) {
+          return addUseContext();
+        }
+        else if (name.equals("immutable")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.immutable");
+        }
+        else if (name.equals("requirements")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.requirements");
+        }
+        else if (name.equals("copyright")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.copyright");
+        }
+        else if (name.equals("extensible")) {
+          throw new Exception("Cannot call addChild on a primitive type ValueSet.extensible");
+        }
+        else if (name.equals("codeSystem")) {
+          this.codeSystem = new ValueSetCodeSystemComponent();
+          return this.codeSystem;
+        }
+        else if (name.equals("compose")) {
+          this.compose = new ValueSetComposeComponent();
+          return this.compose;
+        }
+        else if (name.equals("expansion")) {
+          this.expansion = new ValueSetExpansionComponent();
+          return this.expansion;
+        }
+        else
+          return super.addChild(name);
       }
 
       public ValueSet copy() {

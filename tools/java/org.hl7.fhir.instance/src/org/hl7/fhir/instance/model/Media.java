@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -120,6 +120,20 @@ public class Media extends DomainResource {
         if ("audio".equals(codeString))
           return DigitalMediaType.AUDIO;
         throw new IllegalArgumentException("Unknown DigitalMediaType code '"+codeString+"'");
+        }
+        public Enumeration<DigitalMediaType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("photo".equals(codeString))
+          return new Enumeration<DigitalMediaType>(this, DigitalMediaType.PHOTO);
+        if ("video".equals(codeString))
+          return new Enumeration<DigitalMediaType>(this, DigitalMediaType.VIDEO);
+        if ("audio".equals(codeString))
+          return new Enumeration<DigitalMediaType>(this, DigitalMediaType.AUDIO);
+        throw new Exception("Unknown DigitalMediaType code '"+codeString+"'");
         }
     public String toCode(DigitalMediaType code) {
       if (code == DigitalMediaType.PHOTO)
@@ -727,6 +741,83 @@ public class Media extends DomainResource {
         childrenList.add(new Property("frames", "positiveInt", "The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.", 0, java.lang.Integer.MAX_VALUE, frames));
         childrenList.add(new Property("duration", "unsignedInt", "The duration of the recording in seconds - for audio and video.", 0, java.lang.Integer.MAX_VALUE, duration));
         childrenList.add(new Property("content", "Attachment", "The actual content of the media - inline or by direct reference to the media source file.", 0, java.lang.Integer.MAX_VALUE, content));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = new DigitalMediaTypeEnumFactory().fromType(value); // Enumeration<DigitalMediaType>
+        else if (name.equals("subtype"))
+          this.subtype = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("operator"))
+          this.operator = castToReference(value); // Reference
+        else if (name.equals("view"))
+          this.view = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("deviceName"))
+          this.deviceName = castToString(value); // StringType
+        else if (name.equals("height"))
+          this.height = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("width"))
+          this.width = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("frames"))
+          this.frames = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("duration"))
+          this.duration = castToUnsignedInt(value); // UnsignedIntType
+        else if (name.equals("content"))
+          this.content = castToAttachment(value); // Attachment
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type Media.type");
+        }
+        else if (name.equals("subtype")) {
+          this.subtype = new CodeableConcept();
+          return this.subtype;
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("operator")) {
+          this.operator = new Reference();
+          return this.operator;
+        }
+        else if (name.equals("view")) {
+          this.view = new CodeableConcept();
+          return this.view;
+        }
+        else if (name.equals("deviceName")) {
+          throw new Exception("Cannot call addChild on a primitive type Media.deviceName");
+        }
+        else if (name.equals("height")) {
+          throw new Exception("Cannot call addChild on a primitive type Media.height");
+        }
+        else if (name.equals("width")) {
+          throw new Exception("Cannot call addChild on a primitive type Media.width");
+        }
+        else if (name.equals("frames")) {
+          throw new Exception("Cannot call addChild on a primitive type Media.frames");
+        }
+        else if (name.equals("duration")) {
+          throw new Exception("Cannot call addChild on a primitive type Media.duration");
+        }
+        else if (name.equals("content")) {
+          this.content = new Attachment();
+          return this.content;
+        }
+        else
+          return super.addChild(name);
       }
 
       public Media copy() {

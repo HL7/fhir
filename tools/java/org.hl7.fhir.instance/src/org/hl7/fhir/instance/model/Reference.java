@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -188,6 +188,28 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
         super.listChildren(childrenList);
         childrenList.add(new Property("reference", "string", "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 0, java.lang.Integer.MAX_VALUE, reference));
         childrenList.add(new Property("display", "string", "Plain text narrative that identifies the resource in addition to the resource reference.", 0, java.lang.Integer.MAX_VALUE, display));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("reference"))
+          this.reference = castToString(value); // StringType
+        else if (name.equals("display"))
+          this.display = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("reference")) {
+          throw new Exception("Cannot call addChild on a primitive type Reference.reference");
+        }
+        else if (name.equals("display")) {
+          throw new Exception("Cannot call addChild on a primitive type Reference.display");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Reference copy() {

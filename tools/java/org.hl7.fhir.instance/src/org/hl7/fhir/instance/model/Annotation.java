@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -227,6 +227,38 @@ public class Annotation extends Type implements ICompositeType {
         childrenList.add(new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson)|string", "The individual responsible for making the annotation.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("time", "dateTime", "Indicates when this particular annotation was made.", 0, java.lang.Integer.MAX_VALUE, time));
         childrenList.add(new Property("text", "string", "The text of the annotation.", 0, java.lang.Integer.MAX_VALUE, text));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("author[x]"))
+          this.author = (Type) value; // Type
+        else if (name.equals("time"))
+          this.time = castToDateTime(value); // DateTimeType
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("authorReference")) {
+          this.author = new Reference();
+          return this.author;
+        }
+        else if (name.equals("authorString")) {
+          this.author = new StringType();
+          return this.author;
+        }
+        else if (name.equals("time")) {
+          throw new Exception("Cannot call addChild on a primitive type Annotation.time");
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type Annotation.text");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Annotation copy() {

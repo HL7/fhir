@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -218,6 +218,36 @@ public class DeviceComponent extends DomainResource {
           return MeasmntPrinciple.MANUAL;
         throw new IllegalArgumentException("Unknown MeasmntPrinciple code '"+codeString+"'");
         }
+        public Enumeration<MeasmntPrinciple> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("other".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.OTHER);
+        if ("chemical".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.CHEMICAL);
+        if ("electrical".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.ELECTRICAL);
+        if ("impedance".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.IMPEDANCE);
+        if ("nuclear".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.NUCLEAR);
+        if ("optical".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.OPTICAL);
+        if ("thermal".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.THERMAL);
+        if ("biological".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.BIOLOGICAL);
+        if ("mechanical".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.MECHANICAL);
+        if ("acoustical".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.ACOUSTICAL);
+        if ("manual".equals(codeString))
+          return new Enumeration<MeasmntPrinciple>(this, MeasmntPrinciple.MANUAL);
+        throw new Exception("Unknown MeasmntPrinciple code '"+codeString+"'");
+        }
     public String toCode(MeasmntPrinciple code) {
       if (code == MeasmntPrinciple.OTHER)
         return "other";
@@ -380,6 +410,35 @@ public class DeviceComponent extends DomainResource {
           childrenList.add(new Property("componentId", "Identifier", "Describes the internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.", 0, java.lang.Integer.MAX_VALUE, componentId));
           childrenList.add(new Property("productionSpec", "string", "Describes the printable string defining the component.", 0, java.lang.Integer.MAX_VALUE, productionSpec));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("specType"))
+          this.specType = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("componentId"))
+          this.componentId = castToIdentifier(value); // Identifier
+        else if (name.equals("productionSpec"))
+          this.productionSpec = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("specType")) {
+          this.specType = new CodeableConcept();
+          return this.specType;
+        }
+        else if (name.equals("componentId")) {
+          this.componentId = new Identifier();
+          return this.componentId;
+        }
+        else if (name.equals("productionSpec")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceComponent.productionSpec");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DeviceComponentProductionSpecificationComponent copy() {
         DeviceComponentProductionSpecificationComponent dst = new DeviceComponentProductionSpecificationComponent();
@@ -887,6 +946,74 @@ public class DeviceComponent extends DomainResource {
         childrenList.add(new Property("measurementPrinciple", "code", "Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.", 0, java.lang.Integer.MAX_VALUE, measurementPrinciple));
         childrenList.add(new Property("productionSpecification", "", "Describes the production specification such as component revision, serial number, etc.", 0, java.lang.Integer.MAX_VALUE, productionSpecification));
         childrenList.add(new Property("languageCode", "CodeableConcept", "Describes the language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.", 0, java.lang.Integer.MAX_VALUE, languageCode));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("lastSystemChange"))
+          this.lastSystemChange = castToInstant(value); // InstantType
+        else if (name.equals("source"))
+          this.source = castToReference(value); // Reference
+        else if (name.equals("parent"))
+          this.parent = castToReference(value); // Reference
+        else if (name.equals("operationalStatus"))
+          this.getOperationalStatus().add(castToCodeableConcept(value));
+        else if (name.equals("parameterGroup"))
+          this.parameterGroup = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("measurementPrinciple"))
+          this.measurementPrinciple = new MeasmntPrincipleEnumFactory().fromType(value); // Enumeration<MeasmntPrinciple>
+        else if (name.equals("productionSpecification"))
+          this.getProductionSpecification().add((DeviceComponentProductionSpecificationComponent) value);
+        else if (name.equals("languageCode"))
+          this.languageCode = castToCodeableConcept(value); // CodeableConcept
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("lastSystemChange")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceComponent.lastSystemChange");
+        }
+        else if (name.equals("source")) {
+          this.source = new Reference();
+          return this.source;
+        }
+        else if (name.equals("parent")) {
+          this.parent = new Reference();
+          return this.parent;
+        }
+        else if (name.equals("operationalStatus")) {
+          return addOperationalStatus();
+        }
+        else if (name.equals("parameterGroup")) {
+          this.parameterGroup = new CodeableConcept();
+          return this.parameterGroup;
+        }
+        else if (name.equals("measurementPrinciple")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceComponent.measurementPrinciple");
+        }
+        else if (name.equals("productionSpecification")) {
+          return addProductionSpecification();
+        }
+        else if (name.equals("languageCode")) {
+          this.languageCode = new CodeableConcept();
+          return this.languageCode;
+        }
+        else
+          return super.addChild(name);
       }
 
       public DeviceComponent copy() {

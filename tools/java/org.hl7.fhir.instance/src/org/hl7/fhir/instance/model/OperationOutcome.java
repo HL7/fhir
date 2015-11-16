@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         if ("information".equals(codeString))
           return IssueSeverity.INFORMATION;
         throw new IllegalArgumentException("Unknown IssueSeverity code '"+codeString+"'");
+        }
+        public Enumeration<IssueSeverity> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("fatal".equals(codeString))
+          return new Enumeration<IssueSeverity>(this, IssueSeverity.FATAL);
+        if ("error".equals(codeString))
+          return new Enumeration<IssueSeverity>(this, IssueSeverity.ERROR);
+        if ("warning".equals(codeString))
+          return new Enumeration<IssueSeverity>(this, IssueSeverity.WARNING);
+        if ("information".equals(codeString))
+          return new Enumeration<IssueSeverity>(this, IssueSeverity.INFORMATION);
+        throw new Exception("Unknown IssueSeverity code '"+codeString+"'");
         }
     public String toCode(IssueSeverity code) {
       if (code == IssueSeverity.FATAL)
@@ -533,6 +549,72 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return IssueType.INFORMATIONAL;
         throw new IllegalArgumentException("Unknown IssueType code '"+codeString+"'");
         }
+        public Enumeration<IssueType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("invalid".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.INVALID);
+        if ("structure".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.STRUCTURE);
+        if ("required".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.REQUIRED);
+        if ("value".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.VALUE);
+        if ("invariant".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.INVARIANT);
+        if ("security".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.SECURITY);
+        if ("login".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.LOGIN);
+        if ("unknown".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.UNKNOWN);
+        if ("expired".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.EXPIRED);
+        if ("forbidden".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.FORBIDDEN);
+        if ("suppressed".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.SUPPRESSED);
+        if ("processing".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.PROCESSING);
+        if ("not-supported".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.NOTSUPPORTED);
+        if ("duplicate".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.DUPLICATE);
+        if ("not-found".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.NOTFOUND);
+        if ("too-long".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.TOOLONG);
+        if ("code-invalid".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.CODEINVALID);
+        if ("extension".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.EXTENSION);
+        if ("too-costly".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.TOOCOSTLY);
+        if ("business-rule".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.BUSINESSRULE);
+        if ("conflict".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.CONFLICT);
+        if ("incomplete".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.INCOMPLETE);
+        if ("transient".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.TRANSIENT);
+        if ("lock-error".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.LOCKERROR);
+        if ("no-store".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.NOSTORE);
+        if ("exception".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.EXCEPTION);
+        if ("timeout".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.TIMEOUT);
+        if ("throttled".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.THROTTLED);
+        if ("informational".equals(codeString))
+          return new Enumeration<IssueType>(this, IssueType.INFORMATIONAL);
+        throw new Exception("Unknown IssueType code '"+codeString+"'");
+        }
     public String toCode(IssueType code) {
       if (code == IssueType.INVALID)
         return "invalid";
@@ -877,6 +959,44 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           childrenList.add(new Property("location", "string", "A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.", 0, java.lang.Integer.MAX_VALUE, location));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("severity"))
+          this.severity = new IssueSeverityEnumFactory().fromType(value); // Enumeration<IssueSeverity>
+        else if (name.equals("code"))
+          this.code = new IssueTypeEnumFactory().fromType(value); // Enumeration<IssueType>
+        else if (name.equals("details"))
+          this.details = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("diagnostics"))
+          this.diagnostics = castToString(value); // StringType
+        else if (name.equals("location"))
+          this.getLocation().add(castToString(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("severity")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationOutcome.severity");
+        }
+        else if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationOutcome.code");
+        }
+        else if (name.equals("details")) {
+          this.details = new CodeableConcept();
+          return this.details;
+        }
+        else if (name.equals("diagnostics")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationOutcome.diagnostics");
+        }
+        else if (name.equals("location")) {
+          throw new Exception("Cannot call addChild on a primitive type OperationOutcome.location");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public OperationOutcomeIssueComponent copy() {
         OperationOutcomeIssueComponent dst = new OperationOutcomeIssueComponent();
         copyValues(dst);
@@ -981,6 +1101,23 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("issue", "", "An error, warning or information message that results from a system action.", 0, java.lang.Integer.MAX_VALUE, issue));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("issue"))
+          this.getIssue().add((OperationOutcomeIssueComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("issue")) {
+          return addIssue();
+        }
+        else
+          return super.addChild(name);
       }
 
       public OperationOutcome copy() {

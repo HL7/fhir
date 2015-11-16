@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class Specimen extends DomainResource {
         if ("entered-in-error".equals(codeString))
           return SpecimenStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown SpecimenStatus code '"+codeString+"'");
+        }
+        public Enumeration<SpecimenStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("available".equals(codeString))
+          return new Enumeration<SpecimenStatus>(this, SpecimenStatus.AVAILABLE);
+        if ("unavailable".equals(codeString))
+          return new Enumeration<SpecimenStatus>(this, SpecimenStatus.UNAVAILABLE);
+        if ("unsatisfactory".equals(codeString))
+          return new Enumeration<SpecimenStatus>(this, SpecimenStatus.UNSATISFACTORY);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<SpecimenStatus>(this, SpecimenStatus.ENTEREDINERROR);
+        throw new Exception("Unknown SpecimenStatus code '"+codeString+"'");
         }
     public String toCode(SpecimenStatus code) {
       if (code == SpecimenStatus.AVAILABLE)
@@ -429,6 +445,57 @@ public class Specimen extends DomainResource {
           childrenList.add(new Property("bodySite", "CodeableConcept", "Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("collector"))
+          this.collector = castToReference(value); // Reference
+        else if (name.equals("comment"))
+          this.getComment().add(castToString(value));
+        else if (name.equals("collected[x]"))
+          this.collected = (Type) value; // Type
+        else if (name.equals("quantity"))
+          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("method"))
+          this.method = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("bodySite"))
+          this.bodySite = castToCodeableConcept(value); // CodeableConcept
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("collector")) {
+          this.collector = new Reference();
+          return this.collector;
+        }
+        else if (name.equals("comment")) {
+          throw new Exception("Cannot call addChild on a primitive type Specimen.comment");
+        }
+        else if (name.equals("collectedDateTime")) {
+          this.collected = new DateTimeType();
+          return this.collected;
+        }
+        else if (name.equals("collectedPeriod")) {
+          this.collected = new Period();
+          return this.collected;
+        }
+        else if (name.equals("quantity")) {
+          this.quantity = new SimpleQuantity();
+          return this.quantity;
+        }
+        else if (name.equals("method")) {
+          this.method = new CodeableConcept();
+          return this.method;
+        }
+        else if (name.equals("bodySite")) {
+          this.bodySite = new CodeableConcept();
+          return this.bodySite;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public SpecimenCollectionComponent copy() {
         SpecimenCollectionComponent dst = new SpecimenCollectionComponent();
         copyValues(dst);
@@ -652,6 +719,34 @@ public class Specimen extends DomainResource {
           childrenList.add(new Property("procedure", "CodeableConcept", "A coded value specifying the procedure used to process the specimen.", 0, java.lang.Integer.MAX_VALUE, procedure));
           childrenList.add(new Property("additive", "Reference(Substance)", "Material used in the processing step.", 0, java.lang.Integer.MAX_VALUE, additive));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("procedure"))
+          this.procedure = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("additive"))
+          this.getAdditive().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type Specimen.description");
+        }
+        else if (name.equals("procedure")) {
+          this.procedure = new CodeableConcept();
+          return this.procedure;
+        }
+        else if (name.equals("additive")) {
+          return addAdditive();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SpecimenTreatmentComponent copy() {
         SpecimenTreatmentComponent dst = new SpecimenTreatmentComponent();
@@ -962,6 +1057,56 @@ public class Specimen extends DomainResource {
           childrenList.add(new Property("specimenQuantity", "SimpleQuantity", "The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.", 0, java.lang.Integer.MAX_VALUE, specimenQuantity));
           childrenList.add(new Property("additive[x]", "CodeableConcept|Reference(Substance)", "Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.", 0, java.lang.Integer.MAX_VALUE, additive));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("capacity"))
+          this.capacity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("specimenQuantity"))
+          this.specimenQuantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("additive[x]"))
+          this.additive = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type Specimen.description");
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("capacity")) {
+          this.capacity = new SimpleQuantity();
+          return this.capacity;
+        }
+        else if (name.equals("specimenQuantity")) {
+          this.specimenQuantity = new SimpleQuantity();
+          return this.specimenQuantity;
+        }
+        else if (name.equals("additiveCodeableConcept")) {
+          this.additive = new CodeableConcept();
+          return this.additive;
+        }
+        else if (name.equals("additiveReference")) {
+          this.additive = new Reference();
+          return this.additive;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SpecimenContainerComponent copy() {
         SpecimenContainerComponent dst = new SpecimenContainerComponent();
@@ -1508,6 +1653,72 @@ public class Specimen extends DomainResource {
         childrenList.add(new Property("collection", "", "Details concerning the specimen collection.", 0, java.lang.Integer.MAX_VALUE, collection));
         childrenList.add(new Property("treatment", "", "Details concerning treatment and processing steps for the specimen.", 0, java.lang.Integer.MAX_VALUE, treatment));
         childrenList.add(new Property("container", "", "The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.", 0, java.lang.Integer.MAX_VALUE, container));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new SpecimenStatusEnumFactory().fromType(value); // Enumeration<SpecimenStatus>
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("parent"))
+          this.getParent().add(castToReference(value));
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("accessionIdentifier"))
+          this.accessionIdentifier = castToIdentifier(value); // Identifier
+        else if (name.equals("receivedTime"))
+          this.receivedTime = castToDateTime(value); // DateTimeType
+        else if (name.equals("collection"))
+          this.collection = (SpecimenCollectionComponent) value; // SpecimenCollectionComponent
+        else if (name.equals("treatment"))
+          this.getTreatment().add((SpecimenTreatmentComponent) value);
+        else if (name.equals("container"))
+          this.getContainer().add((SpecimenContainerComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Specimen.status");
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("parent")) {
+          return addParent();
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("accessionIdentifier")) {
+          this.accessionIdentifier = new Identifier();
+          return this.accessionIdentifier;
+        }
+        else if (name.equals("receivedTime")) {
+          throw new Exception("Cannot call addChild on a primitive type Specimen.receivedTime");
+        }
+        else if (name.equals("collection")) {
+          this.collection = new SpecimenCollectionComponent();
+          return this.collection;
+        }
+        else if (name.equals("treatment")) {
+          return addTreatment();
+        }
+        else if (name.equals("container")) {
+          return addContainer();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Specimen copy() {

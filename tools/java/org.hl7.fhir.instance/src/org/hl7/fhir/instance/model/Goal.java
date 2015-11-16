@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -193,6 +193,32 @@ public class Goal extends DomainResource {
           return GoalStatus.CANCELLED;
         throw new IllegalArgumentException("Unknown GoalStatus code '"+codeString+"'");
         }
+        public Enumeration<GoalStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("proposed".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.PROPOSED);
+        if ("planned".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.PLANNED);
+        if ("accepted".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.ACCEPTED);
+        if ("rejected".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.REJECTED);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.INPROGRESS);
+        if ("achieved".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.ACHIEVED);
+        if ("sustaining".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.SUSTAINING);
+        if ("on-hold".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.ONHOLD);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.CANCELLED);
+        throw new Exception("Unknown GoalStatus code '"+codeString+"'");
+        }
     public String toCode(GoalStatus code) {
       if (code == GoalStatus.PROPOSED)
         return "proposed";
@@ -283,6 +309,28 @@ public class Goal extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("result[x]", "CodeableConcept|Reference(Observation)", "Details of what's changed (or not changed).", 0, java.lang.Integer.MAX_VALUE, result));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("result[x]"))
+          this.result = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("resultCodeableConcept")) {
+          this.result = new CodeableConcept();
+          return this.result;
+        }
+        else if (name.equals("resultReference")) {
+          this.result = new Reference();
+          return this.result;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public GoalOutcomeComponent copy() {
         GoalOutcomeComponent dst = new GoalOutcomeComponent();
@@ -1028,6 +1076,102 @@ public class Goal extends DomainResource {
         childrenList.add(new Property("addresses", "Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)", "The identified conditions and other health record elements that are intended to be addressed by the goal.", 0, java.lang.Integer.MAX_VALUE, addresses));
         childrenList.add(new Property("note", "Annotation", "Any comments related to the goal.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("outcome", "", "Identifies the change (or lack of change) at the point where the goal was deepmed to be cancelled or achieved.", 0, java.lang.Integer.MAX_VALUE, outcome));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("start[x]"))
+          this.start = (Type) value; // Type
+        else if (name.equals("target[x]"))
+          this.target = (Type) value; // Type
+        else if (name.equals("category"))
+          this.getCategory().add(castToCodeableConcept(value));
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("status"))
+          this.status = new GoalStatusEnumFactory().fromType(value); // Enumeration<GoalStatus>
+        else if (name.equals("statusDate"))
+          this.statusDate = castToDate(value); // DateType
+        else if (name.equals("statusReason"))
+          this.statusReason = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("author"))
+          this.author = castToReference(value); // Reference
+        else if (name.equals("priority"))
+          this.priority = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("addresses"))
+          this.getAddresses().add(castToReference(value));
+        else if (name.equals("note"))
+          this.getNote().add(castToAnnotation(value));
+        else if (name.equals("outcome"))
+          this.getOutcome().add((GoalOutcomeComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("startDate")) {
+          this.start = new DateType();
+          return this.start;
+        }
+        else if (name.equals("startCodeableConcept")) {
+          this.start = new CodeableConcept();
+          return this.start;
+        }
+        else if (name.equals("targetDate")) {
+          this.target = new DateType();
+          return this.target;
+        }
+        else if (name.equals("targetDuration")) {
+          this.target = new Duration();
+          return this.target;
+        }
+        else if (name.equals("category")) {
+          return addCategory();
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type Goal.description");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Goal.status");
+        }
+        else if (name.equals("statusDate")) {
+          throw new Exception("Cannot call addChild on a primitive type Goal.statusDate");
+        }
+        else if (name.equals("statusReason")) {
+          this.statusReason = new CodeableConcept();
+          return this.statusReason;
+        }
+        else if (name.equals("author")) {
+          this.author = new Reference();
+          return this.author;
+        }
+        else if (name.equals("priority")) {
+          this.priority = new CodeableConcept();
+          return this.priority;
+        }
+        else if (name.equals("addresses")) {
+          return addAddresses();
+        }
+        else if (name.equals("note")) {
+          return addNote();
+        }
+        else if (name.equals("outcome")) {
+          return addOutcome();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Goal copy() {

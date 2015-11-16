@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -194,6 +194,32 @@ public class Bundle extends Resource implements IBaseBundle {
           return BundleType.COLLECTION;
         throw new IllegalArgumentException("Unknown BundleType code '"+codeString+"'");
         }
+        public Enumeration<BundleType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("document".equals(codeString))
+          return new Enumeration<BundleType>(this, BundleType.DOCUMENT);
+        if ("message".equals(codeString))
+          return new Enumeration<BundleType>(this, BundleType.MESSAGE);
+        if ("transaction".equals(codeString))
+          return new Enumeration<BundleType>(this, BundleType.TRANSACTION);
+        if ("transaction-response".equals(codeString))
+          return new Enumeration<BundleType>(this, BundleType.TRANSACTIONRESPONSE);
+        if ("batch".equals(codeString))
+          return new Enumeration<BundleType>(this, BundleType.BATCH);
+        if ("batch-response".equals(codeString))
+          return new Enumeration<BundleType>(this, BundleType.BATCHRESPONSE);
+        if ("history".equals(codeString))
+          return new Enumeration<BundleType>(this, BundleType.HISTORY);
+        if ("searchset".equals(codeString))
+          return new Enumeration<BundleType>(this, BundleType.SEARCHSET);
+        if ("collection".equals(codeString))
+          return new Enumeration<BundleType>(this, BundleType.COLLECTION);
+        throw new Exception("Unknown BundleType code '"+codeString+"'");
+        }
     public String toCode(BundleType code) {
       if (code == BundleType.DOCUMENT)
         return "document";
@@ -292,6 +318,20 @@ public class Bundle extends Resource implements IBaseBundle {
           return SearchEntryMode.OUTCOME;
         throw new IllegalArgumentException("Unknown SearchEntryMode code '"+codeString+"'");
         }
+        public Enumeration<SearchEntryMode> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("match".equals(codeString))
+          return new Enumeration<SearchEntryMode>(this, SearchEntryMode.MATCH);
+        if ("include".equals(codeString))
+          return new Enumeration<SearchEntryMode>(this, SearchEntryMode.INCLUDE);
+        if ("outcome".equals(codeString))
+          return new Enumeration<SearchEntryMode>(this, SearchEntryMode.OUTCOME);
+        throw new Exception("Unknown SearchEntryMode code '"+codeString+"'");
+        }
     public String toCode(SearchEntryMode code) {
       if (code == SearchEntryMode.MATCH)
         return "match";
@@ -389,6 +429,22 @@ public class Bundle extends Resource implements IBaseBundle {
         if ("DELETE".equals(codeString))
           return HTTPVerb.DELETE;
         throw new IllegalArgumentException("Unknown HTTPVerb code '"+codeString+"'");
+        }
+        public Enumeration<HTTPVerb> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("GET".equals(codeString))
+          return new Enumeration<HTTPVerb>(this, HTTPVerb.GET);
+        if ("POST".equals(codeString))
+          return new Enumeration<HTTPVerb>(this, HTTPVerb.POST);
+        if ("PUT".equals(codeString))
+          return new Enumeration<HTTPVerb>(this, HTTPVerb.PUT);
+        if ("DELETE".equals(codeString))
+          return new Enumeration<HTTPVerb>(this, HTTPVerb.DELETE);
+        throw new Exception("Unknown HTTPVerb code '"+codeString+"'");
         }
     public String toCode(HTTPVerb code) {
       if (code == HTTPVerb.GET)
@@ -532,6 +588,28 @@ public class Bundle extends Resource implements IBaseBundle {
           childrenList.add(new Property("relation", "string", "A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].", 0, java.lang.Integer.MAX_VALUE, relation));
           childrenList.add(new Property("url", "uri", "The reference details for the link.", 0, java.lang.Integer.MAX_VALUE, url));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("relation"))
+          this.relation = castToString(value); // StringType
+        else if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("relation")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.relation");
+        }
+        else if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.url");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public BundleLinkComponent copy() {
         BundleLinkComponent dst = new BundleLinkComponent();
@@ -811,6 +889,51 @@ public class Bundle extends Resource implements IBaseBundle {
           childrenList.add(new Property("response", "", "Additional information about how this entry should be processed as part of a transaction.", 0, java.lang.Integer.MAX_VALUE, response));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("link"))
+          this.getLink().add((BundleLinkComponent) value);
+        else if (name.equals("fullUrl"))
+          this.fullUrl = castToUri(value); // UriType
+        else if (name.equals("resource"))
+          this.resource = castToResource(value); // Resource
+        else if (name.equals("search"))
+          this.search = (BundleEntrySearchComponent) value; // BundleEntrySearchComponent
+        else if (name.equals("request"))
+          this.request = (BundleEntryRequestComponent) value; // BundleEntryRequestComponent
+        else if (name.equals("response"))
+          this.response = (BundleEntryResponseComponent) value; // BundleEntryResponseComponent
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("link")) {
+          return addLink();
+        }
+        else if (name.equals("fullUrl")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.fullUrl");
+        }
+        else if (name.equals("resource")) {
+          throw new Exception("Cannot call addChild on an abstract type Bundle.resource");
+        }
+        else if (name.equals("search")) {
+          this.search = new BundleEntrySearchComponent();
+          return this.search;
+        }
+        else if (name.equals("request")) {
+          this.request = new BundleEntryRequestComponent();
+          return this.request;
+        }
+        else if (name.equals("response")) {
+          this.response = new BundleEntryResponseComponent();
+          return this.response;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public BundleEntryComponent copy() {
         BundleEntryComponent dst = new BundleEntryComponent();
         copyValues(dst);
@@ -985,6 +1108,28 @@ public class Bundle extends Resource implements IBaseBundle {
           childrenList.add(new Property("mode", "code", "Why this entry is in the result set - whether it's included as a match or because of an _include requirement.", 0, java.lang.Integer.MAX_VALUE, mode));
           childrenList.add(new Property("score", "decimal", "When searching, the server's search ranking score for the entry.", 0, java.lang.Integer.MAX_VALUE, score));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("mode"))
+          this.mode = new SearchEntryModeEnumFactory().fromType(value); // Enumeration<SearchEntryMode>
+        else if (name.equals("score"))
+          this.score = castToDecimal(value); // DecimalType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("mode")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.mode");
+        }
+        else if (name.equals("score")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.score");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public BundleEntrySearchComponent copy() {
         BundleEntrySearchComponent dst = new BundleEntrySearchComponent();
@@ -1379,6 +1524,48 @@ public class Bundle extends Resource implements IBaseBundle {
           childrenList.add(new Property("ifNoneExist", "string", "Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [\"Conditional Create\"](http.html#ccreate). This is just the query portion of the URL - what follows the \"?\" (not including the \"?\").", 0, java.lang.Integer.MAX_VALUE, ifNoneExist));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("method"))
+          this.method = new HTTPVerbEnumFactory().fromType(value); // Enumeration<HTTPVerb>
+        else if (name.equals("url"))
+          this.url = castToUri(value); // UriType
+        else if (name.equals("ifNoneMatch"))
+          this.ifNoneMatch = castToString(value); // StringType
+        else if (name.equals("ifModifiedSince"))
+          this.ifModifiedSince = castToInstant(value); // InstantType
+        else if (name.equals("ifMatch"))
+          this.ifMatch = castToString(value); // StringType
+        else if (name.equals("ifNoneExist"))
+          this.ifNoneExist = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("method")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.method");
+        }
+        else if (name.equals("url")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.url");
+        }
+        else if (name.equals("ifNoneMatch")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.ifNoneMatch");
+        }
+        else if (name.equals("ifModifiedSince")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.ifModifiedSince");
+        }
+        else if (name.equals("ifMatch")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.ifMatch");
+        }
+        else if (name.equals("ifNoneExist")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.ifNoneExist");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public BundleEntryRequestComponent copy() {
         BundleEntryRequestComponent dst = new BundleEntryRequestComponent();
         copyValues(dst);
@@ -1670,6 +1857,38 @@ public class Bundle extends Resource implements IBaseBundle {
           childrenList.add(new Property("etag", "string", "The etag for the resource, it the operation for the entry produced a versioned resource.", 0, java.lang.Integer.MAX_VALUE, etag));
           childrenList.add(new Property("lastModified", "instant", "The date/time that the resource was modified on the server.", 0, java.lang.Integer.MAX_VALUE, lastModified));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("status"))
+          this.status = castToString(value); // StringType
+        else if (name.equals("location"))
+          this.location = castToUri(value); // UriType
+        else if (name.equals("etag"))
+          this.etag = castToString(value); // StringType
+        else if (name.equals("lastModified"))
+          this.lastModified = castToInstant(value); // InstantType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.status");
+        }
+        else if (name.equals("location")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.location");
+        }
+        else if (name.equals("etag")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.etag");
+        }
+        else if (name.equals("lastModified")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.lastModified");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public BundleEntryResponseComponent copy() {
         BundleEntryResponseComponent dst = new BundleEntryResponseComponent();
@@ -2012,6 +2231,44 @@ public class Bundle extends Resource implements IBaseBundle {
         childrenList.add(new Property("signature", "Signature", "Digital Signature - base64 encoded. XML DigSIg or a JWT.", 0, java.lang.Integer.MAX_VALUE, signature));
       }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = new BundleTypeEnumFactory().fromType(value); // Enumeration<BundleType>
+        else if (name.equals("total"))
+          this.total = castToUnsignedInt(value); // UnsignedIntType
+        else if (name.equals("link"))
+          this.getLink().add((BundleLinkComponent) value);
+        else if (name.equals("entry"))
+          this.getEntry().add((BundleEntryComponent) value);
+        else if (name.equals("signature"))
+          this.signature = castToSignature(value); // Signature
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.type");
+        }
+        else if (name.equals("total")) {
+          throw new Exception("Cannot call addChild on a primitive type Bundle.total");
+        }
+        else if (name.equals("link")) {
+          return addLink();
+        }
+        else if (name.equals("entry")) {
+          return addEntry();
+        }
+        else if (name.equals("signature")) {
+          this.signature = new Signature();
+          return this.signature;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public Bundle copy() {
         Bundle dst = new Bundle();
         copyValues(dst);
@@ -2067,9 +2324,9 @@ public class Bundle extends Resource implements IBaseBundle {
     return ResourceType.Bundle;
    }
 
-  @SearchParamDefinition(name="message", path="Bundle.entry.resource(0)", description="The first resource in the bundle, if the bundle type is \"message\" - this is a message header, and this parameter provides access to search its contents", type="reference" )
+  @SearchParamDefinition(name="message", path="Bundle.entry.resource.item(0)", description="The first resource in the bundle, if the bundle type is \"message\" - this is a message header, and this parameter provides access to search its contents", type="reference" )
   public static final String SP_MESSAGE = "message";
-  @SearchParamDefinition(name="composition", path="Bundle.entry.resource(0)", description="The first resource in the bundle, if the bundle type is \"document\" - this is a composition, and this parameter provides access to searches its contents", type="reference" )
+  @SearchParamDefinition(name="composition", path="Bundle.entry.resource.item(0)", description="The first resource in the bundle, if the bundle type is \"document\" - this is a composition, and this parameter provides access to searches its contents", type="reference" )
   public static final String SP_COMPOSITION = "composition";
   @SearchParamDefinition(name="type", path="Bundle.type", description="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection", type="token" )
   public static final String SP_TYPE = "type";

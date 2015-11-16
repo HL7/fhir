@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -205,6 +205,34 @@ public class DeviceUseRequest extends DomainResource {
           return DeviceUseRequestStatus.ABORTED;
         throw new IllegalArgumentException("Unknown DeviceUseRequestStatus code '"+codeString+"'");
         }
+        public Enumeration<DeviceUseRequestStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("proposed".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.PROPOSED);
+        if ("planned".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.PLANNED);
+        if ("requested".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.REQUESTED);
+        if ("received".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.RECEIVED);
+        if ("accepted".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.ACCEPTED);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.INPROGRESS);
+        if ("completed".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.COMPLETED);
+        if ("suspended".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.SUSPENDED);
+        if ("rejected".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.REJECTED);
+        if ("aborted".equals(codeString))
+          return new Enumeration<DeviceUseRequestStatus>(this, DeviceUseRequestStatus.ABORTED);
+        throw new Exception("Unknown DeviceUseRequestStatus code '"+codeString+"'");
+        }
     public String toCode(DeviceUseRequestStatus code) {
       if (code == DeviceUseRequestStatus.PROPOSED)
         return "proposed";
@@ -316,6 +344,22 @@ public class DeviceUseRequest extends DomainResource {
         if ("asap".equals(codeString))
           return DeviceUseRequestPriority.ASAP;
         throw new IllegalArgumentException("Unknown DeviceUseRequestPriority code '"+codeString+"'");
+        }
+        public Enumeration<DeviceUseRequestPriority> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("routine".equals(codeString))
+          return new Enumeration<DeviceUseRequestPriority>(this, DeviceUseRequestPriority.ROUTINE);
+        if ("urgent".equals(codeString))
+          return new Enumeration<DeviceUseRequestPriority>(this, DeviceUseRequestPriority.URGENT);
+        if ("stat".equals(codeString))
+          return new Enumeration<DeviceUseRequestPriority>(this, DeviceUseRequestPriority.STAT);
+        if ("asap".equals(codeString))
+          return new Enumeration<DeviceUseRequestPriority>(this, DeviceUseRequestPriority.ASAP);
+        throw new Exception("Unknown DeviceUseRequestPriority code '"+codeString+"'");
         }
     public String toCode(DeviceUseRequestPriority code) {
       if (code == DeviceUseRequestPriority.ROUTINE)
@@ -1074,6 +1118,100 @@ public class DeviceUseRequest extends DomainResource {
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who will use the device.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("timing[x]", "Timing|Period|dateTime", "The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, timing));
         childrenList.add(new Property("priority", "code", "Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine.", 0, java.lang.Integer.MAX_VALUE, priority));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("bodySite[x]"))
+          this.bodySite = (Type) value; // Type
+        else if (name.equals("status"))
+          this.status = new DeviceUseRequestStatusEnumFactory().fromType(value); // Enumeration<DeviceUseRequestStatus>
+        else if (name.equals("device"))
+          this.device = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("indication"))
+          this.getIndication().add(castToCodeableConcept(value));
+        else if (name.equals("notes"))
+          this.getNotes().add(castToString(value));
+        else if (name.equals("prnReason"))
+          this.getPrnReason().add(castToCodeableConcept(value));
+        else if (name.equals("orderedOn"))
+          this.orderedOn = castToDateTime(value); // DateTimeType
+        else if (name.equals("recordedOn"))
+          this.recordedOn = castToDateTime(value); // DateTimeType
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("timing[x]"))
+          this.timing = (Type) value; // Type
+        else if (name.equals("priority"))
+          this.priority = new DeviceUseRequestPriorityEnumFactory().fromType(value); // Enumeration<DeviceUseRequestPriority>
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("bodySiteCodeableConcept")) {
+          this.bodySite = new CodeableConcept();
+          return this.bodySite;
+        }
+        else if (name.equals("bodySiteReference")) {
+          this.bodySite = new Reference();
+          return this.bodySite;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceUseRequest.status");
+        }
+        else if (name.equals("device")) {
+          this.device = new Reference();
+          return this.device;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("indication")) {
+          return addIndication();
+        }
+        else if (name.equals("notes")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceUseRequest.notes");
+        }
+        else if (name.equals("prnReason")) {
+          return addPrnReason();
+        }
+        else if (name.equals("orderedOn")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceUseRequest.orderedOn");
+        }
+        else if (name.equals("recordedOn")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceUseRequest.recordedOn");
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("timingTiming")) {
+          this.timing = new Timing();
+          return this.timing;
+        }
+        else if (name.equals("timingPeriod")) {
+          this.timing = new Period();
+          return this.timing;
+        }
+        else if (name.equals("timingDateTime")) {
+          this.timing = new DateTimeType();
+          return this.timing;
+        }
+        else if (name.equals("priority")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceUseRequest.priority");
+        }
+        else
+          return super.addChild(name);
       }
 
       public DeviceUseRequest copy() {

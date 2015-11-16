@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -205,6 +205,34 @@ public class ProcedureRequest extends DomainResource {
           return ProcedureRequestStatus.ABORTED;
         throw new IllegalArgumentException("Unknown ProcedureRequestStatus code '"+codeString+"'");
         }
+        public Enumeration<ProcedureRequestStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("proposed".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.PROPOSED);
+        if ("draft".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.DRAFT);
+        if ("requested".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.REQUESTED);
+        if ("received".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.RECEIVED);
+        if ("accepted".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.ACCEPTED);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.INPROGRESS);
+        if ("completed".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.COMPLETED);
+        if ("suspended".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.SUSPENDED);
+        if ("rejected".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.REJECTED);
+        if ("aborted".equals(codeString))
+          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.ABORTED);
+        throw new Exception("Unknown ProcedureRequestStatus code '"+codeString+"'");
+        }
     public String toCode(ProcedureRequestStatus code) {
       if (code == ProcedureRequestStatus.PROPOSED)
         return "proposed";
@@ -316,6 +344,22 @@ public class ProcedureRequest extends DomainResource {
         if ("asap".equals(codeString))
           return ProcedureRequestPriority.ASAP;
         throw new IllegalArgumentException("Unknown ProcedureRequestPriority code '"+codeString+"'");
+        }
+        public Enumeration<ProcedureRequestPriority> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("routine".equals(codeString))
+          return new Enumeration<ProcedureRequestPriority>(this, ProcedureRequestPriority.ROUTINE);
+        if ("urgent".equals(codeString))
+          return new Enumeration<ProcedureRequestPriority>(this, ProcedureRequestPriority.URGENT);
+        if ("stat".equals(codeString))
+          return new Enumeration<ProcedureRequestPriority>(this, ProcedureRequestPriority.STAT);
+        if ("asap".equals(codeString))
+          return new Enumeration<ProcedureRequestPriority>(this, ProcedureRequestPriority.ASAP);
+        throw new Exception("Unknown ProcedureRequestPriority code '"+codeString+"'");
         }
     public String toCode(ProcedureRequestPriority code) {
       if (code == ProcedureRequestPriority.ROUTINE)
@@ -1082,6 +1126,112 @@ public class ProcedureRequest extends DomainResource {
         childrenList.add(new Property("orderedOn", "dateTime", "The time when the request was made.", 0, java.lang.Integer.MAX_VALUE, orderedOn));
         childrenList.add(new Property("orderer", "Reference(Practitioner|Patient|RelatedPerson|Device)", "The healthcare professional responsible for proposing or ordering the procedure.", 0, java.lang.Integer.MAX_VALUE, orderer));
         childrenList.add(new Property("priority", "code", "The clinical priority associated with this order.", 0, java.lang.Integer.MAX_VALUE, priority));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("bodySite"))
+          this.getBodySite().add(castToCodeableConcept(value));
+        else if (name.equals("reason[x]"))
+          this.reason = (Type) value; // Type
+        else if (name.equals("scheduled[x]"))
+          this.scheduled = (Type) value; // Type
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("performer"))
+          this.performer = castToReference(value); // Reference
+        else if (name.equals("status"))
+          this.status = new ProcedureRequestStatusEnumFactory().fromType(value); // Enumeration<ProcedureRequestStatus>
+        else if (name.equals("notes"))
+          this.getNotes().add(castToAnnotation(value));
+        else if (name.equals("asNeeded[x]"))
+          this.asNeeded = (Type) value; // Type
+        else if (name.equals("orderedOn"))
+          this.orderedOn = castToDateTime(value); // DateTimeType
+        else if (name.equals("orderer"))
+          this.orderer = castToReference(value); // Reference
+        else if (name.equals("priority"))
+          this.priority = new ProcedureRequestPriorityEnumFactory().fromType(value); // Enumeration<ProcedureRequestPriority>
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("bodySite")) {
+          return addBodySite();
+        }
+        else if (name.equals("reasonCodeableConcept")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else if (name.equals("reasonReference")) {
+          this.reason = new Reference();
+          return this.reason;
+        }
+        else if (name.equals("scheduledDateTime")) {
+          this.scheduled = new DateTimeType();
+          return this.scheduled;
+        }
+        else if (name.equals("scheduledPeriod")) {
+          this.scheduled = new Period();
+          return this.scheduled;
+        }
+        else if (name.equals("scheduledTiming")) {
+          this.scheduled = new Timing();
+          return this.scheduled;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("performer")) {
+          this.performer = new Reference();
+          return this.performer;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcedureRequest.status");
+        }
+        else if (name.equals("notes")) {
+          return addNotes();
+        }
+        else if (name.equals("asNeededBoolean")) {
+          this.asNeeded = new BooleanType();
+          return this.asNeeded;
+        }
+        else if (name.equals("asNeededCodeableConcept")) {
+          this.asNeeded = new CodeableConcept();
+          return this.asNeeded;
+        }
+        else if (name.equals("orderedOn")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcedureRequest.orderedOn");
+        }
+        else if (name.equals("orderer")) {
+          this.orderer = new Reference();
+          return this.orderer;
+        }
+        else if (name.equals("priority")) {
+          throw new Exception("Cannot call addChild on a primitive type ProcedureRequest.priority");
+        }
+        else
+          return super.addChild(name);
       }
 
       public ProcedureRequest copy() {

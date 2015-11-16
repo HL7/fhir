@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -122,6 +122,28 @@ public class DocumentManifest extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("p[x]", "Attachment|Reference(Any)", "The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.", 0, java.lang.Integer.MAX_VALUE, p));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("p[x]"))
+          this.p = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("pAttachment")) {
+          this.p = new Attachment();
+          return this.p;
+        }
+        else if (name.equals("pReference")) {
+          this.p = new Reference();
+          return this.p;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DocumentManifestContentComponent copy() {
         DocumentManifestContentComponent dst = new DocumentManifestContentComponent();
@@ -254,6 +276,30 @@ public class DocumentManifest extends DomainResource {
           childrenList.add(new Property("identifier", "Identifier", "Related identifier to this DocumentManifest.  For example, Order numbers, accession numbers, XDW workflow numbers.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("ref", "Reference(Any)", "Related Resource to this DocumentManifest. For example, Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.", 0, java.lang.Integer.MAX_VALUE, ref));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("ref"))
+          this.ref = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("ref")) {
+          this.ref = new Reference();
+          return this.ref;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DocumentManifestRelatedComponent copy() {
         DocumentManifestRelatedComponent dst = new DocumentManifestRelatedComponent();
@@ -917,6 +963,81 @@ public class DocumentManifest extends DomainResource {
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the \"title\".", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("content", "", "The list of Documents included in the manifest.", 0, java.lang.Integer.MAX_VALUE, content));
         childrenList.add(new Property("related", "", "Related identifiers or resources associated with the DocumentManifest.", 0, java.lang.Integer.MAX_VALUE, related));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("masterIdentifier"))
+          this.masterIdentifier = castToIdentifier(value); // Identifier
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("recipient"))
+          this.getRecipient().add(castToReference(value));
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("author"))
+          this.getAuthor().add(castToReference(value));
+        else if (name.equals("created"))
+          this.created = castToDateTime(value); // DateTimeType
+        else if (name.equals("source"))
+          this.source = castToUri(value); // UriType
+        else if (name.equals("status"))
+          this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("content"))
+          this.getContent().add((DocumentManifestContentComponent) value);
+        else if (name.equals("related"))
+          this.getRelated().add((DocumentManifestRelatedComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("masterIdentifier")) {
+          this.masterIdentifier = new Identifier();
+          return this.masterIdentifier;
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("recipient")) {
+          return addRecipient();
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("author")) {
+          return addAuthor();
+        }
+        else if (name.equals("created")) {
+          throw new Exception("Cannot call addChild on a primitive type DocumentManifest.created");
+        }
+        else if (name.equals("source")) {
+          throw new Exception("Cannot call addChild on a primitive type DocumentManifest.source");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type DocumentManifest.status");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type DocumentManifest.description");
+        }
+        else if (name.equals("content")) {
+          return addContent();
+        }
+        else if (name.equals("related")) {
+          return addRelated();
+        }
+        else
+          return super.addChild(name);
       }
 
       public DocumentManifest copy() {

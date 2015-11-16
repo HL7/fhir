@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -169,6 +169,28 @@ public class HealthcareService extends DomainResource {
           return DaysOfWeek.SUN;
         throw new IllegalArgumentException("Unknown DaysOfWeek code '"+codeString+"'");
         }
+        public Enumeration<DaysOfWeek> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("mon".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.MON);
+        if ("tue".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.TUE);
+        if ("wed".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.WED);
+        if ("thu".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.THU);
+        if ("fri".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.FRI);
+        if ("sat".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.SAT);
+        if ("sun".equals(codeString))
+          return new Enumeration<DaysOfWeek>(this, DaysOfWeek.SUN);
+        throw new Exception("Unknown DaysOfWeek code '"+codeString+"'");
+        }
     public String toCode(DaysOfWeek code) {
       if (code == DaysOfWeek.MON)
         return "mon";
@@ -290,6 +312,29 @@ public class HealthcareService extends DomainResource {
           childrenList.add(new Property("type", "CodeableConcept", "The specific type of service being delivered or performed.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("specialty", "CodeableConcept", "Collection of specialties handled by the service site. This is more of a medical term.", 0, java.lang.Integer.MAX_VALUE, specialty));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("specialty"))
+          this.getSpecialty().add(castToCodeableConcept(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("specialty")) {
+          return addSpecialty();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ServiceTypeComponent copy() {
         ServiceTypeComponent dst = new ServiceTypeComponent();
@@ -574,6 +619,38 @@ public class HealthcareService extends DomainResource {
           childrenList.add(new Property("availableEndTime", "time", "The closing time of day. Note: If the AllDay flag is set, then this time is ignored.", 0, java.lang.Integer.MAX_VALUE, availableEndTime));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("daysOfWeek"))
+          this.getDaysOfWeek().add(new DaysOfWeekEnumFactory().fromType(value));
+        else if (name.equals("allDay"))
+          this.allDay = castToBoolean(value); // BooleanType
+        else if (name.equals("availableStartTime"))
+          this.availableStartTime = castToTime(value); // TimeType
+        else if (name.equals("availableEndTime"))
+          this.availableEndTime = castToTime(value); // TimeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("daysOfWeek")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.daysOfWeek");
+        }
+        else if (name.equals("allDay")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.allDay");
+        }
+        else if (name.equals("availableStartTime")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.availableStartTime");
+        }
+        else if (name.equals("availableEndTime")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.availableEndTime");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public HealthcareServiceAvailableTimeComponent copy() {
         HealthcareServiceAvailableTimeComponent dst = new HealthcareServiceAvailableTimeComponent();
         copyValues(dst);
@@ -725,6 +802,29 @@ public class HealthcareService extends DomainResource {
           childrenList.add(new Property("description", "string", "The reason that can be presented to the user as to why this time is not available.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("during", "Period", "Service is not available (seasonally or for a public holiday) from this date.", 0, java.lang.Integer.MAX_VALUE, during));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("during"))
+          this.during = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.description");
+        }
+        else if (name.equals("during")) {
+          this.during = new Period();
+          return this.during;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public HealthcareServiceNotAvailableComponent copy() {
         HealthcareServiceNotAvailableComponent dst = new HealthcareServiceNotAvailableComponent();
@@ -1905,6 +2005,133 @@ public class HealthcareService extends DomainResource {
         childrenList.add(new Property("availableTime", "", "A collection of times that the Service Site is available.", 0, java.lang.Integer.MAX_VALUE, availableTime));
         childrenList.add(new Property("notAvailable", "", "The HealthcareService is not available during this period of time due to the provided reason.", 0, java.lang.Integer.MAX_VALUE, notAvailable));
         childrenList.add(new Property("availabilityExceptions", "string", "A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.", 0, java.lang.Integer.MAX_VALUE, availabilityExceptions));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("providedBy"))
+          this.providedBy = castToReference(value); // Reference
+        else if (name.equals("serviceCategory"))
+          this.serviceCategory = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("serviceType"))
+          this.getServiceType().add((ServiceTypeComponent) value);
+        else if (name.equals("location"))
+          this.location = castToReference(value); // Reference
+        else if (name.equals("serviceName"))
+          this.serviceName = castToString(value); // StringType
+        else if (name.equals("comment"))
+          this.comment = castToString(value); // StringType
+        else if (name.equals("extraDetails"))
+          this.extraDetails = castToString(value); // StringType
+        else if (name.equals("photo"))
+          this.photo = castToAttachment(value); // Attachment
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else if (name.equals("coverageArea"))
+          this.getCoverageArea().add(castToReference(value));
+        else if (name.equals("serviceProvisionCode"))
+          this.getServiceProvisionCode().add(castToCodeableConcept(value));
+        else if (name.equals("eligibility"))
+          this.eligibility = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("eligibilityNote"))
+          this.eligibilityNote = castToString(value); // StringType
+        else if (name.equals("programName"))
+          this.getProgramName().add(castToString(value));
+        else if (name.equals("characteristic"))
+          this.getCharacteristic().add(castToCodeableConcept(value));
+        else if (name.equals("referralMethod"))
+          this.getReferralMethod().add(castToCodeableConcept(value));
+        else if (name.equals("publicKey"))
+          this.publicKey = castToString(value); // StringType
+        else if (name.equals("appointmentRequired"))
+          this.appointmentRequired = castToBoolean(value); // BooleanType
+        else if (name.equals("availableTime"))
+          this.getAvailableTime().add((HealthcareServiceAvailableTimeComponent) value);
+        else if (name.equals("notAvailable"))
+          this.getNotAvailable().add((HealthcareServiceNotAvailableComponent) value);
+        else if (name.equals("availabilityExceptions"))
+          this.availabilityExceptions = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("providedBy")) {
+          this.providedBy = new Reference();
+          return this.providedBy;
+        }
+        else if (name.equals("serviceCategory")) {
+          this.serviceCategory = new CodeableConcept();
+          return this.serviceCategory;
+        }
+        else if (name.equals("serviceType")) {
+          return addServiceType();
+        }
+        else if (name.equals("location")) {
+          this.location = new Reference();
+          return this.location;
+        }
+        else if (name.equals("serviceName")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.serviceName");
+        }
+        else if (name.equals("comment")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.comment");
+        }
+        else if (name.equals("extraDetails")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.extraDetails");
+        }
+        else if (name.equals("photo")) {
+          this.photo = new Attachment();
+          return this.photo;
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else if (name.equals("coverageArea")) {
+          return addCoverageArea();
+        }
+        else if (name.equals("serviceProvisionCode")) {
+          return addServiceProvisionCode();
+        }
+        else if (name.equals("eligibility")) {
+          this.eligibility = new CodeableConcept();
+          return this.eligibility;
+        }
+        else if (name.equals("eligibilityNote")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.eligibilityNote");
+        }
+        else if (name.equals("programName")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.programName");
+        }
+        else if (name.equals("characteristic")) {
+          return addCharacteristic();
+        }
+        else if (name.equals("referralMethod")) {
+          return addReferralMethod();
+        }
+        else if (name.equals("publicKey")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.publicKey");
+        }
+        else if (name.equals("appointmentRequired")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.appointmentRequired");
+        }
+        else if (name.equals("availableTime")) {
+          return addAvailableTime();
+        }
+        else if (name.equals("notAvailable")) {
+          return addNotAvailable();
+        }
+        else if (name.equals("availabilityExceptions")) {
+          throw new Exception("Cannot call addChild on a primitive type HealthcareService.availabilityExceptions");
+        }
+        else
+          return super.addChild(name);
       }
 
       public HealthcareService copy() {

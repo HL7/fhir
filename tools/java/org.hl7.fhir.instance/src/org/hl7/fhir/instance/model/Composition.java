@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -133,6 +133,22 @@ public class Composition extends DomainResource {
           return CompositionStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown CompositionStatus code '"+codeString+"'");
         }
+        public Enumeration<CompositionStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("preliminary".equals(codeString))
+          return new Enumeration<CompositionStatus>(this, CompositionStatus.PRELIMINARY);
+        if ("final".equals(codeString))
+          return new Enumeration<CompositionStatus>(this, CompositionStatus.FINAL);
+        if ("amended".equals(codeString))
+          return new Enumeration<CompositionStatus>(this, CompositionStatus.AMENDED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<CompositionStatus>(this, CompositionStatus.ENTEREDINERROR);
+        throw new Exception("Unknown CompositionStatus code '"+codeString+"'");
+        }
     public String toCode(CompositionStatus code) {
       if (code == CompositionStatus.PRELIMINARY)
         return "preliminary";
@@ -232,6 +248,22 @@ public class Composition extends DomainResource {
         if ("official".equals(codeString))
           return CompositionAttestationMode.OFFICIAL;
         throw new IllegalArgumentException("Unknown CompositionAttestationMode code '"+codeString+"'");
+        }
+        public Enumeration<CompositionAttestationMode> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("personal".equals(codeString))
+          return new Enumeration<CompositionAttestationMode>(this, CompositionAttestationMode.PERSONAL);
+        if ("professional".equals(codeString))
+          return new Enumeration<CompositionAttestationMode>(this, CompositionAttestationMode.PROFESSIONAL);
+        if ("legal".equals(codeString))
+          return new Enumeration<CompositionAttestationMode>(this, CompositionAttestationMode.LEGAL);
+        if ("official".equals(codeString))
+          return new Enumeration<CompositionAttestationMode>(this, CompositionAttestationMode.OFFICIAL);
+        throw new Exception("Unknown CompositionAttestationMode code '"+codeString+"'");
         }
     public String toCode(CompositionAttestationMode code) {
       if (code == CompositionAttestationMode.PERSONAL)
@@ -432,6 +464,34 @@ public class Composition extends DomainResource {
           childrenList.add(new Property("party", "Reference(Patient|Practitioner|Organization)", "Who attested the composition in the specified way.", 0, java.lang.Integer.MAX_VALUE, party));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("mode"))
+          this.getMode().add(new CompositionAttestationModeEnumFactory().fromType(value));
+        else if (name.equals("time"))
+          this.time = castToDateTime(value); // DateTimeType
+        else if (name.equals("party"))
+          this.party = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("mode")) {
+          throw new Exception("Cannot call addChild on a primitive type Composition.mode");
+        }
+        else if (name.equals("time")) {
+          throw new Exception("Cannot call addChild on a primitive type Composition.time");
+        }
+        else if (name.equals("party")) {
+          this.party = new Reference();
+          return this.party;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public CompositionAttesterComponent copy() {
         CompositionAttesterComponent dst = new CompositionAttesterComponent();
         copyValues(dst);
@@ -629,6 +689,34 @@ public class Composition extends DomainResource {
           childrenList.add(new Property("period", "Period", "The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("detail", "Reference(Any)", "The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.getCode().add(castToCodeableConcept(value));
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("detail"))
+          this.getDetail().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          return addCode();
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("detail")) {
+          return addDetail();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public CompositionEventComponent copy() {
         CompositionEventComponent dst = new CompositionEventComponent();
@@ -1041,6 +1129,62 @@ public class Composition extends DomainResource {
           childrenList.add(new Property("emptyReason", "CodeableConcept", "If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason.", 0, java.lang.Integer.MAX_VALUE, emptyReason));
           childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("title"))
+          this.title = castToString(value); // StringType
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("text"))
+          this.text = castToNarrative(value); // Narrative
+        else if (name.equals("mode"))
+          this.mode = castToCode(value); // CodeType
+        else if (name.equals("orderedBy"))
+          this.orderedBy = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("entry"))
+          this.getEntry().add(castToReference(value));
+        else if (name.equals("emptyReason"))
+          this.emptyReason = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("section"))
+          this.getSection().add((SectionComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("title")) {
+          throw new Exception("Cannot call addChild on a primitive type Composition.title");
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("text")) {
+          this.text = new Narrative();
+          return this.text;
+        }
+        else if (name.equals("mode")) {
+          throw new Exception("Cannot call addChild on a primitive type Composition.mode");
+        }
+        else if (name.equals("orderedBy")) {
+          this.orderedBy = new CodeableConcept();
+          return this.orderedBy;
+        }
+        else if (name.equals("entry")) {
+          return addEntry();
+        }
+        else if (name.equals("emptyReason")) {
+          this.emptyReason = new CodeableConcept();
+          return this.emptyReason;
+        }
+        else if (name.equals("section")) {
+          return addSection();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SectionComponent copy() {
         SectionComponent dst = new SectionComponent();
@@ -1802,6 +1946,94 @@ public class Composition extends DomainResource {
         childrenList.add(new Property("event", "", "The clinical service, such as a colonoscopy or an appendectomy, being documented.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "Describes the clinical encounter or type of care this documentation is associated with.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("section", "", "The root of the sections that make up the composition.", 0, java.lang.Integer.MAX_VALUE, section));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("class"))
+          this.class_ = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("title"))
+          this.title = castToString(value); // StringType
+        else if (name.equals("status"))
+          this.status = new CompositionStatusEnumFactory().fromType(value); // Enumeration<CompositionStatus>
+        else if (name.equals("confidentiality"))
+          this.confidentiality = castToCode(value); // CodeType
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("author"))
+          this.getAuthor().add(castToReference(value));
+        else if (name.equals("attester"))
+          this.getAttester().add((CompositionAttesterComponent) value);
+        else if (name.equals("custodian"))
+          this.custodian = castToReference(value); // Reference
+        else if (name.equals("event"))
+          this.getEvent().add((CompositionEventComponent) value);
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("section"))
+          this.getSection().add((SectionComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type Composition.date");
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("class")) {
+          this.class_ = new CodeableConcept();
+          return this.class_;
+        }
+        else if (name.equals("title")) {
+          throw new Exception("Cannot call addChild on a primitive type Composition.title");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Composition.status");
+        }
+        else if (name.equals("confidentiality")) {
+          throw new Exception("Cannot call addChild on a primitive type Composition.confidentiality");
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("author")) {
+          return addAuthor();
+        }
+        else if (name.equals("attester")) {
+          return addAttester();
+        }
+        else if (name.equals("custodian")) {
+          this.custodian = new Reference();
+          return this.custodian;
+        }
+        else if (name.equals("event")) {
+          return addEvent();
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("section")) {
+          return addSection();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Composition copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -328,6 +328,48 @@ public class Signature extends Type implements ICompositeType {
         childrenList.add(new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key).", 0, java.lang.Integer.MAX_VALUE, who));
         childrenList.add(new Property("contentType", "code", "A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature.", 0, java.lang.Integer.MAX_VALUE, contentType));
         childrenList.add(new Property("blob", "base64Binary", "The base64 encoding of the Signature content.", 0, java.lang.Integer.MAX_VALUE, blob));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.getType().add(castToCoding(value));
+        else if (name.equals("when"))
+          this.when = castToInstant(value); // InstantType
+        else if (name.equals("who[x]"))
+          this.who = (Type) value; // Type
+        else if (name.equals("contentType"))
+          this.contentType = castToCode(value); // CodeType
+        else if (name.equals("blob"))
+          this.blob = castToBase64Binary(value); // Base64BinaryType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          return addType();
+        }
+        else if (name.equals("when")) {
+          throw new Exception("Cannot call addChild on a primitive type Signature.when");
+        }
+        else if (name.equals("whoUri")) {
+          this.who = new UriType();
+          return this.who;
+        }
+        else if (name.equals("whoReference")) {
+          this.who = new Reference();
+          return this.who;
+        }
+        else if (name.equals("contentType")) {
+          throw new Exception("Cannot call addChild on a primitive type Signature.contentType");
+        }
+        else if (name.equals("blob")) {
+          throw new Exception("Cannot call addChild on a primitive type Signature.blob");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Signature copy() {

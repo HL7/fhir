@@ -60,7 +60,7 @@ public class JavaFactoryGenerator extends OutputStreamWriter {
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
 		write("public class ResourceFactory extends Factory {\r\n");
 		write("\r\n");
-		write("    public static Resource createReference(String name) throws Exception {\r\n");
+		write("    public static Resource createResource(String name) throws Exception {\r\n");
 		for (String name : resources.keySet()) {
 			write("        if (\""+name+"\".equals(name))\r\n");
 			write("            return new "+javaClassName(resources.get(name))+"();\r\n");

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -329,6 +329,43 @@ public class Meta extends Type implements IBaseMetaType {
         childrenList.add(new Property("profile", "uri", "A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("security", "Coding", "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.", 0, java.lang.Integer.MAX_VALUE, security));
         childrenList.add(new Property("tag", "Coding", "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.", 0, java.lang.Integer.MAX_VALUE, tag));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("versionId"))
+          this.versionId = castToId(value); // IdType
+        else if (name.equals("lastUpdated"))
+          this.lastUpdated = castToInstant(value); // InstantType
+        else if (name.equals("profile"))
+          this.getProfile().add(castToUri(value));
+        else if (name.equals("security"))
+          this.getSecurity().add(castToCoding(value));
+        else if (name.equals("tag"))
+          this.getTag().add(castToCoding(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("versionId")) {
+          throw new Exception("Cannot call addChild on a primitive type Meta.versionId");
+        }
+        else if (name.equals("lastUpdated")) {
+          throw new Exception("Cannot call addChild on a primitive type Meta.lastUpdated");
+        }
+        else if (name.equals("profile")) {
+          throw new Exception("Cannot call addChild on a primitive type Meta.profile");
+        }
+        else if (name.equals("security")) {
+          return addSecurity();
+        }
+        else if (name.equals("tag")) {
+          return addTag();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Meta copy() {

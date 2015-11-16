@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -119,6 +119,30 @@ public class Range extends Type implements ICompositeType {
         super.listChildren(childrenList);
         childrenList.add(new Property("low", "SimpleQuantity", "The low limit. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, low));
         childrenList.add(new Property("high", "SimpleQuantity", "The high limit. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, high));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("low"))
+          this.low = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("high"))
+          this.high = castToSimpleQuantity(value); // SimpleQuantity
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("low")) {
+          this.low = new SimpleQuantity();
+          return this.low;
+        }
+        else if (name.equals("high")) {
+          this.high = new SimpleQuantity();
+          return this.high;
+        }
+        else
+          return super.addChild(name);
       }
 
       public Range copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -121,6 +121,20 @@ public class MessageHeader extends DomainResource {
         if ("fatal-error".equals(codeString))
           return ResponseType.FATALERROR;
         throw new IllegalArgumentException("Unknown ResponseType code '"+codeString+"'");
+        }
+        public Enumeration<ResponseType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("ok".equals(codeString))
+          return new Enumeration<ResponseType>(this, ResponseType.OK);
+        if ("transient-error".equals(codeString))
+          return new Enumeration<ResponseType>(this, ResponseType.TRANSIENTERROR);
+        if ("fatal-error".equals(codeString))
+          return new Enumeration<ResponseType>(this, ResponseType.FATALERROR);
+        throw new Exception("Unknown ResponseType code '"+codeString+"'");
         }
     public String toCode(ResponseType code) {
       if (code == ResponseType.OK)
@@ -319,6 +333,34 @@ public class MessageHeader extends DomainResource {
           childrenList.add(new Property("code", "code", "Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("details", "Reference(OperationOutcome)", "Full details of any issues found in the message.", 0, java.lang.Integer.MAX_VALUE, details));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToId(value); // IdType
+        else if (name.equals("code"))
+          this.code = new ResponseTypeEnumFactory().fromType(value); // Enumeration<ResponseType>
+        else if (name.equals("details"))
+          this.details = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          throw new Exception("Cannot call addChild on a primitive type MessageHeader.identifier");
+        }
+        else if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type MessageHeader.code");
+        }
+        else if (name.equals("details")) {
+          this.details = new Reference();
+          return this.details;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public MessageHeaderResponseComponent copy() {
         MessageHeaderResponseComponent dst = new MessageHeaderResponseComponent();
@@ -636,6 +678,44 @@ public class MessageHeader extends DomainResource {
           childrenList.add(new Property("endpoint", "uri", "Identifies the routing target to send acknowledgements to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("software"))
+          this.software = castToString(value); // StringType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("contact"))
+          this.contact = castToContactPoint(value); // ContactPoint
+        else if (name.equals("endpoint"))
+          this.endpoint = castToUri(value); // UriType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type MessageHeader.name");
+        }
+        else if (name.equals("software")) {
+          throw new Exception("Cannot call addChild on a primitive type MessageHeader.software");
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type MessageHeader.version");
+        }
+        else if (name.equals("contact")) {
+          this.contact = new ContactPoint();
+          return this.contact;
+        }
+        else if (name.equals("endpoint")) {
+          throw new Exception("Cannot call addChild on a primitive type MessageHeader.endpoint");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public MessageSourceComponent copy() {
         MessageSourceComponent dst = new MessageSourceComponent();
         copyValues(dst);
@@ -866,6 +946,34 @@ public class MessageHeader extends DomainResource {
           childrenList.add(new Property("target", "Reference(Device)", "Identifies the target end system in situations where the initial message transmission is to an intermediary system.", 0, java.lang.Integer.MAX_VALUE, target));
           childrenList.add(new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("target"))
+          this.target = castToReference(value); // Reference
+        else if (name.equals("endpoint"))
+          this.endpoint = castToUri(value); // UriType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type MessageHeader.name");
+        }
+        else if (name.equals("target")) {
+          this.target = new Reference();
+          return this.target;
+        }
+        else if (name.equals("endpoint")) {
+          throw new Exception("Cannot call addChild on a primitive type MessageHeader.endpoint");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public MessageDestinationComponent copy() {
         MessageDestinationComponent dst = new MessageDestinationComponent();
@@ -1434,6 +1542,81 @@ public class MessageHeader extends DomainResource {
         childrenList.add(new Property("responsible", "Reference(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.", 0, java.lang.Integer.MAX_VALUE, responsible));
         childrenList.add(new Property("reason", "CodeableConcept", "Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("data", "Reference(Any)", "The actual data of the message - a reference to the root/focus class of the event.", 0, java.lang.Integer.MAX_VALUE, data));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("timestamp"))
+          this.timestamp = castToInstant(value); // InstantType
+        else if (name.equals("event"))
+          this.event = castToCoding(value); // Coding
+        else if (name.equals("response"))
+          this.response = (MessageHeaderResponseComponent) value; // MessageHeaderResponseComponent
+        else if (name.equals("source"))
+          this.source = (MessageSourceComponent) value; // MessageSourceComponent
+        else if (name.equals("destination"))
+          this.getDestination().add((MessageDestinationComponent) value);
+        else if (name.equals("enterer"))
+          this.enterer = castToReference(value); // Reference
+        else if (name.equals("author"))
+          this.author = castToReference(value); // Reference
+        else if (name.equals("receiver"))
+          this.receiver = castToReference(value); // Reference
+        else if (name.equals("responsible"))
+          this.responsible = castToReference(value); // Reference
+        else if (name.equals("reason"))
+          this.reason = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("data"))
+          this.getData().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("timestamp")) {
+          throw new Exception("Cannot call addChild on a primitive type MessageHeader.timestamp");
+        }
+        else if (name.equals("event")) {
+          this.event = new Coding();
+          return this.event;
+        }
+        else if (name.equals("response")) {
+          this.response = new MessageHeaderResponseComponent();
+          return this.response;
+        }
+        else if (name.equals("source")) {
+          this.source = new MessageSourceComponent();
+          return this.source;
+        }
+        else if (name.equals("destination")) {
+          return addDestination();
+        }
+        else if (name.equals("enterer")) {
+          this.enterer = new Reference();
+          return this.enterer;
+        }
+        else if (name.equals("author")) {
+          this.author = new Reference();
+          return this.author;
+        }
+        else if (name.equals("receiver")) {
+          this.receiver = new Reference();
+          return this.receiver;
+        }
+        else if (name.equals("responsible")) {
+          this.responsible = new Reference();
+          return this.responsible;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else if (name.equals("data")) {
+          return addData();
+        }
+        else
+          return super.addChild(name);
       }
 
       public MessageHeader copy() {

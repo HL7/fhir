@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -546,6 +546,80 @@ public class DeviceUseStatement extends DomainResource {
         childrenList.add(new Property("recordedOn", "dateTime", "The time at which the statement was made/recorded.", 0, java.lang.Integer.MAX_VALUE, recordedOn));
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who used the device.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("timing[x]", "Timing|Period|dateTime", "How often the device was used.", 0, java.lang.Integer.MAX_VALUE, timing));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("bodySite[x]"))
+          this.bodySite = (Type) value; // Type
+        else if (name.equals("whenUsed"))
+          this.whenUsed = castToPeriod(value); // Period
+        else if (name.equals("device"))
+          this.device = castToReference(value); // Reference
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("indication"))
+          this.getIndication().add(castToCodeableConcept(value));
+        else if (name.equals("notes"))
+          this.getNotes().add(castToString(value));
+        else if (name.equals("recordedOn"))
+          this.recordedOn = castToDateTime(value); // DateTimeType
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("timing[x]"))
+          this.timing = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("bodySiteCodeableConcept")) {
+          this.bodySite = new CodeableConcept();
+          return this.bodySite;
+        }
+        else if (name.equals("bodySiteReference")) {
+          this.bodySite = new Reference();
+          return this.bodySite;
+        }
+        else if (name.equals("whenUsed")) {
+          this.whenUsed = new Period();
+          return this.whenUsed;
+        }
+        else if (name.equals("device")) {
+          this.device = new Reference();
+          return this.device;
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("indication")) {
+          return addIndication();
+        }
+        else if (name.equals("notes")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceUseStatement.notes");
+        }
+        else if (name.equals("recordedOn")) {
+          throw new Exception("Cannot call addChild on a primitive type DeviceUseStatement.recordedOn");
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("timingTiming")) {
+          this.timing = new Timing();
+          return this.timing;
+        }
+        else if (name.equals("timingPeriod")) {
+          this.timing = new Period();
+          return this.timing;
+        }
+        else if (name.equals("timingDateTime")) {
+          this.timing = new DateTimeType();
+          return this.timing;
+        }
+        else
+          return super.addChild(name);
       }
 
       public DeviceUseStatement copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -119,6 +119,30 @@ public class Ratio extends Type implements ICompositeType {
         super.listChildren(childrenList);
         childrenList.add(new Property("numerator", "Quantity", "The value of the numerator.", 0, java.lang.Integer.MAX_VALUE, numerator));
         childrenList.add(new Property("denominator", "Quantity", "The value of the denominator.", 0, java.lang.Integer.MAX_VALUE, denominator));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("numerator"))
+          this.numerator = castToQuantity(value); // Quantity
+        else if (name.equals("denominator"))
+          this.denominator = castToQuantity(value); // Quantity
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("numerator")) {
+          this.numerator = new Quantity();
+          return this.numerator;
+        }
+        else if (name.equals("denominator")) {
+          this.denominator = new Quantity();
+          return this.denominator;
+        }
+        else
+          return super.addChild(name);
       }
 
       public Ratio copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -146,6 +146,24 @@ public class AuditEvent extends DomainResource {
           return AuditEventAction.E;
         throw new IllegalArgumentException("Unknown AuditEventAction code '"+codeString+"'");
         }
+        public Enumeration<AuditEventAction> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("C".equals(codeString))
+          return new Enumeration<AuditEventAction>(this, AuditEventAction.C);
+        if ("R".equals(codeString))
+          return new Enumeration<AuditEventAction>(this, AuditEventAction.R);
+        if ("U".equals(codeString))
+          return new Enumeration<AuditEventAction>(this, AuditEventAction.U);
+        if ("D".equals(codeString))
+          return new Enumeration<AuditEventAction>(this, AuditEventAction.D);
+        if ("E".equals(codeString))
+          return new Enumeration<AuditEventAction>(this, AuditEventAction.E);
+        throw new Exception("Unknown AuditEventAction code '"+codeString+"'");
+        }
     public String toCode(AuditEventAction code) {
       if (code == AuditEventAction.C)
         return "C";
@@ -247,6 +265,22 @@ public class AuditEvent extends DomainResource {
         if ("12".equals(codeString))
           return AuditEventOutcome._12;
         throw new IllegalArgumentException("Unknown AuditEventOutcome code '"+codeString+"'");
+        }
+        public Enumeration<AuditEventOutcome> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("0".equals(codeString))
+          return new Enumeration<AuditEventOutcome>(this, AuditEventOutcome._0);
+        if ("4".equals(codeString))
+          return new Enumeration<AuditEventOutcome>(this, AuditEventOutcome._4);
+        if ("8".equals(codeString))
+          return new Enumeration<AuditEventOutcome>(this, AuditEventOutcome._8);
+        if ("12".equals(codeString))
+          return new Enumeration<AuditEventOutcome>(this, AuditEventOutcome._12);
+        throw new Exception("Unknown AuditEventOutcome code '"+codeString+"'");
         }
     public String toCode(AuditEventOutcome code) {
       if (code == AuditEventOutcome._0)
@@ -359,6 +393,24 @@ public class AuditEvent extends DomainResource {
         if ("5".equals(codeString))
           return AuditEventParticipantNetworkType._5;
         throw new IllegalArgumentException("Unknown AuditEventParticipantNetworkType code '"+codeString+"'");
+        }
+        public Enumeration<AuditEventParticipantNetworkType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("1".equals(codeString))
+          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._1);
+        if ("2".equals(codeString))
+          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._2);
+        if ("3".equals(codeString))
+          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._3);
+        if ("4".equals(codeString))
+          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._4);
+        if ("5".equals(codeString))
+          return new Enumeration<AuditEventParticipantNetworkType>(this, AuditEventParticipantNetworkType._5);
+        throw new Exception("Unknown AuditEventParticipantNetworkType code '"+codeString+"'");
         }
     public String toCode(AuditEventParticipantNetworkType code) {
       if (code == AuditEventParticipantNetworkType._1)
@@ -750,6 +802,54 @@ public class AuditEvent extends DomainResource {
           childrenList.add(new Property("outcomeDesc", "string", "A free text description of the outcome of the event.", 0, java.lang.Integer.MAX_VALUE, outcomeDesc));
           childrenList.add(new Property("purposeOfEvent", "Coding", "The purposeOfUse (reason) that was used during the event being recorded.", 0, java.lang.Integer.MAX_VALUE, purposeOfEvent));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("subtype"))
+          this.getSubtype().add(castToCoding(value));
+        else if (name.equals("action"))
+          this.action = new AuditEventActionEnumFactory().fromType(value); // Enumeration<AuditEventAction>
+        else if (name.equals("dateTime"))
+          this.dateTime = castToInstant(value); // InstantType
+        else if (name.equals("outcome"))
+          this.outcome = new AuditEventOutcomeEnumFactory().fromType(value); // Enumeration<AuditEventOutcome>
+        else if (name.equals("outcomeDesc"))
+          this.outcomeDesc = castToString(value); // StringType
+        else if (name.equals("purposeOfEvent"))
+          this.getPurposeOfEvent().add(castToCoding(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("subtype")) {
+          return addSubtype();
+        }
+        else if (name.equals("action")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.action");
+        }
+        else if (name.equals("dateTime")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.dateTime");
+        }
+        else if (name.equals("outcome")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.outcome");
+        }
+        else if (name.equals("outcomeDesc")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.outcomeDesc");
+        }
+        else if (name.equals("purposeOfEvent")) {
+          return addPurposeOfEvent();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public AuditEventEventComponent copy() {
         AuditEventEventComponent dst = new AuditEventEventComponent();
@@ -1357,6 +1457,78 @@ public class AuditEvent extends DomainResource {
           childrenList.add(new Property("purposeOfUse", "Coding", "The reason (purpose of use), specific to this participant, that was used during the event being recorded.", 0, java.lang.Integer.MAX_VALUE, purposeOfUse));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("role"))
+          this.getRole().add(castToCodeableConcept(value));
+        else if (name.equals("reference"))
+          this.reference = castToReference(value); // Reference
+        else if (name.equals("userId"))
+          this.userId = castToIdentifier(value); // Identifier
+        else if (name.equals("altId"))
+          this.altId = castToString(value); // StringType
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("requestor"))
+          this.requestor = castToBoolean(value); // BooleanType
+        else if (name.equals("location"))
+          this.location = castToReference(value); // Reference
+        else if (name.equals("policy"))
+          this.getPolicy().add(castToUri(value));
+        else if (name.equals("media"))
+          this.media = castToCoding(value); // Coding
+        else if (name.equals("network"))
+          this.network = (AuditEventParticipantNetworkComponent) value; // AuditEventParticipantNetworkComponent
+        else if (name.equals("purposeOfUse"))
+          this.getPurposeOfUse().add(castToCoding(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("role")) {
+          return addRole();
+        }
+        else if (name.equals("reference")) {
+          this.reference = new Reference();
+          return this.reference;
+        }
+        else if (name.equals("userId")) {
+          this.userId = new Identifier();
+          return this.userId;
+        }
+        else if (name.equals("altId")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.altId");
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.name");
+        }
+        else if (name.equals("requestor")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.requestor");
+        }
+        else if (name.equals("location")) {
+          this.location = new Reference();
+          return this.location;
+        }
+        else if (name.equals("policy")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.policy");
+        }
+        else if (name.equals("media")) {
+          this.media = new Coding();
+          return this.media;
+        }
+        else if (name.equals("network")) {
+          this.network = new AuditEventParticipantNetworkComponent();
+          return this.network;
+        }
+        else if (name.equals("purposeOfUse")) {
+          return addPurposeOfUse();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public AuditEventParticipantComponent copy() {
         AuditEventParticipantComponent dst = new AuditEventParticipantComponent();
         copyValues(dst);
@@ -1548,6 +1720,28 @@ public class AuditEvent extends DomainResource {
           childrenList.add(new Property("address", "string", "An identifier for the network access point of the user device for the audit event.", 0, java.lang.Integer.MAX_VALUE, address));
           childrenList.add(new Property("type", "code", "An identifier for the type of network access point that originated the audit event.", 0, java.lang.Integer.MAX_VALUE, type));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("address"))
+          this.address = castToString(value); // StringType
+        else if (name.equals("type"))
+          this.type = new AuditEventParticipantNetworkTypeEnumFactory().fromType(value); // Enumeration<AuditEventParticipantNetworkType>
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("address")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.address");
+        }
+        else if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.type");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public AuditEventParticipantNetworkComponent copy() {
         AuditEventParticipantNetworkComponent dst = new AuditEventParticipantNetworkComponent();
@@ -1743,6 +1937,34 @@ public class AuditEvent extends DomainResource {
           childrenList.add(new Property("identifier", "Identifier", "Identifier of the source where the event was detected.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("type", "Coding", "Code specifying the type of source where event originated.", 0, java.lang.Integer.MAX_VALUE, type));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("site"))
+          this.site = castToString(value); // StringType
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("type"))
+          this.getType().add(castToCoding(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("site")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.site");
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("type")) {
+          return addType();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public AuditEventSourceComponent copy() {
         AuditEventSourceComponent dst = new AuditEventSourceComponent();
@@ -2247,6 +2469,73 @@ public class AuditEvent extends DomainResource {
           childrenList.add(new Property("detail", "", "Additional Information about the Object.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("reference"))
+          this.reference = castToReference(value); // Reference
+        else if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("role"))
+          this.role = castToCoding(value); // Coding
+        else if (name.equals("lifecycle"))
+          this.lifecycle = castToCoding(value); // Coding
+        else if (name.equals("securityLabel"))
+          this.getSecurityLabel().add(castToCoding(value));
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("query"))
+          this.query = castToBase64Binary(value); // Base64BinaryType
+        else if (name.equals("detail"))
+          this.getDetail().add((AuditEventObjectDetailComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("reference")) {
+          this.reference = new Reference();
+          return this.reference;
+        }
+        else if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("role")) {
+          this.role = new Coding();
+          return this.role;
+        }
+        else if (name.equals("lifecycle")) {
+          this.lifecycle = new Coding();
+          return this.lifecycle;
+        }
+        else if (name.equals("securityLabel")) {
+          return addSecurityLabel();
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.name");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.description");
+        }
+        else if (name.equals("query")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.query");
+        }
+        else if (name.equals("detail")) {
+          return addDetail();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public AuditEventObjectComponent copy() {
         AuditEventObjectComponent dst = new AuditEventObjectComponent();
         copyValues(dst);
@@ -2434,6 +2723,28 @@ public class AuditEvent extends DomainResource {
           childrenList.add(new Property("type", "string", "Name of the property.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("value", "base64Binary", "Property value.", 0, java.lang.Integer.MAX_VALUE, value));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = castToString(value); // StringType
+        else if (name.equals("value"))
+          this.value = castToBase64Binary(value); // Base64BinaryType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.type");
+        }
+        else if (name.equals("value")) {
+          throw new Exception("Cannot call addChild on a primitive type AuditEvent.value");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public AuditEventObjectDetailComponent copy() {
         AuditEventObjectDetailComponent dst = new AuditEventObjectDetailComponent();
@@ -2650,6 +2961,40 @@ public class AuditEvent extends DomainResource {
         childrenList.add(new Property("participant", "", "A person, a hardware device or software process.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("source", "", "Application systems and processes.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("object", "", "Specific instances of data or objects that have been accessed.", 0, java.lang.Integer.MAX_VALUE, object));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("event"))
+          this.event = (AuditEventEventComponent) value; // AuditEventEventComponent
+        else if (name.equals("participant"))
+          this.getParticipant().add((AuditEventParticipantComponent) value);
+        else if (name.equals("source"))
+          this.source = (AuditEventSourceComponent) value; // AuditEventSourceComponent
+        else if (name.equals("object"))
+          this.getObject().add((AuditEventObjectComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("event")) {
+          this.event = new AuditEventEventComponent();
+          return this.event;
+        }
+        else if (name.equals("participant")) {
+          return addParticipant();
+        }
+        else if (name.equals("source")) {
+          this.source = new AuditEventSourceComponent();
+          return this.source;
+        }
+        else if (name.equals("object")) {
+          return addObject();
+        }
+        else
+          return super.addChild(name);
       }
 
       public AuditEvent copy() {

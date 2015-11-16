@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -169,6 +169,28 @@ public class Appointment extends DomainResource {
           return AppointmentStatus.NOSHOW;
         throw new IllegalArgumentException("Unknown AppointmentStatus code '"+codeString+"'");
         }
+        public Enumeration<AppointmentStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("proposed".equals(codeString))
+          return new Enumeration<AppointmentStatus>(this, AppointmentStatus.PROPOSED);
+        if ("pending".equals(codeString))
+          return new Enumeration<AppointmentStatus>(this, AppointmentStatus.PENDING);
+        if ("booked".equals(codeString))
+          return new Enumeration<AppointmentStatus>(this, AppointmentStatus.BOOKED);
+        if ("arrived".equals(codeString))
+          return new Enumeration<AppointmentStatus>(this, AppointmentStatus.ARRIVED);
+        if ("fulfilled".equals(codeString))
+          return new Enumeration<AppointmentStatus>(this, AppointmentStatus.FULFILLED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<AppointmentStatus>(this, AppointmentStatus.CANCELLED);
+        if ("noshow".equals(codeString))
+          return new Enumeration<AppointmentStatus>(this, AppointmentStatus.NOSHOW);
+        throw new Exception("Unknown AppointmentStatus code '"+codeString+"'");
+        }
     public String toCode(AppointmentStatus code) {
       if (code == AppointmentStatus.PROPOSED)
         return "proposed";
@@ -262,6 +284,20 @@ public class Appointment extends DomainResource {
         if ("information-only".equals(codeString))
           return ParticipantRequired.INFORMATIONONLY;
         throw new IllegalArgumentException("Unknown ParticipantRequired code '"+codeString+"'");
+        }
+        public Enumeration<ParticipantRequired> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("required".equals(codeString))
+          return new Enumeration<ParticipantRequired>(this, ParticipantRequired.REQUIRED);
+        if ("optional".equals(codeString))
+          return new Enumeration<ParticipantRequired>(this, ParticipantRequired.OPTIONAL);
+        if ("information-only".equals(codeString))
+          return new Enumeration<ParticipantRequired>(this, ParticipantRequired.INFORMATIONONLY);
+        throw new Exception("Unknown ParticipantRequired code '"+codeString+"'");
         }
     public String toCode(ParticipantRequired code) {
       if (code == ParticipantRequired.REQUIRED)
@@ -360,6 +396,22 @@ public class Appointment extends DomainResource {
         if ("needs-action".equals(codeString))
           return ParticipationStatus.NEEDSACTION;
         throw new IllegalArgumentException("Unknown ParticipationStatus code '"+codeString+"'");
+        }
+        public Enumeration<ParticipationStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("accepted".equals(codeString))
+          return new Enumeration<ParticipationStatus>(this, ParticipationStatus.ACCEPTED);
+        if ("declined".equals(codeString))
+          return new Enumeration<ParticipationStatus>(this, ParticipationStatus.DECLINED);
+        if ("tentative".equals(codeString))
+          return new Enumeration<ParticipationStatus>(this, ParticipationStatus.TENTATIVE);
+        if ("needs-action".equals(codeString))
+          return new Enumeration<ParticipationStatus>(this, ParticipationStatus.NEEDSACTION);
+        throw new Exception("Unknown ParticipationStatus code '"+codeString+"'");
         }
     public String toCode(ParticipationStatus code) {
       if (code == ParticipationStatus.ACCEPTED)
@@ -606,6 +658,39 @@ public class Appointment extends DomainResource {
           childrenList.add(new Property("required", "code", "Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.", 0, java.lang.Integer.MAX_VALUE, required));
           childrenList.add(new Property("status", "code", "Participation status of the Patient.", 0, java.lang.Integer.MAX_VALUE, status));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.getType().add(castToCodeableConcept(value));
+        else if (name.equals("actor"))
+          this.actor = castToReference(value); // Reference
+        else if (name.equals("required"))
+          this.required = new ParticipantRequiredEnumFactory().fromType(value); // Enumeration<ParticipantRequired>
+        else if (name.equals("status"))
+          this.status = new ParticipationStatusEnumFactory().fromType(value); // Enumeration<ParticipationStatus>
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          return addType();
+        }
+        else if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
+        }
+        else if (name.equals("required")) {
+          throw new Exception("Cannot call addChild on a primitive type Appointment.required");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Appointment.status");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public AppointmentParticipantComponent copy() {
         AppointmentParticipantComponent dst = new AppointmentParticipantComponent();
@@ -1289,6 +1374,80 @@ public class Appointment extends DomainResource {
         childrenList.add(new Property("slot", "Reference(Slot)", "The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.", 0, java.lang.Integer.MAX_VALUE, slot));
         childrenList.add(new Property("comment", "string", "Additional comments about the appointment.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new AppointmentStatusEnumFactory().fromType(value); // Enumeration<AppointmentStatus>
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("reason"))
+          this.reason = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("priority"))
+          this.priority = castToUnsignedInt(value); // UnsignedIntType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("start"))
+          this.start = castToInstant(value); // InstantType
+        else if (name.equals("end"))
+          this.end = castToInstant(value); // InstantType
+        else if (name.equals("minutesDuration"))
+          this.minutesDuration = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("slot"))
+          this.getSlot().add(castToReference(value));
+        else if (name.equals("comment"))
+          this.comment = castToString(value); // StringType
+        else if (name.equals("participant"))
+          this.getParticipant().add((AppointmentParticipantComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Appointment.status");
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("reason")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else if (name.equals("priority")) {
+          throw new Exception("Cannot call addChild on a primitive type Appointment.priority");
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type Appointment.description");
+        }
+        else if (name.equals("start")) {
+          throw new Exception("Cannot call addChild on a primitive type Appointment.start");
+        }
+        else if (name.equals("end")) {
+          throw new Exception("Cannot call addChild on a primitive type Appointment.end");
+        }
+        else if (name.equals("minutesDuration")) {
+          throw new Exception("Cannot call addChild on a primitive type Appointment.minutesDuration");
+        }
+        else if (name.equals("slot")) {
+          return addSlot();
+        }
+        else if (name.equals("comment")) {
+          throw new Exception("Cannot call addChild on a primitive type Appointment.comment");
+        }
+        else if (name.equals("participant")) {
+          return addParticipant();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Appointment copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -156,6 +156,26 @@ public class Group extends DomainResource {
         if ("substance".equals(codeString))
           return GroupType.SUBSTANCE;
         throw new IllegalArgumentException("Unknown GroupType code '"+codeString+"'");
+        }
+        public Enumeration<GroupType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("person".equals(codeString))
+          return new Enumeration<GroupType>(this, GroupType.PERSON);
+        if ("animal".equals(codeString))
+          return new Enumeration<GroupType>(this, GroupType.ANIMAL);
+        if ("practitioner".equals(codeString))
+          return new Enumeration<GroupType>(this, GroupType.PRACTITIONER);
+        if ("device".equals(codeString))
+          return new Enumeration<GroupType>(this, GroupType.DEVICE);
+        if ("medication".equals(codeString))
+          return new Enumeration<GroupType>(this, GroupType.MEDICATION);
+        if ("substance".equals(codeString))
+          return new Enumeration<GroupType>(this, GroupType.SUBSTANCE);
+        throw new Exception("Unknown GroupType code '"+codeString+"'");
         }
     public String toCode(GroupType code) {
       if (code == GroupType.PERSON)
@@ -395,6 +415,53 @@ public class Group extends DomainResource {
           childrenList.add(new Property("period", "Period", "The period over which the characteristic is tested; e.g. the patient had an operation during the month of June.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("value[x]"))
+          this.value = (Type) value; // Type
+        else if (name.equals("exclude"))
+          this.exclude = castToBoolean(value); // BooleanType
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("valueCodeableConcept")) {
+          this.value = new CodeableConcept();
+          return this.value;
+        }
+        else if (name.equals("valueBoolean")) {
+          this.value = new BooleanType();
+          return this.value;
+        }
+        else if (name.equals("valueQuantity")) {
+          this.value = new Quantity();
+          return this.value;
+        }
+        else if (name.equals("valueRange")) {
+          this.value = new Range();
+          return this.value;
+        }
+        else if (name.equals("exclude")) {
+          throw new Exception("Cannot call addChild on a primitive type Group.exclude");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
+      }
+
       public GroupCharacteristicComponent copy() {
         GroupCharacteristicComponent dst = new GroupCharacteristicComponent();
         copyValues(dst);
@@ -592,6 +659,35 @@ public class Group extends DomainResource {
           childrenList.add(new Property("period", "Period", "The period that the member was in the group, if known.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("inactive", "boolean", "A flag to indicate that the member is no longer in the group, but previously may have been a member.", 0, java.lang.Integer.MAX_VALUE, inactive));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("entity"))
+          this.entity = castToReference(value); // Reference
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("inactive"))
+          this.inactive = castToBoolean(value); // BooleanType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("entity")) {
+          this.entity = new Reference();
+          return this.entity;
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("inactive")) {
+          throw new Exception("Cannot call addChild on a primitive type Group.inactive");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public GroupMemberComponent copy() {
         GroupMemberComponent dst = new GroupMemberComponent();
@@ -1042,6 +1138,59 @@ public class Group extends DomainResource {
         childrenList.add(new Property("quantity", "unsignedInt", "A count of the number of resource instances that are part of the group.", 0, java.lang.Integer.MAX_VALUE, quantity));
         childrenList.add(new Property("characteristic", "", "Identifies the traits shared by members of the group.", 0, java.lang.Integer.MAX_VALUE, characteristic));
         childrenList.add(new Property("member", "", "Identifies the resource instances that are members of the group.", 0, java.lang.Integer.MAX_VALUE, member));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("type"))
+          this.type = new GroupTypeEnumFactory().fromType(value); // Enumeration<GroupType>
+        else if (name.equals("actual"))
+          this.actual = castToBoolean(value); // BooleanType
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("quantity"))
+          this.quantity = castToUnsignedInt(value); // UnsignedIntType
+        else if (name.equals("characteristic"))
+          this.getCharacteristic().add((GroupCharacteristicComponent) value);
+        else if (name.equals("member"))
+          this.getMember().add((GroupMemberComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type Group.type");
+        }
+        else if (name.equals("actual")) {
+          throw new Exception("Cannot call addChild on a primitive type Group.actual");
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type Group.name");
+        }
+        else if (name.equals("quantity")) {
+          throw new Exception("Cannot call addChild on a primitive type Group.quantity");
+        }
+        else if (name.equals("characteristic")) {
+          return addCharacteristic();
+        }
+        else if (name.equals("member")) {
+          return addMember();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Group copy() {

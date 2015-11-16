@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class Procedure extends DomainResource {
         if ("entered-in-error".equals(codeString))
           return ProcedureStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown ProcedureStatus code '"+codeString+"'");
+        }
+        public Enumeration<ProcedureStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("in-progress".equals(codeString))
+          return new Enumeration<ProcedureStatus>(this, ProcedureStatus.INPROGRESS);
+        if ("aborted".equals(codeString))
+          return new Enumeration<ProcedureStatus>(this, ProcedureStatus.ABORTED);
+        if ("completed".equals(codeString))
+          return new Enumeration<ProcedureStatus>(this, ProcedureStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<ProcedureStatus>(this, ProcedureStatus.ENTEREDINERROR);
+        throw new Exception("Unknown ProcedureStatus code '"+codeString+"'");
         }
     public String toCode(ProcedureStatus code) {
       if (code == ProcedureStatus.INPROGRESS)
@@ -244,6 +260,30 @@ public class Procedure extends DomainResource {
           childrenList.add(new Property("actor", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "The practitioner who was involved in the procedure.", 0, java.lang.Integer.MAX_VALUE, actor));
           childrenList.add(new Property("role", "CodeableConcept", "For example: surgeon, anaethetist, endoscopist.", 0, java.lang.Integer.MAX_VALUE, role));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("actor"))
+          this.actor = castToReference(value); // Reference
+        else if (name.equals("role"))
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
+        }
+        else if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ProcedurePerformerComponent copy() {
         ProcedurePerformerComponent dst = new ProcedurePerformerComponent();
@@ -391,6 +431,30 @@ public class Procedure extends DomainResource {
           childrenList.add(new Property("action", "CodeableConcept", "The kind of change that happened to the device during the procedure.", 0, java.lang.Integer.MAX_VALUE, action));
           childrenList.add(new Property("manipulated", "Reference(Device)", "The device that was manipulated (changed) during the procedure.", 0, java.lang.Integer.MAX_VALUE, manipulated));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("action"))
+          this.action = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("manipulated"))
+          this.manipulated = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("action")) {
+          this.action = new CodeableConcept();
+          return this.action;
+        }
+        else if (name.equals("manipulated")) {
+          this.manipulated = new Reference();
+          return this.manipulated;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ProcedureFocalDeviceComponent copy() {
         ProcedureFocalDeviceComponent dst = new ProcedureFocalDeviceComponent();
@@ -1494,6 +1558,140 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("notes", "Annotation", "Any other notes about the procedure.  E.g. the operative notes.", 0, java.lang.Integer.MAX_VALUE, notes));
         childrenList.add(new Property("focalDevice", "", "A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.", 0, java.lang.Integer.MAX_VALUE, focalDevice));
         childrenList.add(new Property("used", "Reference(Device|Medication|Substance)", "Identifies medications, devices and any other substance used as part of the procedure.", 0, java.lang.Integer.MAX_VALUE, used));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("status"))
+          this.status = new ProcedureStatusEnumFactory().fromType(value); // Enumeration<ProcedureStatus>
+        else if (name.equals("category"))
+          this.category = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("notPerformed"))
+          this.notPerformed = castToBoolean(value); // BooleanType
+        else if (name.equals("reasonNotPerformed"))
+          this.getReasonNotPerformed().add(castToCodeableConcept(value));
+        else if (name.equals("bodySite"))
+          this.getBodySite().add(castToCodeableConcept(value));
+        else if (name.equals("reason[x]"))
+          this.reason = (Type) value; // Type
+        else if (name.equals("performer"))
+          this.getPerformer().add((ProcedurePerformerComponent) value);
+        else if (name.equals("performed[x]"))
+          this.performed = (Type) value; // Type
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("location"))
+          this.location = castToReference(value); // Reference
+        else if (name.equals("outcome"))
+          this.outcome = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("report"))
+          this.getReport().add(castToReference(value));
+        else if (name.equals("complication"))
+          this.getComplication().add(castToCodeableConcept(value));
+        else if (name.equals("followUp"))
+          this.getFollowUp().add(castToCodeableConcept(value));
+        else if (name.equals("request"))
+          this.request = castToReference(value); // Reference
+        else if (name.equals("notes"))
+          this.getNotes().add(castToAnnotation(value));
+        else if (name.equals("focalDevice"))
+          this.getFocalDevice().add((ProcedureFocalDeviceComponent) value);
+        else if (name.equals("used"))
+          this.getUsed().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Procedure.status");
+        }
+        else if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("notPerformed")) {
+          throw new Exception("Cannot call addChild on a primitive type Procedure.notPerformed");
+        }
+        else if (name.equals("reasonNotPerformed")) {
+          return addReasonNotPerformed();
+        }
+        else if (name.equals("bodySite")) {
+          return addBodySite();
+        }
+        else if (name.equals("reasonCodeableConcept")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else if (name.equals("reasonReference")) {
+          this.reason = new Reference();
+          return this.reason;
+        }
+        else if (name.equals("performer")) {
+          return addPerformer();
+        }
+        else if (name.equals("performedDateTime")) {
+          this.performed = new DateTimeType();
+          return this.performed;
+        }
+        else if (name.equals("performedPeriod")) {
+          this.performed = new Period();
+          return this.performed;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("location")) {
+          this.location = new Reference();
+          return this.location;
+        }
+        else if (name.equals("outcome")) {
+          this.outcome = new CodeableConcept();
+          return this.outcome;
+        }
+        else if (name.equals("report")) {
+          return addReport();
+        }
+        else if (name.equals("complication")) {
+          return addComplication();
+        }
+        else if (name.equals("followUp")) {
+          return addFollowUp();
+        }
+        else if (name.equals("request")) {
+          this.request = new Reference();
+          return this.request;
+        }
+        else if (name.equals("notes")) {
+          return addNotes();
+        }
+        else if (name.equals("focalDevice")) {
+          return addFocalDevice();
+        }
+        else if (name.equals("used")) {
+          return addUsed();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Procedure copy() {

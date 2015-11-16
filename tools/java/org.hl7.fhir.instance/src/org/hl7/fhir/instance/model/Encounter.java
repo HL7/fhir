@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -156,6 +156,26 @@ public class Encounter extends DomainResource {
         if ("cancelled".equals(codeString))
           return EncounterState.CANCELLED;
         throw new IllegalArgumentException("Unknown EncounterState code '"+codeString+"'");
+        }
+        public Enumeration<EncounterState> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("planned".equals(codeString))
+          return new Enumeration<EncounterState>(this, EncounterState.PLANNED);
+        if ("arrived".equals(codeString))
+          return new Enumeration<EncounterState>(this, EncounterState.ARRIVED);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<EncounterState>(this, EncounterState.INPROGRESS);
+        if ("onleave".equals(codeString))
+          return new Enumeration<EncounterState>(this, EncounterState.ONLEAVE);
+        if ("finished".equals(codeString))
+          return new Enumeration<EncounterState>(this, EncounterState.FINISHED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<EncounterState>(this, EncounterState.CANCELLED);
+        throw new Exception("Unknown EncounterState code '"+codeString+"'");
         }
     public String toCode(EncounterState code) {
       if (code == EncounterState.PLANNED)
@@ -321,6 +341,32 @@ public class Encounter extends DomainResource {
           return EncounterClass.OTHER;
         throw new IllegalArgumentException("Unknown EncounterClass code '"+codeString+"'");
         }
+        public Enumeration<EncounterClass> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("inpatient".equals(codeString))
+          return new Enumeration<EncounterClass>(this, EncounterClass.INPATIENT);
+        if ("outpatient".equals(codeString))
+          return new Enumeration<EncounterClass>(this, EncounterClass.OUTPATIENT);
+        if ("ambulatory".equals(codeString))
+          return new Enumeration<EncounterClass>(this, EncounterClass.AMBULATORY);
+        if ("emergency".equals(codeString))
+          return new Enumeration<EncounterClass>(this, EncounterClass.EMERGENCY);
+        if ("home".equals(codeString))
+          return new Enumeration<EncounterClass>(this, EncounterClass.HOME);
+        if ("field".equals(codeString))
+          return new Enumeration<EncounterClass>(this, EncounterClass.FIELD);
+        if ("daytime".equals(codeString))
+          return new Enumeration<EncounterClass>(this, EncounterClass.DAYTIME);
+        if ("virtual".equals(codeString))
+          return new Enumeration<EncounterClass>(this, EncounterClass.VIRTUAL);
+        if ("other".equals(codeString))
+          return new Enumeration<EncounterClass>(this, EncounterClass.OTHER);
+        throw new Exception("Unknown EncounterClass code '"+codeString+"'");
+        }
     public String toCode(EncounterClass code) {
       if (code == EncounterClass.INPATIENT)
         return "inpatient";
@@ -434,6 +480,22 @@ Not to be used when the patient is currently at the location
         if ("completed".equals(codeString))
           return EncounterLocationStatus.COMPLETED;
         throw new IllegalArgumentException("Unknown EncounterLocationStatus code '"+codeString+"'");
+        }
+        public Enumeration<EncounterLocationStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("planned".equals(codeString))
+          return new Enumeration<EncounterLocationStatus>(this, EncounterLocationStatus.PLANNED);
+        if ("active".equals(codeString))
+          return new Enumeration<EncounterLocationStatus>(this, EncounterLocationStatus.ACTIVE);
+        if ("reserved".equals(codeString))
+          return new Enumeration<EncounterLocationStatus>(this, EncounterLocationStatus.RESERVED);
+        if ("completed".equals(codeString))
+          return new Enumeration<EncounterLocationStatus>(this, EncounterLocationStatus.COMPLETED);
+        throw new Exception("Unknown EncounterLocationStatus code '"+codeString+"'");
         }
     public String toCode(EncounterLocationStatus code) {
       if (code == EncounterLocationStatus.PLANNED)
@@ -556,6 +618,29 @@ Not to be used when the patient is currently at the location
           childrenList.add(new Property("status", "code", "planned | arrived | in-progress | onleave | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("period", "Period", "The time that the episode was in the specified status.", 0, java.lang.Integer.MAX_VALUE, period));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("status"))
+          this.status = new EncounterStateEnumFactory().fromType(value); // Enumeration<EncounterState>
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Encounter.status");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public EncounterStatusHistoryComponent copy() {
         EncounterStatusHistoryComponent dst = new EncounterStatusHistoryComponent();
@@ -738,6 +823,35 @@ Not to be used when the patient is currently at the location
           childrenList.add(new Property("period", "Period", "The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("individual", "Reference(Practitioner|RelatedPerson)", "Persons involved in the encounter other than the patient.", 0, java.lang.Integer.MAX_VALUE, individual));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.getType().add(castToCodeableConcept(value));
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("individual"))
+          this.individual = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          return addType();
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("individual")) {
+          this.individual = new Reference();
+          return this.individual;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public EncounterParticipantComponent copy() {
         EncounterParticipantComponent dst = new EncounterParticipantComponent();
@@ -1329,6 +1443,79 @@ Not to be used when the patient is currently at the location
           childrenList.add(new Property("dischargeDiagnosis", "Reference(Condition)", "The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.", 0, java.lang.Integer.MAX_VALUE, dischargeDiagnosis));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("preAdmissionIdentifier"))
+          this.preAdmissionIdentifier = castToIdentifier(value); // Identifier
+        else if (name.equals("origin"))
+          this.origin = castToReference(value); // Reference
+        else if (name.equals("admitSource"))
+          this.admitSource = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("admittingDiagnosis"))
+          this.getAdmittingDiagnosis().add(castToReference(value));
+        else if (name.equals("reAdmission"))
+          this.reAdmission = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("dietPreference"))
+          this.getDietPreference().add(castToCodeableConcept(value));
+        else if (name.equals("specialCourtesy"))
+          this.getSpecialCourtesy().add(castToCodeableConcept(value));
+        else if (name.equals("specialArrangement"))
+          this.getSpecialArrangement().add(castToCodeableConcept(value));
+        else if (name.equals("destination"))
+          this.destination = castToReference(value); // Reference
+        else if (name.equals("dischargeDisposition"))
+          this.dischargeDisposition = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("dischargeDiagnosis"))
+          this.getDischargeDiagnosis().add(castToReference(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("preAdmissionIdentifier")) {
+          this.preAdmissionIdentifier = new Identifier();
+          return this.preAdmissionIdentifier;
+        }
+        else if (name.equals("origin")) {
+          this.origin = new Reference();
+          return this.origin;
+        }
+        else if (name.equals("admitSource")) {
+          this.admitSource = new CodeableConcept();
+          return this.admitSource;
+        }
+        else if (name.equals("admittingDiagnosis")) {
+          return addAdmittingDiagnosis();
+        }
+        else if (name.equals("reAdmission")) {
+          this.reAdmission = new CodeableConcept();
+          return this.reAdmission;
+        }
+        else if (name.equals("dietPreference")) {
+          return addDietPreference();
+        }
+        else if (name.equals("specialCourtesy")) {
+          return addSpecialCourtesy();
+        }
+        else if (name.equals("specialArrangement")) {
+          return addSpecialArrangement();
+        }
+        else if (name.equals("destination")) {
+          this.destination = new Reference();
+          return this.destination;
+        }
+        else if (name.equals("dischargeDisposition")) {
+          this.dischargeDisposition = new CodeableConcept();
+          return this.dischargeDisposition;
+        }
+        else if (name.equals("dischargeDiagnosis")) {
+          return addDischargeDiagnosis();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public EncounterHospitalizationComponent copy() {
         EncounterHospitalizationComponent dst = new EncounterHospitalizationComponent();
         copyValues(dst);
@@ -1571,6 +1758,35 @@ Not to be used when the patient is currently at the location
           childrenList.add(new Property("status", "code", "The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("period", "Period", "Time period during which the patient was present at the location.", 0, java.lang.Integer.MAX_VALUE, period));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("location"))
+          this.location = castToReference(value); // Reference
+        else if (name.equals("status"))
+          this.status = new EncounterLocationStatusEnumFactory().fromType(value); // Enumeration<EncounterLocationStatus>
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("location")) {
+          this.location = new Reference();
+          return this.location;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Encounter.status");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public EncounterLocationComponent copy() {
         EncounterLocationComponent dst = new EncounterLocationComponent();
@@ -2592,6 +2808,121 @@ Not to be used when the patient is currently at the location
         childrenList.add(new Property("location", "", "List of locations where  the patient has been during this encounter.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("serviceProvider", "Reference(Organization)", "An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location's Organization.", 0, java.lang.Integer.MAX_VALUE, serviceProvider));
         childrenList.add(new Property("partOf", "Reference(Encounter)", "Another Encounter of which this encounter is a part of (administratively or in time).", 0, java.lang.Integer.MAX_VALUE, partOf));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new EncounterStateEnumFactory().fromType(value); // Enumeration<EncounterState>
+        else if (name.equals("statusHistory"))
+          this.getStatusHistory().add((EncounterStatusHistoryComponent) value);
+        else if (name.equals("class"))
+          this.class_ = new EncounterClassEnumFactory().fromType(value); // Enumeration<EncounterClass>
+        else if (name.equals("type"))
+          this.getType().add(castToCodeableConcept(value));
+        else if (name.equals("priority"))
+          this.priority = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("episodeOfCare"))
+          this.getEpisodeOfCare().add(castToReference(value));
+        else if (name.equals("incomingReferral"))
+          this.getIncomingReferral().add(castToReference(value));
+        else if (name.equals("participant"))
+          this.getParticipant().add((EncounterParticipantComponent) value);
+        else if (name.equals("appointment"))
+          this.appointment = castToReference(value); // Reference
+        else if (name.equals("period"))
+          this.period = castToPeriod(value); // Period
+        else if (name.equals("length"))
+          this.length = castToDuration(value); // Duration
+        else if (name.equals("reason"))
+          this.getReason().add(castToCodeableConcept(value));
+        else if (name.equals("indication"))
+          this.getIndication().add(castToReference(value));
+        else if (name.equals("hospitalization"))
+          this.hospitalization = (EncounterHospitalizationComponent) value; // EncounterHospitalizationComponent
+        else if (name.equals("location"))
+          this.getLocation().add((EncounterLocationComponent) value);
+        else if (name.equals("serviceProvider"))
+          this.serviceProvider = castToReference(value); // Reference
+        else if (name.equals("partOf"))
+          this.partOf = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Encounter.status");
+        }
+        else if (name.equals("statusHistory")) {
+          return addStatusHistory();
+        }
+        else if (name.equals("class")) {
+          throw new Exception("Cannot call addChild on a primitive type Encounter.class");
+        }
+        else if (name.equals("type")) {
+          return addType();
+        }
+        else if (name.equals("priority")) {
+          this.priority = new CodeableConcept();
+          return this.priority;
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("episodeOfCare")) {
+          return addEpisodeOfCare();
+        }
+        else if (name.equals("incomingReferral")) {
+          return addIncomingReferral();
+        }
+        else if (name.equals("participant")) {
+          return addParticipant();
+        }
+        else if (name.equals("appointment")) {
+          this.appointment = new Reference();
+          return this.appointment;
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
+        }
+        else if (name.equals("length")) {
+          this.length = new Duration();
+          return this.length;
+        }
+        else if (name.equals("reason")) {
+          return addReason();
+        }
+        else if (name.equals("indication")) {
+          return addIndication();
+        }
+        else if (name.equals("hospitalization")) {
+          this.hospitalization = new EncounterHospitalizationComponent();
+          return this.hospitalization;
+        }
+        else if (name.equals("location")) {
+          return addLocation();
+        }
+        else if (name.equals("serviceProvider")) {
+          this.serviceProvider = new Reference();
+          return this.serviceProvider;
+        }
+        else if (name.equals("partOf")) {
+          this.partOf = new Reference();
+          return this.partOf;
+        }
+        else
+          return super.addChild(name);
       }
 
       public Encounter copy() {

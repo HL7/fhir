@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -430,6 +430,54 @@ public class SampledData extends Type implements ICompositeType {
         childrenList.add(new Property("upperLimit", "decimal", "The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit).", 0, java.lang.Integer.MAX_VALUE, upperLimit));
         childrenList.add(new Property("dimensions", "positiveInt", "The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.", 0, java.lang.Integer.MAX_VALUE, dimensions));
         childrenList.add(new Property("data", "string", "A series of data points which are decimal values separated by a single space (character u20). The special values \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) can also be used in place of a decimal value.", 0, java.lang.Integer.MAX_VALUE, data));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("origin"))
+          this.origin = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("period"))
+          this.period = castToDecimal(value); // DecimalType
+        else if (name.equals("factor"))
+          this.factor = castToDecimal(value); // DecimalType
+        else if (name.equals("lowerLimit"))
+          this.lowerLimit = castToDecimal(value); // DecimalType
+        else if (name.equals("upperLimit"))
+          this.upperLimit = castToDecimal(value); // DecimalType
+        else if (name.equals("dimensions"))
+          this.dimensions = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("data"))
+          this.data = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("origin")) {
+          this.origin = new SimpleQuantity();
+          return this.origin;
+        }
+        else if (name.equals("period")) {
+          throw new Exception("Cannot call addChild on a primitive type SampledData.period");
+        }
+        else if (name.equals("factor")) {
+          throw new Exception("Cannot call addChild on a primitive type SampledData.factor");
+        }
+        else if (name.equals("lowerLimit")) {
+          throw new Exception("Cannot call addChild on a primitive type SampledData.lowerLimit");
+        }
+        else if (name.equals("upperLimit")) {
+          throw new Exception("Cannot call addChild on a primitive type SampledData.upperLimit");
+        }
+        else if (name.equals("dimensions")) {
+          throw new Exception("Cannot call addChild on a primitive type SampledData.dimensions");
+        }
+        else if (name.equals("data")) {
+          throw new Exception("Cannot call addChild on a primitive type SampledData.data");
+        }
+        else
+          return super.addChild(name);
       }
 
       public SampledData copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -169,6 +169,28 @@ public class Period extends Type implements ICompositeType {
         super.listChildren(childrenList);
         childrenList.add(new Property("start", "dateTime", "The start of the period. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "dateTime", "The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 0, java.lang.Integer.MAX_VALUE, end));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("start"))
+          this.start = castToDateTime(value); // DateTimeType
+        else if (name.equals("end"))
+          this.end = castToDateTime(value); // DateTimeType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("start")) {
+          throw new Exception("Cannot call addChild on a primitive type Period.start");
+        }
+        else if (name.equals("end")) {
+          throw new Exception("Cannot call addChild on a primitive type Period.end");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Period copy() {

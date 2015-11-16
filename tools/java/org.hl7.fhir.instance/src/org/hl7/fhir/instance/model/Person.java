@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -133,6 +133,22 @@ public class Person extends DomainResource {
         if ("level4".equals(codeString))
           return IdentityAssuranceLevel.LEVEL4;
         throw new IllegalArgumentException("Unknown IdentityAssuranceLevel code '"+codeString+"'");
+        }
+        public Enumeration<IdentityAssuranceLevel> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("level1".equals(codeString))
+          return new Enumeration<IdentityAssuranceLevel>(this, IdentityAssuranceLevel.LEVEL1);
+        if ("level2".equals(codeString))
+          return new Enumeration<IdentityAssuranceLevel>(this, IdentityAssuranceLevel.LEVEL2);
+        if ("level3".equals(codeString))
+          return new Enumeration<IdentityAssuranceLevel>(this, IdentityAssuranceLevel.LEVEL3);
+        if ("level4".equals(codeString))
+          return new Enumeration<IdentityAssuranceLevel>(this, IdentityAssuranceLevel.LEVEL4);
+        throw new Exception("Unknown IdentityAssuranceLevel code '"+codeString+"'");
         }
     public String toCode(IdentityAssuranceLevel code) {
       if (code == IdentityAssuranceLevel.LEVEL1)
@@ -278,6 +294,29 @@ public class Person extends DomainResource {
           childrenList.add(new Property("target", "Reference(Patient|Practitioner|RelatedPerson|Person)", "The resource to which this actual person is associated.", 0, java.lang.Integer.MAX_VALUE, target));
           childrenList.add(new Property("assurance", "code", "Level of assurance that this link is actually associated with the target resource.", 0, java.lang.Integer.MAX_VALUE, assurance));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("target"))
+          this.target = castToReference(value); // Reference
+        else if (name.equals("assurance"))
+          this.assurance = new IdentityAssuranceLevelEnumFactory().fromType(value); // Enumeration<IdentityAssuranceLevel>
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("target")) {
+          this.target = new Reference();
+          return this.target;
+        }
+        else if (name.equals("assurance")) {
+          throw new Exception("Cannot call addChild on a primitive type Person.assurance");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public PersonLinkComponent copy() {
         PersonLinkComponent dst = new PersonLinkComponent();
@@ -823,6 +862,70 @@ public class Person extends DomainResource {
         childrenList.add(new Property("link", "", "Link to a resource that concerns the same actual person.", 0, java.lang.Integer.MAX_VALUE, link));
       }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("name"))
+          this.getName().add(castToHumanName(value));
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else if (name.equals("gender"))
+          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+        else if (name.equals("birthDate"))
+          this.birthDate = castToDate(value); // DateType
+        else if (name.equals("address"))
+          this.getAddress().add(castToAddress(value));
+        else if (name.equals("photo"))
+          this.photo = castToAttachment(value); // Attachment
+        else if (name.equals("managingOrganization"))
+          this.managingOrganization = castToReference(value); // Reference
+        else if (name.equals("active"))
+          this.active = castToBoolean(value); // BooleanType
+        else if (name.equals("link"))
+          this.getLink().add((PersonLinkComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("name")) {
+          return addName();
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else if (name.equals("gender")) {
+          throw new Exception("Cannot call addChild on a primitive type Person.gender");
+        }
+        else if (name.equals("birthDate")) {
+          throw new Exception("Cannot call addChild on a primitive type Person.birthDate");
+        }
+        else if (name.equals("address")) {
+          return addAddress();
+        }
+        else if (name.equals("photo")) {
+          this.photo = new Attachment();
+          return this.photo;
+        }
+        else if (name.equals("managingOrganization")) {
+          this.managingOrganization = new Reference();
+          return this.managingOrganization;
+        }
+        else if (name.equals("active")) {
+          throw new Exception("Cannot call addChild on a primitive type Person.active");
+        }
+        else if (name.equals("link")) {
+          return addLink();
+        }
+        else
+          return super.addChild(name);
+      }
+
       public Person copy() {
         Person dst = new Person();
         copyValues(dst);
@@ -899,7 +1002,7 @@ public class Person extends DomainResource {
     return ResourceType.Person;
    }
 
-  @SearchParamDefinition(name="phone", path="Person.telecom(system=phone)", description="A value in a phone contact", type="token" )
+  @SearchParamDefinition(name="phone", path="Person.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
   public static final String SP_PHONE = "phone";
   @SearchParamDefinition(name="phonetic", path="Person.name", description="A portion of name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
@@ -919,7 +1022,7 @@ public class Person extends DomainResource {
   public static final String SP_ADDRESSSTATE = "address-state";
   @SearchParamDefinition(name="practitioner", path="Person.link.target", description="The Person links to this Practitioner", type="reference" )
   public static final String SP_PRACTITIONER = "practitioner";
-  @SearchParamDefinition(name="email", path="Person.telecom(system=email)", description="A value in an email contact", type="token" )
+  @SearchParamDefinition(name="email", path="Person.telecom.where(system='email')", description="A value in an email contact", type="token" )
   public static final String SP_EMAIL = "email";
   @SearchParamDefinition(name="address", path="Person.address", description="An address in any kind of address/part", type="string" )
   public static final String SP_ADDRESS = "address";

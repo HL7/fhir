@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -337,6 +337,43 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
         childrenList.add(new Property("code", "code", "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("display", "string", "A representation of the meaning of the code in the system, following the rules of the system.", 0, java.lang.Integer.MAX_VALUE, display));
         childrenList.add(new Property("userSelected", "boolean", "Indicates that this coding was chosen by a user directly - i.e. off a pick list of available items (codes or displays).", 0, java.lang.Integer.MAX_VALUE, userSelected));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("system"))
+          this.system = castToUri(value); // UriType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
+        else if (name.equals("code"))
+          this.code = castToCode(value); // CodeType
+        else if (name.equals("display"))
+          this.display = castToString(value); // StringType
+        else if (name.equals("userSelected"))
+          this.userSelected = castToBoolean(value); // BooleanType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("system")) {
+          throw new Exception("Cannot call addChild on a primitive type Coding.system");
+        }
+        else if (name.equals("version")) {
+          throw new Exception("Cannot call addChild on a primitive type Coding.version");
+        }
+        else if (name.equals("code")) {
+          throw new Exception("Cannot call addChild on a primitive type Coding.code");
+        }
+        else if (name.equals("display")) {
+          throw new Exception("Cannot call addChild on a primitive type Coding.display");
+        }
+        else if (name.equals("userSelected")) {
+          throw new Exception("Cannot call addChild on a primitive type Coding.userSelected");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Coding copy() {

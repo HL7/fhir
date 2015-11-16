@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -168,6 +168,28 @@ public class ReferralRequest extends DomainResource {
         if ("completed".equals(codeString))
           return ReferralStatus.COMPLETED;
         throw new IllegalArgumentException("Unknown ReferralStatus code '"+codeString+"'");
+        }
+        public Enumeration<ReferralStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("draft".equals(codeString))
+          return new Enumeration<ReferralStatus>(this, ReferralStatus.DRAFT);
+        if ("requested".equals(codeString))
+          return new Enumeration<ReferralStatus>(this, ReferralStatus.REQUESTED);
+        if ("active".equals(codeString))
+          return new Enumeration<ReferralStatus>(this, ReferralStatus.ACTIVE);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<ReferralStatus>(this, ReferralStatus.CANCELLED);
+        if ("accepted".equals(codeString))
+          return new Enumeration<ReferralStatus>(this, ReferralStatus.ACCEPTED);
+        if ("rejected".equals(codeString))
+          return new Enumeration<ReferralStatus>(this, ReferralStatus.REJECTED);
+        if ("completed".equals(codeString))
+          return new Enumeration<ReferralStatus>(this, ReferralStatus.COMPLETED);
+        throw new Exception("Unknown ReferralStatus code '"+codeString+"'");
         }
     public String toCode(ReferralStatus code) {
       if (code == ReferralStatus.DRAFT)
@@ -977,6 +999,106 @@ public class ReferralRequest extends DomainResource {
         childrenList.add(new Property("serviceRequested", "CodeableConcept", "The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion.", 0, java.lang.Integer.MAX_VALUE, serviceRequested));
         childrenList.add(new Property("supportingInformation", "Reference(Any)", "Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("fulfillmentTime", "Period", "The period of time within which the services identified in the referral/transfer of care is specified or required to occur.", 0, java.lang.Integer.MAX_VALUE, fulfillmentTime));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("status"))
+          this.status = new ReferralStatusEnumFactory().fromType(value); // Enumeration<ReferralStatus>
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("specialty"))
+          this.specialty = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("priority"))
+          this.priority = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
+        else if (name.equals("requester"))
+          this.requester = castToReference(value); // Reference
+        else if (name.equals("recipient"))
+          this.getRecipient().add(castToReference(value));
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("dateSent"))
+          this.dateSent = castToDateTime(value); // DateTimeType
+        else if (name.equals("reason"))
+          this.reason = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else if (name.equals("serviceRequested"))
+          this.getServiceRequested().add(castToCodeableConcept(value));
+        else if (name.equals("supportingInformation"))
+          this.getSupportingInformation().add(castToReference(value));
+        else if (name.equals("fulfillmentTime"))
+          this.fulfillmentTime = castToPeriod(value); // Period
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type ReferralRequest.status");
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("date")) {
+          throw new Exception("Cannot call addChild on a primitive type ReferralRequest.date");
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("specialty")) {
+          this.specialty = new CodeableConcept();
+          return this.specialty;
+        }
+        else if (name.equals("priority")) {
+          this.priority = new CodeableConcept();
+          return this.priority;
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
+        }
+        else if (name.equals("requester")) {
+          this.requester = new Reference();
+          return this.requester;
+        }
+        else if (name.equals("recipient")) {
+          return addRecipient();
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("dateSent")) {
+          throw new Exception("Cannot call addChild on a primitive type ReferralRequest.dateSent");
+        }
+        else if (name.equals("reason")) {
+          this.reason = new CodeableConcept();
+          return this.reason;
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type ReferralRequest.description");
+        }
+        else if (name.equals("serviceRequested")) {
+          return addServiceRequested();
+        }
+        else if (name.equals("supportingInformation")) {
+          return addSupportingInformation();
+        }
+        else if (name.equals("fulfillmentTime")) {
+          this.fulfillmentTime = new Period();
+          return this.fulfillmentTime;
+        }
+        else
+          return super.addChild(name);
       }
 
       public ReferralRequest copy() {

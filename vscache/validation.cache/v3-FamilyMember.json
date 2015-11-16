@@ -34,17 +34,6 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NMTH|natural mother",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "NMTH",
-        "definition": null,
-        "display": "natural mother"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|FATHER",
       "severity": null,
       "message": null,
@@ -56,14 +45,14 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRFTH|maternal grandfather",
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NMTH|natural mother",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "MGRFTH",
+        "code": "NMTH",
         "definition": null,
-        "display": "maternal grandfather"
+        "display": "natural mother"
       }
     },
     {
@@ -78,9 +67,15 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|72705000|Mother",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRFTH|maternal grandfather",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MGRFTH",
+        "definition": null,
+        "display": "maternal grandfather"
+      }
     },
     {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRMTH|maternal grandmother",
@@ -92,6 +87,11 @@
         "definition": null,
         "display": "maternal grandmother"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|72705000|Mother",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRFTH|paternal grandfather",
@@ -248,17 +248,6 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRMTH|paternal grandmother",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "PGRMTH",
-        "definition": null,
-        "display": "paternal grandmother"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MCOUSN|maternal cousin",
       "severity": null,
       "message": null,
@@ -267,6 +256,17 @@
         "code": "MCOUSN",
         "definition": null,
         "display": "maternal cousin"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRMTH|paternal grandmother",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "PGRMTH",
+        "definition": null,
+        "display": "paternal grandmother"
       }
     },
     {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -108,6 +108,18 @@ public class Account extends DomainResource {
         if ("inactive".equals(codeString))
           return AccountStatus.INACTIVE;
         throw new IllegalArgumentException("Unknown AccountStatus code '"+codeString+"'");
+        }
+        public Enumeration<AccountStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<AccountStatus>(this, AccountStatus.ACTIVE);
+        if ("inactive".equals(codeString))
+          return new Enumeration<AccountStatus>(this, AccountStatus.INACTIVE);
+        throw new Exception("Unknown AccountStatus code '"+codeString+"'");
         }
     public String toCode(AccountStatus code) {
       if (code == AccountStatus.ACTIVE)
@@ -617,6 +629,80 @@ public class Account extends DomainResource {
         childrenList.add(new Property("subject", "Reference(Patient|Device|Practitioner|Location|HealthcareService|Organization)", "Identifies the patient, device, practitioner, location or other object the account is associated with.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("owner", "Reference(Organization)", "Indicates the organization, department, etc. with responsibility for the account.", 0, java.lang.Integer.MAX_VALUE, owner));
         childrenList.add(new Property("description", "string", "Provides additional information about what the account tracks and how it is used.", 0, java.lang.Integer.MAX_VALUE, description));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("status"))
+          this.status = new AccountStatusEnumFactory().fromType(value); // Enumeration<AccountStatus>
+        else if (name.equals("activePeriod"))
+          this.activePeriod = castToPeriod(value); // Period
+        else if (name.equals("currency"))
+          this.currency = castToCoding(value); // Coding
+        else if (name.equals("balance"))
+          this.balance = castToMoney(value); // Money
+        else if (name.equals("coveragePeriod"))
+          this.coveragePeriod = castToPeriod(value); // Period
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("owner"))
+          this.owner = castToReference(value); // Reference
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type Account.name");
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Account.status");
+        }
+        else if (name.equals("activePeriod")) {
+          this.activePeriod = new Period();
+          return this.activePeriod;
+        }
+        else if (name.equals("currency")) {
+          this.currency = new Coding();
+          return this.currency;
+        }
+        else if (name.equals("balance")) {
+          this.balance = new Money();
+          return this.balance;
+        }
+        else if (name.equals("coveragePeriod")) {
+          this.coveragePeriod = new Period();
+          return this.coveragePeriod;
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("owner")) {
+          this.owner = new Reference();
+          return this.owner;
+        }
+        else if (name.equals("description")) {
+          throw new Exception("Cannot call addChild on a primitive type Account.description");
+        }
+        else
+          return super.addChild(name);
       }
 
       public Account copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -132,6 +132,22 @@ public class Subscription extends DomainResource {
         if ("off".equals(codeString))
           return SubscriptionStatus.OFF;
         throw new IllegalArgumentException("Unknown SubscriptionStatus code '"+codeString+"'");
+        }
+        public Enumeration<SubscriptionStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("requested".equals(codeString))
+          return new Enumeration<SubscriptionStatus>(this, SubscriptionStatus.REQUESTED);
+        if ("active".equals(codeString))
+          return new Enumeration<SubscriptionStatus>(this, SubscriptionStatus.ACTIVE);
+        if ("error".equals(codeString))
+          return new Enumeration<SubscriptionStatus>(this, SubscriptionStatus.ERROR);
+        if ("off".equals(codeString))
+          return new Enumeration<SubscriptionStatus>(this, SubscriptionStatus.OFF);
+        throw new Exception("Unknown SubscriptionStatus code '"+codeString+"'");
         }
     public String toCode(SubscriptionStatus code) {
       if (code == SubscriptionStatus.REQUESTED)
@@ -244,6 +260,24 @@ public class Subscription extends DomainResource {
         if ("message".equals(codeString))
           return SubscriptionChannelType.MESSAGE;
         throw new IllegalArgumentException("Unknown SubscriptionChannelType code '"+codeString+"'");
+        }
+        public Enumeration<SubscriptionChannelType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("rest-hook".equals(codeString))
+          return new Enumeration<SubscriptionChannelType>(this, SubscriptionChannelType.RESTHOOK);
+        if ("websocket".equals(codeString))
+          return new Enumeration<SubscriptionChannelType>(this, SubscriptionChannelType.WEBSOCKET);
+        if ("email".equals(codeString))
+          return new Enumeration<SubscriptionChannelType>(this, SubscriptionChannelType.EMAIL);
+        if ("sms".equals(codeString))
+          return new Enumeration<SubscriptionChannelType>(this, SubscriptionChannelType.SMS);
+        if ("message".equals(codeString))
+          return new Enumeration<SubscriptionChannelType>(this, SubscriptionChannelType.MESSAGE);
+        throw new Exception("Unknown SubscriptionChannelType code '"+codeString+"'");
         }
     public String toCode(SubscriptionChannelType code) {
       if (code == SubscriptionChannelType.RESTHOOK)
@@ -503,6 +537,38 @@ public class Subscription extends DomainResource {
           childrenList.add(new Property("payload", "string", "The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.", 0, java.lang.Integer.MAX_VALUE, payload));
           childrenList.add(new Property("header", "string", "Additional headers / information to send as part of the notification.", 0, java.lang.Integer.MAX_VALUE, header));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = new SubscriptionChannelTypeEnumFactory().fromType(value); // Enumeration<SubscriptionChannelType>
+        else if (name.equals("endpoint"))
+          this.endpoint = castToUri(value); // UriType
+        else if (name.equals("payload"))
+          this.payload = castToString(value); // StringType
+        else if (name.equals("header"))
+          this.header = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type Subscription.type");
+        }
+        else if (name.equals("endpoint")) {
+          throw new Exception("Cannot call addChild on a primitive type Subscription.endpoint");
+        }
+        else if (name.equals("payload")) {
+          throw new Exception("Cannot call addChild on a primitive type Subscription.payload");
+        }
+        else if (name.equals("header")) {
+          throw new Exception("Cannot call addChild on a primitive type Subscription.header");
+        }
+        else
+          return super.addChild(name);
+      }
 
       public SubscriptionChannelComponent copy() {
         SubscriptionChannelComponent dst = new SubscriptionChannelComponent();
@@ -966,6 +1032,59 @@ public class Subscription extends DomainResource {
         childrenList.add(new Property("channel", "", "Details where to send notifications when resources are received that meet the criteria.", 0, java.lang.Integer.MAX_VALUE, channel));
         childrenList.add(new Property("end", "instant", "The time for the server to turn the subscription off.", 0, java.lang.Integer.MAX_VALUE, end));
         childrenList.add(new Property("tag", "Coding", "A tag to add to any resource that matches the criteria, after the subscription is processed.", 0, java.lang.Integer.MAX_VALUE, tag));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("criteria"))
+          this.criteria = castToString(value); // StringType
+        else if (name.equals("contact"))
+          this.getContact().add(castToContactPoint(value));
+        else if (name.equals("reason"))
+          this.reason = castToString(value); // StringType
+        else if (name.equals("status"))
+          this.status = new SubscriptionStatusEnumFactory().fromType(value); // Enumeration<SubscriptionStatus>
+        else if (name.equals("error"))
+          this.error = castToString(value); // StringType
+        else if (name.equals("channel"))
+          this.channel = (SubscriptionChannelComponent) value; // SubscriptionChannelComponent
+        else if (name.equals("end"))
+          this.end = castToInstant(value); // InstantType
+        else if (name.equals("tag"))
+          this.getTag().add(castToCoding(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("criteria")) {
+          throw new Exception("Cannot call addChild on a primitive type Subscription.criteria");
+        }
+        else if (name.equals("contact")) {
+          return addContact();
+        }
+        else if (name.equals("reason")) {
+          throw new Exception("Cannot call addChild on a primitive type Subscription.reason");
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Subscription.status");
+        }
+        else if (name.equals("error")) {
+          throw new Exception("Cannot call addChild on a primitive type Subscription.error");
+        }
+        else if (name.equals("channel")) {
+          this.channel = new SubscriptionChannelComponent();
+          return this.channel;
+        }
+        else if (name.equals("end")) {
+          throw new Exception("Cannot call addChild on a primitive type Subscription.end");
+        }
+        else if (name.equals("tag")) {
+          return addTag();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Subscription copy() {

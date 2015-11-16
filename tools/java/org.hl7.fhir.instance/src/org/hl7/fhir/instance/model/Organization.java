@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -204,6 +204,41 @@ public class Organization extends DomainResource {
           childrenList.add(new Property("telecom", "ContactPoint", "A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
           childrenList.add(new Property("address", "Address", "Visiting or postal addresses for the contact.", 0, java.lang.Integer.MAX_VALUE, address));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("purpose"))
+          this.purpose = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("name"))
+          this.name = castToHumanName(value); // HumanName
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else if (name.equals("address"))
+          this.address = castToAddress(value); // Address
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("purpose")) {
+          this.purpose = new CodeableConcept();
+          return this.purpose;
+        }
+        else if (name.equals("name")) {
+          this.name = new HumanName();
+          return this.name;
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else if (name.equals("address")) {
+          this.address = new Address();
+          return this.address;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public OrganizationContactComponent copy() {
         OrganizationContactComponent dst = new OrganizationContactComponent();
@@ -649,6 +684,60 @@ public class Organization extends DomainResource {
         childrenList.add(new Property("address", "Address", "An address for the organization.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("partOf", "Reference(Organization)", "The organization of which this organization forms a part.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("contact", "", "Contact for the organization for a certain purpose.", 0, java.lang.Integer.MAX_VALUE, contact));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("active"))
+          this.active = castToBoolean(value); // BooleanType
+        else if (name.equals("type"))
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("telecom"))
+          this.getTelecom().add(castToContactPoint(value));
+        else if (name.equals("address"))
+          this.getAddress().add(castToAddress(value));
+        else if (name.equals("partOf"))
+          this.partOf = castToReference(value); // Reference
+        else if (name.equals("contact"))
+          this.getContact().add((OrganizationContactComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("active")) {
+          throw new Exception("Cannot call addChild on a primitive type Organization.active");
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("name")) {
+          throw new Exception("Cannot call addChild on a primitive type Organization.name");
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
+        }
+        else if (name.equals("address")) {
+          return addAddress();
+        }
+        else if (name.equals("partOf")) {
+          this.partOf = new Reference();
+          return this.partOf;
+        }
+        else if (name.equals("contact")) {
+          return addContact();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Organization copy() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -145,6 +145,24 @@ public class Communication extends DomainResource {
           return CommunicationStatus.FAILED;
         throw new IllegalArgumentException("Unknown CommunicationStatus code '"+codeString+"'");
         }
+        public Enumeration<CommunicationStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("in-progress".equals(codeString))
+          return new Enumeration<CommunicationStatus>(this, CommunicationStatus.INPROGRESS);
+        if ("completed".equals(codeString))
+          return new Enumeration<CommunicationStatus>(this, CommunicationStatus.COMPLETED);
+        if ("suspended".equals(codeString))
+          return new Enumeration<CommunicationStatus>(this, CommunicationStatus.SUSPENDED);
+        if ("rejected".equals(codeString))
+          return new Enumeration<CommunicationStatus>(this, CommunicationStatus.REJECTED);
+        if ("failed".equals(codeString))
+          return new Enumeration<CommunicationStatus>(this, CommunicationStatus.FAILED);
+        throw new Exception("Unknown CommunicationStatus code '"+codeString+"'");
+        }
     public String toCode(CommunicationStatus code) {
       if (code == CommunicationStatus.INPROGRESS)
         return "in-progress";
@@ -248,6 +266,32 @@ public class Communication extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("content[x]", "string|Attachment|Reference(Any)", "A communicated content (or for multi-part communications, one portion of the communication).", 0, java.lang.Integer.MAX_VALUE, content));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("content[x]"))
+          this.content = (Type) value; // Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("contentString")) {
+          this.content = new StringType();
+          return this.content;
+        }
+        else if (name.equals("contentAttachment")) {
+          this.content = new Attachment();
+          return this.content;
+        }
+        else if (name.equals("contentReference")) {
+          this.content = new Reference();
+          return this.content;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public CommunicationPayloadComponent copy() {
         CommunicationPayloadComponent dst = new CommunicationPayloadComponent();
@@ -973,6 +1017,88 @@ public class Communication extends DomainResource {
         childrenList.add(new Property("reason", "CodeableConcept", "The reason or justification for the communication.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who was the focus of this communication.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("requestDetail", "Reference(CommunicationRequest)", "The communication request that was responsible for producing this communication.", 0, java.lang.Integer.MAX_VALUE, requestDetail));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("category"))
+          this.category = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("sender"))
+          this.sender = castToReference(value); // Reference
+        else if (name.equals("recipient"))
+          this.getRecipient().add(castToReference(value));
+        else if (name.equals("payload"))
+          this.getPayload().add((CommunicationPayloadComponent) value);
+        else if (name.equals("medium"))
+          this.getMedium().add(castToCodeableConcept(value));
+        else if (name.equals("status"))
+          this.status = new CommunicationStatusEnumFactory().fromType(value); // Enumeration<CommunicationStatus>
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("sent"))
+          this.sent = castToDateTime(value); // DateTimeType
+        else if (name.equals("received"))
+          this.received = castToDateTime(value); // DateTimeType
+        else if (name.equals("reason"))
+          this.getReason().add(castToCodeableConcept(value));
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("requestDetail"))
+          this.requestDetail = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
+        }
+        else if (name.equals("sender")) {
+          this.sender = new Reference();
+          return this.sender;
+        }
+        else if (name.equals("recipient")) {
+          return addRecipient();
+        }
+        else if (name.equals("payload")) {
+          return addPayload();
+        }
+        else if (name.equals("medium")) {
+          return addMedium();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Communication.status");
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("sent")) {
+          throw new Exception("Cannot call addChild on a primitive type Communication.sent");
+        }
+        else if (name.equals("received")) {
+          throw new Exception("Cannot call addChild on a primitive type Communication.received");
+        }
+        else if (name.equals("reason")) {
+          return addReason();
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("requestDetail")) {
+          this.requestDetail = new Reference();
+          return this.requestDetail;
+        }
+        else
+          return super.addChild(name);
       }
 
       public Communication copy() {

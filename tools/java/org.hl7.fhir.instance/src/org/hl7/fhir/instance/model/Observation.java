@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -169,6 +169,28 @@ public class Observation extends DomainResource {
           return ObservationStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown ObservationStatus code '"+codeString+"'");
         }
+        public Enumeration<ObservationStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("registered".equals(codeString))
+          return new Enumeration<ObservationStatus>(this, ObservationStatus.REGISTERED);
+        if ("preliminary".equals(codeString))
+          return new Enumeration<ObservationStatus>(this, ObservationStatus.PRELIMINARY);
+        if ("final".equals(codeString))
+          return new Enumeration<ObservationStatus>(this, ObservationStatus.FINAL);
+        if ("amended".equals(codeString))
+          return new Enumeration<ObservationStatus>(this, ObservationStatus.AMENDED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<ObservationStatus>(this, ObservationStatus.CANCELLED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<ObservationStatus>(this, ObservationStatus.ENTEREDINERROR);
+        if ("unknown".equals(codeString))
+          return new Enumeration<ObservationStatus>(this, ObservationStatus.UNKNOWN);
+        throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
+        }
     public String toCode(ObservationStatus code) {
       if (code == ObservationStatus.REGISTERED)
         return "registered";
@@ -298,6 +320,26 @@ public class Observation extends DomainResource {
         if ("interfered-by".equals(codeString))
           return ObservationRelationshipType.INTERFEREDBY;
         throw new IllegalArgumentException("Unknown ObservationRelationshipType code '"+codeString+"'");
+        }
+        public Enumeration<ObservationRelationshipType> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("has-member".equals(codeString))
+          return new Enumeration<ObservationRelationshipType>(this, ObservationRelationshipType.HASMEMBER);
+        if ("derived-from".equals(codeString))
+          return new Enumeration<ObservationRelationshipType>(this, ObservationRelationshipType.DERIVEDFROM);
+        if ("sequel-to".equals(codeString))
+          return new Enumeration<ObservationRelationshipType>(this, ObservationRelationshipType.SEQUELTO);
+        if ("replaces".equals(codeString))
+          return new Enumeration<ObservationRelationshipType>(this, ObservationRelationshipType.REPLACES);
+        if ("qualified-by".equals(codeString))
+          return new Enumeration<ObservationRelationshipType>(this, ObservationRelationshipType.QUALIFIEDBY);
+        if ("interfered-by".equals(codeString))
+          return new Enumeration<ObservationRelationshipType>(this, ObservationRelationshipType.INTERFEREDBY);
+        throw new Exception("Unknown ObservationRelationshipType code '"+codeString+"'");
         }
     public String toCode(ObservationRelationshipType code) {
       if (code == ObservationRelationshipType.HASMEMBER)
@@ -516,6 +558,47 @@ public class Observation extends DomainResource {
           childrenList.add(new Property("text", "string", "Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of 'normals'.", 0, java.lang.Integer.MAX_VALUE, text));
         }
 
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("low"))
+          this.low = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("high"))
+          this.high = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("meaning"))
+          this.meaning = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("age"))
+          this.age = castToRange(value); // Range
+        else if (name.equals("text"))
+          this.text = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("low")) {
+          this.low = new SimpleQuantity();
+          return this.low;
+        }
+        else if (name.equals("high")) {
+          this.high = new SimpleQuantity();
+          return this.high;
+        }
+        else if (name.equals("meaning")) {
+          this.meaning = new CodeableConcept();
+          return this.meaning;
+        }
+        else if (name.equals("age")) {
+          this.age = new Range();
+          return this.age;
+        }
+        else if (name.equals("text")) {
+          throw new Exception("Cannot call addChild on a primitive type Observation.text");
+        }
+        else
+          return super.addChild(name);
+      }
+
       public ObservationReferenceRangeComponent copy() {
         ObservationReferenceRangeComponent dst = new ObservationReferenceRangeComponent();
         copyValues(dst);
@@ -687,6 +770,29 @@ public class Observation extends DomainResource {
           childrenList.add(new Property("type", "code", "A code specifying the kind of relationship that exists with the target resource.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("target", "Reference(Observation|QuestionnaireResponse)", "A reference to the observation or [[[QuestionnaireResponse]]] resource that is related to this observation.", 0, java.lang.Integer.MAX_VALUE, target));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("type"))
+          this.type = new ObservationRelationshipTypeEnumFactory().fromType(value); // Enumeration<ObservationRelationshipType>
+        else if (name.equals("target"))
+          this.target = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("type")) {
+          throw new Exception("Cannot call addChild on a primitive type Observation.type");
+        }
+        else if (name.equals("target")) {
+          this.target = new Reference();
+          return this.target;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ObservationRelatedComponent copy() {
         ObservationRelatedComponent dst = new ObservationRelatedComponent();
@@ -1014,6 +1120,77 @@ public class Observation extends DomainResource {
           childrenList.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, java.lang.Integer.MAX_VALUE, dataAbsentReason));
           childrenList.add(new Property("referenceRange", "@Observation.referenceRange", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("value[x]"))
+          this.value = (Type) value; // Type
+        else if (name.equals("dataAbsentReason"))
+          this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("referenceRange"))
+          this.getReferenceRange().add((ObservationReferenceRangeComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("valueQuantity")) {
+          this.value = new Quantity();
+          return this.value;
+        }
+        else if (name.equals("valueCodeableConcept")) {
+          this.value = new CodeableConcept();
+          return this.value;
+        }
+        else if (name.equals("valueString")) {
+          this.value = new StringType();
+          return this.value;
+        }
+        else if (name.equals("valueRange")) {
+          this.value = new Range();
+          return this.value;
+        }
+        else if (name.equals("valueRatio")) {
+          this.value = new Ratio();
+          return this.value;
+        }
+        else if (name.equals("valueSampledData")) {
+          this.value = new SampledData();
+          return this.value;
+        }
+        else if (name.equals("valueAttachment")) {
+          this.value = new Attachment();
+          return this.value;
+        }
+        else if (name.equals("valueTime")) {
+          this.value = new TimeType();
+          return this.value;
+        }
+        else if (name.equals("valueDateTime")) {
+          this.value = new DateTimeType();
+          return this.value;
+        }
+        else if (name.equals("valuePeriod")) {
+          this.value = new Period();
+          return this.value;
+        }
+        else if (name.equals("dataAbsentReason")) {
+          this.dataAbsentReason = new CodeableConcept();
+          return this.dataAbsentReason;
+        }
+        else if (name.equals("referenceRange")) {
+          return addReferenceRange();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public ObservationComponentComponent copy() {
         ObservationComponentComponent dst = new ObservationComponentComponent();
@@ -2119,6 +2296,170 @@ public class Observation extends DomainResource {
         childrenList.add(new Property("referenceRange", "", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange));
         childrenList.add(new Property("related", "", "A  reference to another resource (usually another Observation but could  also be a QuestionnaireAnswer) whose relationship is defined by the relationship type code.", 0, java.lang.Integer.MAX_VALUE, related));
         childrenList.add(new Property("component", "", "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.", 0, java.lang.Integer.MAX_VALUE, component));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new ObservationStatusEnumFactory().fromType(value); // Enumeration<ObservationStatus>
+        else if (name.equals("category"))
+          this.category = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("effective[x]"))
+          this.effective = (Type) value; // Type
+        else if (name.equals("issued"))
+          this.issued = castToInstant(value); // InstantType
+        else if (name.equals("performer"))
+          this.getPerformer().add(castToReference(value));
+        else if (name.equals("value[x]"))
+          this.value = (Type) value; // Type
+        else if (name.equals("dataAbsentReason"))
+          this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("interpretation"))
+          this.interpretation = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("comments"))
+          this.comments = castToString(value); // StringType
+        else if (name.equals("bodySite"))
+          this.bodySite = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("method"))
+          this.method = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("specimen"))
+          this.specimen = castToReference(value); // Reference
+        else if (name.equals("device"))
+          this.device = castToReference(value); // Reference
+        else if (name.equals("referenceRange"))
+          this.getReferenceRange().add((ObservationReferenceRangeComponent) value);
+        else if (name.equals("related"))
+          this.getRelated().add((ObservationRelatedComponent) value);
+        else if (name.equals("component"))
+          this.getComponent().add((ObservationComponentComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type Observation.status");
+        }
+        else if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
+        }
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("effectiveDateTime")) {
+          this.effective = new DateTimeType();
+          return this.effective;
+        }
+        else if (name.equals("effectivePeriod")) {
+          this.effective = new Period();
+          return this.effective;
+        }
+        else if (name.equals("issued")) {
+          throw new Exception("Cannot call addChild on a primitive type Observation.issued");
+        }
+        else if (name.equals("performer")) {
+          return addPerformer();
+        }
+        else if (name.equals("valueQuantity")) {
+          this.value = new Quantity();
+          return this.value;
+        }
+        else if (name.equals("valueCodeableConcept")) {
+          this.value = new CodeableConcept();
+          return this.value;
+        }
+        else if (name.equals("valueString")) {
+          this.value = new StringType();
+          return this.value;
+        }
+        else if (name.equals("valueRange")) {
+          this.value = new Range();
+          return this.value;
+        }
+        else if (name.equals("valueRatio")) {
+          this.value = new Ratio();
+          return this.value;
+        }
+        else if (name.equals("valueSampledData")) {
+          this.value = new SampledData();
+          return this.value;
+        }
+        else if (name.equals("valueAttachment")) {
+          this.value = new Attachment();
+          return this.value;
+        }
+        else if (name.equals("valueTime")) {
+          this.value = new TimeType();
+          return this.value;
+        }
+        else if (name.equals("valueDateTime")) {
+          this.value = new DateTimeType();
+          return this.value;
+        }
+        else if (name.equals("valuePeriod")) {
+          this.value = new Period();
+          return this.value;
+        }
+        else if (name.equals("dataAbsentReason")) {
+          this.dataAbsentReason = new CodeableConcept();
+          return this.dataAbsentReason;
+        }
+        else if (name.equals("interpretation")) {
+          this.interpretation = new CodeableConcept();
+          return this.interpretation;
+        }
+        else if (name.equals("comments")) {
+          throw new Exception("Cannot call addChild on a primitive type Observation.comments");
+        }
+        else if (name.equals("bodySite")) {
+          this.bodySite = new CodeableConcept();
+          return this.bodySite;
+        }
+        else if (name.equals("method")) {
+          this.method = new CodeableConcept();
+          return this.method;
+        }
+        else if (name.equals("specimen")) {
+          this.specimen = new Reference();
+          return this.specimen;
+        }
+        else if (name.equals("device")) {
+          this.device = new Reference();
+          return this.device;
+        }
+        else if (name.equals("referenceRange")) {
+          return addReferenceRange();
+        }
+        else if (name.equals("related")) {
+          return addRelated();
+        }
+        else if (name.equals("component")) {
+          return addComponent();
+        }
+        else
+          return super.addChild(name);
       }
 
       public Observation copy() {

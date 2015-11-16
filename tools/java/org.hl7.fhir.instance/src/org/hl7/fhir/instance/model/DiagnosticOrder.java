@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Oct 29, 2015 11:14+1100 for FHIR v1.0.2
+// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
 
 import java.util.*;
 
@@ -241,6 +241,40 @@ public class DiagnosticOrder extends DomainResource {
           return DiagnosticOrderStatus.FAILED;
         throw new IllegalArgumentException("Unknown DiagnosticOrderStatus code '"+codeString+"'");
         }
+        public Enumeration<DiagnosticOrderStatus> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("proposed".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.PROPOSED);
+        if ("draft".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.DRAFT);
+        if ("planned".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.PLANNED);
+        if ("requested".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.REQUESTED);
+        if ("received".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.RECEIVED);
+        if ("accepted".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.ACCEPTED);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.INPROGRESS);
+        if ("review".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.REVIEW);
+        if ("completed".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.COMPLETED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.CANCELLED);
+        if ("suspended".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.SUSPENDED);
+        if ("rejected".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.REJECTED);
+        if ("failed".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.FAILED);
+        throw new Exception("Unknown DiagnosticOrderStatus code '"+codeString+"'");
+        }
     public String toCode(DiagnosticOrderStatus code) {
       if (code == DiagnosticOrderStatus.PROPOSED)
         return "proposed";
@@ -358,6 +392,22 @@ public class DiagnosticOrder extends DomainResource {
         if ("asap".equals(codeString))
           return DiagnosticOrderPriority.ASAP;
         throw new IllegalArgumentException("Unknown DiagnosticOrderPriority code '"+codeString+"'");
+        }
+        public Enumeration<DiagnosticOrderPriority> fromType(Base code) throws Exception {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("routine".equals(codeString))
+          return new Enumeration<DiagnosticOrderPriority>(this, DiagnosticOrderPriority.ROUTINE);
+        if ("urgent".equals(codeString))
+          return new Enumeration<DiagnosticOrderPriority>(this, DiagnosticOrderPriority.URGENT);
+        if ("stat".equals(codeString))
+          return new Enumeration<DiagnosticOrderPriority>(this, DiagnosticOrderPriority.STAT);
+        if ("asap".equals(codeString))
+          return new Enumeration<DiagnosticOrderPriority>(this, DiagnosticOrderPriority.ASAP);
+        throw new Exception("Unknown DiagnosticOrderPriority code '"+codeString+"'");
         }
     public String toCode(DiagnosticOrderPriority code) {
       if (code == DiagnosticOrderPriority.ROUTINE)
@@ -585,6 +635,40 @@ public class DiagnosticOrder extends DomainResource {
           childrenList.add(new Property("dateTime", "dateTime", "The date/time at which the event occurred.", 0, java.lang.Integer.MAX_VALUE, dateTime));
           childrenList.add(new Property("actor", "Reference(Practitioner|Device)", "The person responsible for performing or recording the action.", 0, java.lang.Integer.MAX_VALUE, actor));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("status"))
+          this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
+        else if (name.equals("description"))
+          this.description = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("dateTime"))
+          this.dateTime = castToDateTime(value); // DateTimeType
+        else if (name.equals("actor"))
+          this.actor = castToReference(value); // Reference
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type DiagnosticOrder.status");
+        }
+        else if (name.equals("description")) {
+          this.description = new CodeableConcept();
+          return this.description;
+        }
+        else if (name.equals("dateTime")) {
+          throw new Exception("Cannot call addChild on a primitive type DiagnosticOrder.dateTime");
+        }
+        else if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DiagnosticOrderEventComponent copy() {
         DiagnosticOrderEventComponent dst = new DiagnosticOrderEventComponent();
@@ -889,6 +973,45 @@ public class DiagnosticOrder extends DomainResource {
           childrenList.add(new Property("status", "code", "The status of this individual item within the order.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("event", "@DiagnosticOrder.event", "A summary of the events of interest that have occurred as this item of the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));
         }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("code"))
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("specimen"))
+          this.getSpecimen().add(castToReference(value));
+        else if (name.equals("bodySite"))
+          this.bodySite = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("status"))
+          this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
+        else if (name.equals("event"))
+          this.getEvent().add((DiagnosticOrderEventComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("specimen")) {
+          return addSpecimen();
+        }
+        else if (name.equals("bodySite")) {
+          this.bodySite = new CodeableConcept();
+          return this.bodySite;
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type DiagnosticOrder.status");
+        }
+        else if (name.equals("event")) {
+          return addEvent();
+        }
+        else
+          return super.addChild(name);
+      }
 
       public DiagnosticOrderItemComponent copy() {
         DiagnosticOrderItemComponent dst = new DiagnosticOrderItemComponent();
@@ -1613,6 +1736,81 @@ public class DiagnosticOrder extends DomainResource {
         childrenList.add(new Property("event", "", "A summary of the events of interest that have occurred as the request is processed; e.g. when the order was made, various processing steps (specimens received), when it was completed.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("item", "", "The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.", 0, java.lang.Integer.MAX_VALUE, item));
         childrenList.add(new Property("note", "Annotation", "Any other notes associated with this patient, specimen or order (e.g. \"patient hates needles\").", 0, java.lang.Integer.MAX_VALUE, note));
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws Exception {
+        if (name.equals("subject"))
+          this.subject = castToReference(value); // Reference
+        else if (name.equals("orderer"))
+          this.orderer = castToReference(value); // Reference
+        else if (name.equals("identifier"))
+          this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("encounter"))
+          this.encounter = castToReference(value); // Reference
+        else if (name.equals("reason"))
+          this.getReason().add(castToCodeableConcept(value));
+        else if (name.equals("supportingInformation"))
+          this.getSupportingInformation().add(castToReference(value));
+        else if (name.equals("specimen"))
+          this.getSpecimen().add(castToReference(value));
+        else if (name.equals("status"))
+          this.status = new DiagnosticOrderStatusEnumFactory().fromType(value); // Enumeration<DiagnosticOrderStatus>
+        else if (name.equals("priority"))
+          this.priority = new DiagnosticOrderPriorityEnumFactory().fromType(value); // Enumeration<DiagnosticOrderPriority>
+        else if (name.equals("event"))
+          this.getEvent().add((DiagnosticOrderEventComponent) value);
+        else if (name.equals("item"))
+          this.getItem().add((DiagnosticOrderItemComponent) value);
+        else if (name.equals("note"))
+          this.getNote().add(castToAnnotation(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws Exception {
+        if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("orderer")) {
+          this.orderer = new Reference();
+          return this.orderer;
+        }
+        else if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("reason")) {
+          return addReason();
+        }
+        else if (name.equals("supportingInformation")) {
+          return addSupportingInformation();
+        }
+        else if (name.equals("specimen")) {
+          return addSpecimen();
+        }
+        else if (name.equals("status")) {
+          throw new Exception("Cannot call addChild on a primitive type DiagnosticOrder.status");
+        }
+        else if (name.equals("priority")) {
+          throw new Exception("Cannot call addChild on a primitive type DiagnosticOrder.priority");
+        }
+        else if (name.equals("event")) {
+          return addEvent();
+        }
+        else if (name.equals("item")) {
+          return addItem();
+        }
+        else if (name.equals("note")) {
+          return addNote();
+        }
+        else
+          return super.addChild(name);
       }
 
       public DiagnosticOrder copy() {
