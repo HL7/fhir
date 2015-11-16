@@ -49,13 +49,13 @@
     <table lang="EN-US" style="mso-ansi-language:EN-US">
       <tbody>
         <xsl:if test="$isExtension">
-          <xsl:for-each select="path/@value">
+          <xsl:for-each select="name/@value">
             <tr>
               <td>
                 <b style="mso-no-prooyes">Name</b>
               </td>
               <td>
-                <xsl:value-of select="name/@value"/>
+                <xsl:value-of select="."/>
               </td>
             </tr>
           </xsl:for-each>
