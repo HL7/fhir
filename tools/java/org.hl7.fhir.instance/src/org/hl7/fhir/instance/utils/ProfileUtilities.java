@@ -1143,7 +1143,6 @@ public class ProfileUtilities {
     return null;
   }
 
-
   private ElementDefinition getValueFor(StructureDefinition ed, ElementDefinition c) {
     int i = ed.getSnapshot().getElement().indexOf(c) + 1;
     while (i < ed.getSnapshot().getElement().size() && ed.getSnapshot().getElement().get(i).getPath().startsWith(c.getPath()+".")) {
