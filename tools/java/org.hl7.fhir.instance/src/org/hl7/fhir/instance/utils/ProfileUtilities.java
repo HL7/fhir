@@ -324,6 +324,7 @@ public class ProfileUtilities {
           else if (!outcome.getPath().startsWith(resultPathBase))
             throw new Exception("Adding wrong path");
           result.getElement().add(outcome);
+          checkExtensionDoco(outcome);
           baseCursor++;
         } else if (diffMatches.size() == 1 && (!diffMatches.get(0).hasSlicing() || slicingDone)) {// one matching element in the differential
           ElementDefinition template = null;
@@ -528,6 +529,20 @@ public class ProfileUtilities {
           }
         }
       }
+    }
+  }
+
+
+  private void checkExtensionDoco(ElementDefinition base) {
+    // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff
+    boolean isExtension = base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension");
+    if (isExtension) {
+      base.setDefinition("An Extension");
+      base.setShort("Extension");
+      base.setCommentsElement(null);
+      base.setRequirementsElement(null);
+      base.getAlias().clear();
+      base.getMapping().clear();
     }
   }
 
@@ -764,16 +779,7 @@ public class ProfileUtilities {
     derived.setUserData(DERIVATION_POINTER, base);
 
     if (derived != null) {
-      // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff
-      boolean isExtension = base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension");
-      if (isExtension) {
-        base.setDefinition("An Extension");
-        base.setShort("Extension");
-        base.setCommentsElement(null);
-        base.setRequirementsElement(null);
-        base.getAlias().clear();
-        base.getMapping().clear();
-      }
+      checkExtensionDoco(base);
 
       if (derived.hasShortElement()) {
         if (!Base.compareDeep(derived.getShortElement(), base.getShortElement(), false))
