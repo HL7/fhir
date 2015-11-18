@@ -344,7 +344,8 @@ public class ProfileUtilities {
           ElementDefinition outcome = updateURLs(url, template);
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           updateFromBase(outcome, currentBase);
-          outcome.setName(diffMatches.get(0).getName());
+          if (diffMatches.get(0).hasName())
+            outcome.setName(diffMatches.get(0).getName());
           outcome.setSlicing(null);
           updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp, trimDifferential, url);
           if (outcome.getPath().endsWith("[x]") && outcome.getType().size() == 1 && !outcome.getType().get(0).getCode().equals("*")) // if the base profile allows multiple types, but the profile only allows one, rename it
