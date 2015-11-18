@@ -533,7 +533,7 @@ public class ProfileUtilities {
   }
 
 
-  private void checkExtensionDoco(ElementDefinition base) {
+  private boolean checkExtensionDoco(ElementDefinition base) {
     // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff
     boolean isExtension = base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension");
     if (isExtension) {
@@ -544,6 +544,7 @@ public class ProfileUtilities {
       base.getAlias().clear();
       base.getMapping().clear();
     }
+    return isExtension;
   }
 
 
@@ -779,7 +780,7 @@ public class ProfileUtilities {
     derived.setUserData(DERIVATION_POINTER, base);
 
     if (derived != null) {
-      checkExtensionDoco(base);
+      boolean isExtension = checkExtensionDoco(base);
 
       if (derived.hasShortElement()) {
         if (!Base.compareDeep(derived.getShortElement(), base.getShortElement(), false))
