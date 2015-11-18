@@ -78,9 +78,6 @@
       </valueCodeableConcept>
     </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
-    <valueDateTime value="2012-06-07T06:12:45-05:00"/>
-  </extension>
   <active value="true"/>
   <name>
     <use value="official"/>
@@ -100,7 +97,11 @@
     <use value="work"/>
   </telecom>
   <gender value="male"/>
-  <birthDate value="2012-06-07"/>
+  <birthDate value="2012-06-07">
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+      <valueDateTime value="2012-06-07T06:12:45-05:00"/>
+    </extension>
+  </birthDate>
   <deceasedBoolean value="false"/>
   <address>
     <use value="home"/>
