@@ -822,8 +822,10 @@ public class Publisher implements URIResolver, SectionNumberer {
           validateProfile(p);
     
     page.log(" ...Check FHIR Path Expressions", LogMessageType.Process);
+    StringBuilder b = new StringBuilder();
     FHIRPathEvaluator fp = new FHIRPathEvaluator(page.getWorkerContext());
     for (FHIRPathUsage p : fpUsages) {
+      b.append(p.getResource() + " (" + p.getContext() + "): " + p.getExpression()+"\r\n");
       try {
         if (!"n/a".equals(p.getExpression())) {
           fp.check(null, p.getResource(), p.getContext(), p.getExpression(), p.getXpath() != null && (p.getXpath().startsWith("@value") || (p.getXpath().contains("@value") && !p.getXpath().contains("/@value"))));
@@ -832,6 +834,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         BaseValidator.rule(page.getValidationErrors(), Source.Publisher, IssueType.STRUCTURE, p.getLocation(), false, "Expression '"+p.getExpression()+"' has illegal path ("+e.getMessage()+")"); 
       }
     }
+    TextFile.stringToFile(b.toString(), Utilities.path(page.getFolders().dstDir, "fhirpaths.txt"));
 
     checkAllOk();
   }
