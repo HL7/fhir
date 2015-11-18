@@ -1215,7 +1215,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The name of the administrative area (county)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">District is sometimes known as county, but in some regions 'county' in used in place of city (municipality), so county name should be conveyed in city instead</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">District is sometimes known as county, but in some regions 'county' is used in place of city (municipality), so county name should be conveyed in city instead</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">AD.part[parttype = CNT | CPA]</Data><NamedCell

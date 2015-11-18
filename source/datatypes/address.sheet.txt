@@ -165,7 +165,7 @@
   Type = string
   Short Label = District name (aka county)
   Definition = The name of the administrative area (county)
-  Comments = District is sometimes known as county, but in some regions \'county\' in used in place of city (municipality), so county name should be conveyed in city instead
+  Comments = District is sometimes known as county, but in some regions \'county\' is used in place of city (municipality), so county name should be conveyed in city instead
   v2 Mapping = XAD.9
   RIM Mapping = AD.part[parttype = CNT | CPA]
   Example = Madison
