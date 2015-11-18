@@ -324,7 +324,6 @@ public class ProfileUtilities {
           else if (!outcome.getPath().startsWith(resultPathBase))
             throw new Exception("Adding wrong path");
           result.getElement().add(outcome);
-          checkExtensionDoco(outcome);
           baseCursor++;
         } else if (diffMatches.size() == 1 && (!diffMatches.get(0).hasSlicing() || slicingDone)) {// one matching element in the differential
           ElementDefinition template = null;
@@ -404,7 +403,8 @@ public class ProfileUtilities {
               throw new Exception("not done yet");
             }
             start = 1;
-          }
+          } else 
+            checkExtensionDoco(outcome);
 
           // now, for each entry in the diff matches, we're going to process the base item
           // our processing scope for base is all the children of the current path
@@ -1160,16 +1160,21 @@ public class ProfileUtilities {
     r.getCells().add(c);
     List<TypeRefComponent> types = e.getType();
     if (!e.hasType()) {
-      ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
-      if (d != null && d.hasType()) {
-        types = new ArrayList<ElementDefinition.TypeRefComponent>();
-        for (TypeRefComponent tr : d.getType()) {
-          TypeRefComponent tt = tr.copy();
-          tt.setUserData(DERIVATION_EQUALS, true);
-          types.add(tt);
-        }
-      } else
+      if (e.hasNameReference()) {
+        c.getPieces().add(gen.new Piece(null, "@"+e.getNameReference(), null));
         return c;
+      } else {
+        ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
+        if (d != null && d.hasType()) {
+          types = new ArrayList<ElementDefinition.TypeRefComponent>();
+          for (TypeRefComponent tr : d.getType()) {
+            TypeRefComponent tt = tr.copy();
+            tt.setUserData(DERIVATION_EQUALS, true);
+            types.add(tt);
+          }
+        } else
+          return c;
+      }
     }
 
     boolean first = true;
