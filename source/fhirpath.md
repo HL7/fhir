@@ -272,7 +272,7 @@ Implementers should note that defining additional fixed constants is a formal ex
 
 	e.g. %us-zip = "[0-9]{5}(-[0-9]{4}){0,1}"
 
-7. formal grammar
+8. Formal grammar
 -----------------------------------
 
 ```
@@ -297,3 +297,185 @@ Note:
 * Unicode whitespace is not explicitly shown in the grammar, but may be present around all terms and tokens in the grammar.
 * Non ascii (e.g. unicode) characters only allowed in constants (they do not need to be escaped in constants, but can be)
 
+
+9. Mapping Extensions
+--------------------------------------
+
+** This section is speculative **
+
+```
+There is an additional mode for this language, where it is used for mapping from one content model to another. 
+
+When performing mapping:
+
+a. path definition
+  The primary statement is used to define a path that will be instantiated
+  when the mapping is performed. The elements referred to in the mspping
+  statement are created rather then selected. 
+
+  example: 
+    Composition.section.title
+  will cause a Composition to be created, then a section to be added to 
+  it, and then a title will be created in that (though no value is yet 
+  assigned to the title)
+  
+  When creating items, if an item has cardinality ..1, and it already 
+  exist, the existing one will be reused. For items that have 
+  cardinality > 1, new items are created. 
+  No functions or operators are allowed in the defining path.
+  The first name in a defining expression may be either a variable name
+  (see below) or a resource or datat type type name - in which case a 
+  new resource or datatype is created
+
+b. value being mapped: a new special value is defined that refers to the 
+  value being mapped:
+  
+   $value - this is an object that is an instance of a fhir data type. 
+   
+   The type of $value is only known at run-time. When mapping from 
+   XML or json, only primitives types can be mapped. When mapping from 
+   CDA or v2, see the mapping table below for data type mapping
+   
+c. conditional mappings
+  Conditional mappings are encountered faily commonly. There is a special
+  mapping criteria:
+  
+  if (expression) defining-expression
+
+  The expression has no context. Typically, the expression references $value
+  
+  example: 
+    if ($value = "23446-4") Composition.section.title
+  A section will be added only if the value (a CDA code in this case) 
+  has the given value
+    
+d. crossing resource boundaries
+  mapping statements are allowed to cross resource boundaries, and
+  create new resources, using -> 
+
+  The first name after a -> is always a resource type name that 
+  defines what type of resource is being referenced (this is always 
+  true, even if only one type of resource is valid)
+
+  example: 
+    Composition.section.entry->AllergyIntolerance
+  When the section is added, an entry will be created. Also, an
+  AllergyIntolerance resource will be created, and the entry will
+  be updated to point to the newly created resource
+  
+  Mapping statements do not assign ids to the resource - this is 
+  done by the run time infrastructure  
+  
+e. variables
+  mapping paths can be assigned to variables for later reuse 
+  by prefixing the defining path with 
+    [var-name] := 
+
+  This retains the item for later re-use in other mappings. 
+  A variable name can be any combination of letters and digits
+  starting with a lowercase letter
+  
+  example: 
+    cmp := Composition
+  create a Composition, and remember it as "cmp"
+    ai1 := cmp.section.entry->AllergyIntolerance
+  take the composition already created, add a section to it,
+  then create an AllergyIntolerance resource - and remember that
+  as ai1
+  
+  It is an error to re-use variable names in a set of mappings
+  (is it? - be conservative for now, make it an error, and see)
+    
+f. properties
+  properties of items in a defined path can have additional
+  properties assigned to them as they are created. This is done by:
+  
+   owner[name1 := value; name2 := value].child
+  
+  rules:
+    names refer to elements defined on the owner 
+    values must be constants, expressions that start with $value, or constants
+    when executing, the following type conversions are implicit:
+       string -> integer (if it is an integer)
+       
+  example: 
+    lc := Coding[system = %loinc; code = "12345-6"]
+    cmp := Composition[code := lc]
+    
+g, Formal Grammar:  
+
+grammar:
+
+mapping      = (condition) (assignment) map (";" mapping)
+condition    = if "(" (expression) ")"
+assignment   = varname ":="
+varname      = ("a".."z") ("a".."z" | "A".."Z" | "0".."9")* 
+map          = (step | type) ( ("." step) | ( "->" type) )*
+step         = element ("[" properties "]")?
+type         = typename ("[" properties "]")?
+properties   = property (";" property)*
+property     = element ":=" term
+typename     = ("A".."Z") ("a".."z" | "A".."Z" | "0".."9")* 
+
+inside term, one change: 
+  - add axis_spec : $value
+  
+h. data type mapping table
+
+  v2:
+
+  v3:
+    ANY -> e := Element
+      ANY.nullFlavor -> e.extension[url = http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor; code = $value]
+    BL -> boolean
+    BN -> boolean
+    ED -> a := Attachment
+      mediaType -> ct = a.contentType[$value]
+      charset -> ct[ct + $value] 
+      language -> a[language := $value]
+      compression -> n/a // have to uncompress
+      reference -> a[url := $value]
+      integrityCheck -> a[hash := $value] 
+      integrityCheckAlgorithm -> // have to check this and recalcuate as SHA1
+      thumbnail -> n/a
+      
+    ST -> string
+    CD -> CodeableConcept
+    CS -> code
+    CO -> ??
+    CV -> Coding
+    CE -> CodeableConcept
+    SC -> CodeableConcept
+    II -> Identifier
+    TEL -> Telecom
+    AD -> Address
+    EN -> HumanName
+    TN -> HumanName
+    PN -> HumanName
+    ON -> HumanName
+    INT -> integer
+    REAL -> decimal
+    RTO -> Ratio
+    PQ -> PhysicalQuantity
+    MO -> Quantity
+    TS -> dateTime
+    SET -> n/a
+    LIST -> n/a 
+    BAG -> n/a
+    IVL<TS> -> Period 
+    IVL<PQ> -> Range
+    HIST -> n/a
+    UVP -> n/a
+    PIVL -> Timing
+    EIVL -> Timing
+    GTS -> Timing
+    PPD -> n/a
+
+
+i. known problems with mappings:
+  * when 2 different elements contribute to the same primitive value
+  * when 2 different paths use the same variable, and the variable cross a resource boundary, and either is optional
+
+```
+
+  
