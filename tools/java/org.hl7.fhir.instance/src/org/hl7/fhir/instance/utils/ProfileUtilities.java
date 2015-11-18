@@ -1161,7 +1161,11 @@ public class ProfileUtilities {
     List<TypeRefComponent> types = e.getType();
     if (!e.hasType()) {
       if (e.hasNameReference()) {
-        c.getPieces().add(gen.new Piece(null, "@"+e.getNameReference(), null));
+        ElementDefinition ed = getElementByName(profile.getSnapshot().getElement(), e.getNameReference());
+        if (ed == null)
+          c.getPieces().add(gen.new Piece(null, "Unknown reference to "+e.getNameReference(), null));
+        else
+          c.getPieces().add(gen.new Piece("#"+ed.getPath(), "See "+ed.getPath(), null));
         return c;
       } else {
         ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
@@ -1239,6 +1243,14 @@ public class ProfileUtilities {
     }
     return c;
   }
+
+  private ElementDefinition getElementByName(List<ElementDefinition> elements, String nameReference) {
+    for (ElementDefinition ed : elements)
+      if (ed.hasName() && ed.getName().equals(nameReference))
+        return ed;
+    return null;
+  }
+
 
   public static String describeExtensionContext(StructureDefinition ext) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
