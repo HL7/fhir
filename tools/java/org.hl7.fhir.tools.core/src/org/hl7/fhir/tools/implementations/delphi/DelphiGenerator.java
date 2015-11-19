@@ -3264,7 +3264,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrCode.uses.add("ActiveX");
     prsrCode.uses.add("StringSupport");
     prsrCode.uses.add("DateSupport");
-    prsrCode.uses.add("IdSoapMsXml");
+    prsrCode.uses.add("MsXml");
     prsrCode.uses.add("FHIRParserBase");
     prsrCode.uses.add("DateAndTime");
     prsrCode.uses.add("FHIRBase");

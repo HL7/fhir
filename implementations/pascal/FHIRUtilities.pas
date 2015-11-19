@@ -171,6 +171,7 @@ type
     function getExtensionString(url : String; index : integer) : String; overload;
     procedure removeExtension(url : String);
     procedure setExtensionString(url, value : String);
+    function narrativeAsWebPage : String;
   end;
 
   TFhirProfileStructureSnapshotElementDefinitionTypeListHelper = class helper for TFhirElementDefinitionList
@@ -1763,6 +1764,14 @@ begin
   result := getExtension(url) > -1;
 end;
 
+function TFHIRDomainResourceHelper.narrativeAsWebPage: String;
+begin
+  if (text = nil) or (text.div_ = nil) then
+    result := '<html><body>No Narrative</body></html>'
+  else
+    result := '<html><body>'+ComposeXHtml(text.div_)+'</body></html>'
+end;
+
 procedure TFHIRDomainResourceHelper.removeExtension(url: String);
 var
   ndx : integer;
@@ -2204,6 +2213,7 @@ begin
   history := url.Substring(url.IndexOf('/_history/')+10);
   url := url.Substring(0, url.IndexOf('/_history/'));
 end;
+
 { TFhirParametersHelper }
 
 procedure TFhirParametersHelper.AddParameter(name: String; value: TFhirType);

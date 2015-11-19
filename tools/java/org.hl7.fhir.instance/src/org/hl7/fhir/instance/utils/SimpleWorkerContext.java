@@ -25,6 +25,7 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DataElement;
+import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Parameters;
@@ -46,9 +47,11 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
 import org.hl7.fhir.instance.validation.IResourceValidator;
 import org.hl7.fhir.instance.validation.InstanceValidator;
+import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -59,7 +62,7 @@ import org.hl7.fhir.utilities.Utilities;
  * very light cient to connect to an open unauthenticated terminology service
  */
 
-public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerContext {
+public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerContext, ProfileKnowledgeProvider {
 
 	// all maps are to the full URI
 	private Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
@@ -107,16 +110,22 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			if (e.getFullUrl() == null) {
 				System.out.println("unidentified resource in " + name+" (no fullUrl)");
 			}
-			if (e.getResource() instanceof StructureDefinition)
-				seeProfile(e.getFullUrl(), (StructureDefinition) e.getResource());
-			else if (e.getResource() instanceof ValueSet)
-				seeValueSet(e.getFullUrl(), (ValueSet) e.getResource());
-			else if (e.getResource() instanceof ConceptMap)
-				maps.put(((ConceptMap) e.getResource()).getUrl(), (ConceptMap) e.getResource());
+			seeResource(e.getFullUrl(), e.getResource());
 		}
 	}
 
+	public void seeResource(String url, Resource r) throws Exception {
+    if (r instanceof StructureDefinition)
+      seeProfile(url, (StructureDefinition) r);
+    else if (r instanceof ValueSet)
+      seeValueSet(url, (ValueSet) r);
+    else if (r instanceof ConceptMap)
+      maps.put(((ConceptMap) r).getUrl(), (ConceptMap) r);
+	}
+	
 	private void seeValueSet(String url, ValueSet vs) throws Exception {
+	  if (Utilities.noString(url))
+	    url = vs.getUrl();
 		if (valueSets.containsKey(vs.getUrl()))
 			throw new Exception("Duplicate Profile " + vs.getUrl());
 		valueSets.put(vs.getId(), vs);
@@ -129,6 +138,23 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	}
 
 	private void seeProfile(String url, StructureDefinition p) throws Exception {
+    if (Utilities.noString(url))
+      url = p.getUrl();
+    if (!p.hasSnapshot()) {
+      if (!p.hasBase())
+        throw new Exception("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
+      StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBase());
+      if (sd == null)
+        throw new Exception("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBase()+" could not be resolved");
+      ProfileUtilities pu = new ProfileUtilities(this);
+      List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
+      pu.generateSnapshot(sd, p, p.getUrl(), p.getName(), this, msgs);
+      for (ValidationMessage msg : msgs) {
+        if (msg.getLevel() == IssueSeverity.ERROR || msg.getLevel() == IssueSeverity.FATAL)
+          throw new Exception("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating: "+msg.getMessage());
+      }
+      pu = null;
+    }
 		if (structures.containsKey(p.getUrl()))
 			throw new Exception("Duplicate structures " + p.getUrl());
 		structures.put(p.getId(), p);
@@ -256,6 +282,47 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   @Override
   public String getAbbreviation(String name) {
     return "xxx";
+  }
+
+  @Override
+  public boolean isDatatype(String typeSimple) {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+  @Override
+  public boolean isResource(String t) {
+    StructureDefinition sd;
+    try {
+      sd = fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t);
+    } catch (Exception e) {
+      return false;
+    }
+    if (sd == null)
+      return false;
+    if (sd.hasConstrainedType())
+      return false;
+    return sd.getKind() == StructureDefinitionKind.RESOURCE;
+  }
+
+  @Override
+  public boolean hasLinkFor(String typeSimple) {
+    return false;
+  }
+
+  @Override
+  public String getLinkFor(String typeSimple) throws Exception {
+    return null;
+  }
+
+  @Override
+  public BindingResolution resolveBinding(ElementDefinitionBindingComponent binding) {
+    return null;
+  }
+
+  @Override
+  public String getLinkForProfile(StructureDefinition profile, String url) throws Exception {
+    return null;
   }
 
 

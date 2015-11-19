@@ -975,6 +975,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return anyExtensionsAllowed;
   }
 
+  private boolean isParametersEntry(String path) {
+    String[] parts = path.split("\\/");
+    if (path.startsWith("/f:"))
+      return parts.length == 4 && parts[parts.length-3].equals("f:Parameters") && parts[parts.length-2].startsWith("f:parameter") && parts[parts.length-1].startsWith("f:resource");
+    else
+      return parts.length == 4 && parts[parts.length-3].equals("Parameters") && parts[parts.length-2].startsWith("parameter") && parts[parts.length-1].startsWith("resource");
+  }
+  
   private boolean isBundleEntry(String path) {
     String[] parts = path.split("\\/");
     if (path.startsWith("/f:"))
@@ -1767,7 +1775,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             if (type.equals("Extension"))
               checkExtension(errors, ei.path, ei.element, ei.definition, profile, localStack);
             else if (type.equals("Resource"))
-              validateContains(errors, ei.path, ei.definition, definition, ei.element, localStack, !isBundleEntry(ei.path)); // if
+              validateContains(errors, ei.path, ei.definition, definition, ei.element, localStack, !isBundleEntry(ei.path)  && !isParametersEntry(ei.path)); // if
             // (str.matches(".*([.,/])work\\1$"))
             else {
               StructureDefinition p = getProfileForType(type);

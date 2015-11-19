@@ -33,6 +33,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
@@ -61,9 +62,14 @@ import javax.xml.validation.SchemaFactory;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.JsonParser;
+import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.StructureDefinition;
 import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
@@ -71,6 +77,7 @@ import org.hl7.fhir.instance.utils.SimpleWorkerContext;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.Utilities;
+import org.pegdown.Parser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -339,6 +346,28 @@ public class ValidationEngine {
     return context;
 	}
 
+  public void loadFromFolder(String folder) throws FileNotFoundException, Exception {
+    System.out.println("  .. load additional definitions from "+folder);
+    for (String n : new File(folder).list()) {
+      if (n.endsWith(".json")) 
+        loadFromFile(Utilities.path(folder, n), new JsonParser());
+      else if (n.endsWith(".xml")) 
+        loadFromFile(Utilities.path(folder, n), new XmlParser());
+    }
+  }
+  
+  private void loadFromFile(String filename, IParser p) throws FileNotFoundException, Exception {
+    Resource r = p.parse(new FileInputStream(filename));
+    if (r.getResourceType() == ResourceType.Bundle) {
+       for (BundleEntryComponent e : ((Bundle) r).getEntry()) {
+         context.seeResource(null, e.getResource());
+       }
+    } else {
+      context.seeResource(null, r);
+    }
+  }
+
+
 	public void readDefinitions(byte[] defn) throws Exception {
 		ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(defn));
 		ZipEntry ze;
@@ -373,6 +402,7 @@ public class ValidationEngine {
 			throw new Exception("Unable to find FHIR validation Pack (source = "+definitions+")");
 		readDefinitions(defn);
 	}
+
 
 	public byte[] loadFromUrl(String src) throws Exception {
 		URL url = new URL(src);

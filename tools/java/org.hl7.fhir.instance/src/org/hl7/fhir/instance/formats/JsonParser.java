@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Nov 16, 2015 14:38+1100 for FHIR v1.0.2
+// Generated on Thu, Nov 19, 2015 17:19+1100 for FHIR v1.0.2
 
 import org.hl7.fhir.instance.model.MarkdownType;
 import org.hl7.fhir.instance.model.IntegerType;

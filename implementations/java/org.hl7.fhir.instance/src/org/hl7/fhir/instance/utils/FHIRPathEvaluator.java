@@ -16,6 +16,7 @@ import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.PrimitiveType;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.StructureDefinition;
@@ -1387,7 +1388,7 @@ public class FHIRPathEvaluator {
 
   private boolean hasType(ElementDefinition ed, String s) {
   	for (TypeRefComponent t : ed.getType()) 
-  		if (s.equals(t.getCode()))
+  		if (s.equalsIgnoreCase(t.getCode()))
   			return true;
   	return false;
 	}
@@ -1487,12 +1488,40 @@ public class FHIRPathEvaluator {
   }
   
   public interface ResourceFactory {
-    public Resource createResource(MappingContext context, String name) throws Exception;
+    /**
+     * 
+     * @param context
+     * @param parentId
+     * @param resourceType
+     * @return
+     * @throws Exception
+     */
+    public Resource createResource(MappingContext context, String parentId, String resourceType) throws Exception;
+
+    /**
+     * when an existing mapping is encountered
+     * 
+     * @param context
+     * @param reference
+     * @return
+     */
+    public Resource fetchResource(MappingContext context, String reference);
+  }
+  
+  public static class Variable {
+    Base value;
+    String parentId;
+    public Variable(Base value, String parentId) {
+      super();
+      this.value = value;
+      this.parentId = parentId;
+    }
+    
   }
   
   public static class MappingContext {
     private List<MapExpression> allMaps = new ArrayList<MapExpression>();
-    private Map<String, Base> variables = new HashMap<String, Base>();
+    private Map<String, Variable> variables = new HashMap<String, Variable>();
     private ResourceFactory factory; // provided by the host
     protected IWorkerContext worker;
     
@@ -1517,6 +1546,7 @@ public class FHIRPathEvaluator {
   public static class BundleMappingContext extends MappingContext implements ResourceFactory {
     private Bundle bundle;
     private Map<String, Integer> ids = new HashMap<String, Integer>();
+    private Map<String, Resource> resources = new HashMap<String, Resource>();
     
     public BundleMappingContext(Bundle bundle) {
       super();
@@ -1525,17 +1555,23 @@ public class FHIRPathEvaluator {
     }
 
     @Override
-    public Resource createResource(MappingContext context, String name) throws Exception {
-      Resource resource = org.hl7.fhir.instance.model.ResourceFactory.createResource(name);
+    public Resource createResource(MappingContext context, String parentId, String resourceType) throws Exception {
+      Resource resource = org.hl7.fhir.instance.model.ResourceFactory.createResource(resourceType);
 
-      String abbrev = worker.getAbbreviation(name);
+      String abbrev = worker.getAbbreviation(resourceType);
       if (!ids.containsKey(abbrev))
         ids.put(abbrev, 0);
       Integer i = ids.get(abbrev)+1;
       ids.put(abbrev, i);
-      resource.setId(abbrev+"-"+i.toString());
+      resource.setId((parentId == null ? "" : parentId+"-")+ abbrev+"."+i.toString());
       bundle.addEntry().setResource(resource);
+      resources.put(resourceType+"/"+resource.getId(), resource);
       return resource;
+    }
+    
+    @Override
+    public Resource fetchResource(MappingContext context, String reference) {
+      return resources.get(reference);
     }
     
   }
@@ -1689,31 +1725,36 @@ public class FHIRPathEvaluator {
     // Our first business is to sort out the context
     String n = map.getElementName();
     Base focus = null;
+    String parentId = null;
     
     if (Character.isUpperCase(n.charAt(0))) {
       // type name
-      if (worker.getResourceNames().contains(n))
-        focus = context.factory.createResource(context, n);
-      else 
+      if (worker.getResourceNames().contains(n)) {
+        Resource res = context.factory.createResource(context, null, n);
+        parentId = res.getId();
+        focus = res;
+      } else 
         focus = new Factory().create(n);
     } else {
       // var name
       if (!context.variables.containsKey(n))
         throw new Exception("Unknown Variable name "+n);
       else {
-        focus = context.variables.get(n);
-        if (focus == null)
+        Variable var = context.variables.get(n);
+        if (var == null)
           throw new Exception("Uninitialised Variable name "+n);  
+        focus = var.value;
+        parentId = var.parentId;
       }
     }
     // ok, so we got here, we have ourselves a focus
-    focus = processMappingDetails(context, appContext, focus, value, map);
+    Variable var = processMappingDetails(context, appContext, parentId, focus, value, map);
     if (map.getVarName() != null) {
-      context.variables.put(map.getVarName(), focus);
+      context.variables.put(map.getVarName(), var);
     }    
   }
 
-  private Base processMappingDetails(MappingContext context, Object appContext, Base focus, Element value, MapTerm map) throws Exception {
+  private Variable processMappingDetails(MappingContext context, Object appContext, String parentId, Base focus, Element value, MapTerm map) throws Exception {
     // ok, handle the properties on the focus object first
     for (PropertyAssignment t : map.getProperties()) {
       List<Base> list = new ArrayList<Base>();
@@ -1728,14 +1769,25 @@ public class FHIRPathEvaluator {
     
     // now, see if there's nore to do 
     if (map.getNext() == null)
-      return focus;
+      return new Variable(focus, parentId);
     else if (map.isLinkToResource()) {
-      Resource r = context.factory.createResource(context, map.getNext().elementName);
+      Reference ref = (Reference) focus;
+      if (ref.hasReference()) {
+        if (!ref.getReference().startsWith(map.getNext().elementName+"/"))
+          throw new Exception("Mismatch on existing reference - expected "+map.getNext().elementName+", found "+ref.getReference());
+        Resource r = context.factory.fetchResource(context, ref.getReference());
+        if (r == null)
+          throw new Exception("Mismatch on existing reference - unable to resolve "+ref.getReference());
+        return processMappingDetails(context, appContext, r.getId(), r, value, map.getNext());
+      }
+      else {      
+        Resource r = context.factory.createResource(context, parentId, map.getNext().elementName);
       setChildProperty(focus, "reference", new StringType(map.getNext().elementName+"/"+r.getId()));
-      return processMappingDetails(context, appContext, r, value, map.getNext()); 
+        return processMappingDetails(context, appContext, r.getId(), r, value, map.getNext());
+      }
     } else {
       Base b = addChildProperty(focus, map.getNext().elementName);
-      return processMappingDetails(context, appContext, b, value, map.getNext());
+      return processMappingDetails(context, appContext, parentId, b, value, map.getNext());
     }
   }
 

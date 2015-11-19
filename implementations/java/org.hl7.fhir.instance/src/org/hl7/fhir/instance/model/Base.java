@@ -333,7 +333,11 @@ private Map<String, Object> userData;
 	public CodeableConcept castToCodeableConcept(Base b) throws Exception {
 		if (b instanceof CodeableConcept)
 			return (CodeableConcept) b;
-		else
+		else if (b instanceof CodeType) {
+		  CodeableConcept cc = new CodeableConcept();
+		  cc.addCoding().setCode(((CodeType) b).asStringValue());
+		  return cc;
+		} else
 			throw new Exception("Unable to convert a "+b.getClass().getName()+" to a CodeableConcept");
 	}
 	
@@ -368,7 +372,16 @@ private Map<String, Object> userData;
 	public SimpleQuantity castToSimpleQuantity(Base b) throws Exception {
 		if (b instanceof SimpleQuantity)
 			return (SimpleQuantity) b;
-		else
+		else if (b instanceof Quantity) {
+		  Quantity q = (Quantity) b;
+		  SimpleQuantity sq = new SimpleQuantity();
+      sq.setValueElement(q.getValueElement());
+      sq.setComparatorElement(q.getComparatorElement());
+      sq.setUnitElement(q.getUnitElement());
+      sq.setSystemElement(q.getSystemElement());
+      sq.setCodeElement(q.getCodeElement());
+      return sq;
+		} else
 			throw new Exception("Unable to convert a "+b.getClass().getName()+" to an SimpleQuantity");
 	}
 	

@@ -31,13 +31,21 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
+import org.hl7.fhir.instance.formats.IParser;
+import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ResourceType;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.utilities.Utilities;
 
 /**
  * A service that will validate one or more FHIR resources against 
@@ -58,9 +66,10 @@ public class Validator {
       System.out.println("");
       System.out.println("JSON is not supported at this time");
       System.out.println("");
-      System.out.println("Usage: org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-profile [profile]) (-output [output]) (-tsserver [server])  (-noxslt) where: ");
+      System.out.println("Usage: org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-folder [name])  (-profile [profile]) (-output [output]) (-tsserver [server])  (-noxslt) where: ");
       System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
       System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from inside the jar file");
+      System.out.println("* [folder] is the name of a folder containing additional structure definitions. No default value");
       System.out.println("* [txserver] is the url of a FHIR terminology service. Default is http://fhir2.healthintersections.com.au/open");
       System.out.println("* [profile] is an optional filename or URL for a specific profile to validate a resource");
       System.out.println("    against. In the absence of this parameter, the resource will be checked against the ");
@@ -96,6 +105,8 @@ public class Validator {
             exe.setProfile(args[i+1]);
           if (args[i].equals("-txserver"))
             exe.setTsServer(args[i+1]);
+          if (args[i].equals("-folder"))
+            exe.setFolder(args[i+1]);
           if (args[i].equals("-noxslt"))
           	exe.engine.setNoSchematron(true);
         }
@@ -151,6 +162,11 @@ public class Validator {
   private String definitions;
 
   /**
+   * Additional location to get structures from
+   */
+  private String folder;
+  
+  /**
    * A specific profile against which to validate the instance (optional)
    */
   private String profile;
@@ -167,6 +183,8 @@ public class Validator {
 
   public void process() throws Exception {
     engine.readDefinitions(definitions);
+    if (!Utilities.noString(folder))
+      engine.loadFromFolder(folder);
     engine.connectToTSServer(txServer == null ? "http://fhir2.healthintersections.com.au/open" : txServer);
     engine.loadProfile(profile);
     engine.setSource(loadSource());
@@ -222,6 +240,18 @@ public class Validator {
 
   public void setDefinitions(String definitions) {
     this.definitions = definitions;
+  }
+
+
+
+  public String getFolder() {
+    return folder;
+  }
+
+
+
+  public void setFolder(String folder) {
+    this.folder = folder;
   }
   
   

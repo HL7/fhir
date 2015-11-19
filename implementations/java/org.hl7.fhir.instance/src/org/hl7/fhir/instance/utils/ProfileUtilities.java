@@ -344,6 +344,7 @@ public class ProfileUtilities {
           ElementDefinition outcome = updateURLs(url, template);
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           updateFromBase(outcome, currentBase);
+          if (diffMatches.get(0).hasName())
           outcome.setName(diffMatches.get(0).getName());
           outcome.setSlicing(null);
           updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp, trimDifferential, url);
@@ -402,7 +403,8 @@ public class ProfileUtilities {
               throw new Exception("not done yet");
             }
             start = 1;
-          }
+          } else 
+            checkExtensionDoco(outcome);
 
           // now, for each entry in the diff matches, we're going to process the base item
           // our processing scope for base is all the children of the current path
@@ -528,6 +530,21 @@ public class ProfileUtilities {
         }
       }
     }
+  }
+
+
+  private boolean checkExtensionDoco(ElementDefinition base) {
+    // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff
+    boolean isExtension = base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension");
+    if (isExtension) {
+      base.setDefinition("An Extension");
+      base.setShort("Extension");
+      base.setCommentsElement(null);
+      base.setRequirementsElement(null);
+      base.getAlias().clear();
+      base.getMapping().clear();
+    }
+    return isExtension;
   }
 
 
@@ -763,16 +780,7 @@ public class ProfileUtilities {
     derived.setUserData(DERIVATION_POINTER, base);
 
     if (derived != null) {
-      // see task 3970. For an extension, there's no point copying across all the underlying definitional stuff
-      boolean isExtension = base.getPath().equals("Extension") || base.getPath().endsWith(".extension") || base.getPath().endsWith(".modifierExtension");
-      if (isExtension) {
-        base.setDefinition("An Extension");
-        base.setShort("Extension");
-        base.setCommentsElement(null);
-        base.setRequirementsElement(null);
-        base.getAlias().clear();
-        base.getMapping().clear();
-      }
+      boolean isExtension = checkExtensionDoco(base);
 
       if (derived.hasShortElement()) {
         if (!Base.compareDeep(derived.getShortElement(), base.getShortElement(), false))
@@ -968,9 +976,9 @@ public class ProfileUtilities {
               CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
               for (TypeRefComponent td : base.getType()) {
                 b.append(td.getCode());
-                if (td.getCode().equals(ts.getCode()) || td.getCode().equals("Extension") ||
+                if (td.hasCode() && (td.getCode().equals(ts.getCode()) || td.getCode().equals("Extension") ||
                     td.getCode().equals("Element") || td.getCode().equals("*") ||
-                    ((td.getCode().equals("Resource") || (td.getCode().equals("DomainResource")) && pkp.isResource(ts.getCode()))))
+                    ((td.getCode().equals("Resource") || (td.getCode().equals("DomainResource")) && pkp.isResource(ts.getCode())))))
                   ok = true;
               }
               if (!ok)
@@ -1152,6 +1160,14 @@ public class ProfileUtilities {
     r.getCells().add(c);
     List<TypeRefComponent> types = e.getType();
     if (!e.hasType()) {
+      if (e.hasNameReference()) {
+        ElementDefinition ed = getElementByName(profile.getSnapshot().getElement(), e.getNameReference());
+        if (ed == null)
+          c.getPieces().add(gen.new Piece(null, "Unknown reference to "+e.getNameReference(), null));
+        else
+          c.getPieces().add(gen.new Piece("#"+ed.getPath(), "See "+ed.getPath(), null));
+        return c;
+      } else {
       ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
       if (d != null && d.hasType()) {
         types = new ArrayList<ElementDefinition.TypeRefComponent>();
@@ -1162,6 +1178,7 @@ public class ProfileUtilities {
         }
       } else
         return c;
+    }
     }
 
     boolean first = true;
@@ -1226,6 +1243,14 @@ public class ProfileUtilities {
     }
     return c;
   }
+
+  private ElementDefinition getElementByName(List<ElementDefinition> elements, String nameReference) {
+    for (ElementDefinition ed : elements)
+      if (ed.hasName() && ed.getName().equals(nameReference))
+        return ed;
+    return null;
+  }
+
 
   public static String describeExtensionContext(StructureDefinition ext) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();

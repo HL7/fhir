@@ -38,7 +38,7 @@ uses
   AdvObjects, AdvGenerics, AdvStringMatches, AdvBuffers, ADvMemories,
   AdvObjectLists, AdvNameBuffers,
   AdvFiles, AdvVclStreams, AdvZipReaders, AdvZipParts,
-  FHIRBase, FHIRResources, FHIRTypes, FHIRUtilities, FHIRConstants, FHIRParser;
+  FHIRBase, FHIRResources, FHIRTypes, FHIRUtilities, FHIRConstants, FHIRParser, FHIRParserBase;
 
 Const
   DERIVATION_EQUALS = 'derivation.equals';
@@ -124,16 +124,19 @@ Type
     FSources : TAdvNameBufferList;
     procedure SetProfiles(const Value: TProfileManager);
     procedure Load(feed: TFHIRBundle);
-  protected
-    procedure SeeResource(r : TFhirResource); virtual;
   public
     Constructor Create; Override;
     Destructor Destroy; Override;
     function link : TValidatorServiceProvider; overload;
 
+    procedure SeeResource(r : TFhirResource); virtual;
     function GetSourceByName(name : String) : TAdvNameBuffer;
     Property Profiles : TProfileManager read FProfiles write SetProfiles;
     procedure LoadFromDefinitions(filename : string);
+    procedure LoadFromFolder(folder : string);
+    procedure LoadFromFile(filename : string); overload;
+    procedure LoadFromFile(filename: string; parser : TFHIRParser); overload;
+
 
     function getResourceNames : TAdvStringSet; virtual; abstract;
     function fetchResource(t : TFhirResourceType; url : String) : TFhirResource; virtual;
@@ -1508,6 +1511,63 @@ begin
   end;
 end;
 
+procedure TValidatorServiceProvider.LoadFromFile(filename: string; parser : TFHIRParser);
+var
+  fn : TFileStream;
+  be : TFhirBundleEntry;
+begin
+  try
+    fn := TFileStream.Create(filename, fmOpenRead + fmShareDenyWrite);
+    try
+      parser.source := fn;
+      parser.Parse;
+      if parser.resource is TFhirBundle then
+      begin
+        for be in TFhirBundle(parser.resource).entryList do
+          SeeResource(be.resource)
+      end
+      else
+        SeeResource(parser.resource);
+    finally
+      fn.Free;
+    end;
+  finally
+    parser.Free;
+  end;
+end;
+
+procedure TValidatorServiceProvider.LoadFromFile(filename: string);
+begin
+  filename := LowerCase(filename);
+  if ExtractFileExt(filename) = '.json' then
+    LoadFromFile(filename, TFHIRJsonParser.create('en'))
+  else if ExtractFileExt(filename) = '.xml' then
+    LoadFromFile(filename, TFHIRXmlParser.create('en'))
+end;
+
+procedure TValidatorServiceProvider.LoadFromFolder(folder: string);
+var
+  list : TStringList;
+  sr : TSearchRec;
+  fn : String;
+begin
+  list := TStringList.Create;
+  try
+    if FindFirst(IncludeTrailingBackslash(folder) + '*.*', faArchive, sr) = 0 then
+    begin
+      repeat
+        list.Add(sr.Name); //Fill the list
+      until FindNext(sr) <> 0;
+      FindClose(sr);
+    end;
+
+    for fn in list do
+      loadFromFile(IncludeTrailingBackslash(folder)+fn);
+  finally
+    list.Free;
+  end;
+end;
+
 procedure TValidatorServiceProvider.Load(feed: TFHIRBundle);
 var
   i : integer;
@@ -1525,10 +1585,35 @@ end;
 procedure TValidatorServiceProvider.SeeResource(r: TFhirResource);
 var
   p : TFhirStructureDefinition;
+  pu : TProfileUtilities;
+  messages : TFhirOperationOutcomeIssueList;
+  message : TFhirOperationOutcomeIssue;
+  sd : TFhirStructureDefinition;
 begin
   if r is TFHirStructureDefinition then
   begin
     p := r as TFHirStructureDefinition;
+    if (p.snapshot = nil) then
+    begin
+      sd := fetchResource(frtStructureDefinition, p.base) as TFhirStructureDefinition;
+      if sd = nil then
+        raise Exception.Create('Unknown base profile: "'+p.base+'"');
+      try
+        messages := TFhirOperationOutcomeIssueList.create;
+        pu := TProfileUtilities.create(self.link, messages.link);
+        try
+          pu.generateSnapshot(sd, p, p.url, p.Name);
+          for message in messages do
+            if (message.severity in [IssueSeverityFatal, IssueSeverityError]) then
+              raise Exception.Create('Error generating snapshot: '+message.details.text);
+        finally
+          pu.Free;
+          messages.free;
+        end;
+      finally
+        sd.Free;
+      end;
+    end;
     FProfiles.SeeProfile(0, p);
   end;
 end;

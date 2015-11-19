@@ -114,9 +114,9 @@
   Binding = AddressType
   Short Label = postal | physical | both
   Definition = Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both
+  vCard Mapping = address type parameter
   v2 Mapping = XAD.18
   RIM Mapping = unique(./use)
-  vCard Mapping = address type parameter
   Example = both
 
  -- Row 4 -----------------------------------
@@ -127,9 +127,9 @@
   Definition = A full text representation of the address
   Requirements = A renderable, unencoded form
   Comments = Can provide both a text representation and parts
+  vCard Mapping = address label parameter
   v2 Mapping = XAD.1 + XAD.2 + XAD.3 + XAD.4 + XAD.5 + XAD.6
   RIM Mapping = ./formatted
-  vCard Mapping = address label parameter
   Example = 137 Nowhere Street, Erewhon 9132
 
  -- Row 5 -----------------------------------
@@ -139,9 +139,9 @@
   Short Label = Street name, number, direction & P.O. Box etc.
   Definition = This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information
   Requirements = home | work | temp | old - purpose of this address
+  vCard Mapping = street
   v2 Mapping = XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)
   RIM Mapping = AD.part[parttype = AL]
-  vCard Mapping = street
   ServD Mapping = ./StreetAddress (newline delimitted)
   Example = 137 Nowhere Street
 
@@ -152,9 +152,9 @@
   Type = string
   Short Label = Name of city, town etc.
   Definition = The name of the city, town, village or other community or delivery center
+  vCard Mapping = locality
   v2 Mapping = XAD.3
   RIM Mapping = AD.part[parttype = CTY]
-  vCard Mapping = locality
   ServD Mapping = ./Jurisdiction
   Example = Erewhon
 
@@ -177,9 +177,9 @@
   Type = string
   Short Label = Sub-unit of country (abbreviations ok)
   Definition = Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes)
+  vCard Mapping = region
   v2 Mapping = XAD.4
   RIM Mapping = AD.part[parttype = STA]
-  vCard Mapping = region
   ServD Mapping = ./Region
 
  -- Row 9 -----------------------------------
@@ -189,9 +189,9 @@
   Type = string
   Short Label = Postal code for area
   Definition = A postal code designating a region defined by the postal service
+  vCard Mapping = code
   v2 Mapping = XAD.5
   RIM Mapping = AD.part[parttype = ZIP]
-  vCard Mapping = code
   ServD Mapping = ./PostalIdentificationCode
   Example = 9132
 
@@ -202,9 +202,9 @@
   Short Label = Country (can be ISO 3166 3 letter code)
   Definition = Country - a nation as commonly understood or generally accepted
   Comments = ISO 3166 3 letter codes can be used in place of a full country name.
+  vCard Mapping = country
   v2 Mapping = XAD.6
   RIM Mapping = AD.part[parttype = CNT]
-  vCard Mapping = country
   ServD Mapping = ./Country
 
  -- Row 11 -----------------------------------
