@@ -331,8 +331,8 @@ public class ProfileUtilities {
             String p = diffMatches.get(0).getType().get(0).getProfile().get(0).asStringValue();
             StructureDefinition sd = context.fetchResource(StructureDefinition.class, p);
             if (sd != null) {
-              if (sd.getSnapshot().getElement().isEmpty())
-                throw new Exception("no elements in "+p);
+              if (!sd.hasSnapshot())
+                throw new Exception("no snapshot in "+p);
               template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath());
               // temporary work around
               if (!diffMatches.get(0).getType().get(0).getCode().equals("Extension")) {
