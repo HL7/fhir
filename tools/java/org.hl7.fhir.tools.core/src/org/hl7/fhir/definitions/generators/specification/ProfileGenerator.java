@@ -933,6 +933,20 @@ public class ProfileGenerator {
    */
   private ElementDefinition defineElement(Profile ap, StructureDefinition p, List<ElementDefinition> elements, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot, boolean root, String defType) throws Exception 
   {
+    boolean handleDiscriminator = true;
+    if (!Utilities.noString(e.getProfileName()) && !e.getDiscriminator().isEmpty()) {
+      handleDiscriminator = false;
+      // hey, we jumped straight into the slices with setting up the slicing (allowed in the spreadsheets, but not otherwise)
+      ElementDefinition slicer = new ElementDefinition();
+      elements.add(slicer);
+      slicer.setPath(path);
+      processDiscriminator(e, path, slicer);
+      if (e.getMaxCardinality() != null)
+        slicer.setMax(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString());
+      
+      slices.add(path);
+    }
+
     ElementDefinition ce = new ElementDefinition();
     elements.add(ce);
 
@@ -947,29 +961,8 @@ public class ProfileGenerator {
     // slicing group, add a slicing group "entry" (= first slice member,
     // which holds Slicing information)
     if (!Utilities.noString(e.getProfileName())) {
-      if (e.getDiscriminator().size() > 0 && !slices.contains(path)) {
-        ce.setSlicing(new ElementDefinitionSlicingComponent());
-        ce.getSlicing().setDescription(e.getSliceDescription());
-        String[] d = e.getDiscriminator().get(0).split("\\|");
-        if (d.length >= 1)
-          ce.getSlicing().addDiscriminator(d[0].trim());
-        if (d.length >= 2)
-          ce.getSlicing().setOrdered(Boolean.parseBoolean(d[1].trim()));
-        else
-          ce.getSlicing().setOrdered(false);
-        if (d.length >= 3)
-          ce.getSlicing().setRules(SlicingRules.fromCode(d[2].trim()));
-        else
-          ce.getSlicing().setRules(SlicingRules.OPEN);
-        for (int i = 1; i < e.getDiscriminator().size(); i++) { // we've already process the first in the list
-          String s = e.getDiscriminator().get(i).trim();
-          if (s.contains("|"))
-            throw new Exception("illegal discriminator \""+s+"\" at "+path);
-          ce.getSlicing().addDiscriminator(s);
-        }
-        //        ce = new ElementDefinition();
-        //        elements.add(ce);
-        ce.setPath(path);
+      if (e.getDiscriminator().size() > 0 && !slices.contains(path) && handleDiscriminator) {
+        processDiscriminator(e, path, ce);
         slices.add(path);
       }
       SliceHandle hnd = new SliceHandle();
@@ -1203,6 +1196,28 @@ public class ProfileGenerator {
       defineElement(ap, p, elements, child, path+"."+child.getName(), containedSlices, myParents, snapshot, false, defType);
 
     return ce;
+  }
+
+  private void processDiscriminator(ElementDefn e, String path, ElementDefinition ce) throws Exception {
+    ce.setSlicing(new ElementDefinitionSlicingComponent());
+    ce.getSlicing().setDescription(e.getSliceDescription());
+    String[] d = e.getDiscriminator().get(0).split("\\|");
+    if (d.length >= 1)
+      ce.getSlicing().addDiscriminator(d[0].trim());
+    if (d.length >= 2)
+      ce.getSlicing().setOrdered(Boolean.parseBoolean(d[1].trim()));
+    else
+      ce.getSlicing().setOrdered(false);
+    if (d.length >= 3)
+      ce.getSlicing().setRules(SlicingRules.fromCode(d[2].trim()));
+    else
+      ce.getSlicing().setRules(SlicingRules.OPEN);
+    for (int i = 1; i < e.getDiscriminator().size(); i++) { // we've already process the first in the list
+      String s = e.getDiscriminator().get(i).trim();
+      if (s.contains("|"))
+        throw new Exception("illegal discriminator \""+s+"\" at "+path);
+      ce.getSlicing().addDiscriminator(s);
+    }
   }
 
   private String actualTypeName(String type) {

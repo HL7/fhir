@@ -1650,9 +1650,6 @@ public class SpreadsheetParser {
 
     String profileName = isProfile ? sheet.getColumn(row, "Profile Name") : "";
     String discriminator = isProfile ? sheet.getColumn(row, "Discriminator") : "";
-//    For Ewout, Devdays 2015
-//		if (!Utilities.noString(profileName) && Utilities.noString(discriminator) && (path.endsWith(".extension") || path.endsWith(".modifierExtension")))
-//		  discriminator = "url";
 		  
 		boolean isRoot = !path.contains(".");
 		
