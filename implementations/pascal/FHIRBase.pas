@@ -59,6 +59,7 @@ Uses
 
 Const
   ID_LENGTH = 64;
+  SYSTEM_NOT_APPLICABLE = '%%null%%';
 
 Type
   {@Enum TFHIRCommandType
@@ -228,18 +229,19 @@ type
     Procedure GetChildrenByName(name : string; list : TFHIRObjectList); virtual;
     Procedure ListProperties(oList : TFHIRPropertyList; bInheritedProperties : Boolean); Virtual;
   public
+    Constructor Create; override;
     Destructor Destroy; override;
     function createIterator(bInheritedProperties : Boolean) : TFHIRPropertyIterator;
     function createPropertyList : TFHIRPropertyList;
     procedure ListChildrenByName(name : string; list : TFHIRObjectList);
     procedure setProperty(propName : string; propValue : TFHIRObject); virtual;
-    Function PerformQuery(path : String):TFHIRObjectList;
     Property Tags[name : String] : String read getTags write SetTags;
+    function HasTag(name : String): boolean;
     property Tag : TAdvObject read FTag write SetTag;
 
     // populated by some parsers when parsing
-    property LocationStart : TSourceLocation read FLocationStart;
-    property LocationEnd : TSourceLocation read FLocationEnd;
+    property LocationStart : TSourceLocation read FLocationStart write FLocationStart;
+    property LocationEnd : TSourceLocation read FLocationEnd write FLocationEnd;
   end;
 
   TFHIRObjectClass = class of TFHIRObject;
@@ -504,6 +506,8 @@ type
     Property Nodes[index : Integer] : TFHIRXHtmlNode read GetItemN write SetItemN; default;
   End;
 
+  TFHIRBaseList = class;
+
   {@Class TFHIRBase
     A base FHIR element - can have an id on it
   }
@@ -529,6 +533,7 @@ type
     function HasXmlCommentsEnd : Boolean;
     function HasComments : Boolean;
     function FhirType : String; virtual;
+    Function PerformQuery(path : String):TFHIRBaseList;
   published
     {@member comments
       comments from the XML stream. No support for comments in JSON
@@ -541,11 +546,37 @@ type
     function equalsShallow(other : TFHIRObject) : boolean; virtual;
   end;
 
+  TFHIRBaseListEnumerator = class (TAdvObject)
+  private
+    FIndex : integer;
+    FList : TFHIRBaseList;
+    function GetCurrent : TFHIRBase;
+  public
+    Constructor Create(list : TFHIRBaseList);
+    Destructor Destroy; override;
+    function MoveNext : boolean;
+    property Current : TFHIRBase read GetCurrent;
+  end;
+
+  TFHIRBaseList = class (TFHIRObjectList)
+  private
+    Function GetItemN(index : Integer) : TFHIRBase;
+  protected
+    function ItemClass : TAdvObjectClass; override;
+  public
+    Destructor Destroy; override;
+    function Link : TFHIRBaseList; Overload;
+    function Clone : TFHIRBaseList; Overload;
+    function GetEnumerator : TFHIRBaseListEnumerator;
+    Property ObjByIndex[index : Integer] : TFHIRBase read GetItemN; default;
+  end;
+
   TFHIRBaseFactory = class (TAdvObject)
   private
   public
   end;
 
+(*
 type
   TFHIRQueryProcessor = class (TAdvObject)
   private
@@ -561,6 +592,7 @@ type
     procedure execute;
     property results : TFHIRObjectList read FResults;
   end;
+*)
 
               
 function noList(e : TFHIRObjectList) : boolean;
@@ -574,7 +606,8 @@ Uses
   StringSupport,
   FHIRUtilities,
   FHIRTypes,
-  FHIRResources;
+  FHIRResources,
+  FHIRPath;
 
 
 { TFHIRBase }
@@ -1046,6 +1079,13 @@ end;
 
 { TFHIRObject }
 
+constructor TFHIRObject.Create;
+begin
+  inherited;
+  FLocationStart := nullLoc;
+  FLocationEnd := nullLoc;
+end;
+
 function TFHIRObject.createIterator(bInheritedProperties: Boolean): TFHIRPropertyIterator;
 begin
   Result := TFHIRPropertyIterator.create(self, bInheritedProperties);
@@ -1084,6 +1124,11 @@ begin
     result := '';
 end;
 
+function TFHIRObject.HasTag(name: String): boolean;
+begin
+  result := (FTags <> nil) and FTags.ContainsKey(name);
+end;
+
 procedure TFHIRObject.ListChildrenByName(name: string; list: TFHIRObjectList);
 begin
   if self <> nil then
@@ -1093,21 +1138,6 @@ end;
 procedure TFHIRObject.ListProperties(oList: TFHIRPropertyList; bInheritedProperties: Boolean);
 begin
   // nothing to add here
-end;
-
-function TFHIRObject.PerformQuery(path: String): TFHIRObjectList;
-var
-  qry : TFHIRQueryProcessor;
-begin
-  qry := TFHIRQueryProcessor.create;
-  try
-    qry.source.Add(self.Link);
-    qry.path := path;
-    qry.execute;
-    result := qry.results.Link;
-  finally
-    qry.free;
-  end;
 end;
 
 procedure TFHIRObject.setProperty(propName : string; propValue: TFHIRObject);
@@ -1161,73 +1191,6 @@ begin
   oList.add(TFHIRProperty.create(self, 'value', 'string', nil, FValue));
 end;
 
-{ TFHIRQueryProcessor }
-
-constructor TFHIRQueryProcessor.Create;
-begin
-  inherited;
-  FResults := TFHIRObjectList.Create;
-  FSource := TFHIRObjectList.Create;
-end;
-
-destructor TFHIRQueryProcessor.Destroy;
-begin
-  FSource.Free;
-  FResults.Free;
-  inherited;
-end;
-
-procedure TFHIRQueryProcessor.execute;
-var
-  src, seg : String;
-  i : integer;
-  first : boolean;
-  list : TFhirReferenceList;
-begin
-  src := FPath;
-  if (src = '*') and (FSource[0] is TFHIRResource) then
-  begin
-    list := TFhirReferenceList.Create;
-    try
-      listReferences(FSource[0] as TFHIRResource, list);
-      FResults.AddAll(list);
-    finally
-      list.Free;
-    end;
-  end
-  else
-begin
-  first := true;
-  while (src <> '') do
-  begin
-      StringSplit(src, '.', seg, src);
-    if (not IsValidIdent(seg)) Then
-        raise exception.create('unable to parse path "'+FPath+'"');
-    FResults.clear;
-    if first then
-      for i := 0 to FSource.count - 1 Do
-      begin
-        if FSource[i].ClassName = 'TFhir'+seg then
-          FResults.add(FSource[i].Link);
-      end
-    else
-      for i := 0 to FSource.count - 1 Do
-        FSource[i].GetChildrenByName(seg, FResults);
-    first := false;
-    for i := FResults.count- 1 downto 0 do
-      if (FResults[i] = nil) then
-        FResults.DeleteByIndex(i);
-    if src <> '' then
-    begin
-      FSource.Free;
-      FSource := FResults;
-      FResults := TFHIRObjectList.Create;
-      end;
-    end;
-  end;
-end;
-
-
 { TFHIRObjectList }
 
 function TFHIRObjectList.Clone: TFHIRObjectList;
@@ -1276,6 +1239,39 @@ begin
     FTags := TDictionary<String,String>.create;
   FTags.AddOrSetValue(name, value);
 end;
+
+{ TFHIRBaseList }
+
+function TFHIRBaseList.Clone: TFHIRBaseList;
+begin
+  result := TFHIRBaseList(Inherited Clone);
+end;
+
+destructor TFHIRBaseList.Destroy;
+begin
+  inherited;
+end;
+
+function TFHIRBaseList.GetEnumerator: TFHIRBaseListEnumerator;
+begin
+  result := TFHIRBaseListEnumerator.Create(self.link);
+end;
+
+function TFHIRBaseList.GetItemN(index: Integer): TFHIRBase;
+begin
+  result := TFHIRBase(ObjectByIndex[index]);
+end;
+
+function TFHIRBaseList.ItemClass: TAdvObjectClass;
+begin
+  result := TFHIRBase;
+end;
+
+function TFHIRBaseList.Link: TFHIRBaseList;
+begin
+  result := TFHIRBaseList(Inherited Link);
+end;
+
 
 (*
 
@@ -1595,6 +1591,33 @@ begin
   Result := FList[FIndex];
 end;
 
+{ TFHIRBaseListEnumerator }
+
+Constructor TFHIRBaseListEnumerator.Create(list : TFHIRBaseList);
+begin
+  inherited Create;
+  FIndex := -1;
+  FList := list;
+end;
+
+Destructor TFHIRBaseListEnumerator.Destroy;
+begin
+  FList.Free;
+  inherited;
+end;
+
+function TFHIRBaseListEnumerator.MoveNext : boolean;
+begin
+  Inc(FIndex);
+  Result := FIndex < FList.count;
+end;
+
+function TFHIRBaseListEnumerator.GetCurrent : TFHIRBase;
+begin
+  Result := FList[FIndex];
+end;
+
+
 
 { TFhirAttributeListEnumerator }
 
@@ -1697,5 +1720,18 @@ begin
     raise Exception.Create('Not done yet');
   end;
 end;
+
+function TFHIRBase.PerformQuery(path: String): TFHIRBaseList;
+var
+  qry : TFHIRPathEvaluator;
+begin
+  qry := TFHIRPathEvaluator.create(nil);
+  try
+    result := qry.evaluate(self, path);
+  finally
+    qry.free;
+  end;
+end;
+
 
 End.

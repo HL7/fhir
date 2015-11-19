@@ -31,12 +31,11 @@ POSSIBILITY OF SUCH DAMAGE.
 Interface
 
 uses
-  SysUtils, Classes, ActiveX, IdSoapMsXml, IdSoapXml, FHIRBase, FHIRResources, FHIRTypes, Math,
-  BytesSupport, FHIRConstants, EncdDecd,
-  FHIRSupport,
-  MsXmlParser, AdvBuffers, AdvStringLists, StringSupport, DecimalSupport, EncodeSupport, DateAndTime, AdvStringMatches,
-  XmlBuilder, AdvXmlBuilders, TextUtilities, FHIRTags,
-  DateSupport, MsXmlBuilder, AdvJSON, AdvVCLStreams, AdvStringBuilders, FHIRLang;
+  SysUtils, Classes, ActiveX, Math, EncdDecd, Generics.Collections, System.Character,
+  DateSupport, StringSupport, DecimalSupport, EncodeSupport, BytesSupport,
+  AdvBuffers, AdvStringLists, DateAndTime, AdvStringMatches, TextUtilities, AdvVCLStreams, AdvStringBuilders, AdvGenerics,
+  MsXml, MsXmlParser, XmlBuilder, MsXmlBuilder, AdvXmlBuilders, AdvJSON,
+  FHIRBase, FHIRResources, FHIRTypes, FHIRConstants, FHIRSupport, FHIRTags, FHIRLang;
 
 const
   ATOM_NS = 'http://www.w3.org/2005/Atom';
@@ -58,6 +57,7 @@ const
     '<script type="text/javascript" src="/js/jcookie.js"></script>'+#13#10+
     '<script type="text/javascript" src="/js/hl7connect.js"></script>'+#13#10+
     '<script type="text/javascript" src="/js/fhir-gw.js"></script>'+#13#10;
+  MAP_ATTR_NAME = 'B88BF977DA9543B8A5915C84A70F03F7';
 
 Type
   TFHIRParser = {abstract} class (TFHIRObject)
@@ -67,6 +67,7 @@ Type
     FSource: TStream;
     FLang: String;
     FParserPolicy : TFHIRXhtmlParserPolicy;
+    FKeepLineNumbers : boolean;
     procedure SetResource(const Value: TFhirResource);
   protected
     procedure checkDateFormat(s : string);
@@ -84,17 +85,41 @@ Type
     Property AllowUnknownContent : Boolean read FAllowUnknownContent write FAllowUnknownContent;
     Property Lang : String read FLang write FLang;
     property ParserPolicy : TFHIRXhtmlParserPolicy read FParserPolicy write FParserPolicy;
+    property KeepLineNumbers : boolean read FKeepLineNumbers write FKeepLineNumbers;
   end;
 
   TFHIRParserClass = class of TFHIRParser;
+
+  TSourceLocationObject = class (TAdvObject)
+  private
+    locationStart : TSourceLocation;
+    locationEnd : TSourceLocation;
+  end;
+
+  TFHIRSaxToDomParser = class (TMsXmlSaxHandler)
+  private
+    FStack : TList<IXMLDOMElement>;
+    FDom : IXMLDOMDocument2;
+    FLastStart : TSourceLocation;
+    FLocations : TAdvList<TSourceLocationObject>;
+  public
+    constructor create(locations : TAdvList<TSourceLocationObject>);
+    destructor destroy; override;
+    property DOm : IXMLDOMDocument2 read FDom;
+    procedure startElement(sourceLocation : TSourceLocation; uri, localname : string; attrs : IVBSAXAttributes); override;
+    procedure endElement(sourceLocation : TSourceLocation); overload; override;
+    procedure text(chars : String; sourceLocation : TSourceLocation); override;
+  end;
 
   TFHIRXmlParserBase = class (TFHIRParser)
   Private
     FElement: IXmlDomElement;
     FComments : TAdvStringList;
+    FLocations : TAdvList<TSourceLocationObject>;
+
     Function LoadXml(stream : TStream) : IXmlDomDocument2;
     Function PathForElement(element : IXmlDomNode) : String;
-    procedure SeTFhirElement(const Value: IXmlDomElement);
+    procedure SetFhirElement(const Value: IXmlDomElement);
 
     function CheckHtmlElementOk(elem : IXMLDOMElement) : boolean;
     function CheckHtmlAttributeOk(elem, attr, value: String): boolean;
@@ -106,6 +131,7 @@ Type
     procedure TakeCommentsStart(element : TFHIRBase);
     procedure TakeCommentsEnd(element : TFHIRBase);
     procedure closeOutElement(result : TFHIRBase; element : IXmlDomElement);
+    procedure GetObjectLocation(obj : TFHIRObject; element : IXmlDomElement);
 
     Function ParseXHtmlNode(element : IXmlDomElement; path : String) : TFhirXHtmlNode; overload;
 
@@ -120,6 +146,7 @@ Type
     Procedure checkOtherAttributes(value : IXmlDomElement; path : String);
     function ParseDataType(element : IXmlDomElement; name : String; type_ : TFHIRTypeClass) : TFHIRType; virtual;
   Public
+    Destructor Destroy; Override;
     procedure Parse; Override;
     function ParseDT(rootName : String; type_ : TFHIRTypeClass) : TFHIRType; Override;
     property Element : IXmlDomElement read FElement write SeTFhirElement;
@@ -150,7 +177,8 @@ Type
     procedure ParseInnerResource(jsn : TJsonObject; ctxt : TFHIRObjectList);  overload;
     function ParseInnerResource(jsn: TJsonObject) : TFhirResource; overload;
   Public
-    procedure Parse; Override;
+    procedure Parse; Overload; Override;
+    procedure Parse(obj : TJsonObject); Overload;
     function ParseDT(rootName : String; type_ : TFHIRTypeClass) : TFHIRType; Override;
     class function ParseFragment(fragment, type_, lang : String) : TFHIRBase; overload;
   End;
@@ -287,8 +315,27 @@ Var
   iDom : IXMLDomDocument2;
   vAdapter : Variant;
   sError : String;
+  ms : TMsXmlParser;
+  sax : TFHIRSaxToDomParser;
 begin
   // you have to call this elsewhere... CoInitializeEx(nil, COINIT_MULTITHREADED);
+
+  if KeepLineNumbers then
+  begin
+    FLocations := TAdvList<TSourceLocationObject>.create;
+    // we're going to parse with SAX, building a DOM, and we're also goigng to populate a map of source locations. Slow, but that's how it is in the microsoft land
+    ms := TMsXmlParser.Create;
+    try
+      sax := TFHIRSaxToDomParser.create(FLocations.Link); // no try...finally..., this is interface
+      result := sax.FDom;
+      ms.Parse(stream, sax);
+    finally
+      ms.Free;
+    end;
+  end
+  else
+  begin
+      // this is faster
   iDom := LoadMsXMLDom;
   iDom.validateOnParse := False;
   iDom.preserveWhiteSpace := True;
@@ -304,6 +351,7 @@ begin
     Error('Parse', sError);
   End;
   Result := iDom;
+end;
 end;
 
 procedure TFHIRXmlParserBase.Parse;
@@ -480,6 +528,11 @@ end;
 //    result.free;
 //  end;
 //end;
+
+procedure TFHIRJsonParserBase.Parse(obj: TJsonObject);
+begin
+  resource := ParseResource(obj);
+end;
 
 procedure TFHIRJsonParserBase.ParseComments(base: TFHIRBase; jsn : TJsonObject);
 begin
@@ -1084,6 +1137,38 @@ begin
   end;
 end;
 
+function normaliseWhitespace(s : String) : String;
+var
+  w : boolean;
+  b : TStringBuilder;
+  c : Char;
+begin
+  w := false;
+  b := TStringBuilder.Create;
+  try
+    for c in s do
+    begin
+      if not System.Character.isWhitespace(c) then
+      begin
+        b.Append(c);
+        w := false;
+      end
+      else if not w then
+      begin
+        b.append(' ');
+        w := true;
+      end;
+      // else
+        // ignore
+
+
+    end;
+    result := b.ToString;
+  finally
+    b.Free;
+  end;
+end;
+
 procedure TFHIRComposer.ComposeXHtmlNode(xml : TXmlBuilder; node: TFhirXHtmlNode; ignoreRoot : boolean);
 var
   i : Integer;
@@ -1099,7 +1184,7 @@ begin
   else
   begin
     case node.NodeType of
-      fhntText : xml.Text(node.Content);
+      fhntText : xml.Text(normaliseWhitespace(node.Content));
       fhntComment : xml.Comment(node.Content);
       fhntElement :
         begin
@@ -1504,6 +1589,7 @@ var
   xml : TFHIRXmlComposer;
   r : TFhirResource;
   t, link, text, sl, ul : String;
+  a : TArray<String>;
 begin
   s := TAdvStringBuilder.create;
   try
@@ -1554,7 +1640,7 @@ Header(Session, FBaseURL, lang)+
         s.append(' ('+bundle.Total+' '+GetFhirMessage('FOUND', lang)+'). ');
       s.append('<span style="color: grey">'+GetFhirMessage('NAME_SEARCH', lang)+': '+bundle.link_List.Matches['self']+'</span>&nbsp;</p>');
       if bundle.tags['sql'] <> '' then
-        s.append('<p>SQL: <span style="color: maroon">'+FormatTextToXML(bundle.tags['sql'])+'</span></p>');
+        s.append('<p>SQL (for debugging): <span style="color: maroon">'+FormatTextToXML(bundle.tags['sql'])+'</span></p>');
     end;
 
     for i := 0 to bundle.entryList.Count - 1 do
@@ -1562,7 +1648,20 @@ Header(Session, FBaseURL, lang)+
       e := bundle.entryList[i];
       r := e.resource;
       if (r = nil) then
+      begin
+        if (e.request <> nil) and (e.request.method = HttpVerbDELETE) then
+        begin
+          a := e.request.url.Split(['/']);
+          s.append('<h2>'+a[length(a)-2]+' '+a[length(a)-1]+' deleted</h2>'+#13#10);
+          s.append('<p>'+FormatTextToXML(e.tags['opdesc']));
+          if e.link_List.Matches['audit'] <> '' then
+
+            s.append(' (<a href="'+BaseURL+e.link_List.Matches['audit']+'">Audit</a>)');
+          s.append('</p>'+#13#10);
+        end
+        else
         s.append('<h2>nil?</h2>'+#13#10)
+      end
       else
       begin
       t := GetFhirMessage(CODES_TFHIRResourceType[r.ResourceType], lang)+' "'+r.id+'"';
@@ -1579,6 +1678,13 @@ Header(Session, FBaseURL, lang)+
       end;
 
       s.append('<h2>'+FormatTextToXml(t)+'</h2>'+#13#10);
+      if e.tags['opdesc'] <>'' then
+      begin
+        s.append('<p>'+FormatTextToXML(e.tags['opdesc']));
+        if e.link_List.Matches['audit'] <> '' then
+          s.append(' (<a href="'+BaseURL+e.link_List.Matches['audit']+'">Audit</a>)');
+        s.append('</p>'+#13#10);
+      end;
       if (r.meta <> nil) then
         s.append('<p><a href="'+e.id+'/_tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(r.ResourceType, sl+'/_tags', r.meta, i+1)+'</p>'+#13#10);
 
@@ -1973,6 +2079,20 @@ begin
   result := TMsXmlParser.GetAttribute(element, name);
 end;
 
+procedure TFHIRXmlParserBase.GetObjectLocation(obj: TFHIRObject; element: IXmlDomElement);
+var
+  sl : TSourceLocationObject;
+  i : integer;
+begin
+  if (FLocations <> nil) then
+  begin
+    i := StrToInt(element.getAttribute(MAP_ATTR_NAME));
+    sl := FLocations[i];
+    obj.LocationStart := sl.locationStart;
+    obj.LocationEnd := sl.locationEnd;
+  end;
+end;
+
 function TFHIRXmlParserBase.FirstChild(element: IXmlDomElement): IXmlDomElement;
 Var
   node : IXMLDOMNode;
@@ -2202,6 +2322,12 @@ begin
   TakeCommentsEnd(result);
 end;
 
+destructor TFHIRXmlParserBase.Destroy;
+begin
+  FLocations.Free;
+  inherited;
+end;
+
 function TFHIRXmlParserBase.ParseDomainResource(element: IXmlDomElement; path : String): TFhirResource;
 var
   child : IXMLDOMElement;
@@ -2270,5 +2396,84 @@ begin
       result := result + ', "'+aNames[i]+'"';
   result := result + ')';
 end;
+
+{ TFHIRSaxToDomParser }
+
+constructor TFHIRSaxToDomParser.create(locations : TAdvList<TSourceLocationObject>);
+begin
+  FStack := TList<IXMLDOMElement>.create;
+  FDom := CoDOMDocument.Create;
+  FLocations := locations;
+end;
+
+
+destructor TFHIRSaxToDomParser.destroy;
+begin
+  FStack.Free;
+  FDom := nil;
+  FLocations.Free;
+  inherited;
+end;
+
+procedure TFHIRSaxToDomParser.startElement(sourceLocation: TSourceLocation; uri,localname: string; attrs: IVBSAXAttributes);
+var
+  focus : IXMLDOMElement;
+  loc : TSourceLocationObject;
+  i : integer;
+begin
+  focus := FDom.createNode(NODE_ELEMENT, localname, uri) as IXMLDOMElement;
+  if FStack.Count = 0 then
+    FDom.documentElement := focus
+  else
+    FStack[FStack.Count-1].appendChild(focus);
+  FStack.Add(focus);
+
+  loc := TSourceLocationObject.Create;
+  focus.setAttribute(MAP_ATTR_NAME, inttostr(FLocations.Add(loc)));
+
+  // SAX reports that the element 'starts' at the end of the element.
+  // which is where we want to end it. So we store the last location
+  // we saw anything at, and use that instead
+
+  if isNullLoc(FLastStart) then
+    loc.locationStart := sourceLocation
+  else
+    loc.locationStart := FLastStart;
+  loc.locationEnd := nullLoc;
+
+  for i := 0 to attrs.length - 1 do
+    focus.setAttribute(attrs.getQName(i), attrs.getValue(i));
+  FLastStart := nullLoc;
+end;
+
+procedure TFHIRSaxToDomParser.text(chars: String; sourceLocation: TSourceLocation);
+var
+  sl : TSourceLocationObject;
+begin
+ // we consider that an element 'ends' where the text or next element
+  // starts. That's not strictly true, but gives a better output
+  if FStack.Count > 0 then
+  begin
+    sl := FLocations[StrToInt(FStack[FStack.Count-1].getAttribute(MAP_ATTR_NAME))];
+    if isNullLoc(sl.LocationEnd) then
+      sl.LocationEnd := sourceLocation;
+    FStack[FStack.Count-1].appendChild(FDom.createTextNode(chars));
+  end;
+  FLastStart := sourceLocation;
+end;
+
+procedure TFHIRSaxToDomParser.endElement(sourceLocation: TSourceLocation);
+var
+  sl : TSourceLocationObject;
+begin
+  // we consider that an element 'ends' where the text or next element
+  // starts. That's not strictly true, but gives a better output
+    sl := FLocations[StrToInt(FStack[FStack.Count-1].getAttribute(MAP_ATTR_NAME))];
+  if isNullLoc(sl.LocationEnd) then
+    sl.LocationEnd := sourceLocation;
+  FStack.Delete(FStack.Count-1);
+  FLastStart := sourceLocation;
+end;
+
 
 End.

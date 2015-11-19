@@ -230,6 +230,8 @@ Type
     property issuedAt : TDateTime read GetissuedAt write SetissuedAt; // 'ist'
     property id : string read Getid write Setid; // 'jti'
 
+    function desc : String;
+
     // from openid:
     property name : string  read Getname write Setname; // 'name' End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.
     property givenName : string read GetgivenName write SetgivenName; // 'given_name' Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
@@ -711,6 +713,18 @@ begin
   Create;
   FHeader := header;
   FPayload := payload;
+end;
+
+function TJWT.desc: String;
+begin
+  if preferredName <> '' then
+    result := preferredName
+  else if name <> '' then
+    result := name
+  else if id <> '' then
+    result := id
+  else
+    result := '??';
 end;
 
 constructor TJWT.create;

@@ -35,6 +35,12 @@ Uses
   StringSupport,
   SysUtils; // Exception
 
+threadvar
+  gExceptionStack : String ;
+  gException : Exception;
+
+procedure recordStack(e : Exception);
+function ExceptionStack(e : Exception) : String;
 
 Type
 {$IFDEF CLR}
@@ -249,6 +255,23 @@ Begin
   Result := FInnerExceptionName <> '';
 End;
 
+procedure recordStack(e : Exception);
+begin
+  if (e <> gException) then
+  begin
+    gExceptionStack := e.StackTrace;
+    gException := e;
+  end;
+end;
+
+function ExceptionStack(e : Exception) : String;
+begin
+  if (e = gException) then
+    result := gExceptionStack
+  else
+    result := e.StackTrace;
+  gException := nil;
+end;
 
 Initialization
   System.AbstractErrorProc := @AbstractHandler;

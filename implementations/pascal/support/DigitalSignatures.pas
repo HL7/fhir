@@ -96,7 +96,7 @@ Type
   private
     FkeyFile: AnsiString;
     FKeyPassword: AnsiString;
-    FCertFile: AnsiString;
+//    FCertFile: AnsiString;
 
     // attribute / enum methods
     function canoncalizationSet(uri : String) : TXmlCanonicalisationMethodSet;

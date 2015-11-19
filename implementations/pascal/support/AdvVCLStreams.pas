@@ -78,11 +78,7 @@ Type
 
   TAdvStreamAdapter = Class(TStreamAdapter)
     Public
-      {$IFDEF VER290}
       Function Stat(Out statstg: TStatStg; grfStatFlag: DWord): HResult; Override; Stdcall;
-      {$ELSE}
-      function Stat(out statstg: TStatStg; grfStatFlag: Longint): HResult; stdcall;
-      {$ENDIF}
   End;
 
   TAdvIStreamAdapter = Class(TAdvObject, IStream)
@@ -96,7 +92,6 @@ Type
       Constructor Create; Override;
       Destructor Destroy; Override;
 
-      {$IFDEF VER290}
       function Seek(dlibMove: Largeint; dwOrigin: DWORD; out libNewPosition: LargeUInt): HResult; stdcall;
       function SetSize(libNewSize: LargeUInt): HResult; stdcall;
       function CopyTo(stm: IStream; cb: LargeUInt; out cbRead: LargeUInt; out cbWritten: LargeUInt): HResult; stdcall;
@@ -108,20 +103,6 @@ Type
       function Clone(out stm: IStream): HResult; stdcall;
       function Read(pv: Pointer; cb: FixedUInt; pcbRead: PFixedUInt): HResult; stdcall;
       function Write(pv: Pointer; cb: FixedUInt; pcbWritten: PFixedUInt): HResult; stdcall;
-      {$ELSE}
-      function Read(pv: Pointer; cb: Longint; pcbRead: PLongint): HResult; stdcall;
-      function Write(pv: Pointer; cb: Longint; pcbWritten: PLongint): HResult; stdcall;
-      function Seek(dlibMove: Largeint; dwOrigin: Longint; out libNewPosition: Largeint): HResult; stdcall;
-      function SetSize(libNewSize: Largeint): HResult; stdcall;
-      function CopyTo(stm: IStream; cb: Largeint; out cbRead: Largeint; out cbWritten: Largeint): HResult; stdcall;
-      function Commit(grfCommitFlags: Longint): HResult; stdcall;
-      function Revert: HResult; stdcall;
-      function LockRegion(libOffset: Largeint; cb: Largeint; dwLockType: Longint): HResult; stdcall;
-      function UnlockRegion(libOffset: Largeint; cb: Largeint; dwLockType: Longint): HResult; stdcall;
-      function Stat(out statstg: TStatStg; grfStatFlag: Longint): HResult; stdcall;
-      function Clone(out stm: IStream): HResult; stdcall;
-
-      {$ENDIF}
 
       Property Stream: TAdvAccessStream Read GetStream Write SetStream;
   End;
@@ -252,11 +233,7 @@ Begin
   Result := iCount;
 End;
 
-{$IFDEF VER290}
 Function TAdvStreamAdapter.Stat(Out statstg: TStatStg; grfStatFlag: DWord): HResult;
-{$ELSE}
-function TAdvStreamAdapter.Stat(out statstg: TStatStg; grfStatFlag: Longint): HResult;
-{$ENDIF}
 Begin
   // TStreamAdapter.stat does not clear the STATSTG structure.
   // http://qc.embarcadero.com/wc/qcmain.aspx?d=45528
@@ -281,11 +258,7 @@ Begin
 End;
 
 
-{$IFDEF VER290}
 Function TAdvIStreamAdapter.Read(pv: Pointer; cb: FixedUInt; pcbRead: PFixedUInt): HResult;
-{$ELSE}
-function TAdvIStreamAdapter.Read(pv: Pointer; cb: Longint; pcbRead: PLongint): HResult;
-{$ENDIF}
 
 Var
   iReadable : LongInt;
@@ -312,11 +285,7 @@ Begin
   End;
 End;
 
-{$IFDEF VER290}
 Function TAdvIStreamAdapter.Write(pv: Pointer; cb: FixedUInt; pcbWritten: PFixedUInt): HResult;
-{$ELSE}
-function TAdvIStreamAdapter.Write(pv: Pointer; cb: Longint; pcbWritten: PLongint): HResult;
-{$ENDIF}
 Begin
   Try
     If pv = Nil Then
@@ -337,11 +306,7 @@ Begin
 End;
 
 
-{$IFDEF VER290}
 Function TAdvIStreamAdapter.Seek(dlibMove: Largeint; dwOrigin: DWORD; out libNewPosition: LargeUInt): HResult;
-{$ELSE}
-Function TAdvIStreamAdapter.Seek(dlibMove: Largeint; dwOrigin: Longint; out libNewPosition: Largeint): HResult;
-{$ENDIF}
 Var
   iNewPos: Integer;
 Begin
@@ -372,20 +337,13 @@ Begin
 End;
 
 
-{$IFDEF VER290}
-{$ELSE}
-{$ENDIF}
 Function TAdvIStreamAdapter.Revert: HResult;
 Begin
   Result := STG_E_REVERTED;
 End;
 
 
-{$IFDEF VER290}
 Function TAdvIStreamAdapter.SetSize(libNewSize: LargeUInt): HResult;
-{$ELSE}
-function TAdvIStreamAdapter.SetSize(libNewSize: Largeint): HResult;
-{$ENDIF}
 Begin
   Try
     Stream.Size := LongInt(libNewSize);
@@ -400,11 +358,7 @@ Begin
 End;
 
 
-{$IFDEF VER290}
 Function TAdvIStreamAdapter.Stat(out statstg: TStatStg; grfStatFlag: DWORD): HResult;
-{$ELSE}
-function TAdvIStreamAdapter.Stat(out statstg: TStatStg; grfStatFlag: Longint): HResult;
-{$ENDIF}
 Begin
   Result := S_OK;
   Try
@@ -422,40 +376,25 @@ Begin
 End;
 
 
-{$IFDEF VER290}
 Function TAdvIStreamAdapter.UnlockRegion(libOffset: LargeUInt; cb: LargeUInt; dwLockType: DWORD): HResult;
-{$ELSE}
-function TAdvIStreamAdapter.UnlockRegion(libOffset: Largeint; cb: Largeint; dwLockType: Longint): HResult;
-{$ENDIF}
 Begin
   Result := STG_E_INVALIDFUNCTION;
 End;
 
 
-{$IFDEF VER290}
-{$ELSE}
-{$ENDIF}
 Function TAdvIStreamAdapter.Clone(Out stm: IStream): HResult;
 Begin
   Result := E_NOTIMPL;
 End;
 
 
-{$IFDEF VER290}
 Function TAdvIStreamAdapter.Commit(grfCommitFlags: DWORD): HResult;
-{$ELSE}
-function TAdvIStreamAdapter.Commit(grfCommitFlags: Longint): HResult;
-{$ENDIF}
 Begin
   Result := S_OK;
 End;
 
 
-{$IFDEF VER290}
 Function TAdvIStreamAdapter.CopyTo(stm: IStream; cb: LargeUInt; out cbRead: LargeUInt; out cbWritten: LargeUInt): HResult;
-{$ELSE}
-function TAdvIStreamAdapter.CopyTo(stm: IStream; cb: Largeint; out cbRead: Largeint; out cbWritten: Largeint): HResult;
-{$ENDIF}
 Const
   MaxBufSize = 1024 * 1024;  // 1mb
 Var
@@ -523,11 +462,7 @@ Begin
 End;
 
 
-{$IFDEF VER290}
 Function TAdvIStreamAdapter.LockRegion(libOffset: LargeUInt; cb: LargeUInt; dwLockType: DWORD): HResult;
-{$ELSE}
-function TAdvIStreamAdapter.LockRegion(libOffset: Largeint; cb: Largeint; dwLockType: Longint): HResult;
-{$ENDIF}
 Begin
   Result := STG_E_INVALIDFUNCTION;
 End;

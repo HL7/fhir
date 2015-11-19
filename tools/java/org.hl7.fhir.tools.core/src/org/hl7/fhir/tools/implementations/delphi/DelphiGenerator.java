@@ -2692,7 +2692,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       else if (!pn.equals("String"))
         prsrImpl.append("  if (value = nil) or (value.value = nil) then\r\n");
       else 
-        prsrImpl.append("  if (value = nil) or (value.value = '') then\r\n");
+        prsrImpl.append("  if (value = nil) or ((value.value = '') and (value.extensionList.count = 0)) then\r\n");
       prsrImpl.append("    exit;\r\n");
       prsrImpl.append("  composeElementAttributes(xml, value);\r\n");
       if (pn.equals("Boolean"))

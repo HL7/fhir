@@ -36,7 +36,6 @@ uses
   SysUtils, Generics.Collections, EncdDecd,
   StringSupport, EncodeSupport,
   AdvObjects, AdvGenerics,
-  IdSoapXml,
   FHIRBase, FHIRResources, FHIRTypes, FHIRConstants, FHIRProfileUtilities, FHIRUtilities;
 
 Const

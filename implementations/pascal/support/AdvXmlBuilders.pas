@@ -34,7 +34,7 @@ Uses
   SysUtils, Classes, ActiveX, Variants,
   StringSupport, EncodeSupport,
   AdvStreams, AdvVCLStreams,  AdvBuffers, AdvObjects, AdvXmlFormatters, AdvMemories, AdvStringMatches, AdvGenerics,
-  XmlBuilder, IdSoapMsXml, MsXmlParser, Xml.xmlintf, Xml.XMLDoc, Xml.adomxmldom;
+  XmlBuilder, MsXml, MsXmlParser, Xml.xmlintf, Xml.XMLDoc, Xml.adomxmldom;
 
 Type
   TAdvXmlBuilder = class (TXmlBuilder)
@@ -328,8 +328,8 @@ begin
   else
   begin
     result := StringTrimSet(s, [' ', #13, #10, #9]);
-    if result = '' then
-      result := ' ';
+    if ((result = '') and (s <> '')) or (s.endsWith(' ')) then
+      result := result + ' ';
   end;
 end;
 

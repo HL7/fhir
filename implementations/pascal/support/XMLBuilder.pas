@@ -33,13 +33,19 @@ interface
 uses
   SysUtils, Classes,
   AdvStreams, AdvStringMatches, AdvObjectLists, AdvObjects,
-  IdSoapMsXml, Xml.xmlintf;
+  XMLIntf, MsXML;
 
 type
   TSourceLocation = record
     line, col : integer;
   end;
 
+function minLoc(src1, src2 : TSourceLocation) : TSourceLocation;
+function maxLoc(src1, src2 : TSourceLocation) : TSourceLocation;
+function nullLoc : TSourceLocation;
+function isNullLoc(src : TSourceLocation) : boolean;
+
+type
   TXmlCanonicalisationMethod = (xcmCanonicalise, xcmComments, xcmTrimWhitespace, {xcmPrefixRewrite, } xcmQNameAware);
   TXmlCanonicalisationMethodSet = set of TXmlCanonicalisationMethod;
 
@@ -188,6 +194,42 @@ end;
 procedure TXmlBuilder.NSPush;
 begin
   FNamespaces.Add(CurrentNamespaces.clone);
+end;
+
+function minLoc(src1, src2 : TSourceLocation) : TSourceLocation;
+begin
+  if (src1.line < src2.line) then
+    result := src1
+  else if (src2.line < src1.line) then
+    result := src2
+  else if (src1.col < src2.col) then
+    result := src1
+  else
+    result := src2
+end;
+
+function maxLoc(src1, src2 : TSourceLocation) : TSourceLocation;
+begin
+  if (src1.line > src2.line) then
+    result := src1
+  else if (src2.line > src1.line) then
+    result := src2
+  else if (src1.col > src2.col) then
+    result := src1
+  else
+    result := src2
+end;
+
+function nullLoc : TSourceLocation;
+begin
+  result.line := -1;
+  result.col := -1;
+end;
+
+
+function isNullLoc(src : TSourceLocation) : boolean;
+begin
+  result := (src.line = -1) and (src.col = -1);
 end;
 
 end.

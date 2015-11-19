@@ -41,7 +41,8 @@ uses
   AdvTextExtractors,
   AdvStringObjectMatches,
   AdvObjectLists,
-  AdvStringBuilders;
+  AdvStringBuilders,
+  XMLBuilder;
 
 Function JSONString(const value : String) : String;
 
@@ -55,7 +56,11 @@ Type
   protected
     function nodeType : String; virtual;
   public
+    LocationStart : TSourceLocation;
+    LocationEnd : TSourceLocation;
+
     constructor create(path : String); overload;
+    constructor create(path : String; locStart, locEnd : TSourceLocation); overload;
     Function Link : TJsonNode; Overload;
     property path : String read FPath write FPath;
   end;
@@ -108,6 +113,9 @@ Type
     function add(value : TJsonObject): TJsonArray; overload;
     function addObject : TJsonObject; overload;
 
+    procedure remove(index : integer);
+    procedure move(index, delta : integer);
+
     function GetEnumerator : TJsonArrayEnumerator; // can only use this when the array members are objects
   end;
 
@@ -120,6 +128,7 @@ Type
     function nodeType : String; override;
   public
     Constructor Create(path : String; value : boolean); overload;
+    Constructor Create(path : String; locStart, locEnd : TSourceLocation; value : boolean); overload;
     Function Link : TJsonBoolean; Overload;
     property value : boolean read FValue write FValue;
   end;
@@ -131,6 +140,7 @@ Type
     function nodeType : String; override;
   public
     Constructor Create(path : String; value : string); overload;
+    Constructor Create(path : String; locStart, locEnd : TSourceLocation; value : string); overload;
     Function Link : TJsonValue; Overload;
     property value : String read FValue write FValue;
   end;
@@ -183,6 +193,7 @@ Type
     FBuilder : TAdvStringBuilder;
     FName : String;
     FCache : String;
+    FProperty : Boolean;
     Function UseName : String;
     Function UseCache : String;
     Function JSONString(const value : String) : String;
@@ -202,6 +213,7 @@ Type
     Procedure Value(Const name : String; avalue : Double); overload;
     Procedure ValueDate(Const name : String; aValue : TDateTime); overload;
     Procedure ValueNull(Const name : String);
+    Procedure ValueBytes(Const name : String; bytes : TBytes);
 
     Procedure ValueObject(Const name : String); Overload;
     Procedure ValueObject; Overload;
@@ -238,6 +250,9 @@ Type
     FValue: String;
     FLexType: TJSONLexType;
     FStates : TStringList;
+    FLastLocationBWS : TSourceLocation;
+    FLastLocationAWS : TSourceLocation;
+    FLocation : TSourceLocation;
     Function getNextChar : Char;
     Procedure Push(ch : Char);
     procedure ParseWord(sWord : String; ch : Char; aType : TJSONLexType);
@@ -259,6 +274,10 @@ Type
   TJSONParser = class (TAdvObject)
   Private
     FLex : TJSONLexer;
+    FNameStart : TSourceLocation;
+    FNameEnd : TSourceLocation;
+    FValueStart : TSourceLocation;
+    FValueEnd : TSourceLocation;
     FItemName: String;
     FItemValue: String;
     FItemType: TJsonParserItemType;
@@ -370,7 +389,12 @@ End;
 procedure TJSONWriter.DoName(const name : String);
 begin
   if FCache <> '' Then
-    ProduceLine(UseCache+',');
+    ProduceLine(UseCache+',')
+  else if FProperty then
+  begin
+    FProperty := false;
+    ProduceLine(',')
+  end;
   FName := JSONString(name)+' : ';
 end;
 
@@ -461,7 +485,12 @@ end;
 procedure TJSONWriter.ValueObject;
 begin
   if FCache <> '' Then
-    ProduceLine(UseCache+',');
+    ProduceLine(UseCache+',')
+  else if FProperty then
+  begin
+    FProperty := false;
+    ProduceLine(',')
+  end;
   ProduceLine(UseName+ '{');
   LevelDown;
 end;
@@ -592,6 +621,16 @@ begin
   LevelDown;
 end;
 
+procedure TJSONWriter.ValueBytes(const name: String; bytes: TBytes);
+begin
+  if name = '' then
+    raise Exception.Create('Injecting bytes not supported in an array');
+  DoName(Name);
+  produce(UseName);
+  ProduceBytes(bytes);
+  FProperty := true;
+end;
+
 procedure TJSONWriter.FinishArray;
 begin
   if FCache <> '' Then
@@ -667,9 +706,11 @@ procedure TJSONLexer.Next;
 var
   ch : Char;
 begin
+  FLastLocationBWS := FLocation;
   repeat
     ch := getNextChar;
   Until Not More Or not CharInSet(ch, [' ', #13, #10, #9]);
+  FLastLocationAWS := FLocation;
 
   If Not More Then
     FLexType := jltEof
@@ -736,7 +777,16 @@ begin
     Delete(FPeek, 1, 1);
   End
   Else
+  begin
     result := ConsumeCharacter;
+    if result = #10 then
+    begin
+      inc(FLocation.line);
+      FLocation.col := 1;
+    end
+    else
+      inc(FLocation.col);
+  end;
 end;
 
 function TJSONLexer.Consume(aType: TJsonLexType): String;
@@ -755,6 +805,8 @@ end;
 constructor TJSONLexer.Create(oStream: TAdvStream);
 begin
   Inherited Create(oStream);
+  FLocation.line := 1;
+  FLocation.col := 1;
   FStates := TStringList.Create;
 end;
 
@@ -880,7 +932,7 @@ begin
     jpitEof :
         FLex.JsonError('JSON Syntax Error - attempt to read past end of json stream');
   else
-    FLex.JsonError('not done yet: '+Codes_TJsonParserItemType[ItemType]);
+    FLex.JsonError('not done yet (a): '+Codes_TJsonParserItemType[ItemType]);
   End;
 end;
 
@@ -910,6 +962,8 @@ begin
   try
     result := TJsonObject.Create('$');
     try
+      result.LocationStart := p.FLex.FLastLocationBWS;
+      p.ParseProperty;
       p.readObject(result, true);
       result.Link;
     finally
@@ -929,7 +983,9 @@ procedure TJSONParser.ParseProperty;
 Begin
   If FLex.FStates.Objects[0] = nil Then
   Begin
+    FNameStart := FLex.FLocation;
     FItemName := FLex.Consume(jltString);
+    FNameEnd := FLex.FLocation;
     FItemValue := '';
     FLex.Consume(jltColon);
   End;
@@ -938,24 +994,32 @@ Begin
       Begin
       FItemType := jpitNull;
       FItemValue := FLex.FValue;
+      FValueStart := FLex.FLastLocationAWS;
+      FValueEnd := FLex.FLocation;
       FLex.Next;
       end;
     jltString :
       Begin
       FItemType := jpitSimple;
       FItemValue := FLex.FValue;
+      FValueStart := FLex.FLastLocationAWS;
+      FValueEnd := FLex.FLocation;
       FLex.Next;
       End;
     jltBoolean :
       Begin
       FItemType := jpitBoolean;
       FItemValue := FLex.FValue;
+      FValueStart := FLex.FLastLocationAWS;
+      FValueEnd := FLex.FLocation;
       FLex.Next;
       End;
     jltNumber :
       Begin
       FItemType := jpitSimple;
       FItemValue := FLex.FValue;
+      FValueStart := FLex.FLastLocationAWS;
+      FValueEnd := FLex.FLocation;
       FLex.Next;
       End;
     jltOpen :
@@ -972,7 +1036,7 @@ Begin
       End;
     // jltClose, , jltColon, jltComma, jltOpenArray,       !
   else
-    FLex.JsonError('not done yet: '+Codes_TJSONLexType[FLex.LexType]);
+    FLex.JsonError('not done yet (b): '+Codes_TJSONLexType[FLex.LexType]);
   End;
 End;
 
@@ -992,22 +1056,25 @@ begin
         begin
           obj := TJsonObject.Create(arr.path+'['+inttostr(i)+']');
           arr.FItems.Add(obj);
+          obj.LocationStart := FLex.FLocation;
           Next;
           readObject(obj, false);
         end;
       jpitSimple:
-        arr.FItems.Add(TJsonValue.Create(arr.path+'['+inttostr(i)+']', ItemValue));
+        arr.FItems.Add(TJsonValue.Create(arr.path+'['+inttostr(i)+']', FValueStart, FValueEnd, ItemValue));
       jpitNull :
-        arr.FItems.Add(TJsonNull.Create(arr.path+'['+inttostr(i)+']'));
+        arr.FItems.Add(TJsonNull.Create(arr.path+'['+inttostr(i)+']', FValueStart, FValueEnd));
       jpitArray:
         begin
         child := TJsonArray.Create(arr.path+'['+inttostr(i)+']');
         obj.FProperties.Add(ItemName, child);
+        child.LocationStart := FLex.FLocation;
         Next;
         readArray(child);
         end;
       jpitEof : raise Exception.Create('Unexpected End of File');
     end;
+    arr.LocationEnd := FLex.FLocation;
     Next;
     inc(i);
   end;
@@ -1025,24 +1092,27 @@ begin
         begin
           child := TJsonObject.Create(obj.path+'.'+ItemName);
           obj.FProperties.Add(ItemName, child);
+          child.LocationStart := FLex.FLocation;
           Next;
           readObject(child, false);
         end;
       jpitBoolean :
-        obj.FProperties.Add(ItemName, TJsonBoolean.Create(obj.path+'.'+ItemName, StrToBool(ItemValue)));
+        obj.FProperties.Add(ItemName, TJsonBoolean.Create(obj.path+'.'+ItemName, FValueStart, FValueEnd, StrToBool(ItemValue)));
       jpitSimple:
-        obj.FProperties.Add(ItemName, TJsonValue.Create(obj.path+'.'+ItemName, ItemValue));
+        obj.FProperties.Add(ItemName, TJsonValue.Create(obj.path+'.'+ItemName, FValueStart, FValueEnd, ItemValue));
       jpitNull:
-        obj.FProperties.Add(ItemName, TJsonNull.Create(obj.path+'.'+ItemName));
+        obj.FProperties.Add(ItemName, TJsonNull.Create(obj.path+'.'+ItemName, FValueStart, FValueEnd));
       jpitArray:
         begin
         arr := TJsonArray.Create(obj.path+'.'+ItemName);
         obj.FProperties.Add(ItemName, arr);
+        arr.LocationStart := FLex.FLocation;
         Next;
         readArray(arr);
         end;
       jpitEof : raise Exception.Create('Unexpected End of File');
     end;
+    obj.LocationEnd := FLex.FLocation;
     next;
   end;
 end;
@@ -1076,7 +1146,6 @@ begin
   begin
     FLex.Next;
     FLex.FStates.InsertObject(0, '', nil);
-    ParseProperty;
   End
   Else
     FLex.JsonError('Unexpected content at start of JSON: '+Codes_TJSONLexType[FLex.LexType]);
@@ -1085,7 +1154,12 @@ End;
 procedure TJSONWriter.ValueInArray(const value: String);
 begin
   if FCache <> '' Then
-    ProduceLine(UseCache+',');
+    ProduceLine(UseCache+',')
+  else if FProperty then
+  begin
+    FProperty := false;
+    ProduceLine(',')
+  end;
   if value = '' then
     ValueNullInArray
   Else
@@ -1095,7 +1169,12 @@ end;
 procedure TJSONWriter.ValueNumberInArray(const value: String);
 begin
   if FCache <> '' Then
-    ProduceLine(UseCache+',');
+    ProduceLine(UseCache+',')
+  else if FProperty then
+  begin
+    FProperty := false;
+    ProduceLine(',')
+  end;
   if value = '' then
     ValueNullInArray
   Else
@@ -1105,7 +1184,12 @@ end;
 procedure TJSONWriter.ValueInArray(value: Boolean);
 begin
   if FCache <> '' Then
-    ProduceLine(UseCache+',');
+    ProduceLine(UseCache+',')
+  else if FProperty then
+  begin
+    FProperty := false;
+    ProduceLine(',')
+  end;
   if value then
     FCache := 'true'
   else
@@ -1115,7 +1199,12 @@ end;
 procedure TJSONWriter.ValueNullInArray;
 begin
   if FCache <> '' Then
-    ProduceLine(UseCache+',');
+    ProduceLine(UseCache+',')
+  else if FProperty then
+  begin
+    FProperty := false;
+    ProduceLine(',')
+  end;
   FCache := 'null';
 end;
 
@@ -1135,21 +1224,36 @@ end;
 procedure TJSONWriter.ValueInArray(value: Int64);
 begin
   if FCache <> '' Then
-    ProduceLine(UseCache+',');
+    ProduceLine(UseCache+',')
+  else if FProperty then
+  begin
+    FProperty := false;
+    ProduceLine(',')
+  end;
   FCache := inttostr(value);
 end;
 
 procedure TJSONWriter.ValueInArray(value: Double);
 begin
   if FCache <> '' Then
-    ProduceLine(UseCache+',');
+    ProduceLine(UseCache+',')
+  else if FProperty then
+  begin
+    FProperty := false;
+    ProduceLine(',')
+  end;
   FCache := FloatToStr(value);
 end;
 
 procedure TJSONWriter.ValueInArray(value: Integer);
 begin
   if FCache <> '' Then
-    ProduceLine(UseCache+',');
+    ProduceLine(UseCache+',')
+  else if FProperty then
+  begin
+    FProperty := false;
+    ProduceLine(',')
+  end;
   FCache := inttostr(value);
 end;
 
@@ -1179,6 +1283,14 @@ constructor TJsonNode.create(path: String);
 begin
   Create;
   self.path := path;
+end;
+
+constructor TJsonNode.create(path: String; locStart, locEnd: TSourceLocation);
+begin
+  Create;
+  self.path := path;
+  LocationStart := locStart;
+  LocationEnd := locEnd;
 end;
 
 function TJsonNode.Link: TJsonNode;
@@ -1298,9 +1410,19 @@ begin
   result := TJsonArray(Inherited Link);
 end;
 
+procedure TJsonArray.move(index, delta: integer);
+begin
+  FItems.Move(index, index+delta);
+end;
+
 function TJsonArray.nodeType: String;
 begin
   result := 'array';
+end;
+
+procedure TJsonArray.remove(index: integer);
+begin
+  FItems.DeleteByIndex(index);
 end;
 
 procedure TJsonArray.SetItem(i: integer; const Value: TJsonNode);
@@ -1324,6 +1446,14 @@ constructor TJsonValue.Create(path, value: string);
 begin
   Create(path);
   self.value := value;
+end;
+
+constructor TJsonValue.Create(path: String; locStart, locEnd: TSourceLocation; value: string);
+begin
+  Create(path);
+  self.value := value;
+  LocationStart := locStart;
+  LocationEnd := locEnd;
 end;
 
 function TJsonValue.Link: TJsonValue;
@@ -1515,6 +1645,14 @@ constructor TJsonBoolean.Create(path: String; value: boolean);
 begin
   create('path');
   FValue := value;
+end;
+
+constructor TJsonBoolean.Create(path: String; locStart, locEnd: TSourceLocation; value: boolean);
+begin
+  create('path');
+  FValue := value;
+  LocationStart := locStart;
+  LocationEnd := locEnd;
 end;
 
 function TJsonBoolean.Link: TJsonBoolean;

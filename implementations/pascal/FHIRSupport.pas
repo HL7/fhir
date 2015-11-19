@@ -37,10 +37,10 @@ interface
 uses
   Classes,
   SysUtils,
-  IdGlobal, IdSoapMime,
+  IdGlobal,
   Parsemap, TextUtilities,
   StringSupport, DecimalSupport, GuidSupport,
-  AdvObjects, AdvBuffers, AdvStringLists, AdvStringMatches,
+  AdvObjects, AdvBuffers, AdvStringLists, AdvStringMatches, MimeMessage,
   DateAndTime, JWT, SCIMObjects,
   FHirBase, FHirResources, FHIRConstants, FHIRTypes, FHIRSecurity, FHIRTags, FHIRLang;
 
@@ -244,7 +244,7 @@ Type
     FIp: string;
     FCompartments: String;
     FCompartmentId: String;
-    FForm: TIdSoapMimeMessage;
+    FForm: TMimeMessage;
     FOperationName: String;
     FIfMatch : String;
     FMeta: TFhirMeta;
@@ -254,6 +254,7 @@ Type
     FIfNoneExist: String;
     FSummary: TFHIRSummaryOption;
     FOrigin : TFHIRRequestOrigin;
+    FSecure : Boolean;
     procedure SetResource(const Value: TFhirResource);
     procedure SetSource(const Value: TAdvBuffer);
     procedure SetSession(const Value: TFhirSession);
@@ -262,6 +263,7 @@ Type
     procedure SetMeta(const Value: TFhirMeta);
     procedure SetProvenance(const Value: TFhirProvenance);
     procedure processParams;
+    procedure SetForm(const Value: TMimeMessage);
   Public
     Constructor Create(origin : TFHIRRequestOrigin);
     Destructor Destroy; Override;
@@ -270,14 +272,14 @@ Type
     {!Script Hide}
     Function Compose : String;
     procedure LoadParams(s : String); overload;
-    procedure LoadParams(form : TIdSoapMimeMessage); overload;
+    procedure LoadParams(form : TMimeMessage); overload;
     Function LogSummary : String;
     function XMLSummary : String;
     Procedure CopyPost(stream : TStream);
     Property Source : TAdvBuffer read FSource write SetSource;
     Property Session : TFhirSession read FSession write SetSession;
     Property ip : string read FIp write FIp;
-    Property form : TIdSoapMimeMessage read FForm write FForm;
+    Property form : TMimeMessage read FForm write SetForm;
     function canRead(aResourceType : TFhirResourceType):boolean;
     function canWrite(aResourceType : TFhirResourceType):boolean;
     function canGetUser : boolean;
@@ -304,6 +306,11 @@ Type
       The full URL of the original request, if the request was made on a RESTful interface (else empty)
     }
     property url : String read FUrl write FUrl;
+
+    {@member secure
+      Whether the request was made on an SSL interface or not (SSL = smart on fhir as well)
+    }
+    property secure : Boolean read FSecure write FSecure;
 
     {@member baseUrl
       The baseURL (see the FHIR specification under "HTTP REST interface) of the interface,
@@ -1177,6 +1184,8 @@ begin
   FSource.Free;
   FResource.Free;
   FProvenance.Free;
+  FForm.Free;
+  FParams.Free;
   inherited;
 end;
 
@@ -1201,19 +1210,19 @@ begin
   processParams;
 end;
 
-procedure TFHIRRequest.LoadParams(form: TIdSoapMimeMessage);
+procedure TFHIRRequest.LoadParams(form: TMimeMessage);
 var
   i : integer;
-  p : TIdSoapMimePart;
+  p : TMimePart;
   s, n : String;
 begin
   for i := 0 to form.Parts.Count - 1 do
   begin
-    p := form.Parts.PartByIndex[i];
+    p := form.Parts[i];
     if (p.MediaType = '') then
     begin
       n := p.ParamName;
-      s := UTF8StreamToString(p.Content).trimRight([#13, #10]);
+      s := p.Content.AsUnicode.trimRight([#13, #10]);
       if (n <> '') and (not s.Contains(#10)) then
         FParams.addItem(n, s);
     end;
@@ -1270,6 +1279,11 @@ end;
 procedure TFHIRRequest.SetBundle(const Value: TFhirBundle);
 begin
   setresource(value);
+end;
+
+procedure TFHIRRequest.SetForm(const Value: TMimeMessage);
+begin
+  FForm := Value;
 end;
 
 procedure TFHIRRequest.SetMeta(const Value: TFhirMeta);

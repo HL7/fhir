@@ -72,6 +72,7 @@ Type
       Procedure ProduceText(Const sValue : String; processing : TEolnOption = eolnEscape); Overload;
       Procedure ProduceComment(Const sComment : String);
       Procedure ProduceCData(Const sText : String);
+      Procedure ProduceBytes(Const aBytes : TBytes); Override;
 
       Procedure AddAttribute(Const sName, sValue : String; sNs : String = ''); // ns is only used for sorting in canonical mode
       Procedure AddNamespace(Const sAbbreviation, sURI : String);
@@ -153,6 +154,12 @@ Begin
     CommitPending;
 End;  
 
+
+procedure TAdvXMLFormatter.ProduceBytes(const aBytes: TBytes);
+begin
+  commitPending;
+  inherited ProduceBytes(aBytes);
+end;
 
 procedure TAdvXMLFormatter.ProduceCData(const sText: String);
 begin

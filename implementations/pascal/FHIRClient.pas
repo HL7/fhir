@@ -35,7 +35,7 @@ interface
 uses
   SysUtils, Classes, Generics.Collections,
   StringSupport, EncodeSupport, GuidSupport,
-  IdHTTP, IdSSLOpenSSL, IdSoapMime,
+  IdHTTP, IdSSLOpenSSL, MimeMessage,
   AdvObjects, AdvBuffers, AdvWinInetClients, AdvStringMatches,
   FHIRParser, FHIRResources, FHIRUtilities, DateAndTime,
   FHIRConstants, FHIRSupport, FHIRParserBase, FHIRBase, SmartOnFhirUtilities;
@@ -79,6 +79,9 @@ Type
     destructor Destroy; override;
     property url : String read FUrl;
 
+    property Json : boolean read FJson write FJson;
+
+    function link : TFHIRClient; overload;
     property smartToken : TSmartOnFhirAccessToken read FSmartToken write SetSmartToken;
 
 //    procedure doRequest(request : TFHIRRequest; response : TFHIRResponse);
@@ -86,12 +89,12 @@ Type
 
     function conformance(summary : boolean) : TFhirConformance;
     function transaction(bundle : TFHIRBundle) : TFHIRBundle;
-    function createResource(resource : TFhirResource) : TFHIRResource;
+    function createResource(resource : TFhirResource; var id : String) : TFHIRResource;
     function readResource(atype : TFhirResourceType; id : String) : TFHIRResource;
-    function updateResource(id : String; resource : TFhirResource) : TFHIRResource; overload;
-    function updateResource(id, ver : String; resource : TFhirResource) : TFHIRResource; overload; // version specific update - this is encouraged where possible
+    function updateResource(resource : TFhirResource) : TFHIRResource; overload;
     procedure deleteResource(atype : TFhirResourceType; id : String);
-    function search(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch) : TFHIRBundle;
+    function search(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch) : TFHIRBundle; overload;
+    function search(atype : TFhirResourceType; allRecords : boolean; params : string) : TFHIRBundle; overload;
     function searchPost(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch; resource : TFhirResource) : TFHIRBundle;
     function operation(atype : TFhirResourceType; opName : String; params : TFhirParameters) : TFHIRResource;
     function historyType(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch) : TFHIRBundle;
@@ -127,6 +130,7 @@ begin
   FUrl := URL;
   FJson := json;
   client := TIdHTTP.create(nil);
+  client.HandleRedirects := true;
   ssl := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
   client.IOHandler := ssl;
   ssl.SSLOptions.Mode := sslmClient;
@@ -155,7 +159,17 @@ begin
 end;
 
 
-function TFhirClient.createResource(resource: TFhirResource): TFHIRResource;
+function readIdFromLocation(location : String) : String;
+var
+  a : TArray<String>;
+begin
+  a := location.split(['/']);
+  if length(a) < 4 then
+    raise Exception.Create('Unable to process location header');
+  result := a[length(a)-3]; // 1 for offset, 2 for _history and vers
+end;
+
+function TFhirClient.createResource(resource: TFhirResource; var id : String): TFHIRResource;
 Var
   src : TStream;
 begin
@@ -164,7 +178,7 @@ begin
     result := nil;
     try
       result := fetchResource(MakeUrl(CODES_TFhirResourceType[resource.resourceType]), post, src);
-      result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
+      id := readIdFromLocation(client.response.location);
       result.link;
     finally
       result.free;
@@ -174,24 +188,18 @@ begin
   end;
 end;
 
-function TFhirClient.updateResource(id : String; resource : TFhirResource) : TFHIRResource;
-begin
-  result := updateResource(id, '', resource);
-end;
-
-
-function TFhirClient.updateResource(id, ver : String; resource : TFhirResource) : TFHIRResource;
+function TFhirClient.updateResource(resource : TFhirResource) : TFHIRResource;
 Var
   src : TStream;
 begin
-  if ver <> '' then
-    client.Request.RawHeaders.Values['Content-Location'] := MakeUrlPath(CODES_TFhirResourceType[resource.resourceType]+'/'+id+'/history/'+ver);
+  if (resource.meta <> nil) and (resource.meta.versionId <> '') then
+    client.Request.RawHeaders.Values['Content-Location'] := MakeUrlPath(CODES_TFhirResourceType[resource.resourceType]+'/'+resource.id+'/history/'+resource.meta.versionId);
 
   src := serialise(resource);
   try
     result := nil;
     try
-      result := fetchResource(MakeUrl(CODES_TFhirResourceType[resource.resourceType]+'/'+id), put, src);
+      result := fetchResource(MakeUrl(CODES_TFhirResourceType[resource.resourceType]+'/'+resource.id), put, src);
       result.link;
     finally
       result.free;
@@ -256,12 +264,17 @@ begin
 end;
 
 function TFhirClient.search(atype: TFhirResourceType; allRecords: boolean; params: TAdvStringMatch): TFHIRBundle;
+begin
+  result := search(atype, allrecords, encodeParams(params));
+end;
+
+function TFhirClient.search(atype: TFhirResourceType; allRecords: boolean; params: string): TFHIRBundle;
 var
   s : String;
   feed : TFHIRBundle;
 begin
 //    client.Request.RawHeaders.Values['Content-Location'] := MakeUrlPath(CODES_TFhirResourceType[resource.resourceType]+'/'+id+'/history/'+ver);
-  result := fetchResource(makeUrl(CODES_TFhirResourceType[aType])+'?'+encodeParams(params), get, nil) as TFHIRBundle;
+  result := fetchResource(makeUrl(CODES_TFhirResourceType[aType])+'?'+params, get, nil) as TFHIRBundle;
   try
     s := result.links['next'];
     while AllRecords and (s <> '') do
@@ -283,7 +296,7 @@ begin
 end;
 
 function TFhirClient.searchPost(atype: TFhirResourceType; allRecords: boolean; params: TAdvStringMatch; resource: TFhirResource): TFHIRBundle;
-Var
+var
   src, frm : TStream;
   ct : String;
 begin
@@ -488,25 +501,23 @@ end;
 
 function TFhirClient.makeMultipart(stream: TStream; streamName: string; params: TAdvStringMatch; var mp : TStream) : String;
 var
-  m : TIdSoapMimeMessage;
-  p : TIdSoapMimePart;
+  m : TMimeMessage;
+  p : TMimePart;
   i : integer;
 begin
-  m := TIdSoapMimeMessage.create;
+  m := TMimeMessage.create;
   try
-    p := m.Parts.AddPart(NewGuidURN);
+    p := m.AddPart(NewGuidURN);
     p.ContentDisposition := 'form-data; name="'+streamName+'"';
-    p.Content := Stream;
-    p.OwnsContent := false;
+    p.Content.LoadFromStream(stream);
     for i := 0 to params.Count - 1 do
     begin
-      p := m.Parts.AddPart(NewGuidURN);
+      p := m.AddPart(NewGuidURN);
       p.ContentDisposition := 'form-data; name="'+params.Keys[i]+'"';
-      p.Content := TStringStream.Create(params.Matches[params.Keys[i]], TEncoding.UTF8);
-      p.OwnsContent := true;
+      p.Content.AsBytes := TEncoding.UTF8.GetBytes(params.Matches[params.Keys[i]]);
     end;
     m.Boundary := '---'+AnsiString(copy(GUIDToString(CreateGUID), 2, 36));
-    m.start := m.parts.PartByIndex[0].Id;
+    m.start := m.parts[0].Id;
     result := 'multipart/form-data; boundary='+String(m.Boundary);
     mp := TMemoryStream.Create;
     m.WriteToStream(mp, false);
@@ -549,7 +560,6 @@ begin
   result := nil;
   try
     result := fetchResource(MakeUrl(CODES_TFhirResourceType[AType]+'/'+id), get, nil);
-    result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
     result.link;
   finally
     result.free;
@@ -614,6 +624,11 @@ begin
   finally
     result.Free;
   end;
+end;
+
+function TFhirClient.link: TFHIRClient;
+begin
+  result := TFHIRClient(inherited Link);
 end;
 
 end.

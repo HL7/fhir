@@ -134,6 +134,8 @@ type
   public
     Destructor Destroy; override;
 
+    function link : TSmartOnFhirAccessToken; overload;
+
     // the bearer access token to add to the HTTP calls. If you assign the
     // access token to a TFHIRClient, it will do this
     property accessToken : String read FaccessToken write FaccessToken;
@@ -281,6 +283,11 @@ destructor TSmartOnFhirAccessToken.Destroy;
 begin
   FidToken.Free;
   inherited;
+end;
+
+function TSmartOnFhirAccessToken.link: TSmartOnFhirAccessToken;
+begin
+  result := TSmartOnFhirAccessToken(inherited Link);
 end;
 
 procedure TSmartOnFhirAccessToken.SetidToken(const Value: TJWT);

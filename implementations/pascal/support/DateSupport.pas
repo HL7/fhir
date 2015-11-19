@@ -136,6 +136,7 @@ Type
       TimeZoneYakutsk
       );
   TTimeZoneYearInfo = Class
+  public
     Year : TYear;
     HasDaylightSaving : Boolean;
     StandardStart : TSystemTime;
@@ -144,6 +145,7 @@ Type
     DaylightBias : Double; // number of minutes
   End;
   TTimeZoneInformation = Class
+  public
     Identity : TTimeZone;
     Name : String;
     WindowsName : String;

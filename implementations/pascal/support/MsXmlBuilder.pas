@@ -34,7 +34,7 @@ Uses
   SysUtils, Classes,
   StringSupport, EncodeSupport, TextUtilities,
   AdvStreams, AdvVCLStreams,  AdvObjects,
-  IdSoapMsXml, XmlBuilder, Xml.XmlIntf;
+  MsXml, XmlBuilder, Xml.XmlIntf;
 
 Type
   TMsXmlBuilder = class (TXmlBuilder)
@@ -82,8 +82,8 @@ Type
 Implementation
 
 Uses
+  MsXmlParser,
   ActiveX,
-  IdSoapXml,
   ComObj;
 
 

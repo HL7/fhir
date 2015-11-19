@@ -39,17 +39,46 @@ implementation
 {$R FHIRTranslations.res}
 
 uses
-  SysUtils, classes,
+  SysUtils, classes, ActiveX, Generics.Collections,
   StringSupport,
-  AdvExceptions,
-  AfsResourceVolumes,
-  AfsVolumes,
+  AdvObjects, AdvGenerics, AdvExceptions, AfsResourceVolumes, AfsVolumes,
+  MsXml, MsXmlParser;
 
-  IdSoapXml;
-
+Type
+  TFHIRMessage = class (TAdvObject)
+  private
+    FMessages : TDictionary<String,String>;
+  public
+    constructor Create; override;
+    Destructor Destroy; override;
+  end;
 var
-  GMessages : TStringList;
-  GSource : TIdSoapXmlDom;
+  GMessages : TAdvMap<TFHIRMessage>;
+
+
+Function LoadXml(stream : TStream) : IXmlDomDocument2;
+Var
+  iDom : IXMLDomDocument2;
+  vAdapter : Variant;
+  sError : String;
+begin
+  // you have to call this elsewhere... CoInitializeEx(nil, COINIT_MULTITHREADED);
+  iDom := LoadMsXMLDom;
+  iDom.validateOnParse := False;
+  iDom.preserveWhiteSpace := True;
+  iDom.resolveExternals := False;
+  iDom.setProperty('NewParser', True);
+  vAdapter := TStreamAdapter.Create(stream) As IStream;
+  if not iDom.load(vAdapter) Then
+  Begin
+    sError := iDom.parseError.reason + ' at line '+IntToStr(iDom.parseError.line)+' char '+IntToStr(iDom.parseError.linepos);
+    if iDom.parseError.url <> '' Then
+      sError := sError + '. url="'+ iDom.parseError.url+'"';
+    sError := sError + '. source = "'+ iDom.parseError.srcText+'"';
+    raise Exception.Create(sError);
+  End;
+  Result := iDom;
+end;
 
 
 
@@ -74,61 +103,54 @@ end;
 
 procedure LoadMessages;
 var
-  child : TIdSoapXmlElement;
+  source : IXMLDOMDocument;
+  child, lang : IXMLDOMElement;
   stream : TStream;
+  msg : TFHIRMessage;
 begin
-  GSource := IdSoapDomFactory(xpCustom);
   stream := TBytesStream.Create(LoadSource);
   try
-    GSource.Read(stream);
+    source := LoadXml(stream);
   finally
     stream.Free;
   end;
-  GMessages := TStringList.create;
-  GMessages.Sorted := true;
-  child := GSource.Root.FirstChild;
+  GMessages := TAdvMap<TFHIRMessage>.create;
+  child := TMsXmlParser.FirstChild(source.documentElement);
   while child <> nil do
   begin
-    GMessages.addObject(child.getAttribute('', 'id'), child);
-    child := child.NextSibling;
-  end;
-end;
-
-Function GetBylang(e : TIdSoapXmlElement; lang : String) : String;
-var
-  c : TIdSoapXmlElement;
-begin
-  c := e.FirstChild;
-  while (result = '') and (c <> nil) do
+    msg := TFHIRMessage.Create;
+    GMessages.Add(child.getAttribute('id'), msg);
+    lang := TMsXmlParser.FirstChild(child);
+    while lang <> nil do
   begin
-    if (c.getAttribute('', 'lang') = lang) then
-      result := c.TextContentA;
-    c := c.NextSibling;
+      msg.FMessages.Add(lang.getAttribute('lang'), lang.text);
+      lang := TMsXmlParser.NextSibling(lang);
+    end;
+    child := TMsXmlParser.NextSibling(child);
   end;
 end;
 
 function GetFhirMessage(id, lang : String):String;
 var
-  i : integer;
-  e : TIdSoapXmlElement;
+  msg : TFHIRMessage;
   l : string;
 begin
   result := '';
   if GMessages = nil then
     LoadMessages;
-  i := GMessages.indexof(id);
-  if i = -1 then
+  if not GMessages.ContainsKey(id) then
     result := 'Unknown message '+id
   else
   begin
-    e := GMessages.Objects[i] as TIdSoapXmlElement;
+    msg := GMessages[id];
     while (result = '') and (lang <> '') do
     begin
       StringSplit(lang, [';', ','], l, lang);
-      result := getBylang(e, l);
+      if msg.FMessages.ContainsKey(l) then
+        result := msg.FMessages[l];
     end;
     if result = '' then
-      result := getByLang(e, 'en');
+      result := msg.FMessages['en'];
     if result = '' then
       result := '??';
   end;
@@ -136,34 +158,48 @@ end;
 
 function GetFhirMessage(id, lang, def : String):String;
 var
-  i : integer;
-  e : TIdSoapXmlElement;
+  msg : TFHIRMessage;
   l : string;
 begin
+  result := '';
   if GMessages = nil then
     LoadMessages;
-  i := GMessages.indexof(id);
-  if i = -1 then
+  if not GMessages.ContainsKey(id) then
     result := def
   else
   begin
-    e := GMessages.Objects[i] as TIdSoapXmlElement;
+    msg := GMessages[id];
     while (result = '') and (lang <> '') do
     begin
       StringSplit(lang, [';', ','], l, lang);
-      result := getBylang(e, l);
+      if msg.FMessages.ContainsKey(l) then
+        result := msg.FMessages[l];
     end;
     if result = '' then
-      result := getByLang(e, 'en');
+      result := msg.FMessages['en'];
+    if result = '' then
+      result := '??';
     if result = '' then
       result := def;
   end;
 end;
 
+{ TFHIRMessage }
+
+constructor TFHIRMessage.Create;
+begin
+  inherited;
+  FMessages := TDictionary<String,String>.create;
+end;
+
+destructor TFHIRMessage.Destroy;
+begin
+  FMessages.Free;
+  inherited;
+end;
+
 initialization
   GMessages := nil;
-  GSource := nil;
 finalization
   GMessages.Free;
-  GSource.Free;
 end.

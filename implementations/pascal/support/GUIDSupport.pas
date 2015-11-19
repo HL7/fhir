@@ -41,6 +41,7 @@ Function NilGUID : TGUID;
 Function GUIDAsOID(Const aGUID : TGUID) : String;
 Function IsGuid(s : String): Boolean;
 function NewGuidURN : String;
+function NewGuidId : String;
 
 
 Implementation
@@ -135,7 +136,12 @@ end;
 
 function NewGuidURN : String;
 begin
-  result := 'urn:uuid:'+copy(GUIDToString(CreateGUID), 2, 36).ToLower;
+  result := 'urn:uuid:'+NewGuidId;
+end;
+
+function NewGuidId : String;
+begin
+  result := copy(GUIDToString(CreateGUID), 2, 36).ToLower;
 end;
 
 

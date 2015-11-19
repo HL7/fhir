@@ -35,7 +35,7 @@ uses
   SysUtils, Classes, Generics.Collections,
   GUIDSupport, DateAndTime, AdvObjects, ShellSupport, StringSupport, AdvStringMatches, AdvExceptions,
   FHIRResources, FHIRTypes, FHIRConstants, FHIRBase, FHIRParser,
-  FHIRUtilities, FHIRSupport, ProfileManager;
+  FHIRUtilities, FHIRSupport, FHIRProfileUtilities;
 
 Const
   TYPE_EXTENSION = 'http://www.healthintersections.com.au/fhir/StructureDefinition/metadata#type';

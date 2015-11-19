@@ -141,6 +141,7 @@ Type
 Implementation
 
 
+{R$-}
 
 Constructor TAdvProfiler.Create;
 Begin 

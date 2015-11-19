@@ -32,7 +32,7 @@ Interface
 
 
 Uses
-  SysUtils, Character, SysConst,
+  SysUtils, Character, SysConst, TypInfo,
   MathSupport;
 
 
@@ -197,6 +197,11 @@ Function CharInSet(C: WideChar; Const CharSet: TCharSet): Boolean; Overload;
 function TryStrToUINT64(StrValue:String; var uValue:UInt64 ):Boolean;
 function StrToUINT64(Value:String):UInt64;
 function StrToUInt64Def(Value:String; def : UInt64):UInt64;
+
+function EnumIsValid(ATypeInfo: PTypeInfo; AIndex: Integer): Boolean;
+function EnumStrIsValid(ATypeInfo: PTypeInfo; AValue : string): Boolean;
+function EnumToString(ATypeInfo: PTypeInfo; AIndex: Integer): String;
+function StringToEnum(ATypeInfo: PTypeInfo; const AStr: String): Integer;
 
 Implementation
 
@@ -1300,6 +1305,120 @@ begin
   if not TryStrToUINT64(Value,result) then
     result := def;
 end;
+
+function EnumIsValid(ATypeInfo: PTypeInfo; AIndex: Integer): Boolean;
+var
+  LTypeData: PTypeData;
+begin
+  // no check on AIndex
+  if ATypeInfo^.Kind = tkEnumeration then
+    begin
+    LTypeData := GetTypeData(ATypeInfo);
+    Result := (AIndex >= LTypeData^.MinValue) and (AIndex <= LTypeData^.MaxValue);
+    end
+  else
+    Result := False;
+end;
+
+const
+  RS_ERR_ENGINE_BAD_ENUM_TYPE = 'Enumeration %s has irregular values';
+  RS_ERR_ENGINE_ENUM_OUT_RANGE = 'The Value %s is out of range for the type %s';
+  RS_ERR_ENGINE_NOT_ENUM_TYPE = 'The Type %s is not an enumerated type';
+  RS_ERR_ENGINE_ENUM_UNIT_WRONG = 'RTTI Error, Unit for Enumeration "%s" is %s';
+
+function EnumStrIsValid(ATypeInfo: PTypeInfo; AValue : string): Boolean;
+var
+  LTypeData: PTypeData;
+  LPChar: PChar;
+  LCount : integer;
+  LValue : ShortString;
+begin
+  LValue := ShortString(AValue);
+
+  if ATypeInfo^.Kind = tkEnumeration then
+    begin
+    LTypeData := GetTypeData(ATypeInfo);
+    if LTypeData^.MinValue <> 0 then
+      begin
+      raise Exception.Create(Format(RS_ERR_ENGINE_BAD_ENUM_TYPE, [ATypeInfo^.Name]))
+      end;
+    LPChar := @LTypeData^.NameList[0];
+    LCount := 0;
+    while (LCount <= LTypeData^.MaxValue) and (ShortString(pointer(LPChar)^) <> LValue) do
+      begin
+      inc(LPChar, Ord(LPChar^) + 1);  // move to next string
+      inc(LCount);
+      end;
+    result := LCount <= LTypeData^.MaxValue;
+    end
+  else
+    begin
+    raise Exception.Create(Format(RS_ERR_ENGINE_NOT_ENUM_TYPE, [ATypeInfo^.Name]))
+    end;
+end;
+
+function EnumToString(ATypeInfo: PTypeInfo; AIndex: Integer): String;
+var
+  i: Integer;
+  LTypeData: PTypeData;
+  LPChar: PAnsiChar;
+begin
+  // no check on AIndex (Yet)
+  if ATypeInfo^.Kind = tkEnumeration then
+    begin
+    LTypeData := GetTypeData(ATypeInfo);
+    if LTypeData^.MinValue <> 0 then
+      begin
+      raise Exception.Create(Format(RS_ERR_ENGINE_BAD_ENUM_TYPE, [ATypeInfo^.Name]))
+      end;
+    if AIndex > LTypeData^.MaxValue then
+      begin
+      raise Exception.Create(Format(RS_ERR_ENGINE_ENUM_OUT_RANGE, [IntToStr(AIndex), ATypeInfo^.Name]))
+      end;
+    LPChar := PAnsiChar(@LTypeData^.NameList[0]);
+    for i := 1 to AIndex do
+      begin
+      inc(LPChar, Ord(LPChar^) + 1);  // move to next string
+      end;
+    Result := String(ShortString(pointer(LPChar)^));
+    end
+  else
+    raise Exception.Create(Format(RS_ERR_ENGINE_NOT_ENUM_TYPE, [ATypeInfo^.Name]))
+end;
+
+function StringToEnum(ATypeInfo: PTypeInfo; const AStr: String): Integer;
+var
+  LTypeData: PTypeData;
+  LPChar: PAnsiChar;
+  LValue : ShortString;
+begin
+  LValue := ShortString(AStr);
+
+  if ATypeInfo^.Kind = tkEnumeration then
+    begin
+    LTypeData := GetTypeData(ATypeInfo);
+    if LTypeData^.MinValue <> 0 then
+      begin
+      raise Exception.Create(Format(RS_ERR_ENGINE_BAD_ENUM_TYPE, [ATypeInfo^.Name]))
+      end;
+    LPChar := @LTypeData^.NameList[0];
+    Result := 0;
+    while (Result <= LTypeData^.MaxValue) and (ShortString(pointer(LPChar)^) <> LValue) do
+      begin
+      inc(LPChar, Ord(LPChar^) + 1);  // move to next string
+      inc(Result);
+      end;
+    if Result > LTypeData^.MaxValue then
+      begin
+      raise Exception.Create(Format(RS_ERR_ENGINE_ENUM_OUT_RANGE, [AStr, ATypeInfo^.Name]))
+      end;
+    end
+  else
+    begin
+    raise Exception.Create(Format(RS_ERR_ENGINE_NOT_ENUM_TYPE, [ATypeInfo^.Name]))
+    end;
+end;
+
 
 Initialization
   SetLength(UnicodeWhitespaceArray, 26);

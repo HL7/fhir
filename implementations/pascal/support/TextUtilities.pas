@@ -31,7 +31,7 @@ POSSIBILITY OF SUCH DAMAGE.
 interface
 
 Uses
-  SysUtils, Classes;
+  SysUtils, Classes, AdvStreams;
 
 function FormatTextToHTML(AStr: String): String; // translate ready for use in HTML
 function FormatTextToXML(AStr: String): String;
@@ -40,9 +40,11 @@ function FormatXMLToHTMLPlain(AStr : String):String;
 function FormatXMLForTextArea(AStr: String): String;
 
 function StringToUTF8Stream(value : String) : TStream;
-function UTF8StreamToString(value : TStream) : String;
+function UTF8StreamToString(value : TStream) : String; overload;
+function UTF8StreamToString(value : TAdvAccessStream) : String; overload;
 
-function FileToString(filename : String; {$IFDEF UNICODE}encoding : TEncoding; {$ENDIF}AShareMode : Word = fmOpenRead + fmShareDenyWrite) : String;
+function FileToString(filename : String; encoding : TEncoding; AShareMode : Word = fmOpenRead + fmShareDenyWrite) : String;
+procedure StringToFile(content, filename : String; encoding : TEncoding);
 
 procedure BytesToFile(bytes : TBytes; filename : String);
 
@@ -359,6 +361,19 @@ begin
   end;
 end;
 
+procedure StringToFile(content, filename : String; encoding : TEncoding);
+var
+  LFileStream: TFilestream;
+  bytes : TBytes;
+begin
+  LFileStream := TFileStream.Create(filename, fmCreate);
+  try
+    bytes := encoding.GetBytes(content);
+    LFileStream.write(bytes[0], length(bytes));
+  finally
+    LFileStream.Free;
+  end;
+end;
 
 function FileToString(filename : String; encoding : TEncoding; AShareMode : Word = fmOpenRead + fmShareDenyWrite) : String;
 var
@@ -387,6 +402,16 @@ begin
 end;
 
 function UTF8StreamToString(value : TStream) : String;
+var
+  b : TBytes;
+begin
+  SetLength(b, value.Size);
+  if (value.Size > 0) then
+    value.Read(b[0], value.Size);
+  result := TEncoding.UTF8.GetString(b);
+end;
+
+function UTF8StreamToString(value : TAdvAccessStream) : String;
 var
   b : TBytes;
 begin

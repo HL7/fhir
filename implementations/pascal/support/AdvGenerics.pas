@@ -20,12 +20,14 @@ Type
   end;
 
   TArrayManager<T> = class abstract
+  public
     procedure Move(var AArray: array of T; FromIndex, ToIndex, Count: Integer); overload; virtual; abstract;
     procedure Move(var FromArray, ToArray: array of T; FromIndex, ToIndex, Count: Integer); overload; virtual; abstract;
     procedure Finalize(var AArray: array of T; Index, Count: Integer); virtual; abstract;
   end;
 
   TMoveArrayManager<T> = class(TArrayManager<T>)
+  public
     procedure Move(var AArray: array of T; FromIndex, ToIndex, Count: Integer); overload; override;
     procedure Move(var FromArray, ToArray: array of T; FromIndex, ToIndex, Count: Integer); overload; override;
     procedure Finalize(var AArray: array of T; Index, Count: Integer); override;
@@ -33,6 +35,7 @@ Type
 
 {$IF Defined(WEAKREF)}
   TManualArrayManager<T> = class(TArrayManager<T>)
+  public
     procedure Move(var AArray: array of T; FromIndex, ToIndex, Count: Integer); overload; override;
     procedure Move(var FromArray, ToArray: array of T; FromIndex, ToIndex, Count: Integer); overload; override;
     procedure Finalize(var AArray: array of T; Index, Count: Integer); override;
@@ -42,6 +45,7 @@ Type
   // Actually, T must be TAdvObject, but this doesn't work because of forwards class definitions
   TAdvList<T : class> = class (TAdvEnumerable<T>)
   private
+    function GetEmpty: boolean;
   type
     arrayofT = array of T;
   var
@@ -97,6 +101,7 @@ Type
     procedure Pack; overload;
 
     function Remove(const Value: T): Integer;
+    procedure RemoveAll(list : TAdvList<T>);
     function RemoveItem(const Value: T; Direction: TDirection): Integer;
     procedure Delete(Index: Integer);
     procedure DeleteRange(AIndex, ACount: Integer);
@@ -131,6 +136,7 @@ Type
 
     property Capacity: Integer read GetCapacity write SetCapacity;
     property Count: Integer read FCount write SetCount;
+    property Empty : boolean read GetEmpty;
     property Items[Index: Integer]: T read GetItem write SetItem; default;
     property List: arrayofT read FItems;
 
@@ -301,6 +307,38 @@ Type
     Function Link : TAdvStringDictionary; Overload;
   end;
 
+  TAdvStringSet = class (TAdvObject)
+  private
+    // not sorted - this doesn't get long enough to make it worth sorting
+    FItems : TArray<String>;
+  public
+    Constructor Create(initial : String); overload;
+    Constructor Create(c1, c2 : TAdvStringSet); overload;
+    function Link : TAdvStringSet; overload;
+
+    procedure addAll(collection : TAdvStringSet);
+    procedure add(value : String);
+
+    function contains(s : String) : boolean;
+
+    type
+      TAdvStringSetEnumerator = class(TEnumerator<string>)
+      private
+        FSet: TAdvStringSet;
+        FIndex: Integer;
+        function GetCurrent: string;
+      protected
+        function DoGetCurrent: string; override;
+        function DoMoveNext: Boolean; override;
+      public
+        constructor Create(const aSet: TAdvStringSet);
+        property Current: String read GetCurrent;
+        function MoveNext: Boolean;
+      end;
+
+    function GetEnumerator: TAdvStringSetEnumerator;
+  end;
+
 implementation
 
 { TAdvEnumerable<T> }
@@ -384,7 +422,7 @@ begin
     Notify(oldItem, cnRemoved);
     Notify(Value, cnAdded);
   finally
-    oldItem.free;
+    TAdvObject(oldItem).free;
   end;
 end;
 
@@ -651,6 +689,14 @@ begin
     Delete(Result);
 end;
 
+procedure TAdvList<T>.RemoveAll(list: TAdvList<T>);
+var
+  item: T;
+begin
+  for item in list do
+    Remove(TAdvObject(item));
+end;
+
 function TAdvList<T>.RemoveItem(const Value: T; Direction: TDirection): Integer;
 begin
   Result := IndexOfItem(Value, Direction);
@@ -675,7 +721,7 @@ begin
   try
     Notify(oldItem, Notification);
   finally
-    oldItem.free;
+    TAdvObject(oldItem).free;
   end;
 end;
 
@@ -712,7 +758,7 @@ begin
       Notify(oldItems[I], cnRemoved);
   finally
     for I := 0 to Length(oldItems) - 1 do
-      oldItems[I].free;
+      TAdvObject(oldItems[I]).free;
   end;
 end;
 
@@ -845,6 +891,11 @@ begin
   Capacity := Count;
 end;
 
+function TAdvList<T>.GetEmpty: boolean;
+begin
+  result := Count = 0;
+end;
+
 function TAdvList<T>.GetEnumerator: TAdvEnumerator;
 begin
   Result := TAdvEnumerator.Create(Self);
@@ -971,20 +1022,6 @@ begin
   end;
 end;
 
-function TAdvMap<T>.Hash(const Key: String): Integer;
-var
-  LResult: UInt32;
-  I: Integer;
-begin
-  LResult := 0;
-  for I := 0 to Key.Length - 1 do
-  begin
-    LResult := (LResult shl 5) or (LResult shr 27); //ROL Result, 5
-    LResult := LResult xor UInt32(Key[I]);
-  end;
-  Result := LResult
-end;
-
 function TAdvMap<T>.GetItem(const Key: String): T;
 var
   index: Integer;
@@ -1010,7 +1047,7 @@ begin
     ValueNotify(oldValue, cnRemoved);
     ValueNotify(Value, cnAdded);
   finally
-    oldValue.free;
+    TAdvObject(oldValue).free;
   end;
 end;
 
@@ -1142,7 +1179,7 @@ end;
 
 procedure TAdvMap<T>.Remove(const Key: String);
 begin
-  DoRemove(Key, Hash(Key), cnRemoved).Free;
+  TAdvObject(DoRemove(Key, Hash(Key), cnRemoved)).Free;
 end;
 
 procedure TAdvMap<T>.Clear;
@@ -1162,7 +1199,7 @@ begin
       Continue;
     KeyNotify(oldItems[i].Key, cnRemoved);
     ValueNotify(oldItems[i].Value, cnRemoved);
-    oldItems[i].Value.free;
+    TAdvObject(oldItems[i].Value).free;
   end;
 end;
 
@@ -1215,7 +1252,7 @@ begin
 
   ValueNotify(oldValue, cnRemoved);
   ValueNotify(Value, cnAdded);
-  oldValue.Free;
+  TAdvObject(oldValue).Free;
 end;
 
 procedure TAdvMap<T>.AddOrSetValue(const Key: String; const Value: T);
@@ -1498,6 +1535,106 @@ begin
 end;
 {$ENDIF}
 
+
+{$R-}
+function TAdvMap<T>.Hash(const Key: String): Integer;
+var
+  LResult: UInt32;
+  I: Integer;
+begin
+  LResult := 0;
+  for I := 0 to Key.Length - 1 do
+  begin
+    LResult := (LResult shl 5) or (LResult shr 27); //ROL Result, 5
+    LResult := LResult xor UInt32(Key[I]);
+  end;
+  Result := LResult
+end;
+
+{ TAdvStringSet }
+
+constructor TAdvStringSet.Create(c1, c2: TAdvStringSet);
+begin
+  create;
+  addAll(c1);
+  addAll(c2);
+end;
+
+function TAdvStringSet.GetEnumerator: TAdvStringSetEnumerator;
+begin
+  Result := TAdvStringSetEnumerator.Create(Self);
+end;
+
+constructor TAdvStringSet.Create(initial: String);
+begin
+  create;
+  add(initial);
+end;
+
+function TAdvStringSet.Link: TAdvStringSet;
+begin
+  result := TAdvStringSet(inherited Link);
+end;
+
+procedure TAdvStringSet.add(value: String);
+begin
+  if not contains(value) then
+  begin
+    SetLength(FItems, length(FItems)+1);
+    FItems[length(FItems)-1] := value;
+  end;
+end;
+
+procedure TAdvStringSet.addAll(collection: TAdvStringSet);
+var
+  s : String;
+begin
+  for s in collection.FItems do
+    add(s);
+end;
+
+function TAdvStringSet.contains(s: String): boolean;
+var
+  i : String;
+begin
+  result := true;
+  for i in FItems do
+    if i = s then
+      exit;
+  result := false;
+end;
+
+{ TAdvStringSet.TAdvStringSetEnumerator }
+
+constructor TAdvStringSet.TAdvStringSetEnumerator.Create(const aSet: TAdvStringSet);
+begin
+  inherited Create;
+  FSet := aSet;
+  FIndex := -1;
+end;
+
+function TAdvStringSet.TAdvStringSetEnumerator.DoGetCurrent: String;
+begin
+  Result := GetCurrent;
+end;
+
+function TAdvStringSet.TAdvStringSetEnumerator.DoMoveNext: Boolean;
+begin
+  Result := MoveNext;
+end;
+
+function TAdvStringSet.TAdvStringSetEnumerator.GetCurrent: String;
+begin
+  Result := FSet.FItems[FIndex];
+end;
+
+function TAdvStringSet.TAdvStringSetEnumerator.MoveNext: Boolean;
+begin
+  if FIndex >= Length(FSet.FItems) then
+    Exit(False);
+  Inc(FIndex);
+  Result := FIndex < Length(FSet.FItems);
+end;
 
 end.
 
