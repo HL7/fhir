@@ -65,7 +65,6 @@ import org.hl7.fhir.utilities.Utilities;
 public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private Definitions definitions;
-	private ProfileUtilities utilities;
 	private PageProcessor page;
 	private String prefix;
 	
@@ -73,7 +72,6 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  super(out, "UTF-8");
 	  this.definitions = page.getDefinitions();
 	  this.page = page;
-	  this.utilities = new ProfileUtilities(page.getWorkerContext());
 	  this.prefix = prefix;
 	}
 

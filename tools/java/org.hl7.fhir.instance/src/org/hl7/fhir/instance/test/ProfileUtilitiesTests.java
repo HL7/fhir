@@ -42,7 +42,7 @@ public class ProfileUtilitiesTests {
     // new ProfileUtilitiesTests().execute(args);
     new ProfileUtilitiesTests("C:\\work\\org.hl7.fhir\\build\\publish").testSnapshotGeneration();
     //    StructureDefinition p = (StructureDefinition) new XmlParser().parse(new FileInputStream("C:\\work\\org.hl7.fhir\\build\\publish\\lipid-report-cholesterol.profile.xml"));
-    //    new ProfileUtilities(context).generateSchematrons(new FileOutputStream("c:\\temp\\test.sch"), p);
+    //    new ProfileUtilities(context, messages, null).generateSchematrons(new FileOutputStream("c:\\temp\\test.sch"), p);
   }
   
   public void execute(String[] args) throws Exception {
@@ -145,7 +145,7 @@ public class ProfileUtilitiesTests {
     focus.setUrl(Utilities.makeUuidUrn());
     focus.setBase(base.getUrl());
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test");
 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size();
     for (int i = 0; i < base.getSnapshot().getElement().size(); i++) {
@@ -181,7 +181,7 @@ public class ProfileUtilitiesTests {
     focus.setUrl(Utilities.makeUuidUrn());
     focus.setBase(base.getUrl());
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size();
     for (int i = 0; i < base.getSnapshot().getElement().size(); i++) {
@@ -220,7 +220,7 @@ public class ProfileUtilitiesTests {
     id.setPath("Patient.identifier");
     id.setMin(1);
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size();
     for (int i = 0; i < base.getSnapshot().getElement().size(); i++) {
@@ -264,7 +264,7 @@ public class ProfileUtilitiesTests {
     id.setPath("Patient.identifier");
     id.setDefinition("... some more doco");
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size();
     for (int i = 0; i < base.getSnapshot().getElement().size(); i++) {
@@ -312,7 +312,7 @@ public class ProfileUtilitiesTests {
     id.setPath("Patient.deceased[x]");
     id.addType().setCode("dateTime");
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size();
     for (int i = 0; i < base.getSnapshot().getElement().size(); i++) {
@@ -360,7 +360,7 @@ public class ProfileUtilitiesTests {
     id.setPath("Patient.deceasedDateTime");
     id.addType().setCode("dateTime");
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size();
     for (int i = 0; i < base.getSnapshot().getElement().size(); i++) {
@@ -407,7 +407,7 @@ public class ProfileUtilitiesTests {
     id.setPath("Patient.identifier");
     id.addMapping().setIdentity("rim").setMap("test");
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size();
     for (int i = 0; i < base.getSnapshot().getElement().size(); i++) {
@@ -456,7 +456,7 @@ public class ProfileUtilitiesTests {
     id.setPath("Patient.identifier.system");
     id.setMustSupport(true);
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     // the derived should be 8 longer
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size() - 8;
@@ -504,7 +504,7 @@ public class ProfileUtilitiesTests {
     id.setPath("Patient.identifier.system");
     id.setMustSupport(true);
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     // the derived should be 8 longer
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size() - 8;
@@ -568,7 +568,7 @@ public class ProfileUtilitiesTests {
     
     
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     // 18 different: identifier + 8 inner children * 2 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size() - 18;
@@ -655,8 +655,8 @@ public class ProfileUtilitiesTests {
     id.addType().setCode("Extension").addProfile("http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName");    
     
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    ProfileUtilities pu = new ProfileUtilities(context);
-    pu.generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    ProfileUtilities pu = new ProfileUtilities(context, messages, null);
+    pu.generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     // 2 different: extension slices 
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size() - 2;
@@ -754,7 +754,7 @@ public class ProfileUtilitiesTests {
     id.setMax("0"); // prohibit this one....
         
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     // ok, there's going to 1 (simple) + complex: 1 + id + extnesion.slice + extension.code + (4 inside from that) + extension.period + (4 inside from that) + value + url = 16
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size() - 16;
@@ -837,7 +837,7 @@ public class ProfileUtilitiesTests {
     id.getBinding().setStrength(BindingStrength.REQUIRED).setDescription("FIPS codes for US counties and county equivalent entities.").setValueSet(new Reference().setReference("http://hl7.org/fhir/ValueSet/fips-county"));
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
     
-    new ProfileUtilities(context).generateSnapshot(base, focus, focus.getUrl(), "Simple Test", null, messages );
+    new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
     // 14 for address with one sliced extension
     boolean ok = base.getSnapshot().getElement().size() == focus.getSnapshot().getElement().size() - 13;

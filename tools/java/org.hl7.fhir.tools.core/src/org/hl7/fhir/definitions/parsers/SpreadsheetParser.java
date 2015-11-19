@@ -2073,9 +2073,9 @@ public class SpreadsheetParser {
     new ProfileGenerator(definitions, null, pkp, null, null, null, fpUsages).convertElements(exe, ex, null);
     StructureDefinition base = definitions != null ? definitions.getSnapShotForType("Extension") : this.context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();
-    new ProfileUtilities(this.context).sortDifferential(base, ex, "extension "+ex.getUrl(), pkp, errors);
+    new ProfileUtilities(this.context, issues, pkp).sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
     assert(errors.size() == 0);
-    new ProfileUtilities(this.context).generateSnapshot(base, ex, ex.getUrl(), ex.getName(), pkp, issues);
+    new ProfileUtilities(this.context, issues, pkp).generateSnapshot(base, ex, ex.getUrl(), ex.getName());
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}

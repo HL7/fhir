@@ -146,13 +146,15 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBase());
       if (sd == null)
         throw new Exception("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBase()+" could not be resolved");
-      ProfileUtilities pu = new ProfileUtilities(this);
       List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
-      pu.generateSnapshot(sd, p, p.getUrl(), p.getName(), this, msgs);
+      ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
+      pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
       for (ValidationMessage msg : msgs) {
         if (msg.getLevel() == IssueSeverity.ERROR || msg.getLevel() == IssueSeverity.FATAL)
-          throw new Exception("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating: "+msg.getMessage());
+          throw new Exception("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
       }
+      if (!p.hasSnapshot())
+        throw new Exception("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot");
       pu = null;
     }
 		if (structures.containsKey(p.getUrl()))

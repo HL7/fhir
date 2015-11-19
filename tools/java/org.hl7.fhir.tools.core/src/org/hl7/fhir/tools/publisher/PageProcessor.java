@@ -1094,7 +1094,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genCompModel(StructureDefinition sd, String name, String base, String prefix) throws Exception {
     if (sd == null)
       return "<p style=\"color: maroon\">No "+name+" could be generated</p>\r\n";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable("??", sd, false, folders.dstDir, false, this, base, true, prefix)); 
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix)); 
   }
 
   private String genCmpMessages(ProfileComparison cmp) {
@@ -5778,7 +5778,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String generateExtensionTable(StructureDefinition ed, String filename, String full, String prefix) throws Exception {
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateExtensionTable(filename, ed, folders.dstDir, false, this, full.equals("true"), prefix));
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateExtensionTable(filename, ed, folders.dstDir, false, full.equals("true"), prefix));
   }
 
 
@@ -5956,7 +5956,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       }
     } else {
       String[] parts = structure.getBase().split("#");
-      StructureDefinition profile = new ProfileUtilities(workerContext).getProfile(structure, parts[0]);
+      StructureDefinition profile = new ProfileUtilities(workerContext, null, null).getProfile(structure, parts[0]);
       if (profile != null) {
         if (parts.length == 2) {
           return "<a href=\""+prefix+profile.getUserData("filename")+"."+parts[1]+".html\">the structure "+parts[1]+"</a> in <a href=\""+profile.getUserData("filename")+".html\">the "+profile.getName()+" profile</a>";
@@ -5971,7 +5971,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String generateProfileStructureTable(ConstraintStructure profile, boolean diff, String filename, String baseName, String prefix) throws Exception {
     String fn = filename.contains(".") ? filename.substring(0, filename.indexOf('.')) : filename;
     String deffile = fn+"-definitions.html";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, this, baseName, !diff, prefix));
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix));
   }
 
   private boolean isAggregationEndpoint(String name) {
@@ -6295,7 +6295,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } 
       if (Utilities.noString(url)) {
         String[] paths = parts[0].split("\\.");
-        StructureDefinition p = new ProfileUtilities(workerContext).getProfile(null, paths[0]);
+        StructureDefinition p = new ProfileUtilities(workerContext, null, null).getProfile(null, paths[0]);
         if (p != null) {
           String suffix = (paths.length > 1) ? "-definitions.html#"+parts[0] : ".html";
           if (p.getUserData("filename") == null)
@@ -6424,7 +6424,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       
     if (!url.startsWith("#")) {
       String[] path = url.split("#");
-      profile = new ProfileUtilities(workerContext).getProfile(null, path[0]);
+      profile = new ProfileUtilities(workerContext, null, null).getProfile(null, path[0]);
 //      if (profile == null && url.startsWith("StructureDefinition/"))
 //        return "hspc-"+url.substring(8)+".html|"+url.substring(8);
     }

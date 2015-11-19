@@ -411,7 +411,7 @@ public class QuestionnaireBuilder {
         cc.setSystem("http://hl7.org/fhir/resource-types");
 	      cc.setDisplay(cc.getCode());
       } else {
-        ProfileUtilities pu = new ProfileUtilities(context);
+        ProfileUtilities pu = new ProfileUtilities(context, null, null);
         StructureDefinition ps = null;
 	      if (t.hasProfile()) 
           ps = pu.getProfile(profile, t.getProfile().get(0).getValue());
@@ -454,7 +454,7 @@ public class QuestionnaireBuilder {
         cc.setCode(t.getProfile().get(0).getValue().substring(40));
         cc.setSystem("http://hl7.org/fhir/resource-types");
       } else {
-        ProfileUtilities pu = new ProfileUtilities(context);
+        ProfileUtilities pu = new ProfileUtilities(context, null, null);
         StructureDefinition ps = null;
         if (t.hasProfile())
           ps = pu.getProfile(profile, t.getProfile().get(0).getValue());
