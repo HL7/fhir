@@ -1,168 +1,174 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <meta>
-    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1" />
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder" />
-  <name value="GAO Diagnostic Order" />
-  <status value="draft" />
-  <date value="2015-09-22T20:02:49+10:00" />
-  <description value="Profiles the diagnostic order to ensure that the services ordered can be identified and evaluated for appropraiteness" />
-  <requirements value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
-  <fhirVersion value="1.0.2" />
+<id value="gao-diagnosticorder"></id>
+  
+  
+  <text>
+<status value="generated" />
+<div xmlns="http://www.w3.org/1999/xhtml">
+<h2>GAO Diagnostic Order</h2>
+<p>Profiles the diagnostic order to ensure that the services ordered can be identified and evaluated for appropraiteness</p>
+<h3>Requirements</h3>
+<p>The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness.</p>
+</div>
+</text>
+<url value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder"></url>
+  <name value="GAO Diagnostic Order"></name>
+  <status value="draft"></status>
+  <date value="2015-09-22T20:02:49+10:00"></date>
+  <description value="Profiles the diagnostic order to ensure that the services ordered can be identified and evaluated for appropraiteness"></description>
+  <requirements value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."></requirements>
+  <fhirVersion value="1.0.2"></fhirVersion>
   <mapping>
-    <identity value="rim" />
-    <uri value="http://hl7.org/v3" />
-    <name value="RIM" />
+    <identity value="rim"></identity>
+    <uri value="http://hl7.org/v3"></uri>
+    <name value="RIM"></name>
   </mapping>
   <mapping>
-    <identity value="w5" />
-    <uri value="http://hl7.org/fhir/w5" />
-    <name value="W5 Mapping" />
+    <identity value="w5"></identity>
+    <uri value="http://hl7.org/fhir/w5"></uri>
+    <name value="W5 Mapping"></name>
   </mapping>
   <mapping>
-    <identity value="v2" />
-    <uri value="http://hl7.org/v2" />
-    <name value="HL7 v2" />
+    <identity value="v2"></identity>
+    <uri value="http://hl7.org/v2"></uri>
+    <name value="HL7 v2"></name>
   </mapping>
-  <kind value="resource" />
-  <constrainedType value="DiagnosticOrder" />
-  <abstract value="false" />
-  <base value="http://hl7.org/fhir/StructureDefinition/DiagnosticOrder" />
+  <kind value="resource"></kind>
+  <constrainedType value="DiagnosticOrder"></constrainedType>
+  <abstract value="false"></abstract>
+  <base value="http://hl7.org/fhir/StructureDefinition/DiagnosticOrder"></base>
   <differential>
     <element>
-      <path value="DiagnosticOrder" />
-      <short value="A request for a diagnostic service" />
-      <definition value="A record of a request for a diagnostic investigation service to be performed." />
-      <min value="0" />
-      <max value="*" />
+      <path value="DiagnosticOrder"></path>
+      <short value="A request for a diagnostic service"></short>
+      <definition value="A record of a request for a diagnostic investigation service to be performed."></definition>
+      <min value="0"></min>
+      <max value="*"></max>
       <type>
-        <code value="DiagnosticOrder" />
+        <code value="DiagnosticOrder"></code>
       </type>
       <mapping>
-        <identity value="rim" />
-        <map value="Observation[classCode=OBS, moodCode=RQO, code&lt;&quot;diagnostic order&quot;]" />
+        <identity value="rim"></identity>
+        <map value="Observation[classCode=OBS, moodCode=RQO, code&lt;&quot;diagnostic order&quot;]"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="clinical.diagnostics" />
+        <identity value="w5"></identity>
+        <map value="clinical.diagnostics"></map>
       </mapping>
     </element>
     <element>
-      <path value="DiagnosticOrder.supportingInformation" />
-      <short value="Additional clinical information" />
-      <definition value="Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order." />
-      <comments value="This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;. Examples include reporting the amount of inspired oxygen for blood gasses, the point in the menstrual cycle for cervical pap tests, and other conditions that influence test interpretations." />
-      <requirements value="Supporting information SHALL be provided if known. This field may be required to facilitate evaluation of appropriateness. The  supportingInformation field assists with interpretation of the results, and is not intended to provide the reason or indication for the order (see reason[x] above in the Order resource)." />
-      <alias value="Ask at order entry question" />
-      <alias value="AOE" />
-      <min value="0" />
-      <max value="*" />
+      <path value="DiagnosticOrder.supportingInformation"></path>
+      <short value="Additional clinical information"></short>
+      <definition value="Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order."></definition>
+      <comments value="This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;. Examples include reporting the amount of inspired oxygen for blood gasses, the point in the menstrual cycle for cervical pap tests, and other conditions that influence test interpretations."></comments>
+      <requirements value="Supporting information SHALL be provided if known. This field may be required to facilitate evaluation of appropriateness. The  supportingInformation field assists with interpretation of the results, and is not intended to provide the reason or indication for the order (see reason[x] above in the Order resource)."></requirements>
+      <alias value="Ask at order entry question"></alias>
+      <alias value="AOE"></alias>
+      <min value="0"></min>
+      <max value="*"></max>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Observation" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Observation"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Condition" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Condition"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/DocumentReference" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
-      <mustSupport value="true" />
+      <mustSupport value="true"></mustSupport>
       <mapping>
-        <identity value="v2" />
-        <map value="OBR-13" />
+        <identity value="v2"></identity>
+        <map value="OBR-13"></map>
       </mapping>
       <mapping>
-        <identity value="rim" />
-        <map value="outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]" />
+        <identity value="rim"></identity>
+        <map value="outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]"></map>
       </mapping>
     </element>
     <element>
-      <path value="DiagnosticOrder.item" />
-      <short value="The items the orderer requested" />
-      <definition value="The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested." />
-      <comments value="There would always be at least one item in normal usage, but this is optional so that a workflow can quote order details without having to list the items." />
-      <requirements value="At least one item SHALL be present in the order to describe the service being performed." />
-      <min value="1" />
-      <max value="*" />
+      <path value="DiagnosticOrder.item"></path>
+      <short value="The items the orderer requested"></short>
+      <definition value="The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested."></definition>
+      <comments value="There would always be at least one item in normal usage, but this is optional so that a workflow can quote order details without having to list the items."></comments>
+      <requirements value="At least one item SHALL be present in the order to describe the service being performed."></requirements>
+      <min value="1"></min>
+      <max value="*"></max>
       <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=OBS]" />
+        <identity value="rim"></identity>
+        <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=OBS]"></map>
       </mapping>
     </element>
     <element>
-      <path value="DiagnosticOrder.item.code.coding" />
-      <short value="Code defined by a terminology system" />
-      <definition value="A reference to a code defined by a terminology system." />
-      <comments value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true." />
-      <requirements value="Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.&#xD;&#xA;&#xD;&#xA;The service being requested SHALL be provided. This is the service to be evaluated against guidelines." />
-      <min value="1" />
-      <max value="*" />
+      <path value="DiagnosticOrder.item.code.coding"></path>
+      <short value="Code defined by a terminology system"></short>
+      <definition value="A reference to a code defined by a terminology system."></definition>
+      <comments value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true."></comments>
+      <requirements value="Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.&#xA;&#xA;The service being requested SHALL be provided. This is the service to be evaluated against guidelines."></requirements>
+      <min value="1"></min>
+      <max value="*"></max>
       <type>
-        <code value="Coding" />
+        <code value="Coding"></code>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="v2" />
-        <map value="C*E.1-8, C*E.10-22" />
+        <identity value="v2"></identity>
+        <map value="C*E.1-8, C*E.10-22"></map>
       </mapping>
       <mapping>
-        <identity value="rim" />
-        <map value="union(., ./translation)" />
+        <identity value="rim"></identity>
+        <map value="union(., ./translation)"></map>
       </mapping>
       <mapping>
-        <identity value="orim" />
-        <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding" />
+        <identity value="orim"></identity>
+        <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"></map>
       </mapping>
     </element>
     <element>
-      <path value="DiagnosticOrder.item.bodySite" />
-      <short value="Location of requested test (if applicable)" />
-      <definition value="Anatomical location where the request test should be performed.  This is the target site." />
-      <comments value="If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [body-site-instance](extension-body-site-instance.html)." />
-      <requirements value="The body site SHALL be provided when relevant to the order (e.g., MRI of upper joint, where the location is the shoulder or elbow and the laterality is left or right)." />
-      <alias value="location" />
-      <min value="0" />
-      <max value="1" />
+      <path value="DiagnosticOrder.item.bodySite"></path>
+      <short value="Location of requested test (if applicable)"></short>
+      <definition value="Anatomical location where the request test should be performed.  This is the target site."></definition>
+      <comments value="If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [body-site-instance](extension-body-site-instance.html)."></comments>
+      <requirements value="The body site SHALL be provided when relevant to the order (e.g., MRI of upper joint, where the location is the shoulder or elbow and the laterality is left or right)."></requirements>
+      <alias value="location"></alias>
+      <min value="0"></min>
+      <max value="1"></max>
       <type>
-        <code value="CodeableConcept" />
+        <code value="CodeableConcept"></code>
       </type>
-      <mustSupport value="true" />
+      <mustSupport value="true"></mustSupport>
       <binding>
-        <strength value="example" />
-        <description value="Codes describing anatomical locations. May include laterality." />
+        <strength value="example"></strength>
+        <description value="Codes describing anatomical locations. May include laterality."></description>
         <valueSetReference>
-          <reference value="http://hl7.org/fhir/ValueSet/body-site" />
+          <reference value="http://hl7.org/fhir/ValueSet/body-site"></reference>
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="rim" />
-        <map value="targetSiteCode" />
+        <identity value="rim"></identity>
+        <map value="targetSiteCode"></map>
       </mapping>
     </element>
     <element>
-      <path value="DiagnosticOrder.note" />
-      <short value="Other notes and comments" />
-      <definition value="Any other notes associated with this patient, specimen or order (e.g. &quot;patient hates needles&quot;)." />
-      <requirements value="Sometimes a text justification must be provided instead of coded and structured data. This field must be supported and SHALL be provided if known." />
-      <min value="0" />
-      <max value="*" />
+      <path value="DiagnosticOrder.note"></path>
+      <short value="Other notes and comments"></short>
+      <definition value="Any other notes associated with this patient, specimen or order (e.g. &quot;patient hates needles&quot;)."></definition>
+      <requirements value="Sometimes a text justification must be provided instead of coded and structured data. This field must be supported and SHALL be provided if known."></requirements>
+      <min value="0"></min>
+      <max value="*"></max>
       <type>
-        <code value="Annotation" />
+        <code value="Annotation"></code>
       </type>
-      <mustSupport value="true" />
+      <mustSupport value="true"></mustSupport>
       <mapping>
-        <identity value="rim" />
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value" />
+        <identity value="rim"></identity>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"></map>
       </mapping>
     </element>
   </differential>

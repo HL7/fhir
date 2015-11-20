@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir file:/C:/hl7/FHIR/current/build/schema/fhir-single.xsd">
+  <id value="gao-order-evaluation-requester"/>
+  <url value="Conformance/gao-order-evaluation-requester"/>
+  <name value="GAO Order Evaluation Requester"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <date value="2015-11-19"/>
+  <description value="The Order Evaluation Requester actor invokes the $evaluate operation to determine 
+    whether an order is appropriate according to clinical guidelines."/>
+  <requirements value="An Order Evaluation Requestor actor must implement the requirements expressed in this conformance resource."/>
+  <kind value="requirements"/>
+  <fhirVersion value="1.0.2"/>
+  <acceptUnknown value="extensions"/>
+  <format value="xml"/>
+  <format value="json"/>
+  <profile>
+    <reference value="StructureDefinition/gao-order"/>
+  </profile>
+  <!-- Declare this if your client responds to questionnaires -->
+  <profile>
+    <reference value="StructureDefinition/gao-questionnaireresponse"/>
+  </profile>
+  <!-- Declare one or more of these four to indicate which kinds of orders you request information about -->
+  <profile>
+    <reference value="StructureDefinition/gao-diagnosticorder"/>
+  </profile>
+  <profile>
+    <reference value="StructureDefinition/gao-medicationorder"/>
+  </profile>
+  <profile>
+    <reference value="StructureDefinition/gao-referralrequest"/>
+  </profile>
+  <profile>
+    <reference value="StructureDefinition/gao-procedurerequest"/>
+  </profile>
+  <!-- Declare these to show that your implementation supports these in the order -->
+  <profile>
+    <reference value="StructureDefinition/gao-patient"/>
+  </profile>
+  <profile>
+    <reference value="StructureDefinition/gao-practitioner"/>
+  </profile>
+  <rest>
+    <mode value="client"/>
+    <resource>
+      <type value="Order"/>
+      <profile>
+        <reference value="StructureDefinition/gao-order"/>
+      </profile>
+      <interaction>
+        <code value="read"/>
+        <documentation value="A Order Evaluation Requestor invoke the $evaluate operation on Order.  
+          At present, there is no way to express this in the Interaction component in a compliance resource."/>
+      </interaction>
+    </resource>
+    <operation>
+      <name value="GAO Evaluate Order"/>
+      <definition>
+        <reference value="OperationDefinition/gao-order-evaluate"/>
+      </definition>
+    </operation>
+  </rest>
+</Conformance>

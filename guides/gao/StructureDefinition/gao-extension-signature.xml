@@ -1,68 +1,76 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <meta>
-    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
-  </meta>
-  <url value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature" />
-  <name value="GAO Result Signature" />
-  <display value="GAO Result Signature" />
-  <status value="draft" />
-  <publisher value="HL7" />
-  <date value="2015-09-22T20:02:49+10:00" />
-  <description value="Enables a digital signature of the evaluation resource to be provided." />
-  <requirements value="Required when the Decision Support Service implements the Digital Signature Option." />
-  <fhirVersion value="1.0.2" />
-  <kind value="datatype" />
-  <constrainedType value="Extension" />
-  <abstract value="false" />
-  <contextType value="resource" />
-  <context value="Basic" />
-  <base value="http://hl7.org/fhir/StructureDefinition/Extension" />
+<id value="gao-extension-signature"></id>
+  
+  <text>
+<status value="generated" />
+<div xmlns="http://www.w3.org/1999/xhtml">
+<h2>GAO Result Signature</h2>
+<p>Enables a digital signature of the evaluation resource to be provided.</p>
+<h3>Requirements</h3>
+<p>Required when the Decision Support Service implements the Digital Signature Option.</p>
+</div>
+</text>
+<url value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature"></url>
+  <name value="GAO Result Signature"></name>
+  <display value="GAO Result Signature"></display>
+  <status value="draft"></status>
+  <publisher value="HL7"></publisher>
+  <date value="2015-09-22T20:02:49+10:00"></date>
+  <description value="Enables a digital signature of the evaluation resource to be provided."></description>
+  <requirements value="Required when the Decision Support Service implements the Digital Signature Option."></requirements>
+  <fhirVersion value="1.0.2"></fhirVersion>
+  <kind value="datatype"></kind>
+  <constrainedType value="Extension"></constrainedType>
+  <abstract value="false"></abstract>
+  <contextType value="resource"></contextType>
+  <context value="Basic"></context>
+  <base value="http://hl7.org/fhir/StructureDefinition/Extension"></base>
   <differential>
     <element>
-      <path value="Extension" />
-      <definition value="Optional Extensions Element - found in all resources." />
-      <min value="0" />
-      <max value="*" />
+      <path value="Extension"></path>
+      <definition value="Optional Extensions Element - found in all resources."></definition>
+      <min value="0"></min>
+      <max value="*"></max>
       <type>
-        <code value="Element" />
+        <code value="Element"></code>
       </type>
       <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
+        <identity value="rim"></identity>
+        <map value="N/A"></map>
       </mapping>
     </element>
     <element>
-      <path value="Extension.url" />
-      <representation value="xmlAttr" />
-      <short value="identifies the meaning of the extension" />
-      <definition value="Source of the definition for the extension code - a logical name or a URL." />
-      <comments value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #." />
-      <min value="1" />
-      <max value="1" />
+      <path value="Extension.url"></path>
+      <representation value="xmlAttr"></representation>
+      <short value="identifies the meaning of the extension"></short>
+      <definition value="Source of the definition for the extension code - a logical name or a URL."></definition>
+      <comments value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #."></comments>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="uri" />
+        <code value="uri"></code>
       </type>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature"></fixedUri>
       <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
+        <identity value="rim"></identity>
+        <map value="N/A"></map>
       </mapping>
     </element>
     <element>
-      <path value="Extension.value[x]" />
-      <short value="Value of extension" />
-      <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." />
-      <comments value="An optional value which can be used to record a score associated with the evaluation process. The interpretation of this value may vary depending upon guidelines and Decision Support Service actors used. " />
-      <requirements value="This property is supported to enable quality improvement efforts related to ordering." />
-      <min value="0" />
-      <max value="1" />
+      <path value="Extension.value[x]"></path>
+      <short value="Value of extension"></short>
+      <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)."></definition>
+      <comments value="An optional value which can be used to record a score associated with the evaluation process. The interpretation of this value may vary depending upon guidelines and Decision Support Service actors used. "></comments>
+      <requirements value="This property is supported to enable quality improvement efforts related to ordering."></requirements>
+      <min value="0"></min>
+      <max value="1"></max>
       <type>
-        <code value="Signature" />
+        <code value="Signature"></code>
       </type>
       <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
+        <identity value="rim"></identity>
+        <map value="N/A"></map>
       </mapping>
     </element>
   </differential>

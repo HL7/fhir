@@ -17,147 +17,156 @@
       <name value="GAO Evaluate Order"/>
       <description value="The evaluate operation examines an order, comparing it against known guidelines for appropriate use and returns the result of that evaluation to the caller."/>
       <acronym value="gao-order-evaluate"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="OperationDefinition/gao-order-evaluate.xml"/>
+      <sourceUri value="OperationDefinition/gao-order-evaluate.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="Guideline Appropriate Order"/>
       <description value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals), and is used to link the order details to the reason(s), date, patient and provider placing the order. "/>
       <acronym value="gao-order"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-order.xml"/>
+      <sourceUri value="StructureDefinition/gao-order.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Patient"/>
       <description value="The patient resource is required to provide relevant demographics associated with the patient. Other details may be provided according to local implementation requirements. "/>
       <acronym value="gao-patient"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-patient.xml"/>
+      <sourceUri value="StructureDefinition/gao-patient.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Practitioner"/>
       <description value="The practitioner resource is required to identify the provider placing the order. "/>
       <acronym value="gao-practitioner"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-practitioner.xml"/>
+      <sourceUri value="StructureDefinition/gao-practitioner.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Diagnostic Order"/>
       <description value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
       <acronym value="gao-diagnosticorder"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-diagnosticorder.xml"/>
+      <sourceUri value="StructureDefinition/gao-diagnosticorder.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Referral Request"/>
       <description value="The referral request resource is required to identify the referral service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
       <acronym value="gao-referralrequest"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-referralrequest.xml"/>
+      <sourceUri value="StructureDefinition/gao-referralrequest.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Medication Order"/>
       <description value="The medication prescription resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
       <acronym value="gao-medicationorder"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-medicationorder.xml"/>
+      <sourceUri value="StructureDefinition/gao-medicationorder.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Procedure Request"/>
       <description value="The procedure request resource is required to identify the procedures that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
       <acronym value="gao-procedurerequest"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-procedurerequest.xml"/>
+      <sourceUri value="StructureDefinition/gao-procedurerequest.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Questionnaire"/>
       <description value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order."/>
       <acronym value="gao-questionnaire"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-questionnaire.xml"/>
+      <sourceUri value="StructureDefinition/gao-questionnaire.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Questionnaire Response"/>
       <description value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary."/>
       <acronym value="gao-questionnaireresponse"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-questionnaireresponse.xml"/>
+      <sourceUri value="StructureDefinition/gao-questionnaireresponse.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Result"/>
       <description value="The result resource provides the result of the evaluation."/>
       <acronym value="gao-result"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-result.xml"/>
+      <sourceUri value="StructureDefinition/gao-result.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Alternate"/>
       <description value="The alternate resource is used to reflect evaluations of alternate services that may be suggested by the decision support service."/>
       <acronym value="gao-alternate"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-alternate.xml"/>
-    </resource>
-    <resource>
-      <purpose value="profile"/>
-      <name value="GAO Provenance"/>
-      <description value="The provenance resource is profiled to support expression of the digital signature on a Result or Alternate."/>
-      <acronym value="gao-provenance"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-provenance.xml"/>
+      <sourceUri value="StructureDefinition/gao-alternate.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Score"/>
       <description value="Supports capture of evaluation score from the decision support system."/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-extension-score.xml"/>
+      <sourceUri value="StructureDefinition/gao-extension-score.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Device"/>
       <description value="Supports identification of the decision support system used to evaluate the order."/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-extension-device.xml"/>
+      <sourceUri value="StructureDefinition/gao-extension-device.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Guideline"/>
       <description value="Supports identification of the decision support system used to evaluate the order."/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-extension-guideline.xml"/>
+      <sourceUri value="StructureDefinition/gao-extension-guideline.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Item"/>
       <description value="Supports identification of the decision support system used to evaluate the order."/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-extension-item.xml"/>
+      <sourceUri value="StructureDefinition/gao-extension-item.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Period"/>
       <description value="Supports identification of the decision support system used to evaluate the order."/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-extension-period.xml"/>
+      <sourceUri value="StructureDefinition/gao-extension-period.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Practitioner Identifier"/>
       <description value="Supports identification of the ordering practitioner."/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-extension-practitioner.xml"/>
+      <sourceUri value="StructureDefinition/gao-extension-practitioner.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Signature"/>
       <description value="Supports identification of the decision support system used to evaluate the order."/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="StructureDefinition/gao-extension-signature.xml"/>
+      <sourceUri value="StructureDefinition/gao-extension-signature.xml"/>
     </resource>
     <resource>
       <purpose value="terminology"/>
       <name value="GAO Evaluation Result Codes"/>
       <description value="A set of codes which indicates the result of an evaluation of an order."/>
       <acronym value="gao-result-code"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="ValueSet/gao-evaluation-result-code.xml"/>
+      <sourceUri value="ValueSet/gao-evaluation-result-code.xml"/>
     </resource>
     <resource>
       <purpose value="terminology"/>
       <name value="GAO Answer Format Codes"/>
       <description value="The set of question types allowed in a questionnaire used for evaluation of orders."/>
       <acronym value="gao-answer-format"/>
-      <sourceUri xmlns:fhir="http://hl7.org/fhir" value="ValueSet/gao-answer-format.xml"/>
+      <sourceUri value="ValueSet/gao-answer-format.xml"/>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="GAO Decision Support Service"/>
+      <description value="The Decision Support Service actor implements the $evaluate operation to determine 
+        whether that an order is appropriate according to clinical guidelines."/>
+      <acronym value="gao-decision-support-service"/>
+      <sourceUri value="Conformance/gao-decision-support-service.xml"/>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="GAO Order Evaluation Requester"/>
+      <description value="The Order Evaluation Requester actor invokes the $evaluate operation to determine 
+        whether an order is appropriate according to clinical guidelines."/>
+      <acronym value="gao-order-evaluation-requester"/>
+      <sourceUri value="Conformance/gao-order-evaluation-requester.xml"/>
     </resource>
   </package>
   <page>
@@ -168,6 +177,18 @@
       <source value="gao-toc.html"/>
       <name value="Table of Contents"/>
       <kind value="toc"/>
+    </page>
+    <page>
+      <source value="gao-decision-support-service.html"/>
+      <name value="Decision Support Service"/>
+      <kind value="page"/>
+      <format value="generated"/>
+    </page>
+    <page>
+      <source value="gao-order-evaluation-requester.html"/>
+      <name value="Order Evaluation Requester"/>
+      <kind value="page"/>
+      <format value="generated"/>
     </page>
     <page>
       <source value="gao-order-evaluate.html"/>

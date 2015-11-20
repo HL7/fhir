@@ -1,130 +1,136 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <meta>
-    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0" />
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/gao-medicationorder" />
-  <name value="GAO Medication Order" />
-  <status value="draft" />
-  <date value="2015-09-22T20:02:49+10:00" />
-  <description value="Profiles the medication order to ensure that the services ordered can be identified and evaluated for appropraiteness" />
-  <requirements value="The medication order resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
-  <fhirVersion value="1.0.2" />
+<id value="gao-medicationorder"></id>
+  
+  
+  <text>
+<status value="generated" />
+<div xmlns="http://www.w3.org/1999/xhtml">
+<h2>GAO Medication Order</h2>
+<p>Profiles the medication order to ensure that the services ordered can be identified and evaluated for appropraiteness</p>
+<h3>Requirements</h3>
+<p>The medication order resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness.</p>
+</div>
+</text>
+<url value="http://hl7.org/fhir/StructureDefinition/gao-medicationorder"></url>
+  <name value="GAO Medication Order"></name>
+  <status value="draft"></status>
+  <date value="2015-09-22T20:02:49+10:00"></date>
+  <description value="Profiles the medication order to ensure that the services ordered can be identified and evaluated for appropraiteness"></description>
+  <requirements value="The medication order resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."></requirements>
+  <fhirVersion value="1.0.2"></fhirVersion>
   <mapping>
-    <identity value="rim" />
-    <uri value="http://hl7.org/v3" />
-    <name value="RIM" />
+    <identity value="rim"></identity>
+    <uri value="http://hl7.org/v3"></uri>
+    <name value="RIM"></name>
   </mapping>
   <mapping>
-    <identity value="w5" />
-    <uri value="http://hl7.org/fhir/w5" />
-    <name value="W5 Mapping" />
+    <identity value="w5"></identity>
+    <uri value="http://hl7.org/fhir/w5"></uri>
+    <name value="W5 Mapping"></name>
   </mapping>
   <mapping>
-    <identity value="v2" />
-    <uri value="http://hl7.org/v2" />
-    <name value="HL7 v2" />
+    <identity value="v2"></identity>
+    <uri value="http://hl7.org/v2"></uri>
+    <name value="HL7 v2"></name>
   </mapping>
-  <kind value="resource" />
-  <constrainedType value="MedicationOrder" />
-  <abstract value="false" />
-  <base value="http://hl7.org/fhir/StructureDefinition/MedicationOrder" />
+  <kind value="resource"></kind>
+  <constrainedType value="MedicationOrder"></constrainedType>
+  <abstract value="false"></abstract>
+  <base value="http://hl7.org/fhir/StructureDefinition/MedicationOrder"></base>
   <differential>
     <element>
-      <path value="MedicationOrder" />
-      <short value="Prescription of medication to for patient" />
-      <definition value="An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called &quot;MedicationOrder&quot; rather than &quot;MedicationPrescription&quot; to generalize the use across inpatient and outpatient settings as well as for care plans, etc." />
-      <alias value="Prescription" />
-      <min value="0" />
-      <max value="*" />
+      <path value="MedicationOrder"></path>
+      <short value="Prescription of medication to for patient"></short>
+      <definition value="An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called &quot;MedicationOrder&quot; rather than &quot;MedicationPrescription&quot; to generalize the use across inpatient and outpatient settings as well as for care plans, etc."></definition>
+      <alias value="Prescription"></alias>
+      <min value="0"></min>
+      <max value="*"></max>
       <type>
-        <code value="MedicationOrder" />
+        <code value="MedicationOrder"></code>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="rim" />
-        <map value="CombinedMedicationRequest" />
+        <identity value="rim"></identity>
+        <map value="CombinedMedicationRequest"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="clinical.medication" />
+        <identity value="w5"></identity>
+        <map value="clinical.medication"></map>
       </mapping>
     </element>
     <element>
-      <path value="MedicationOrder.reason[x]" />
-      <short value="Reason or indication for writing the prescription" />
-      <definition value="Can be the reason or the indication for writing the prescription." />
-      <requirements value="The reason for the prescription SHALL be provided." />
-      <min value="1" />
-      <max value="1" />
+      <path value="MedicationOrder.reason[x]"></path>
+      <short value="Reason or indication for writing the prescription"></short>
+      <definition value="Can be the reason or the indication for writing the prescription."></definition>
+      <requirements value="The reason for the prescription SHALL be provided."></requirements>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="CodeableConcept" />
+        <code value="CodeableConcept"></code>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <binding>
-        <strength value="example" />
-        <description value="Codes indicating why the medication was ordered." />
+        <strength value="example"></strength>
+        <description value="Codes indicating why the medication was ordered."></description>
         <valueSetReference>
-          <reference value="http://hl7.org/fhir/ValueSet/condition-code" />
+          <reference value="http://hl7.org/fhir/ValueSet/condition-code"></reference>
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="v2" />
-        <map value="ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication" />
+        <identity value="v2"></identity>
+        <map value="ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication"></map>
       </mapping>
       <mapping>
-        <identity value="rim" />
-        <map value="reason.observation or reason.observation[code=ASSERTION].value" />
+        <identity value="rim"></identity>
+        <map value="reason.observation or reason.observation[code=ASSERTION].value"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="why" />
-      </mapping>
-    </element>
-    <element>
-      <path value="MedicationOrder.medication[x]" />
-      <short value="Medication to be taken" />
-      <definition value="Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications." />
-      <comments value="If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used." />
-      <requirements value="The medication being prescribed SHALL be described.  The medication being prescribe is necessary to determine whether it is appropriate." />
-      <min value="1" />
-      <max value="1" />
-      <type>
-        <code value="CodeableConcept" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Medication" />
-      </type>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="v2" />
-        <map value="RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="consumable.administrableMedication" />
-      </mapping>
-      <mapping>
-        <identity value="w5" />
-        <map value="what" />
+        <identity value="w5"></identity>
+        <map value="why"></map>
       </mapping>
     </element>
     <element>
-      <path value="MedicationOrder.dosageInstruction" />
-      <short value="How medication should be taken" />
-      <definition value="Indicates how the medication is to be used by the patient." />
-      <comments value="When the dose or rate is intended to change over the entire administration period, e.g. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates. Another common example in institutional settings is 'titration' of an IV medication dose to maintain a specific stated hemodynamic value or range e.g. drug x to be administered to maintain AM (arterial mean) greater than 65." />
-      <requirements value="At least one dosage instruction SHALL be provided.  This will enable the dosage to be evaluated for appropriateness." />
-      <min value="1" />
-      <max value="*" />
-      <isSummary value="true" />
+      <path value="MedicationOrder.medication[x]"></path>
+      <short value="Medication to be taken"></short>
+      <definition value="Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications."></definition>
+      <comments value="If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used."></comments>
+      <requirements value="The medication being prescribed SHALL be described.  The medication being prescribe is necessary to determine whether it is appropriate."></requirements>
+      <min value="1"></min>
+      <max value="1"></max>
+      <type>
+        <code value="CodeableConcept"></code>
+      </type>
+      <type>
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Medication"></profile>
+      </type>
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="rim" />
-        <map value="component.substanceAdministrationRequest" />
+        <identity value="v2"></identity>
+        <map value="RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code"></map>
+      </mapping>
+      <mapping>
+        <identity value="rim"></identity>
+        <map value="consumable.administrableMedication"></map>
+      </mapping>
+      <mapping>
+        <identity value="w5"></identity>
+        <map value="what"></map>
+      </mapping>
+    </element>
+    <element>
+      <path value="MedicationOrder.dosageInstruction"></path>
+      <short value="How medication should be taken"></short>
+      <definition value="Indicates how the medication is to be used by the patient."></definition>
+      <comments value="When the dose or rate is intended to change over the entire administration period, e.g. Tapering dose prescriptions, multiple instances of dosage instructions will need to be supplied to convey the different doses/rates. Another common example in institutional settings is 'titration' of an IV medication dose to maintain a specific stated hemodynamic value or range e.g. drug x to be administered to maintain AM (arterial mean) greater than 65."></comments>
+      <requirements value="At least one dosage instruction SHALL be provided.  This will enable the dosage to be evaluated for appropriateness."></requirements>
+      <min value="1"></min>
+      <max value="*"></max>
+      <isSummary value="true"></isSummary>
+      <mapping>
+        <identity value="rim"></identity>
+        <map value="component.substanceAdministrationRequest"></map>
       </mapping>
     </element>
   </differential>

@@ -1,230 +1,236 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="gao-order" />
-  <meta>
-    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0" />
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/gao-order" />
-  <name value="Guideline Appropriate Order" />
-  <display value="Guideline Appropriate Order" />
-  <status value="draft" />
-  <publisher value="HL7" />
-  <date value="2015-09-22T20:02:49+10:00" />
-  <description value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals)." />
-  <requirements value="This resource is profiled to link the order details to the reason(s), date, patient and provider placing the order. " />
-  <fhirVersion value="1.0.2" />
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<id value="gao-order"></id>
+  
+  
+  
+  <text>
+<status value="generated" />
+<div xmlns="http://www.w3.org/1999/xhtml">
+<h2>Guideline Appropriate Order</h2>
+<p>The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals).</p>
+<h3>Requirements</h3>
+<p>This resource is profiled to link the order details to the reason(s), date, patient and provider placing the order. </p>
+</div>
+</text>
+<url value="http://hl7.org/fhir/StructureDefinition/gao-order"></url>
+  <name value="Guideline Appropriate Order"></name>
+  <display value="Guideline Appropriate Order"></display>
+  <status value="draft"></status>
+  <publisher value="HL7"></publisher>
+  <date value="2015-09-22T20:02:49+10:00"></date>
+  <description value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals)."></description>
+  <requirements value="This resource is profiled to link the order details to the reason(s), date, patient and provider placing the order. "></requirements>
+  <fhirVersion value="1.0.2"></fhirVersion>
   <mapping>
-    <identity value="rim" />
-    <uri value="http://hl7.org/v3" />
-    <name value="RIM" />
+    <identity value="rim"></identity>
+    <uri value="http://hl7.org/v3"></uri>
+    <name value="RIM"></name>
   </mapping>
   <mapping>
-    <identity value="w5" />
-    <uri value="http://hl7.org/fhir/w5" />
-    <name value="W5 Mapping" />
+    <identity value="w5"></identity>
+    <uri value="http://hl7.org/fhir/w5"></uri>
+    <name value="W5 Mapping"></name>
   </mapping>
   <mapping>
-    <identity value="v2" />
-    <uri value="http://hl7.org/v2" />
-    <name value="HL7 v2" />
+    <identity value="v2"></identity>
+    <uri value="http://hl7.org/v2"></uri>
+    <name value="HL7 v2"></name>
   </mapping>
-  <kind value="resource" />
-  <constrainedType value="Order" />
-  <abstract value="false" />
-  <base value="http://hl7.org/fhir/StructureDefinition/Order" />
+  <kind value="resource"></kind>
+  <constrainedType value="Order"></constrainedType>
+  <abstract value="false"></abstract>
+  <base value="http://hl7.org/fhir/StructureDefinition/Order"></base>
   <differential>
     <element>
-      <path value="Order" />
-      <short value="A request to perform an action" />
-      <definition value="A request to perform an action." />
-      <alias value="Request" />
-      <min value="0" />
-      <max value="*" />
+      <path value="Order"></path>
+      <short value="A request to perform an action"></short>
+      <definition value="A request to perform an action."></definition>
+      <alias value="Request"></alias>
+      <min value="0"></min>
+      <max value="*"></max>
       <type>
-        <code value="Order" />
+        <code value="Order"></code>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="rim" />
-        <map value="ControlAct[classCode=ACTN, moodCode=RQO]" />
+        <identity value="rim"></identity>
+        <map value="ControlAct[classCode=ACTN, moodCode=RQO]"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="workflow.order" />
+        <identity value="w5"></identity>
+        <map value="workflow.order"></map>
       </mapping>
     </element>
     <element>
-      <path value="Order.identifier" />
-      <short value="Identifiers assigned to this order by the orderer or by the receiver" />
-      <definition value="Identifiers assigned to this order by the orderer or by the receiver." />
-      <comments value="The placer order identifier associated with the order shall be provided." />
-      <requirements value="The placer order identifier is provided so that the receiver of the evaluation can verify that the order being placed was the same as an order that was authorized." />
-      <min value="1" />
-      <max value="1" />
+      <path value="Order.identifier"></path>
+      <short value="Identifiers assigned to this order by the orderer or by the receiver"></short>
+      <definition value="Identifiers assigned to this order by the orderer or by the receiver."></definition>
+      <comments value="The placer order identifier associated with the order shall be provided."></comments>
+      <requirements value="The placer order identifier is provided so that the receiver of the evaluation can verify that the order being placed was the same as an order that was authorized."></requirements>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="Identifier" />
+        <code value="Identifier"></code>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="rim" />
-        <map value=".id" />
+        <identity value="rim"></identity>
+        <map value=".id"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="id" />
+        <identity value="w5"></identity>
+        <map value="id"></map>
       </mapping>
     </element>
     <element>
-      <path value="Order.date" />
-      <short value="When the order was made" />
-      <definition value="When the order was made." />
-      <comments value="The date associated with the order SHALL be provided." />
-      <requirements value="The date of the order is provided so that the receiver of the evaluation can verify that the order was produced within a reasonable time period for accepting the evaluation according to local policies, and to enable the Decision Support Service to apply relevant guidelines.  The value shall be precise to the day." />
-      <min value="1" />
-      <max value="1" />
+      <path value="Order.date"></path>
+      <short value="When the order was made"></short>
+      <definition value="When the order was made."></definition>
+      <comments value="The date associated with the order SHALL be provided."></comments>
+      <requirements value="The date of the order is provided so that the receiver of the evaluation can verify that the order was produced within a reasonable time period for accepting the evaluation according to local policies, and to enable the Decision Support Service to apply relevant guidelines.  The value shall be precise to the day."></requirements>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="dateTime" />
+        <code value="dateTime"></code>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="v2" />
-        <map value="ORC-9" />
+        <identity value="v2"></identity>
+        <map value="ORC-9"></map>
       </mapping>
       <mapping>
-        <identity value="rim" />
-        <map value=".participation[typeCode=AUT].time" />
+        <identity value="rim"></identity>
+        <map value=".participation[typeCode=AUT].time"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="when.done" />
+        <identity value="w5"></identity>
+        <map value="when.done"></map>
       </mapping>
     </element>
     <element>
-      <path value="Order.subject" />
-      <short value="Patient this order is about" />
-      <definition value="Patient this order is about." />
-      <comments value="The patient for whom the order is being placed SHALL be provided." />
-      <requirements value="The patient is provided so that relevant demographics, such as age and gender can be used to evaluate appropriateness." />
-      <alias value="Patient" />
-      <min value="1" />
-      <max value="1" />
+      <path value="Order.subject"></path>
+      <short value="Patient this order is about"></short>
+      <definition value="Patient this order is about."></definition>
+      <comments value="The patient for whom the order is being placed SHALL be provided."></comments>
+      <requirements value="The patient is provided so that relevant demographics, such as age and gender can be used to evaluate appropriateness."></requirements>
+      <alias value="Patient"></alias>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-patient" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-patient"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="v2" />
-        <map value="PID-3" />
+        <identity value="v2"></identity>
+        <map value="PID-3"></map>
       </mapping>
       <mapping>
-        <identity value="rim" />
-        <map value=".participation[typeCode=SBJ].role[classCode=PAT]" />
+        <identity value="rim"></identity>
+        <map value=".participation[typeCode=SBJ].role[classCode=PAT]"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="who.focus" />
+        <identity value="w5"></identity>
+        <map value="who.focus"></map>
       </mapping>
     </element>
     <element>
-      <path value="Order.source" />
-      <short value="Who initiated the order" />
-      <definition value="Who initiated the order." />
-      <comments value="The identifier of the provider SHALL be provided." />
-      <requirements value="The identifier of the provider is provided in order for the receiver of the evaluation to verify that the evaluation given is associated with the correct order. " />
-      <alias value="Author" />
-      <alias value="Practitioner" />
-      <min value="1" />
-      <max value="1" />
+      <path value="Order.source"></path>
+      <short value="Who initiated the order"></short>
+      <definition value="Who initiated the order."></definition>
+      <comments value="The identifier of the provider SHALL be provided."></comments>
+      <requirements value="The identifier of the provider is provided in order for the receiver of the evaluation to verify that the evaluation given is associated with the correct order. "></requirements>
+      <alias value="Author"></alias>
+      <alias value="Practitioner"></alias>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-practitioner" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-practitioner"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="v2" />
-        <map value="ORC-12 / OBR-16 / RXO-14 / RXE-13 / PRT-5 (PRT-4-Participation='OP')" />
+        <identity value="v2"></identity>
+        <map value="ORC-12 / OBR-16 / RXO-14 / RXE-13 / PRT-5 (PRT-4-Participation='OP')"></map>
       </mapping>
       <mapping>
-        <identity value="rim" />
-        <map value=".participation[typeCode=AUT].role" />
+        <identity value="rim"></identity>
+        <map value=".participation[typeCode=AUT].role"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="who.cause" />
+        <identity value="w5"></identity>
+        <map value="who.cause"></map>
       </mapping>
     </element>
     <element>
-      <path value="Order.reason[x]" />
-      <short value="Text - why the order was made" />
-      <definition value="Text - why the order was made." />
-      <comments value="This field contains either a code or a contained resource that gives the reason (a.k.a. indication) for the order. This could include screening, signs or symptoms, diagnoses, diagnostic results, medications or procedures , or other resources. This information must be supported and SHALL be provided." />
-      <requirements value="The reason is required to support evaluation of the appropriateness of the order." />
-      <min value="1" />
-      <max value="1" />
+      <path value="Order.reason[x]"></path>
+      <short value="Text - why the order was made"></short>
+      <definition value="Text - why the order was made."></definition>
+      <comments value="This field contains either a code or a contained resource that gives the reason (a.k.a. indication) for the order. This could include screening, signs or symptoms, diagnoses, diagnostic results, medications or procedures , or other resources. This information must be supported and SHALL be provided."></comments>
+      <requirements value="The reason is required to support evaluation of the appropriateness of the order."></requirements>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="CodeableConcept" />
+        <code value="CodeableConcept"></code>
       </type>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Resource" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Resource"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <binding>
-        <strength value="example" />
-        <description value="Indicates the reason for seeking fulfillment of the order." />
+        <strength value="example"></strength>
+        <description value="Indicates the reason for seeking fulfillment of the order."></description>
       </binding>
       <mapping>
-        <identity value="v2" />
-        <map value="ORC-16.2 / OBR-31.2 / BPO-13.2-BP / RXO-20.2 / RXE-27.2 / RXD-21.2 / RXG-22.2 / RXA-19.2" />
+        <identity value="v2"></identity>
+        <map value="ORC-16.2 / OBR-31.2 / BPO-13.2-BP / RXO-20.2 / RXE-27.2 / RXD-21.2 / RXG-22.2 / RXA-19.2"></map>
       </mapping>
       <mapping>
-        <identity value="rim" />
-        <map value=".reasonCode or .outboundRelationship[typeCode=RSON].target" />
+        <identity value="rim"></identity>
+        <map value=".reasonCode or .outboundRelationship[typeCode=RSON].target"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="why" />
+        <identity value="w5"></identity>
+        <map value="why"></map>
       </mapping>
     </element>
     <element>
-      <path value="Order.detail" />
-      <short value="What action is being ordered" />
-      <definition value="What action is being ordered." />
-      <comments value="The details of the order (e.g., service performed) SHALL be provided in order to evaluate them for appropriateness." />
-      <requirements value="The service being provided must be described so that the order can be evaluated for appropriateness.  Only one order can be evaluated at a time." />
-      <min value="1" />
-      <max value="1" />
+      <path value="Order.detail"></path>
+      <short value="What action is being ordered"></short>
+      <definition value="What action is being ordered."></definition>
+      <comments value="The details of the order (e.g., service performed) SHALL be provided in order to evaluate them for appropriateness."></comments>
+      <requirements value="The service being provided must be described so that the order can be evaluated for appropriateness.  Only one order can be evaluated at a time."></requirements>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-medicationorder" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-medicationorder"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-procedurerequest" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-procedurerequest"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
       <type>
-        <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-referralrequest" />
-        <aggregation value="contained" />
+        <code value="Reference"></code>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-referralrequest"></profile>
+        <aggregation value="contained"></aggregation>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=SUBJ].target" />
+        <identity value="rim"></identity>
+        <map value=".outboundRelationship[typeCode=SUBJ].target"></map>
       </mapping>
     </element>
   </differential>

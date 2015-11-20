@@ -1,236 +1,246 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="gao-extension-item" />
-  <url value="http://hl7.org/fhir/StructureDefinition/gao-extension-item" />
-  <name value="GAO Item" />
-  <display value="GAO Item" />
-  <status value="draft" />
-  <publisher value="HL7" />
+<id value="gao-extension-item"></id>
+  
+  <text>
+<status value="generated" />
+<div xmlns="http://www.w3.org/1999/xhtml">
+<h2>GAO Item</h2>
+<p>Describes an orderable service being evaluated.</p>
+<h3>Requirements</h3>
+<p>In order to evaluate an order, the service that may be ordered must be identified.</p>
+</div>
+</text>
+<url value="http://hl7.org/fhir/StructureDefinition/gao-extension-item"></url>
+  <name value="GAO Item"></name>
+  <display value="GAO Item"></display>
+  <status value="draft"></status>
+  <publisher value="HL7"></publisher>
   <contact>
     <telecom>
-      <system value="other" />
-      <value value="http://www.hl7.org" />
+      <system value="other"></system>
+      <value value="http://www.hl7.org"></value>
     </telecom>
   </contact>
-  <date value="2013-07-04" />
-  <description value="Describes an orderable service being evaluated." />
-  <requirements value="In order to evaluate an order, the service that may be ordered must be identified." />
-  <fhirVersion value="1.0.2" />
-  <kind value="datatype" />
-  <constrainedType value="Extension" />
-  <abstract value="false" />
-  <contextType value="resource" />
-  <context value="Basic" />
-  <base value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <date value="2013-07-04"></date>
+  <description value="Describes an orderable service being evaluated."></description>
+  <requirements value="In order to evaluate an order, the service that may be ordered must be identified."></requirements>
+  <fhirVersion value="1.0.2"></fhirVersion>
+  <kind value="datatype"></kind>
+  <constrainedType value="Extension"></constrainedType>
+  <abstract value="false"></abstract>
+  <contextType value="resource"></contextType>
+  <context value="Basic"></context>
+  <base value="http://hl7.org/fhir/StructureDefinition/Extension"></base>
   <differential>
     <element>
-      <path value="Extension" />
-      <short value="A description of the service to be evaluated for appropriateness." />
-      <definition value="A description of the service to be evaluated for appropriateness" />
-      <min value="0" />
-      <max value="*" />
+      <path value="Extension"></path>
+      <short value="A description of the service to be evaluated for appropriateness."></short>
+      <definition value="A description of the service to be evaluated for appropriateness"></definition>
+      <min value="0"></min>
+      <max value="*"></max>
       <type>
-        <code value="Extension" />
+        <code value="Extension"></code>
       </type>
       <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
+        <identity value="rim"></identity>
+        <map value="N/A"></map>
       </mapping>
     </element>
     <element>
-      <path value="Extension.extension" />
+      <path value="Extension.extension"></path>
       <slicing>
-        <discriminator value="url" />
-        <rules value="openAtEnd" />
+        <discriminator value="url"></discriminator>
+        <rules value="openAtEnd"></rules>
       </slicing>
     </element>
     <element>
-      <path value="Extension.extension" />
-      <name value="code" />
-      <short value="Code describing the service" />
-      <definition value="A code describing the service that may be ordered." />
-      <requirements value="The service being ordered must be described if it is to be evaluated against guidelines." />
-      <min value="1" />
-      <max value="1" />
+      <path value="Extension.extension"></path>
+      <name value="code"></name>
+      <short value="Code describing the service"></short>
+      <definition value="A code describing the service that may be ordered."></definition>
+      <requirements value="The service being ordered must be described if it is to be evaluated against guidelines."></requirements>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="Extension" />
+        <code value="Extension"></code>
       </type>
     </element>
     <element>
-      <path value="Extension.extension.extension" />
-      <name value="extension" />
-      <max value="0" />
+      <path value="Extension.extension.extension"></path>
+      <name value="extension"></name>
+      <max value="0"></max>
     </element>
     <element>
-      <path value="Extension.extension.url" />
+      <path value="Extension.extension.url"></path>
       <type>
-        <code value="uri" />
+        <code value="uri"></code>
       </type>
-      <fixedUri value="code" />
+      <fixedUri value="code"></fixedUri>
     </element>
     <element>
-      <path value="Extension.extension.value[x]" />
-      <min value="1" />
+      <path value="Extension.extension.value[x]"></path>
+      <min value="1"></min>
       <type>
-        <code value="CodeableConcept" />
-      </type>
-    </element>
-    <element>
-      <path value="Extension.extension" />
-      <name value="bodySite" />
-      <short value="The body site where the service is to be performed." />
-      <definition value="The body site where the service is to be performed." />
-      <requirements value="The body site where the service will be performed may be useful in its evaluation." />
-      <min value="0" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
+        <code value="CodeableConcept"></code>
       </type>
     </element>
     <element>
-      <path value="Extension.extension.extension" />
-      <name value="extension" />
-      <max value="0" />
-    </element>
-    <element>
-      <path value="Extension.extension.url" />
+      <path value="Extension.extension"></path>
+      <name value="bodySite"></name>
+      <short value="The body site where the service is to be performed."></short>
+      <definition value="The body site where the service is to be performed."></definition>
+      <requirements value="The body site where the service will be performed may be useful in its evaluation."></requirements>
+      <min value="0"></min>
+      <max value="1"></max>
       <type>
-        <code value="uri" />
-      </type>
-      <fixedUri value="bodySite" />
-    </element>
-    <element>
-      <path value="Extension.extension.value[x]" />
-      <min value="1" />
-      <type>
-        <code value="CodeableConcept" />
+        <code value="Extension"></code>
       </type>
     </element>
     <element>
-      <path value="Extension.url" />
-      <representation value="xmlAttr" />
-      <short value="identifies the meaning of the extension" />
-      <definition value="Source of the definition for the extension code - a logical name or a URL." />
-      <comments value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #." />
-      <min value="1" />
-      <max value="1" />
+      <path value="Extension.extension.extension"></path>
+      <name value="extension"></name>
+      <max value="0"></max>
+    </element>
+    <element>
+      <path value="Extension.extension.url"></path>
       <type>
-        <code value="uri" />
+        <code value="uri"></code>
       </type>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-extension-item" />
+      <fixedUri value="bodySite"></fixedUri>
+    </element>
+    <element>
+      <path value="Extension.extension.value[x]"></path>
+      <min value="1"></min>
+      <type>
+        <code value="CodeableConcept"></code>
+      </type>
+    </element>
+    <element>
+      <path value="Extension.url"></path>
+      <representation value="xmlAttr"></representation>
+      <short value="identifies the meaning of the extension"></short>
+      <definition value="Source of the definition for the extension code - a logical name or a URL."></definition>
+      <comments value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #."></comments>
+      <min value="1"></min>
+      <max value="1"></max>
+      <type>
+        <code value="uri"></code>
+      </type>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-extension-item"></fixedUri>
       <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
+        <identity value="rim"></identity>
+        <map value="N/A"></map>
       </mapping>
     </element>
     <element>
-      <path value="Extension.value[x]" />
-      <short value="Value of extension" />
-      <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." />
-      <min value="0" />
-      <max value="0" />
+      <path value="Extension.value[x]"></path>
+      <short value="Value of extension"></short>
+      <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)."></definition>
+      <min value="0"></min>
+      <max value="0"></max>
       <type>
-        <code value="boolean" />
+        <code value="boolean"></code>
       </type>
       <type>
-        <code value="integer" />
+        <code value="integer"></code>
       </type>
       <type>
-        <code value="decimal" />
+        <code value="decimal"></code>
       </type>
       <type>
-        <code value="base64Binary" />
+        <code value="base64Binary"></code>
       </type>
       <type>
-        <code value="instant" />
+        <code value="instant"></code>
       </type>
       <type>
-        <code value="string" />
+        <code value="string"></code>
       </type>
       <type>
-        <code value="uri" />
+        <code value="uri"></code>
       </type>
       <type>
-        <code value="date" />
+        <code value="date"></code>
       </type>
       <type>
-        <code value="dateTime" />
+        <code value="dateTime"></code>
       </type>
       <type>
-        <code value="time" />
+        <code value="time"></code>
       </type>
       <type>
-        <code value="code" />
+        <code value="code"></code>
       </type>
       <type>
-        <code value="oid" />
+        <code value="oid"></code>
       </type>
       <type>
-        <code value="id" />
+        <code value="id"></code>
       </type>
       <type>
-        <code value="unsignedInt" />
+        <code value="unsignedInt"></code>
       </type>
       <type>
-        <code value="positiveInt" />
+        <code value="positiveInt"></code>
       </type>
       <type>
-        <code value="markdown" />
+        <code value="markdown"></code>
       </type>
       <type>
-        <code value="Annotation" />
+        <code value="Annotation"></code>
       </type>
       <type>
-        <code value="Attachment" />
+        <code value="Attachment"></code>
       </type>
       <type>
-        <code value="Identifier" />
+        <code value="Identifier"></code>
       </type>
       <type>
-        <code value="CodeableConcept" />
+        <code value="CodeableConcept"></code>
       </type>
       <type>
-        <code value="Coding" />
+        <code value="Coding"></code>
       </type>
       <type>
-        <code value="Quantity" />
+        <code value="Quantity"></code>
       </type>
       <type>
-        <code value="Range" />
+        <code value="Range"></code>
       </type>
       <type>
-        <code value="Period" />
+        <code value="Period"></code>
       </type>
       <type>
-        <code value="Ratio" />
+        <code value="Ratio"></code>
       </type>
       <type>
-        <code value="SampledData" />
+        <code value="SampledData"></code>
       </type>
       <type>
-        <code value="Signature" />
+        <code value="Signature"></code>
       </type>
       <type>
-        <code value="HumanName" />
+        <code value="HumanName"></code>
       </type>
       <type>
-        <code value="Address" />
+        <code value="Address"></code>
       </type>
       <type>
-        <code value="ContactPoint" />
+        <code value="ContactPoint"></code>
       </type>
       <type>
-        <code value="Timing" />
+        <code value="Timing"></code>
       </type>
       <type>
-        <code value="Reference" />
+        <code value="Reference"></code>
       </type>
       <type>
-        <code value="Meta" />
+        <code value="Meta"></code>
       </type>
       <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
+        <identity value="rim"></identity>
+        <map value="N/A"></map>
       </mapping>
     </element>
   </differential>

@@ -6,12 +6,17 @@
         <options/>
     </meta>
     <projectTree name="gao.xpr">
+        <folder name="Conformance">
+            <file name="Conformance/gao-decision-support-service.xml"/>
+            <file name="Conformance/gao-order-evaluation-requestor.xml"
+            />
+        </folder>
         <folder name="Examples"/>
         <folder name="OperationDefinition">
             <file name="OperationDefinition/gao-order-evaluate.xml"/>
         </folder>
         <folder name="StructureDefinition">
-            <file name="StructureDefinition/gao-alternative.xml"/>
+            <file name="StructureDefinition/gao-alternate.xml"/>
             <file name="StructureDefinition/gao-diagnosticorder.xml"/>
             <file name="StructureDefinition/gao-extension-device.xml"/>
             <file name="StructureDefinition/gao-extension-guideline.xml"/>

@@ -1,143 +1,149 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <meta>
-    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0" />
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/gao-questionnaireresponse" />
-  <name value="GAO Questionnaire Response" />
-  <status value="draft" />
-  <date value="2015-09-22T20:02:49+10:00" />
-  <description value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary." />
-  <requirements value="Use of this resource enables clients to pre-emptively provide more information for an order, or to respond to queries for more information." />
-  <fhirVersion value="1.0.2" />
+<id value="gao-questionnaireresponse"></id>
+  
+  
+  <text>
+<status value="generated" />
+<div xmlns="http://www.w3.org/1999/xhtml">
+<h2>GAO Questionnaire Response</h2>
+<p>A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary.</p>
+<h3>Requirements</h3>
+<p>Use of this resource enables clients to pre-emptively provide more information for an order, or to respond to queries for more information.</p>
+</div>
+</text>
+<url value="http://hl7.org/fhir/StructureDefinition/gao-questionnaireresponse"></url>
+  <name value="GAO Questionnaire Response"></name>
+  <status value="draft"></status>
+  <date value="2015-09-22T20:02:49+10:00"></date>
+  <description value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary."></description>
+  <requirements value="Use of this resource enables clients to pre-emptively provide more information for an order, or to respond to queries for more information."></requirements>
+  <fhirVersion value="1.0.2"></fhirVersion>
   <mapping>
-    <identity value="rim" />
-    <uri value="http://hl7.org/v3" />
-    <name value="RIM" />
+    <identity value="rim"></identity>
+    <uri value="http://hl7.org/v3"></uri>
+    <name value="RIM"></name>
   </mapping>
   <mapping>
-    <identity value="w5" />
-    <uri value="http://hl7.org/fhir/w5" />
-    <name value="W5 Mapping" />
+    <identity value="w5"></identity>
+    <uri value="http://hl7.org/fhir/w5"></uri>
+    <name value="W5 Mapping"></name>
   </mapping>
-  <kind value="resource" />
-  <constrainedType value="QuestionnaireResponse" />
-  <abstract value="false" />
-  <base value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" />
+  <kind value="resource"></kind>
+  <constrainedType value="QuestionnaireResponse"></constrainedType>
+  <abstract value="false"></abstract>
+  <base value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"></base>
   <differential>
     <element>
-      <path value="QuestionnaireResponse" />
-      <short value="A structured set of questions and their answers" />
-      <definition value="A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions." />
-      <alias value="Form" />
-      <min value="0" />
-      <max value="*" />
+      <path value="QuestionnaireResponse"></path>
+      <short value="A structured set of questions and their answers"></short>
+      <definition value="A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions."></definition>
+      <alias value="Form"></alias>
+      <min value="0"></min>
+      <max value="*"></max>
       <type>
-        <code value="QuestionnaireResponse" />
+        <code value="QuestionnaireResponse"></code>
       </type>
       <mapping>
-        <identity value="rim" />
-        <map value="Observation[moodCode=EVN]" />
+        <identity value="rim"></identity>
+        <map value="Observation[moodCode=EVN]"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="infrastructure.information" />
-      </mapping>
-    </element>
-    <element>
-      <path value="QuestionnaireResponse.group.linkId" />
-      <short value="Corresponding group within Questionnaire" />
-      <definition value="Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireResponse resource." />
-      <requirements value="Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by identifier.&#xD;&#xA;&#xD;&#xA;Each group in the QuestionnaireAnswers resource must be linked back to the group in the Questionnaire to which it corresponds." />
-      <min value="1" />
-      <max value="1" />
-      <type>
-        <code value="string" />
-      </type>
-      <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]" />
+        <identity value="w5"></identity>
+        <map value="infrastructure.information"></map>
       </mapping>
     </element>
     <element>
-      <path value="QuestionnaireResponse.group.question.linkId" />
-      <short value="Corresponding question within Questionnaire" />
-      <definition value="Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireResponse resource." />
-      <requirements value="Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.&#xD;&#xA;&#xD;&#xA;Each question in the QuestionnaireAnswers resource must be linked back to the question in the Questionnaire to which it corresponds." />
-      <min value="0" />
-      <max value="1" />
+      <path value="QuestionnaireResponse.group.linkId"></path>
+      <short value="Corresponding group within Questionnaire"></short>
+      <definition value="Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireResponse resource."></definition>
+      <requirements value="Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by identifier.&#xA;&#xA;Each group in the QuestionnaireAnswers resource must be linked back to the group in the Questionnaire to which it corresponds."></requirements>
+      <min value="1"></min>
+      <max value="1"></max>
       <type>
-        <code value="string" />
+        <code value="string"></code>
       </type>
       <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]" />
+        <identity value="rim"></identity>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]"></map>
       </mapping>
     </element>
     <element>
-      <path value="QuestionnaireResponse.group.question.answer" />
-      <short value="The response(s) to the question" />
-      <definition value="The respondent's answer(s) to the question." />
-      <comments value="The value is nested because we cannot have a repeating structure that has variable type." />
-      <requirements value="Each question that is responded to in the QuestionnaireAnswers resource SHALL have an answer. If the question is not answered, it simply doesn’t appear in the resource. Attachments and other Resources SHALL NOT be used as answer values in this profile." />
-      <min value="1" />
-      <max value="*" />
+      <path value="QuestionnaireResponse.group.question.linkId"></path>
+      <short value="Corresponding question within Questionnaire"></short>
+      <definition value="Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireResponse resource."></definition>
+      <requirements value="Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.&#xA;&#xA;Each question in the QuestionnaireAnswers resource must be linked back to the question in the Questionnaire to which it corresponds."></requirements>
+      <min value="0"></min>
+      <max value="1"></max>
+      <type>
+        <code value="string"></code>
+      </type>
       <mapping>
-        <identity value="rim" />
-        <map value=".value[type=LIST_ANY]" />
+        <identity value="rim"></identity>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]"></map>
       </mapping>
     </element>
     <element>
-      <path value="QuestionnaireResponse.group.question.answer.value[x]" />
-      <short value="Single-valued answer to the question" />
-      <definition value="The answer (or one of the answers) provided by the respondent to the question." />
-      <comments value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions." />
-      <requirements value="Ability to retain a single-valued answer to a question." />
-      <min value="0" />
-      <max value="1" />
+      <path value="QuestionnaireResponse.group.question.answer"></path>
+      <short value="The response(s) to the question"></short>
+      <definition value="The respondent's answer(s) to the question."></definition>
+      <comments value="The value is nested because we cannot have a repeating structure that has variable type."></comments>
+      <requirements value="Each question that is responded to in the QuestionnaireAnswers resource SHALL have an answer. If the question is not answered, it simply doesn’t appear in the resource. Attachments and other Resources SHALL NOT be used as answer values in this profile."></requirements>
+      <min value="1"></min>
+      <max value="*"></max>
+      <mapping>
+        <identity value="rim"></identity>
+        <map value=".value[type=LIST_ANY]"></map>
+      </mapping>
+    </element>
+    <element>
+      <path value="QuestionnaireResponse.group.question.answer.value[x]"></path>
+      <short value="Single-valued answer to the question"></short>
+      <definition value="The answer (or one of the answers) provided by the respondent to the question."></definition>
+      <comments value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions."></comments>
+      <requirements value="Ability to retain a single-valued answer to a question."></requirements>
+      <min value="0"></min>
+      <max value="1"></max>
       <type>
-        <code value="boolean" />
+        <code value="boolean"></code>
       </type>
       <type>
-        <code value="decimal" />
+        <code value="decimal"></code>
       </type>
       <type>
-        <code value="integer" />
+        <code value="integer"></code>
       </type>
       <type>
-        <code value="date" />
+        <code value="date"></code>
       </type>
       <type>
-        <code value="dateTime" />
+        <code value="dateTime"></code>
       </type>
       <type>
-        <code value="instant" />
+        <code value="instant"></code>
       </type>
       <type>
-        <code value="time" />
+        <code value="time"></code>
       </type>
       <type>
-        <code value="string" />
+        <code value="string"></code>
       </type>
       <type>
-        <code value="uri" />
+        <code value="uri"></code>
       </type>
       <type>
-        <code value="Coding" />
+        <code value="Coding"></code>
       </type>
       <type>
-        <code value="Quantity" />
+        <code value="Quantity"></code>
       </type>
       <binding>
-        <strength value="example" />
-        <description value="Code indicating the response provided for a question." />
+        <strength value="example"></strength>
+        <description value="Code indicating the response provided for a question."></description>
       </binding>
       <mapping>
-        <identity value="rim" />
-        <map value=".item" />
+        <identity value="rim"></identity>
+        <map value=".item"></map>
       </mapping>
     </element>
   </differential>

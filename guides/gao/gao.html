@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!-- [%settitle Guideline Appropriate Ordering Implementation Guide%] -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
@@ -9,8 +9,6 @@
     <div class="col-9">
       <a name="GAO"> </a>
       <h2>Guideline Appropriate Ordering FHIR Implementation Guide (IG)</h2>
-      <p>The Guideline Appropriate Ordering Implementationg Guide does a bunch of stuff, see <a
-          href="gao-toc.html">Table of Contents</a></p>
       <p>The Guideline Appropriate Ordering Profile supplies a mechanism by which EHR and
         departmental systems can evaluate orders to determine whether these orders conform to
         guidelines. The profile enables the results of the evaluation to be stored and transmitted,
@@ -35,12 +33,24 @@
         into the ordering process. As far as this guide is concerned, the operation of CDS service
         itself is a black box. This guide does not express which guides are selected for the
         evaluation, how the evaluation is performed, or the formats used to express the guidance. </p>
-      <p>However, we are interested in ensuring that this implementation guide is compatible with
-        other mechanisms associated with clinical decision support, including <a
+      <p>However, we are especially looking for feedback to ensure that this implementation guide 
+        is compatible withother mechanisms associated with clinical decision support, including <a
           href="http://www.hl7.org/special/Committees/projman/searchableProjectIndex.cfm?action=edit&amp;ProjectNumber=1187"
           >CDS on FHIR</a>. </p>
-      <h3>Overview</h3>
-      <p/>
+      <h3>Conformance</h3>
+      <p>This guide defines the following conformance statements. Systems implementing the
+        actors described below should provide a conformance resource documenting their conformance
+        to this implementation guide. 
+      </p>
+      <table class="codes">
+        <tr><td><b>Actor</b></td><td><b>Description</b></td></tr>
+        <tr><td><a href="gao-decision-support-service.html">Decision Support Service</a></td>
+          <td>The Decision Support Service actor implements the $evaluate operation computing 
+            whether an order is appropriate according to clinical guidelines.</td></tr>
+        <tr><td><a href="gao-order-evaluation-requester.html">Order Evaluation Requester</a></td>
+          <td>The Order Evaluation Requester actor invokes the $evaluate operation to determine 
+            whether an order is appropriate according to clinical guidelines.</td></tr>
+      </table>
       <h3>Operations</h3>
       <p>This guide defines the following operations.</p>
       <table class="codes">
@@ -73,7 +83,7 @@
         <tr><td>&#xA0;<a href="gao-procedurerequest.html">GAO Procedure Request</a></td><td>Profiles
             the procedure request to ensure that the services ordered can be identified and
             evaluated for appropraiteness</td></tr>
-        <tr><td><a href="gao-result.html">GAO result</a></td><td>The result resource provides the
+        <tr><td><a href="gao-result.html">GAO Result</a></td><td>The result resource provides the
             result of the evaluation.</td></tr>
         <tr><td>&#xA0;<a href="gao-provenance.html">GAO Provenance</a></td><td>The provenance
             resource is profiled to support expression of the digital signature on a Result or

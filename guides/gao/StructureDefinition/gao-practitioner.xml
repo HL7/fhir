@@ -1,97 +1,103 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <meta>
-    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3" />
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/gao-practitioner" />
-  <name value="GAO Practitioner" />
-  <status value="draft" />
-  <date value="2015-09-22T20:02:49+10:00" />
-  <description value="Profiles the practioner resource to require an identifer." />
-  <requirements value="The practitioner resource is required to identify the provider placing the order. " />
-  <fhirVersion value="1.0.2" />
+<id value="gao-practitioner"></id>
+  
+  
+  <text>
+<status value="generated" />
+<div xmlns="http://www.w3.org/1999/xhtml">
+<h2>GAO Practitioner</h2>
+<p>Profiles the practioner resource to require an identifer.</p>
+<h3>Requirements</h3>
+<p>The practitioner resource is required to identify the provider placing the order. </p>
+</div>
+</text>
+<url value="http://hl7.org/fhir/StructureDefinition/gao-practitioner"></url>
+  <name value="GAO Practitioner"></name>
+  <status value="draft"></status>
+  <date value="2015-09-22T20:02:49+10:00"></date>
+  <description value="Profiles the practioner resource to require an identifer."></description>
+  <requirements value="The practitioner resource is required to identify the provider placing the order. "></requirements>
+  <fhirVersion value="1.0.2"></fhirVersion>
   <mapping>
-    <identity value="v2" />
-    <uri value="http://hl7.org/v2" />
-    <name value="HL7 v2" />
+    <identity value="v2"></identity>
+    <uri value="http://hl7.org/v2"></uri>
+    <name value="HL7 v2"></name>
   </mapping>
   <mapping>
-    <identity value="rim" />
-    <uri value="http://hl7.org/v3" />
-    <name value="RIM" />
+    <identity value="rim"></identity>
+    <uri value="http://hl7.org/v3"></uri>
+    <name value="RIM"></name>
   </mapping>
   <mapping>
-    <identity value="servd" />
-    <uri value="http://www.omg.org/spec/ServD/1.0/" />
-    <name value="ServD" />
+    <identity value="servd"></identity>
+    <uri value="http://www.omg.org/spec/ServD/1.0/"></uri>
+    <name value="ServD"></name>
   </mapping>
   <mapping>
-    <identity value="w5" />
-    <uri value="http://hl7.org/fhir/w5" />
-    <name value="W5 Mapping" />
+    <identity value="w5"></identity>
+    <uri value="http://hl7.org/fhir/w5"></uri>
+    <name value="W5 Mapping"></name>
   </mapping>
-  <kind value="resource" />
-  <constrainedType value="Practitioner" />
-  <abstract value="false" />
-  <base value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+  <kind value="resource"></kind>
+  <constrainedType value="Practitioner"></constrainedType>
+  <abstract value="false"></abstract>
+  <base value="http://hl7.org/fhir/StructureDefinition/Practitioner"></base>
   <differential>
     <element>
-      <path value="Practitioner" />
-      <short value="A person with a  formal responsibility in the provisioning of healthcare or related services" />
-      <definition value="A person who is directly or indirectly involved in the provisioning of healthcare." />
-      <comments value="Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?" />
-      <min value="0" />
-      <max value="*" />
+      <path value="Practitioner"></path>
+      <short value="A person with a  formal responsibility in the provisioning of healthcare or related services"></short>
+      <definition value="A person who is directly or indirectly involved in the provisioning of healthcare."></definition>
+      <comments value="Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?"></comments>
+      <min value="0"></min>
+      <max value="*"></max>
       <type>
-        <code value="Practitioner" />
+        <code value="Practitioner"></code>
       </type>
       <mapping>
-        <identity value="v2" />
-        <map value="PRD (as one example)" />
+        <identity value="v2"></identity>
+        <map value="PRD (as one example)"></map>
       </mapping>
       <mapping>
-        <identity value="rim" />
-        <map value="Role" />
+        <identity value="rim"></identity>
+        <map value="Role"></map>
       </mapping>
       <mapping>
-        <identity value="servd" />
-        <map value="Provider" />
+        <identity value="servd"></identity>
+        <map value="Provider"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="administrative.individual" />
+        <identity value="w5"></identity>
+        <map value="administrative.individual"></map>
       </mapping>
     </element>
     <element>
-      <path value="Practitioner.identifier" />
-      <short value="A identifier for the person as this agent" />
-      <definition value="An identifier that applies to this person in this role." />
-      <comments value="At least one identifier SHALL be provided that uniquely identifies the ordering provider. Local policy may specify the identify domain associated with this identifier (e.g., a national provider id may be required in some locales)." />
-      <requirements value="Often, specific identities are assigned for the agent." />
-      <min value="1" />
-      <max value="*" />
+      <path value="Practitioner.identifier"></path>
+      <short value="A identifier for the person as this agent"></short>
+      <definition value="An identifier that applies to this person in this role."></definition>
+      <comments value="At least one identifier SHALL be provided that uniquely identifies the ordering provider. Local policy may specify the identify domain associated with this identifier (e.g., a national provider id may be required in some locales)."></comments>
+      <requirements value="Often, specific identities are assigned for the agent."></requirements>
+      <min value="1"></min>
+      <max value="*"></max>
       <type>
-        <code value="Identifier" />
+        <code value="Identifier"></code>
       </type>
-      <isSummary value="true" />
+      <isSummary value="true"></isSummary>
       <mapping>
-        <identity value="v2" />
-        <map value="PRD-7 (or XCN.1)" />
+        <identity value="v2"></identity>
+        <map value="PRD-7 (or XCN.1)"></map>
       </mapping>
       <mapping>
-        <identity value="rim" />
-        <map value="./id" />
+        <identity value="rim"></identity>
+        <map value="./id"></map>
       </mapping>
       <mapping>
-        <identity value="servd" />
-        <map value="./Identifiers" />
+        <identity value="servd"></identity>
+        <map value="./Identifiers"></map>
       </mapping>
       <mapping>
-        <identity value="w5" />
-        <map value="id" />
+        <identity value="w5"></identity>
+        <map value="id"></map>
       </mapping>
     </element>
   </differential>
