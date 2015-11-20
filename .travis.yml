@@ -14,6 +14,8 @@ notifications:
     - grahame@healthintersections.com.au
     - e.kramer@furore.com
     - brianpos@optushome.com.au
+    - zulipfhir+fhir+a6901e70db101976facc77e9611ff144@gmail.com
+
   webhooks: http://fhir.me:5556/notify/status
 
 after_success: 
