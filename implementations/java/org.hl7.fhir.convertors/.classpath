@@ -7,10 +7,10 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/gson-2.3.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3-1.1.4c.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-logging-api-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-io-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-lang3-3.3.2.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commons-logging-api-1.1.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commons-io-1.2.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commons-lang3-3.3.2.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commons-httpclient-3.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
