@@ -3567,7 +3567,7 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">SHALL have a local reference if the resource is provided inline</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">reference.startsWith(&quot;#&quot;).not() or $resource.contained.where(id = $context.reference.substring(1))</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">reference.startsWith(&quot;#&quot;).not() or ($context.reference.substring(1) in $resource.contained)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

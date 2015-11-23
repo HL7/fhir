@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8400</WindowHeight>
+  <WindowHeight>6420</WindowHeight>
   <WindowWidth>13410</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -3817,7 +3817,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Either frequency or when can exist, not both</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">(period.empty() and frequency.empty()) xor when</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(period.empty() and frequency.empty()) xor when.empty()</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not((f:period or f:frequency) and f:when)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4318,7 +4318,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
