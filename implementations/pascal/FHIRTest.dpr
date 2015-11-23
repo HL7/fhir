@@ -114,7 +114,9 @@ uses
   AdvZipDeclarations in 'support\AdvZipDeclarations.pas',
   AdvZipParts in 'support\AdvZipParts.pas',
   AdvZipUtilities in 'support\AdvZipUtilities.pas',
-  AdvZipWorkers in 'support\AdvZipWorkers.pas';
+  AdvZipWorkers in 'support\AdvZipWorkers.pas',
+  MimeMessage in 'support\MimeMessage.pas',
+  kCritSct in 'support\kCritSct.pas';
 
 procedure SaveStringToFile(s : AnsiString; fn : String);
 var

@@ -296,6 +296,7 @@ begin
         begin
           p := diffMatches[0].type_List[0].profileList[0].value;
           sd := context.fetchResource(frtStructureDefinition, p) as TFhirStructureDefinition;
+          try
           if (sd <> nil) then
           begin
             template := sd.Snapshot.elementList[0].Clone;
@@ -305,6 +306,9 @@ begin
               template.min := currentBase.min;
               template.max := currentBase.max;
             end;
+          end;
+          finally
+            sd.Free;
           end;
         end;
         if (template = nil) then
@@ -334,6 +338,7 @@ begin
             dt := getProfileForDataType(outcome.type_List[0]);
             if (dt = nil) then
               raise Exception.create(diffMatches[0].path+' has children ('+differential.elementList[diffCursor].path+') for type '+typeCode(outcome.type_List)+' in profile '+profileName+', but can''t find type');
+            try
             log(cpath+': now walk into the profile '+dt.url);
             contextName := dt.url;
             start := diffCursor;
@@ -341,6 +346,9 @@ begin
               inc(diffCursor);
             processPaths(result, dt.snapshot, differential, 1 { starting again on the data type, but skip the root }, start-1, dt.Snapshot.elementList.Count-1,
                 diffCursor - 1, url, profileName+pathTail(diffMatches[0]), diffMatches[0].path, trimDifferential, contextName, resultPathBase, false);
+            finally
+              dt.Free;
+            end;
           end;
         end;
       end
@@ -620,13 +628,14 @@ end;
 
 function TProfileUtilities.getFirstCode(ed : TFHIRElementDefinition) : TFHIRCoding;
 var
-  vs : TFHIRValueSet;
+  vs, vs1 : TFHIRValueSet;
 begin
   if (ed.binding = nil) or (ed.binding.valueSet = nil) or (ed.binding.valueSet is TFHIRUri) then
     result := nil
   else
   begin
     vs := context.fetchResource(frtValueSet, (ed.binding.valueSet as TFhirReference).reference) as TFhirValueSet;
+    try
     if vs.codeSystem <> nil then
     begin
       result := TFhirCoding.Create;
@@ -636,20 +645,23 @@ begin
     end
     else
     begin
-      vs := context.expand(vs);
+        vs1 := context.expand(vs);
       try
-        if (vs = nil) then
+          if (vs1 = nil) then
           result := nil
         else
         begin
           result := TFhirCoding.Create;
-          result.system := vs.expansion.containsList[0].system;
-          result.code := vs.expansion.containsList[0].code;
-          result.display := vs.expansion.containsList[0].display;
+            result.system := vs1.expansion.containsList[0].system;
+            result.code := vs1.expansion.containsList[0].code;
+            result.display := vs1.expansion.containsList[0].display;
         end;
       finally
-        vs.Free;
+          vs1.Free;
+        end;
       end;
+    finally
+      vs.Free;
     end;
   end;
 end;
@@ -668,7 +680,7 @@ begin
     exit; // prevent recursion
   stack.Add(definition.Link);
   try
-    props := item.createPropertyList;
+    props := item.createPropertyList(true);
     try
       children := getChildMap(profile, definition.name, definition.path, definition.NameReference);
       try
@@ -784,7 +796,7 @@ begin
   if (result = nil) then
     result := context.fetchResource(frtStructureDefinition, 'http://hl7.org/fhir/StructureDefinition/'+type_.code) as TFhirStructureDefinition;
   if (result = nil) then
-    writeln('XX: failed to find profle for type: ' + type_.code); // debug GJM
+    writeln('XX: failed to find profile for type: ' + type_.code); // debug GJM
 end;
 
 function TProfileUtilities.typeCode(types : TFhirElementDefinitionTypeList) : String;
@@ -1070,11 +1082,12 @@ var
   base, derived : TFhirElementDefinition;
   isExtension, ok : boolean;
   s : TFHIRString;
-  expBase, expDerived: TFHIRValueSet;
+  expBase, expDerived, vsBase, vsDerived: TFHIRValueSet;
   ts, td : TFhirElementDefinitionType;
   b : TStringList;
   ms, md : TFhirElementDefinitionMapping;
   cs : TFhirElementDefinitionConstraint;
+
 begin
   // we start with a clone of the base profile ('dest') and we copy from the profile ('source')
   // over the top for anything the source has
@@ -1266,14 +1279,27 @@ begin
 //            raise Exception.create('StructureDefinition '+pn+' at '+derived.path+': illegal attempt to change a binding from '+base.binding.strength.toCode()+' to '+derived.binding.strength.toCode());
         else if (base.binding <> nil) and (derived.binding <> nil) and (base.binding.strength = BindingStrengthREQUIRED) then
         begin
-          expBase := context.expand(context.fetchResource(frtValueSet, (base.binding.valueSet as TFhirReference).reference) as TFhirValueSet);
-          expDerived := context.expand(context.fetchResource(frtValueSet, (base.binding.valueSet as TFhirReference).reference) as TFhirValueSet);
+          expBase := nil;
+          expDerived := nil;
+          vsBase := nil;
+          vsDerived := nil;
+          try
+            vsBase := context.fetchResource(frtValueSet, (base.binding.valueSet as TFhirReference).reference) as TFhirValueSet;
+            vsDerived := context.fetchResource(frtValueSet, (derived.binding.valueSet as TFhirReference).reference) as TFhirValueSet;
+            expBase := context.expand(vsBase);
+            expDerived := context.expand(vsDerived);
           if (expBase = nil) then
             messages.add(TFhirOperationOutcomeIssue.create(IssueSeverityWARNING, IssueTypeBUSINESSRULE, pn+'.'+base.path, 'Binding '+(base.binding.valueSet as TFhirReference).reference+' could not be expanded'))
           else if (expDerived = nil) then
             messages.add(TFhirOperationOutcomeIssue.create(IssueSeverityWARNING, IssueTypeBUSINESSRULE, pn+'.'+derived.path, 'Binding '+(derived.binding.valueSet as TFhirReference).reference+' could not be expanded'))
           else if not isSubset(expBase, expDerived) then
             messages.add(TFhirOperationOutcomeIssue.create(IssueSeverityERROR, IssueTypeBUSINESSRULE, pn+'.'+derived.path, 'Binding '+(derived.binding.valueSet as TFhirReference).reference+' is not a subset of binding '+(base.binding.valueSet as TFhirReference).reference));
+          finally
+            expBase.Free;
+            expDerived.Free;
+            vsBase.Free;
+            vsDerived.Free;
+          end;
         end;
         base.binding := derived.binding.clone();
       end

@@ -148,6 +148,11 @@ type
     property profile : String read GetProfile;
   end;
 
+  TFhirElementDefinitionHelper = class helper for TFhirElementDefinition
+  public
+    function hasType(t : String) : boolean;
+  end;
+
   TFHIRResourceHelper = class helper for TFHIRResource
   private
     function GetXmlId: String;
@@ -540,7 +545,7 @@ var
   iter : TFHIRPropertyIterator;
   i : integer;
 begin
-  iter := node.createIterator(true);
+  iter := node.createIterator(true, true);
   try
     while iter.More do
     begin
@@ -578,7 +583,7 @@ var
   iter : TFHIRPropertyIterator;
   i : integer;
 begin
-  iter := node.createIterator(true);
+  iter := node.createIterator(true, true);
   try
     while iter.More do
     begin
@@ -2279,9 +2284,9 @@ begin
     if (parameterList[i].name = name) then
     begin
       if parameterList[i].valueElement <> nil then
-        result := parameterList[i].valueElement.Link
+        result := parameterList[i].valueElement
       else
-        result := parameterList[i].resourceElement.Link;
+        result := parameterList[i].resourceElement;
       exit;
     end;
   result := nil;
@@ -3127,6 +3132,18 @@ begin
   for issue in self do
     if (issue.severity in [IssueSeverityFatal, IssueSeverityError]) then
       inc(result);
+end;
+
+{ TFhirElementDefinitionHelper }
+
+function TFhirElementDefinitionHelper.hasType(t: String): boolean;
+var
+  edt : TFhirElementDefinitionType;
+begin
+  result := false;
+  for edt in type_List do
+    if edt.code = t then
+      exit(true);
 end;
 
 end.

@@ -314,12 +314,15 @@ Type
   public
     Constructor Create(initial : String); overload;
     Constructor Create(c1, c2 : TAdvStringSet); overload;
+    Destructor Destroy; override;
     function Link : TAdvStringSet; overload;
 
     procedure addAll(collection : TAdvStringSet);
     procedure add(value : String);
 
     function contains(s : String) : boolean;
+    function isEmpty : boolean;
+    function ToString : String; override;
 
     type
       TAdvStringSetEnumerator = class(TEnumerator<string>)
@@ -1560,9 +1563,19 @@ begin
   addAll(c2);
 end;
 
+destructor TAdvStringSet.Destroy;
+begin
+  inherited;
+end;
+
 function TAdvStringSet.GetEnumerator: TAdvStringSetEnumerator;
 begin
   Result := TAdvStringSetEnumerator.Create(Self);
+end;
+
+function TAdvStringSet.isEmpty: boolean;
+begin
+  result := length(FItems) = 0;
 end;
 
 constructor TAdvStringSet.Create(initial: String);
@@ -1574,6 +1587,29 @@ end;
 function TAdvStringSet.Link: TAdvStringSet;
 begin
   result := TAdvStringSet(inherited Link);
+end;
+
+function TAdvStringSet.ToString: String;
+var
+  b : TStringBuilder;
+  f : boolean;
+  s : string;
+begin
+  f := true;
+  b := TStringBuilder.Create;
+  try
+    for s in FItems do
+    begin
+      if f then
+        f := false
+      else
+        b.Append(', ');
+      b.Append(s)
+    end;
+    result := b.toString;
+  finally
+    b.Free;
+  end;
 end;
 
 procedure TAdvStringSet.add(value: String);

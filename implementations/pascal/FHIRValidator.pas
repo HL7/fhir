@@ -28,20 +28,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 }
 
-{
 
-
-
-procedure TFHIRBaseValidator.LoadFromDefinitions(filename: string);
-
-end;
-
-
-function TFHIRBaseValidator.fetchResource(t : TFhirResourceType; url : String) : TFhirResource;
-begin
-end;
-
-}
 interface
 
 Uses
@@ -85,11 +72,19 @@ Type
   TFHIRBaseOnWrapper = class (TFHIRBase)
   private
     FWrapper : TWrapperElement;
+    FElementList : TFHIRElementDefinitionList;
+    FProfile: TFHIRStructureDefinition;
+    FDefinition : TFHIRElementDefinition;
+    FTypeName : String;
+    childDefinitions: TFHIRElementDefinitionList;
+    function getDefinition(name : String; var tn : String) : TFhirElementDefinition;
   public
-    Constructor Create(wrapper : TWrapperElement);
+    Constructor Create(wrapper : TWrapperElement; profile: TFHIRStructureDefinition; definition : TFhirElementDefinition; TypeName : String);
     Destructor Destroy; override;
     Procedure GetChildrenByName(child_name : string; list : TFHIRObjectList); override;
     function FhirType : string; override;
+    function IsPrimitive : boolean; override;
+    function primitiveValue : string; override;
   end;
 
   TFHIRResourceOnWrapper = class (TFHIRResource)
@@ -232,7 +227,7 @@ Type
     procedure validateContains(errors : TFhirOperationOutcomeIssueList; path : String; child : TFHIRElementDefinition; context : TFHIRElementDefinition; element : TWrapperElement; stack : TNodeStack; needsId : boolean);
     function allowUnknownExtension(url : String) : boolean;
 
-    procedure checkInvariants(errors: TFhirOperationOutcomeIssueList; path : String; ed : TFhirElementDefinition; resource, element : TWrapperElement);
+    procedure checkInvariants(errors: TFhirOperationOutcomeIssueList; path : String; profile: TFHIRStructureDefinition; ed: TFhirElementDefinition; typename : String; resource, element: TWrapperElement);
     procedure validateSections(errors : TFhirOperationOutcomeIssueList; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
     procedure validateBundleReference(errors : TFhirOperationOutcomeIssueList; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
     procedure validateDocument(errors : TFhirOperationOutcomeIssueList; entries : TAdvList<TWrapperElement>; composition : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
@@ -965,7 +960,6 @@ begin
     if (count > -1) then
       result.literalPath := result.literalPath + '/'+inttostr(count);
   end;
-  result.logicalPaths := TStringList.Create;
   if (type_ <> nil) then
   begin
     // type will be bull if we on a stitching point of a contained resource, or if....
@@ -1669,7 +1663,7 @@ begin
   rule(errors, IssueTypeINVALID, element.locStart(), element.locEnd(), stack.literalPath, not empty(element),
     'Elements must have some content (@value, extensions, or children elements)');
 
-  checkInvariants(errors, stack.literalPath, definition, resource, element);
+  checkInvariants(errors, stack.literalPath, profile, definition, '', resource, element);
 
   // get the list of direct defined children, including slices
   children := TAdvList<TElementInfo>.Create();
@@ -2902,6 +2896,7 @@ begin
         begin
           try
             cc := readAsCodeableConcept(element);
+            try
             if (cc.CodingList.IsEmpty) then
                 begin
               if (Binding.Strength = BindingStrengthREQUIRED) then
@@ -2935,14 +2930,17 @@ begin
             on e : Exception do
               warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'Error ' + e.message + ' validating CodeableConcept');
           end;
-        end;
+          finally
+            cc.free;
           end;
         end;
       end
   else if (Binding.ValueSet <> nil) then
-    hint(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'Binding by URI TFHIRReference cannot be checked')
+        hint(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'Binding by URI rReference cannot be checked')
       else
     hint(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'Binding has no source, so can''t be checked');
+    end
+  end;
     end;
 
 function TFHIRValidator.checkCode(errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; path: String; code, System, display: String): boolean;
@@ -3379,7 +3377,7 @@ begin
   checkFixedValue(errors, path+'.assigner', focus.getNamedChild('assigner'), fixed.Assigner, 'assigner');
 end;
 
-procedure TFHIRValidator.checkInvariants(errors: TFhirOperationOutcomeIssueList; path : String; ed: TFhirElementDefinition; resource, element: TWrapperElement);
+procedure TFHIRValidator.checkInvariants(errors: TFhirOperationOutcomeIssueList; path : String; profile: TFHIRStructureDefinition; ed: TFhirElementDefinition; typename : String; resource, element: TWrapperElement);
 var
   inv : TFhirElementDefinitionConstraint;
   ok : boolean;
@@ -3390,9 +3388,9 @@ begin
     if inv.hasExtension('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression') then
     begin
       res := TFHIRResourceOnWrapper.create(resource.Link);
-      e := TFHIRBaseOnWrapper.create(element.Link);
+      e := TFHIRBaseOnWrapper.create(element.Link, profile.Link, ed.Link, typename);
       try
-        ok := FPathEvaluator.evaluateToBoolean(res, e, inv.getExtensionString('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression'));
+        ok := FPathEvaluator.evaluateToBoolean(nil, res, e, inv.getExtensionString('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression'));
       finally
         e.free;
         res.free;
@@ -3750,36 +3748,83 @@ end;
 
 { TFHIRBaseOnWrapper }
 
-constructor TFHIRBaseOnWrapper.Create(wrapper: TWrapperElement);
+constructor TFHIRBaseOnWrapper.Create(wrapper: TWrapperElement; profile: TFHIRStructureDefinition; definition : TFhirElementDefinition; TypeName : String);
     begin
   inherited create;
   FWrapper := wrapper;
+  FProfile := profile;
+  FDefinition := definition;
+  FTypeName := TypeName;
 end;
 
 destructor TFHIRBaseOnWrapper.Destroy;
 begin
+  childDefinitions.Free;
+  FElementList.Free;
+  FProfile.Free;
+  FDefinition.Free;
   FWrapper.Free;
   inherited;
 end;
 
 function TFHIRBaseOnWrapper.FhirType: string;
 begin
-  raise Exception.Create('Not Done Yet');
+  if FTypeName <> '' then
+    result := FTypeName
+  else
+    result := FDefinition.type_List[0].code;
 end;
 
 procedure TFHIRBaseOnWrapper.GetChildrenByName(child_name: string; list: TFHIRObjectList);
 var
   children : TAdvList<TWrapperElement>;
   child : TWrapperElement;
+  definition : TFhirElementDefinition;
+  tn : String;
 begin
   children := TAdvList<TWrapperElement>.create;
   try
     FWrapper.getNamedChildren(child_name, children);
     for child in children do
-      list.Add(TFHIRBaseOnWrapper.Create(child.Link));
+    begin
+      definition := getDefinition(child.getName, tn);
+      if (definition <> nil) then
+        list.Add(TFHIRBaseOnWrapper.Create(child.Link, Fprofile.Link, definition.Link, tn));
+    end;
   finally
     children.Free;
   end;
+end;
+
+function TFHIRBaseOnWrapper.getDefinition(name: String; var tn: String): TFhirElementDefinition;
+var
+  ed : TFHIRElementDefinition;
+  tail : String;
+begin
+  if childDefinitions = nil then
+    childDefinitions := getChildMap(Fprofile, Fdefinition.name, Fdefinition.path, Fdefinition.NameReference);
+  for ed in childDefinitions do
+  begin
+    tail := ed.path.Substring(ed.path.LastIndexOf('.')+1);
+    if tail = name then
+      exit(ed);
+    if tail.EndsWith('[x]') and (tail.Substring(0, tail.Length-3) = name.Substring(0, tail.Length-3)) and ed.hasType(name.Substring(tail.Length-3)) then
+    begin
+      tn := name.Substring(tail.Length-3);
+      exit(ed);
+    end;
+  end;
+  result := nil;
+end;
+
+function TFHIRBaseOnWrapper.IsPrimitive: boolean;
+begin
+  result := isPrimitiveType(fhirType);
+end;
+
+function TFHIRBaseOnWrapper.primitiveValue: string;
+begin
+  result := FWrapper.getAttribute('value');
 end;
 
 { TFHIRResourceOnWrapper }

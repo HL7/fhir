@@ -197,12 +197,18 @@ Type
 
     function asString(value : TDateAndTime):String; overload;
     function asString(value : TBytes):String; overload;
+    procedure ComposeExpression(stream : TStream; expr : TFHIRExpressionNode; items : TFHIRBaseList; types : TAdvStringSet; isPretty : Boolean); Virtual;
+    procedure ComposeItems(stream : TStream; name : String; items : TFHIRBaseList; isPretty : Boolean); Virtual;
+    procedure ComposeItem(stream : TStream; name : String; item : TFHIRBase; isPretty : Boolean); Virtual;
   public
     Constructor Create(lang : String); Virtual;
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Overload; Virtual;
 //    Procedure Compose(stream : TStream; ResourceType : TFhirResourceType; statedType, id, ver : String; oTags : TFHIRCodingList; isPretty : Boolean); Overload; Virtual; Abstract;
 
     function Compose(oResource : TFhirResource; isPretty : Boolean = true; links : TFhirBundleLinkList = nil) : String; Overload;
+    function Compose(expr : TFHIRExpressionNode; items : TFHIRBaseList; types : TAdvStringSet; isPretty : Boolean = true): String; Overload;
+    function Compose(name : String; items : TFHIRBaseList; isPretty : Boolean = true): String; Overload;
+    function Compose(name : String; item : TFHIRBase; isPretty : Boolean = true): String; Overload;
 
     Function MimeType : String; virtual;
     Property Lang : String read FLang write FLang;
@@ -225,6 +231,11 @@ Type
     Procedure ComposeDomainResource(xml : TXmlBuilder; name : String; value : TFhirDomainResource);
     Procedure ComposeInnerResource(xml : TXmlBuilder; name : String; holder : TFhirDomainResource; value : TFhirResource); overload;
     Procedure ComposeInnerResource(xml : TXmlBuilder; name : String; holder : TFHIRElement; value : TFhirResource); overload;
+    procedure ComposeExpression(stream : TStream; expr : TFHIRExpressionNode; items : TFHIRBaseList; types : TAdvStringSet; isPretty : Boolean); overload; override;
+    procedure ComposeExpression(xml : TXmlBuilder; expr : TFHIRExpressionNode); overload;
+    procedure ComposeBase(xml : TXmlBuilder; name : String; base : TFHIRBase); virtual;
+    procedure ComposeItems(stream : TStream; name : String; items : TFHIRBaseList; isPretty : Boolean); override;
+    procedure ComposeItem(stream : TStream; name : String; item : TFHIRBase; isPretty : Boolean); override;
   Public
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
     Procedure Compose(node : IXmlDomNode; oResource : TFhirResource; links : TFhirBundleLinkList = nil); Overload;
@@ -254,6 +265,11 @@ Type
     Procedure ComposeResource(xml : TXmlBuilder; oResource : TFhirResource; links : TFhirBundleLinkList); overload; override;
 //    Procedure ComposeExtension(json : TJSONWriter; name : String; extension : TFhirExtension; noObj : boolean = false); virtual;
 //    Procedure ComposeBinary(json : TJSONWriter; binary : TFhirBinary);
+    procedure ComposeExpression(stream : TStream; expr : TFHIRExpressionNode; items : TFHIRBaseList; types : TAdvStringSet; isPretty : Boolean); overload; override;
+    procedure ComposeExpression(json: TJSONWriter; expr : TFHIRExpressionNode); overload;
+    procedure ComposeBase(json: TJSONWriter; name : String; base : TFHIRBase); virtual;
+    procedure ComposeItems(stream : TStream; name : String; items : TFHIRBaseList; isPretty : Boolean); override;
+    procedure ComposeItem(stream : TStream; name : String; item : TFHIRBase; isPretty : Boolean); override;
   Public
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
     Procedure Compose(json: TJSONWriter; oResource : TFhirResource; links : TFhirBundleLinkList = nil); Overload;
@@ -644,6 +660,11 @@ begin
   end;
 end;
 
+procedure TFHIRXmlComposerBase.ComposeBase(xml: TXmlBuilder; name: String; base: TFHIRBase);
+begin
+
+end;
+
 procedure TFHIRXmlComposerBase.Text(xml : TXmlBuilder; name, value: String);
 begin
   if value <> '' Then
@@ -697,7 +718,70 @@ begin
   xml.open(name);
   ComposeResource(xml, value, nil);
   xml.close(name);
+end;
 
+procedure TFHIRXmlComposerBase.ComposeExpression(xml: TXmlBuilder; expr: TFHIRExpressionNode);
+var
+  p : TFHIRExpressionNode;
+begin
+  if expr.Proximal then
+  begin
+    xml.AddAttribute('value', 'true');
+    xml.Tag('proximal');
+  end;
+
+  case expr.kind of
+    entName :
+      begin
+        xml.AddAttribute('value', expr.constant);
+        xml.Tag('name');
+      end;
+    entFunction :
+      begin
+        xml.AddAttribute('value', CODES_TFHIRPathFunctions[expr.FunctionId]);
+        xml.Tag('function');
+        for p in expr.Parameters do
+        begin
+          xml.open('parameter');
+          ComposeExpression(xml, expr.Inner);
+          xml.close('parameter');
+        end;
+      end;
+    entConstant :
+      begin
+        xml.AddAttribute('value', expr.constant);
+        xml.Tag('constant');
+      end;
+    entGroup :
+      begin
+        xml.Open('group');
+        ComposeExpression(xml, expr.Group);
+        xml.Close('group');
+      end;
+  end;
+  if expr.Types <> nil then
+  begin
+    xml.AddAttribute('value', expr.types.ToString);
+    xml.Tag('types');
+  end;
+  if expr.Inner <> nil then
+  begin
+    xml.open('inner');
+    ComposeExpression(xml, expr.Inner);
+    xml.close('inner');
+  end;
+  if expr.Operation <> opNull then
+  begin
+    xml.AddAttribute('kind', CODES_TFHIRPathOperation[expr.Operation]);
+    xml.open('operation');
+    ComposeExpression(xml, expr.OpNext);
+    xml.close('operation');
+  end;
+  if expr.OpTypes <> nil then
+  begin
+    xml.AddAttribute('value', expr.optypes.ToString);
+    xml.Tag('op-types');
+  end;
     end;
 
 procedure TFHIRXmlComposerBase.ComposeInnerResource(xml: TXmlBuilder; name: String; holder: TFhirDomainResource; value: TFhirResource);
@@ -781,6 +865,13 @@ begin
   ComposeResource(json, oResource, links);
 end;
 
+procedure TFHIRJsonComposerBase.ComposeBase(json: TJSONWriter; name: String; base: TFHIRBase);
+begin
+  json.ValueObject(name);
+  json.Value('test', 'value');
+  json.FinishObject;
+end;
+
 procedure TFHIRJsonComposerBase.ComposeResource(json : TJSONWriter; oResource: TFhirResource; links : TFhirBundleLinkList);
 begin
   raise exception.create('don''t use TFHIRJsonComposerBase directly - use TFHIRJsonComposer');
@@ -851,6 +942,54 @@ begin
   json.FinishObject;
 end;
 
+procedure TFHIRJsonComposerBase.ComposeExpression(json: TJSONWriter; expr: TFHIRExpressionNode);
+var
+  p : TFHIRExpressionNode;
+begin
+  if expr.Proximal then
+    json.value('proximal', true);
+
+  case expr.kind of
+    entName: json.value('name', expr.name);
+    entFunction:
+      begin
+        json.value('function', CODES_TFHIRPathFunctions[expr.FunctionId]);
+        json.ValueArray('parameters');
+        for p in expr.Parameters do
+        begin
+          json.ValueObject('');
+          ComposeExpression(json, p);
+          json.FinishObject;
+        end;
+        json.FinishArray();
+      end;
+    entConstant: json.value('constant', expr.constant);
+    entGroup:
+      begin
+      json.valueObject('group');
+      ComposeExpression(json, expr.Group);
+      json.FinishObject;
+      end;
+  end;
+  if expr.Types <> nil then
+    json.value('types', expr.types.ToString);
+  if expr.Inner <> nil then
+  begin
+    json.ValueObject('inner');
+    ComposeExpression(json, expr.Inner);
+    json.FinishObject;
+  end;
+  if expr.Operation <> opNull then
+  begin
+    json.ValueObject('operation');
+    json.value('kind', CODES_TFHIRPathOperation[expr.Operation]);
+    ComposeExpression(json, expr.OpNext);
+    json.FinishObject;
+  end;
+  if expr.OpTypes <> nil then
+    json.value('op-types', expr.optypes.ToString);
+end;
+
 procedure TFHIRJsonComposerBase.ComposeInnerResource(json: TJSONWriter; name: String; holder: TFhirDomainResource; oResource: TFhirResource);
 begin
   if oResource <> nil then
@@ -858,6 +997,76 @@ begin
     json.ValueObject(name);
     ComposeResource(json, oResource, nil);
     json.FinishObject;
+  end;
+end;
+
+procedure TFHIRJsonComposerBase.ComposeItem(stream: TStream; name: String; item: TFHIRBase; isPretty: Boolean);
+var
+  oStream : TAdvVCLStream;
+  json : TJSONWriter;
+begin
+  json := TJSONWriter.Create;
+  try
+    oStream := TAdvVCLStream.Create;
+    json.Stream := oStream;
+    oStream.Stream := stream;
+    json.HasWhitespace := isPretty;
+    json.Start;
+    ComposeBase(json, name, item);
+    json.Finish;
+  finally
+    json.free;
+  end;
+end;
+
+procedure TFHIRJsonComposerBase.ComposeItems(stream: TStream; name: String; items: TFHIRBaseList; isPretty: Boolean);
+var
+  oStream : TAdvVCLStream;
+  json : TJSONWriter;
+  base : TFHIRBase;
+begin
+  json := TJSONWriter.Create;
+  try
+    oStream := TAdvVCLStream.Create;
+    json.Stream := oStream;
+    oStream.Stream := stream;
+    json.HasWhitespace := isPretty;
+    json.Start;
+    json.ValueArray(name);
+    for base in items do
+      ComposeBase(json, '', base);
+    json.FinishArray;
+    json.Finish;
+  finally
+    json.free;
+  end;
+end;
+
+procedure TFHIRJsonComposerBase.ComposeExpression(stream: TStream; expr : TFHIRExpressionNode; items: TFHIRBaseList; types : TAdvStringSet; isPretty: Boolean);
+var
+  oStream : TAdvVCLStream;
+  json : TJSONWriter;
+  base : TFHIRBase;
+begin
+  json := TJSONWriter.Create;
+  try
+    oStream := TAdvVCLStream.Create;
+    json.Stream := oStream;
+    oStream.Stream := stream;
+    json.HasWhitespace := isPretty;
+    json.Start;
+    json.ValueArray('outcome');
+    for base in items do
+      ComposeBase(json, '', base);
+    json.FinishArray;
+    json.ValueObject('tree');
+    composeExpression(json, expr);
+    json.FinishObject;
+    if (types <> nil) then
+      json.Value('types', types.ToString);
+    json.Finish;
+  finally
+    json.free;
   end;
 end;
 
@@ -1113,6 +1322,62 @@ begin
   raise Exception.Create('Error: call to TFHIRComposer.Compose(stream: TStream; oResource: TFhirResource; isPretty: Boolean; links: TFhirBundleLinkList)');
 end;
 
+
+function TFHIRComposer.Compose(expr : TFHIRExpressionNode; items: TFHIRBaseList; types : TAdvStringSet; isPretty: Boolean): String;
+var
+  stream : TBytesStream;
+begin
+  stream := TBytesStream.create;
+  try
+    composeExpression(stream, expr, items, types, isPretty);
+    result := TEncoding.UTF8.GetString(copy(stream.Bytes, 0, stream.position));
+  finally
+    stream.Free;
+  end;
+end;
+
+function TFHIRComposer.Compose(name : String; items : TFHIRBaseList; isPretty : Boolean = true): String;
+var
+  stream : TBytesStream;
+begin
+  stream := TBytesStream.create;
+  try
+    composeItems(stream, name, items, isPretty);
+    result := TEncoding.UTF8.GetString(copy(stream.Bytes, 0, stream.position));
+  finally
+    stream.Free;
+  end;
+end;
+
+function TFHIRComposer.Compose(name : String; item : TFHIRBase; isPretty : Boolean = true): String;
+var
+  stream : TBytesStream;
+begin
+  stream := TBytesStream.create;
+  try
+    composeItem(stream, name, item, isPretty);
+    result := TEncoding.UTF8.GetString(copy(stream.Bytes, 0, stream.position));
+  finally
+    stream.Free;
+  end;
+end;
+
+
+procedure TFHIRComposer.ComposeExpression(stream: TStream; expr : TFHIRExpressionNode; items: TFHIRBaseList; types : TAdvStringSet; isPretty: Boolean);
+begin
+  raise Exception.Create('ComposeExpression is Not supported for '+className);
+end;
+
+procedure TFHIRComposer.ComposeItem(stream: TStream; name: String; item: TFHIRBase; isPretty: Boolean);
+begin
+  raise Exception.Create('ComposeExpression is Not supported for '+className);
+end;
+
+procedure TFHIRComposer.ComposeItems(stream: TStream; name: String; items: TFHIRBaseList; isPretty: Boolean);
+begin
+  raise Exception.Create('ComposeExpression is Not supported for '+className);
+end;
+
 procedure TFHIRComposer.ComposeResource(xml : TXmlBuilder; oResource: TFhirResource; links : TFhirBundleLinkList);
 begin
   raise exception.create('don''t use TFHIRXmlComposerBase directly - use TFHIRXmlComposer');
@@ -1134,6 +1399,83 @@ begin
   xml.open(name);
   ComposeResource(xml, value, nil);
   xml.close(name);
+  end;
+end;
+
+procedure TFHIRXmlComposerBase.ComposeItem(stream: TStream; name: String; item: TFHIRBase; isPretty: Boolean);
+var
+  xml : TXmlBuilder;
+  base : TFHIRBase;
+begin
+  xml := TAdvXmlBuilder.Create;
+  try
+    xml.IsPretty := isPretty;
+    xml.NoHeader := NoHeader;
+    xml.CurrentNamespaces.DefaultNS := FHIR_NS;
+    xml.Start;
+    ComposeBase(xml, name, item);
+    xml.Finish;
+    xml.Build(stream);
+  finally
+    xml.Free;
+  end;
+end;
+
+procedure TFHIRXmlComposerBase.ComposeItems(stream: TStream; name: String; items: TFHIRBaseList; isPretty: Boolean);
+var
+  xml : TXmlBuilder;
+  base : TFHIRBase;
+  item : TFHIRBase;
+begin
+  xml := TAdvXmlBuilder.Create;
+  try
+    xml.IsPretty := isPretty;
+    xml.NoHeader := NoHeader;
+    xml.CurrentNamespaces.DefaultNS := FHIR_NS;
+    xml.Start;
+    xml.Open(name);
+    for item in items do
+      ComposeBase(xml, item.fhirtype, item);
+    xml.Close(name);
+    xml.Finish;
+    xml.Build(stream);
+  finally
+    xml.Free;
+  end;
+end;
+
+procedure TFHIRXmlComposerBase.ComposeExpression(stream: TStream; expr : TFHIRExpressionNode; items: TFHIRBaseList; types : TAdvStringSet; isPretty: Boolean);
+var
+  xml : TXmlBuilder;
+  base : TFHIRBase;
+begin
+  xml := TAdvXmlBuilder.Create;
+  try
+    xml.IsPretty := isPretty;
+    xml.NoHeader := NoHeader;
+    xml.CurrentNamespaces.DefaultNS := FHIR_NS;
+    xml.Start;
+    xml.Open('Expression');
+    xml.Open('outcome');
+    for base in items do
+      if (base = nil) then
+        xml.tag('Null')
+      else
+        ComposeBase(xml, base.FhirType, base);
+    xml.Close('outcome');
+    xml.Open('tree');
+    composeExpression(xml, expr);
+    xml.Close('tree');
+    if (types <> nil) then
+    begin
+      xml.AddAttribute('value', types.ToString);
+      xml.Tag('types');
+    end;
+    xml.Close('Expression');
+    xml.Finish;
+    xml.Build(stream);
+  finally
+    xml.Free;
   end;
 end;
 

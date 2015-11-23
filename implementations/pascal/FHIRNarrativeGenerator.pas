@@ -305,7 +305,7 @@ begin
   if (FList = nil) then
   begin
     FList := TAdvList<TPropertyWrapper>.create();
-    list := FWrapped.createPropertyList;
+    list := FWrapped.createPropertyList(false);
     try
       for p in list do
         FList.add(TPropertyWrapperDirect.create(p.Link as TFHIRProperty));
@@ -325,7 +325,7 @@ begin
   if (FList = nil) then
   begin
     FList := TAdvList<TPropertyWrapper>.create();
-    list := FWrapped.createPropertyList;
+    list := FWrapped.createPropertyList(false);
     try
       for p in list do
         if (p.name = tail) then
@@ -397,7 +397,7 @@ var
   list: TAdvList<TPropertyWrapper>;
   pList: TFHIRPropertyList;
 begin
-  pList := FWrapped.createPropertyList;
+  pList := FWrapped.createPropertyList(false);
   try
     list := TAdvList<TPropertyWrapper>.create();
     try
@@ -431,6 +431,7 @@ begin
   else
   begin
     p := nil;
+    try
     if (r.Meta <> nil) then
       for pu in r.Meta.profileList do
         if (p = nil) then
@@ -441,6 +442,9 @@ begin
       p := context.fetchResource(frtStructureDefinition, 'http://hl7.org/fhir/StructureDefinition/' + CODES_TFHIRREsourceType[r.ResourceType]) as TFHIRStructureDefinition;
     if (p <> nil) then
       generateByProfile(r, p, true);
+    finally
+      p.Free;
+    end;
   end;
 end;
 
@@ -693,6 +697,7 @@ begin
               ex := TFHIRExtension(v.getBase());
               url := ex.url;
               ed := context.fetchResource(frtStructureDefinition, url) as TFHIRStructureDefinition;
+              try
               if (p.getName() = 'modifierExtension') and (ed = nil) then
                 raise Exception.create('Unknown modifier extension ' + url);
               pe := map[p.getName() + '[' + url + ']'];
@@ -717,6 +722,9 @@ begin
               end
               else
                 pe.getValues().add(v);
+              finally
+                ed.Free;
+              end;
             end;
           end;
         end
@@ -1193,6 +1201,7 @@ begin
   end;
   path := res.getName();
   profile := context.fetchResource(frtStructureDefinition, path) as TFHIRStructureDefinition;
+  try
   if (profile = nil) then
     x.addText('unknown resource ' + path)
   else
@@ -1220,6 +1229,9 @@ begin
         end;
       end;
     end;
+  end;
+  finally
+    profile.Free;
   end;
 end;
 
@@ -1283,10 +1295,14 @@ begin
   end;
 
   ae := context.fetchResource(frtNull, url);
+  try
   if (ae <> nil) then
   begin
     result.reference := url;
     result.resource := TResourceWrapperDirect.create(ae);
+    end;
+  finally
+    ae.free;
   end;
 end;
 
