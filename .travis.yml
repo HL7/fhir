@@ -6,6 +6,10 @@ langauge: java
 jdk:
   - oraclejdk8
 
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+
 script: ./build.sh
 sudo: false
 notifications:
