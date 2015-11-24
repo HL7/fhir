@@ -1220,6 +1220,7 @@ public class SpreadsheetParser {
 		for (int row = 0; row < sheet.rows.size(); row++) {
 			DefinedCode c = new DefinedCode();
 			c.setId(sheet.getColumn(row, "Id"));
+      c.setAbstract(sheet.getColumn(row, "Abstract").toUpperCase().equals("Y"));
 			c.setCode(sheet.getColumn(row, "Code"));
       c.setDisplay(sheet.getColumn(row, "Display"));
       if (c.hasCode() && !c.hasDisplay())

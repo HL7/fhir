@@ -16,10 +16,10 @@
   Conformance = required
 
  -- Row 3 -----------------------------------
-  Binding Name = QuestionControl
+  Binding Name = ItemControl
   Binding = value set
-  Reference = valueset-questionnaire-question-control
-  Definition = User interface controls used for questionnaire questions
+  Reference = valueset-questionnaire-item-control
+  Definition = User interface controls or widgets used for questionnaire items
   Conformance = extensible
 
  -- Row 4 -----------------------------------
@@ -28,6 +28,13 @@
   Reference = #choice-list-orientation
   Definition = Direction in which lists of question options should be displayed
   Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = QuestionnaireDisplayCategory
+  Binding = value set
+  Reference = valueset-questionnaire-display-category
+  Definition = Identifies the purpose for a \"display\" item
+  Conformance = extensible
 
 === Sheet question-max-occurs =====================================
 
@@ -54,7 +61,7 @@
   Context = minOccurs
   English = minOccurs can\'t be more than one if required is false
   XPath = f:valueInteger/@value=0 or parent::*/f:required/@value=true()
-  Expression = valueInteger = 0 or $parent.value
+  Expression = valueInteger = 0 or $parent.required
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -62,7 +69,103 @@
   Context = maxOccurs
   English = maxOccurs can\'t be more than one if repeats is false
   XPath = f:valueInteger/@value<=1 or parent::*/f:repeats/@value=true()
-  Expression = valueInteger <= 1 or $parent.value
+  Expression = valueInteger <= 1 or $parent.repeats
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = minOccurs
+  English = minOccurs can\'t exist for display items
+  XPath = not(parent::*/f:type/@value=\'display\')
+  Expression = $parent.type!=\'display\'
+  Severity = error
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Context = maxOccurs
+  English = maxOccurs can\'t exist for display items
+  XPath = not(parent::*/f:type/@value=\'display\')
+  Expression = $parent.type!=\'display\'
+  Severity = error
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Context = enableWhen
+  English = enableWhen must contain either an \'answer\' or an \'answered\' element
+  XPath = f:extension[@url=(\'answered\', \'answer\')]
+  Expression = extension.where(url=\'answered\' or url=\'answer\').exists()
+  Severity = error
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Context = choiceOrientation
+  English = choiceOrientation can only be present on elements of type \"choice\" or \"open-choice\"
+  XPath = parent::*/f:type/@value=(\'choice\', \'open-choice\')
+  Expression = $parent.type=\'choice\' or $parent.type=\'open-choice\'
+  Severity = error
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Context = defaultValue
+  English = Default values can\'t be specified for groups or display items
+  XPath = not(parent::*/f:type/@value=(\'group\', \'display\'))
+  Expression = $parent.type!=\'group\' and $parent.type!=\'display\'
+  Severity = error
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Context = readOnly
+  English = Read-only can\'t be specified for \"display\" items
+  XPath = not(parent::*/f:type/@value=\'display\')
+  Expression = $parent.type!=\'display\'
+  Severity = error
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Context = deReference
+  English = Data Element references can\'t be specified for \"display\" items
+  XPath = not(parent::*/f:type/@value=\'display\')
+  Expression = $parent.type!=\'display\'
+  Severity = error
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Context = allowedResource
+  English = Allowed resource can only be specified for items of type \'reference\'
+  XPath = parent::*/f:type/@value=\'reference\'
+  Expression = $parent.type=\'reference\'
+  Severity = error
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Context = displayCategory
+  English = Display category can only be specified for items of type display
+  XPath = parent::*/f:type/@value=\'display\'
+  Expression = $parent.type=\'display\'
+  Severity = error
+
+ -- Row 12 -----------------------------------
+  Id = 12
+  Context = maxLength
+  English = Maximum length can only be declared for simple question types
+  XPath = parent::*/f:type/@value=(\'boolean\', \'decimal\', \'integer\', \'open-choice\', \'string\', \'text\', \'url\')
+  Expression = $parent.type in (\'boolean\' | \'decimal\' | \'integer\' | \'string\' | \'text\' | \'url\')
+  Severity = error
+
+ -- Row 13 -----------------------------------
+  Id = 13
+  Context = referenceFilter
+  English = Allowed reference filter can only be specified for items of type \'reference\'
+  XPath = parent::*/f:type/@value=\'reference\'
+  Expression = $parent.type=\'reference\'
+  Severity = error
+
+ -- Row 14 -----------------------------------
+  Id = 14
+  Context = fhirType
+  English = Fhir type can only be specified for groups or questions
+  XPath = not(parent::*/f:type/@value=\'display\')
+  Expression = $parent.type!=\'display\'
   Severity = error
 
 === Sheet Search =====================================

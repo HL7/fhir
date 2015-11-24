@@ -13,59 +13,54 @@
 	<source>
 		<reference value="Practitioner/f007"/>
 	</source>
-	<group>
-		<linkId value="1"/>
-		<!--   Only section of the form,  3 standard GCS questions : vebal ,eye, motor   -->
-		<title value="Glasgow Coma Score"/>
-		<question>
-			<linkId value="1.1"/>
-			<answer>
-				<valueCoding>
-					<!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
-						<!--  from Element: extension  -->
-						<valueDecimal value="4"/>
-						<!--  0..1 Value of extension  -->
-					</extension>
-					<system value="http://loinc.org"/>
-					<!-- technicallly the code is '5' and the LA is the identifier to do hav e both  would require an extention -->
-					<code value="LA6560-2"/>
-					<display value="Confused"/>
-				</valueCoding>
-			</answer>
-		</question>
-		<question>
-			<linkId value="1.2"/>
-			<answer>
-				<valueCoding>
-					<!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
-						<!--  from Element: extension  -->
-						<valueDecimal value="5"/>
-						<!--  0..1 Value of extension  -->
-					</extension>
-					<system value="http://loinc.org"/>
-					<code value="LA6566-9"/>
-					<display value="Localizing pain"/>
-				</valueCoding>
-			</answer>
-		</question>
-		<question>
-			<linkId value="1.3"/>
-			<answer>
-				<valueCoding>
-					<!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
-						<!--  from Element: extension  -->
-						<valueDecimal value="4"/>
-						<!--  0..1 Value of extension  -->
-					</extension>
-					<system value="http://loinc.org"/>
-					<!-- technicallly the code is '4' and the LA is the identifier to do hav e both  would require an extention -->
-					<code value="LA6556-0"/>
-					<display value="Eyes open spontaneously"/>
-				</valueCoding>
-			</answer>
-		</question>
-	</group>
+  <item>
+    <linkId value="1.1"/>
+    <answer>
+      <valueCoding>
+        <!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
+        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+          <!--  from Element: extension  -->
+          <valueDecimal value="4"/>
+          <!--  0..1 Value of extension  -->
+        </extension>
+        <system value="http://loinc.org"/>
+        <!-- technicallly the code is '5' and the LA is the identifier to do hav e both  would require an extention -->
+        <code value="LA6560-2"/>
+        <display value="Confused"/>
+      </valueCoding>
+    </answer>
+  </item>
+  <item>
+    <linkId value="1.2"/>
+    <answer>
+      <valueCoding>
+        <!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
+        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+          <!--  from Element: extension  -->
+          <valueDecimal value="5"/>
+          <!--  0..1 Value of extension  -->
+        </extension>
+        <system value="http://loinc.org"/>
+        <code value="LA6566-9"/>
+        <display value="Localizing pain"/>
+      </valueCoding>
+    </answer>
+  </item>
+  <item>
+    <linkId value="1.3"/>
+    <answer>
+      <valueCoding>
+        <!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
+        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+          <!--  from Element: extension  -->
+          <valueDecimal value="4"/>
+          <!--  0..1 Value of extension  -->
+        </extension>
+        <system value="http://loinc.org"/>
+        <!-- technicallly the code is '4' and the LA is the identifier to do hav e both  would require an extention -->
+        <code value="LA6556-0"/>
+        <display value="Eyes open spontaneously"/>
+      </valueCoding>
+    </answer>
+  </item>
 </QuestionnaireResponse>

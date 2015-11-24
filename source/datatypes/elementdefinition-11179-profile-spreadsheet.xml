@@ -21,6 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4528,7 +4529,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSetReference;StructureDefinition.differential.element.binding.valueSetReference;DataElement.element.binding.valueSetReference;Questionnaire.group.question.options</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSetReference;StructureDefinition.differential.element.binding.valueSetReference;DataElement.element.binding.valueSetReference;Questionnaire.item.options</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Permitted Values</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4568,7 +4569,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSetReference;StructureDefinition.differential.element.binding.valueSetReference;DataElement.element.binding.valueSetReference;Questionnaire.group.question.options</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSetReference;StructureDefinition.differential.element.binding.valueSetReference;DataElement.element.binding.valueSetReference;Questionnaire.item.options</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Permitted Values link</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5481,7 +5482,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5489,7 +5490,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5497,8 +5497,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

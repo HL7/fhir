@@ -31,6 +31,7 @@ public class CodeListToValueSetParser {
 
     tabfmt.column("System");
     tabfmt.column("Id");
+    tabfmt.column("Abstract");
     tabfmt.column("Code");
     tabfmt.column("Display");
     tabfmt.column("Definition");
@@ -49,6 +50,7 @@ public class CodeListToValueSetParser {
       tabfmt.row();
       tabfmt.cell(sheet.getColumn(row, "System"));
       tabfmt.cell(sheet.getColumn(row, "Id"));
+      tabfmt.cell(sheet.getColumn(row, "Abstract"));
       tabfmt.cell(sheet.getColumn(row, "Code"));
       tabfmt.cell(sheet.getColumn(row, "Display"));
       tabfmt.cell(sheet.getColumn(row, "Definition"));
@@ -87,6 +89,8 @@ public class CodeListToValueSetParser {
           codes.put(cc.getCode(), cc);
           codesById.put(cc.getUserString("id"), cc);
           cc.setDisplay(sheet.getColumn(row, "Display"));
+          if (sheet.getColumn(row, "Abstract").toUpperCase().equals("Y"))
+          	cc.setAbstract(true);
           if (cc.hasCode() && !cc.hasDisplay())
             cc.setDisplay(Utilities.humanize(cc.getCode()));
           cc.setDefinition(sheet.getColumn(row, "Definition"));

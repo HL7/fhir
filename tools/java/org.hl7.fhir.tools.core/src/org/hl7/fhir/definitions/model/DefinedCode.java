@@ -39,6 +39,7 @@ POSSIBILITY OF SUCH DAMAGE.
 public class DefinedCode {
 
   private String id;
+	private boolean abstract_;
 	private String code;
 	private String definition;
 	private String comment;
@@ -73,6 +74,12 @@ public class DefinedCode {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public boolean getAbstract() {
+		return abstract_;
+	}
+	public void setAbstract(boolean abstract_) {
+		this.abstract_ = abstract_;
 	}
 	public String getDefinition() {
 		return definition;

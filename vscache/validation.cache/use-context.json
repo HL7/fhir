@@ -23,14 +23,14 @@
       }
     },
     {
-      "hash": "#|urn:iso:std:iso:3166|null|AU|null",
+      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "AU",
+        "code": "US",
         "definition": null,
-        "display": "Australia"
+        "display": "United States of America (the)"
       }
     },
     {
@@ -39,19 +39,14 @@
       "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@33548fb8\": null"
     },
     {
+      "hash": "#|http://loinc.org/type|null|null|Lab",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@229c76bf\": null"
+    },
+    {
       "hash": "#|http://loinc.org/class|null|null|PANEL.SURVEY.USSGFHT",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@9e3dc6c\": null"
-    },
-    {
-      "hash": "#|http://loinc.org/class|null|null|MISC",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@12eb7dfd\": null"
-    },
-    {
-      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
@@ -65,25 +60,30 @@
       }
     },
     {
-      "hash": "#|http://loinc.org/type|null|null|Lab",
+      "hash": "#|http://loinc.org/type|null|null|Survey",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@229c76bf\": null"
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@4e9c3b86\": null"
     },
     {
-      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
+      "hash": "#|urn:iso:std:iso:3166|null|AU|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "US",
+        "code": "AU",
         "definition": null,
-        "display": "United States of America (the)"
+        "display": "Australia"
       }
     },
     {
-      "hash": "#|http://loinc.org/type|null|null|Survey",
+      "hash": "#|http://loinc.org/class|null|null|MISC",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@4e9c3b86\": null"
+      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@12eb7dfd\": null"
+    },
+    {
+      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

@@ -113,6 +113,7 @@ public class BindingConverter
 		result.setDisplay( Utilities.cleanupTextString(code.getDisplay()));
 		result.setSystem( Utilities.cleanupTextString(code.getSystem()));
 		result.setComment( Utilities.cleanupTextString(code.getComment()));
+//		result.setAbstract(code.getAbstract());
     result.setV2Map(code.getV2Map());
     result.setV3Map(code.getV3Map());
     

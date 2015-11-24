@@ -1,13 +1,13 @@
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
   <!-- Please not that in this questionnaire, the questions are mostly uncoded.  That is, the questions are not identified using the <concept> element. It will therefore
     be hard to extract useful information in an automated way from this questionnaire. This is, however, quite often the case when modelling existing questionnaires -->
- <id value="bb"/>
-   <text>
+  <id value="bb"/>
+  <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <pre>
-<b>Birth details - To be completed by health professional</b>
+        <b>Birth details - To be completed by health professional</b>
   Name of child: ____________________________________
             Sex: __
             
@@ -27,70 +27,96 @@
   <status value="draft"/>
   <date value="2013-02-19"/>
   <publisher value="New South Wales Department of Health"/>
+  <title value="NSW Government My Personal Health Record"/>
   <subjectType value="Patient"/>
-  <group>
-    <linkId value="PHR"/>
-    <title value="NSW Government My Personal Health Record"/>
-    <required value="true"/>
-    <!-- Many groups left out of this example -->
-    <group>
-      <linkId value="birthDetails"/>
-      <title value="Birth details - To be completed by health professional"/>
-      <group>
-        <question>
-          <linkId value="nameOfChild"/>
-          <text value="Name of child" />
-        </question>
-        <question>
-          <linkId value="sex"/>
-          <text value="Sex" />
-        </question>
-      </group>        
-      <group>
-        <linkId value="neonatalInformation"/>
-        <title value="Neonatal Information"/>
-        <question>
-          <linkId value="birthWeight"/>
-          <text value="Birth weight (kg)"/>
-        </question>
-        <question>
-          <linkId value="birthLength"/>
-          <text value="Birth length (cm)"/>
-        </question>
-        <question>
-          <linkId value="vitaminKgiven"/>
-          <text value="Vitamin K given"/>
-          <group>
-            <extension url="http://example.org/Profile/questionnaire#visibilityCondition">
-              <!-- note: this syntax is for demonstration purposes only, will need to be finalized during DSTU --> 
-              <valueString value="HAS_VALUE(../choice/code) AND NEQ(../choice/code,'NO')"/>
+  <item>
+    <linkId value="birthDetails"/>
+    <text value="Birth details - To be completed by health professional"/>
+    <type value="group"/>
+    <item>
+      <type value="group"/>
+      <item>
+        <linkId value="nameOfChild"/>
+        <text value="Name of child"/>
+        <type value="string"/>
+      </item>
+      <item>
+        <linkId value="sex"/>
+        <text value="Sex"/>
+        <type value="choice"/>
+        <option>
+          <code value="F"/>
+        </option>
+        <option>
+          <code value="M"/>
+        </option>
+      </item>
+    </item>
+    <item>
+      <linkId value="neonatalInformation"/>
+      <text value="Neonatal Information"/>
+      <type value="group"/>
+      <item>
+        <linkId value="birthWeight"/>
+        <text value="Birth weight (kg)"/>
+        <type value="decimal"/>
+      </item>
+      <item>
+        <linkId value="birthLength"/>
+        <text value="Birth length (cm)"/>
+        <type value="decimal"/>
+      </item>
+      <item>
+        <linkId value="vitaminKgiven"/>
+        <text value="Vitamin K given"/>
+        <type value="choice"/>
+        <option>
+          <code value="INJECTION"/>
+        </option>
+        <option>
+          <code value="INTRAVENOUS"/>
+        </option>
+        <option>
+          <code value="ORAL"/>
+        </option>
+        <item>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+            <extension url="question">
+              <valueString value="vitaminKgiven"/>
             </extension>
-            <linkId value="vitaminKgivenDoses"/>
-            <question>
-              <linkId value="vitaminiKDose1"/>
-              <text value="1st dose"/>
-            </question>
-            <question>
-              <linkId value="vitaminiKDose2"/>
-              <text value="2nd dose"/>
-            </question>
-          </group>
-        </question>
-        <question>
-          <linkId value="hepBgiven"/>
-          <text value="Hep B given y / n"/>
-          <group>
-            <question>
-              <linkId value="hepBgivenDate"/>
-              <text value="Date given"/>
-            </question>
-          </group>
-        </question>
-        <question>
-          <linkId value="abnormalitiesAtBirth"/>
-          <text value="Abnormalities noted at birth"/>
-        </question>
-      </group>
-    </group>
-  </group>
+            <extension url="answered">
+              <valueBoolean value="true"/>
+            </extension>
+          </extension>
+          <linkId value="vitaminKgivenDoses"/>
+          <type value="group"/>
+          <item>
+            <linkId value="vitaminiKDose1"/>
+            <text value="1st dose"/>
+            <type value="dateTime"/>
+          </item>
+          <item>
+            <linkId value="vitaminiKDose2"/>
+            <text value="2nd dose"/>
+            <type value="dateTime"/>
+          </item>
+        </item>
+      </item>
+      <item>
+        <linkId value="hepBgiven"/>
+        <text value="Hep B given y / n"/>
+        <type value="boolean"/>
+        <item>
+          <linkId value="hepBgivenDate"/>
+          <text value="Date given"/>
+          <type value="date"/>
+        </item>
+      </item>
+      <item>
+        <linkId value="abnormalitiesAtBirth"/>
+        <text value="Abnormalities noted at birth"/>
+        <type value="string"/>
+      </item>
+    </item>
+  </item>
 </Questionnaire>

@@ -1,22 +1,14 @@
 ﻿
 === Sheet Bindings =====================================
 
- -- Row 1 -----------------------------------
-  Binding Name = QuestionnaireGroupSpecialType
-  Binding = code list
-  Reference = #group-special-type
-  Definition = Identifies special types of groups within questionnaires
-  Conformance = required
-
-=== Sheet group-special-type =====================================
+=== Sheet Extensions-Inv =====================================
 
  -- Row 1 -----------------------------------
-  Code = header
-  Definition = The group is to be continuously visible at the top of the questionnaire
-
- -- Row 2 -----------------------------------
-  Code = footer
-  Definition = The group is to be continuously visible at the bottom of the questionnaire
+  Id = 1
+  Context = specialGroup
+  English = specialGroup must only appear on items of type \'group\'
+  XPath = parent::*/f:type/@value=\'group\'
+  Severity = error
 
 === Sheet SDC-Questionnaire =====================================
 
@@ -59,27 +51,33 @@
   IHE SDC mapping = ./form_design/classifier
 
  -- Row 6 -----------------------------------
+  Element = Questionnaire.extension
+  Profile Name = deMap
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-deMap}
+
+ -- Row 7 -----------------------------------
   Element = Questionnaire.identifier
   Card. = !0..*
   Must Support = y
   Type = !Identifier
   IHE SDC mapping = ./form_design/@form_design_identifier {maps to value; system=\"urn:ietf:rfc:3986\"}
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Questionnaire.version
   Card. = !0..1
   Must Support = y
   Type = !string
   IHE SDC mapping = Not currently in schema
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Questionnaire.status
   Card. = !1..1
   Must Support = Y
   Type = !code
   IHE SDC mapping = ./administration_package/registration/state/registration_status
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Questionnaire.date
   Card. = 1..1
   Must Support = Y
@@ -87,626 +85,206 @@
   Definition = Identifies when this version of the form was created.  Changes whenever the form is updated
   IHE SDC mapping = ./administration_package/registration/creation_date
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Questionnaire.publisher
   Card. = !0..1
   Must Support = y
   Type = !string
   IHE SDC mapping = ./administration_package/registration/organization
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
+  Element = Questionnaire.title
+  Card. = 1..1
+  Must Support = Y
+  Type = !string
+
+ -- Row 13 -----------------------------------
+  Element = Questionnaire.title.extension
+  Profile Name = title.renderingStyle
+  Card. = 0..1
+  Must Support = n
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  IHE SDC mapping = ../style
+
+ -- Row 14 -----------------------------------
+  Element = Questionnaire.title.extension
+  Profile Name = title.markup
+  Card. = 0..1
+  Must Support = n
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  IHE SDC mapping = (strings can contain markup)
+
+ -- Row 15 -----------------------------------
+  Element = Questionnaire.concept
+  Card. = 0..1
+  Must Support = Y
+  Type = !Coding
+
+ -- Row 16 -----------------------------------
   Element = Questionnaire.subjectType
   Card. = !0..*
   Must Support = Y
   Type = !code
 
- -- Row 12 -----------------------------------
-  Element = Questionnaire.group
+ -- Row 17 -----------------------------------
+  Element = Questionnaire.item
   Card. = !1..1
   Must Support = y
   IHE SDC mapping = ./form_design/*[self::header or self::footer or self::section]
 
- -- Row 13 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = groupLabel
+ -- Row 18 -----------------------------------
+  Element = Questionnaire.item.extension
+  Profile Name = itemLabel
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-label}
   IHE SDC mapping = ./section_number/label
 
- -- Row 14 -----------------------------------
-  Element = Questionnaire.group.extension.valueString
+ -- Row 19 -----------------------------------
+  Element = Questionnaire.item.extension.valueString
 
- -- Row 15 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupLabel.renderingStyle
+ -- Row 20 -----------------------------------
+  Element = Questionnaire.item.extension.valueString.extension
+  Profile Name = itemLabel.renderingStyle
   Card. = 0..1
   Must Support = n
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ../style
 
- -- Row 16 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupLabel.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 17 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = groupInstruction
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-instruction}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 18 -----------------------------------
-  Element = Questionnaire.group.extension.valueString
-
- -- Row 19 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupInstruction.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 20 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupInstruction.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
  -- Row 21 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = groupSecurity
+  Element = Questionnaire.item.extension.valueString.extension
+  Profile Name = itemLabel.markup
   Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-security}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
+  Must Support = n
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  IHE SDC mapping = (strings can contain markup)
 
  -- Row 22 -----------------------------------
-  Element = Questionnaire.group.extension.valueString
+  Element = Questionnaire.item.extension
+  Profile Name = itemMinOccurs
+  Card. = 0..1
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs}
+  IHE SDC mapping = ./cardinality/minimum
 
  -- Row 23 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupSecurity.renderingStyle
+  Element = Questionnaire.item.extension
+  Profile Name = itemMaxOccurs
   Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs}
+  IHE SDC mapping = ./cardinality/maximum
 
  -- Row 24 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupSecurity.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 25 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = groupHelp
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-help}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 26 -----------------------------------
-  Element = Questionnaire.group.extension.valueString
-
- -- Row 27 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupHelp.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 28 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupHelp.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 29 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = groupTooltip
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-tooltip}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 30 -----------------------------------
-  Element = Questionnaire.group.extension.valueString
-
- -- Row 31 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupTooltip.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 32 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupTooltip.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 33 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = groupTrailing
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-trailing}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 34 -----------------------------------
-  Element = Questionnaire.group.extension.valueString
-
- -- Row 35 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupTrailing.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 36 -----------------------------------
-  Element = Questionnaire.group.extension.valueString.extension
-  Profile Name = groupTrailing.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 37 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = groupOptionalDisplay
+  Element = Questionnaire.item.extension
+  Profile Name = itemOptionalDisplay
   Card. = 0..1
   Must Support = n
   Type = Extension{#optionalDisplay}
   IHE SDC mapping = N/A (new requirement)
 
- -- Row 38 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = hidden
+ -- Row 25 -----------------------------------
+  Element = Questionnaire.item.extension
+  Profile Name = itemHidden
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-hidden}
   IHE SDC mapping = Any element with @initial_state=\"hidden\" and no rule that unhides the element
 
- -- Row 39 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = groupMinOccurs
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs}
-  IHE SDC mapping = ./cardinality/minimum
-
- -- Row 40 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = groupMaxOccurs
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs}
-  IHE SDC mapping = ./cardinality/maximum
-
- -- Row 41 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = specialGroup
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{#specialGroup}
-  Comments = Are there form rendering mechanisms where it would be unreasonable to require systems to support this extension?
-  IHE SDC mapping = =\"header\" if self::header; =\"footer\" if self::footer
-
- -- Row 42 -----------------------------------
-  Element = Questionnaire.group.linkId
-  Card. = 1..1
-  Must Support = Y
-  Type = !string
-  IHE SDC mapping = ./section_identifier
-
- -- Row 43 -----------------------------------
-  Element = Questionnaire.group.title
-  Card. = !0..1
-  Must Support = y
-  Type = !string
-  IHE SDC mapping = ./section_title/label
-
- -- Row 44 -----------------------------------
-  Element = Questionnaire.group.title.extension
-  Profile Name = groupTitle.renderingStyle
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ../style
-
- -- Row 45 -----------------------------------
-  Element = Questionnaire.group.title.extension
-  Profile Name = groupTitle.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 46 -----------------------------------
-  Element = Questionnaire.group.concept
-  Card. = 0..1
-  Must Support = y
-  Type = !Coding
-
- -- Row 47 -----------------------------------
-  Element = Questionnaire.group.text
-  Card. = !0..1
-  Must Support = y
-  Type = !string
-  IHE SDC mapping = Form Design/designation[context=\"primary?\"/definition/  ./section_instruction/label
-  Committee Notes = Just one repetition - if you want multiple styles, use additionalInstruction
-
- -- Row 48 -----------------------------------
-  Element = Questionnaire.group.text.extension
-  Profile Name = groupText.renderingStyle
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ../style
-
- -- Row 49 -----------------------------------
-  Element = Questionnaire.group.text.extension
-  Profile Name = groupText.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 50 -----------------------------------
-  Element = Questionnaire.group.required
-  Card. = 1..1
-  Must Support = y
-  Type = !boolean
-  IHE SDC mapping = ./cardinality/minimum!=0
-
- -- Row 51 -----------------------------------
-  Element = Questionnaire.group.repeats
-  Card. = 1..1
-  Must Support = y
-  Type = !boolean
-  IHE SDC mapping = ./cardinality/maximum!=1
-
- -- Row 52 -----------------------------------
-  Element = Questionnaire.group.group
-  Card. = !0..*
-  Must Support = y
-  Type = !@Questionnaire.group
-  IHE SDC mapping = ./contained_section
-
- -- Row 53 -----------------------------------
-  Element = Questionnaire.group.question
-  Card. = !0..*
-  Must Support = y
-  IHE SDC mapping = ./question
-
- -- Row 54 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionMinOccurs
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs}
-  IHE SDC mapping = ./cardinality/minimum
-
- -- Row 55 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionMaxOccurs
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs}
-  IHE SDC mapping = ./cardinality/maximum
-
- -- Row 56 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionLabel
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-label}
-  IHE SDC mapping = ./question_number/label
-
- -- Row 57 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString
-
- -- Row 58 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionLabel.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ../style
-
- -- Row 59 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionLabel.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 60 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionInstruction
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-instruction}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 61 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString
-
- -- Row 62 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionInstruction.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 63 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionInstruction.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 64 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionSecurity
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-security}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 65 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString
-
- -- Row 66 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionSecurity.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 67 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionSecurity.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 68 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionHelp
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-help}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 69 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString
-
- -- Row 70 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionHelp.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 71 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionHelp.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 72 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionTooltip
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-tooltip}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 73 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString
-
- -- Row 74 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionTooltip.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 75 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionTooltip.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 76 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionTrailing
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-trailing}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 77 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString
-
- -- Row 78 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionTrailing.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 79 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionTrailing.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 80 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionUnits
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-units}
-  IHE SDC mapping = ./additional_instruction | ./additional_text
-  Committee Notes = No reason to have a distinct extension for instruction vs. text.  Can differentiate with type.
-
- -- Row 81 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString
-
- -- Row 82 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionUnits.renderingStyle
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ./style
-
- -- Row 83 -----------------------------------
-  Element = Questionnaire.group.question.extension.valueString.extension
-  Profile Name = questionUnits.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 84 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionEnableWhen
+ -- Row 26 -----------------------------------
+  Element = Questionnaire.item.extension
+  Profile Name = itemEnableWhen
   Card. = 0..*
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen}
   IHE SDC mapping = parent::guarded_element/guard //guard[guarded_element_identifier = current()/question-identifier]
 
- -- Row 85 -----------------------------------
-  Element = Questionnaire.group.question.extension.extension
+ -- Row 27 -----------------------------------
+  Element = Questionnaire.item.extension.extension
   Profile Name = question
   Card. = 1..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen#question}
   IHE SDC mapping = parent::list_item/parent::list_field/parent::question
 
- -- Row 86 -----------------------------------
-  Element = Questionnaire.group.question.extension.extension
+ -- Row 28 -----------------------------------
+  Element = Questionnaire.item.extension.extension
   Profile Name = answered
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen#answered}
 
- -- Row 87 -----------------------------------
-  Element = Questionnaire.group.question.extension.extension
+ -- Row 29 -----------------------------------
+  Element = Questionnaire.item.extension.extension
   Profile Name = answer
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen#answer}
   IHE SDC mapping = parent::list_item
 
- -- Row 88 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionOptionalDisplay
+ -- Row 30 -----------------------------------
+  Element = Questionnaire.item.extension
+  Profile Name = itemControl
   Card. = 0..1
-  Must Support = n
-  Type = Extension{#optionalDisplay}
-  IHE SDC mapping = N/A (new requirement)
+  Must Support = Y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl}
 
- -- Row 89 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = hidden
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-hidden}
-  IHE SDC mapping = Any element with @initial_state=\"hidden\" and no rule that unhides the element
-
- -- Row 90 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = questionControl
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-questionControl}
-
- -- Row 91 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 31 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = choiceOrientation
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation}
 
- -- Row 92 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 32 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = defaultValue
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-defaultValue}
   IHE SDC mapping = ./default_value  ./default_element/default/value  ./default_element/list_item_identifier (resolve)
 
- -- Row 93 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 33 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = readOnly
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-readOnly}
   IHE SDC mapping = ./*_Field/default_value_read_only  ./default_element/read_only
 
- -- Row 94 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 34 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = minLength
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/minLength}
   IHE SDC mapping = ./*_Field/datatype/string/maximum_characters
 
- -- Row 95 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 35 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = maxLength
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength}
   IHE SDC mapping = ./*_Field/maximum_character_quantity | ./*_Field/datatype/string/maximum_characters
 
- -- Row 96 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 36 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = regex
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/regex}
   IHE SDC mapping = ./*_Field/datatype/string/reg_ex
 
- -- Row 97 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 37 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = entryFormat
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/entryFormat}
   IHE SDC mapping = ./*_Field/format | ./*_Field/datatype/string/pattern
 
- -- Row 98 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 38 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = minValue
   Card. = 0..1
   Must Support = y
@@ -714,8 +292,8 @@
   IHE SDC mapping = ./*_Field/datatype/[integer|decimal]/minimum_value
   Committee Notes = Note: Will support this for dates & timestamps too.
 
- -- Row 99 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 39 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = maxValue
   Card. = 0..1
   Must Support = y
@@ -723,8 +301,8 @@
   IHE SDC mapping = ./*_Field/datatype/[integer|decimal]/maximum_value
   Committee Notes = Note: Will support this for dates & timestamps too.
 
- -- Row 100 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 40 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = maxDecimalPlaces
   Card. = 0..1
   Must Support = y
@@ -732,52 +310,69 @@
   IHE SDC mapping = ./*_Field/datatype/decimal/fractionDigits
   Committee Notes = What\'s string_time/timezone?  Do we really need duration? Or file?
 
- -- Row 101 -----------------------------------
-  Element = Questionnaire.group.question.extension
+ -- Row 41 -----------------------------------
+  Element = Questionnaire.item.extension
   Profile Name = deReference
   Card. = 0..1
   Must Support = y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-deReference}
   IHE SDC mapping = /form_package/mapping_package/mdr_mapping/question_element_data_element_association[question_element_identifier=current()/question_identifier]/data_element_scoped_identifier
 
- -- Row 102 -----------------------------------
-  Element = Questionnaire.group.question.linkId
+ -- Row 42 -----------------------------------
+  Element = Questionnaire.item.extension
+  Profile Name = allowedResource
+  Card. = 0..*
+  Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource}
+  IHE SDC mapping = /form_package/mapping_package/mdr_mapping/question_element_data_element_association[question_element_identifier=current()/question_identifier]/data_element_scoped_identifier
+
+ -- Row 43 -----------------------------------
+  Element = Questionnaire.item.extension
+  Profile Name = displayCategory
+  Card. = 0..1
+  Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory}
+  IHE SDC mapping = /form_package/mapping_package/mdr_mapping/question_element_data_element_association[question_element_identifier=current()/question_identifier]/data_element_scoped_identifier
+
+ -- Row 44 -----------------------------------
+  Element = Questionnaire.item.linkId
   Card. = 1..1
   Must Support = Y
   Type = !string
-  IHE SDC mapping = ./question_identifier
+  IHE SDC mapping = ./section_identifier
 
- -- Row 103 -----------------------------------
-  Element = Questionnaire.group.question.concept
-  Card. = !0..*
+ -- Row 45 -----------------------------------
+  Element = Questionnaire.item.concept
+  Card. = 0..1
+  Must Support = y
   Type = !Coding
-  IHE SDC mapping = N/A
-  Committee Notes = Should this be constrained out?
 
- -- Row 104 -----------------------------------
-  Element = Questionnaire.group.question.text
-  Card. = 1..1
+ -- Row 46 -----------------------------------
+  Element = Questionnaire.item.text
+  Card. = !0..1
   Must Support = y
   Type = !string
-  IHE SDC mapping = ./question_prompt/label
+  IHE SDC mapping = Form Design/designation[context=\"primary?\"/definition/  ./section_instruction/label
+  Committee Notes = Just one repetition - if you want multiple styles, use additionalInstruction
 
- -- Row 105 -----------------------------------
-  Element = Questionnaire.group.question.text.extension
-  Profile Name = questionText.renderingStyle
+ -- Row 47 -----------------------------------
+  Element = Questionnaire.item.text.extension
+  Profile Name = groupText.renderingStyle
   Card. = 0..1
+  Must Support = n
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ../style
 
- -- Row 106 -----------------------------------
-  Element = Questionnaire.group.question.text.extension
-  Profile Name = questionText.markup
+ -- Row 48 -----------------------------------
+  Element = Questionnaire.item.text.extension
+  Profile Name = groupText.markup
   Card. = 0..1
   Must Support = n
   Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
   IHE SDC mapping = (strings can contain markup)
 
- -- Row 107 -----------------------------------
-  Element = Questionnaire.group.question.type
+ -- Row 49 -----------------------------------
+  Element = Questionnaire.item.type
   Card. = 1..1
   Must Support = y
   Type = !code
@@ -785,38 +380,38 @@
   IHE SDC mapping = ./*/datatype
   Committee Notes = No support for File, duration or time
 
- -- Row 108 -----------------------------------
-  Element = Questionnaire.group.question.required
-  Card. = !0..1
+ -- Row 50 -----------------------------------
+  Element = Questionnaire.item.required
+  Card. = 1..1
   Must Support = y
   Type = !boolean
   IHE SDC mapping = ./cardinality/minimum!=0
 
- -- Row 109 -----------------------------------
-  Element = Questionnaire.group.question.repeats
-  Card. = !0..1
+ -- Row 51 -----------------------------------
+  Element = Questionnaire.item.repeats
+  Card. = 1..1
   Must Support = y
   Type = !boolean
-  IHE SDC mapping = ./cardinality/maximum!=1  ./*/multiselect=\'true\'
+  IHE SDC mapping = ./cardinality/maximum!=1
 
- -- Row 110 -----------------------------------
-  Element = Questionnaire.group.question.options
+ -- Row 52 -----------------------------------
+  Element = Questionnaire.item.options
   Card. = !0..1
   Must Support = y
   Type = !Reference(ValueSet)
   IHE SDC mapping = ./list_field | ./lookup_field/endpoint
 
- -- Row 111 -----------------------------------
-  Element = Questionnaire.group.question.option
+ -- Row 53 -----------------------------------
+  Element = Questionnaire.item.option
   Card. = !0..*
   Must Support = Y
   Type = !Coding
 
- -- Row 112 -----------------------------------
-  Element = Questionnaire.group.question.group
+ -- Row 54 -----------------------------------
+  Element = Questionnaire.item.item
   Card. = !0..*
   Must Support = y
-  Type = !@Questionnaire.group
-  IHE SDC mapping = ./list_field/list_item/guard
+  Type = !@Questionnaire.item
+  IHE SDC mapping = ./contained_section
 
 === Sheet Search =====================================

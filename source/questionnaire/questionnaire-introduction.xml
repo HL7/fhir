@@ -6,7 +6,8 @@
 <p>
 A <b>Questionnaire</b> is an organized collection of questions intended to solicit information from patients, providers or other individuals involved
 in the healthcare domain.  They may be simple flat lists of questions or can be hierarchically organized in 
-groups and sub-groups, each containing questions.  The <b>Questionnaire</b> defines the questions to be asked, how they are ordered and grouped and what
+groups and sub-groups, each containing questions.  The <b>Questionnaire</b> defines the questions to be asked, how they are ordered and grouped, any
+intervening instructional text and what
 the constraints are on the allowed answers.  The results of a <b>Questionnaire</b> can be communicated using the <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
 </p>
 <p>

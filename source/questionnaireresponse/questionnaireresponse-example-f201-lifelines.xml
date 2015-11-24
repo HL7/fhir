@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireresponse.xsd">
  <id value="f201"/>
    <status value="completed"/>
@@ -14,70 +14,67 @@
   <source>
     <reference value="Practitioner/f201"/>
   </source>
-  <group>
-    <linkId value="root"/>
-    <group>
-      <linkId value="1"/>
-      <question>
-        <!--Seperate answer-->
-	<linkId value="1.1"/>
-        <text value="Do you have allergies?"/>
-        <answer>
-          <valueString value="I am allergic to house dust"/>
-        </answer>
-      </question>
-    </group>
-    <group>
-      <!--Answers to general questions-->
-      <linkId value="2"/>
-      <title value="General questions"/>
-      <question>
-        <linkId value="2.1"/>
-        <text value="What is your gender?"/>
-        <answer>
-          <valueString value="Male"/>
-        </answer>
-      </question>
-      <question>
-        <linkId value="2.2"/>
-        <text value="What is your date of birth?"/>
-        <answer>
-          <valueDate value="1960-03-13"/>
-        </answer>
-      </question>
-      <question>
-        <linkId value="2.3"/>
-        <text value="What is your country of birth?"/>
-        <answer>
-          <valueString value="The Netherlands"/>
-        </answer>
-      </question>
-      <question>
-        <linkId value="2.4"/>
-        <text value="What is your marital status?"/>
-        <answer>
-          <valueString value="married"/>
-        </answer>
-      </question>
-    </group>
-    <group>
-      <!--Answers to intoxications-->
-      <linkId value="3"/>
-      <title value="Intoxications"/>
-      <question>
-        <linkId value="3.1"/>
-        <text value="Do you smoke?"/>
-        <answer>
-          <valueString value="No"/>
-        </answer>
-      </question>
-      <question>
-        <linkId value="3.2"/>
-        <text value="Do you drink alchohol?"/>
-        <answer>
-          <valueString value="No, but I used to drink"/>
-        </answer>
-      </question>
-    </group>
-  </group>
+  <item>
+    <linkId value="1"/>
+    <item>
+      <!--Seperate answer-->
+<linkId value="1.1"/>
+      <text value="Do you have allergies?"/>
+      <answer>
+        <valueString value="I am allergic to house dust"/>
+      </answer>
+    </item>
+  </item>
+  <item>
+    <!--Answers to general questions-->
+    <linkId value="2"/>
+    <text value="General questions"/>
+    <item>
+      <linkId value="2.1"/>
+      <text value="What is your gender?"/>
+      <answer>
+        <valueString value="Male"/>
+      </answer>
+    </item>
+    <item>
+      <linkId value="2.2"/>
+      <text value="What is your date of birth?"/>
+      <answer>
+        <valueDate value="1960-03-13"/>
+      </answer>
+    </item>
+    <item>
+      <linkId value="2.3"/>
+      <text value="What is your country of birth?"/>
+      <answer>
+        <valueString value="The Netherlands"/>
+      </answer>
+    </item>
+    <item>
+      <linkId value="2.4"/>
+      <text value="What is your marital status?"/>
+      <answer>
+        <valueString value="married"/>
+      </answer>
+    </item>
+  </item>
+  <item>
+    <!--Answers to intoxications-->
+    <linkId value="3"/>
+    <text value="Intoxications"/>
+    <item>
+      <linkId value="3.1"/>
+      <text value="Do you smoke?"/>
+      <answer>
+        <valueString value="No"/>
+      </answer>
+    </item>
+    <item>
+      <linkId value="3.2"/>
+      <text value="Do you drink alchohol?"/>
+      <answer>
+        <valueString value="No, but I used to drink"/>
+      </answer>
+    </item>
+  </item>
 </QuestionnaireResponse>

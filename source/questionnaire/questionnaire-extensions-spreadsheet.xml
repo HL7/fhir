@@ -9,15 +9,15 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-28T04:46:12Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2015-11-12T14:03:51Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12975</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>16440</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>5</ActiveSheet>
@@ -611,7 +611,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s130">
+  <Style ss:ID="s129">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -622,11 +622,20 @@
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s131">
+  <Style ss:ID="s130">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s131">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
    <NumberFormat/>
@@ -4321,10 +4330,10 @@
  </Worksheet>
  <Worksheet ss:Name="Extensions">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R46C23"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R40C23"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="47" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="227.25"/>
    <Column ss:StyleID="s84" ss:Width="51"/>
@@ -4482,7 +4491,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4502,7 +4511,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Separating the label from the question text allows improved rendering.  Note that if separated from the question, no labeling will be applied by systems that do not understand the extension.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.&#10;&#10;Typically these won't be used for &quot;text&quot; items, though such use is not prohibited.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Not supported</Data><NamedCell
@@ -4517,13 +4526,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">3</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">integer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4551,13 +4561,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">4</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">integer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4580,12 +4591,12 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="255">
     <Cell ss:StyleID="s127"><Data ss:Type="String">hidden</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4601,11 +4612,11 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Don't display to user</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">If true, indicates that the containing group or question should not be displayed to the user for data entry</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">If true, indicates that the extended item should not be displayed to the user</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Some questionnaires may have questions that represent calculated values or internal &quot;fixed&quot; metadata.  These elements need to be included with the answers, but should not be displayed to the user</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Some questionnaires may have questions that represent calculated values or internal &quot;fixed&quot; metadata.  These elements need to be included with the answers, but should not be displayed to the user.  As well, text instructions may be included to guide implementation that are not expected to be displayed to the end user.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">If a group is hidden, all descendant content of the group is automatically hidden.</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">If an item is hidden, all descendant items are hidden as well.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="19" ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4618,7 +4629,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4633,11 +4644,11 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Only allow data when:</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">If present, indicates that the group or question containing the extension should only be enabled (allow an answer to be present and, in most circumstances, even be visible to the user) when the specified condition is true</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">If present, indicates that the item containing the extension should only be enabled (displayed/allow answers to be captured) when the specified condition is true</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Allows questionnaires to adapt based on answers to prior questions; e.g. If physical gender is specified as a male, no need to capture pregnancy history.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Allows questionnaires to adapt based on answers to prior questions; e.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">If multiple repetitions of this extension are present, the question or group should be displayed when the condition for *any* of the repetitions is true.  I.e. Treat &quot;enableWhen&quot;s as being joined by an &quot;or&quot; clause.</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. Treat &quot;enableWhen&quot;s as being joined by an &quot;or&quot; clause.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="19" ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4675,7 +4686,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="180">
+   <Row ss:AutoFitHeight="0" ss:Height="210">
     <Cell ss:StyleID="s127"><Data ss:Type="String">enableWhen.answered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4684,7 +4695,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">5</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">boolean</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4715,7 +4727,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">5</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4727,8 +4740,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">If present, then the specified question must match the specified answer for all components present in the enableWhen.answer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">If not specified, then all that matters is that the specified question has been answered - it does not matter what the answer is.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4738,11 +4750,11 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">questionControl</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">itemControl</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4752,17 +4764,17 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">QuestionControl</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">ItemControl</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">E.g. Checkbox, Combo-box, Lookup, etc.</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">E.g. Fly-over, Table, Checkbox, Combo-box, Lookup, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The type of data entry control that should be exposed to the user when capturing the answer to the question.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The type of data entry control or structure that should be used to render the item.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Different controls may be appropriate for different question data types.  It is up to the system rendering a questionnaire as to what controls it will support and for which data types.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Different controls may be appropriate for different item types.  It is up to the system rendering a questionnaire as to what controls it will support and for which data types.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4776,13 +4788,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">6</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4811,13 +4824,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">7</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4845,13 +4859,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">8</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">boolean</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4880,13 +4895,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">9</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(DataElement)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4900,7 +4916,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Flags the question as comparable to other questions mapped to the same DE.  Also allows systems that have  mapped the DE to auto-populate or auto-extract information captured for the question.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">If a code applies to a question, that code should still be conveyed on the question, even if the same code is also referenced as a DataElement.code in the referenced data element.  This extension must not be used in place of specifying the Questionnaire.group.question.concept element.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">If a code applies to a question, that code should still be conveyed on the question, even if the same code is also referenced as a DataElement.code in the referenced data element.  This extension must not be used in place of specifying the Questionnaire.item.concept element.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]</Data><NamedCell
@@ -4915,7 +4931,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4948,13 +4964,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">10</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4978,259 +4995,65 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="165">
+    <Cell ss:StyleID="s127"><Data ss:Type="String">referenceFilter</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">13</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Filter to apply when looking up references</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Identifies a filter to apply when looking up candidate answers for the question.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The filter may include $subj and/or $encounter which should be substituted by the implementer with the subject and/or encounter id relevant in the context in which the questionnaire is being populated.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">instruction</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">displayCategory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group;@Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">11</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">QuestionnaireDisplayCategory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">How to populate group or question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Purpose of rendered text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The text provides instructions intended to be rendered with the element explaining how the content of the element is to be completed.  This should be rendered in-line before the question or group.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">security</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group;@Questionnaire.group.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Security/privacy rules governing group/question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The text describes specific security and/or privacy considerations associated with the element; e.g. retention rules, data access control expectations, etc.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">help</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group;@Questionnaire.group.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Text to display if help incoked on group/question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The content is intended for display if a user selects an icon or performs some other action seeking help about the element</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">tooltip</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group;@Questionnaire.group.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Fly-over or equivalent text</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The content is intended for use in a fly-over or similar display mechanism - primarily intended for online form entry</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">trailing</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group;@Questionnaire.group.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Text to display after group/question content</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The text should be displayed after all of the other the content of the group or question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">units</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Unit of measure for question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Identifies the units in which the question's answer should be captured</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">lowRangeLabel</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Label for low end of slider</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">When a coded ordered value is selected from a range, indicates the label lifted to the left of the first value; e.g. The &quot;very unsatisfied&quot; in &quot;very unsatisfied 0 1 2 3 4 5 very satisfied&quot;</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">highRangeLabel</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Label for high end of slider</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">When a coded ordered value is selected from a range, indicates the label lifted to the right of the last value; e.g. The &quot;very satisfied&quot; in &quot;very unsatisfied 0 1 2 3 4 5 very satisfied&quot;</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Describes the intended purpose of the rendered text.  For example - instructions, guidance on access control, maintenance information, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5247,13 +5070,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group.question</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">12</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">integer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5277,27 +5101,37 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s127"><Data ss:Type="String">fhirType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item;Questionnaire.item.item</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">14</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The underlying FHIR data type</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">For questionnaires generated from FHIR profiles, indicates the FHIR data type or resource type that corresponds to this node</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">N/A (MIF-level)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">N/A</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5753,7 +5587,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5794,7 +5628,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5807,17 +5641,17 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R46C23"
+  <AutoFilter x:Range="R1C1:R40C23"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -5859,125 +5693,125 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">minOccurs</Data></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">minOccurs can't be more than one if required is false</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">valueInteger = 0 or $parent.value</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">f:valueInteger/@value=0 or parent::*/f:required/@value=true()</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">valueInteger = 0 or $parent.required</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">f:valueInteger/@value=0 or parent::*/f:required/@value=true()</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s122"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">maxOccurs alignment</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">maxOccurs</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">maxOccurs can't be more than one if repeats is false</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">valueInteger &lt;= 1 or $parent.value</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">f:valueInteger/@value&lt;=1 or parent::*/f:repeats/@value=true()</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">valueInteger &lt;= 1 or $parent.repeats</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">f:valueInteger/@value&lt;=1 or parent::*/f:repeats/@value=true()</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">No minOccurs on display</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">minOccurs</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">minOccurs can't exist for display items</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type!='display'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">not(parent::*/f:type/@value='display')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">No maxOccurs on display</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">maxOccurs</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">maxOccurs can't exist for display items</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type!='display'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">not(parent::*/f:type/@value='display')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Answered or answer</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">enableWhen</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">enableWhen must contain either an 'answer' or an 'answered' element</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">extension.where(url='answered' or url='answer').exists()</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">f:extension[@url=('answered', 'answer')]</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Choice orientation for choices</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">choiceOrientation</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">choiceOrientation can only be present on elements of type &quot;choice&quot; or &quot;open-choice&quot;</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type='choice' or $parent.type='open-choice'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">parent::*/f:type/@value=('choice', 'open-choice')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Default only for questions</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">defaultValue</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Default values can't be specified for groups or display items</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type!='group' and $parent.type!='display'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">not(parent::*/f:type/@value=('group', 'display'))</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">No readonly display</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">readOnly</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Read-only can't be specified for &quot;display&quot; items</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type!='display'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">not(parent::*/f:type/@value='display')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">No data element display</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">deReference</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Data Element references can't be specified for &quot;display&quot; items</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type!='display'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">not(parent::*/f:type/@value='display')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Allowed resource only for reference</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">allowedResource</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Allowed resource can only be specified for items of type 'reference'</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type='reference'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">parent::*/f:type/@value='reference'</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Display category only for display</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">displayCategory</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Display category can only be specified for items of type display</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type='display'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">parent::*/f:type/@value='display'</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Max length only for simple types</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">maxLength</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Maximum length can only be declared for simple question types</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url')</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">parent::*/f:type/@value=('boolean', 'decimal', 'integer', 'open-choice', 'string', 'text', 'url')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Reference filter only for reference</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">referenceFilter</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Allowed reference filter can only be specified for items of type 'reference'</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type='reference'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">parent::*/f:type/@value='reference'</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s123"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s122"><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">fhirType not for display</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">fhirType</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Fhir type can only be specified for groups or questions</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">$parent.type!='display'</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">not(parent::*/f:type/@value='display')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s122"/>
@@ -6303,12 +6137,17 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7328,12 +7167,12 @@
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">QuestionControl</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">User interface controls used for questionnaire questions</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">ItemControl</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">User interface controls or widgets used for questionnaire items</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">valueset-questionnaire-question-control</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">valueset-questionnaire-item-control</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -7359,13 +7198,13 @@
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s139"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s103"><Data ss:Type="String">QuestionnaireDisplayCategory</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Identifies the purpose for a &quot;display&quot; item</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">valueset-questionnaire-display-category</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
@@ -7792,7 +7631,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

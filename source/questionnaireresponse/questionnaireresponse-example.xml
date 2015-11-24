@@ -1,12 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<QuestionnaireResponse xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireresponse.xsd">
   <id value="3141"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
       <pre>
             Comorbidity? YES
               Cardial Comorbidity? YES
@@ -20,8 +17,6 @@
                 pT category: 1a
               ...
           </pre>
-    
-    
     </div>
   </text>
   <contained>
@@ -88,62 +83,59 @@
     <reference value="#questauth"/>
   </author>
   <authored value="2013-02-19T14:15:00-05:00"/>
-  <group>
-    <title value="Cancer Quality Forum Questionnaire 2012"/>
-    <group>
+  <item>
     <!--   COMORBIDITY   -->
     <!--   First main section of the form, questions about comorbidity   -->
     <!--   section contains one question: whether there is comorbidity   -->
-      <question>
-        <answer>
-          <valueCoding>
-            <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-            <code value="1"/>
-            <display value="Yes"/>
-          </valueCoding>
-          <group>
+    <item>
+      <answer>
+        <valueCoding>
+          <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+          <code value="1"/>
+          <display value="Yes"/>
+        </valueCoding>
+        <item>
           <!--   COMORBIDITY/CARDIAL   -->
           <!--   Subsection about specific comorbidity: cardial   -->
-            <question>
-              <answer>
-                <valueCoding>
-                  <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-                  <code value="1"/>
-                </valueCoding>
-              </answer>
-            </question>
-            <question>
+          <item>
+            <answer>
+              <valueCoding>
+                <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+                <code value="1"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
             <!--   This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code   -->
-              <answer>
-                <valueCoding>
-                  <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-                  <code value="1"/>
-                </valueCoding>
-              </answer>
-            </question>
-            <question>
-              <answer>
-                <valueCoding>
-                  <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-                  <code value="0"/>
-                </valueCoding>
-              </answer>
-            </question>
-          </group>
-        </answer>
-      </question>
-    </group>
+            <answer>
+              <valueCoding>
+                <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+                <code value="1"/>
+              </valueCoding>
+            </answer>
+          </item>
+          <item>
+            <answer>
+              <valueCoding>
+                <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+                <code value="0"/>
+              </valueCoding>
+            </answer>
+          </item>
+        </item>
+      </answer>
+    </item>
+  </item>
   <!--   HISTOPATHOLOGY   -->
   <!--   TODO: decide how to do this
-    <group>
+  <item>
 
-      <group>
-        <question>
-         <dataResource>
-            <reference value="#obs.pt-category"/>
-          </dataResource>
-        </question>
-      </group>
-    </group>   -->
-  </group>
+    <item>
+      <item>
+       <dataResource>
+          <reference value="#obs.pt-category"/>
+        </dataResource>
+      </item>
+    </item>
+  </item>   -->
 </QuestionnaireResponse>

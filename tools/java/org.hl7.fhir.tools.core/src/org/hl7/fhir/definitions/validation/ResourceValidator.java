@@ -788,7 +788,8 @@ public class ResourceValidator extends BaseValidator {
       }
       StringBuilder b = new StringBuilder();
       for (DefinedCode c : ac) {
-        b.append(" | ").append(c.getCode());
+      	if (!c.getAbstract())
+        	b.append(" | ").append(c.getCode());
       }
       if (sd.equals("*")) {
         e.setShortDefn(b.toString().substring(3));

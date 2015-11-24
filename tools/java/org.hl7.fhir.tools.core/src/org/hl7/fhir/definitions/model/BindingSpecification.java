@@ -429,6 +429,7 @@ public class BindingSpecification {
     code.setDefinition(c.getDefinition());
     code.setParent(parent);
     code.setSystem(system);
+    code.setAbstract(c.getAbstract());
     allCodes.add(code);
     for (ConceptDefinitionComponent cc : c.getConcept())
       processCode(cc, system, c.getCode());

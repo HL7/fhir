@@ -37,13 +37,6 @@
 
 === Sheet Invariants =====================================
 
- -- Row 1 -----------------------------------
-  Id = 1
-  Context = QuestionnaireResponse.group
-  English = Groups may either contain questions or groups but not both
-  XPath = not(exists(f:group) and exists(f:question))
-  FHIRPath = group.empty() xor question
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -155,95 +148,43 @@
   w5 = context
 
  -- Row 10 -----------------------------------
-  Element = QuestionnaireResponse.group
-  Card. = 0..1
+  Element = QuestionnaireResponse.item
+  Card. = 0..*
   UML = 390;40
-  Type = =Group
-  Short Label = Grouped questions
-  Definition = A group of questions to a possibly similarly grouped set of questions in the questionnaire response
-  Requirements = Need to be able to logically group answers to grouped questions
-  Comments = The Questionnaire itself has one \"root\" group with the actual contents of the Questionnaire
+  Short Label = Groups and questions
+  Definition = Corresponds to a group or question item from the original questionnaire
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]
 
  -- Row 11 -----------------------------------
-  Element = QuestionnaireResponse.group.linkId
+  Element = QuestionnaireResponse.item.linkId
   Card. = 0..1
   Type = string
-  Short Label = Corresponding group within Questionnaire
-  Definition = Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireResponse resource.
-  Requirements = Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by identifier.
+  Short Label = Corresponding item within Questionnaire
+  Definition = Identifies the item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
+  Requirements = Items can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by identifier.
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]
 
  -- Row 12 -----------------------------------
-  Element = QuestionnaireResponse.group.title
+  Element = QuestionnaireResponse.item.text
   Card. = 0..1
   Type = string
-  Short Label = Name for this group
-  Definition = Text that is displayed above the contents of the group
-  Requirements = When including text for the questionnaire with the answers, sections may have a section header
-  Comments = On the root group, this is the title of the questionnaire
-  RIM Mapping = .title
-
- -- Row 13 -----------------------------------
-  Element = QuestionnaireResponse.group.text
-  Card. = 0..1
-  Type = string
-  Short Label = Additional text for the group
-  Definition = Additional text for the group, used for display purposes
-  Requirements = When including text for the questionnaire, each section may contain additional explanations are background text
+  Short Label = Name for group or question text
+  Definition = Text that is displayed above the contents of the group or as the text of the question being answered
+  Requirements = Allows the questionnaire response to be read without access to the questionnaire
   RIM Mapping = .text
 
- -- Row 14 -----------------------------------
-  Element = QuestionnaireResponse.group.subject
+ -- Row 13 -----------------------------------
+  Element = QuestionnaireResponse.item.subject
   Card. = 0..1
   Type = Reference(Any)
   Short Label = The subject this group\'s answers are about
   Definition = More specific subject this section\'s answers are about, details the subject given in QuestionnaireResponse
   Requirements = Sometimes a group of answers is about a specific participant, artifact or piece of information in the patient\'s care or record, e.g. a specific Problem, RelatedPerson, Allergy etc.
   RIM Mapping = .participation[typeCode=SBJ].role or .outboundRelationship[typeCode=SUBJ].target
+  To Do = How does the questionnaire indicate where this is appropriate/necessary?
 
- -- Row 15 -----------------------------------
-  Element = QuestionnaireResponse.group.group
-  Card. = 0..*
-  Inv. = 1
-  Type = @QuestionnaireResponse.group
-  Short Label = Nested questionnaire response group
-  Definition = A sub-group within a group. The ordering of groups within this group is relevant
-  Requirements = Reports can consist of complex nested groups
-  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]
-
- -- Row 16 -----------------------------------
-  Element = QuestionnaireResponse.group.question
-  Card. = 0..*
-  Aliases = Responses, Contents
-  UML = 410;190
-  Inv. = 1
-  Type = =Question
-  Short Label = Questions in this group
-  Definition = Set of questions within this group. The order of questions within the group is relevant
-  Requirements = Must register answers to questions
-  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN or DEF]
-
- -- Row 17 -----------------------------------
-  Element = QuestionnaireResponse.group.question.linkId
-  Card. = 0..1
-  Type = string
-  Short Label = Corresponding question within Questionnaire
-  Definition = Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireResponse resource.
-  Requirements = Groups can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by id.
-  RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]
-
- -- Row 18 -----------------------------------
-  Element = QuestionnaireResponse.group.question.text
-  Card. = 0..1
-  Type = string
-  Short Label = Text of the question as it is shown to the user
-  Definition = The actual question as shown to the user to prompt them for an answer.
-  Requirements = When including text for the questionnaire, each question may contain its actual question display text
-  RIM Mapping = .code.display
-
- -- Row 19 -----------------------------------
-  Element = QuestionnaireResponse.group.question.answer
+ -- Row 14 -----------------------------------
+  Element = QuestionnaireResponse.item.answer
   Card. = 0..*
   UML = 0;190
   Short Label = The response(s) to the question
@@ -251,8 +192,8 @@
   Comments = The value is nested because we cannot have a repeating structure that has variable type
   RIM Mapping = .value[type=LIST_ANY]
 
- -- Row 20 -----------------------------------
-  Element = QuestionnaireResponse.group.question.answer.value[x]
+ -- Row 15 -----------------------------------
+  Element = QuestionnaireResponse.item.answer.value[x]
   Card. = 0..1
   Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
   Binding = QuestionnaireAnswer
@@ -262,14 +203,23 @@
   Comments = More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
   RIM Mapping = .item
 
- -- Row 21 -----------------------------------
-  Element = QuestionnaireResponse.group.question.answer.group
+ -- Row 16 -----------------------------------
+  Element = QuestionnaireResponse.item.answer.item
   Card. = 0..*
-  Type = @QuestionnaireResponse.group
-  Short Label = Nested questionnaire group
-  Definition = Nested group, containing nested question for this question. The order of groups within the question is relevant
+  Type = @QuestionnaireResponse.item
+  Short Label = Nested groups and questions
+  Definition = Nested groups and/or questions found within this particular answer
   Requirements = It is useful to have \"sub-questions\", questions which normally appear when certain answers are given and which collect additional details.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]
+
+ -- Row 17 -----------------------------------
+  Element = QuestionnaireResponse.item.item
+  Card. = 0..*
+  Type = @QuestionnaireResponse.item
+  Short Label = Nested questionnaire response items
+  Definition = Questions or sub-groups nested beneath a question or group
+  Requirements = Reports can consist of complex nested groups
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]
 
 === Sheet Search =====================================
 

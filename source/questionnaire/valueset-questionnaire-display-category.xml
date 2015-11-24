@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-	<url value="http://hl7.org/fhir/ValueSet/questionnaire-question-control"/>
-	<name value="Questionnaire Question UI Control Codes"/>
+	<url value="http://hl7.org/fhir/ValueSet/questionnaire-display-category"/>
+	<name value="Questionnaire Text Categories"/>
 	<status value="draft"/>
 	<publisher value="HL7 International - Patient Care WG"/>
 	<contact>
@@ -10,24 +10,24 @@
 			<value value="http://www.hl7.org/Special/committees/patientcare"/>
 		</telecom>
 	</contact>
-	<description value="Starter set of user interface controls that might be used when capturing data from Questionnaire questions."/>
+	<description value="Codes defining the purpose of a Questionnaire item of type 'text'."/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/questionnaire-question-control"/>
+    <system value="http://hl7.org/fhir/questionnaire-display-category"/>
     <caseSensitive value="true"/>
     <concept>
-      <code value="autocomplete"/>
-      <display value="Auto-complete"/>
-      <definition value="A control which provides a list of potential matches based on text entered into a control.  Used for large choice sets where text-matching is an appropriate discovery mechanism."/>
+      <code value="instructions"/>
+      <display value="Instructions"/>
+      <definition value="The text provides guidances on how to populate or use a portion of the questionnaire (or the questionnaire as a whole)."/>
     </concept>
     <concept>
-      <code value="drop-down"/>
-      <display value="Drop down"/>
-      <definition value="A control where an item (or multiple items) can be selected from a list that is only displayed when the user is editing the field."/>
+      <code value="units"/>
+      <display value="Units"/>
+      <definition value="The text indicates the units of measure associated with the parent question."/>
     </concept>
     <concept>
-      <code value="check-box"/>
-      <display value="Check-box"/>
-      <definition value="A control where choices are listed with a box beside them.  The box can be toggled to select or de-select a given choice.  Multiple selections may be possible."/>
+      <code value="security"/>
+      <display value="Security"/>
+      <definition value="The text provides guidance on how the information should be or will be handled from a security/confidentiality/access control perspective when completed"/>
     </concept>
     <concept>
       <code value="lookup"/>

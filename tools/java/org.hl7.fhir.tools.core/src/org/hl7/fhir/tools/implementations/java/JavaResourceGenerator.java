@@ -662,13 +662,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		int l = codes.size();
 		int i = 0;
 		for (DefinedCode c : codes) {
-			i++;
-			String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("        /**\r\n");
-      write("         * "+c.getDefinition()+"\r\n");
-      write("         */\r\n");      
-			write("        "+cc.toUpperCase()+", \r\n");
+			if (!c.getAbstract()) {
+				i++;
+				String cc = Utilities.camelCase(c.getCode());
+	      cc = makeConst(cc);
+	      write("        /**\r\n");
+	      write("         * "+c.getDefinition()+"\r\n");
+	      write("         */\r\n");      
+				write("        "+cc.toUpperCase()+", \r\n");
+			}
 		}
     write("        /**\r\n");
     write("         * added to help the parsers\r\n");
@@ -680,10 +682,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		write("            if (codeString == null || \"\".equals(codeString))\r\n");
 		write("                return null;\r\n");
 		for (DefinedCode c : codes) {
-			String cc = Utilities.camelCase(c.getCode());
-			cc = makeConst(cc);
-			write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
-			write("          return "+cc+";\r\n");
+			if (!c.getAbstract()) {
+				String cc = Utilities.camelCase(c.getCode());
+				cc = makeConst(cc);
+				write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
+				write("          return "+cc+";\r\n");
+			}
 		}		
 		write("        throw new Exception(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
 		write("        }\r\n");	
@@ -691,9 +695,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		write("        public String toCode() {\r\n");
 		write("          switch (this) {\r\n");
 		for (DefinedCode c : codes) {
-			String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-			write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
+			if (!c.getAbstract()) {
+				String cc = Utilities.camelCase(c.getCode());
+	      cc = makeConst(cc);
+				write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
+			}
 		}   
 		write("            default: return \"?\";\r\n");
 		write("          }\r\n"); 
@@ -702,9 +708,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("        public String getSystem() {\r\n");
     write("          switch (this) {\r\n");
     for (DefinedCode c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("            case "+cc+": return \""+c.getSystem()+"\";\r\n");
+    	if (!c.getAbstract()) {
+	      String cc = Utilities.camelCase(c.getCode());
+	      cc = makeConst(cc);
+	      write("            case "+cc+": return \""+c.getSystem()+"\";\r\n");
+	    }
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
@@ -713,9 +721,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("        public String getDefinition() {\r\n");
     write("          switch (this) {\r\n");
     for (DefinedCode c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
+    	if (!c.getAbstract()) {
+	      String cc = Utilities.camelCase(c.getCode());
+	      cc = makeConst(cc);
+	      write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
+	    }
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
@@ -724,9 +734,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("        public String getDisplay() {\r\n");
     write("          switch (this) {\r\n");
     for (DefinedCode c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
+    	if (!c.getAbstract()) {
+	      String cc = Utilities.camelCase(c.getCode());
+	      cc = makeConst(cc);
+	      write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
+			}
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
@@ -743,10 +755,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("            if (codeString == null || \"\".equals(codeString))\r\n");
     write("                return null;\r\n");
     for (DefinedCode c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
-      write("          return "+tns+"."+cc+";\r\n");
+    	if (!c.getAbstract()) {
+	      String cc = Utilities.camelCase(c.getCode());
+	      cc = makeConst(cc);
+	      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
+	      write("          return "+tns+"."+cc+";\r\n");
+	    }
     }   
     write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
@@ -757,19 +771,23 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("          if (codeString == null || \"\".equals(codeString))\r\n");
     write("            return null;\r\n");
     for (DefinedCode c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
-      write("          return new Enumeration<"+tns+">(this, "+tns+"."+cc+");\r\n");
+    	if (!c.getAbstract()) {
+	      String cc = Utilities.camelCase(c.getCode());
+	      cc = makeConst(cc);
+	      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
+	      write("          return new Enumeration<"+tns+">(this, "+tns+"."+cc+");\r\n");
+			}
     }   
     write("        throw new Exception(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
 
     write("    public String toCode("+tns+" code) {\r\n");
     for (DefinedCode c : codes) {
-      String cc = Utilities.camelCase(c.getCode());
-      cc = makeConst(cc);
-      write("      if (code == "+tns+"."+cc+")\r\n        return \""+c.getCode()+"\";\r\n");
+    	if (!c.getAbstract()) {
+	      String cc = Utilities.camelCase(c.getCode());
+	      cc = makeConst(cc);
+	      write("      if (code == "+tns+"."+cc+")\r\n        return \""+c.getCode()+"\";\r\n");
+			}
     }
     write("      return \"?\";\r\n"); 
     write("      }\r\n"); 

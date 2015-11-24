@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
   <id value="questionnaire-sdc-profile-example"/>
   <meta>
@@ -632,447 +631,416 @@
         <status value="published"/>
         <date value="2012-04-01"/>
         <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
+        <title value="Medication or Other Substance"/>
         <subjectType value="Patient"/>
-        <group>
-          <linkId value="root"/>
-          <title value="Medication or Other Substance"/>
-          <required value="true"/>
-          <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
-              <valueCode value="header"/>
+        <item>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://hl7.org/fhir/questionnaire-item-control"/>
+                <code value="header"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+          <linkId value="Medication/header"/>
+          <type value="group"/>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="3"/>
             </extension>
-            <linkId value="Medication/header"/>
-            <question>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="9"/>
+            </extension>
+            <linkId value="Medication/DE2"/>
+            <text value="Event ID:"/>
+            <type value="string"/>
+            <required value="true"/>
+          </item>
+          <item>
+            <linkId value="Medication/DE30"/>
+            <text value="Initial Report Date (HERF Q1)"/>
+            <type value="string"/>
+            <required value="true"/>
+          </item>
+        </item>
+        <item>
+          <linkId value="Medication/SEC00"/>
+          <text value="Medication or Other Substance"/>
+          <type value="group"/>
+          <item>
+            <text value="Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the Device or Medical/Surgical Supply including Health Information Technology (HIT) form. Narrative detail can be captured on the Healthcare Event Reporting Form (HERF)."/>
+            <type value="display"/>
+          </item>
+          <item>
+            <linkId value="Medication/SEC01/74080-3"/>
+            <type value="group"/>
+            <required value="true"/>
+            <item>
               <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="3"/>
+                <valueInteger value="1"/>
               </extension>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="9"/>
+                <valueInteger value="30"/>
               </extension>
-              <linkId value="Medication/DE2"/>
-              <text value="Event ID:"/>
-              <type value="string"/>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <valueReference>
+                  <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20substance%20involved"/>
+                </valueReference>
+              </extension>
+              <linkId value="Medication/DE270"/>
+              <text value="What type of medication/substance was involved?"/>
+              <type value="open-choice"/>
               <required value="true"/>
-            </question>
-            <question>
-              <linkId value="Medication/DE30"/>
-              <text value="Initial Report Date (HERF Q1)"/>
-              <type value="string"/>
-              <required value="true"/>
-            </question>
-          </group>
-          <group>
-            <linkId value="Medication/SEC00"/>
-            <title value="Medication or Other Substance"/>
-            <text value="Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the Device or Medical/Surgical Supply including Health Information Technology (HIT) form. Narrative detail can be captured on the Healthcare Event Reporting Form (HERF)."/>
-            <group>
-              <linkId value="Medication/SEC01/74080-3"/>
-              <required value="true"/>
-              <question>
+              <options>
+                <reference value="#d1e551-vs"/>
+              </options>
+              <item>
                 <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="1"/>
+                  <valueInteger value="7"/>
                 </extension>
                 <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="30"/>
+                  <valueInteger value="65"/>
                 </extension>
                 <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
-                    <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20substance%20involved"/>
+                    <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20medication%20involved"/>
                   </valueReference>
                 </extension>
-                <linkId value="Medication/DE270"/>
-                <text value="What type of medication/substance was involved?"/>
+                <linkId value="Medication/DE273"/>
+                <text value="What type of medication?"/>
                 <type value="open-choice"/>
                 <required value="true"/>
                 <options>
-                  <reference value="#d1e551-vs"/>
+                  <reference value="#d1e639-vs"/>
                 </options>
-                <group>
-                  <linkId value="Medication/DE270/A1197"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                      <valueInteger value="7"/>
-                    </extension>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                      <valueInteger value="65"/>
-                    </extension>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                      <valueReference>
-                        <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20medication%20involved"/>
-                      </valueReference>
-                    </extension>
-                    <linkId value="Medication/DE273"/>
-                    <text value="What type of medication?"/>
-                    <type value="open-choice"/>
-                    <required value="true"/>
-                    <options>
-                      <reference value="#d1e639-vs"/>
-                    </options>
-                    <group>
-                      <linkId value="Medication/DE273/A1221"/>
-                      <required value="false"/>
-                      <repeats value="false"/>
-                      <question>
-                        <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                          <valueInteger value="0"/>
-                        </extension>
-                        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                          <valueInteger value="500"/>
-                        </extension>
-                        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                          <valueReference>
-                            <reference value="http://AHRQ.gov/data_element_identifier#Compounded%20preparation%20ingredients"/>
-                          </valueReference>
-                        </extension>
-                        <linkId value="Medication/DE276"/>
-                        <text value="Please list all ingredients:"/>
-                        <type value="string"/>
-                        <repeats value="true"/>
-                      </question>
-                    </group>
-                  </question>
-                </group>
-                <group>
-                  <linkId value="Medication/DE270/A1200"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                      <valueInteger value="8"/>
-                    </extension>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                      <valueInteger value="65"/>
-                    </extension>
-                    <linkId value="Medication/DE279"/>
-                    <text value="What type of biological product?"/>
-                    <type value="open-choice"/>
-                    <options>
-                      <reference value="#d1e910-vs"/>
-                    </options>
-                    <group>
-                      <linkId value="Medication/DE279/A1233"/>
-                      <required value="false"/>
-                      <repeats value="false"/>
-                      <question>
-                      <!-- 
+                <item>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                    <valueInteger value="0"/>
+                  </extension>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                    <valueInteger value="500"/>
+                  </extension>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                    <valueReference>
+                      <reference value="http://AHRQ.gov/data_element_identifier#Compounded%20preparation%20ingredients"/>
+                    </valueReference>
+                  </extension>
+                  <linkId value="Medication/DE276"/>
+                  <text value="Please list all ingredients:"/>
+                  <type value="string"/>
+                  <repeats value="true"/>
+                </item>
+              </item>
+              <item>
+                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                  <valueInteger value="8"/>
+                </extension>
+                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                  <valueInteger value="65"/>
+                </extension>
+                <linkId value="Medication/DE279"/>
+                <text value="What type of biological product?"/>
+                <type value="open-choice"/>
+                <options>
+                  <reference value="#d1e910-vs"/>
+                </options>
+                <item>
+                  <!-- 
                         <extension url="http://hl7.org/fhir/StructureDefinition/minValue">
                           <valueInteger value="??"/>
                         </extension>
                         <extension url="http://hl7.org/fhir/StructureDefinition/maxValue">
                           <valueInteger value="??"/>
                         </extension>  -->
-                        <linkId value="Medication/DE282"/>
-                        <text value="What was the lot number of the vaccine?"/>
-                        <type value="string"/>
-                        <required value="true"/>
-                      </question>
-                    </group>
-                  </question>
-                </group>
-                <group>
-                  <linkId value="Medication/DE270/A1203"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <linkId value="Medication/DE285"/>
-                    <text value="What type of nutritional product?"/>
-                    <type value="open-choice"/>
-                    <required value="true"/>
-                    <options>
-                      <reference value="#d1e1125-vs"/>
-                    </options>
-                  </question>
-                </group>
-              </question>
-              <question>
-                <linkId value="Medication/DE288"/>
-                <text value="Which of the following best characterizes the event?"/>
+                  <linkId value="Medication/DE282"/>
+                  <text value="What was the lot number of the vaccine?"/>
+                  <type value="string"/>
+                  <required value="true"/>
+                </item>
+              </item>
+              <item>
+                <linkId value="Medication/DE285"/>
+                <text value="What type of nutritional product?"/>
                 <type value="open-choice"/>
                 <required value="true"/>
                 <options>
-                  <reference value="#d1e1558-vs"/>
+                  <reference value="#d1e1125-vs"/>
                 </options>
-              </question>
-              <question>
-                <linkId value="Medication/DE291"/>
-                <text value="What was the incorrect action?"/>
-                <type value="open-choice"/>
-                <options>
-                  <reference value="#d1e1746-vs"/>
-                </options>
-                <group>
-                  <linkId value="Medication/DE291/A1275"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <linkId value="Medication/DE294"/>
-                    <text value="Which best describes the incorrect dose(s)?"/>
-                    <type value="open-choice"/>
-                    <required value="true"/>
-                    <options>
-                      <reference value="#d1e1863-vs"/>
-                    </options>
-                  </question>
-                </group>
-                <group>
-                  <linkId value="Medication/DE291/A1308"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <linkId value="Medication/DE297"/>
-                    <text value="Which best describes the incorrect timing?"/>
-                    <type value="open-choice"/>
-                    <required value="true"/>
-                    <options>
-                      <reference value="#d1e2109-vs"/>
-                    </options>
-                  </question>
-                </group>
-                <group>
-                  <linkId value="Medication/DE291/A1284"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <linkId value="Medication/DE300"/>
-                    <text value="Which best describes the incorrect rate?"/>
-                    <type value="open-choice"/>
-                    <required value="true"/>
-                    <options>
-                      <reference value="#d1e2272-vs"/>
-                    </options>
-                  </question>
-                </group>
-                <group>
-                  <linkId value="Medication/DE291/A1293"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <linkId value="Medication/DE303"/>
-                    <text value="Which best describes the incorrect strength or concentration?"/>
-                    <type value="open-choice"/>
-                    <required value="true"/>
-                    <options>
-                      <reference value="#d1e2489-vs"/>
-                    </options>
-                  </question>
-                </group>
-                <group>
-                  <linkId value="Medication/DE291/A1299"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <linkId value="Medication/DE306"/>
-                    <text value="What was the expiration date?"/>
-                    <type value="string"/>
-                    <required value="true"/>
-                  </question>
-                </group>
-                <group>
-                  <linkId value="Medication/DE291/A1302"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <linkId value="Medication/DE309"/>
-                    <text value="Was there a documented history of allergies or sensitivities to the medication/substance administered?"/>
-                    <type value="open-choice"/>
-                    <required value="true"/>
-                    <options>
-                      <reference value="#d1e2768-vs"/>
-                    </options>
-                  </question>
-                </group>
-                <group>
-                  <linkId value="Medication/DE291/A1305"/>
-                  <required value="false"/>
-                  <repeats value="false"/>
-                  <question>
-                    <linkId value="Medication/DE312"/>
-                    <text value="What was the contraindication (potential or actual interaction)?"/>
-                    <type value="open-choice"/>
-                    <required value="true"/>
-                    <options>
-                      <reference value="#d1e2928-vs"/>
-                    </options>
-                  </question>
-                </group>
-              </question>
-              <question>
-                <linkId value="Medication/DE315"/>
-                <text value="At what stage in the process did the event originate, regardless of the stage at which it was discovered?"/>
+              </item>
+            </item>
+            <item>
+              <linkId value="Medication/DE288"/>
+              <text value="Which of the following best characterizes the event?"/>
+              <type value="open-choice"/>
+              <required value="true"/>
+              <options>
+                <reference value="#d1e1558-vs"/>
+              </options>
+            </item>
+            <item>
+              <linkId value="Medication/DE291"/>
+              <text value="What was the incorrect action?"/>
+              <type value="open-choice"/>
+              <options>
+                <reference value="#d1e1746-vs"/>
+              </options>
+              <item>
+                <linkId value="Medication/DE294"/>
+                <text value="Which best describes the incorrect dose(s)?"/>
                 <type value="open-choice"/>
                 <required value="true"/>
                 <options>
-                  <reference value="#d1e3159-vs"/>
+                  <reference value="#d1e1863-vs"/>
                 </options>
-              </question>
-            </group>
-            <group>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs">
-                <valueInteger value="5"/>
-              </extension>
-              <linkId value="Medication/SEC02/74078-7"/>
-              <text value="Please provide the following medication details for any medications or other substances directly involved in the event."/>
-              <repeats value="true"/>
-              <question>
-                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="0"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="65"/>
-                </extension>
-                <linkId value="Medication/DE318"/>
-                <text value="Generic name or investigational drug name"/>
-                <type value="string"/>
-              </question>
-              <question>
-                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="0"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="65"/>
-                </extension>
-                <linkId value="Medication/DE319"/>
-                <text value="Ingredient"/>
-                <type value="string"/>
-              </question>
-              <question>
-                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="0"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="65"/>
-                </extension>
-                <linkId value="Medication/DE321"/>
-                <text value="Brand name"/>
-                <type value="string"/>
-              </question>
-              <question>
-                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="0"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="65"/>
-                </extension>
-                <linkId value="Medication/DE322"/>
-                <text value="Brand name RXCUI"/>
-                <type value="string"/>
-              </question>
-              <question>
-                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="0"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="65"/>
-                </extension>
-                <linkId value="Medication/DE324"/>
-                <text value="Manufacturer"/>
-                <type value="string"/>
-              </question>
-              <question>
-                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="0"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="65"/>
-                </extension>
-                <linkId value="Medication/DE327"/>
-                <text value="Strength or concentration of product"/>
-                <type value="string"/>
-              </question>
-              <question>
-                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="0"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="65"/>
-                </extension>
-                <linkId value="Medication/DE328"/>
-                <text value="Clinical Component RXCUI"/>
-                <type value="string"/>
-              </question>
-              <question>
-                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="0"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="65"/>
-                </extension>
-                <linkId value="Medication/DE330"/>
-                <text value="Dosage form of Product"/>
-                <type value="string"/>
-              </question>
-              <question>
-                <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                  <valueInteger value="0"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                  <valueInteger value="65"/>
-                </extension>
-                <linkId value="Medication/DE331"/>
-                <text value="Dose form RXCUI"/>
-                <type value="string"/>
-              </question>
-              <question>
-                <linkId value="Medication/DE333"/>
-                <text value="Was this medication/substance prescribed for this patient?"/>
+              </item>
+              <item>
+                <linkId value="Medication/DE297"/>
+                <text value="Which best describes the incorrect timing?"/>
                 <type value="open-choice"/>
                 <required value="true"/>
                 <options>
-                  <reference value="#d1e4024-vs"/>
+                  <reference value="#d1e2109-vs"/>
                 </options>
-              </question>
-              <question>
-                <linkId value="Medication/DE336"/>
-                <text value="Was this medication/substance given to this patient?"/>
+              </item>
+              <item>
+                <linkId value="Medication/DE300"/>
+                <text value="Which best describes the incorrect rate?"/>
                 <type value="open-choice"/>
                 <required value="true"/>
                 <options>
-                  <reference value="#d1e4118-vs"/>
+                  <reference value="#d1e2272-vs"/>
                 </options>
-              </question>
-            </group>
-            <group>
-              <linkId value="Medication/SEC03"/>
-              <question>
-                <linkId value="Medication/DE348"/>
-                <text value="What was the intended route of administration?"/>
+              </item>
+              <item>
+                <linkId value="Medication/DE303"/>
+                <text value="Which best describes the incorrect strength or concentration?"/>
                 <type value="open-choice"/>
                 <required value="true"/>
                 <options>
-                  <reference value="#d1e4236-vs"/>
+                  <reference value="#d1e2489-vs"/>
                 </options>
-              </question>
-              <question>
-                <linkId value="Medication/DE351"/>
-                <text value="What was the actual route of administration (attempted or completed)?"/>
+              </item>
+              <item>
+                <linkId value="Medication/DE306"/>
+                <text value="What was the expiration date?"/>
+                <type value="string"/>
+                <required value="true"/>
+              </item>
+              <item>
+                <linkId value="Medication/DE309"/>
+                <text value="Was there a documented history of allergies or sensitivities to the medication/substance administered?"/>
                 <type value="open-choice"/>
                 <required value="true"/>
                 <options>
-                  <reference value="#d1e4716-vs"/>
+                  <reference value="#d1e2768-vs"/>
                 </options>
-              </question>
-            </group>
-            <group>
-              <linkId value="Medication/SEC04"/>
-              <title value="STOP"/>
-              <text value="The form is complete."/>
-            </group>
-            <group>
-              <linkId value="Medication/SEC05"/>
-              <title value="Thank you for completing these questions."/>
-              <text value="OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information is estimated to average 10 minutes per response. An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850."/>
-            </group>
-          </group>
-          <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
-              <valueCode value="footer"/>
+              </item>
+              <item>
+                <linkId value="Medication/DE312"/>
+                <text value="What was the contraindication (potential or actual interaction)?"/>
+                <type value="open-choice"/>
+                <required value="true"/>
+                <options>
+                  <reference value="#d1e2928-vs"/>
+                </options>
+              </item>
+            </item>
+            <item>
+              <linkId value="Medication/DE315"/>
+              <text value="At what stage in the process did the event originate, regardless of the stage at which it was discovered?"/>
+              <type value="open-choice"/>
+              <required value="true"/>
+              <options>
+                <reference value="#d1e3159-vs"/>
+              </options>
+            </item>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs">
+              <valueInteger value="5"/>
             </extension>
-            <linkId value="Medication/footer"/>
+            <linkId value="Medication/SEC02/74078-7"/>
+            <type value="group"/>
+            <repeats value="true"/>
+            <item>
+              <text value="Please provide the following medication details for any medications or other substances directly involved in the event."/>
+              <type value="display"/>
+            </item>
+            <item>
+              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                <valueInteger value="0"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                <valueInteger value="65"/>
+              </extension>
+              <linkId value="Medication/DE318"/>
+              <text value="Generic name or investigational drug name"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                <valueInteger value="0"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                <valueInteger value="65"/>
+              </extension>
+              <linkId value="Medication/DE319"/>
+              <text value="Ingredient"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                <valueInteger value="0"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                <valueInteger value="65"/>
+              </extension>
+              <linkId value="Medication/DE321"/>
+              <text value="Brand name"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                <valueInteger value="0"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                <valueInteger value="65"/>
+              </extension>
+              <linkId value="Medication/DE322"/>
+              <text value="Brand name RXCUI"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                <valueInteger value="0"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                <valueInteger value="65"/>
+              </extension>
+              <linkId value="Medication/DE324"/>
+              <text value="Manufacturer"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                <valueInteger value="0"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                <valueInteger value="65"/>
+              </extension>
+              <linkId value="Medication/DE327"/>
+              <text value="Strength or concentration of product"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                <valueInteger value="0"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                <valueInteger value="65"/>
+              </extension>
+              <linkId value="Medication/DE328"/>
+              <text value="Clinical Component RXCUI"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                <valueInteger value="0"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                <valueInteger value="65"/>
+              </extension>
+              <linkId value="Medication/DE330"/>
+              <text value="Dosage form of Product"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+                <valueInteger value="0"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+                <valueInteger value="65"/>
+              </extension>
+              <linkId value="Medication/DE331"/>
+              <text value="Dose form RXCUI"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <linkId value="Medication/DE333"/>
+              <text value="Was this medication/substance prescribed for this patient?"/>
+              <type value="open-choice"/>
+              <required value="true"/>
+              <options>
+                <reference value="#d1e4024-vs"/>
+              </options>
+            </item>
+            <item>
+              <linkId value="Medication/DE336"/>
+              <text value="Was this medication/substance given to this patient?"/>
+              <type value="open-choice"/>
+              <required value="true"/>
+              <options>
+                <reference value="#d1e4118-vs"/>
+              </options>
+            </item>
+          </item>
+          <item>
+            <linkId value="Medication/SEC03"/>
+            <type value="group"/>
+            <item>
+              <linkId value="Medication/DE348"/>
+              <text value="What was the intended route of administration?"/>
+              <type value="open-choice"/>
+              <required value="true"/>
+              <options>
+                <reference value="#d1e4236-vs"/>
+              </options>
+            </item>
+            <item>
+              <linkId value="Medication/DE351"/>
+              <text value="What was the actual route of administration (attempted or completed)?"/>
+              <type value="open-choice"/>
+              <required value="true"/>
+              <options>
+                <reference value="#d1e4716-vs"/>
+              </options>
+            </item>
+          </item>
+          <item>
+            <linkId value="Medication/SEC04"/>
+            <text value="STOP"/>
+            <type value="group"/>
+            <item>
+              <text value="The form is complete."/>
+              <type value="display"/>
+            </item>
+          </item>
+          <item>
+            <linkId value="Medication/SEC05"/>
+            <text value="Thank you for completing these questions."/>
+            <type value="group"/>
+            <item>
+              <text value="OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information is estimated to average 10 minutes per response. An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850."/>
+              <type value="display"/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://hl7.org/fhir/questionnaire-item-control"/>
+                <code value="footer"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+          <linkId value="Medication/footer"/>
+          <type value="group"/>
+          <item>
             <text value="AHRQ Common Formats - Hospital Version 1.2 - 2012 Medication or Other Substance"/>
-          </group>
-        </group>
+            <type value="display"/>
+          </item>
+        </item>
       </Questionnaire>
     </resource>
   </entry>
@@ -1248,263 +1216,282 @@
           <value value="identifier/HERF/1.2"/>
         </identifier>
         <status value="published"/>
-        <group>
-          <linkId value="root"/>
-          <title value="Healthcare Event Reporting Form (HERF) Hospital Version 1.2"/>
-          <required value="true"/>
-          <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
-              <valueCode value="header"/>
+        <title value="Healthcare Event Reporting Form (HERF) Hospital Version 1.2"/>
+        <item>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://hl7.org/fhir/questionnaire-item-control"/>
+                <code value="header"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+          <linkId value="HERF/header"/>
+          <type value="group"/>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="3"/>
             </extension>
-            <linkId value="HERF/header"/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="3"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="9"/>
-              </extension>
-              <linkId value="HERF/DE2"/>
-              <text value="Event ID"/>
-              <type value="string"/>
-              <required value="true"/>
-            </question>
-            <question>
-              <linkId value="HERF/DE30"/>
-              <text value="Initial Report Date"/>
-              <type value="string"/>
-              <required value="true"/>
-            </question>
-          </group>
-          <group>
-            <linkId value="HERF/SEC01"/>
-            <question>
-              <linkId value="HERF/DE30b"/>
-              <text value="Report Date"/>
-              <type value="string"/>
-              <required value="true"/>
-            </question>
-            <question>
-              <linkId value="HERF/DE3"/>
-              <text value="What is being reported?"/>
-              <type value="open-choice"/>
-              <required value="true"/>
-              <options>
-                <reference value="#d1e5879-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs">
-                <valueInteger value="0"/>
-              </extension>
-              <linkId value="HERF/DE15"/>
-              <text value="Briefly describe the event that occurred or unsafe condition"/>
-              <type value="string"/>
-              <required value="true"/>
-              <repeats value="true"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs">
-                <valueInteger value="0"/>
-              </extension>
-              <linkId value="HERF/DE18"/>
-              <text value="Briefly describe the location where the event occurred or where the unsafe condition exists"/>
-              <type value="string"/>
-              <required value="true"/>
-              <repeats value="true"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs">
-                <valueInteger value="10"/>
-              </extension>
-              <linkId value="HERF/DE21"/>
-              <text value="Which of the following categories are associated with the event or unsafe condition?"/>
-              <type value="open-choice"/>
-              <required value="true"/>
-              <repeats value="true"/>
-              <options>
-                <reference value="#d1e6177-vs"/>
-              </options>
-            </question>
-          </group>
-          <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
-              <extension url="#enableWhen.question">
-                <valueString value="HERF/DE3"/>
-              </extension>
-              <extension url="#enableWhen.answer">
-                <valueCoding>
-                  <system value="http://AHRQ.org/form/question_identifier#HERF/DE3-cs"/>
-                  <code value="A3"/>
-                </valueCoding>
-              </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="9"/>
             </extension>
-            <linkId value="HERF/SEC01.1"/>
-            <title value="PATIENT INFORMATION (COMPLETE ONLY IF INCIDENT)"/>
+            <linkId value="HERF/DE2"/>
+            <text value="Event ID"/>
+            <type value="string"/>
+            <required value="true"/>
+          </item>
+          <item>
+            <linkId value="HERF/DE30"/>
+            <text value="Initial Report Date"/>
+            <type value="string"/>
+            <required value="true"/>
+          </item>
+        </item>
+        <item>
+          <linkId value="HERF/SEC01"/>
+          <type value="group"/>
+          <item>
+            <linkId value="HERF/DE30b"/>
+            <text value="Report Date"/>
+            <type value="string"/>
+            <required value="true"/>
+          </item>
+          <item>
+            <linkId value="HERF/DE3"/>
+            <text value="What is being reported?"/>
+            <type value="open-choice"/>
+            <required value="true"/>
+            <options>
+              <reference value="#d1e5879-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs">
+              <valueInteger value="0"/>
+            </extension>
+            <linkId value="HERF/DE15"/>
+            <text value="Briefly describe the event that occurred or unsafe condition"/>
+            <type value="string"/>
+            <required value="true"/>
+            <repeats value="true"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs">
+              <valueInteger value="0"/>
+            </extension>
+            <linkId value="HERF/DE18"/>
+            <text value="Briefly describe the location where the event occurred or where the unsafe condition exists"/>
+            <type value="string"/>
+            <required value="true"/>
+            <repeats value="true"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs">
+              <valueInteger value="10"/>
+            </extension>
+            <linkId value="HERF/DE21"/>
+            <text value="Which of the following categories are associated with the event or unsafe condition?"/>
+            <type value="open-choice"/>
+            <required value="true"/>
+            <repeats value="true"/>
+            <options>
+              <reference value="#d1e6177-vs"/>
+            </options>
+          </item>
+        </item>
+        <item>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+            <extension url="question">
+              <valueString value="HERF/DE3"/>
+            </extension>
+            <extension url="answer">
+              <valueCoding>
+                <system value="http://AHRQ.org/form/question_identifier#HERF/DE3-cs"/>
+                <code value="A3"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="HERF/SEC01.1"/>
+          <text value="PATIENT INFORMATION (COMPLETE ONLY IF INCIDENT)"/>
+          <type value="group"/>
+          <item>
             <text value="Please complete the patient identifiers below. Additional patient information is captured on the Patient Information Form (PIF). (When reporting a perinatal incident that affected a mother and a neonate, please complete the patient identifiers below for the mother (Q8 – Q11) and the neonate (Q12 – Q15). Please also complete a separate PIF for the neonate involved.)"/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-                <valueString value="MM/DD/YYYY"/>
-              </extension>
-              <linkId value="HERF/DE9a"/>
-              <text value="Event Discovery Date"/>
-              <type value="string"/>
-              <required value="true"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-defaultValue">
-                <valueCoding>
-                  <system value="HERF/DE9b-cs"/>
-                  <code value="UNK"/>
-                  <display value="Unknown"/>
-                </valueCoding>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-                <valueString value="HHMM"/>
-              </extension>
-              <linkId value="HERF/DE9b"/>
-              <text value="Event Discovery Time"/>
-              <type value="string"/>
-              <required value="true"/>
-            </question>
-          </group>
-          <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
-              <extension url="#enableWhen.question">
-                <valueString value="HERF/DE3"/>
-              </extension>
-              <extension url="#enableWhen.answer">
-                <valueCoding>
-                  <system value="http://AHRQ.org/form/question_identifier#HERF/DE3-cs"/>
-                  <code value="A3"/>
-                </valueCoding>
-              </extension>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+              <valueString value="MM/DD/YYYY"/>
             </extension>
-            <linkId value="HERF/SEC02"/>
-            <title value="Patient Information (COMPLETE ONLY IF INCIDENT):"/>
+            <linkId value="HERF/DE9a"/>
+            <text value="Event Discovery Date"/>
+            <type value="string"/>
+            <required value="true"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-defaultValue">
+              <valueCoding>
+                <system value="HERF/DE9b-cs"/>
+                <code value="UNK"/>
+                <display value="Unknown"/>
+              </valueCoding>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+              <valueString value="HHMM"/>
+            </extension>
+            <linkId value="HERF/DE9b"/>
+            <text value="Event Discovery Time"/>
+            <type value="string"/>
+            <required value="true"/>
+          </item>
+        </item>
+        <item>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+            <extension url="question">
+              <valueString value="HERF/DE3"/>
+            </extension>
+            <extension url="answer">
+              <valueCoding>
+                <system value="http://AHRQ.org/form/question_identifier#HERF/DE3-cs"/>
+                <code value="A3"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="HERF/SEC02"/>
+          <text value="Patient Information (COMPLETE ONLY IF INCIDENT):"/>
+          <type value="group"/>
+          <item>
             <text value="Please complete the patient identifiers below. Additional patient information is captured on the Patient Information Form (PIF). (When reporting a perinatal incident that affected a mother and a neonate, please complete the patient identifiers below for the mother (Q8 – Q11) and the neonate (Q12 – Q15). Please also complete a separate PIF for the neonate involved.)"/>
-            <question>
-              <linkId value="HERF/DE46"/>
-              <text value="Patient&#39;s Name"/>
-              <type value="string"/>
-              <required value="true"/>
-            </question>
-            <question>
-              <linkId value="HERF/DE47"/>
-              <text value="Patient&#39;s Date of Birth"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <linkId value="HERF/DE49"/>
-              <text value="Patient&#39;s Medical Record #"/>
-              <type value="string"/>
-              <required value="true"/>
-            </question>
-            <question>
-              <linkId value="HERF/DE42"/>
-              <text value="Patients&#39; Gender"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e6853-vs"/>
-              </options>
-            </question>
-          </group>
-          <group>
-            <linkId value="HERF/SEC03"/>
-            <title value="Neonatal Patient Information:"/>
+            <type value="display"/>
+          </item>
+          <item>
+            <linkId value="HERF/DE46"/>
+            <text value="Patient's Name"/>
+            <type value="string"/>
+            <required value="true"/>
+          </item>
+          <item>
+            <linkId value="HERF/DE47"/>
+            <text value="Patient's Date of Birth"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <linkId value="HERF/DE49"/>
+            <text value="Patient's Medical Record #"/>
+            <type value="string"/>
+            <required value="true"/>
+          </item>
+          <item>
+            <linkId value="HERF/DE42"/>
+            <text value="Patients' Gender"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e6853-vs"/>
+            </options>
+          </item>
+        </item>
+        <item>
+          <linkId value="HERF/SEC03"/>
+          <text value="Neonatal Patient Information:"/>
+          <type value="group"/>
+          <item>
             <text value="COMPLETE ONLY FOR NEONATE AFFECTED BY PERINATAL INCIDENT"/>
-            <question>
-              <linkId value="HERF/Hidden"/>
-              <text value="Is this event a perinatal incident that affected a neonate?"/>
+            <type value="display"/>
+          </item>
+          <item>
+            <linkId value="HERF/Hidden"/>
+            <text value="Is this event a perinatal incident that affected a neonate?"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e7006-vs"/>
+            </options>
+            <item>
+              <linkId value="HERF/DE34"/>
+              <text value="Neonate's Name"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <linkId value="HERF/DE37"/>
+              <text value="Neonate's Date of Birth"/>
+              <type value="string"/>
+            </item>
+            <item>
+              <linkId value="HERF/DE40"/>
+              <text value="Neonate's Medical Record #"/>
+              <type value="string"/>
+              <required value="true"/>
+            </item>
+            <item>
+              <linkId value="HERF/DE43"/>
+              <text value="Neonate's Gender"/>
               <type value="open-choice"/>
+              <required value="true"/>
               <options>
-                <reference value="#d1e7006-vs"/>
+                <reference value="#d1e7220-vs"/>
               </options>
-              <group>
-                <linkId value="HERF/DE34/A15"/>
-                <required value="false"/>
-                <repeats value="false"/>
-                <question>
-                  <linkId value="HERF/DE34"/>
-                  <text value="Neonate&#39;s Name"/>
-                  <type value="string"/>
-                </question>
-                <question>
-                  <linkId value="HERF/DE37"/>
-                  <text value="Neonate&#39;s Date of Birth"/>
-                  <type value="string"/>
-                </question>
-                <question>
-                  <linkId value="HERF/DE40"/>
-                  <text value="Neonate&#39;s Medical Record #"/>
-                  <type value="string"/>
-                  <required value="true"/>
-                </question>
-                <question>
-                  <linkId value="HERF/DE43"/>
-                  <text value="Neonate&#39;s Gender"/>
-                  <type value="open-choice"/>
-                  <required value="true"/>
-                  <options>
-                    <reference value="#d1e7220-vs"/>
-                  </options>
-                </question>
-              </group>
-            </question>
-          </group>
-          <group>
-            <linkId value="HERF/SEC04"/>
-            <title value="REPORT AND EVENT REPORTER INFORMATION"/>
-            <question>
-              <linkId value="HERF/DE33"/>
-              <text value="Anonymous Reporter"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e7422-vs"/>
-              </options>
-              <group>
-                <linkId value="HERF/DE33/A18"/>
-                <required value="false"/>
-                <repeats value="false"/>
-                <question>
-                  <linkId value="HERF/DE50"/>
-                  <text value="Reporter&#39;s Name"/>
-                  <type value="string"/>
-                  <required value="true"/>
-                </question>
-                <question>
-                  <linkId value="HERF/DE52"/>
-                  <text value="Telephone Number"/>
-                  <type value="string"/>
-                  <required value="true"/>
-                </question>
-                <question>
-                  <linkId value="HERF/DE53"/>
-                  <text value="Email Address"/>
-                  <type value="string"/>
-                  <required value="true"/>
-                </question>
-                <question>
-                  <linkId value="HERF/DE36"/>
-                  <text value="Reporter&#39;s Job or Position"/>
-                  <type value="string"/>
-                </question>
-              </group>
-            </question>
-          </group>
-          <group>
-            <linkId value="HERF/SEC05"/>
-            <title value="Thank you for completing these questions."/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="HERF/SEC04"/>
+          <text value="REPORT AND EVENT REPORTER INFORMATION"/>
+          <type value="group"/>
+          <item>
+            <linkId value="HERF/DE33"/>
+            <text value="Anonymous Reporter"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e7422-vs"/>
+            </options>
+            <item>
+              <linkId value="HERF/DE50"/>
+              <text value="Reporter's Name"/>
+              <type value="string"/>
+              <required value="true"/>
+            </item>
+            <item>
+              <linkId value="HERF/DE52"/>
+              <text value="Telephone Number"/>
+              <type value="string"/>
+              <required value="true"/>
+            </item>
+            <item>
+              <linkId value="HERF/DE53"/>
+              <text value="Email Address"/>
+              <type value="string"/>
+              <required value="true"/>
+            </item>
+            <item>
+              <linkId value="HERF/DE36"/>
+              <text value="Reporter's Job or Position"/>
+              <type value="string"/>
+            </item>
+          </item>
+        </item>
+        <item>
+          <linkId value="HERF/SEC05"/>
+          <text value="Thank you for completing these questions."/>
+          <type value="group"/>
+          <item>
             <text value="OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information is estimated to average 10 minutes per response. An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850."/>
-          </group>
-          <group>
-            <extension url="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-specialGroup">
-              <valueCode value="footer"/>
-            </extension>
-            <linkId value="HERF/footer"/>
+            <type value="display"/>
+          </item>
+        </item>
+        <item>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://hl7.org/fhir/questionnaire-item-control"/>
+                <code value="footer"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+          <linkId value="HERF/footer"/>
+          <type value="group"/>
+          <item>
             <text value="AHRQ Common Formats - Hospital Version 1.2 - 2012 Medication or Other Substance"/>
-          </group>
-        </group>
+            <type value="display"/>
+          </item>
+        </item>
       </Questionnaire>
     </resource>
   </entry>
@@ -1636,7 +1623,7 @@
               <concept>
                 <code value="G4"/>
                 <display value="Undifferentiated"/>
-                <definition value="A term used to describe cells or tissues that do not have specialized (&quot;mature&quot;) structures or functions. Undifferentiated cancer cells often grow and spread quickly."/>
+                <definition value="A term used to describe cells or tissues that do not have specialized (&#34;mature&#34;) structures or functions. Undifferentiated cancer cells often grow and spread quickly."/>
               </concept>
               <concept>
                 <code value="GB"/>
@@ -1675,140 +1662,148 @@
         <status value="draft"/>
         <date value="2013-10-16"/>
         <publisher value="National Cancer Institute (NCI)"/>
-        <group>
-          <linkId value="root"/>
-          <title value="Diagnosis NCI Standard Template"/>
+        <title value="Diagnosis NCI Standard Template"/>
+        <item>
+          <linkId value="3921053v1.0"/>
+          <text value="Mandatory Diagnosis Questions"/>
+          <type value="group"/>
           <required value="true"/>
-          <group>
-            <linkId value="3921053v1.0"/>
-            <title value="Mandatory Diagnosis Questions"/>
+          <item>
             <text value="These items must be included when this data is collected for reporting."/>
-            <required value="true"/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#62667v3.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3921059v1.0"/>
-              <text value="Date of Current Pathologic Diagnosis"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="40"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914869v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3921060v1.0"/>
-              <text value="Diagnosis Type"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e8086-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="100"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914972v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3921065v1.0"/>
-              <text value="Primary Site"/>
-              <type value="string"/>
-            </question>
-          </group>
-          <group>
-            <linkId value="3921066v1.0"/>
-            <title value="Conditional Diagnosis Questions"/>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#62667v3.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3921059v1.0"/>
+            <text value="Date of Current Pathologic Diagnosis"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="40"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914869v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3921060v1.0"/>
+            <text value="Diagnosis Type"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e8086-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="100"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914972v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3921065v1.0"/>
+            <text value="Primary Site"/>
+            <type value="string"/>
+          </item>
+        </item>
+        <item>
+          <linkId value="3921066v1.0"/>
+          <text value="Conditional Diagnosis Questions"/>
+          <type value="group"/>
+          <item>
             <text value="There are business rules to indicate situations under which these elements should be used on a case report form."/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="25"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2816923v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3921071v1.0"/>
-              <text value="Diagnosis Time Point"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e8407-vs"/>
-              </options>
-            </question>
-          </group>
-          <group>
-            <linkId value="3921077v1.0"/>
-            <title value="Optional Diagnosis Questions"/>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="25"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2816923v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3921071v1.0"/>
+            <text value="Diagnosis Time Point"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e8407-vs"/>
+            </options>
+          </item>
+        </item>
+        <item>
+          <linkId value="3921077v1.0"/>
+          <text value="Optional Diagnosis Questions"/>
+          <type value="group"/>
+          <item>
             <text value="There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included."/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="100"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#64320v3.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3921079v1.0"/>
-              <text value="Reviewing Pathologist"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004425v4.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3921080v1.0"/>
-              <text value="MedDRA disease code"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="40"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914983v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3921081v1.0"/>
-              <text value="Assessment Method"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e8830-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="10"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2785839v2.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3921085v1.0"/>
-              <text value="Tumor grade"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e9025-vs"/>
-              </options>
-            </question>
-          </group>
-        </group>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="100"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#64320v3.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3921079v1.0"/>
+            <text value="Reviewing Pathologist"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004425v4.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3921080v1.0"/>
+            <text value="MedDRA disease code"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="40"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914983v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3921081v1.0"/>
+            <text value="Assessment Method"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e8830-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="10"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2785839v2.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3921085v1.0"/>
+            <text value="Tumor grade"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e9025-vs"/>
+            </options>
+          </item>
+        </item>
       </Questionnaire>
     </resource>
   </entry>
@@ -1875,7 +1870,7 @@
               <concept>
                 <code value="Black or African American"/>
                 <display value="Black or African American"/>
-                <definition value="A person having origins in any of the black racial groups of Africa. Terms such as &quot;Haitian&quot; or &quot;Negro&quot; can be used in addition to &quot;Black or African American.&quot;"/>
+                <definition value="A person having origins in any of the black racial groups of Africa. Terms such as &#34;Haitian&#34; or &#34;Negro&#34; can be used in addition to &#34;Black or African American.&#34;"/>
               </concept>
               <concept>
                 <code value="Native Hawaiian or other Pacific Islander"/>
@@ -2018,14 +2013,14 @@
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702942v4.0-cs"/>
               <caseSensitive value="true"/>
               <concept>
-                <code value="Bachelor&#39;s Degree"/>
-                <display value="Bachelor&#39;s Degree"/>
-                <definition value="Bachelor&#39;s degree is an award (baccalaureate or equivalent degree, as determined by the Secretary of the U.S. Department of Education) conferred by a college, university, or other postsecondary education institution as official recognition for the successful completion of a program of studies, that normally requires at least four years of full-time equivalent college-level work. This includes bachelor&#39;s degrees conferred in a five-year cooperative program."/>
+                <code value="Bachelor's Degree"/>
+                <display value="Bachelor's Degree"/>
+                <definition value="Bachelor's degree is an award (baccalaureate or equivalent degree, as determined by the Secretary of the U.S. Department of Education) conferred by a college, university, or other postsecondary education institution as official recognition for the successful completion of a program of studies, that normally requires at least four years of full-time equivalent college-level work. This includes bachelor's degrees conferred in a five-year cooperative program."/>
               </concept>
               <concept>
                 <code value="Doctoral degree or professional degree"/>
                 <display value="Professional Doctorate or Doctorate Degree"/>
-                <definition value="A doctorate awarded in certain fields where most holders of the degree are not engaged primarily in scholarly research and academic activities, but rather in a profession, such as law, medicine, music, or ministry.: Or; used to connect words, phrases, or clauses representing alternatives; used to connect alternative terms for the same thing; used in correlation; used to correct or rephrase what was previously said; otherwise.: The Doctor&#39;s Degree is the highest award a student can earn for graduate study. The doctor&#39;s degree classification includes such degrees in any field."/>
+                <definition value="A doctorate awarded in certain fields where most holders of the degree are not engaged primarily in scholarly research and academic activities, but rather in a profession, such as law, medicine, music, or ministry.: Or; used to connect words, phrases, or clauses representing alternatives; used to connect alternative terms for the same thing; used in correlation; used to correct or rephrase what was previously said; otherwise.: The Doctor's Degree is the highest award a student can earn for graduate study. The doctor's degree classification includes such degrees in any field."/>
               </concept>
               <concept>
                 <code value="Grade School"/>
@@ -2043,9 +2038,9 @@
                 <definition value="Indicates that a person has attended high school and has received a high school diploma.: Or; used to connect words, phrases, or clauses representing alternatives; used to connect alternative terms for the same thing; used in correlation; used to correct or rephrase what was previously said; otherwise.: Indicates that a person has received a General Equivalency Diploma in lieu of a high school diploma."/>
               </concept>
               <concept>
-                <code value="Master&#39;s Degree"/>
-                <display value="Master&#39;s Degree"/>
-                <definition value="The Master&#39;s Degree is an award that requires the successful completion of a program of study of at least the full-time equivalent of 1 but not more than two academic years of work beyond the bachelor&#39;s degree."/>
+                <code value="Master's Degree"/>
+                <display value="Master's Degree"/>
+                <definition value="The Master's Degree is an award that requires the successful completion of a program of study of at least the full-time equivalent of 1 but not more than two academic years of work beyond the bachelor's degree."/>
               </concept>
               <concept>
                 <code value="No formal education"/>
@@ -2174,11 +2169,11 @@
               </concept>
               <concept>
                 <code value="Bachelor Degree"/>
-                <display value="Bachelor&#39;s Degree Completion"/>
+                <display value="Bachelor's Degree Completion"/>
                 <definition value="Indicates that a person has received a degree for successful completion of a program of studies that normally requires at least 4-5 years of full-time equivalent college-level work."/>
               </concept>
               <concept>
-                <code value="Don&#39;t Know"/>
+                <code value="Don't Know"/>
                 <display value="Does Not Know"/>
                 <definition value="The answer is not known by the person answering."/>
               </concept>
@@ -2198,9 +2193,9 @@
                 <definition value="Indicates that kindergarten is the highest level of education achievement."/>
               </concept>
               <concept>
-                <code value="Master&#39;s Degree"/>
-                <display value="Master&#39;s Degree Completion"/>
-                <definition value="Indicates that a person has received a degree for completion of at least one year of prescribed study beyond the bachelor&#39;s degree."/>
+                <code value="Master's Degree"/>
+                <display value="Master's Degree Completion"/>
+                <definition value="Indicates that a person has received a degree for completion of at least one year of prescribed study beyond the bachelor's degree."/>
               </concept>
               <concept>
                 <code value="No Formal Schooling"/>
@@ -2296,252 +2291,260 @@
         <status value="published"/>
         <date value="2013-03-22"/>
         <publisher value="National Cancer Institute (NCI)"/>
-        <group>
-          <linkId value="root"/>
-          <title value="Demography NCI Standard Template"/>
+        <title value="Demography NCI Standard Template"/>
+        <item>
+          <linkId value="3702891v4.0"/>
+          <text value="Mandatory Demography Questions"/>
+          <type value="group"/>
           <required value="true"/>
-          <group>
-            <linkId value="3702891v4.0"/>
-            <title value="Mandatory Demography Questions"/>
+          <item>
             <text value="These items must be included when this data is collected for reporting"/>
-            <required value="true"/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="4"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="13"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200604v3.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702892v4.0"/>
-              <text value="Gender"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e9892-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="5"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="41"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192199v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702904v4.0"/>
-              <text value="Race"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e10146-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#793v5.1"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702903v4.0"/>
-              <text value="Patient&#39;s Date of Birth"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="7"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="22"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192217v2.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702898v4.0"/>
-              <text value="Ethnicity"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e10593-vs"/>
-              </options>
-            </question>
-          </group>
-          <group>
-            <linkId value="3702912v4.0"/>
-            <title value="Conditional Demography Questions"/>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="4"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="13"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200604v3.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702892v4.0"/>
+            <text value="Gender"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e9892-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="5"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="41"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192199v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702904v4.0"/>
+            <text value="Race"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e10146-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#793v5.1"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702903v4.0"/>
+            <text value="Patient's Date of Birth"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="7"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="22"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192217v2.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702898v4.0"/>
+            <text value="Ethnicity"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e10593-vs"/>
+            </options>
+          </item>
+        </item>
+        <item>
+          <linkId value="3702912v4.0"/>
+          <text value="Conditional Demography Questions"/>
+          <type value="group"/>
+          <item>
             <text value="There are business rules to indicate situations under which these elements should be used on a case report form."/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="15"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179606v2.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702914v4.0"/>
-              <text value="ZIP Code"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="50"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2865130v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702916v4.0"/>
-              <text value="Payment Method"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e10923-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="75"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#315v4.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702932v4.0"/>
-              <text value="Country of Residence"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2003745v5.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702934v4.0"/>
-              <text value="Date Completed"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="6"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200286v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702936v4.0"/>
-              <text value="CDC Race Code"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="6"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200284v2.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702938v4.0"/>
-              <text value="CDC Ethnicity Code"/>
-              <type value="string"/>
-            </question>
-          </group>
-          <group>
-            <linkId value="3702940v4.0"/>
-            <title value="Optional Demography Questions"/>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="15"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179606v2.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702914v4.0"/>
+            <text value="ZIP Code"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="50"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2865130v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702916v4.0"/>
+            <text value="Payment Method"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e10923-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="75"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#315v4.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702932v4.0"/>
+            <text value="Country of Residence"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2003745v5.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702934v4.0"/>
+            <text value="Date Completed"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="6"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200286v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702936v4.0"/>
+            <text value="CDC Race Code"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="6"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200284v2.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702938v4.0"/>
+            <text value="CDC Ethnicity Code"/>
+            <type value="string"/>
+          </item>
+        </item>
+        <item>
+          <linkId value="3702940v4.0"/>
+          <text value="Optional Demography Questions"/>
+          <type value="group"/>
+          <item>
             <text value="There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included."/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="44"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2681552v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702942v4.0"/>
-              <text value="Highest Education Level"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e11887-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="55"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2001708v5.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702952v4.0"/>
-              <text value="Country of Birth"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e12384-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="50"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2674076v2.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702957v4.0"/>
-              <text value="Highest Education Level"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e12630-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="6"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-                <valueString value="9999.99"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943243v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702984v4.0"/>
-              <text value="Census Tract Code at Enrollment"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="25"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188083v2.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3702985v4.0"/>
-              <text value="Marital Status"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e14027-vs"/>
-              </options>
-            </question>
-          </group>
-        </group>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="44"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2681552v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702942v4.0"/>
+            <text value="Highest Education Level"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e11887-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="55"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2001708v5.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702952v4.0"/>
+            <text value="Country of Birth"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e12384-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="50"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2674076v2.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702957v4.0"/>
+            <text value="Highest Education Level"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e12630-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="6"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+              <valueString value="9999.99"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943243v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702984v4.0"/>
+            <text value="Census Tract Code at Enrollment"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="25"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188083v2.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3702985v4.0"/>
+            <text value="Marital Status"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e14027-vs"/>
+            </options>
+          </item>
+        </item>
       </Questionnaire>
     </resource>
   </entry>
@@ -2623,7 +2626,7 @@
               <concept>
                 <code value="Adrenal insufficiency"/>
                 <display value="Adrenal insufficiency"/>
-                <definition value="A disorder that occurs when the adrenal cortex does not produce enough of the hormone cortisol and in some cases, the hormone aldosterone. It may be due to a disorder of the adrenal cortex as in Addison&#39;s disease or primary adrenal insufficiency."/>
+                <definition value="A disorder that occurs when the adrenal cortex does not produce enough of the hormone cortisol and in some cases, the hormone aldosterone. It may be due to a disorder of the adrenal cortex as in Addison's disease or primary adrenal insufficiency."/>
               </concept>
               <concept>
                 <code value="Adult respiratory distress syndrome"/>
@@ -3273,7 +3276,7 @@
               <concept>
                 <code value="Cushingoid"/>
                 <display value="Cushingoid"/>
-                <definition value="A disorder characterized by signs and symptoms that resemble Cushing&#39;s disease or syndrome: buffalo hump obesity, striations, adiposity, hypertension, diabetes, and osteoporosis, usually due to exogenous corticosteroids."/>
+                <definition value="A disorder characterized by signs and symptoms that resemble Cushing's disease or syndrome: buffalo hump obesity, striations, adiposity, hypertension, diabetes, and osteoporosis, usually due to exogenous corticosteroids."/>
               </concept>
               <concept>
                 <code value="Cystitis noninfective"/>
@@ -3758,7 +3761,7 @@
               <concept>
                 <code value="Fever"/>
                 <display value="Fever"/>
-                <definition value="A disorder characterized by elevation of the body&#39;s temperature above the upper limit of normal."/>
+                <definition value="A disorder characterized by elevation of the body's temperature above the upper limit of normal."/>
               </concept>
               <concept>
                 <code value="Fibrinogen decreased"/>
@@ -4353,7 +4356,7 @@
               <concept>
                 <code value="INR increased"/>
                 <display value="INR increased"/>
-                <definition value="A finding based on laboratory test results that indicate an increase in the ratio of the patient&#39;s prothrombin time to a control sample in the blood."/>
+                <definition value="A finding based on laboratory test results that indicate an increase in the ratio of the patient's prothrombin time to a control sample in the blood."/>
               </concept>
               <concept>
                 <code value="Insomnia"/>
@@ -5063,7 +5066,7 @@
               <concept>
                 <code value="Otitis externa"/>
                 <display value="Otitis externa"/>
-                <definition value="A disorder characterized by an infectious process involving the outer ear and ear canal. Contributory factors include excessive water exposure (swimmer&#39;s ear infection) and cuts in the ear canal. Symptoms include fullness, itching, swelling and marked discomfort in the ear and ear drainage."/>
+                <definition value="A disorder characterized by an infectious process involving the outer ear and ear canal. Contributory factors include excessive water exposure (swimmer's ear infection) and cuts in the ear canal. Symptoms include fullness, itching, swelling and marked discomfort in the ear and ear drainage."/>
               </concept>
               <concept>
                 <code value="Otitis media"/>
@@ -5283,7 +5286,7 @@
               <concept>
                 <code value="Personality change"/>
                 <display value="Personality change"/>
-                <definition value="A disorder characterized by a conspicuous change in a person&#39;s behavior and thinking."/>
+                <definition value="A disorder characterized by a conspicuous change in a person's behavior and thinking."/>
               </concept>
               <concept>
                 <code value="Phantom pain"/>
@@ -5983,12 +5986,12 @@
               <concept>
                 <code value="Suicidal ideation"/>
                 <display value="Suicidal ideation"/>
-                <definition value="A disorder characterized by thoughts of taking one&#39;s own life."/>
+                <definition value="A disorder characterized by thoughts of taking one's own life."/>
               </concept>
               <concept>
                 <code value="Suicide attempt"/>
                 <display value="Suicide attempt"/>
-                <definition value="A disorder characterized by self-inflicted harm in an attempt to end one&#39;s own life."/>
+                <definition value="A disorder characterized by self-inflicted harm in an attempt to end one's own life."/>
               </concept>
               <concept>
                 <code value="Superficial soft tissue fibrosis"/>
@@ -6603,7 +6606,7 @@
               <concept>
                 <code value="Device"/>
                 <display value="Medical_Device"/>
-                <definition value="Medical device - any machinery designed to aid diagnostic and medical therapies. Medical device has to be designed with rigorous safety standards. There are several basic types of medical devices: life support equipment used to maintain a patient&#39;s body functions; therapeutic equipment; monitors and detectors to measure the indexes of a patient&#39;s state; imagine machines and laboratory equipment used with diagnostic and status monitoring purposes. In insurance parlance, the term is usually synonymous with assistive device, although it may include medical supplies."/>
+                <definition value="Medical device - any machinery designed to aid diagnostic and medical therapies. Medical device has to be designed with rigorous safety standards. There are several basic types of medical devices: life support equipment used to maintain a patient's body functions; therapeutic equipment; monitors and detectors to measure the indexes of a patient's state; imagine machines and laboratory equipment used with diagnostic and status monitoring purposes. In insurance parlance, the term is usually synonymous with assistive device, although it may include medical supplies."/>
               </concept>
               <concept>
                 <code value="Disease"/>
@@ -6743,7 +6746,7 @@
               <concept>
                 <code value="Psychiatric disorders"/>
                 <display value="Psychiatric Disorder"/>
-                <definition value="Any deviation from the normal structure or function of the brain and a psychiatric condition, that results in an impairment of an individual&#39;s normal cognitive, emotional, or behavioral functioning, and is caused by physiological or psychosocial factors."/>
+                <definition value="Any deviation from the normal structure or function of the brain and a psychiatric condition, that results in an impairment of an individual's normal cognitive, emotional, or behavioral functioning, and is caused by physiological or psychosocial factors."/>
               </concept>
               <concept>
                 <code value="Renal and urinary disorders"/>
@@ -6818,7 +6821,7 @@
               <concept>
                 <code value="10001367"/>
                 <display value="Adrenal insufficiency"/>
-                <definition value="A disorder that occurs when the adrenal cortex does not produce enough of the hormone cortisol and in some cases, the hormone aldosterone. It may be due to a disorder of the adrenal cortex as in Addison&#39;s disease or primary adrenal insufficiency."/>
+                <definition value="A disorder that occurs when the adrenal cortex does not produce enough of the hormone cortisol and in some cases, the hormone aldosterone. It may be due to a disorder of the adrenal cortex as in Addison's disease or primary adrenal insufficiency."/>
               </concept>
               <concept>
                 <code value="10001409"/>
@@ -7313,7 +7316,7 @@
               <concept>
                 <code value="10011655"/>
                 <display value="Cushingoid"/>
-                <definition value="A disorder characterized by signs and symptoms that resemble Cushing&#39;s disease or syndrome: buffalo hump obesity, striations, adiposity, hypertension, diabetes, and osteoporosis, usually due to exogenous corticosteroids."/>
+                <definition value="A disorder characterized by signs and symptoms that resemble Cushing's disease or syndrome: buffalo hump obesity, striations, adiposity, hypertension, diabetes, and osteoporosis, usually due to exogenous corticosteroids."/>
               </concept>
               <concept>
                 <code value="10011912"/>
@@ -7638,7 +7641,7 @@
               <concept>
                 <code value="10016558"/>
                 <display value="Fever"/>
-                <definition value="A disorder characterized by elevation of the body&#39;s temperature above the upper limit of normal."/>
+                <definition value="A disorder characterized by elevation of the body's temperature above the upper limit of normal."/>
               </concept>
               <concept>
                 <code value="10016596"/>
@@ -8103,7 +8106,7 @@
               <concept>
                 <code value="10022402"/>
                 <display value="INR increased"/>
-                <definition value="A finding based on laboratory test results that indicate an increase in the ratio of the patient&#39;s prothrombin time to a control sample in the blood."/>
+                <definition value="A finding based on laboratory test results that indicate an increase in the ratio of the patient's prothrombin time to a control sample in the blood."/>
               </concept>
               <concept>
                 <code value="10022437"/>
@@ -8443,7 +8446,7 @@
               <concept>
                 <code value="10033072"/>
                 <display value="Otitis externa"/>
-                <definition value="A disorder characterized by an infectious process involving the outer ear and ear canal. Contributory factors include excessive water exposure (swimmer&#39;s ear infection) and cuts in the ear canal. Symptoms include fullness, itching, swelling and marked discomfort in the ear and ear drainage."/>
+                <definition value="A disorder characterized by an infectious process involving the outer ear and ear canal. Contributory factors include excessive water exposure (swimmer's ear infection) and cuts in the ear canal. Symptoms include fullness, itching, swelling and marked discomfort in the ear and ear drainage."/>
               </concept>
               <concept>
                 <code value="10033078"/>
@@ -8558,7 +8561,7 @@
               <concept>
                 <code value="10034719"/>
                 <display value="Personality change"/>
-                <definition value="A disorder characterized by a conspicuous change in a person&#39;s behavior and thinking."/>
+                <definition value="A disorder characterized by a conspicuous change in a person's behavior and thinking."/>
               </concept>
               <concept>
                 <code value="10034825"/>
@@ -9023,12 +9026,12 @@
               <concept>
                 <code value="10042458"/>
                 <display value="Suicidal ideation"/>
-                <definition value="A disorder characterized by thoughts of taking one&#39;s own life."/>
+                <definition value="A disorder characterized by thoughts of taking one's own life."/>
               </concept>
               <concept>
                 <code value="10042464"/>
                 <display value="Suicide attempt"/>
-                <definition value="A disorder characterized by self-inflicted harm in an attempt to end one&#39;s own life."/>
+                <definition value="A disorder characterized by self-inflicted harm in an attempt to end one's own life."/>
               </concept>
               <concept>
                 <code value="10042554"/>
@@ -11057,477 +11060,489 @@
         <status value="published"/>
         <date value="2012-08-15"/>
         <publisher value="National Cancer Institute (NCI)"/>
-        <group>
-          <linkId value="root"/>
-          <title value="Adverse Event/Serious Adverse Event CTCAE v4 NCI Standard Template"/>
+        <title value="Adverse Event/Serious Adverse Event CTCAE v4 NCI Standard Template"/>
+        <item>
+          <linkId value="3556213v2.0"/>
+          <text value="Mandatory Adverse Event Questions"/>
+          <type value="group"/>
           <required value="true"/>
-          <group>
-            <linkId value="3556213v2.0"/>
-            <title value="Mandatory Adverse Event Questions"/>
+          <item>
             <text value="Must be included when this data is collected for reporting."/>
-            <required value="true"/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="84"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3125302v1.1"/>
-                </valueReference>
-              </extension>
-              <linkId value="3556214v2.0"/>
-              <text value="Adverse Event Term (v4.0)"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e14927-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="200"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188132v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557006v2.0"/>
-              <text value="Describe &#39;Other&#39; Adverse Event"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2944515v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557008v2.0"/>
-              <text value="Adverse Event Grade"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e54652-vs"/>
-              </options>
-            </question>
-          </group>
-          <group>
-            <linkId value="3557016v2.0"/>
-            <title value="Conditional Adverse Event Questions"/>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="84"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3125302v1.1"/>
+              </valueReference>
+            </extension>
+            <linkId value="3556214v2.0"/>
+            <text value="Adverse Event Term (v4.0)"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e14927-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="200"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188132v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557006v2.0"/>
+            <text value="Describe 'Other' Adverse Event"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2944515v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557008v2.0"/>
+            <text value="Adverse Event Grade"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e54652-vs"/>
+            </options>
+          </item>
+        </item>
+        <item>
+          <linkId value="3557016v2.0"/>
+          <text value="Conditional Adverse Event Questions"/>
+          <type value="group"/>
+          <item>
             <text value="There are business rules to indicate situations under which this data element should be used in a CRF."/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="4"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="8"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-                <valueString value="MM/DD/YYYY"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744993v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557017v2.0"/>
-              <text value="AE Start Date"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="2"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="3"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2552398v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557021v2.0"/>
-              <text value="Was patient hospitalized for toxicity?"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e55041-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744948v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557025v2.0"/>
-              <text value="Cycle #"/>
-              <type value="string"/>
-            </question>
-          </group>
-          <group>
-            <linkId value="3557027v2.0"/>
-            <title value="Optional Adverse Event Questions"/>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="4"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="8"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+              <valueString value="MM/DD/YYYY"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744993v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557017v2.0"/>
+            <text value="AE Start Date"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="3"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2552398v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557021v2.0"/>
+            <text value="Was patient hospitalized for toxicity?"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e55041-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744948v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557025v2.0"/>
+            <text value="Cycle #"/>
+            <type value="string"/>
+          </item>
+        </item>
+        <item>
+          <linkId value="3557027v2.0"/>
+          <text value="Optional Adverse Event Questions"/>
+          <type value="group"/>
+          <item>
             <text value="No requirement for inclusion of this element on the CRF; if the design and scientific questions posed in the study dictate the need to collect this type of data, this is the element to include on the CRF."/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="22"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179892v2.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557032v2.0"/>
-              <text value="To what is the AE attributed?"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e55265-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="60"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2201348v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557863v2.0"/>
-              <text value="Other Attribution, Specify"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="8"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-                <valueString value="DD/MON/YYYY"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2189843v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557046v2.0"/>
-              <text value="AE Stop Date"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="80"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943864v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557869v2.0"/>
-              <text value="MedDRA System Organ Class (SOC)"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e56008-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="8"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="8"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3133353v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557050v2.0"/>
-              <text value="MedDRA AE Code (CTCAE v4.0)"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e57358-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="10"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#1285v3.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557842v2.0"/>
-              <text value="AE Attribution"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e97042-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2006851v4.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557849v2.0"/>
-              <text value="Reporting Period End Date"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="2"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="7"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179971v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557851v2.0"/>
-              <text value="Were adverse events assessed during most recent period"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e97392-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="2"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="3"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2183619v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557856v2.0"/>
-              <text value="Expected? (Yes/No)"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e97594-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="2"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="3"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2199908v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557859v2.0"/>
-              <text value="Serious?"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e97746-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2585234v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557911v2.0"/>
-              <text value="Event Onset Time"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2732184v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557865v2.0"/>
-              <text value="Course"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744943v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557867v2.0"/>
-              <text value="AE Evaluation Period Start Date"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="2"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="3"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746280v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557913v2.0"/>
-              <text value="Pre-existing AE?"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e98036-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746301v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557904v2.0"/>
-              <text value="AE Resolved Time"/>
-              <type value="string"/>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="2"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="3"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746311v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557028v2.0"/>
-              <text value="AE Ongoing?"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e98234-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="33"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746517v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557896v2.0"/>
-              <text value="Participant Status/Outcome"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e98385-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2008418v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557906v2.0"/>
-              <text value="Adverse Event Condition Pattern"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e98732-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="2"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="3"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179615v1.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557917v2.0"/>
-              <text value="Did event reappear after study agent was reintroduced?"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e98928-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="200"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#797v5.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3557922v2.0"/>
-              <text value="Comments"/>
-              <type value="string"/>
-            </question>
-          </group>
-          <group>
-            <linkId value="3556197v2.0"/>
-            <title value="Optional Serious Adverse Event Questions"/>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="22"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179892v2.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557032v2.0"/>
+            <text value="To what is the AE attributed?"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e55265-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="60"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2201348v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557863v2.0"/>
+            <text value="Other Attribution, Specify"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="8"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+              <valueString value="DD/MON/YYYY"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2189843v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557046v2.0"/>
+            <text value="AE Stop Date"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="80"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943864v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557869v2.0"/>
+            <text value="MedDRA System Organ Class (SOC)"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e56008-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="8"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="8"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3133353v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557050v2.0"/>
+            <text value="MedDRA AE Code (CTCAE v4.0)"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e57358-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="10"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#1285v3.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557842v2.0"/>
+            <text value="AE Attribution"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e97042-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2006851v4.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557849v2.0"/>
+            <text value="Reporting Period End Date"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="7"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179971v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557851v2.0"/>
+            <text value="Were adverse events assessed during most recent period"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e97392-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="3"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2183619v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557856v2.0"/>
+            <text value="Expected? (Yes/No)"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e97594-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="3"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2199908v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557859v2.0"/>
+            <text value="Serious?"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e97746-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2585234v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557911v2.0"/>
+            <text value="Event Onset Time"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2732184v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557865v2.0"/>
+            <text value="Course"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744943v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557867v2.0"/>
+            <text value="AE Evaluation Period Start Date"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="3"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746280v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557913v2.0"/>
+            <text value="Pre-existing AE?"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e98036-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746301v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557904v2.0"/>
+            <text value="AE Resolved Time"/>
+            <type value="string"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="3"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746311v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557028v2.0"/>
+            <text value="AE Ongoing?"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e98234-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="33"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746517v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557896v2.0"/>
+            <text value="Participant Status/Outcome"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e98385-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2008418v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557906v2.0"/>
+            <text value="Adverse Event Condition Pattern"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e98732-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="2"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="3"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179615v1.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557917v2.0"/>
+            <text value="Did event reappear after study agent was reintroduced?"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e98928-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="200"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#797v5.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3557922v2.0"/>
+            <text value="Comments"/>
+            <type value="string"/>
+          </item>
+        </item>
+        <item>
+          <linkId value="3556197v2.0"/>
+          <text value="Optional Serious Adverse Event Questions"/>
+          <type value="group"/>
+          <item>
             <text value="The following additional elements are optional on a SAE form."/>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179679v3.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3556199v2.0"/>
-              <text value="Why serious?"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e99214-vs"/>
-              </options>
-            </question>
-            <question>
-              <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-                <valueInteger value="1"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
-                <valueReference>
-                  <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004106v3.0"/>
-                </valueReference>
-              </extension>
-              <linkId value="3556209v2.0"/>
-              <text value="Dose-Limiting Toxicity?"/>
-              <type value="open-choice"/>
-              <options>
-                <reference value="#d1e99668-vs"/>
-              </options>
-            </question>
-          </group>
-        </group>
+            <type value="display"/>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179679v3.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3556199v2.0"/>
+            <text value="Why serious?"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e99214-vs"/>
+            </options>
+          </item>
+          <item>
+            <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
+              <valueInteger value="1"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <valueReference>
+                <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004106v3.0"/>
+              </valueReference>
+            </extension>
+            <linkId value="3556209v2.0"/>
+            <text value="Dose-Limiting Toxicity?"/>
+            <type value="open-choice"/>
+            <options>
+              <reference value="#d1e99668-vs"/>
+            </options>
+          </item>
+        </item>
       </Questionnaire>
     </resource>
   </entry>

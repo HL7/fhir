@@ -960,10 +960,12 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     Set<String> codes = new HashSet<String>();
     List<DefinedCode> deletes = new ArrayList<DefinedCode>();
     for (DefinedCode dc : ac) {
-      if (codes.contains(dc.getCode()))
-        deletes.add(dc);
-      else
-        codes.add(dc.getCode());
+    	if (!dc.getAbstract()) {
+	      if (codes.contains(dc.getCode()))
+	        deletes.add(dc);
+	      else
+	        codes.add(dc.getCode());
+	    }
     }
     ac.removeAll(deletes);
     codes.clear();
@@ -988,36 +990,38 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       def.append("    "+prefix+"Null,  {@enum.value "+prefix+"Null Value is missing from Instance }\r\n");
       con.append("'', ");
       for (DefinedCode c : ac) {
-        i++;
-        String cc = c.getCode();
-        if (cc.equals("-"))
-          cc = "Minus";
-        else if (cc.equals("+"))
-          cc = "Plus";
-        else {
-          cc = cc.replace("-", " ").replace("+", " ");
-          cc = Utilities.camelCase(cc);
-          cc = cc.replace(">=", "greaterOrEquals").replace("<=", "lessOrEquals").replace("<", "lessThan").replace(">", "greaterThan").replace("=", "equal");
-        }
-        if (GeneratorUtils.isDelphiReservedWord(prefix + cc))
-          cc = cc + "_";
-        if (codes.contains(cc)) {
-          int ci = 1;
-          while (codes.contains(cc+Integer.toString(ci)))
-            ci++;
-          cc = cc+Integer.toString(ci);
-        }
-        codes.add(cc);
-        
-        cc = prefix + getTitle(cc);
-        if (i == l) {
-          def.append("    "+cc+"); {@enum.value "+cc+" "+makeDocoSafe(c.getDefinition())+" }\r\n");
-          con.append("'"+c.getCode()+"');");
-        }
-        else {
-          def.append("    "+cc+", {@enum.value "+cc+" "+makeDocoSafe(c.getDefinition())+" }\r\n");
-          con.append("'"+c.getCode()+"', ");
-        }
+	    	if (!c.getAbstract()) {
+	        i++;
+	        String cc = c.getCode();
+	        if (cc.equals("-"))
+	          cc = "Minus";
+	        else if (cc.equals("+"))
+	          cc = "Plus";
+	        else {
+	          cc = cc.replace("-", " ").replace("+", " ");
+	          cc = Utilities.camelCase(cc);
+	          cc = cc.replace(">=", "greaterOrEquals").replace("<=", "lessOrEquals").replace("<", "lessThan").replace(">", "greaterThan").replace("=", "equal");
+	        }
+	        if (GeneratorUtils.isDelphiReservedWord(prefix + cc))
+	          cc = cc + "_";
+	        if (codes.contains(cc)) {
+	          int ci = 1;
+	          while (codes.contains(cc+Integer.toString(ci)))
+	            ci++;
+	          cc = cc+Integer.toString(ci);
+	        }
+	        codes.add(cc);
+	        
+	        cc = prefix + getTitle(cc);
+	        if (i == l) {
+	          def.append("    "+cc+"); {@enum.value "+cc+" "+makeDocoSafe(c.getDefinition())+" }\r\n");
+	          con.append("'"+c.getCode()+"');");
+	        }
+	        else {
+	          def.append("    "+cc+", {@enum.value "+cc+" "+makeDocoSafe(c.getDefinition())+" }\r\n");
+	          con.append("'"+c.getCode()+"', ");
+	        }
+	      }
       }
       def.append("  "+tn+"List = set of "+tn+";\r\n");
       defCodeType.enumDefs.add(def.toString());

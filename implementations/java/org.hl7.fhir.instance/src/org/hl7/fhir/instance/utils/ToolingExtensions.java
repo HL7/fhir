@@ -48,8 +48,8 @@ import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.MarkdownType;
 import org.hl7.fhir.instance.model.PrimitiveType;
-import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
-import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
+import org.hl7.fhir.instance.model.Questionnaire.QuestionnaireItemType;
+import org.hl7.fhir.instance.model.Questionnaire.QuestionnaireItemComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
@@ -77,17 +77,23 @@ public class ToolingExtensions {
   public static final String EXT_JSON_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-json-type"; 
   public static final String EXT_XML_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-type"; 
   public static final String EXT_REGEX = "http://hl7.org/fhir/StructureDefinition/structuredefinition-regex"; 
+  public static final String EXT_CONTROL = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"; 
+  public static final String EXT_MINOCCURS = "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs"; 
+  public static final String EXT_MAXOCCURS = "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs";
+  public static final String EXT_ALLOWEDRESOURCE = "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource";
+  public static final String EXT_REFERENCEFILTER = "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter";
   public static final String EXT_EXPRESSION = "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression";
   public static final String EXT_SEARCH_EXPRESSION = "http://hl7.org/fhir/StructureDefinition/searchparameter-expression";
 
   // unregistered?
 
-  public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
-  private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
-  private static final String EXT_QREF = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
-  private static final String EXTENSION_FILTER_ONLY = "http://www.healthintersections.com.au/fhir/Profile/metadata#expandNeedsFilter";
-  private static final String EXT_TYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
-  private static final String EXT_REFERENCE = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
+//  public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
+//  private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
+//  private static final String EXT_QREF = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
+//  private static final String EXTENSION_FILTER_ONLY = "http://www.healthintersections.com.au/fhir/Profile/metadata#expandNeedsFilter";
+//  private static final String EXT_TYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
+//  private static final String EXT_REFERENCE = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
+  private static final String EXT_FHIRTYPE = "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType";
   private static final String EXT_ALLOWABLE_UNITS = "http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits";
   public static final String EXT_CIMI_REFERENCE = "http://hl7.org/fhir/StructureDefinition/cimi-reference";
   public static final String EXT_UNCLOSED = "http://hl7.org/fhir/StructureDefinition/valueset-unclosed";
@@ -254,18 +260,29 @@ public class ToolingExtensions {
     return res;
   }
 
-  public static void addFlyOver(GroupComponent group, String text) throws Exception {
-    if (!Utilities.noString(text))
-      group.getExtension().add(Factory.newExtension(EXT_FLYOVER, Factory.newString_(text), true));   
-
+  public static void addFlyOver(QuestionnaireItemComponent item, String text) throws Exception {
+    if (!Utilities.noString(text)) {
+    	QuestionnaireItemComponent display = item.addItem();
+    	display.setType(QuestionnaireItemType.DISPLAY);
+    	display.setText(text);
+    	display.getExtension().add(Factory.newExtension(EXT_CONTROL, Factory.newCodeableConcept("flyover", "http://hl7.org/fhir/questionnaire-item-control", "Fly-over"), true));
+    }
   }
 
-  public static void setQuestionType(GroupComponent group, String text) throws Exception {
+  public static void addMin(QuestionnaireItemComponent item, int min) throws Exception {
+    item.getExtension().add(Factory.newExtension(EXT_MINOCCURS, Factory.newInteger(min), true));
+  }
+  
+  public static void addMax(QuestionnaireItemComponent item, int max) throws Exception {
+    item.getExtension().add(Factory.newExtension(EXT_MAXOCCURS, Factory.newInteger(max), true));
+  }
+  
+/*  public static void setQuestionType(QuestionnaireItemComponent group, String text) throws Exception {
     if (!Utilities.noString(text))
       group.getExtension().add(Factory.newExtension(EXT_QTYPE, Factory.newString_(text), true));   
   }
 
-  public static void setQuestionReference(GroupComponent group, String text) throws Exception {
+  public static void setQuestionReference(QuestionnaireItemComponent group, String text) throws Exception {
     if (!Utilities.noString(text))
       group.getExtension().add(Factory.newExtension(EXT_QREF, Factory.newString_(text), true));   
   }
@@ -276,14 +293,22 @@ public class ToolingExtensions {
 
   public static void addFilterOnly(Reference element, boolean value) throws Exception {
     element.getExtension().add(Factory.newExtension(EXTENSION_FILTER_ONLY, Factory.newBoolean(value), true));       
+  }*/
+
+  public static void addFhirType(QuestionnaireItemComponent group, String value) throws Exception {
+    group.getExtension().add(Factory.newExtension(EXT_FHIRTYPE, Factory.newString_(value), true));       
   }
 
-  public static void addType(GroupComponent group, String value) throws Exception {
-    group.getExtension().add(Factory.newExtension(EXT_TYPE, Factory.newString_(value), true));       
+  public static void addControl(QuestionnaireItemComponent group, String value) throws Exception {
+    group.getExtension().add(Factory.newExtension(EXT_CONTROL, Factory.newCodeableConcept(value, "http://hl7.org/fhir/questionnaire-item-control", value), true));
   }
 
-  public static void addReference(QuestionComponent group, String value) throws Exception {
-    group.getExtension().add(Factory.newExtension(EXT_REFERENCE, Factory.newString_(value), true));       
+  public static void addAllowedResource(QuestionnaireItemComponent group, String value) throws Exception {
+    group.getExtension().add(Factory.newExtension(EXT_ALLOWEDRESOURCE, Factory.newCode(value), true));       
+  }
+
+  public static void addReferenceFilter(QuestionnaireItemComponent group, String value) throws Exception {
+    group.getExtension().add(Factory.newExtension(EXT_REFERENCEFILTER, Factory.newString_(value), true));       
   }
 
   public static void addIdentifier(Element element, Identifier value) throws Exception {

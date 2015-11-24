@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
- <id value="f201"/>
-   <text>
+  <id value="f201"/>
+  <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-<pre>Lifelines Questionnaire 1 part 1
+      <pre>Lifelines Questionnaire 1 part 1
   1. Do you have allergies?
   2. General Questions:
     2.a) What is your gender?
@@ -18,56 +18,57 @@
   </text>
   <status value="published"/>
   <date value="2010"/>
+  <concept>
+    <system value="http://example.org/system/code/lifelines/nl"/>
+    <code value="VL 1-1, 18-65_1.2.2"/>
+    <display value="Lifelines Questionnaire 1 part 1"/>
+  </concept>
   <subjectType value="Patient"/>
-  <group>
-    <linkId value="root"/>
-    <concept>
-      <system value="http://example.org/system/code/lifelines/nl"/>
-      <code value="VL 1-1, 18-65_1.2.2"/>
-      <display value="Lifelines Questionnaire 1 part 1"/>
-    </concept>
-    <required value="true"/>
-    <group>
-      <linkId value="1"/>
-      <question>
-        <!--Separate answer-->
-        <linkId value="1.1"/>
-        <text value="Do you have allergies?"/>
-      </question>
-    </group>
-    <group>
-      <!--Answers to general questions-->
-      <linkId value="2"/>
-      <text value="General questions"/>
-      <question>
-        <linkId value="2.1"/>
-        <text value="What is your gender?"/>
-      </question>
-      <question>
-        <linkId value="2.2"/>
-        <text value="What is your date of birth?"/>
-      </question>
-      <question>
-        <linkId value="2.3"/>
-        <text value="What is your country of birth?"/>
-      </question>
-      <question>
-        <linkId value="2.4"/>
-        <text value="What is your marital status?"/>
-      </question>
-    </group>
-    <group>
-      <linkId value="3"/>
-      <!--Answers to intoxications-->
-      <title value="Intoxications"/>
-      <question>
-        <linkId value="3.1"/>
-        <text value="Do you smoke?"/>
-      </question>
-      <question>
-        <linkId value="3.2"/>
-        <text value="Do you drink alchohol?"/>
-      </question>
-    </group>
-  </group>
+  <item>
+    <linkId value="1"/>
+    <text value="Do you have allergies?"/>
+    <type value="boolean"/>
+  </item>
+  <item>
+    <!--Answers to general questions-->
+    <linkId value="2"/>
+    <text value="General questions"/>
+    <type value="group"/>
+    <item>
+      <linkId value="2.1"/>
+      <text value="What is your gender?"/>
+      <type value="string"/>
+    </item>
+    <item>
+      <linkId value="2.2"/>
+      <text value="What is your date of birth?"/>
+      <type value="date"/>
+    </item>
+    <item>
+      <linkId value="2.3"/>
+      <text value="What is your country of birth?"/>
+      <type value="string"/>
+    </item>
+    <item>
+      <linkId value="2.4"/>
+      <text value="What is your marital status?"/>
+      <type value="string"/>
+    </item>
+  </item>
+  <item>
+    <linkId value="3"/>
+    <!--Answers to intoxications-->
+    <text value="Intoxications"/>
+    <type value="group"/>
+    <item>
+      <linkId value="3.1"/>
+      <text value="Do you smoke?"/>
+      <type value="boolean"/>
+    </item>
+    <item>
+      <linkId value="3.2"/>
+      <text value="Do you drink alchohol?"/>
+      <type value="boolean"/>
+    </item>
+  </item>
 </Questionnaire>

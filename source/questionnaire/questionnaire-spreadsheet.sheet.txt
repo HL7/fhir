@@ -2,34 +2,27 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QuestionnaireGroupConcept
+  Binding Name = QuestionnaireConcept
   Binding = value set
   Reference = valueset-questionnaire-questions
-  Definition = Codes for groupings of questionnaire questions.
+  Definition = Codes for questionnaires, groups and individual questions
   Conformance = example
 
  -- Row 2 -----------------------------------
-  Binding Name = QuestionConcept
-  Binding = value set
-  Reference = valueset-questionnaire-questions
-  Definition = Codes corresponding to individual questions.
-  Conformance = example
-
- -- Row 3 -----------------------------------
   Binding Name = QuestionnaireStatus
   Binding = code list
   Reference = #questionnaire-status
   Definition = Lifecycle status of the questionnaire.
   Conformance = required
 
- -- Row 4 -----------------------------------
-  Binding Name = AnswerFormat
+ -- Row 3 -----------------------------------
+  Binding Name = QuestionnaireItemType
   Binding = code list
-  Reference = #answer-format
-  Definition = The expected format of an answer.
+  Reference = #item-type
+  Definition = Distinguishes groups from questions and display text and indicates data type for questions
   Conformance = required
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = QuestionnaireQuestionOption
   Binding = value set
   Reference = valueset-questionnaire-answers
@@ -56,112 +49,157 @@
   Display = Retired
   Definition = This Questionnaire should no longer be used to gather data.
 
-=== Sheet answer-format =====================================
+=== Sheet item-type =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
-  Code = boolean
-  Definition = Answer is a yes/no answer.
+  Id = 15
+  Code = group
+  Definition = An item with no direct answer but which has descendant items that are questions
 
  -- Row 2 -----------------------------------
-  Id = 2
-  Code = decimal
-  Definition = Answer is a floating point number.
+  Id = 16
+  Code = display
+  Definition = Text for display that will not capture an answer or have descendants
 
  -- Row 3 -----------------------------------
-  Id = 3
-  Code = integer
-  Definition = Answer is an integer.
+  Id = 17
+  Abstract = Y
+  Code = question
+  Definition = An item that defines a specific answer to be captured (and may have descendant items)
 
  -- Row 4 -----------------------------------
-  Id = 4
-  Code = date
-  Definition = Answer is a date.
+  Id = 1
+  Code = boolean
+  Definition = Question with a yes/no answer
+  Parent = #17
 
  -- Row 5 -----------------------------------
-  Id = 5
-  Code = dateTime
-  Definition = Answer is a date and time.
+  Id = 2
+  Code = decimal
+  Definition = Question with is a real number answer
+  Parent = #17
 
  -- Row 6 -----------------------------------
-  Id = 6
-  Code = instant
-  Definition = Answer is a system timestamp.
+  Id = 3
+  Code = integer
+  Definition = Question with an integer answer
+  Parent = #17
 
  -- Row 7 -----------------------------------
-  Id = 8
-  Code = time
-  Definition = Answer is a time (hour/minute/second) independent of date.
+  Id = 4
+  Code = date
+  Definition = Question with adate answer
+  Parent = #17
 
  -- Row 8 -----------------------------------
-  Id = 8
-  Code = string
-  Definition = Answer is a short (few words to short sentence) free-text entry.
+  Id = 5
+  Code = dateTime
+  Definition = Question with a date and time answer
+  Parent = #17
 
  -- Row 9 -----------------------------------
-  Id = 9
-  Code = text
-  Definition = Answer is a long (potentially multi-paragraph) free-text entry (still captured as a string).
+  Id = 6
+  Code = instant
+  Definition = Question with a system timestamp answer
+  Parent = #17
 
  -- Row 10 -----------------------------------
-  Id = 16
-  Code = url
-  Definition = Answer is a url (website, FTP site, etc.).
+  Id = 8
+  Code = time
+  Definition = Question with a time (hour/minute/second) answer independent of date.
+  Parent = #17
 
  -- Row 11 -----------------------------------
-  Id = 10
-  Code = choice
-  Definition = Answer is a Coding drawn from a list of options.
+  Id = 8
+  Code = string
+  Definition = Question with a short (few words to short sentence) free-text entry answer
+  Parent = #17
 
  -- Row 12 -----------------------------------
-  Id = 11
-  Code = open-choice
-  Definition = Answer is a Coding drawn from a list of options or a free-text entry.
+  Id = 9
+  Code = text
+  Definition = Question with a long (potentially multi-paragraph) free-text entry (still captured as a string) answer
+  Parent = #17
 
  -- Row 13 -----------------------------------
-  Id = 12
-  Code = attachment
-  Definition = Answer is binary content such as a image, PDF, etc.
+  Id = 16
+  Code = url
+  Definition = Question with a url (website, FTP site, etc.) answer
+  Parent = #17
 
  -- Row 14 -----------------------------------
-  Id = 13
-  Code = reference
-  Definition = Answer is a reference to another resource (practitioner, organization, etc.).
+  Id = 10
+  Code = choice
+  Definition = Question with a Coding drawn from a list of options as an answer
+  Parent = #17
 
  -- Row 15 -----------------------------------
+  Id = 11
+  Code = open-choice
+  Definition = Answer is a Coding drawn from a list of options or a free-text entry captured as Coding.display
+  Parent = #17
+
+ -- Row 16 -----------------------------------
+  Id = 12
+  Code = attachment
+  Definition = Question with binary content such as a image, PDF, etc. as an answer
+  Parent = #17
+
+ -- Row 17 -----------------------------------
+  Id = 13
+  Code = reference
+  Definition = Question with a reference to another resource (practitioner, organization, etc.) as an answer
+  Parent = #17
+
+ -- Row 18 -----------------------------------
   Id = 14
   Code = quantity
-  Definition = Answer is a combination of a numeric value and unit, potentially with a comparator (<, >, etc.).
+  Definition = Question with a combination of a numeric value and unit, potentially with a comparator (<, >, etc.) as an answer.
+  Parent = #17
 
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
-  Context = Questionnaire.group
-  English = Groups may either contain questions or groups but not both
-  XPath = not(exists(f:group) and exists(f:question))
-  FHIRPath = group.empty() or question.empty()
+  Context = Questionnaire.item
+  English = Group items must have nested items, display items cannot have nested items
+  XPath = not((f:type/@value=\'group\' and not(f:item)) or (f:type/@value=\'display\' and f:item))
+  Expression = (type=\'group\' and item.empty()) or (type=\'display\' and item.empty().not())
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Questionnaire
   English = The link ids for groups and questions must be unique within the questionnaire
   XPath = count(descendant::f:linkId/@value)=count(distinct-values(descendant::f:linkId/@value))
-  FHIRPath = **.linkId.distinct()
+  Expression = **.linkId.distinct()
 
  -- Row 3 -----------------------------------
   Id = 3
-  Context = Questionnaire
-  English = If root group must be \"required\"
-  XPath = f:group/f:required/@value=true()
-  FHIRPath = group.required = true
+  Context = Questionnaire.item
+  English = Display items cannot have a \"concept\" asserted
+  XPath = not(f:type/@value=\'display\' and f:concept)
+  Expression = type!=\'display\' or concept.empty()
 
  -- Row 4 -----------------------------------
   Id = 4
-  Context = Questionnaire.group.question
-  English = A question must use either option or options, not both
+  Context = Questionnaire.item
+  English = A question cannot have both option and options
   XPath = not(f:options and f:option)
-  FHIRPath = option.empty() or options.empty()
+  Expression = option.empty() or options.empty()
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Context = Questionnaire.item
+  English = Only \'choice\' items can have options
+  XPath = f:type/@value=(\'choice\',\'open-choice\') or not(f:option or f:options)
+  Expression = (type!=\'choice\' and type!=\'open-choice\') or (options.empty() and option.empty())
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Context = Questionnaire.item
+  English = Required and repeat aren\'t permitted for display items
+  XPath = not(f:type/@value=\'display\' and (f:required or f:repeats))
+  Expression = type!=\'display\' or (required.empty() and repeats.empty())
 
 === Sheet Data Elements =====================================
 
@@ -243,6 +281,27 @@
   RIM Mapping = .participation[typeCode=AUT].role.telecom
 
  -- Row 8 -----------------------------------
+  Element = Questionnaire.title
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name for the questionnaire
+  Definition = The name or label associated with this questionnaire
+  Requirements = Used for display, searching
+  RIM Mapping = .title
+
+ -- Row 9 -----------------------------------
+  Element = Questionnaire.concept
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = QuestionnaireConcept
+  Short Label = Concept that represents the overall questionnaire
+  Definition = Identifies a how this question or group of questions is known in a particular terminology such as LOINC.
+  Requirements = Allows linking of the complete Questionnaire resources to formal terminologies.  It\'s common for \"pannels\" of questions to be identified by a code.
+  RIM Mapping = .code
+
+ -- Row 10 -----------------------------------
   Element = Questionnaire.subjectType
   Card. = 0..*
   Summary = y
@@ -253,194 +312,108 @@
   Comments = If none are specified, then the subject is unlimited
   RIM Mapping = .outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode
 
- -- Row 9 -----------------------------------
-  Element = Questionnaire.group
-  Card. = 1..1
-  Aliases = Section
-  Summary = Y
+ -- Row 11 -----------------------------------
+  Element = Questionnaire.item
+  Card. = 0..*
   UML = right
   Inv. = 3
-  Type = =Group
-  Short Label = Grouped questions
-  Definition = A collection of related questions (or further groupings of questions)
-  Requirements = Need to be able to logically group answers to grouped questions
-  Comments = The Questionnaire itself has one \"root\" group with the actual contents of the Questionnaire.  Information on this root group applies to the questionnaire as a whole
-  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]
+  Short Label = Questions and sections within the Questionnaire
+  Definition = The questions and groupings of questions that make up the questionnaire
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]
 
- -- Row 10 -----------------------------------
-  Element = Questionnaire.group.linkId
+ -- Row 12 -----------------------------------
+  Element = Questionnaire.item.linkId
   Card. = 0..1
   Type = string
   Short Label = To link questionnaire with questionnaire response
-  Definition = An identifier that is unique within the Questionnaire allowing linkage to the equivalent group in a QuestionnaireResponse resource.
-  Requirements = [[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.
-  Comments = May be omitted if there is no expectation to link answers back to a questionnaire.  This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
+  Definition = An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.
+  Requirements = [[[QuestionnaireResponse]]] does not require omitted items to be included and may have some items that repeat, so linkage based on position alone is not sufficient.
+  Comments = May be omitted if there is no expectation to link answers back to a Questionnaire.  This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
   RIM Mapping = .id
 
- -- Row 11 -----------------------------------
-  Element = Questionnaire.group.title
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Label = Name to be displayed for group
-  Definition = The human-readable name for this section of the questionnaire
-  Requirements = When including text for the questionnaire with the answers, sections may have a section header
-  Comments = The title of the \"root\" group is the title for the questionnaire
-  RIM Mapping = .title
-
- -- Row 12 -----------------------------------
-  Element = Questionnaire.group.concept
+ -- Row 13 -----------------------------------
+  Element = Questionnaire.item.concept
   Card. = 0..*
   Summary = Y
+  Inv. = 3
   Type = Coding
-  Binding = QuestionnaireGroupConcept
-  Short Label = Concept that represents this section in a questionnaire
+  Binding = QuestionnaireConcept
+  Short Label = Concept that represents this item within in a questionnaire
   Definition = Identifies a how this group of questions is known in a particular terminology such as LOINC.
   Requirements = Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies
   Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole.
   RIM Mapping = .code
 
- -- Row 13 -----------------------------------
-  Element = Questionnaire.group.text
+ -- Row 14 -----------------------------------
+  Element = Questionnaire.item.text
   Card. = 0..1
+  Summary = Y
   Type = string
-  Short Label = Additional text for the group
-  Definition = Additional text for the group, used for display purposes
-  Requirements = When including text for the questionnaire, each section may contain additional explanations are background text
-  Comments = Common extensions are defined for more specialized types of display text
+  Short Label = Primary text for the item
+  Definition = The name of a section, the text of a question or text content for a text item
   RIM Mapping = .text
 
- -- Row 14 -----------------------------------
-  Element = Questionnaire.group.required
-  Card. = 0..1
-  Type = boolean
-  Short Label = Whether the group must be included in data results
-  Definition = If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
-  RIM Mapping = Not supported - MIF/templating layer
-  Default Value = False
-
  -- Row 15 -----------------------------------
-  Element = Questionnaire.group.repeats
-  Card. = 0..1
-  Type = boolean
-  Short Label = Whether the group may repeat
-  Definition = Whether the group may occur multiple times in the instance, containing multiple sets of answers
-  Requirements = Groups may be used to create set of (related) questions that can be repeated to give multiple answers to such a set
-  RIM Mapping = Not supported - MIF/templating layer
-  Default Value = False
-
- -- Row 16 -----------------------------------
-  Element = Questionnaire.group.group
-  Card. = 0..*
-  Inv. = 1
-  Type = @Questionnaire.group
-  Short Label = Nested questionnaire group
-  Definition = A sub-group within a group. The ordering of groups within this group is relevant
-  Requirements = Reports can consist of complex nested groups
-  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]
-
- -- Row 17 -----------------------------------
-  Element = Questionnaire.group.question
-  Card. = 0..*
-  Aliases = Responses, Contents
-  UML = down
-  Inv. = 1
-  Type = =Question
-  Short Label = Questions in this group
-  Definition = Set of questions within this group. The order of questions within the group is relevant
-  Requirements = Must register answers to questions
-  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN or DEF]
-
- -- Row 18 -----------------------------------
-  Element = Questionnaire.group.question.linkId
-  Card. = 0..1
-  Type = string
-  Short Label = To link questionnaire with questionnaire response
-  Definition = An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireResponse]]] resource.
-  Requirements = [[[QuestionnaireResponse]]] does not require omitted groups to be included and may have some groups that repeat, so linkage based on position alone is not sufficient.
-  Comments = May be omitted if there is no expectation to link answers back to a questionnaire.  This *can* be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
-  RIM Mapping = .id
-
- -- Row 19 -----------------------------------
-  Element = Questionnaire.group.question.concept
-  Card. = 0..*
-  Type = Coding
-  Binding = QuestionConcept
-  Short Label = Concept that represents this question on a questionnaire
-  Definition = Identifies a how this question is known in a particular terminology such as LOINC.
-  Requirements = Allows linking of questions (and their answers) to formal terminologies
-  RIM Mapping = .code
-
- -- Row 20 -----------------------------------
-  Element = Questionnaire.group.question.text
-  Card. = 0..1
-  Aliases = Question
-  Type = string
-  Short Label = Text of the question as it is shown to the user
-  Definition = The actual question as shown to the user to prompt them for an answer.
-  Requirements = When including text for the questionnaire, each question may contain its actual question display text
-  Comments = Common extensions are defined for more specialized types of display text
-  RIM Mapping = .code.display
-
- -- Row 21 -----------------------------------
-  Element = Questionnaire.group.question.type
-  Card. = 0..1
+  Element = Questionnaire.item.type
+  Card. = 1..1
   Type = code
-  Binding = AnswerFormat
-  Short Label = boolean | decimal | integer | date | dateTime +
-  Definition = The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected
+  Binding = QuestionnaireItemType
+  Short Label = group | display | boolean | decimal | integer | date | dateTime +
+  Definition = Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)
   Requirements = Defines the format in which the user is to be prompted for the answer
   Comments = Additional constraints on the type of answer can be conveyed by extensions
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 22 -----------------------------------
-  Element = Questionnaire.group.question.required
+ -- Row 16 -----------------------------------
+  Element = Questionnaire.item.required
   Card. = 0..1
+  Inv. = 6
   Type = boolean
-  Short Label = Whether the question must be answered in data results
-  Definition = If true, indicates that the question must be answered and have required groups within it also present.  If false, the question and any contained groups may be skipped when answering the questionnaire.
+  Short Label = Whether the group must be included in data results
+  Definition = If true, indicates that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
   RIM Mapping = Not supported - MIF/templating layer
   Default Value = False
 
- -- Row 23 -----------------------------------
-  Element = Questionnaire.group.question.repeats
+ -- Row 17 -----------------------------------
+  Element = Questionnaire.item.repeats
   Card. = 0..1
+  Inv. = 6
   Type = boolean
-  Short Label = Whether the question  can have multiple answers
-  Definition = If true, the question may have more than one answer.
-  Requirements = Used for \"check all that apply\" types of questions or \"list your top 3\", etc.
-  Comments = Whether the question itself will be displayed for each answer is a rendering choice typically based on whether there are nested groups.
+  Short Label = Whether the group may repeat
+  Definition = Whether the item may occur multiple times in the instance, containing multiple sets of answers
+  Requirements = Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set
   RIM Mapping = Not supported - MIF/templating layer
   Default Value = False
 
- -- Row 24 -----------------------------------
-  Element = Questionnaire.group.question.options
+ -- Row 18 -----------------------------------
+  Element = Questionnaire.item.options
   Card. = 0..1
-  Inv. = 4
+  Inv. = 4,5
   Type = Reference(ValueSet)
   Short Label = Valueset containing permitted answers
   Definition = Reference to a value set containing a list of codes representing permitted answers for the question
   Comments = LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist)
   RIM Mapping = Not supported - MIF/templating layer to capture value set
 
- -- Row 25 -----------------------------------
-  Element = Questionnaire.group.question.option
+ -- Row 19 -----------------------------------
+  Element = Questionnaire.item.option
   Card. = 0..*
-  Inv. = 4
+  Inv. = 4,5
   Type = Coding
   Binding = QuestionnaireQuestionOption
   Short Label = Permitted answer
   Definition = For a \"choice\" question, identifies one of the permitted answers for the question.
   RIM Mapping = Not supported - MIF/templating layer to capture value set
 
- -- Row 26 -----------------------------------
-  Element = Questionnaire.group.question.group
+ -- Row 20 -----------------------------------
+  Element = Questionnaire.item.item
   Card. = 0..*
-  Type = @Questionnaire.group
-  Short Label = Nested questionnaire group
-  Definition = Nested group, containing nested question for this question. The order of groups within the question is relevant
-  Requirements = It is useful to have \"sub-questions\", questions which normally appear when certain answers are given and which collect additional details.
-  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]
+  Inv. = 1
+  Type = @Questionnaire.item
+  Short Label = Nested questionnaire items
+  Definition = Allows text, questions and other groups to be nested beneath a question or group
+  Requirements = Reports can consist of complex nested groups
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
 === Sheet Search =====================================
 
@@ -478,13 +451,13 @@
   Name = code
   Type = token
   Description = A code that corresponds to the questionnaire or one of its groups
-  Path = Questionnaire.group.concept
+  Path = Questionnaire.item.concept
 
  -- Row 7 -----------------------------------
   Name = title
   Type = string
-  Description = All or part of the name of the questionnaire (title for the root group of the questionnaire)
-  Path = Questionnaire.group.title
+  Description = All or part of the name of the questionnaire
+  Path = Questionnaire.title
 
 === Sheet Profiles =====================================
 

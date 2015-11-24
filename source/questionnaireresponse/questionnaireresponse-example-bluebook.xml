@@ -1,9 +1,8 @@
-﻿<QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../publish/questionnaireresponse.xsd">
+<QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/questionnaireresponse.xsd">
   <!-- Please not that in this questionnaire, the questions are mostly unnamed, that is, the questions are not identified using the <name> element. It will therefore
     be hard to extract useful information in an automated way from this questionnaire. This is, however, quite often the case when modelling existing questionnaires -->
- <id value="bb"/>
-   <text>
+  <id value="bb"/>
+  <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <pre>
@@ -21,102 +20,94 @@
     <reference value="http://hl7.org/fhir/Practitioner/example"/>
   </author>
   <authored value="2013-02-19T14:15:00+10:00"/>
-  <group>
-    <linkId value="PHR"/>
-    <title value="NSW Government My Personal Health Record, january 2013"/>
     <!-- Many groups left out of this example -->
-    <group>
-      <linkId value="birthDetails"/>
-      <title value="Birth details - To be completed by health professional"/>
-      <group>
-        <question>
-          <linkId value="nameOfChild"/>	
-          <text value="Name of child" />
-          <answer>
-            <valueString value="Cathy Jones" />
-          </answer>
-        </question>
-	<question>
-          <linkId value="sex"/>
-          <text value="Sex" />
-          <answer>
-            <valueCoding>
-              <code value="f" />
-            </valueCoding>
-          </answer>
-        </question>
-      </group>        
-      <group>
-        <linkId value="neonatalInformation"/>
-        <title value="Neonatal Information"/>
-	<question>
-          <linkId value="birthWeight"/>
-          <text value="Birth weight (kg)"/>
-          <answer>
-            <valueDecimal value="3.25"/>
-          </answer>
-        </question>
-	<question>
-          <linkId value="birthLength"/>
-          <text value="Birth length (cm)"/>
-          <answer>
-            <valueDecimal value="44.3"/>
-          </answer>
-        </question>
-	<question>
-          <linkId value="vitaminKgiven"/>
-          <text value="Vitamin K given"/>
-          <answer>
-            <valueCoding>
-              <code value="INJECTION"/>
-            </valueCoding>
-	    <group>
-              <extension url="http://example.org/Profile/questionnaire#visibilityCondition">
-                <!-- note: this syntax is for demonstration purposes only, will need to be finalized during DSTU --> 
-                <valueString value="HAS_VALUE(../choice/code) AND NEQ(../choice/code,'NO')"/>
-              </extension>
-              <linkId value="vitaminKgivenDoses"/>
-	      <question>
-                <linkId value="vitaminiKDose1"/>
-                <text value="1st dose"/>
-                <answer>
-                  <valueDate value="1972-11-30"/>
-                </answer>
-              </question>
-	      <question>
-                <linkId value="vitaminiKDose2"/>
-                <text value="2nd dose"/>
-                <answer>
-                  <valueDate value="1972-12-11"/>
-                </answer>
-              </question>
-            </group>
-          </answer>
-        </question>
-	<question>
-          <linkId value="hepBgiven"/>
-          <text value="Hep B given y / n"/>
-          <answer>
-            <valueBoolean value="true"/>
-	    <group>
-              <linkId value="hepBgivenDate"/>
-              <question>
-                <text value="Date given"/>
-                <answer>
-                  <valueDate value="1972-12-04"/>
-                </answer>
-              </question>
-            </group>
-          </answer>
-        </question>
-	<question>
-          <linkId value="abnormalitiesAtBirth"/>
-          <text value="Abnormalities noted at birth"/>
-          <answer>
-            <valueString value="Already able to speak Chinese"/>
-          </answer>
-        </question>
-      </group>
-    </group>
-  </group>
+  <item>
+    <linkId value="birthDetails"/>
+    <text value="Birth details - To be completed by health professional"/>
+    <item>
+      <item>
+        <linkId value="nameOfChild"/>
+        <text value="Name of child"/>
+        <answer>
+          <valueString value="Cathy Jones"/>
+        </answer>
+      </item>
+      <item>
+        <linkId value="sex"/>
+        <text value="Sex"/>
+        <answer>
+          <valueCoding>
+            <code value="f"/>
+          </valueCoding>
+        </answer>
+      </item>
+    </item>
+    <item>
+      <linkId value="neonatalInformation"/>
+      <text value="Neonatal Information"/>
+      <item>
+        <linkId value="birthWeight"/>
+        <text value="Birth weight (kg)"/>
+        <answer>
+          <valueDecimal value="3.25"/>
+        </answer>
+      </item>
+      <item>
+        <linkId value="birthLength"/>
+        <text value="Birth length (cm)"/>
+        <answer>
+          <valueDecimal value="44.3"/>
+        </answer>
+      </item>
+      <item>
+        <linkId value="vitaminKgiven"/>
+        <text value="Vitamin K given"/>
+        <answer>
+          <valueCoding>
+            <code value="INJECTION"/>
+          </valueCoding>
+          <item>
+            <linkId value="vitaminKgivenDoses"/>
+            <item>
+              <linkId value="vitaminKDose1"/>
+              <text value="1st dose"/>
+              <answer>
+                <valueDate value="1972-11-30"/>
+              </answer>
+            </item>
+            <item>
+              <linkId value="vitaminKDose2"/>
+              <text value="2nd dose"/>
+              <answer>
+                <valueDate value="1972-12-11"/>
+              </answer>
+            </item>
+          </item>
+        </answer>
+      </item>
+      <item>
+        <linkId value="hepBgiven"/>
+        <text value="Hep B given y / n"/>
+        <answer>
+          <valueBoolean value="true"/>
+          <item>
+            <linkId value="hepBgivenDate"/>
+            <item>
+              <text value="Date given"/>
+              <answer>
+                <valueDate value="1972-12-04"/>
+              </answer>
+            </item>
+          </item>
+        </answer>
+      </item>
+      <item>
+        <linkId value="abnormalitiesAtBirth"/>
+        <text value="Abnormalities noted at birth"/>
+        <answer>
+          <valueString value="Already able to speak Chinese"/>
+        </answer>
+      </item>
+    </item>
+  </item>
 </QuestionnaireResponse>

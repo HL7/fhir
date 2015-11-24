@@ -19,11 +19,11 @@
   Definition = A CQL or ELM attachment containing any logic referenced by the questionnaire
 
  -- Row 3 -----------------------------------
-  Element = Questionnaire.group
+  Element = Questionnaire.item
 
  -- Row 4 -----------------------------------
-  Element = Questionnaire.group.extension
-  Profile Name = condition
+  Element = !Questionnaire.item.extension
+  Profile Name = !condition
   Card. = 0..1
   Aliases = condition
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-expression}
@@ -32,20 +32,17 @@
   Comments = Note that per Lloyd this extension may not be necessary, it may be able to specified structurally using the elements already available within Questionnaire
 
  -- Row 5 -----------------------------------
-  Element = Questionnaire.group.question
-
- -- Row 6 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = initialValue
+  Element = !Questionnaire.item.extension
+  Profile Name = !initialValue
   Card. = 0..1
   Aliases = initialValue
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-expression}
   Short Label = An expression that provides the initial value for the answer to the question
   Definition = The name of an expression that determines the initial value for the answer to the question. This expression is evaluated once as part of displaying the form, and does not have access to the answers to other questions
 
- -- Row 7 -----------------------------------
-  Element = Questionnaire.group.question.extension
-  Profile Name = calculatedValue
+ -- Row 6 -----------------------------------
+  Element = !Questionnaire.item.extension
+  Profile Name = !calculatedValue
   Card. = 0..1
   Aliases = calculatedValue
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-expression}
