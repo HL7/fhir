@@ -19,16 +19,8 @@
   <description value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary."></description>
   <requirements value="Use of this resource enables clients to pre-emptively provide more information for an order, or to respond to queries for more information."></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="QuestionnaireResponse"></constrainedType>
   <abstract value="false"></abstract>
@@ -44,14 +36,8 @@
       <type>
         <code value="QuestionnaireResponse"></code>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="Observation[moodCode=EVN]"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="infrastructure.information"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="QuestionnaireResponse.group.linkId"></path>
@@ -63,10 +49,7 @@
       <type>
         <code value="string"></code>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="QuestionnaireResponse.group.question.linkId"></path>
@@ -78,10 +61,7 @@
       <type>
         <code value="string"></code>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="QuestionnaireResponse.group.question.answer"></path>
@@ -91,10 +71,7 @@
       <requirements value="Each question that is responded to in the QuestionnaireAnswers resource SHALL have an answer. If the question is not answered, it simply doesn’t appear in the resource. Attachments and other Resources SHALL NOT be used as answer values in this profile."></requirements>
       <min value="1"></min>
       <max value="*"></max>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".value[type=LIST_ANY]"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="QuestionnaireResponse.group.question.answer.value[x]"></path>
@@ -141,10 +118,7 @@
         <strength value="example"></strength>
         <description value="Code indicating the response provided for a question."></description>
       </binding>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".item"></map>
-      </mapping>
+      
     </element>
   </differential>
 </StructureDefinition>

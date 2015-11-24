@@ -19,16 +19,8 @@
   <description value="The alternate resource provides the results of an evaluation for alternative treatements that may be suggested by the decision support service."></description>
   <requirements value="Similar to the result resource, the alternate resource enables the results of an evaluation to be returned.  However, because the alternate is suggested by the decision support service, the constraints on what may appear are slightly different."></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="Basic"></constrainedType>
   <abstract value="false"></abstract>
@@ -47,14 +39,8 @@
         <code value="Basic"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="Act, Entity or Role"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="infrastructure.structure"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="Basic.extension"></path>
@@ -178,14 +164,8 @@
         <code value="Identifier"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="./identifier"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="id"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="Basic.code"></path>
@@ -207,14 +187,8 @@
           <reference value="http://hl7.org/fhir/ValueSet/gao-result"></reference>
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="./code"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="what"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="Basic.subject"></path>
@@ -230,14 +204,8 @@
         <aggregation value="contained"></aggregation>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="./participation[typeCode='SBJ'] (possibly through a ControlAct and Role)"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="who.focus"></map>
-      </mapping>
+      
+      
     </element>
   </differential>
 </StructureDefinition>

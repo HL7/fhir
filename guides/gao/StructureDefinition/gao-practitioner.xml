@@ -19,26 +19,10 @@
   <description value="Profiles the practioner resource to require an identifer."></description>
   <requirements value="The practitioner resource is required to identify the provider placing the order. "></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="v2"></identity>
-    <uri value="http://hl7.org/v2"></uri>
-    <name value="HL7 v2"></name>
-  </mapping>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
-  <mapping>
-    <identity value="servd"></identity>
-    <uri value="http://www.omg.org/spec/ServD/1.0/"></uri>
-    <name value="ServD"></name>
-  </mapping>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
+  
+  
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="Practitioner"></constrainedType>
   <abstract value="false"></abstract>
@@ -54,22 +38,10 @@
       <type>
         <code value="Practitioner"></code>
       </type>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="PRD (as one example)"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="Role"></map>
-      </mapping>
-      <mapping>
-        <identity value="servd"></identity>
-        <map value="Provider"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="administrative.individual"></map>
-      </mapping>
+      
+      
+      
+      
     </element>
     <element>
       <path value="Practitioner.identifier"></path>
@@ -83,22 +55,10 @@
         <code value="Identifier"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="PRD-7 (or XCN.1)"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="./id"></map>
-      </mapping>
-      <mapping>
-        <identity value="servd"></identity>
-        <map value="./Identifiers"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="id"></map>
-      </mapping>
+      
+      
+      
+      
     </element>
   </differential>
 </StructureDefinition>

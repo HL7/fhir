@@ -20,16 +20,8 @@
   <description value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order."></description>
   <requirements value="This resource enables interactive question/answer implementations driven by the server, but where the user interface can be implemented by the client."></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="Questionnaire"></constrainedType>
   <abstract value="false"></abstract>
@@ -47,14 +39,8 @@
       <type>
         <code value="Questionnaire"></code>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="Observation[moodCode=DEF]"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="infrastructure.information"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="Questionnaire.group.linkId"></path>
@@ -67,10 +53,7 @@
       <type>
         <code value="string"></code>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".id"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="Questionnaire.group.question.linkId"></path>
@@ -83,10 +66,7 @@
       <type>
         <code value="string"></code>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".id"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="Questionnaire.group.question.type"></path>
@@ -106,10 +86,7 @@
           <reference value="http://hl7.org/fhir/ValueSet/gao-answer-format"></reference>
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="N/A - MIF rather than RIM level"></map>
-      </mapping>
+      
     </element>
   </differential>
 </StructureDefinition>

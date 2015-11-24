@@ -19,21 +19,9 @@
   <description value="Profiles the referral to ensure that the services ordered can be identified and evaluated for appropraiteness"></description>
   <requirements value="The referral request resource is required to identify the referral service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
-  <mapping>
-    <identity value="v2"></identity>
-    <uri value="http://hl7.org/v2"></uri>
-    <name value="HL7 v2"></name>
-  </mapping>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
+  
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="ReferralRequest"></constrainedType>
   <abstract value="false"></abstract>
@@ -49,10 +37,7 @@
       <type>
         <code value="ReferralRequest"></code>
       </type>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="clinical.careprovision"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="ReferralRequest.reason"></path>
@@ -71,14 +56,8 @@
         <strength value="example"></strength>
         <description value="Codes indicating why the referral is being requested."></description>
       </binding>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="RF1-10"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="why"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="ReferralRequest.serviceRequested"></path>
@@ -100,14 +79,8 @@
           <reference value="http://hl7.org/fhir/ValueSet/c80-practice-codes"></reference>
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="PR1-3 / OBR-4"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="what"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="ReferralRequest.supportingInformation"></path>

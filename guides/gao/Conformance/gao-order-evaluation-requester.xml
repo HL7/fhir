@@ -2,7 +2,7 @@
 <Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir file:/C:/hl7/FHIR/current/build/schema/fhir-single.xsd">
   <id value="gao-order-evaluation-requester"/>
-  <url value="Conformance/gao-order-evaluation-requester"/>
+  <url value="http://hl7.org/fhir/Conformance/gao-order-evaluation-requester"/>
   <name value="GAO Order Evaluation Requester"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -17,38 +17,38 @@
   <format value="xml"/>
   <format value="json"/>
   <profile>
-    <reference value="StructureDefinition/gao-order"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
   </profile>
   <!-- Declare this if your client responds to questionnaires -->
   <profile>
-    <reference value="StructureDefinition/gao-questionnaireresponse"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-questionnaireresponse"/>
   </profile>
   <!-- Declare one or more of these four to indicate which kinds of orders you request information about -->
   <profile>
-    <reference value="StructureDefinition/gao-diagnosticorder"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-medicationorder"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-medicationorder"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-referralrequest"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-referralrequest"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-procedurerequest"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-procedurerequest"/>
   </profile>
   <!-- Declare these to show that your implementation supports these in the order -->
   <profile>
-    <reference value="StructureDefinition/gao-patient"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-practitioner"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-practitioner"/>
   </profile>
   <rest>
     <mode value="client"/>
     <resource>
       <type value="Order"/>
       <profile>
-        <reference value="StructureDefinition/gao-order"/>
+        <reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
       </profile>
       <interaction>
         <code value="read"/>
@@ -59,7 +59,7 @@
     <operation>
       <name value="GAO Evaluate Order"/>
       <definition>
-        <reference value="OperationDefinition/gao-order-evaluate"/>
+        <reference value="http://hl7.org/fhir/OperationDefinition/gao-order-evaluate"/>
       </definition>
     </operation>
   </rest>

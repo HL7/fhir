@@ -19,21 +19,9 @@
   <description value="Profiles the procedure request to ensure that the services ordered can be identified and evaluated for appropraiteness"></description>
   <requirements value="The procedure request resource is required to identify the procedures that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
-  <mapping>
-    <identity value="quick"></identity>
-    <uri value="http://wiki.siframework.org/CQF"></uri>
-    <name value="Quality Improvement and Clinical Knowledge (QUICK)"></name>
-  </mapping>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
+  
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="ProcedureRequest"></constrainedType>
   <abstract value="false"></abstract>
@@ -49,10 +37,7 @@
         <code value="ProcedureRequest"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="clinical.general"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="ProcedureRequest.code.coding"></path>
@@ -66,18 +51,9 @@
         <code value="Coding"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="C*E.1-8, C*E.10-22"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="union(., ./translation)"></map>
-      </mapping>
-      <mapping>
-        <identity value="orim"></identity>
-        <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="ProcedureRequest.reason[x]"></path>
@@ -101,10 +77,7 @@
           <reference value="http://hl7.org/fhir/ValueSet/procedure-reason"></reference>
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="quick"></identity>
-        <map value="Action.indication.reason"></map>
-      </mapping>
+      
     </element>
   </differential>
 </StructureDefinition>

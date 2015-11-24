@@ -19,26 +19,10 @@
   <description value="The provenance resource is profiled to support expression of the digital signature on a Result or Alternate."></description>
   <requirements value="Reports a digital signature on a result or alternate."></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
-  <mapping>
-    <identity value="w3c.prov"></identity>
-    <uri value="http://www.w3.org/ns/prov"></uri>
-    <name value="W3C PROV"></name>
-  </mapping>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
-  <mapping>
-    <identity value="fhirauditevent"></identity>
-    <uri value="http://hl7.org/fhir/auditevent"></uri>
-    <name value="FHIR AuditEvent"></name>
-  </mapping>
+  
+  
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="Provenance"></constrainedType>
   <abstract value="false"></abstract>
@@ -58,18 +42,9 @@
         <code value="Provenance"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="ControlAct[isNormalAct() and subsumes(CACT, classCode) and moodCode=EVN]"></map>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"></identity>
-        <map value="Activity"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="infrastructure.information"></map>
-      </mapping>
+      
+      
+      
     </element>
   </differential>
 </StructureDefinition>

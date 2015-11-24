@@ -19,31 +19,11 @@
   <description value="The patient resource is required to provide relevant demographics associated with the patient. Other details may be provided according to local implementation requirements. "></description>
   <requirements value="Patient gender and age are often necessary to ensure that an order is appropriate."></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
-  <mapping>
-    <identity value="cda"></identity>
-    <uri value="http://hl7.org/v3/cda"></uri>
-    <name value="CDA (R2)"></name>
-  </mapping>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
-  <mapping>
-    <identity value="v2"></identity>
-    <uri value="http://hl7.org/v2"></uri>
-    <name value="HL7 v2"></name>
-  </mapping>
-  <mapping>
-    <identity value="loinc"></identity>
-    <uri value="http://loinc.org"></uri>
-    <name value="LOINC"></name>
-  </mapping>
+  
+  
+  
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="Patient"></constrainedType>
   <abstract value="false"></abstract>
@@ -59,18 +39,9 @@
       <type>
         <code value="Patient"></code>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="Patient[classCode=PAT]"></map>
-      </mapping>
-      <mapping>
-        <identity value="cda"></identity>
-        <map value="ClinicalDocument.recordTarget.patientRole"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="administrative.individual"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="Patient.gender"></path>
@@ -91,18 +62,9 @@
           <reference value="http://hl7.org/fhir/ValueSet/administrative-gender"></reference>
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="PID-8"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender"></map>
-      </mapping>
-      <mapping>
-        <identity value="cda"></identity>
-        <map value=".patient.administrativeGenderCode"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="Patient.birthDate"></path>
@@ -116,22 +78,10 @@
         <code value="date"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="PID-7"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="player[classCode=PSN|ANM and determinerCode=INSTANCE]/birthTime"></map>
-      </mapping>
-      <mapping>
-        <identity value="cda"></identity>
-        <map value=".patient.birthTime"></map>
-      </mapping>
-      <mapping>
-        <identity value="loinc"></identity>
-        <map value="21112-8"></map>
-      </mapping>
+      
+      
+      
+      
     </element>
   </differential>
 </StructureDefinition>

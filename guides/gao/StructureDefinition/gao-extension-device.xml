@@ -35,10 +35,7 @@
       <type>
         <code value="Element"></code>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="N/A"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="Extension.url"></path>
@@ -52,10 +49,7 @@
         <code value="uri"></code>
       </type>
       <fixedUri value="http://hl7.org/fhir/StructureDefinition/gao-extension-device"></fixedUri>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="N/A"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="Extension.value[x]"></path>
@@ -69,10 +63,7 @@
         <code value="Reference"></code>
         <profile value="http://hl7.org/fhir/StructureDefinition/Device"></profile>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="N/A"></map>
-      </mapping>
+      
     </element>
   </differential>
 </StructureDefinition>

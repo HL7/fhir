@@ -22,21 +22,9 @@
   <description value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals)."></description>
   <requirements value="This resource is profiled to link the order details to the reason(s), date, patient and provider placing the order. "></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
-  <mapping>
-    <identity value="v2"></identity>
-    <uri value="http://hl7.org/v2"></uri>
-    <name value="HL7 v2"></name>
-  </mapping>
+  
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="Order"></constrainedType>
   <abstract value="false"></abstract>
@@ -53,14 +41,8 @@
         <code value="Order"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="ControlAct[classCode=ACTN, moodCode=RQO]"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="workflow.order"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="Order.identifier"></path>
@@ -74,14 +56,8 @@
         <code value="Identifier"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".id"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="id"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="Order.date"></path>
@@ -95,18 +71,9 @@
         <code value="dateTime"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="ORC-9"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".participation[typeCode=AUT].time"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="when.done"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="Order.subject"></path>
@@ -123,18 +90,9 @@
         <aggregation value="contained"></aggregation>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="PID-3"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".participation[typeCode=SBJ].role[classCode=PAT]"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="who.focus"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="Order.source"></path>
@@ -152,18 +110,9 @@
         <aggregation value="contained"></aggregation>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="ORC-12 / OBR-16 / RXO-14 / RXE-13 / PRT-5 (PRT-4-Participation='OP')"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".participation[typeCode=AUT].role"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="who.cause"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="Order.reason[x]"></path>
@@ -186,18 +135,9 @@
         <strength value="example"></strength>
         <description value="Indicates the reason for seeking fulfillment of the order."></description>
       </binding>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="ORC-16.2 / OBR-31.2 / BPO-13.2-BP / RXO-20.2 / RXE-27.2 / RXD-21.2 / RXG-22.2 / RXA-19.2"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".reasonCode or .outboundRelationship[typeCode=RSON].target"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="why"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="Order.detail"></path>
@@ -228,10 +168,7 @@
         <aggregation value="contained"></aggregation>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".outboundRelationship[typeCode=SUBJ].target"></map>
-      </mapping>
+      
     </element>
   </differential>
 </StructureDefinition>

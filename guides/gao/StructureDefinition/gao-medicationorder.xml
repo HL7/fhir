@@ -19,21 +19,9 @@
   <description value="Profiles the medication order to ensure that the services ordered can be identified and evaluated for appropraiteness"></description>
   <requirements value="The medication order resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
-  <mapping>
-    <identity value="v2"></identity>
-    <uri value="http://hl7.org/v2"></uri>
-    <name value="HL7 v2"></name>
-  </mapping>
+  
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="MedicationOrder"></constrainedType>
   <abstract value="false"></abstract>
@@ -50,14 +38,8 @@
         <code value="MedicationOrder"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="CombinedMedicationRequest"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="clinical.medication"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="MedicationOrder.reason[x]"></path>
@@ -77,18 +59,9 @@
           <reference value="http://hl7.org/fhir/ValueSet/condition-code"></reference>
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="reason.observation or reason.observation[code=ASSERTION].value"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="why"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="MedicationOrder.medication[x]"></path>
@@ -106,18 +79,9 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/Medication"></profile>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="consumable.administrableMedication"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="what"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="MedicationOrder.dosageInstruction"></path>
@@ -128,10 +92,7 @@
       <min value="1"></min>
       <max value="*"></max>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="component.substanceAdministrationRequest"></map>
-      </mapping>
+      
     </element>
   </differential>
 </StructureDefinition>

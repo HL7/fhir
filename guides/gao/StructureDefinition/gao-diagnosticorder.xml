@@ -19,21 +19,9 @@
   <description value="Profiles the diagnostic order to ensure that the services ordered can be identified and evaluated for appropraiteness"></description>
   <requirements value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."></requirements>
   <fhirVersion value="1.0.2"></fhirVersion>
-  <mapping>
-    <identity value="rim"></identity>
-    <uri value="http://hl7.org/v3"></uri>
-    <name value="RIM"></name>
-  </mapping>
-  <mapping>
-    <identity value="w5"></identity>
-    <uri value="http://hl7.org/fhir/w5"></uri>
-    <name value="W5 Mapping"></name>
-  </mapping>
-  <mapping>
-    <identity value="v2"></identity>
-    <uri value="http://hl7.org/v2"></uri>
-    <name value="HL7 v2"></name>
-  </mapping>
+  
+  
+  
   <kind value="resource"></kind>
   <constrainedType value="DiagnosticOrder"></constrainedType>
   <abstract value="false"></abstract>
@@ -48,14 +36,8 @@
       <type>
         <code value="DiagnosticOrder"></code>
       </type>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="Observation[classCode=OBS, moodCode=RQO, code&lt;&quot;diagnostic order&quot;]"></map>
-      </mapping>
-      <mapping>
-        <identity value="w5"></identity>
-        <map value="clinical.diagnostics"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="DiagnosticOrder.supportingInformation"></path>
@@ -83,14 +65,8 @@
         <aggregation value="contained"></aggregation>
       </type>
       <mustSupport value="true"></mustSupport>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="OBR-13"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]"></map>
-      </mapping>
+      
+      
     </element>
     <element>
       <path value="DiagnosticOrder.item"></path>
@@ -100,10 +76,7 @@
       <requirements value="At least one item SHALL be present in the order to describe the service being performed."></requirements>
       <min value="1"></min>
       <max value="*"></max>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=OBS]"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="DiagnosticOrder.item.code.coding"></path>
@@ -117,18 +90,9 @@
         <code value="Coding"></code>
       </type>
       <isSummary value="true"></isSummary>
-      <mapping>
-        <identity value="v2"></identity>
-        <map value="C*E.1-8, C*E.10-22"></map>
-      </mapping>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="union(., ./translation)"></map>
-      </mapping>
-      <mapping>
-        <identity value="orim"></identity>
-        <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"></map>
-      </mapping>
+      
+      
+      
     </element>
     <element>
       <path value="DiagnosticOrder.item.bodySite"></path>
@@ -150,10 +114,7 @@
           <reference value="http://hl7.org/fhir/ValueSet/body-site"></reference>
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value="targetSiteCode"></map>
-      </mapping>
+      
     </element>
     <element>
       <path value="DiagnosticOrder.note"></path>
@@ -166,10 +127,7 @@
         <code value="Annotation"></code>
       </type>
       <mustSupport value="true"></mustSupport>
-      <mapping>
-        <identity value="rim"></identity>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"></map>
-      </mapping>
+      
     </element>
   </differential>
 </StructureDefinition>

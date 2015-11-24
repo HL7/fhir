@@ -2,7 +2,7 @@
 <Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir file:/C:/hl7/FHIR/current/build/schema/fhir-single.xsd">
   <id value="gao-decision-support-service"/>
-  <url value="Conformance/gao-decision-support-service"/>
+  <url value="http://hl7.org/fhir/Conformance/gao-decision-support-service"/>
   <name value="GAO Decision Support Service"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -17,63 +17,63 @@
   <format value="xml"/>
   <format value="json"/>
   <profile>
-    <reference value="StructureDefinition/gao-order"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
   </profile>
   <!-- Declare one or more of these four to indicate which kinds of orders the service evaluates -->
   <profile>
-    <reference value="StructureDefinition/gao-diagnosticorder"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-medicationorder"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-medicationorder"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-referralrequest"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-referralrequest"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-procedurerequest"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-procedurerequest"/>
   </profile>
   <!-- Declare this because your service provides results -->
   <profile>
-    <reference value="StructureDefinition/gao-result"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-result"/>
   </profile>
   <!-- Declare this if your service provides alternates -->
   <profile>
-    <reference value="StructureDefinition/gao-alternate"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-alternate"/>
   </profile>
   <!-- Declare this if your service asks questions -->
   <profile>
-    <reference value="StructureDefinition/gao-questionnaire"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-questionnaire"/>
   </profile>
   <!-- Declare this if your service signs the response -->
   <profile>
-    <reference value="StructureDefinition/gao-extension-signature"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature"/>
   </profile>
   <!-- Declare this if your service scores the response -->
   <profile>
-    <reference value="StructureDefinition/gao-extension-score"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-extension-score"/>
   </profile>
   <!-- Declare these because your service implements these extensions -->
   <profile>
-    <reference value="StructureDefinition/gao-extension-item"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-extension-item"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-extension-period"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-extension-period"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-extension-guideline"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-extension-guideline"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-extension-device"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-extension-device"/>
   </profile>
   <profile>
-    <reference value="StructureDefinition/gao-extension-practitioner"/>
+    <reference value="http://hl7.org/fhir/StructureDefinition/gao-extension-practitioner"/>
   </profile>
   <rest>
     <mode value="server"/>
     <resource>
       <type value="Order"/>
       <profile>
-        <reference value="StructureDefinition/gao-order"/>
+        <reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
       </profile>
       <interaction>
         <code value="read"/>
@@ -84,7 +84,7 @@
     <operation>
       <name value="GAO Evaluate Order"/>
       <definition>
-        <reference value="OperationDefinition/gao-order-evaluate"/>
+        <reference value="http://hl7.org/fhir/OperationDefinition/gao-order-evaluate"/>
       </definition>
     </operation>
   </rest>
