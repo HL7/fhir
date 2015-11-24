@@ -3,22 +3,22 @@
 
  -- Row 1 -----------------------------------
   Binding Name = KnowledgeModuleResourceType
-  Binding = code list
-  Reference = #knowledge-module-resource-type
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/knowledge-module-resource-type
   Definition = The type of related resource for the module
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = KnowledgeModuleStatus
-  Binding = code list
-  Reference = #knowledge-module-status
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/knowledge-module-status
   Definition = The status of the knowledge module
   Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = KnowledgeModuleContributorType
-  Binding = code list
-  Reference = #knowledge-module-contributor
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/knowledge-module-contributor
   Definition = The type of contributor
   Conformance = required
 
@@ -38,182 +38,16 @@
 
  -- Row 6 -----------------------------------
   Binding Name = KnowledgeResponseStatus
-  Binding = code list
-  Reference = #knowledge-response-status
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/knowledge-response-status
   Definition = The status of a knowledge response
   Conformance = required
 
  -- Row 7 -----------------------------------
   Binding Name = KnowledgeModuleFocusType
-  Binding = code list
-  Reference = #knowledge-module-focus-type
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/knowledge-module-focus-type
   Definition = Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care)
   Conformance = extensible
-
-=== Sheet knowledge-module-resource-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = documentation
-  Display = Documentation
-  Definition = Additional documentation for the module
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = evidence
-  Display = Evidence
-  Definition = Supporting evidence for the module
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = citation
-  Display = Citation
-  Definition = Bibliographic citation for the module
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = predecessor
-  Display = Predecessor
-  Definition = The previous version of the module
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = successor
-  Display = Successor
-  Definition = The next version of the module
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = derived-from
-  Display = Derived From
-  Definition = The module is derived from the resource
-
-=== Sheet knowledge-module-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = draft
-  Display = Draft
-  Definition = The module is in draft state
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = test
-  Display = Test
-  Definition = The module is in test state
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = active
-  Display = Active
-  Definition = The module is active
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = inactive
-  Display = Inactive
-  Definition = The module is inactive, either rejected before publication, or retired after publication
-
-=== Sheet knowledge-module-contributor =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = author
-  Display = Author
-  Definition = An author of the content of the module
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = editor
-  Display = Editor
-  Definition = An editor of the content of the module
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = reviewer
-  Display = Reviewer
-  Definition = A reviewer of the content of the module
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = endorser
-  Display = Endorser
-  Definition = An endorser of the content of the module
-
-=== Sheet knowledge-response-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = success
-  Display = Success
-  Definition = The request was processed successfully
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = data-requested
-  Display = Data Requested
-  Definition = The request was processed successfully, but more data may result in a more complete evaluation
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = data-required
-  Display = Data Required
-  Definition = The request was processed, but more data is required to complete the evaluation
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = in-progress
-  Display = In Progress
-  Definition = The request is currently being processed
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = failure
-  Display = Failure
-  Definition = The request was not processed successfully
-
-=== Sheet knowledge-module-focus-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = patient-gender
-  Display = Patient Gender
-  Definition = The gender of the patient. For this item type, use HL7 administrative gender codes (OID: 2.16.840.1.113883.1.11.1)
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = patient-age-group
-  Display = Patient Age Group
-  Definition = A patient demographic category for which this artifact is applicable. Allows specification of age groups using coded values originating from the MeSH Code system (OID: 2.16.840.1.113883.6.177). More specifically, only codes from the AgeGroupObservationValue value set are valid for this field  [2.16.840.1.113883.11.75]
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = clinical-focus
-  Display = Clinical Focus
-  Definition = The clinical concept(s) addressed by the artifact.  For example, disease, diagnostic test interpretation, medication ordering. Please refer to the implementation guide on which code system and codes to use
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = target-user
-  Display = Target User
-  Definition = The user types to which an artifact is targeted.  For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomyCode system (OID: 2.16.840.1.113883.6.101)
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = workflow-setting
-  Display = Workflow Setting
-  Definition = The settings in which the artifact is intended for use.  For example, admission, pre-op, etc
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = workflow-task
-  Display = Workflow Task
-  Definition = The context for the clinical task(s) represented by this artifact. Can be any task context represented by the HL7 ActTaskCode value set (OID: 2.16.840.1.113883.1.11.19846). General categories include: order entry, patient documentation and patient information review
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = clinical-venue
-  Display = Clinical Venue
-  Definition = The venue in which an artifact could be used.  For example, Outpatient, Inpatient, Home, Nursing home. The code value may originate from either the HL7 ActEncounter (OID: 2.16.840.1.113883.1.11.13955) or NUCC non-individual provider codes OID: 2.16.840.1.113883.1.11.19465
 
 === Sheet Search =====================================

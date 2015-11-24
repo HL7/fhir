@@ -1,0 +1,304 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = DecisionSupportRuleTriggerType
+  Binding = code list
+  Reference = #cds-rule-trigger-type
+  Definition = The type of trigger
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = DecisionSupportRuleParticipantType
+  Binding = code list
+  Reference = #cds-rule-participant
+  Definition = The type of participant for an action in the module
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = DecisionSupportRuleActionType
+  Binding = code list
+  Reference = #cds-rule-action-type
+  Definition = The type of action to be performed
+  Conformance = extensible
+
+=== Sheet cds-rule-trigger-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = named-event
+  Display = Named Event
+  Definition = The trigger occurs in response to a specific named event
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = periodic
+  Display = Periodic
+  Definition = The trigger occurs at a specific time or periodically as described by a timing or schedule
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = data-added
+  Display = Data Added
+  Definition = The trigger occurs whenever data of a particular type is added
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = data-modified
+  Display = Data Modified
+  Definition = The trigger occurs whenever data of a particular type is modified
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = data-removed
+  Display = Data Removed
+  Definition = The trigger occurs whenever data of a particular type is removed
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = data-accessed
+  Display = Data Accessed
+  Definition = The trigger occurs whenever data of a particular type is accessed
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = data-access-ended
+  Display = Data Access Ended
+  Definition = The trigger occurs whenever access to data of a particular type is completed
+
+=== Sheet cds-rule-participant =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = patient
+  Display = Patient
+  Definition = The participant is the patient under evaluation
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = person
+  Display = Person
+  Definition = The participant is a person
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = practitioner
+  Display = Practitioner
+  Definition = The participant is a practitioner involved in the patient\'s care
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = related-person
+  Display = Related Person
+  Definition = The participant is a person related to the patient
+
+=== Sheet cds-rule-action-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = create
+  Display = Create
+  Definition = The action is to create a new resource
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = update
+  Display = Update
+  Definition = The action is to update an existing resource
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = remove
+  Display = Remove
+  Definition = The action is to remove an existing resource
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = fire-event
+  Display = Fire Event
+  Definition = The action is to fire a specific event
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DecisionSupportRule
+  Type = DomainResource
+  Short Label = A decision support rule
+  Definition = This resource defines a decision support rule of the form [on Event] if Condition then Action
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = DecisionSupportRule.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Logical identifier
+  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = DecisionSupportRule.version
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = The version of the module, if any
+  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification
+
+ -- Row 4 -----------------------------------
+  Element = DecisionSupportRule.moduleMetadata
+  Card. = 0..1
+  Type = Reference(ModuleMetadata)
+  Short Label = Module information for the rule
+  Definition = A reference to a ModuleMetadata resource that provides metadata for the rule
+
+ -- Row 5 -----------------------------------
+  Element = DecisionSupportRule.library
+  Card. = 0..*
+  Type = Reference(Library)
+  Short Label = A library containing logic used by the rule
+  Definition = A reference to a Library containing the formal logic used by the rule
+
+ -- Row 6 -----------------------------------
+  Element = DecisionSupportRule.trigger
+  Card. = 0..*
+  Definition = A description of a triggering event
+
+ -- Row 7 -----------------------------------
+  Element = DecisionSupportRule.trigger.type
+  Card. = 1..1
+  Type = code
+  Binding = DecisionSupportRuleTriggerType
+  Short Label = named-event | periodic | data-added | data-modified | data-removed | data-accessed | data-access-ended
+  Definition = The type of triggering event
+
+ -- Row 8 -----------------------------------
+  Element = DecisionSupportRule.trigger.eventName
+  Card. = 0..1
+  Type = string
+  Definition = The name of the event (if this is a named-event trigger)
+
+ -- Row 9 -----------------------------------
+  Element = DecisionSupportRule.trigger.eventTiming[x]
+  Card. = 0..1
+  Type = Timing|Reference(Schedule)|date|dateTime
+  Definition = The timing of the event (if this is a period trigger)
+
+ -- Row 10 -----------------------------------
+  Element = !DecisionSupportRule.trigger.eventData
+  Card. = 0..1
+  Type = @DecisionSupportRule.data
+  Definition = The triggering data of the event (if this is a data trigger)
+
+ -- Row 11 -----------------------------------
+  Element = DecisionSupportRule.condition
+  Card. = 0..1
+  Type = string
+  Definition = The condition for the artifact
+
+ -- Row 12 -----------------------------------
+  Element = DecisionSupportRule.action
+  Card. = 0..*
+  Definition = The definition of the actions that should be returned by evaluation of the artifact
+
+ -- Row 13 -----------------------------------
+  Element = DecisionSupportRule.action.actionIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Definition = A unique identifier for the action
+
+ -- Row 14 -----------------------------------
+  Element = DecisionSupportRule.action.number
+  Card. = 0..1
+  Type = string
+  Definition = A user-visible number for the action
+
+ -- Row 15 -----------------------------------
+  Element = DecisionSupportRule.action.supportingEvidence
+  Card. = 0..*
+  Type = Attachment
+  Definition = Supporting evidence for the action
+
+ -- Row 16 -----------------------------------
+  Element = DecisionSupportRule.action.documentation
+  Card. = 0..*
+  Type = Attachment
+  Definition = Supporting documentation for the action
+
+ -- Row 17 -----------------------------------
+  Element = DecisionSupportRule.action.participantType
+  Card. = 0..*
+  Type = code
+  Binding = DecisionSupportRuleParticipantType
+  Short Label = patient | person | practitioner | related-person
+  Definition = The type of participant in the action
+
+ -- Row 18 -----------------------------------
+  Element = DecisionSupportRule.action.title
+  Card. = 0..1
+  Type = string
+  Definition = The title of the action
+
+ -- Row 19 -----------------------------------
+  Element = DecisionSupportRule.action.description
+  Card. = 0..1
+  Type = string
+  Definition = A short description of the action
+
+ -- Row 20 -----------------------------------
+  Element = DecisionSupportRule.action.textEquivalent
+  Card. = 0..1
+  Type = string
+  Definition = A text equivalent of the action to be performed
+
+ -- Row 21 -----------------------------------
+  Element = DecisionSupportRule.action.concept
+  Card. = 0..*
+  Type = CodeableConcept
+  Definition = Concepts associated with the action
+
+ -- Row 22 -----------------------------------
+  Element = DecisionSupportRule.action.type
+  Card. = 0..1
+  Type = code
+  Binding = DecisionSupportRuleActionType
+  Short Label = create | update | remove | fire-event
+  Definition = The type of action to perform (create, update, remove)
+
+ -- Row 23 -----------------------------------
+  Element = DecisionSupportRule.action.resource
+  Card. = 0..1
+  Type = Reference(Any)
+  Definition = The resource that is the target of the action (e.g. CommunicationRequest)
+
+ -- Row 24 -----------------------------------
+  Element = DecisionSupportRule.action.customization
+  Card. = 0..*
+  Definition = Customizations that should be applied to the statically defined resource
+
+ -- Row 25 -----------------------------------
+  Element = DecisionSupportRule.action.customization.path
+  Card. = 1..1
+  Type = string
+  Definition = The path to the element to be customized
+
+ -- Row 26 -----------------------------------
+  Element = DecisionSupportRule.action.customization.expression
+  Card. = 1..1
+  Type = string
+  Definition = An expression specifying the value of the customized element
+
+ -- Row 27 -----------------------------------
+  Element = DecisionSupportRule.action.actions
+  Card. = 0..*
+  Type = @DecisionSupportRule.action
+  Definition = Sub actions
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

@@ -1,4 +1,4 @@
-﻿<!-- FHIR Hierarchy -->
+<!-- FHIR Hierarchy -->
 <!--
 
 todo: compartments
@@ -197,8 +197,17 @@ signatures.html
 			<page type="resource" resource="ReferralRequest"/>
 			<page type="resource" resource="Procedure"/>
 			<page type="resource" resource="ProcedureRequest"/>
+			<page type="resource" resource="DecisionSupportServiceModule"/>
+			<page type="resource" resource="DecisionSupportRule"/>
 			<page type="resource" resource="DetectedIssue"/>
 			<page type="resource" resource="RiskAssessment"/>
+			<page type="resource" resource="ModuleMetadata"/>
+			<page type="resource" resource="ModuleDefinition"/>
+			<page type="resource" resource="Library"/>
+			<page type="resource" resource="OrderSet"/>
+			<page type="resource" resource="GuidanceRequest"/>
+			<page type="resource" resource="GuidanceResponse"/>
+			<page type="resource" resource="Measure"/>
 			<page type="resource" resource="Medication"/>
 			<page type="resource" resource="MedicationOrder"/>
 			<page type="resource" resource="MedicationAdministration"/>

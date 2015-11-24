@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+  <id value="example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Chlamydia Screening Common Library</div>
+  </text>
+  
+  <contained>
+    <ModuleMetadata>
+		<id value="example-library-metadata"/>
+		<identifier>
+          <use value="official"/>
+		  <value value="ChalmydiaScreening_Common"/>
+		</identifier>
+		<version value="2.0.0"/>
+		<title value="Chlamydia Screening Common Library"/>
+		<type value="library"/>
+		<status value="draft"/>
+		<description value="Common Logic for adherence to Chlamydia Screening guidelines"/>
+		<publicationDate value="2015-07-22"/>
+		<topic>
+			<text value="Chlamydia Screening"/>
+		</topic>
+		<keyword value="Chlamydia Screening"/>
+    </ModuleMetadata>
+  </contained>
+  
+  <contained>
+    <ModuleDefinition>
+		<id value="example-library-definition"/>
+		<identifier>
+          <use value="official"/>
+		  <value value="ChalmydiaScreening_Common"/>
+		</identifier>
+		<version value="2.0.0"/>
+		<model>
+			<identifier value="QUICK"/>
+		</model>
+		<valueSet>
+			<name value="Female Administrative Sex"/>
+			<identifier value="2.16.840.1.113883.3.560.100.2"/>
+		</valueSet>
+		<!-- ... other value sets as defined in the library -->
+		<data>
+			<type value="Condition"/>
+			<codeFilter>
+				<path value="code"/>
+				<valueSetString value="Other Female Reproductive Conditions"/>
+			</codeFilter>
+		</data>
+        <!-- ... other data requirements as defined in the library -->
+    </ModuleDefinition>
+  </contained>
+  
+  <identifier>
+		<use value="official"/>
+		<value value="ChalmydiaScreening_Common"/>
+  </identifier>
+  <version value="2.0.0"/>
+  
+  <moduleMetadata>
+    <reference value="#example-library-metadata"/>
+  </moduleMetadata>
+  
+  <moduleDefinition>
+    <reference value="#example-library-definition"/>
+  </moduleDefinition>
+  
+  <document>
+    <contentType value="application/x-cql+text"/>
+    <url value="http://cqlrepository.org/ChlamydiaScreening_Common.cql"/>
+  </document>
+  
+</Library>

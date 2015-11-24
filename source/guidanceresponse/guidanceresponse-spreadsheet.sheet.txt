@@ -1,0 +1,212 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = GuidanceResponseStatus
+  Binding = code list
+  Reference = #guidance-response-status
+  Definition = The status of a guidance response
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = GuidanceResponseActionType
+  Binding = code list
+  Reference = #guidance-response-action-type
+  Definition = The type of action to be performed
+  Conformance = required
+
+=== Sheet guidance-response-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = success
+  Display = Success
+  Definition = The request was processed successfully
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = data-requested
+  Display = Data Requested
+  Definition = The request was processed successfully, but more data may result in a more complete evaluation
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = data-required
+  Display = Data Required
+  Definition = The request was processed, but more data is required to complete the evaluation
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = in-progress
+  Display = In Progress
+  Definition = The request is currently being processed
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = failure
+  Display = Failure
+  Definition = The request was not processed successfully
+
+=== Sheet guidance-response-action-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = create
+  Display = Create
+  Definition = The action is to create a new resource
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = update
+  Display = Update
+  Definition = The action is to update an existing resource
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = remove
+  Display = Remove
+  Definition = The action is to remove an existing resource
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = fire-event
+  Display = Fire Event
+  Definition = The action is to fire a specific event
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = GuidanceResponse
+  Type = DomainResource
+  Short Label = The formal response to a guidance request
+  Definition = A guidance response is the formal response to a previous guidance request. It is a derivative of the knowledge response that provides additional information relevant specifically to clinical decision support such as a description of any proposed actions to be taken
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = GuidanceResponse.requestId
+  Card. = 0..1
+  Type = string
+  Short Label = The id of the request associated with this response, if any
+  Definition = The id of the request associated with this response. If an id was provided as part of the request, it will be provided here to enable the requester to more easily identify the response in a multi-request scenario
+
+ -- Row 3 -----------------------------------
+  Element = GuidanceResponse.module
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = Reference(DecisionSupportServiceModule|DecisionSupportRule)
+  Short Label = A reference to a knowledge module
+  Definition = A reference to a knowledge module involved in an interaction
+
+ -- Row 4 -----------------------------------
+  Element = GuidanceResponse.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = GuidanceResponseStatus
+  Short Label = success | data-requested | data-required | in-progress | failure
+  Definition = The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information
+
+ -- Row 5 -----------------------------------
+  Element = GuidanceResponse.evaluationMessage
+  Card. = 0..*
+  Type = Reference(OperationOutcome)
+  Short Label = Messages resulting from the evaluation of the artifact or artifacts
+  Definition = Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element
+
+ -- Row 6 -----------------------------------
+  Element = GuidanceResponse.outputParameters
+  Card. = 0..1
+  Type = Reference(Parameters)
+  Short Label = The output parameters of the evaluation, if any
+  Definition = The output parameters of the evaluation, if any. Many modules will result in the return of specific resources such as procedure or communication requests that are returned as part of the operation result. However, modules may define specific outputs that would be returned as the result of the evaluation, and these would be returned in this element
+
+ -- Row 7 -----------------------------------
+  Element = GuidanceResponse.action
+  Card. = 0..*
+  Definition = The actions, if any, produced by the evaluation of the artifact
+
+ -- Row 8 -----------------------------------
+  Element = GuidanceResponse.action.actionIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Definition = A unique identifier for the action
+
+ -- Row 9 -----------------------------------
+  Element = GuidanceResponse.action.number
+  Card. = 0..1
+  Type = string
+  Definition = A user-visible number for the action
+
+ -- Row 10 -----------------------------------
+  Element = GuidanceResponse.action.supportingEvidence
+  Card. = 0..*
+  Type = Attachment
+  Definition = Supporting evidence for the action
+
+ -- Row 11 -----------------------------------
+  Element = GuidanceResponse.action.documentation
+  Card. = 0..*
+  Type = Attachment
+  Definition = Supporting documentation for the action
+
+ -- Row 12 -----------------------------------
+  Element = GuidanceResponse.action.participant
+  Card. = 0..*
+  Type = Reference(Patient|Person|Practitioner|RelatedPerson)
+  Definition = The participant in the action
+
+ -- Row 13 -----------------------------------
+  Element = GuidanceResponse.action.title
+  Card. = 0..1
+  Type = string
+  Definition = The title of the action
+
+ -- Row 14 -----------------------------------
+  Element = GuidanceResponse.action.description
+  Card. = 0..1
+  Type = string
+  Definition = A short description of the action
+
+ -- Row 15 -----------------------------------
+  Element = GuidanceResponse.action.textEquivalent
+  Card. = 0..1
+  Type = string
+  Definition = A text equivalent of the action to be performed
+
+ -- Row 16 -----------------------------------
+  Element = GuidanceResponse.action.concept
+  Card. = 0..*
+  Type = CodeableConcept
+  Definition = Concepts associated with the action
+
+ -- Row 17 -----------------------------------
+  Element = GuidanceResponse.action.type
+  Card. = 0..1
+  Type = code
+  Binding = GuidanceResponseActionType
+  Short Label = create | update | remove | fire-event
+  Definition = The type of action to perform (create, update, remove)
+
+ -- Row 18 -----------------------------------
+  Element = GuidanceResponse.action.resource
+  Card. = 0..1
+  Type = Reference(Any)
+  Definition = The resource that is the target of the action (e.g. CommunicationRequest)
+
+ -- Row 19 -----------------------------------
+  Element = GuidanceResponse.action.actions
+  Card. = 0..*
+  Type = @GuidanceResponse.action
+  Definition = Sub actions
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

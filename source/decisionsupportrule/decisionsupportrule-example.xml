@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DecisionSupportRule xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/decisionsupportrule.xsd">
+  <id value="example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Chalmydia Screening CDS Example Using Common</div>
+  </text>
+
+  <contained>
+    <ModuleMetadata>
+		<id value="example-cdsrule-metadata"/>
+		<identifier>
+          <use value="official"/>
+          <value value="ChlamydiaScreening_CDS_UsingCommon"/>
+		</identifier>
+		<version value="2.0.0"/>
+		<title value="Chalmydia Screening CDS Example Using Common"/>
+		<type value="module"/>
+		<status value="draft"/>
+		<description value="Chlamydia Screening CDS Example Using Common"/>
+		<publicationDate value="2015-07-22"/>
+		<topic>
+			<text value="Chlamydia Screeening"/>
+		</topic>
+		<keyword value="Chlamydia Screening"/>
+    </ModuleMetadata>
+  </contained>
+  
+  <identifier>
+		<use value="official"/>
+		<value value="ChlamydiaScreening_CDS_UsingCommon"/>
+  </identifier>
+  <version value="2.0.0"/>
+  
+  <moduleMetadata>
+    <reference value="#example-cdsrule-metadata"/>
+  </moduleMetadata>
+  
+  <library>
+	  <reference value="Library/ChlamydiaScreening_CDS_UsingCommon"/>
+  </library>
+  
+  <condition value="NoScreening"/>
+  
+  <action>
+	  <title value="Patient has not had chlamydia screening within the recommended timeframe..."/>
+	  <customization>
+		<path value="~"/>
+		<expression value="ChlamydiaScreeningRequest"/>
+	  </customization>
+  </action>
+  
+</DecisionSupportRule>

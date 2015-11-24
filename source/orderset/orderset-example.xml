@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/orderset.xsd">
+  <id value="example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Low Suicide Risk Order Set...</div>
+  </text>
+
+  <contained>
+    <ModuleMetadata>
+		<id value="mmi-low-suicide-risk-order-set-metadata"/>
+		<identifier>
+          <use value="official"/>
+          <value value="mmi:low-suicide-risk-order-set"/>
+		</identifier>
+		<version value="1.0.0"/>
+		<title value="Low Suicide Risk Order Set"/>
+		<type value="order-set"/>
+		<status value="draft"/>
+		<description value="..."/>
+		<publicationDate value="2015-08-15"/>
+		<coverage>
+			<focus value="patient-age-group"/>
+			<value>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="133936004"/>
+					<display value="Adult"/>
+				</coding>
+			</value>
+		</coverage>
+		<coverage>
+			<focus value="clinical-focus"/>
+			<value>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="87512008"/>
+					<display value="Mild major depression"/>
+				</coding>
+			</value>
+		</coverage>
+		<coverage>
+			<focus value="clinical-focus"/>
+			<value>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="40379007"/>
+					<display value="Major depression, recurrent, mild"/>
+				</coding>
+			</value>
+		</coverage>
+		<coverage>
+			<focus value="clinical-focus"/>
+			<value>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="394687007"/>
+					<display value="Low suicide risk"/>
+				</coding>
+			</value>
+		</coverage>
+		<coverage>
+			<focus value="clinical-focus"/>
+			<value>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="225337009"/>
+					<display value="Suicide risk assessment"/>
+				</coding>
+			</value>
+		</coverage>
+		<coverage>
+			<focus value="clinical-venue"/>
+			<value>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="440655000"/>
+					<display value="Outpatient environment"/>
+				</coding>
+			</value>
+		</coverage>
+		<coverage>
+			<focus value="target-user"/>
+			<value>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="309343006"/>
+					<display value="Physician"/>
+				</coding>
+			</value>
+		</coverage>
+		<topic>
+			<text value="Chlamydia Screeening"/>
+		</topic>
+		<keyword value="Chlamydia Screening"/>
+		<contributor>
+			<type value="author"/>
+			<party>
+				<reference value="#organization1"/>
+				<display value="Motive Medical Intelligence"/>
+			</party>
+		</contributor>
+		<publisher>
+			<reference value="#organization1"/>
+			<display value="Motive Medical Intelligence"/>
+		</publisher>
+    </ModuleMetadata>
+  </contained>
+
+	<contained>
+		<Organization>
+			<id value="organization1"/>
+			<name value="Motive Medical Intelligence"/>
+			<telecom>
+				<system value="phone"/>
+				<value value="415-362-4007"/>
+				<use value="work"/>
+			</telecom>
+			<telecom>
+				<system value="email"/>
+				<value value="info@motivemi.com"/>
+				<use value="work"/>
+			</telecom>
+			<address>
+				<line value="580 California St #1925"/>
+				<city value="San Francisco"/>
+				<state value="CA"/>
+				<postalCode value="94101"/>
+				<country value="USA"/>
+			</address>
+		</Organization>
+	</contained>
+	<contained>
+		<!-- The referral request here is only partially specified, additional information will be provided from context, see the action definition below -->
+		<ReferralRequest>
+			<id value="referralRequest"/>
+			<status value="requested"/>
+			<type>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="306206005"/>
+				</coding>
+			</type>
+			<specialty>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="urn:oid:2.16.840.1.113883.11.19465"/>--> <!-- NUCC Provider Codes -->
+					<code value="261QM0850X"/>
+				</coding>
+			</specialty>
+			<description value="refer to primary care-mental health integrated care program for evaluation and treatment of mental health conditions now"/>
+			<serviceRequested>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://snomed.info/sct"/>-->
+					<code value="385893007"/>
+				</coding>
+			</serviceRequested>
+		</ReferralRequest>
+	</contained>
+	<contained>
+		<MedicationOrder>
+			<id value="citalopramPrescription"/>
+			<medicationReference>
+				<reference value="#citalopramMedication"/>
+			</medicationReference>
+			<dosageInstruction>
+				<text value="1 tablet oral 1 time daily"/>
+				<timing>
+					<repeat>
+						<frequency value="1"/>
+						<period value="1"/>
+						<periodUnits value="d"/>
+					</repeat>
+				</timing>
+				<route>
+					<coding>
+						<!-- Error: Connection to http://localhost:960 refused -->
+						<!--<system value="http://snomed.info/sct"/>-->
+						<code value="26643006"/>
+						<display value="Oral route (qualifier value)"/>
+					</coding>
+					<text value="Oral route (qualifier value)"/>
+				</route>
+				<doseQuantity>
+					<value value="1"/>
+					<unit value="{tbl}"/>
+				</doseQuantity>
+			</dosageInstruction>
+			<dispenseRequest>
+				<numberOfRepeatsAllowed value="3"/>
+				<quantity>
+					<value value="30"/>
+					<unit value="{tbl}"/>
+				</quantity>
+			</dispenseRequest>
+		</MedicationOrder>
+	</contained>
+	<contained>
+		<Medication>
+			<id value="citalopramMedication"/>
+			<code>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>-->
+					<code value="200371"/>
+				</coding>
+				<text value="citalopram"/>
+			</code>
+			<product>
+				<form>
+					<coding>
+						<!-- Error: Connection to http://localhost:960 refused -->
+						<!--<system value="http://snomed.info/sct"/>-->
+						<code value="385055001"/>
+						<display value="Tablet dose form"/>
+					</coding>
+					<text value="Tablet dose form"/>
+				</form>
+				<ingredient>
+					<item>
+						<reference value="#citalopramSubstance"/>
+					</item>
+					<amount>
+						<numerator>
+							<value value="20"/>
+							<unit value="mg"/>
+						</numerator>
+						<denominator>
+							<value value="1"/>
+							<unit value="{tbl}"/>
+						</denominator>
+					</amount>
+				</ingredient>
+			</product>
+		</Medication>
+	</contained>
+	<contained>
+		<Substance>
+			<id value="citalopramSubstance"/>
+			<code>
+				<coding>
+					<!-- Error: Connection to http://localhost:960 refused -->
+					<!--<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>-->
+					<code value="2556"/>
+				</coding>
+				<text value="citalopram"/>
+			</code>
+		</Substance>
+	</contained>
+	
+	<identifier>
+		<use value="official"/>
+		<value value="mmi:low-suicide-risk-order-set"/>
+	</identifier>
+	
+	<library>
+		<reference value="Library/mmi-suiciderisk-orderset-logic"/>
+	</library>
+	
+	<!-- Items -->
+	<!-- Suicide Risk Assessment and Outpatient Management -->
+	<item>
+		<title value="Suicide Risk Assessment and Outpatient Management"/>
+		<!-- Consults and Referrals -->
+		<items>
+			<title value="Consults and Referrals"/>
+			<groupingBehavior value="logical-group"/>
+			<selectionBehavior value="any"/>
+			<items>
+				<!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now -->
+				<textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
+				<resource>
+					<reference value="#referralRequest"/>
+				</resource>
+				<customization>
+					<path value="fulfillmentTime"/>
+					<expression value="ReferralRequestFulfillmentTime"/>
+				</customization>
+				<customization>
+					<path value="patient"/>
+					<expression value="Patient"/>
+				</customization>
+				<customization>
+					<path value="requester"/>
+					<expression value="Practitioner"/>
+				</customization>
+				<customization>
+					<path value="reason"/>
+					<expression value="RiskAssessmentScore"/>
+				</customization>
+				<customization>
+					<path value="supportingInformation"/>
+					<expression value="RiskAssessment"/>
+				</customization>
+			</items>
+		</items>
+		<!-- Medications -->
+		<items>
+			<title value="Medications"/>
+			<groupingBehavior value="logical-group"/>
+			<selectionBehavior value="at-most-one"/>
+			<items>
+
+				<!-- First-Line Antidepressants -->
+				<title value="First-Line Antidepressants"/>
+				<supportingEvidence>
+					<contentType value="text/html"/>
+					<url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+					<title value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
+				</supportingEvidence>
+				<groupingBehavior value="logical-group"/>
+				<selectionBehavior value="at-most-one"/>
+				<items>
+					<!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
+					<title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
+					<documentation>
+						<contentType value="text/html"/>
+						<url value="http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01"/>
+						<title value="National Library of Medicine. DailyMed website. CITALOPRAM- citalopram hydrobromide tablet, film coated."/>
+					</documentation>
+					<groupingBehavior value="logical-group"/>
+					<selectionBehavior value="at-most-one"/>
+					<items>
+						<!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) -->
+						<textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>
+						<resource>
+							<reference value="#citalopramPrescription"/>
+						</resource>
+					</items>
+					<items>
+						<!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
+						<textEquivalent value="escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
+						<!-- Follows pattern established above -->
+					</items>
+					<items>
+						<!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) -->
+						<textEquivalent value="fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)"/>
+						<!-- Follows pattern established above -->
+					</items>
+					<items>
+						<!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
+						<textEquivalent value="paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
+						<!-- Follows pattern established above -->
+					</items>
+					<items>
+						<!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
+						<textEquivalent value="sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
+						<!-- Follows pattern established above -->
+					</items>
+				</items>
+				<items>
+					<!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
+					<textEquivalent value="Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)"/>
+					<!-- Follows pattern established above -->
+				</items>
+				<items>
+					<!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) -->
+					<textEquivalent value="Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)"/>
+					<!-- Follows pattern established above -->
+				</items>
+				<items>
+					<!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) -->
+					<textEquivalent value="Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)"/>
+					<!-- Follows pattern established above -->
+				</items>
+			</items>
+		</items>
+	</item>
+</OrderSet>

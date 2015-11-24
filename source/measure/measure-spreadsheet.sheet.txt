@@ -1,0 +1,158 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = MeasurePopulationType
+  Binding = code list
+  Reference = #measure-population
+  Definition = The type of population
+  Conformance = required
+
+=== Sheet measure-population =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = initial-population
+  Display = Initial Population
+  Definition = The initial population for the measure
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = numerator
+  Display = Numerator
+  Definition = The numerator for the measure
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = numerator-exclusion
+  Display = Numerator Exclusion
+  Definition = The numerator exclusion for the measure
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = denominator
+  Display = Denominator
+  Definition = The denominator for the measure
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = denominator-exclusion
+  Display = Denominator Exclusion
+  Definition = The denominator exclusion for the measure
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = denominator-exception
+  Display = Denominator Exception
+  Definition = The denominator exception for the measure
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = measure-population
+  Display = Measure Population
+  Definition = The measure population for the measure
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = measure-population-exclusion
+  Display = Measure Population Exclusion
+  Definition = The measure population exclusion for the measure
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = measure-score
+  Display = Measure Score
+  Definition = The measure score for the measure
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Measure
+  Type = DomainResource
+  Short Label = A quality measure
+  Definition = The Measure resource provides the definition of a quality measure
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = Measure.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Logical identifier
+  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Measure.version
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = The version of the module, if any
+  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification
+
+ -- Row 4 -----------------------------------
+  Element = Measure.moduleMetadata
+  Card. = 0..1
+  Type = Reference(ModuleMetadata)
+  Short Label = Metadata for the measure
+  Definition = A reference to a ModuleMetadata resource that describes the metadata for the measure
+
+ -- Row 5 -----------------------------------
+  Element = Measure.library
+  Card. = 0..*
+  Type = Reference(Library)
+  Short Label = Logic used by the measure
+  Definition = A reference to a Library resource containing the formal logic used by the measure
+
+ -- Row 6 -----------------------------------
+  Element = Measure.population
+  Card. = 0..*
+  Definition = The measure populations
+
+ -- Row 7 -----------------------------------
+  Element = Measure.population.type
+  Card. = 1..1
+  Type = code
+  Binding = MeasurePopulationType
+  Short Label = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
+  Definition = The type of population criteria
+
+ -- Row 8 -----------------------------------
+  Element = Measure.population.name
+  Card. = 0..1
+  Type = string
+  Definition = Optional name or short description of this population
+
+ -- Row 9 -----------------------------------
+  Element = Measure.population.description
+  Card. = 0..1
+  Type = string
+  Definition = The human readable description of this population criteria
+
+ -- Row 10 -----------------------------------
+  Element = Measure.population.criteria
+  Card. = 1..1
+  Type = string
+  Definition = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
+
+ -- Row 11 -----------------------------------
+  Element = Measure.stratifier
+  Card. = 0..*
+  Type = string
+  Definition = The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path
+
+ -- Row 12 -----------------------------------
+  Element = Measure.supplementalData
+  Card. = 0..*
+  Type = string
+  Definition = The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

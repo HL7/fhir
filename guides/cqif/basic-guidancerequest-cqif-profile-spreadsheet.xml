@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-07-16T23:11:46Z</LastSaved>
+  <LastSaved>2015-11-17T18:31:12Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,11 +20,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16575</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>8355</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1021,7 +1022,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3817,7 +3817,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3832,7 +3832,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>14</ActiveCol>
+     <RangeSelection>R2C15:R2C16</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5837,94 +5838,91 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">guidance</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">System</Data></Cell>
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">guidance</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">The guidance operation requests clinical decision support guidance based on a specific knowledge module</Data></Cell>
+    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">guidance.request</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/cqif-guidancerequest"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/cqif-guidancerequest</Data></Cell>
+    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The input guidance request information</Data></Cell>
-    <Cell ss:StyleID="s149"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">guidance.inputResource</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">DomainResource</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">Input data for the request(s)</Data></Cell>
-    <Cell ss:StyleID="s149"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">guidance.response</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">out</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/cqif-guidanceresponse"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/cqif-guidanceresponse</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The results of the request(s)</Data></Cell>
-    <Cell ss:StyleID="s149"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">guidance.outputResource</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">out</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">DomainResource</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">Any output resources of the request(s)</Data></Cell>
-    <Cell ss:StyleID="s149"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">guidance-requirements</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">System</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">guidanceRequirements</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The guidance requirements operation determines the data requirements for a given module or set of modules</Data></Cell>
+    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s149"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">guidance-requirements.moduleIdentifier</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The identifiers of the modules for which data requirements should be retrieved</Data></Cell>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s149"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s133"><Data ss:Type="String">guidance-requirements.result</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">out</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/cqif-knowledgemodule</Data></Cell>
+    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The aggregated data requirements for the requested modules</Data></Cell>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s149"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s149"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s149"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s149"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s149"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6392,6 +6390,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6411,8 +6410,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2C1:R9C9</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

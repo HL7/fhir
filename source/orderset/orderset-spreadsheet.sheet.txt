@@ -1,0 +1,397 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = OrderSetParticipantType
+  Binding = code list
+  Reference = #order-set-participant
+  Definition = The type of participant for an action in the orderset
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = OrderSetItemType
+  Binding = code list
+  Reference = #order-set-item-type
+  Definition = The type of orderset item
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = OrderSetItemGroupingBehavior
+  Binding = code list
+  Reference = #grouping-behavior
+  Definition = Defines organization behavior of a group
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = OrderSetItemSelectionBehavior
+  Binding = code list
+  Reference = #selection-behavior
+  Definition = Defines selection behavior of a group
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = OrderSetItemRequiredBehavior
+  Binding = code list
+  Reference = #required-behavior
+  Definition = Defines requiredness behavior for selecting an action or an action group
+  Conformance = required
+
+ -- Row 6 -----------------------------------
+  Binding Name = OrderSetItemPrecheckBehavior
+  Binding = code list
+  Reference = #precheck-behavior
+  Definition = Defines selection frequency behavior for an action or group
+  Conformance = required
+
+ -- Row 7 -----------------------------------
+  Binding Name = OrderSetItemCardinalityBehavior
+  Binding = code list
+  Reference = #cardinality-behavior
+  Definition = Defines behavior for an action or a group for how many times that item may be repeated
+  Conformance = required
+
+=== Sheet order-set-participant =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = patient
+  Display = Patient
+  Definition = The participant is the patient under evaluation
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = person
+  Display = Person
+  Definition = The participant is a person
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = practitioner
+  Display = Practitioner
+  Definition = The participant is a practitioner involved in the patient\'s care
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = related-person
+  Display = Related Person
+  Definition = The participant is a person related to the patient
+
+=== Sheet order-set-item-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = create
+  Display = Create
+  Definition = The action is to create a new resource
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = update
+  Display = Update
+  Definition = The action is to update an existing resource
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = remove
+  Display = Remove
+  Definition = The action is to remove an existing resource
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = fire-event
+  Display = Fire Event
+  Definition = The action is to fire a specific event
+
+=== Sheet grouping-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = visual-group
+  Display = Visual Group
+  Definition = Any group marked with this behavior should be displayed as a visual group to the end user
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = logical-group
+  Display = Logical Group
+  Definition = A group with this behavior logically groups its sub-elements, and may be shown as a visual group to the end user, but it is not required to do so
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = sentence-group
+  Display = Sentence Group
+  Definition = A group of related alternative items is a sentence group if the target referenced by the item is the same in all the items, and each item simply constitutes a different variation on how to specify the details for the target. For example, two items that could be in a SentenceGroup are \"aspirin, 500 mg, 2 times per day\" and \"aspirin, 300 mg, 3 times per day\". In both cases, aspirin is the target referenced by the item, and the two items represent two different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of \"AtMostOne\", unless it\'s a required item, in which case, it would be \"ExactlyOne\"
+
+=== Sheet selection-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = any
+  Display = Any
+  Definition = Any number of the items in the group may be chosen, from zero to all
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = all
+  Display = All
+  Definition = All the items in the group must be selected as a single unit
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = all-or-none
+  Display = All Or None
+  Definition = All the items in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = exactly-one
+  Display = Exactly One
+  Definition = The end user must choose one and only one of the selectable items in the group. The user may not choose none of the items in the group
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = at-most-one
+  Display = At Most One
+  Definition = The end user may choose zero or at most one of the items in the group
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = one-or-more
+  Display = One Or More
+  Definition = The end user must choose a minimum of one, and as many additional as desired
+
+=== Sheet required-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = must
+  Display = Must
+  Definition = An item with this behavior must be included in the items processed by the end user; the end user may not choose not to include this item
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = could
+  Display = Could
+  Definition = An item with this behavior may be included in the set of items processed by the end user
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = must-unless-documented
+  Display = Must Unless Documented
+  Definition = An item with this behavior must be included in the set of items processed by the end user, unless the end user provides documentation as to why the item was not included
+
+=== Sheet precheck-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = yes
+  Display = Yes
+  Definition = An item with this behavior is one of the most frequent items that is, or should be, included by an end user, for the particular context in which the item occurs. The system displaying the item to the end user should consider \"pre-checking\" such an item as a convenience for the user
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = no
+  Display = No
+  Definition = An item with this behavior is one of the less frequent items included by the end user, for the particular context in which the item occurs. The system displaying the items to the end user would typically not \"pre-check\" such an item
+
+=== Sheet cardinality-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = single
+  Display = Single
+  Definition = The item may only be selected one time
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = multiple
+  Display = Multiple
+  Definition = The item may be selected multiple times
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = OrderSet
+  Type = DomainResource
+  Short Label = The definition of an order set
+  Definition = This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = OrderSet.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Logical identifier
+  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = OrderSet.version
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = The version of the module, if any
+  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification
+
+ -- Row 4 -----------------------------------
+  Element = OrderSet.moduleMetadata
+  Card. = 0..1
+  Type = Reference(ModuleMetadata)
+  Short Label = The metadata for the orderset
+  Definition = A reference to a ModuleMetadata resource containing metadata for the orderset
+
+ -- Row 5 -----------------------------------
+  Element = OrderSet.library
+  Card. = 0..*
+  Type = Reference(Library)
+  Short Label = Logic used by the orderset
+  Definition = A reference to a Library resource containing any formal logic used by the orderset
+
+ -- Row 6 -----------------------------------
+  Element = OrderSet.item
+  Card. = 0..*
+  Definition = The definition of the items that make up the orderset
+
+ -- Row 7 -----------------------------------
+  Element = OrderSet.item.identifier
+  Card. = 0..1
+  Type = Identifier
+  Definition = A unique identifier for the item
+
+ -- Row 8 -----------------------------------
+  Element = OrderSet.item.number
+  Card. = 0..1
+  Type = string
+  Definition = A user-visible number for the item
+
+ -- Row 9 -----------------------------------
+  Element = OrderSet.item.title
+  Card. = 0..1
+  Type = string
+  Definition = The title of the item
+
+ -- Row 10 -----------------------------------
+  Element = OrderSet.item.description
+  Card. = 0..1
+  Type = string
+  Definition = A short description of the item
+
+ -- Row 11 -----------------------------------
+  Element = OrderSet.item.textEquivalent
+  Card. = 0..1
+  Type = string
+  Definition = A text equivalent of the item in the orderset
+
+ -- Row 12 -----------------------------------
+  Element = OrderSet.item.supportingEvidence
+  Card. = 0..*
+  Type = Attachment
+  Definition = Supporting evidence for the item
+
+ -- Row 13 -----------------------------------
+  Element = OrderSet.item.documentation
+  Card. = 0..*
+  Type = Attachment
+  Definition = Supporting documentation for the  item
+
+ -- Row 14 -----------------------------------
+  Element = OrderSet.item.participantType
+  Card. = 0..*
+  Type = code
+  Binding = OrderSetParticipantType
+  Short Label = patient | person | practitioner | related-person
+  Definition = The type of participant in the item
+
+ -- Row 15 -----------------------------------
+  Element = OrderSet.item.concept
+  Card. = 0..*
+  Type = CodeableConcept
+  Definition = Concepts associated with the item
+
+ -- Row 16 -----------------------------------
+  Element = OrderSet.item.type
+  Card. = 0..1
+  Type = code
+  Binding = OrderSetItemType
+  Short Label = create | update | remove | fire-event
+  Definition = The type of item (create, update, remove)
+
+ -- Row 17 -----------------------------------
+  Element = OrderSet.item.groupingBehavior
+  Card. = 0..1
+  Type = code
+  Binding = OrderSetItemGroupingBehavior
+  Short Label = visual-group | logical-group | sentence-group
+  Definition = Defines organization behavior of a group: gives the reason why the items are grouped together
+
+ -- Row 18 -----------------------------------
+  Element = OrderSet.item.selectionBehavior
+  Card. = 0..1
+  Type = code
+  Binding = OrderSetItemSelectionBehavior
+  Short Label = any | all | all-or-none | exactly-one | at-most-one | one-or-more
+  Definition = Defines selection behavior of a group: specifies the number of selectable items in the group that may be selected by the end user when the items of the group are displayed
+
+ -- Row 19 -----------------------------------
+  Element = OrderSet.item.requiredBehavior
+  Card. = 0..1
+  Type = code
+  Binding = OrderSetItemRequiredBehavior
+  Short Label = must | could | must-unless-documented
+  Definition = Defines requiredness behavior for selecting an action or an action group; i.e., whether the action or action group is required or optional
+
+ -- Row 20 -----------------------------------
+  Element = OrderSet.item.precheckBehavior
+  Card. = 0..1
+  Type = code
+  Binding = OrderSetItemPrecheckBehavior
+  Short Label = yes | no
+  Definition = Defines selection frequency behavior for an action or group; i.e., for most frequently selected items, the end-user system may provide convenience options in the UI (such as pre-selection) in order to (1) communicate to the end user what the most frequently selected item is, or should, be in a particular context, and (2) save the end user time
+
+ -- Row 21 -----------------------------------
+  Element = OrderSet.item.cardinalityBehavior
+  Card. = 0..1
+  Type = code
+  Binding = OrderSetItemCardinalityBehavior
+  Short Label = single | multiple
+  Definition = Defines behavior for an action or a group for how many times that item may be repeated, i.e., cardinality. For example, if a user is documenting lesions, the lesion element may be repeated several times, once for each occurrence of a lesion on the patient or tissue sample or image
+
+ -- Row 22 -----------------------------------
+  Element = OrderSet.item.resource
+  Card. = 0..1
+  Type = Reference(Any)
+  Definition = The resource that is the target of the item (e.g. CommunicationRequest)
+
+ -- Row 23 -----------------------------------
+  Element = OrderSet.item.customization
+  Card. = 0..*
+  Definition = Customizations that should be applied to the statically defined resource
+
+ -- Row 24 -----------------------------------
+  Element = OrderSet.item.customization.path
+  Card. = 1..1
+  Type = string
+  Definition = The path to the element to be customized
+
+ -- Row 25 -----------------------------------
+  Element = OrderSet.item.customization.expression
+  Card. = 1..1
+  Type = string
+  Definition = An expression specifying the value of the customized element
+
+ -- Row 26 -----------------------------------
+  Element = OrderSet.item.items
+  Card. = 0..*
+  Type = @OrderSet.item
+  Definition = Sub items for the orderable
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

@@ -148,6 +148,12 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="es">ElementoDatos</translation>
 		<translation lang="fr">ElementDonnées</translation>
 	</item>
+	<item id="DecisionSupportServiceModule">
+		<translation lang="en">DecisionSupportServiceModule</translation>
+	</item>
+	<item id="DecisionSupportRule">
+		<translation lang="en">DecisionSupportRule</translation>
+	</item>
 	<item id="DetectedIssue">
 		<translation lang="en">DetectedIssue</translation>
 		<translation lang="es">Problema-Detectado</translation>
@@ -286,6 +292,12 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="es">GVFVariante</translation>
 		<translation lang="fr">GVFVariante</translation>
 	</item>
+	<item id="GuidanceRequest">
+		<translation lang="en">GuidanceRequest</translation>
+	</item>
+	<item id="GuidanceResponse">
+		<translation lang="en">GuidanceResponse</translation>
+	</item>
 	<item id="HealthcareService">
 		<translation lang="en">HealthcareService</translation>
 		<translation lang="fr">ServiceDeSanté</translation>
@@ -319,6 +331,9 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="en">InstitutionalClaim</translation>
 		<translation lang="fr">RéclamationInstitutionelle</translation>
 	</item>
+	<item id="Library">
+		<translation lang="en">Library</translation>
+	</item>
 	<item id="List">
 		<translation lang="en">List</translation>
 		<translation lang="zh">列表</translation>
@@ -329,6 +344,9 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="en">Location</translation>
 		<translation lang="zh">位置</translation>
 		<translation lang="fr">Localisation</translation>
+	</item>
+	<item id="Measure">
+		<translation lang="en">Measure</translation>
 	</item>
 	<item id="Media">
 		<translation lang="en">Media</translation>
@@ -378,6 +396,12 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="es">Microarray</translation>
 		<translation lang="fr">Microarray</translation>
 	</item>
+	<item id="ModuleMetadata">
+		<translation lang="en">ModuleMetadata</translation>
+	</item>
+	<item id="ModuleDefinition">
+		<translation lang="en">ModuleDefinition</translation>
+	</item>
 	<item id="NamingSystem">
 		<translation lang="en">NamingSystem</translation>
 		<translation lang="fr">SystèmeDeNommage</translation>
@@ -419,6 +443,9 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="zh">医嘱响应</translation>
 		<translation lang="es">RespuestaOrden</translation>
 		<translation lang="fr">RéponseOrdre</translation>
+	</item>
+	<item id="OrderSet">
+		<translation lang="en">OrderSet</translation>
 	</item>
 	<item id="Organization">
 		<translation lang="en">Organization</translation>

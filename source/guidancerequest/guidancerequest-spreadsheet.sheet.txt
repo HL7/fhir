@@ -1,0 +1,208 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = EncounterType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/encounter-type
+  Definition = The type of encounter
+  Description = A specific code indicating type of service provided
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = EncounterClass
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/encounter-class
+  Definition = Classification of the encounter
+  Conformance = required
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = GuidanceRequest
+  Type = DomainResource
+  Short Label = A request for decision support guidance
+  Definition = A guidance request is a request to evaluate a particular knowledge module focused on decision support, providing information relevant to decision support such as workflow and user context.
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = GuidanceRequest.module
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = Reference(DecisionSupportRule|DecisionSupportServiceModule)
+  Short Label = A reference to a knowledge module
+  Definition = A reference to a knowledge module involved in an interaction
+  w5 = what
+
+ -- Row 3 -----------------------------------
+  Element = GuidanceRequest.dateTime
+  Card. = 0..1
+  Type = dateTime
+  Short Label = The date and time of the request
+  Definition = The date and time of the request, with respect to the initiator
+  w5 = when.init
+
+ -- Row 4 -----------------------------------
+  Element = GuidanceRequest.evaluateAtDateTime
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Indicates that the evaluation should be performed as though it was the given date and time
+  Definition = Indicates that the evaluation should be performed as though it was the given date and time. The most direct implication of this is that references to \"Now\" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the requestDateTime is assumed
+  w5 = when.init
+
+ -- Row 5 -----------------------------------
+  Element = GuidanceRequest.inputParameters
+  Card. = 0..1
+  Type = Reference(Parameters)
+  Short Label = The input parameters for a request, if any
+  Definition = The input parameters for a request, if any. These parameters are used to provide patient-independent information to the evaluation. Patient-specific information is either accessed directly as part of the evaluation (because the evaluation engine and the patient-data are co-located) or provided as part of the operation input in the form of resources
+
+ -- Row 6 -----------------------------------
+  Element = GuidanceRequest.initiatingOrganization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Definition = The organization initiating the request
+  w5 = who
+
+ -- Row 7 -----------------------------------
+  Element = GuidanceRequest.initiatingPerson
+  Card. = 0..1
+  Type = Reference(Person|Patient|Practitioner|RelatedPerson)
+  Definition = The person initiating the request
+  w5 = who
+
+ -- Row 8 -----------------------------------
+  Element = GuidanceRequest.userType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = The type of user initiating the request
+  Definition = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)
+
+ -- Row 9 -----------------------------------
+  Element = GuidanceRequest.userLanguage
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = Language
+  Definition = Preferred language of the person using the system
+
+ -- Row 10 -----------------------------------
+  Element = GuidanceRequest.userTaskContext
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Label = The task the system user is performing
+  Definition = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources
+  w5 = why
+
+ -- Row 11 -----------------------------------
+  Element = GuidanceRequest.receivingOrganization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Definition = The organization that will receive the response
+
+ -- Row 12 -----------------------------------
+  Element = GuidanceRequest.receivingPerson
+  Card. = 0..1
+  Type = Reference(Person|Patient|Practitioner|RelatedPerson)
+  Definition = The person in the receiving organization that will receive the response
+
+ -- Row 13 -----------------------------------
+  Element = GuidanceRequest.recipientType
+  Card. = 0..1
+  Type = CodeableConcept
+  Definition = The type of individual that will consume the response content. This may be different from the requesting user type (e.g. if a clinician is getting disease management guidance for provision to a patient). E.g. patient, healthcare provider or specific type of healthcare provider (physician, nurse, etc.)
+
+ -- Row 14 -----------------------------------
+  Element = GuidanceRequest.recipientLanguage
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = Language
+  Definition = Preferred language of the person that will consume the content
+
+ -- Row 15 -----------------------------------
+  Element = GuidanceRequest.encounterClass
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = EncounterClass
+  Definition = The class of encounter (inpatient, outpatient, etc)
+  w5 = why
+
+ -- Row 16 -----------------------------------
+  Element = GuidanceRequest.encounterType
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = EncounterType
+  Definition = The type of the encounter
+  w5 = why
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = guidance
+  Use = System
+  Documentation = The guidance operation requests clinical decision support guidance based on a specific knowledge module
+  Type = operation
+  Title = guidance
+
+ -- Row 2 -----------------------------------
+  Name = guidance.request
+  Use = in
+  Documentation = The input guidance request information
+  Type = GuidanceRequest
+  Min = 1
+  Max = *
+
+ -- Row 3 -----------------------------------
+  Name = guidance.inputResource
+  Use = in
+  Documentation = Input data for the request(s)
+  Type = DomainResource
+  Min = 0
+  Max = *
+
+ -- Row 4 -----------------------------------
+  Name = guidance.response
+  Use = out
+  Documentation = The results of the request(s)
+  Type = GuidanceResponse
+  Min = 1
+  Max = *
+
+ -- Row 5 -----------------------------------
+  Name = guidance.outputResource
+  Use = out
+  Documentation = Any output resources of the request(s)
+  Type = DomainResource
+  Min = 0
+  Max = *
+
+ -- Row 6 -----------------------------------
+  Name = guidance-requirements
+  Use = System
+  Documentation = The guidance requirements operation determines the data requirements for a given module or set of modules
+  Type = operation
+  Title = guidanceRequirements
+
+ -- Row 7 -----------------------------------
+  Name = guidance-requirements.moduleIdentifier
+  Use = in
+  Documentation = The identifiers of the modules for which data requirements should be retrieved
+  Type = Identifier
+  Min = 0
+  Max = *
+
+ -- Row 8 -----------------------------------
+  Name = guidance-requirements.result
+  Use = out
+  Documentation = The aggregated data requirements for the requested modules
+  Type = KnowledgeModule
+  Min = 1
+  Max = 1

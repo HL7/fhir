@@ -20,12 +20,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7305</WindowHeight>
-  <WindowWidth>20250</WindowWidth>
+  <WindowHeight>8355</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
-  <FirstVisibleSheet>4</FirstVisibleSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6542,11 +6542,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>58</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6563,7 +6562,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>72</ActiveRow>
+     <ActiveRow>31</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -7487,7 +7486,7 @@
    <Column ss:StyleID="s128" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s128" ss:Width="51"/>
    <Column ss:StyleID="s128" ss:Width="67.5"/>
-   <Column ss:StyleID="s128" ss:Width="146.25"/>
+   <Column ss:StyleID="s128" ss:AutoFitWidth="0" ss:Width="365.25"/>
    <Column ss:StyleID="s128" ss:Width="172.5"/>
    <Column ss:StyleID="s128" ss:AutoFitWidth="0" ss:Width="97.5"/>
    <Column ss:StyleID="s128" ss:AutoFitWidth="0" ss:Width="88.5"/>
@@ -7552,9 +7551,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleResourceType</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The type of related resource for the module</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">#knowledge-module-resource-type</Data></Cell>
+    <Cell ss:StyleID="s152" ss:HRef="http://hl7.org/fhir/ValueSet/knowledge-module-resource-type"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/knowledge-module-resource-type</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -7566,9 +7566,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleStatus</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The status of the knowledge module</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">#knowledge-module-status</Data></Cell>
+    <Cell ss:StyleID="s152" ss:HRef="http://hl7.org/fhir/ValueSet/knowledge-module-status"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/knowledge-module-status</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -7580,9 +7581,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleContributorType</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The type of contributor</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">#knowledge-module-contributor</Data></Cell>
+    <Cell ss:StyleID="s152" ss:HRef="http://hl7.org/fhir/ValueSet/knowledge-module-contributor"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/knowledge-module-contributor</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -7624,9 +7626,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeResponseStatus</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The status of a knowledge response</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">#knowledge-response-status</Data></Cell>
+    <Cell ss:StyleID="s152" ss:HRef="http://hl7.org/fhir/ValueSet/knowledge-response-status"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/knowledge-response-status</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -7639,9 +7642,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleFocusType</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care)</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">#knowledge-module-focus-type</Data></Cell>
+    <Cell ss:StyleID="s152" ss:HRef="http://hl7.org/fhir/ValueSet/knowledge-module-focus-type"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/knowledge-module-focus-type</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -7980,6 +7984,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8000,8 +8005,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>7</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R8</RangeSelection>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9904,8 +9908,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2C1:R5C6</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -11808,8 +11812,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
      <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2C1:R8C6</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

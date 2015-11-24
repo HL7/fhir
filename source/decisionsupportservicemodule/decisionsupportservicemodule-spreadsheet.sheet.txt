@@ -1,0 +1,52 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DecisionSupportServiceModule
+  Type = DomainResource
+  Short Label = A description of decision support service functionality
+  Definition = The DecisionSupportServiceModule resource describes decision support functionality that is available as a service
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = DecisionSupportServiceModule.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Logical identifier
+  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = DecisionSupportServiceModule.version
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = The version of the module, if any
+  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification
+
+ -- Row 4 -----------------------------------
+  Element = DecisionSupportServiceModule.moduleMetadata
+  Card. = 0..1
+  Type = Reference(ModuleMetadata)
+  Short Label = Metadata for the service module
+  Definition = A reference to a ModuleMetadata resource describing the metadata for the decision support service module
+
+ -- Row 5 -----------------------------------
+  Element = DecisionSupportServiceModule.moduleDefinition
+  Card. = 1..1
+  Type = Reference(ModuleDefinition)
+  Short Label = Data requirements for the module
+  Definition = A reference to a ModuleDefinition resource describing the data requirements for the service module
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

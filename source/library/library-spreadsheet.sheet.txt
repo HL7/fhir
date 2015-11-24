@@ -1,0 +1,59 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Library
+  Type = DomainResource
+  Short Label = Represents a library of quality improvement components
+  Definition = The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = Library.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Logical identifier
+  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Library.version
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = The version of the module, if any
+  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification
+
+ -- Row 4 -----------------------------------
+  Element = Library.moduleMetadata
+  Card. = 0..1
+  Type = Reference(ModuleMetadata)
+  Short Label = The metadata information for the library
+  Definition = A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library
+
+ -- Row 5 -----------------------------------
+  Element = Library.moduleDefinition
+  Card. = 1..1
+  Type = Reference(ModuleDefinition)
+  Short Label = The header information for the library
+  Definition = A reference to a ModuleDefinition resource describing the header information for the library
+
+ -- Row 6 -----------------------------------
+  Element = Library.document
+  Card. = 1..1
+  Type = Attachment
+  Short Label = The content of the library
+  Definition = The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
