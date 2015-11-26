@@ -84,6 +84,11 @@
       }
     },
     {
+      "hash": "#|null|null|2556|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|3092008|Staphylococcus Aureus",
       "severity": null,
       "message": null,

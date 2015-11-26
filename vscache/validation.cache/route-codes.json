@@ -32,6 +32,17 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|null|null|26643006|Oral route (qualifier value)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "26643006",
+        "definition": null,
+        "display": "Oral route (qualifier value)"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|422237004|Inhalation",
       "severity": "error",
       "message": "None of the codes are in the specified value set"

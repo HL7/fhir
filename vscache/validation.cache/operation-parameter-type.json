@@ -17,6 +17,11 @@
       "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@7ee7f0b5\" in system \"null\": null"
     },
     {
+      "hash": "|null|null|Condition|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@1dde8106\" in system \"null\": null"
+    },
+    {
       "hash": "|null|null|date|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@6a7a0e94\" in system \"null\": null"
@@ -30,6 +35,11 @@
       "hash": "|null|null|Resource|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@1da59e42\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|GuidanceRequest|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@499e6c14\" in system \"null\": null"
     },
     {
       "hash": "|null|null|Identifier|null",
@@ -55,6 +65,11 @@
       "hash": "|null|null|Meta|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@e2f412e\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|KnowledgeModule|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@5302101e\" in system \"null\": null"
     },
     {
       "hash": "|null|null|Provenance|null",
@@ -120,6 +135,11 @@
       "hash": "|null|null|ValueSet|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@47fa7ee7\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|GuidanceResponse|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@7e0f8407\" in system \"null\": null"
     },
     {
       "hash": "|null|null|integer|null",

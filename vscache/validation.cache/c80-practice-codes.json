@@ -38,6 +38,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|null|null|385893007|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|394913002|Psychotherapy",
       "severity": null,
       "message": null,
