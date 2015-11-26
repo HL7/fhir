@@ -236,7 +236,10 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="en">EnrollmentResponse</translation>
 		<translation lang="fr">RéponseInscription</translation>
 	</item>
-	<item id="ExplanationOfBenefit">
+        <item id="ExpansionProfile">
+                <translation lang="en">ExpansionProfile</translation>
+        </item>
+        <item id="ExplanationOfBenefit">
 		<translation lang="en">ExplanationOfBenefit</translation>
 		<translation lang="fr">ExplicationDuBénéfice</translation>
 	</item>

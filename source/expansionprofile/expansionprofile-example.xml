@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExpansionProfile xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">[ Provide Rendering ]</div>
+  </text>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <excludeNested value="true"/>
+</ExpansionProfile>

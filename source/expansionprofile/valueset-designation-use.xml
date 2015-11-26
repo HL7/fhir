@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-warning">
+    <valueMarkdown value="Licensing note: this value set has an extensible binding, and includes concepts from SNOMED CT. The SNOMED CT concepts included in this value set - description types for SCT terms - are for use with SNOMED-CT, and not expected to be used with other code systems."/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/designation-use"/>
+  <name value="Designation Use"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project"/>
+  <description value="Details of how a designation would be used"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+      <!--   Snomed description types   -->
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="900000000000446008"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

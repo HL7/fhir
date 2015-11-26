@@ -66,7 +66,7 @@
   Context = Patient.contact
   English = SHALL at least contain a contact\'s details or a reference to an organization
   XPath = f:name or f:telecom or f:address or f:organization
-  FHIRPath = name or telecom or address or organization
+  Expression = name or telecom or address or organization
 
 === Sheet Data Elements =====================================
 
