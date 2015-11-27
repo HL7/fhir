@@ -234,7 +234,7 @@
                 <text value="Units"/>
                 <type value="choice"/>
                 <options>
-                  <reference value="#height"/>
+                  <reference value="#length"/>
                 </options>
               </item>
               <item>
