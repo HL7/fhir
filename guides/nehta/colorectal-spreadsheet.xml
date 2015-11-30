@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>David McKillop</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-11-25T01:20:58Z</LastSaved>
+  <LastSaved>2015-11-26T00:27:50Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -25,7 +25,7 @@
   <WindowTopX>252</WindowTopX>
   <WindowTopY>192</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -976,9 +976,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R106C36" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R106C35" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="43" ss:ExpandedRowCount="106" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="42" ss:ExpandedRowCount="106" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="246.6"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
@@ -989,8 +989,7 @@
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="27"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="106.80000000000001"
     ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="150"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="121.8"/>
+   <Column ss:Index="10" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="121.8"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="145.79999999999998"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="170.4"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="218.39999999999998"/>
@@ -999,9 +998,9 @@
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="318"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="266.40000000000003"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="232.8" ss:Span="1"/>
-   <Column ss:Index="21" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="217.2"/>
+   <Column ss:Index="20" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="217.2"/>
    <Column ss:StyleID="s69" ss:Width="51.6" ss:Span="1"/>
-   <Column ss:Index="24" ss:StyleID="s69" ss:AutoFitWidth="0"
+   <Column ss:Index="23" ss:StyleID="s69" ss:AutoFitWidth="0"
     ss:Width="80.400000000000006"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120.60000000000001"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.4"/>
@@ -1018,7 +1017,7 @@
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="78"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="80.400000000000006"
     ss:Span="1"/>
-   <Column ss:Index="40" ss:StyleID="s69" ss:AutoFitWidth="0"
+   <Column ss:Index="39" ss:StyleID="s69" ss:AutoFitWidth="0"
     ss:Width="71.400000000000006"/>
    <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="84"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="84"/>
@@ -1056,10 +1055,6 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Binding for coded data - either from local Bindings tab or declared elsewhere</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Logical Mapping</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Example</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">An example of the expected sort of value for this element.</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Example 1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1166,8 +1161,7 @@
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Colorectal</Data><NamedCell
@@ -1185,7 +1179,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28282.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28282.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.subject</Data><NamedCell
@@ -1208,8 +1202,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">The subject of the report, usually, but not always, the patient</Data><NamedCell
@@ -1253,8 +1246,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Who ordered the test</Data><NamedCell
@@ -1300,8 +1292,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Responsible Diagnostic Service</Data><NamedCell
@@ -1345,8 +1336,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Pre Analytic</Data><NamedCell
@@ -1365,7 +1355,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40" ss:StyleID="s105"><Data ss:Type="String">70949-3</Data></Cell>
+    <Cell ss:Index="39" ss:StyleID="s105"><Data ss:Type="String">70949-3</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Pathology report.section heading</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28592.1000043</Data></Cell>
    </Row>
@@ -1383,7 +1373,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">req.reason[text := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">A: Specimen labelled : right hemicolectomy&#10;B: Mesentric lymph node&#10;</Data><NamedCell
@@ -1421,7 +1410,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">55752-0 &#10;&#10;</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">55752-0 &#10;&#10;</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Clinical information &#10;</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28593.1000043</Data></Cell>
    </Row>
@@ -1445,8 +1434,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Operating surgeon details</Data><NamedCell
@@ -1465,7 +1453,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">22027-7</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">22027-7</Data></Cell>
     <Cell><Data ss:Type="String">Surgeon primary</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
@@ -1484,7 +1472,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1498,7 +1485,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not stated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Not stated</Data><NamedCell
+    <Cell ss:Index="20"><Data ss:Type="String">Not stated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1521,7 +1508,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">36191001</Data></Cell>
     <Cell><Data ss:Type="String">Perforation (morphologic abnormality)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28289.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28289.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="80.55">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.natureOfPerforation</Data><NamedCell
@@ -1543,8 +1530,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Nature of perforation</Data><NamedCell
@@ -1563,7 +1549,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28296.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28296.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.clinicalObstruction</Data><NamedCell
@@ -1580,7 +1566,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1594,7 +1579,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not stated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Not stated</Data><NamedCell
+    <Cell ss:Index="20"><Data ss:Type="String">Not stated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1614,7 +1599,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28292.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28292.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="136.19999999999999">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.tumourLocation</Data><NamedCell
@@ -1632,7 +1617,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Rectum</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><ss:Data ss:Type="String"
@@ -1695,8 +1679,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Synchronous tumours - other site</Data><NamedCell
@@ -1717,7 +1700,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28346.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28346.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.distanceAnalVerge</Data><NamedCell
@@ -1733,14 +1716,13 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">6cm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Not stated</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Not stated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not stated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1793,7 +1775,6 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">too := req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Anterior resection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Right hemicolectomy</Data><NamedCell
@@ -1806,7 +1787,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Abdominoperineal resection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19"><Data ss:Type="String">Anterior resection</Data><NamedCell
+    <Cell ss:Index="18"><Data ss:Type="String">Anterior resection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Anterior resection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1832,7 +1813,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">29306-8</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">29306-8</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Surgery procedure</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">27919.1000043</Data></Cell>
    </Row>
@@ -1855,10 +1836,9 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">Laparoscopic ultralow anterior resection</Data><NamedCell
+    <Cell ss:Index="17"><Data ss:Type="String">Laparoscopic ultralow anterior resection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Procedure type</Data><NamedCell
@@ -1876,7 +1856,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"/>
+    <Cell ss:Index="41" ss:StyleID="s94"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.550000000000004">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.anteriorResectionType</Data><NamedCell
@@ -1894,15 +1874,14 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Ultralow</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19"><Data ss:Type="String">High</Data><NamedCell
+    <Cell ss:Index="18"><Data ss:Type="String">High</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="21"><Data ss:Type="String">Lower</Data><NamedCell
+    <Cell ss:Index="20"><Data ss:Type="String">Lower</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1924,7 +1903,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28278.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28278.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="61.199999999999996">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.preoperativeRadiotherapy</Data><NamedCell
@@ -1942,7 +1921,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Yes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1980,7 +1958,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28283.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28283.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.typeOfCourse</Data><NamedCell
@@ -1997,16 +1975,15 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Short duration</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="20"><Data ss:Type="String">Long course</Data><NamedCell
+    <Cell ss:Index="19"><Data ss:Type="String">Long course</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Type of course</Data><NamedCell
@@ -2024,7 +2001,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="Number">28286.100004299999</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="Number">28286.100004299999</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49.8">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.surgeonsOpinion</Data><NamedCell
@@ -2040,7 +2017,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">None noted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2078,7 +2054,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28295.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28295.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.adjacentOrgans</Data><NamedCell
@@ -2094,7 +2070,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2130,7 +2105,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28336.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28336.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="77.550000000000011">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.newPrimaryOrRecurrence</Data><NamedCell
@@ -2148,14 +2123,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">pno := req.supportingInformation -&gt; Observation[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">New primary</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">New primary cancer or recurrence</Data><NamedCell
@@ -2175,7 +2149,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28337.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28337.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30.45">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.RecurrenceDescription</Data><NamedCell
@@ -2191,18 +2165,17 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">pno.component[code := %map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">No metastatic lesions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">Presence of distant metastasis:  Absent.</Data><NamedCell
+    <Cell ss:Index="17"><Data ss:Type="String">Presence of distant metastasis:  Absent.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="20"><Data ss:Type="String">Presence of distant metastasis:  Absent.</Data><NamedCell
+    <Cell ss:Index="19"><Data ss:Type="String">Presence of distant metastasis:  Absent.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Describe</Data><NamedCell
@@ -2220,7 +2193,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s108"/>
+    <Cell ss:Index="41" ss:StyleID="s108"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.pathologyAccessionNumber</Data><NamedCell
@@ -2241,8 +2214,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Pathology number</Data><NamedCell
@@ -2261,7 +2233,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28300.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28300.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31.799999999999997">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.preAnalytic.otherRelevantDetails</Data><NamedCell
@@ -2277,14 +2249,13 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">req.note[text := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Tissue banking:   No&#10;Specimen images:   Yes&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Other details</Data><NamedCell
@@ -2303,7 +2274,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28301.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28301.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60.45">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro</Data><NamedCell
@@ -2323,8 +2294,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Macroscopy</Data><NamedCell
@@ -2363,7 +2333,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">sp1 := dr.specimen-&gt;Specimen; sp1.collection[quantity := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">130mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">240mm</Data><NamedCell
@@ -2423,7 +2392,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">sp2 := dr.specimen-&gt;Specimen; sp2.collection[bodySite := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Rectum</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Rectum</Data><NamedCell
@@ -2484,7 +2452,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">50mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">45mm</Data><NamedCell
@@ -2524,7 +2491,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">21889-1 </Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">21889-1 </Data></Cell>
     <Cell><Data ss:Type="String">Size </Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28360.1000043</Data></Cell>
    </Row>
@@ -2542,7 +2509,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11" ss:StyleID="s92"><Data ss:Type="String">20mm</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">20mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">6mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2584,7 +2551,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28359.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28359.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro.distNonperitonCircumMargin</Data><NamedCell
@@ -2600,7 +2567,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11" ss:StyleID="s92"><Data ss:Type="String">15mm</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">15mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">10mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2611,7 +2578,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">30mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">3mm</Data><NamedCell
+    <Cell ss:Index="17"><Data ss:Type="String">3mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">25mm</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">15mm</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2636,7 +2603,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28358.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28358.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31.200000000000003">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro.tumourPerforation</Data><NamedCell
@@ -2653,7 +2620,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
@@ -2690,7 +2656,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">27963.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">27963.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75.449999999999989">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro.relToAntPeritonealReflection</Data><NamedCell
@@ -2707,19 +2673,18 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Astride</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Astride</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s92"><Data ss:Type="String">Astride</Data><NamedCell
+    <Cell ss:Index="13" ss:StyleID="s92"><Data ss:Type="String">Astride</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s108"><Data ss:Type="String">Entirely below (35mm below)</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s108"><Data ss:Type="String">Entirely below (35mm below)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Entirely below</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="20" ss:StyleID="s108"><Data ss:Type="String">Entirely above (30mm)</Data><NamedCell
+    <Cell ss:Index="19" ss:StyleID="s108"><Data ss:Type="String">Entirely above (30mm)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Entirely above, right anterolateral quadrant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2744,7 +2709,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28362.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28362.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="95.550000000000011">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro.intactnessOfMesorectum</Data><NamedCell
@@ -2761,7 +2726,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Complete (grade 3)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Complete (grade 3)</Data><NamedCell
@@ -2770,11 +2734,11 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Complete (grade 3)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Complete</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Complete</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Nearly complete (B Grade 2)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="20" ss:StyleID="s108"><Data ss:Type="String">Appears complete</Data><NamedCell
+    <Cell ss:Index="19" ss:StyleID="s108"><Data ss:Type="String">Appears complete</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Appears complete</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2820,7 +2784,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000"> Tumour has formed nodule(s) discrete from the tumour mass along the serosal surface.  </Font><Font
        html:Color="#0066CC">An 8mm submucosal nodule, 20mm from the distal margin is noted.</Font></ss:Data><NamedCell
@@ -2830,7 +2793,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Peritoneum</Data><NamedCell
@@ -2850,7 +2813,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28369.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28369.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="59.55">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro.lymphNodes</Data><NamedCell
@@ -2868,7 +2831,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11" ss:StyleID="s92"><Data ss:Type="String">Received</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Received</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Received</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2878,7 +2841,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Received</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Lymph nodes</Data><NamedCell
@@ -2918,7 +2881,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11" ss:StyleID="s92"><Data ss:Type="String">3 in cassette 1 &#10;4 in cassette 2&#10;7 in cassette 3</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">3 in cassette 1 &#10;4 in cassette 2&#10;7 in cassette 3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">1 in cassette 1&#10;4 in cassette 2&#10;3 in cassette 3&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2926,7 +2889,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Number of lymph nodes in each cassette</Data><NamedCell
@@ -2945,7 +2908,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28387.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28387.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.800000000000004">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro.polyps</Data><NamedCell
@@ -2963,7 +2926,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11" ss:StyleID="s92"><Data ss:Type="String">Present</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Present</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2972,7 +2935,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Present</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Polyps</Data><NamedCell
@@ -2992,7 +2955,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">?? 33745-1</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">?? 33745-1</Data></Cell>
     <Cell><Data ss:Type="String">Polyps</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28376.1000043</Data></Cell>
    </Row>
@@ -3010,14 +2973,14 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11" ss:StyleID="s92"><Data ss:Type="String">Two 5mm polyps are noted.  </Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Two 5mm polyps are noted.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">2 polyps </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">The number, diameter and gross configuration of polyps should be summarised</Data><NamedCell
@@ -3035,7 +2998,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28379.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28379.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="368.55">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro.otherMacroComments</Data><NamedCell
@@ -3051,7 +3014,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Tumour appears ulcerated and scarred. Overlying serosa appears normal. Extramuscular spread to 15mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Tumour appears plaquelike, remaining mucosa appears normal. </Data><NamedCell
@@ -3067,9 +3029,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Pedunculated polyp 8mm, situated 55mm proximal to tumour.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="20"><Data ss:Type="String">Entire ulcer/tumour bed embedded</Data><NamedCell
+    <Cell ss:Index="19"><Data ss:Type="String">Entire ulcer/tumour bed embedded</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Other macroscopic comments</Data><NamedCell
@@ -3090,7 +3052,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">395526000</Data></Cell>
     <Cell><Data ss:Type="String">Macroscopic specimen observable (observable entity) </Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28380.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28380.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="200.55">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.macro.natureAndSiteOfBlocks</Data><NamedCell
@@ -3106,7 +3068,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">macro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Blocks 1 to 6: tumour. Block 7: distal margin. Blocks 8 &amp; 9 : circumferential margin. Blocks 10 to 16: 14 lymph nodes (2 in each block).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Blocks 1: shaved vascular margin, 2 to 4: tumour with greatest depth of invasion, radial inked red, distal inked blue. 5 – tumour with adjacent mucosa. 6-9 lymph nodes</Data><NamedCell
@@ -3116,7 +3077,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Specimen 2:&#10;Specimen labelled:  Donuts&#10;&#10;1A proximal resection margin; 1B sessile polyps, vascular resection margin and most apical lymph node bisected; 1C distal resection margin with tumour; 1D and 1E representative sections of tumour and possible extension to anterior serosa; 1F possible invasion through muscularis propria into pericolic fat; 1G to 1K sections of all lymph nodes with multiple nodes in each block.  &#10;Representative sections of each donut in 2A and 2B respectively.&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Nature and site of blocks</Data><NamedCell
@@ -3135,7 +3096,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="Number">28381.100004299999</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="Number">28381.100004299999</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro</Data><NamedCell
@@ -3155,8 +3116,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Microscopy</Data><NamedCell
@@ -3175,7 +3135,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">70949-3</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">70949-3</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Pathology report.section heading</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">27973.1000043</Data></Cell>
    </Row>
@@ -3194,7 +3154,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Adenocarcinoma</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Adenocarcinoma, NOS</Data><NamedCell
@@ -3242,7 +3201,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">371441004</Data></Cell>
     <Cell><Data ss:Type="String">Histologic type (observable entity)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">27974.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">27974.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60.45">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.histologicalGrade</Data><NamedCell
@@ -3259,7 +3218,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Low grade – well and moderately differentiated </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Low grade – well and moderately differentiated </Data><NamedCell
@@ -3304,7 +3262,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">371469007</Data></Cell>
     <Cell><Data ss:Type="String">Histologic grade (observable entity)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">27988.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">27988.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="179.54999999999998">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.maxDegreeLocalInvasion</Data><NamedCell
@@ -3321,7 +3279,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000"> pT3 Tumour invades through muscularis propria into pericolorectal tissues, </Font><Font
@@ -3367,7 +3324,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">33759-2</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">33759-2</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Extent of invasion deepest</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28534.1000043</Data></Cell>
    </Row>
@@ -3387,7 +3344,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not involved</Data><NamedCell
@@ -3427,7 +3383,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28348.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28348.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90.45">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.involvedMargins</Data><NamedCell
@@ -3445,14 +3401,13 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Proximal;&#10;Distal</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Proximal&#10;Distal</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Involved margin(s)</Data><NamedCell
@@ -3473,7 +3428,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">423105004</Data></Cell>
     <Cell><Data ss:Type="String">Status of surgical proximal margin involvement by tumor from colectomy specimen (observable entity)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28351.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28351.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.marginsMicroClearance</Data><NamedCell
@@ -3490,7 +3445,6 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">&gt;10mm </Font><Font
        html:Color="#666699">(Proximal)</Font></ss:Data><NamedCell
@@ -3504,10 +3458,10 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">&gt;10mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s108"><Data ss:Type="String">5mm (anterior)</Data><NamedCell
+    <Cell ss:Index="17" ss:StyleID="s108"><Data ss:Type="String">5mm (anterior)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">40mm</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Microscopic Clearance</Data><NamedCell
@@ -3527,7 +3481,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28396.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28396.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="106.2">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.nonperitonealisedCircumMargin</Data><NamedCell
@@ -3546,7 +3500,6 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Involved</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3554,7 +3507,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not invovled</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Status of the nonperitonealised circumferential margin (rectal tumours)</Data><NamedCell
@@ -3574,7 +3527,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28354.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28354.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90.45">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.microClearanceRectum</Data><NamedCell
@@ -3591,7 +3544,6 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">&quot;&lt;1mm&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3600,7 +3552,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">30mm</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">35mm</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19"><Data ss:Type="String">21mm</Data><NamedCell
+    <Cell ss:Index="18"><Data ss:Type="String">21mm</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">15mm</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">5mm</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3623,7 +3575,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28400.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28400.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.lymphNodeInvolvement</Data><NamedCell
@@ -3641,7 +3593,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Present</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
@@ -3652,7 +3603,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Present</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Lymph node involvement</Data><NamedCell
@@ -3672,7 +3623,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">?? 21892-5</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">?? 21892-5</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Lymph node involvement</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28338.1000043</Data></Cell>
    </Row>
@@ -3690,7 +3641,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Perirectal LN basin: 2/14  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">0/8&#10;&#10;(Note for Grahame: this is classed as free text clarification as this field is normally only completed when the involvment (field above) is Present.  )</Data><NamedCell
@@ -3701,7 +3651,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Left, 2/11</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">pN1a, 1/41  (4mm deposit in peritumoral / distal node)</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">pN1a, 1/41  (4mm deposit in peritumoral / distal node)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">pN0, 0/36</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3731,7 +3681,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28403.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28403.1000043</Data></Cell>
     <Cell><Data ss:Type="String">28406.1000043&#10;28437.1000043&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="49.2">
@@ -3749,7 +3699,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Present</Data><NamedCell
@@ -3760,7 +3709,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Absent</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Absent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Absent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3787,7 +3736,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28392.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28392.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.apicalNodeInvolvement</Data><NamedCell
@@ -3804,7 +3753,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
@@ -3815,7 +3763,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">Absent</Data><NamedCell
+    <Cell ss:Index="17"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Absent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Absent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3841,7 +3789,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28407.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28407.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="61.8">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.venousSmallVesselInvasion</Data><NamedCell
@@ -3857,12 +3805,11 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="11" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Venous and small vessel invasion</Data><NamedCell
@@ -3884,7 +3831,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">371512006</Data></Cell>
     <Cell><Data ss:Type="String">Status of vascular invasion by tumor (observable entity)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28411.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28411.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31.799999999999997">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.intramuralVeinInvasion</Data><NamedCell
@@ -3901,7 +3848,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Present</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
@@ -3912,7 +3858,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3940,7 +3886,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28412.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28412.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31.799999999999997">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.extramuralVeinInvasion</Data><NamedCell
@@ -3957,7 +3903,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
@@ -3968,7 +3913,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Present (1F)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3995,7 +3940,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28415.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28415.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.550000000000004">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.smallVesselInvasion</Data><NamedCell
@@ -4012,7 +3957,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
@@ -4023,7 +3967,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4053,7 +3997,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">372264001</Data></Cell>
     <Cell><Data ss:Type="String">Status of small vessel invasion by tumor (observable entity)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28418.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28418.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.perineuralInvasion</Data><NamedCell
@@ -4070,7 +4014,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
@@ -4082,7 +4025,7 @@
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Present</Font><Font
        html:Color="#666699"> (focal)</Font></ss:Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s92"><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4133,7 +4076,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
@@ -4144,7 +4086,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Absent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Not stated</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Not stated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Absent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Unknown</Data><NamedCell
@@ -4175,7 +4117,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">399608002</Data></Cell>
     <Cell><Data ss:Type="String">Status of distant metastasis (observable entity)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28236.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28236.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.histoConfDistMetastasesSite</Data><NamedCell
@@ -4196,8 +4138,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Histologically confirmed distant metastases - site</Data><NamedCell
@@ -4238,7 +4179,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Polyps</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">None noted</Data><NamedCell
@@ -4249,7 +4189,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">None noted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Hyperplastic polyps x 9</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Hyperplastic polyps x 9</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Pedunculated tubulovillous adenoma 8mm, 55mmproximal to tumour.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4278,7 +4218,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">371498006</Data></Cell>
     <Cell><Data ss:Type="String">Additional pathologic finding in tumor specimen (observable entity)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28244.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28244.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.polypDetails</Data><NamedCell
@@ -4294,7 +4234,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Two tubular adenomata confirmed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4302,7 +4241,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Two tubular adenomata confirmed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Polyp details (type, number, polyposis syndrome criteria met etc)</Data><NamedCell
@@ -4342,8 +4281,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Dysplasia</Data><NamedCell
@@ -4383,8 +4321,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Other abnormality</Data><NamedCell
@@ -4402,7 +4339,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">44624-5</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">44624-5</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Additional pathological findings</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="61.199999999999996">
@@ -4419,7 +4356,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Complete resection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Complete resection</Data><NamedCell
@@ -4430,7 +4366,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Complete</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">R0</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">R0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">R0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">R0, complete resection, margins histologically negative, no residual tumour left after resection (primary tumour, regional nodes).</Data><NamedCell
@@ -4458,7 +4394,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28425.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28425.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="134.54999999999998">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.neoadjuvantTherapy</Data><NamedCell
@@ -4475,7 +4411,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Grade 2 (minimal response) Residual cancer outgrown by fibrosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String"> No prior treatment</Data><NamedCell
@@ -4486,13 +4421,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">No prior treatment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s108"><Data ss:Type="String">NA</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s108"><Data ss:Type="String">NA</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Not applicable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="20" ss:StyleID="s108"><Data ss:Type="String">Minimal response</Data><NamedCell
+    <Cell ss:Index="19" ss:StyleID="s108"><Data ss:Type="String">Minimal response</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Response to neoadjuvant therapy</Data><NamedCell
@@ -4511,7 +4446,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28123.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28123.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="132.44999999999999">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.micro.microComments</Data><NamedCell
@@ -4527,7 +4462,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">micro.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String"> The submucosal nodule 20mm from the distal margin is a well differentiated carcinoid tumour, completely excised.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">The submucosal nodule 20mm from the distal margin is a well differentiated carcinoid tumour, completely excised.</Data><NamedCell
@@ -4537,9 +4471,9 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">The submucosal nodule 20mm from the distal margin is a well differentiated carcinoid tumour, completely excised.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="20"><Data ss:Type="String">Grade: 2 (residual cancer outgrown by fibrosis)</Data><NamedCell
+    <Cell ss:Index="19"><Data ss:Type="String">Grade: 2 (residual cancer outgrown by fibrosis)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Microscopic comments</Data><NamedCell
@@ -4560,7 +4494,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">395527009</Data></Cell>
     <Cell><Data ss:Type="String">Microscopic specimen observable (observable entity)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28431.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28431.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="82.199999999999989">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.ancillaryTests</Data><NamedCell
@@ -4580,8 +4514,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Ancillary test findings</Data><NamedCell
@@ -4601,7 +4534,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">70949-3</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">70949-3</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Pathology report.section heading</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28156.1000043</Data></Cell>
    </Row>
@@ -4622,14 +4555,13 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17" ss:StyleID="s108"><Data ss:Type="String">Performed on block D</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s108"><Data ss:Type="String">Performed on block D</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Performed on block 1F</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="20" ss:StyleID="s108"><Data ss:Type="String">Performed on block 1C</Data><NamedCell
+    <Cell ss:Index="19" ss:StyleID="s108"><Data ss:Type="String">Performed on block 1C</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Mismatch repair enzymes</Data><NamedCell
@@ -4649,7 +4581,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28433.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28433.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.ancillaryTests.mlh1</Data><NamedCell
@@ -4667,13 +4599,12 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">ancillary.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Normal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19"><Data ss:Type="String">Preserved nuclear staining in the tumour</Data><NamedCell
+    <Cell ss:Index="18"><Data ss:Type="String">Preserved nuclear staining in the tumour</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Normal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4698,7 +4629,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">50322-7 </Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">50322-7 </Data></Cell>
     <Cell><Data ss:Type="String">MLH-1 Ag</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28434.1000043</Data></Cell>
    </Row>
@@ -4718,13 +4649,12 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">ancillary.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Normal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Normal staining</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Normal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Normal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4753,7 +4683,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">50328-4</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">50328-4</Data></Cell>
     <Cell><Data ss:Type="String">PMS-2 Ag</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28442.1000043</Data></Cell>
    </Row>
@@ -4773,13 +4703,12 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">ancillary.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Normal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19"><Data ss:Type="String">Preserved nuclear staining in the tumour</Data><NamedCell
+    <Cell ss:Index="18"><Data ss:Type="String">Preserved nuclear staining in the tumour</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Abnormal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4804,7 +4733,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">50323-5</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">50323-5</Data></Cell>
     <Cell><Data ss:Type="String">MSH-2 Ag</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28493.1000043</Data></Cell>
    </Row>
@@ -4824,13 +4753,12 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">ancillary.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Normal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Normal staining</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Normal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Normal staining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4859,7 +4787,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">50324-3</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">50324-3</Data></Cell>
     <Cell><Data ss:Type="String">MSH-6 Ag</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28544.1000043</Data></Cell>
    </Row>
@@ -4877,7 +4805,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">ancillary.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Immunohistochemistry for mismatch repair gene products:  staining of carcinoma cells for MLH-1, PMS-2, MSH-2 and MSH-6 is present. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Mismatch repair gene deficiency NOT identified</Data><NamedCell
@@ -4885,7 +4812,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">High-level microsatellite instability (MSI-H) is very unlikely.</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">High-level microsatellite instability (MSI-H) is very unlikely.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">High-level microsatellite instability (MSI-H) is very unlikely.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4913,7 +4840,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">8262-8</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">8262-8</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Service comment 02</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28436.1000043</Data></Cell>
    </Row>
@@ -4930,12 +4857,11 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Not tested</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Not tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="20"><Data ss:Type="String">Not tested</Data><NamedCell
+    <Cell ss:Index="19"><Data ss:Type="String">Not tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4980,8 +4906,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Microsatellite instability (MSI)</Data><NamedCell
@@ -5002,7 +4927,7 @@
     <Cell><Data ss:Type="Number">443412009</Data></Cell>
     <Cell><Data ss:Type="String">Degree of microsatellite instability (observable entity)</Data></Cell>
     <Cell><Data ss:Type="String">email to Meagan</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28399.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28399.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.ancillaryTests.msi.comments</Data><NamedCell
@@ -5023,8 +4948,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Microsatellite instability (MSI) comments</Data><NamedCell
@@ -5043,7 +4967,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="41" ss:StyleID="s69"/>
+    <Cell ss:Index="40" ss:StyleID="s69"/>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28453.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
@@ -5065,8 +4989,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">MSI laboratory performing test and report number</Data><NamedCell
@@ -5085,7 +5008,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="41" ss:StyleID="s69"/>
+    <Cell ss:Index="40" ss:StyleID="s69"/>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28447.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.550000000000004">
@@ -5101,8 +5024,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Not tested</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Not tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5153,8 +5075,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">BRAF (V600E mutation)</Data><NamedCell
@@ -5172,7 +5093,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">58483-9 </Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">58483-9 </Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">BRAF gene mutation analysis</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28454.1000043</Data></Cell>
    </Row>
@@ -5195,8 +5116,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">BRAF (V600E mutation) comments</Data><NamedCell
@@ -5214,7 +5134,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">8264-4</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">8264-4</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Service comment 03</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28460.1000043</Data></Cell>
    </Row>
@@ -5237,8 +5157,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">BRAF (V600E mutation) laboratory performing test and report number</Data><NamedCell
@@ -5256,7 +5175,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="41" ss:StyleID="s69"/>
+    <Cell ss:Index="40" ss:StyleID="s69"/>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28459.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45.449999999999996">
@@ -5274,8 +5193,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Not tested</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Not tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Not tested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5326,8 +5244,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">KRAS gene mutation (codons 12 and 13)</Data><NamedCell
@@ -5346,7 +5263,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">21703-4</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">21703-4</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">KRAS gene mutations tested for</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28461.1000043</Data></Cell>
    </Row>
@@ -5369,8 +5286,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">KRAS gene mutation (codons 12 and 13) comments</Data><NamedCell
@@ -5388,7 +5304,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">8266-9</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">8266-9</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Service comment 05</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28465.1000043</Data></Cell>
    </Row>
@@ -5411,8 +5327,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">KRAS gene mutation (codons 12 and 13) laboratory performing test and report number</Data><NamedCell
@@ -5430,7 +5345,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="41" ss:StyleID="s69"/>
+    <Cell ss:Index="40" ss:StyleID="s69"/>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28466.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="48">
@@ -5451,8 +5366,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Synthesis and Overview</Data><NamedCell
@@ -5471,7 +5385,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">70949-3</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">70949-3</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Pathology report.section heading</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28253.1000043</Data></Cell>
    </Row>
@@ -5489,7 +5403,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">synthesis.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ypT3, pN1b, cM0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ypT3, pN0, cM0</Data><NamedCell
@@ -5500,7 +5413,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">pT3, pN1, cM0 </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">pT2N1aMX</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">pT2N1aMX</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">pT3N0 cM0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5532,7 +5445,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">371508000</Data></Cell>
     <Cell><Data ss:Type="String">Tumor stage (observable entity)</Data></Cell>
-    <Cell ss:Index="41" ss:StyleID="s69"/>
+    <Cell ss:Index="40" ss:StyleID="s69"/>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28204.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="176.55">
@@ -5555,8 +5468,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">T</Data><NamedCell
@@ -5601,8 +5513,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">N</Data><NamedCell
@@ -5621,7 +5532,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">21900-6</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">21900-6</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Regional lymph nodes.pathology</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28220.1000043</Data></Cell>
    </Row>
@@ -5645,8 +5556,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">M</Data><NamedCell
@@ -5665,7 +5575,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">67211-3 </Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">67211-3 </Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">TNM pathologic staging - distant metastases - M</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28552.1000043</Data></Cell>
    </Row>
@@ -5684,8 +5594,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">synthesis.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">0 Tis N0 M0   |&#10;I T1 N0 M0   |&#10;T2 N0 M0   |&#10;IIA T3 N0 M0   |&#10;IIB T4a N0 M0   |&#10;IIC T4b N0 M0   |&#10;IIIA T1-T2 N1/N1c M0   |&#10;T1 N2a M0   |&#10;IIIB T3-T4a N1/N1c M0   |&#10;T2-T3 N2a M0   |&#10;T1-T2 N2b M0   |&#10;IIIC T4a N2a M0   |&#10;T3-T4a N2b M0   |&#10;T4b N1-N2 M0   |&#10;IVA Any T Any N M1a   |&#10;IVB Any T Any N M1b</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">IIIB</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">IIA</Data><NamedCell
@@ -5696,7 +5604,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">IIIB</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">IIIA</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">IIIA</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">IIA</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">IIA (Dukes stage B)</Data><NamedCell
@@ -5723,9 +5631,10 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">0 Tis N0 M0   |&#10;I T1 N0 M0   |&#10;T2 N0 M0   |&#10;IIA T3 N0 M0   |&#10;IIB T4a N0 M0   |&#10;IIC T4b N0 M0   |&#10;IIIA T1-T2 N1/N1c M0   |&#10;T1 N2a M0   |&#10;IIIB T3-T4a N1/N1c M0   |&#10;T2-T3 N2a M0   |&#10;T1-T2 N2b M0   |&#10;IIIC T4a N2a M0   |&#10;T3-T4a N2b M0   |&#10;T4b N1-N2 M0   |&#10;IVA Any T Any N M1a   |&#10;IVB Any T Any N M1b</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="41" ss:StyleID="s69"/>
+    <Cell ss:Index="40" ss:StyleID="s69"/>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28243.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.2">
@@ -5744,13 +5653,12 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">AJCC 2010, 7th edition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">AJCC 2010, 7th edition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Year and/or edition of staging system</Data><NamedCell
@@ -5791,7 +5699,6 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">synthesis.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">R0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">R0</Data><NamedCell
@@ -5800,7 +5707,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">R0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">R0</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">R0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">R0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">R0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5827,7 +5734,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell><Data ss:Type="Number">17964000</Data></Cell>
     <Cell><Data ss:Type="String">Residual tumor stage (observable entity)</Data></Cell>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28317.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28317.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="201">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.synthesisOverview.diagnosticSummary</Data><NamedCell
@@ -5845,13 +5752,12 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">dr[conclusion := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Low rectal tumour, ultralow anterior resection with proximal and distal donuts:&#10;- Moderately differentiated adenocarcinoma, invading into perirectal fat.&#10;- Less than 1mm from circumferential radial margin.&#10;- Proximal and distal margins free of tumour.&#10;- 8 lymph nodes, all benign.&#10;- No MSI loss detected by immunohistochemistry.&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Diagnostic Summary:&#10;Specimen type: Abdominoperineal resection&#10;Tumour site: Distal rectum, 35mm below anterior peritoneal reflection, 12 mm above dentate line.&#10;Tumour type: Low grade adenocarcinoma NOS, microsatellite stable (IHC)&#10;Tumour stage: pT2N1aMX, stage IIIA&#10;Completeness of excision: R0&#10;&#10;Diagnosis:&#10;Abdominoperineal resection, distal rectum&#10;- low grade adenocarcinoma NOS, 30mm, microsatellite stable (IHC)&#10;&#10;Lymph nodes &#10;-  +1/41, metastatic carcinoma in one of forty-one nodes, apical node clear&#10;&#10;TNM class AJCC stage (7th)&#10;- pT2N1aMX, stage IIIA, R0&#10;&#10;Polyps &#10;- Hyperplastic polyps x9 (&lt;5mm)&#10;&#10;</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Diagnostic Summary:&#10;Specimen type: Abdominoperineal resection&#10;Tumour site: Distal rectum, 35mm below anterior peritoneal reflection, 12 mm above dentate line.&#10;Tumour type: Low grade adenocarcinoma NOS, microsatellite stable (IHC)&#10;Tumour stage: pT2N1aMX, stage IIIA&#10;Completeness of excision: R0&#10;&#10;Diagnosis:&#10;Abdominoperineal resection, distal rectum&#10;- low grade adenocarcinoma NOS, 30mm, microsatellite stable (IHC)&#10;&#10;Lymph nodes &#10;-  +1/41, metastatic carcinoma in one of forty-one nodes, apical node clear&#10;&#10;TNM class AJCC stage (7th)&#10;- pT2N1aMX, stage IIIA, R0&#10;&#10;Polyps &#10;- Hyperplastic polyps x9 (&lt;5mm)&#10;&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Diagnostic Summary:&#10;Specimen type: Ultra-low anterior resection&#10;Tumour site: Rectum&#10;Tumour type: Adenocarcinoma, poorly differentiated tumour budding&#10;Tumour stage: pT3N0 cM, stage IIA&#10;Completeness of excision: Complete&#10;&#10;Diagnosis:&#10;1. Rectum and Sigmoid, ultrlow anterior resection:&#10;- Adenocarcinoma NOS, 30x28x15mm, poorly differentiated tumour budding, focal extramural venous invasion.&#10;- radial clearance 5mm, distal clearance 12mm.&#10;Lymph nodes: 0/36; thirty-six benign lymph nodes.&#10;TNM class, AJCC stage (7th): pT3N0 cM0, stage IIA, R0&#10;Polyp, upper rectum: Tubulovillous adenoma, 8mm.&#10;2. Distal donut: No evidence of malignancy</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5881,7 +5787,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">34574-4</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">34574-4</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Path report.final diagnosis</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28842.1000043</Data></Cell>
    </Row>
@@ -5900,7 +5806,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">synthesis.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">New primary</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">New primary</Data><NamedCell
@@ -5911,7 +5816,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">New primary</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">New primary cancer or recurrence</Data><NamedCell
@@ -5931,7 +5836,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="42" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28472.1000043</Data></Cell>
+    <Cell ss:Index="41" ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28472.1000043</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="47.55">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Colorectal.synthesisOverview.newDescription</Data><NamedCell
@@ -5951,8 +5856,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Describe</Data><NamedCell
@@ -5986,7 +5890,6 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">synthesis.related[type:='has-member'].target-&gt;Observation[code:=%map-codes; value[x] := $value]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Mismatch repair gene deficiency is not identified.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Mismatch repair gene deficiency identified.  </Data><NamedCell
@@ -5995,7 +5898,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Mismatch repair gene deficiency is not identified.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Overarching comment</Data><NamedCell
@@ -6015,7 +5918,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:Index="40"><Data ss:Type="String">22638-1</Data></Cell>
+    <Cell ss:Index="39"><Data ss:Type="String">22638-1</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Path report.comments</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String" x:Ticked="1">28252.1000043</Data></Cell>
    </Row>
@@ -6034,41 +5937,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6100,41 +5969,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6166,8 +6001,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6199,8 +6033,71 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6232,8 +6129,7 @@
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="21" ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6264,10 +6160,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>60</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>91</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6285,8 +6182,8 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>0</ActiveRow>
-     <ActiveCol>3</ActiveCol>
-     <RangeSelection>C4</RangeSelection>
+     <ActiveCol>9</ActiveCol>
+     <RangeSelection>C10</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6319,7 +6216,7 @@
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C34:R106C34</Range>
+   <Range>R2C33:R106C33</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;left,right,up,down,[xpixels];[ypixels]&quot;</Value>
@@ -6327,7 +6224,7 @@
    <ErrorStyle>Info</ErrorStyle>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C31:R106C33</Range>
+   <Range>R2C30:R106C32</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;N/A&quot;</Value>
@@ -6345,18 +6242,18 @@
    <Value>'\work\subversion\fhir\build\source\colorectal\Archive\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
-  <AutoFilter x:Range="R1C1:R106C36"
+  <AutoFilter x:Range="R1C1:R106C35"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C25:R106C25</Range>
+   <Range>R2C24:R106C24</Range>
    <Condition>
     <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R30C11:R31C14,R55C12:R55C14,R12C13:R12C14,R36C11:R39C14,R59C12:R59C14,R33C14,R2C10:R11C14,R59C10,R55C10,R12C10:R12C11,R32C10:R32C14,R34C10:R35C14,R33C10:R33C12,R56C10:R58C14,R13C10:R29C14,R40C10:R54C14,R101C5:R106C14,R27C16:R32C16,R40C16,R15C16,R43C16:R46C16,R48C16,R36C16,R86C5:R100C9,R2C15:R68C15,R60C10:R100C14,R70C15:R106C15,R2C1:R106C4,R2C5:R75C9,R82C5:R83C9,R78C5:R79C9,R56C17:R59C17,R2C22:R106C37</Range>
+   <Range>R55C11:R55C13,R12C12:R12C13,R59C11:R59C13,R33C13,R27C15:R32C15,R40C15,R15C15,R43C15:R46C15,R48C15,R36C15,R2C14:R68C14,R70C14:R106C14,R2C1:R106C4,R2C5:R75C9,R82C5:R83C9,R78C5:R79C9,R56C16:R59C16,R2C21:R106C36,R2C10:R11C13,R12C10,R33C10:R33C11,R56C10:R58C13,R13C10:R32C13,R34C10:R54C13,R86C5:R106C9,R60C10:R106C13</Range>
    <Condition>
     <Value1>RC3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -6374,70 +6271,70 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C35,R2C3:R2C4,R2C22:R2C24,R2C6:R2C15</Range>
+   <Range>R2C34,R2C3:R2C4,R2C21:R2C23,R2C6:R2C14</Range>
    <Condition>
     <Value1>RC&lt;&gt;&quot;&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C3:R106C3,R2C26:R106C26</Range>
+   <Range>R3C3:R106C3,R2C25:R106C25</Range>
    <Condition>
     <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C10:R11C14,R30C11:R31C14,R59C10,R55C12:R55C14,R55C10,R12C10:R12C11,R12C13:R12C14,R32C10:R32C14,R36C11:R39C14,R59C12:R59C14,R34C10:R35C14,R33C10:R33C12,R33C14,R56C10:R58C14,R13C10:R29C14,R40C10:R54C14,R27C16:R32C16,R40C16,R15C16,R43C16:R46C16,R48C16,R36C16,R2C15:R68C15,R69C27,R86C24:R106C24,R86C10:R106C15,R2C24:R75C24,R60C10:R75C14,R70C15:R75C15,R78C24:R79C24,R82C24:R83C24,R78C10:R79C15,R82C10:R83C15,R56C17:R59C17</Range>
+   <Range>R55C11:R55C13,R12C12:R12C13,R59C11:R59C13,R33C13,R27C15:R32C15,R40C15,R15C15,R43C15:R46C15,R48C15,R36C15,R2C14:R68C14,R69C26,R86C23:R106C23,R2C23:R75C23,R70C14:R75C14,R78C23:R79C23,R82C23:R83C23,R56C16:R59C16,R93C35,R2C10:R11C13,R12C10,R33C10:R33C11,R56C10:R58C13,R13C10:R32C13,R34C10:R54C13,R60C10:R75C13,R78C10:R79C14,R82C10:R83C14,R86C10:R106C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,RC5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R86C22:R106C22,R86C24:R106C24,R2C22:R75C22,R2C24:R75C24,R78C22:R79C22,R82C22:R83C22,R78C24:R79C24,R82C24:R83C24</Range>
+   <Range>R86C21:R106C21,R86C23:R106C23,R2C21:R75C21,R2C23:R75C23,R78C21:R79C21,R82C21:R83C21,R78C23:R79C23,R82C23:R83C23</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(RC5,1),LOWER(LEFT(RC5,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C22:R106C23</Range>
+   <Range>R2C21:R106C22</Range>
    <Condition>
-    <Value1>AND(RC22&lt;&gt;&quot;&quot;,RC23&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(RC21&lt;&gt;&quot;&quot;,RC22&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R86C25:R106C26,R2C25:R84C26</Range>
+   <Range>R86C24:R106C25,R2C24:R84C25</Range>
    <Condition>
-    <Value1>AND(RC25&lt;&gt;&quot;&quot;,RC25=RC26)</Value1>
+    <Value1>AND(RC24&lt;&gt;&quot;&quot;,RC24=RC25)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C31:R2C32</Range>
+   <Range>R2C30:R2C31</Range>
    <Condition>
     <Value1>RC=&quot;&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C31:R106C32</Range>
+   <Range>R3C30:R106C31</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C)),RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R96C34:R106C34,R6C34,R86C34:R93C34,R9C34:R75C34,R78C34:R79C34,R82C34:R83C34</Range>
+   <Range>R96C33:R106C33,R6C33,R86C33:R93C33,R9C33:R75C33,R78C33:R79C33,R82C33:R83C33</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(R[1]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[1]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R30C11:R31C14,R55C12:R55C14,R12C13:R12C14,R36C11:R39C14,R59C12:R59C14,R33C14,R2C10:R11C14,R59C10,R55C10,R12C10:R12C11,R32C10:R32C14,R34C10:R35C14,R33C10:R33C12,R56C10:R58C14,R13C10:R29C14,R40C10:R54C14,R101C5:R106C14,R27C16:R32C16,R40C16,R15C16,R43C16:R46C16,R48C16,R36C16,R86C5:R100C9,R2C15:R68C15,R60C10:R100C14,R70C15:R106C15,R2C1:R106C4,R2C5:R75C9,R82C5:R83C9,R78C5:R79C9,R56C17:R59C17,R2C22:R106C37</Range>
+   <Range>R55C11:R55C13,R12C12:R12C13,R59C11:R59C13,R33C13,R27C15:R32C15,R40C15,R15C15,R43C15:R46C15,R48C15,R36C15,R2C14:R68C14,R70C14:R106C14,R2C1:R106C4,R2C5:R75C9,R82C5:R83C9,R78C5:R79C9,R56C16:R59C16,R2C21:R106C36,R2C10:R11C13,R12C10,R33C10:R33C11,R56C10:R58C13,R13C10:R32C13,R34C10:R54C13,R86C5:R106C9,R60C10:R106C13</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -6451,7 +6348,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C34</Range>
+   <Range>R2C33</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(#REF!,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(#REF!,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -6465,14 +6362,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C34,R94C34:R95C34,R7C34</Range>
+   <Range>R5C33,R94C33:R95C33,R7C33</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(R[2]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[2]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C34:R4C34,R8C34</Range>
+   <Range>R3C33:R4C33,R8C33</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(R[3]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[3]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -6486,7 +6383,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R59C11</Range>
+   <Range>R59C10</Range>
    <Condition>
     <Value1>R[-4]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -6497,28 +6394,28 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R59C11</Range>
+   <Range>R59C10</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,R[-4]C5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R59C11</Range>
+   <Range>R59C10</Range>
    <Condition>
     <Value1>LEFT(R[-4]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R84C24:R85C24,R84C10:R85C15,R77C24,R77C10:R77C15,R81C24,R81C10:R81C15</Range>
+   <Range>R84C23:R85C23,R77C23,R81C23,R84C10:R85C14,R77C10:R77C14,R81C10:R81C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,#REF!)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R84C22:R85C22,R84C24:R85C24,R77C22,R77C24,R81C22,R81C24</Range>
+   <Range>R84C21:R85C21,R84C23:R85C23,R77C21,R77C23,R81C21,R81C23</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(#REF!,1),LOWER(LEFT(#REF!,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -6543,7 +6440,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R84C34:R85C34,R77C34,R81C34</Range>
+   <Range>R84C33:R85C33,R77C33,R81C33</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(#REF!,1)&lt;&gt;&quot;@&quot;,LEFT(R[2]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[2]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -6568,28 +6465,28 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R85C25:R85C26</Range>
+   <Range>R85C24:R85C25</Range>
    <Condition>
-    <Value1>AND(RC21&lt;&gt;&quot;&quot;,RC21=RC22)</Value1>
+    <Value1>AND(RC20&lt;&gt;&quot;&quot;,RC20=RC21)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R76C24,R76C10:R76C15,R80C24,R80C10:R80C15</Range>
+   <Range>R76C23,R80C23,R76C10:R76C14,R80C10:R80C14</Range>
    <Condition>
     <Value1>AND(SEARCH(&quot;|&quot;,R[1]C5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R76C22,R76C24,R80C22,R80C24</Range>
+   <Range>R76C21,R76C23,R80C21,R80C23</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(R[1]C5,1),LOWER(LEFT(R[1]C5,1)))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R76C34,R80C34</Range>
+   <Range>R76C33,R80C33</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(R[1]C5,1)&lt;&gt;&quot;@&quot;,LEFT(R[2]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[2]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -6910,7 +6807,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6931,8 +6827,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6993,14 +6889,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4</Range>
+   <Range>R2C1,R2C4</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>

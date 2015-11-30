@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-prostate-rad-tumour-stage-t"/>
+  <meta>
+    <lastUpdated value="2015-06-11T06:01:03.224+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"><!-- Snipped for brevity --></div>
+  </text>
+  <!-- DMc ?? SR says to make into a NEHTA oid -->
+  <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
+  </extension>-->
+    
+  <url value="http://hl7.org/fhir/ValueSet/nehta-prostate-rad-tumour-stage-t"/>  
+  <version value="20151105"/>
+  <name value="ProstateRadTuourStageT"/>
+  <publisher value="NEHTA"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The options for radical prostatectomy tumour stage T."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
+      Health Terminology Standards Development Organisation (IHTSDO), and distributed by
+   agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
+   agreement"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="67101007"/>
+        <display value="TX category"/>
+      </concept>
+      <concept>
+        <code value="58790005"/>
+        <display value="T0 category"/>
+      </concept>
+      <concept>
+        <code value="67673008"/>
+        <display value="T2 category"/>
+      </concept>
+      <concept>
+        <code value="261651009"/>
+        <display value="Tumour stage T2a"/>
+      </concept>
+      <concept>
+        <code value="261652002"/>
+        <display value="Tumour stage T2b"/>
+      </concept>
+      <concept>
+        <code value="261653007"/>
+        <display value="Tumour stage T2c"/>
+      </concept>
+      <concept>
+        <code value="14410001"/>
+        <display value="T3 category"/>
+      </concept>
+      <concept>
+        <code value="261654001"/>
+        <display value="Tumour stage T3a"/>
+      </concept>
+      <concept>
+        <code value="261655000"/>
+        <display value="Tumour stage T3b"/>
+      </concept>
+      <concept>
+        <code value="261659006"/>
+        <display value="Tumour stage T4a"/>
+      </concept>
+      <concept>
+        <code value="261660001"/>
+        <display value="Tumour stage T4b"/>
+      </concept>
+    </include>
+  </compose>
+  <!--<codeSystem>
+ 
+    <system value="http://hl7.org/fhir/nehta-prostate-rad-tumour-stage-t"/>
+    <version value="20151105"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="not_identified"/>
+      <display value="Not identified"/>
+      <definition value="Indicates whether the value was not identified"/>
+    </concept>
+    
+        
+  </codeSystem>-->
+</ValueSet>

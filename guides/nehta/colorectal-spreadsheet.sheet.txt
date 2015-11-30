@@ -1553,7 +1553,7 @@
   Comments = Check the formatting of the result group
   Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
   CAP Code = 28243.1000043
-  Example = 0 Tis N0 M0   |\nI T1 N0 M0   |\nT2 N0 M0   |\nIIA T3 N0 M0   |\nIIB T4a N0 M0   |\nIIC T4b N0 M0   |\nIIIA T1-T2 N1/N1c M0   |\nT1 N2a M0   |\nIIIB T3-T4a N1/N1c M0   |\nT2-T3 N2a M0   |\nT1-T2 N2b M0   |\nIIIC T4a N2a M0   |\nT3-T4a N2b M0   |\nT4b N1-N2 M0   |\nIVA Any T Any N M1a   |\nIVB Any T Any N M1b
+  Committee Notes = 0 Tis N0 M0   |\nI T1 N0 M0   |\nT2 N0 M0   |\nIIA T3 N0 M0   |\nIIB T4a N0 M0   |\nIIC T4b N0 M0   |\nIIIA T1-T2 N1/N1c M0   |\nT1 N2a M0   |\nIIIB T3-T4a N1/N1c M0   |\nT2-T3 N2a M0   |\nT1-T2 N2b M0   |\nIIIC T4a N2a M0   |\nT3-T4a N2b M0   |\nT4b N1-N2 M0   |\nIVA Any T Any N M1a   |\nIVB Any T Any N M1b
 
  -- Row 93 -----------------------------------
   Element = Colorectal.synthesisOverview.tumourStagingSystem

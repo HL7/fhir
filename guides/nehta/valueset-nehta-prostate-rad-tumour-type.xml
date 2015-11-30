@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-prostate-rad-tumour-type"/>
+  <meta>
+    <lastUpdated value="2015-06-11T06:01:03.224+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"><!-- Snipped for brevity --></div>
+  </text>
+  <!-- DMc ?? SR says to make into a NEHTA oid -->
+  <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
+  </extension>-->
+    
+  <url value="http://hl7.org/fhir/ValueSet/nehta-prostate-rad-tumour-type"/>  
+  <version value="20151104"/>
+  <name value="ProstateRadTumourType"/>
+  <publisher value="NEHTA"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Indicates the radical prostatectomy tumour type."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
+      Health Terminology Standards Development Organisation (IHTSDO), and distributed by
+   agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
+   agreement"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="45410002"/>
+        <display value="Adenocarcinoma (Acinar, usual type)"/>
+      </concept>
+      <concept>
+        <code value="59367005"/>
+        <display value="Adenosquamous carcinoma"/>
+      </concept>
+      <concept>
+        <code value="74364000"/>
+        <display value="Small cell carcinoma"/>
+      </concept>
+      <concept>
+        <code value="23109009"/>
+        <display value="Sarcomatoid carcinoma"/>
+      </concept>
+      <concept>
+        <code value="38549000"/>
+        <display value="Carcinoma, undifferentiated"/>
+      </concept>
+    </include>
+  </compose>
+  <codeSystem>
+ 
+    <!-- The 2 folowing codes are to be replaced with SCT concepts when they become available --> 
+    <system value="http://hl7.org/fhir/nehta--prostate-rad-tumour-type"/>
+    <version value="20150619"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="acinar_variant"/>
+      <display value="Adenocarcinoma (Acinar variant eg, foamy, pseudohyperplastic)"/>
+      <definition value="Adenocarcinoma (Acinar variant eg, foamy, pseudohyperplastic)"/>
+    </concept>
+     <concept>
+      <code value="prostatic_ductal_adenocarcinoma"/>
+      <display value="Prostatic ductal adenocarcinoma"/>
+      <definition value="Prostatic ductal adenocarcinoma"/>
+    </concept>
+    
+            
+  </codeSystem>
+</ValueSet>
