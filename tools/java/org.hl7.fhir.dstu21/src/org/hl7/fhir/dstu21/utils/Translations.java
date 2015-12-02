@@ -117,7 +117,7 @@ public class Translations {
     if (s.equals("de"))
       return "Deutsch (German)";
     if (s.equals("du"))
-      return "Ру�?�?кий (Russian)";
+      return "??????? (Russian)";
     return "\"" + s + "\"";
   }
 
