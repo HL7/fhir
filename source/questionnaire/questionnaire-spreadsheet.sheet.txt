@@ -164,7 +164,7 @@
   Context = Questionnaire.item
   English = Group items must have nested items, display items cannot have nested items
   XPath = not((f:type/@value=\'group\' and not(f:item)) or (f:type/@value=\'display\' and f:item))
-  Expression = (type=\'group\' and item.empty()) or (type=\'display\' and item.empty().not())
+  Expression = (type=\'group\' implies item.empty().not()) and (type.log(\'type\')=\'display\' implies item.log(\'item\').empty())
 
  -- Row 2 -----------------------------------
   Id = 2
