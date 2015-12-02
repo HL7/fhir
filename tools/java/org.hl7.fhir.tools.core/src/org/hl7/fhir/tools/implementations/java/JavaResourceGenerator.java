@@ -97,7 +97,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 //      elem.getTypes().get(0);
 //    }
 		
-		write("package org.hl7.fhir.instance.model;\r\n");
+		write("package org.hl7.fhir.dstu21.model;\r\n");
 		write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
 		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     if (clss != JavaGenClass.Constraint) {
@@ -117,20 +117,21 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         if (s)
           write("import org.hl7.fhir.utilities.Utilities;\r\n");
         if (e)
-          write("import org.hl7.fhir.instance.model.Enumerations.*;\r\n");
+          write("import org.hl7.fhir.dstu21.model.Enumerations.*;\r\n");
       }
       if (clss == JavaGenClass.Resource) {
-        write("import org.hl7.fhir.instance.model.annotations.ResourceDef;\r\n");
-        write("import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;\r\n");
+        write("import org.hl7.fhir.dstu21.model.annotations.ResourceDef;\r\n");
+        write("import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;\r\n");
       } 
-      write("import org.hl7.fhir.instance.model.annotations.Child;\r\n");
-      write("import org.hl7.fhir.instance.model.annotations.Description;\r\n");
+      write("import org.hl7.fhir.dstu21.model.annotations.Child;\r\n");
+      write("import org.hl7.fhir.dstu21.model.annotations.Description;\r\n");
     }
     if (clss != JavaGenClass.Resource) {
-      write("import org.hl7.fhir.instance.model.annotations.DatatypeDef;\r\n");
+      write("import org.hl7.fhir.dstu21.model.annotations.DatatypeDef;\r\n");
     }
-    write("import org.hl7.fhir.instance.model.annotations.Block;\r\n");
-    write("import org.hl7.fhir.instance.model.api.*;\r\n");
+    write("import org.hl7.fhir.dstu21.model.annotations.Block;\r\n");
+    write("import org.hl7.fhir.dstu21.model.api.*;\r\n");
+    write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     
 		jdoc("", root.getDefinition());
 		classname = upFirst(name);
@@ -244,6 +245,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			generateChildrenRegister(root, "    ", isAbstract);
       generatePropertySetter(root, "    ");
       generateChildAdder(root, "    ", classname);
+      generateFhirType(root.getName());
 		} else {
       write("    private static final long serialVersionUID = "+inheritedHash+"L;\r\n\r\n");
 		}
@@ -329,6 +331,22 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           "     }\r\n" + 
           "     return java.util.Collections.unmodifiableList(retVal);\r\n" + 
           "   }\r\n");
+      write("  public boolean hasExtension(String theUrl) {\r\n"+
+      "    return !getExtensionsByUrl(theUrl).isEmpty(); \r\n"+
+      "  }\r\n"+
+      "\r\n");
+      write("  public String getExtensionString(String theUrl) throws FHIRException {\r\n"+
+      "    List<Extension> ext = getExtensionsByUrl(theUrl); \r\n"+
+      "    if (ext.isEmpty()) \r\n"+
+      "      return null; \r\n"+
+      "    if (ext.size() > 1) \r\n"+
+      "      throw new FHIRException(\"Multiple matching extensions found\");\r\n"+
+      "    if (!ext.get(0).getValue().isPrimitive())\r\n"+
+      "      throw new FHIRException(\"Extension could not be converted to a string\");\r\n"+
+      "    return ext.get(0).getValue().primitiveValue();\r\n"+
+      "  }\r\n"+
+      "\r\n");
+      
     }
     if (clss == JavaGenClass.Resource && upFirst(name).equals("Bundle")) {
       //@formatter:off
@@ -384,6 +402,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		}
   }
 
+  private void generateFhirType(String path) throws IOException {
+    write("  public String fhirType() {\r\n");
+    write("    return \""+path+"\";\r\n\r\n");
+    write("  }\r\n\r\n");
+  }
+
   private String clean(String code) {
     StringBuilder b = new StringBuilder();
     for (char c : code.toCharArray())
@@ -424,7 +448,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private void generatePropertySetter(ElementDefn p, String indent) throws Exception {
     write(indent+"  @Override\r\n");
-    write(indent+"  public void setProperty(String name, Base value) throws Exception {\r\n");
+    write(indent+"  public void setProperty(String name, Base value) throws FHIRException {\r\n");
     boolean first = true;
     for (ElementDefn e : p.getElements()) {
       String tn = typeNames.get(e);
@@ -457,7 +481,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private void generateChildAdder(ElementDefn p, String indent, String parent) throws Exception {
     write(indent+"  @Override\r\n");
-    write(indent+"  public Base addChild(String name) throws Exception {\r\n");
+    write(indent+"  public Base addChild(String name) throws FHIRException {\r\n");
     boolean first = true;
     for (ElementDefn e : p.getElements()) {
       if (!e.typeCode().equals("xhtml")) { 
@@ -490,9 +514,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     first = false;
     write(           "if (name.equals(\""+namet+"\")) {\r\n");
     if (isPrimitive(e.typeCode()))
-      write(indent+"      throw new Exception(\"Cannot call addChild on a primitive type "+parent+"."+e.getName()+"\");\r\n"); 
+      write(indent+"      throw new FHIRException(\"Cannot call addChild on a primitive type "+parent+"."+e.getName()+"\");\r\n"); 
     else if (isAbstract(e.typeCode()))
-      write(indent+"      throw new Exception(\"Cannot call addChild on an abstract type "+parent+"."+e.getName()+"\");\r\n"); 
+      write(indent+"      throw new FHIRException(\"Cannot call addChild on an abstract type "+parent+"."+e.getName()+"\");\r\n"); 
     else if (e.unbounded()) {
       write(indent+"      return add"+upFirst(name)+"();\r\n");
     } else {
@@ -662,15 +686,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		int l = codes.size();
 		int i = 0;
 		for (DefinedCode c : codes) {
-			if (!c.getAbstract()) {
-				i++;
-				String cc = Utilities.camelCase(c.getCode());
-	      cc = makeConst(cc);
-	      write("        /**\r\n");
-	      write("         * "+c.getDefinition()+"\r\n");
-	      write("         */\r\n");      
-				write("        "+cc.toUpperCase()+", \r\n");
-			}
+			i++;
+			String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("        /**\r\n");
+      write("         * "+c.getDefinition()+"\r\n");
+      write("         */\r\n");      
+			write("        "+cc.toUpperCase()+", \r\n");
 		}
     write("        /**\r\n");
     write("         * added to help the parsers\r\n");
@@ -678,28 +700,24 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("        NULL;\r\n");
 
 
-		write("        public static "+tns+" fromCode(String codeString) throws Exception {\r\n");
+		write("        public static "+tns+" fromCode(String codeString) throws FHIRException {\r\n");
 		write("            if (codeString == null || \"\".equals(codeString))\r\n");
 		write("                return null;\r\n");
 		for (DefinedCode c : codes) {
-			if (!c.getAbstract()) {
-				String cc = Utilities.camelCase(c.getCode());
-				cc = makeConst(cc);
-				write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
-				write("          return "+cc+";\r\n");
-			}
+			String cc = Utilities.camelCase(c.getCode());
+			cc = makeConst(cc);
+			write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
+			write("          return "+cc+";\r\n");
 		}		
-		write("        throw new Exception(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
+		write("        throw new FHIRException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
 		write("        }\r\n");	
 
 		write("        public String toCode() {\r\n");
 		write("          switch (this) {\r\n");
 		for (DefinedCode c : codes) {
-			if (!c.getAbstract()) {
-				String cc = Utilities.camelCase(c.getCode());
-	      cc = makeConst(cc);
-				write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
-			}
+			String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+			write("            case "+cc+": return \""+c.getCode()+"\";\r\n");
 		}   
 		write("            default: return \"?\";\r\n");
 		write("          }\r\n"); 
@@ -708,11 +726,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("        public String getSystem() {\r\n");
     write("          switch (this) {\r\n");
     for (DefinedCode c : codes) {
-    	if (!c.getAbstract()) {
-	      String cc = Utilities.camelCase(c.getCode());
-	      cc = makeConst(cc);
-	      write("            case "+cc+": return \""+c.getSystem()+"\";\r\n");
-	    }
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("            case "+cc+": return \""+c.getSystem()+"\";\r\n");
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
@@ -721,11 +737,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("        public String getDefinition() {\r\n");
     write("          switch (this) {\r\n");
     for (DefinedCode c : codes) {
-    	if (!c.getAbstract()) {
-	      String cc = Utilities.camelCase(c.getCode());
-	      cc = makeConst(cc);
-	      write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
-	    }
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("            case "+cc+": return \""+Utilities.escapeJava(c.getDefinition())+"\";\r\n");
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
@@ -734,11 +748,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("        public String getDisplay() {\r\n");
     write("          switch (this) {\r\n");
     for (DefinedCode c : codes) {
-    	if (!c.getAbstract()) {
-	      String cc = Utilities.camelCase(c.getCode());
-	      cc = makeConst(cc);
-	      write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
-			}
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("            case "+cc+": return \""+Utilities.escapeJava(Utilities.noString(c.getDisplay()) ? c.getCode() : c.getDisplay())+"\";\r\n");
     }   
     write("            default: return \"?\";\r\n");
     write("          }\r\n"); 
@@ -755,39 +767,33 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("            if (codeString == null || \"\".equals(codeString))\r\n");
     write("                return null;\r\n");
     for (DefinedCode c : codes) {
-    	if (!c.getAbstract()) {
-	      String cc = Utilities.camelCase(c.getCode());
-	      cc = makeConst(cc);
-	      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
-	      write("          return "+tns+"."+cc+";\r\n");
-	    }
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
+      write("          return "+tns+"."+cc+";\r\n");
     }   
     write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
-    write("        public Enumeration<"+tns+"> fromType(Base code) throws Exception {\r\n");
+    write("        public Enumeration<"+tns+"> fromType(Base code) throws FHIRException {\r\n");
     write("          if (code == null || code.isEmpty())\r\n");
     write("            return null;\r\n");
     write("          String codeString = ((PrimitiveType) code).asStringValue();\r\n");
     write("          if (codeString == null || \"\".equals(codeString))\r\n");
     write("            return null;\r\n");
     for (DefinedCode c : codes) {
-    	if (!c.getAbstract()) {
-	      String cc = Utilities.camelCase(c.getCode());
-	      cc = makeConst(cc);
-	      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
-	      write("          return new Enumeration<"+tns+">(this, "+tns+"."+cc+");\r\n");
-			}
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
+      write("          return new Enumeration<"+tns+">(this, "+tns+"."+cc+");\r\n");
     }   
-    write("        throw new Exception(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
+    write("        throw new FHIRException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
 
     write("    public String toCode("+tns+" code) {\r\n");
     for (DefinedCode c : codes) {
-    	if (!c.getAbstract()) {
-	      String cc = Utilities.camelCase(c.getCode());
-	      cc = makeConst(cc);
-	      write("      if (code == "+tns+"."+cc+")\r\n        return \""+c.getCode()+"\";\r\n");
-			}
+      String cc = Utilities.camelCase(c.getCode());
+      cc = makeConst(cc);
+      write("      if (code == "+tns+"."+cc+")\r\n        return \""+c.getCode()+"\";\r\n");
     }
     write("      return \"?\";\r\n"); 
     write("      }\r\n"); 
@@ -831,6 +837,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     generateCopy(e, tn, true, false);
     generateEquals(e, tn, true, false);
     generateIsEmpty(e, tn, true, false);
+    generateFhirType(e.getPath());
     write("  }\r\n");
 		write("\r\n");
 
@@ -1008,7 +1015,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				else if (e.isXhtmlElement()) 
 					tn = "XhtmlNode";
 				else if (e.getTypes().get(0).isWildcardType())
-					tn ="org.hl7.fhir.instance.model.Type";
+					tn ="org.hl7.fhir.dstu21.model.Type";
 				else if (definitions.hasPrimitiveType(tn))
 				  tn = upFirst(tn)+"Type";
 
@@ -1420,13 +1427,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			    for (TypeRef t : e.getTypes()) {
 		        jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
 		        String ttn = getTypename(t);
-		        write(indent+"public "+ttn+" get"+getTitle(getElementName(e.getName(), false))+ttn+"() throws Exception { \r\n");
+		        write(indent+"public "+ttn+" get"+getTitle(getElementName(e.getName(), false))+ttn+"() throws FHIRException { \r\n");
 		        write(indent+"  if (!(this."+getElementName(e.getName(), true)+" instanceof "+ttn+"))\r\n");
-		        write(indent+"    throw new Exception(\"Type mismatch: the type "+ttn+" was expected, but \"+this."+getElementName(e.getName(), true)+".getClass().getName()+\" was encountered\");\r\n");
+		        write(indent+"    throw new FHIRException(\"Type mismatch: the type "+ttn+" was expected, but \"+this."+getElementName(e.getName(), true)+".getClass().getName()+\" was encountered\");\r\n");
 		        write(indent+"  return ("+ttn+") this."+getElementName(e.getName(), true)+";\r\n");
 		        write(indent+"}\r\n");
 		        write("\r\n");
-            write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+ttn+"() throws Exception { \r\n");
+            write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+ttn+"() { \r\n");
             write(indent+"  return this."+getElementName(e.getName(), true)+" instanceof "+ttn+";\r\n");
             write(indent+"}\r\n");
             write("\r\n");

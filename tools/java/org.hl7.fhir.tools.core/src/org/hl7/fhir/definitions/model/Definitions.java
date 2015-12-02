@@ -36,11 +36,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.instance.model.ConceptMap;
-import org.hl7.fhir.instance.model.NamingSystem;
-import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
-import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.dstu21.model.ConceptMap;
+import org.hl7.fhir.dstu21.model.NamingSystem;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
+import org.hl7.fhir.dstu21.model.ValueSet;
+import org.hl7.fhir.dstu21.model.StructureDefinition.ExtensionContext;
 
 /**
  * This class is the root to all the definitions in FHIR. There are the
@@ -488,9 +488,9 @@ public class Definitions {
     return w5s;
   }
 
-  public String getSrcFile(String name) throws Exception {
+  public String getSrcFile(String name) {
     if (name == null)
-      throw new Exception("unknown null type");
+      throw new Error("unknown null type");
     String lname = name.toLowerCase();
     if (typePages.containsKey(lname))
       return typePages.get(lname);

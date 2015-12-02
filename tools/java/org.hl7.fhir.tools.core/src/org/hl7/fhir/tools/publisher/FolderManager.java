@@ -59,10 +59,6 @@ public class FolderManager {
     umlDir = root+sl+"uml"+sl;
     javaDir = root+sl+"tools"+sl+"java"+sl+"org.hl7.fhir.tools.core"+sl+"src"+ sl;
     archiveDir = root.substring(0, root.lastIndexOf(File.separator)+1)+"archive"+sl;
-    
-//    javaParserDir =  root+sl+"tools"+sl+"java"+sl+"org.hl7.fhir.tools.core"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"formats"+sl;
-//    cSharpDir      = root+sl+"tools"+sl+"csharp"+sl+"FHIR"+sl+"FHIR"+sl;
-//    delphiDir      = root+sl+"tools"+sl+"delphi"+sl;
   }
   
   public String srcDir;

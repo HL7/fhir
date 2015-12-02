@@ -70,47 +70,47 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
-import org.hl7.fhir.instance.formats.FormatUtilities;
-import org.hl7.fhir.instance.formats.IParser;
-import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.Base64BinaryType;
-import org.hl7.fhir.instance.model.BooleanType;
-import org.hl7.fhir.instance.model.CodeType;
-import org.hl7.fhir.instance.model.CodeableConcept;
-import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.instance.model.DateTimeType;
-import org.hl7.fhir.instance.model.DateType;
-import org.hl7.fhir.instance.model.DecimalType;
-import org.hl7.fhir.instance.model.Enumerations.ConformanceResourceStatus;
-import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
-import org.hl7.fhir.instance.model.Factory;
-import org.hl7.fhir.instance.model.IdType;
-import org.hl7.fhir.instance.model.Identifier;
-import org.hl7.fhir.instance.model.InstantType;
-import org.hl7.fhir.instance.model.IntegerType;
-import org.hl7.fhir.instance.model.OidType;
-import org.hl7.fhir.instance.model.Period;
-import org.hl7.fhir.instance.model.PositiveIntType;
-import org.hl7.fhir.instance.model.Quantity;
-import org.hl7.fhir.instance.model.Quantity.QuantityComparator;
-import org.hl7.fhir.instance.model.Reference;
-import org.hl7.fhir.instance.model.SearchParameter;
-import org.hl7.fhir.instance.model.StringType;
-import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.instance.model.TimeType;
-import org.hl7.fhir.instance.model.Type;
-import org.hl7.fhir.instance.model.UnsignedIntType;
-import org.hl7.fhir.instance.model.UriType;
-import org.hl7.fhir.instance.model.UuidType;
-import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.terminologies.ValueSetUtilities;
-import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
-import org.hl7.fhir.instance.utils.ToolingExtensions;
-import org.hl7.fhir.instance.validation.ValidationMessage;
+import org.hl7.fhir.dstu21.formats.FormatUtilities;
+import org.hl7.fhir.dstu21.formats.IParser;
+import org.hl7.fhir.dstu21.formats.JsonParser;
+import org.hl7.fhir.dstu21.formats.XmlParser;
+import org.hl7.fhir.dstu21.model.Base64BinaryType;
+import org.hl7.fhir.dstu21.model.BooleanType;
+import org.hl7.fhir.dstu21.model.CodeType;
+import org.hl7.fhir.dstu21.model.CodeableConcept;
+import org.hl7.fhir.dstu21.model.DateTimeType;
+import org.hl7.fhir.dstu21.model.DateType;
+import org.hl7.fhir.dstu21.model.DecimalType;
+import org.hl7.fhir.dstu21.model.Factory;
+import org.hl7.fhir.dstu21.model.IdType;
+import org.hl7.fhir.dstu21.model.Identifier;
+import org.hl7.fhir.dstu21.model.InstantType;
+import org.hl7.fhir.dstu21.model.IntegerType;
+import org.hl7.fhir.dstu21.model.OidType;
+import org.hl7.fhir.dstu21.model.Period;
+import org.hl7.fhir.dstu21.model.PositiveIntType;
+import org.hl7.fhir.dstu21.model.Quantity;
+import org.hl7.fhir.dstu21.model.Reference;
+import org.hl7.fhir.dstu21.model.SearchParameter;
+import org.hl7.fhir.dstu21.model.StringType;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
+import org.hl7.fhir.dstu21.model.TimeType;
+import org.hl7.fhir.dstu21.model.Type;
+import org.hl7.fhir.dstu21.model.UnsignedIntType;
+import org.hl7.fhir.dstu21.model.UriType;
+import org.hl7.fhir.dstu21.model.UuidType;
+import org.hl7.fhir.dstu21.model.ValueSet;
+import org.hl7.fhir.dstu21.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.dstu21.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu21.model.Enumerations.SearchParamType;
+import org.hl7.fhir.dstu21.model.Quantity.QuantityComparator;
+import org.hl7.fhir.dstu21.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu21.terminologies.ValueSetUtilities;
+import org.hl7.fhir.dstu21.utils.ProfileUtilities;
+import org.hl7.fhir.dstu21.utils.ToolingExtensions;
+import org.hl7.fhir.dstu21.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.dstu21.validation.ValidationMessage;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -1791,15 +1791,15 @@ public class SpreadsheetParser {
       }      
     }
 		e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
-		e.setExample(processValue(sheet, row, "Example", e));
+		e.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), e));
 		processOtherExamples(e, sheet, row);		
 		e.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
 		e.setDisplayHint(sheet.getColumn(row, "Display Hint"));
 		if (isProfile) {
-      e.setFixed(processValue(sheet, row, "Value", e));
-      e.setPattern(processValue(sheet, row, "Pattern", e));
+      e.setFixed(processValue(sheet, row, "Value", sheet.getColumn(row, "Value"), e));
+      e.setPattern(processValue(sheet, row, "Pattern", sheet.getColumn(row, "Pattern"), e));
 		} else {
-      e.setDefaultValue(processValue(sheet, row, "Default Value", e));
+      e.setDefaultValue(processValue(sheet, row, "Default Value", sheet.getColumn(row, "Default Value"), e));
       e.setMeaningWhenMissing(sheet.getColumn(row, "Missing Meaning"));
 		}
 		e.setW5(checkW5(sheet.getColumn(row, "w5"), path));
@@ -1807,10 +1807,12 @@ public class SpreadsheetParser {
 	}
 
 	private void processOtherExamples(ElementDefn e, Sheet sheet, int row) throws Exception {
-	  for (int i = 1; i <= 10; i++) {
+	  for (int i = 1; i <= 20; i++) {
 	    String s = sheet.getColumn(row, "Example "+Integer.toString(i));
+	    if (Utilities.noString(s))
+	      s = sheet.getByColumnPrefix(row, "Example "+Integer.toString(i)+" (");
 	    if (!Utilities.noString(s))
-       e.getOtherExamples().put(i, processValue(sheet, row, "Example "+Integer.toString(i), e));
+        e.getOtherExamples().put(i, processValue(sheet, row, "Example "+Integer.toString(i), s, e));
 	  }    
   }
 
@@ -1834,12 +1836,11 @@ public class SpreadsheetParser {
   }
 
 
-  private Type processValue(Sheet sheet, int row, String column, ElementDefn e) throws Exception {
-    String source = sheet.getColumn(row, column);
+  private Type processValue(Sheet sheet, int row, String column, String source, ElementDefn e) throws Exception {
     if (Utilities.noString(source))
       return null;  
 	  if (e.getTypes().size() != 1) 
-      throw new Exception("Unable to process "+column+" unless a single type is specified (types = "+e.typeCode()+") "+getLocation(row));
+      throw new Exception("Unable to process "+column+" unless a single type is specified (types = "+e.typeCode()+") "+getLocation(row)+", column = "+column);
     String type = e.typeCode();
     if (definitions != null) {
       if (definitions.getConstraints().containsKey(type))
@@ -2139,7 +2140,7 @@ public class SpreadsheetParser {
       // exv.setBinding();
       exv.setMaxLength(sheet.getColumn(row, "Max Length"));
       exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, context, false));
-      exv.setExample(processValue(sheet, row, "Example", exv));
+      exv.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), exv));
     }
   }
 

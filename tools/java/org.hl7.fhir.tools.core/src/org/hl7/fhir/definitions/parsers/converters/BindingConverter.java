@@ -41,7 +41,7 @@ import org.hl7.fhir.definitions.ecore.fhir.DefinedCode;
 import org.hl7.fhir.definitions.ecore.fhir.Definitions;
 import org.hl7.fhir.definitions.ecore.fhir.FhirFactory;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
-import org.hl7.fhir.instance.model.Enumerations.BindingStrength;
+import org.hl7.fhir.dstu21.model.Enumerations.BindingStrength;
 import org.hl7.fhir.utilities.Utilities;
 
 

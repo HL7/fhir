@@ -1,6 +1,6 @@
 package org.hl7.fhir.definitions.model;
 
-import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
 
 public class TypeDefn extends ElementDefn {
   private StructureDefinition profile;

@@ -3,7 +3,7 @@ package org.hl7.fhir.definitions.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.hl7.fhir.instance.model.StructureDefinition;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
 
 public class ProfiledType {
   private String name;

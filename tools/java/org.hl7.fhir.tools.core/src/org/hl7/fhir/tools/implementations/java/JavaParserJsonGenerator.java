@@ -155,7 +155,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   }
 
   private void genElementParser() throws Exception {
-    write("  protected void parseElementProperties(JsonObject json, Element element) throws Exception {\r\n");
+    write("  protected void parseElementProperties(JsonObject json, Element element) throws IOException, FHIRFormatError {\r\n");
     write("    super.parseElementProperties(json, element);\r\n");
     write("    if (json.has(\"extension\")) {\r\n");
     write("      JsonArray array = json.getAsJsonArray(\"extension\");\r\n");
@@ -165,7 +165,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    };\r\n");
     write("  }\r\n");
     write("\r\n");
-    write("  protected void parseBackboneProperties(JsonObject json, BackboneElement element) throws Exception {\r\n");
+    write("  protected void parseBackboneProperties(JsonObject json, BackboneElement element) throws IOException, FHIRFormatError {\r\n");
     write("    parseElementProperties(json, element);\r\n");
     write("    if (json.has(\"modifierExtension\")) {\r\n");
     write("      JsonArray array = json.getAsJsonArray(\"modifierExtension\");\r\n");
@@ -175,7 +175,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
-    write("  protected void parseTypeProperties(JsonObject json, Element element) throws Exception {\r\n");
+    write("  protected void parseTypeProperties(JsonObject json, Element element) throws IOException, FHIRFormatError {\r\n");
     write("    parseElementProperties(json, element);\r\n");
     write("  }\r\n");
     write("\r\n");
@@ -183,7 +183,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void generateEnumParser() throws Exception {
     write("  @SuppressWarnings(\"unchecked\")\r\n");
-    write("  protected <E extends Enum<E>> Enumeration<E> parseEnumeration(String s, E item, EnumFactory e) throws Exception {\r\n");
+    write("  protected <E extends Enum<E>> Enumeration<E> parseEnumeration(String s, E item, EnumFactory e) throws IOException, FHIRFormatError {\r\n");
     write("    Enumeration<E> res = new Enumeration<E>(e);\r\n");
     //    write("    parseElementProperties(json, res);\r\n");
     write("    if (s != null)\r\n");
@@ -196,7 +196,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void generatePrimitiveParser(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
     String jpn = getAsJsonPrimitive(dc.getCode(), false);
-    write("  protected "+tn+" parse"+upFirst(dc.getCode())+"("+jpn+" v) throws Exception {\r\n");
+    write("  protected "+tn+" parse"+upFirst(dc.getCode())+"("+jpn+" v) throws IOException, FHIRFormatError {\r\n");
     write("    "+tn+" res = new "+tn+"(v);\r\n");
 //    write("    if (v != null)\r\n");
 //    write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(v));\r\n");
@@ -217,16 +217,18 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   }
 
   private void start(String version, Date genDate) throws Exception {
-    write("package org.hl7.fhir.instance.formats;\r\n");
+    write("package org.hl7.fhir.dstu21.formats;\r\n");
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     for (DefinedCode dc : definitions.getPrimitives().values()) 
-      write("import org.hl7.fhir.instance.model."+getPrimitiveTypeModelName(dc.getCode())+";\r\n");
-    write("import org.hl7.fhir.instance.model.*;\r\n");
+      write("import org.hl7.fhir.dstu21.model."+getPrimitiveTypeModelName(dc.getCode())+";\r\n");
+    write("import org.hl7.fhir.dstu21.model.*;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
-
+    write("import org.hl7.fhir.exceptions.FHIRFormatError;\r\n");
+    write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     write("import com.google.gson.JsonObject;\r\n");
     write("import com.google.gson.JsonArray;\r\n");
+    write("import java.io.IOException;\r\n");
     //  write("import java.util.*;\r\n");
     write("\r\n");
     write("public class JsonParser extends JsonParserBase {\r\n");
@@ -293,11 +295,11 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     String pn = tn.contains("<") ? "\""+tn.substring(tn.indexOf('<')+1).replace(">", "") + "\"" : "";
 
     if (tn.contains(".")) {
-      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json, "+pathClass(tn)+" owner) throws Exception {\r\n");
+      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json, "+pathClass(tn)+" owner) throws IOException, FHIRFormatError {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
       bUseOwner = true;
     } else {
-      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json) throws Exception {\r\n");
+      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json) throws IOException, FHIRFormatError {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
     }
     if (clss == JavaGenClass.Resource)
@@ -323,7 +325,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
     String pn = tn.contains("<") ? "\""+tn.substring(tn.indexOf('<')+1).replace(">", "") + "\"" : "";
 
-    write("  protected void parse"+upFirst(tn).replace(".", "")+"Properties(JsonObject json, "+tn+" res) throws Exception {\r\n");
+    write("  protected void parse"+upFirst(tn).replace(".", "")+"Properties(JsonObject json, "+tn+" res) throws IOException, FHIRFormatError {\r\n");
 
     if (!Utilities.noString(n.typeCode()))
       write("    parse"+n.typeCode()+"Properties(json, res);\r\n");
@@ -453,27 +455,27 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void finishParser() throws Exception {
     write("  @Override\r\n");
-    write("  protected Resource parseResource(JsonObject json) throws Exception {\r\n");
+    write("  protected Resource parseResource(JsonObject json) throws IOException, FHIRFormatError {\r\n");
     write("    String t = json.get(\"resourceType\").getAsString();\r\n");
     write("    if (Utilities.noString(t))\r\n");
-    write("      throw new Exception(\"Unable to find resource type - maybe not a FHIR resource?\");\r\n");
+    write("      throw new FHIRFormatError(\"Unable to find resource type - maybe not a FHIR resource?\");\r\n");
     write("    "+reg.toString().substring(9));
     write("    else if (t.equals(\"Binary\"))\r\n");
     write("      return parseBinary(json);\r\n");
-    write("    throw new Exception(\"Unknown.Unrecognised resource type '\"+t+\"' (in property 'resourceType')\");\r\n");
+    write("    throw new FHIRFormatError(\"Unknown.Unrecognised resource type '\"+t+\"' (in property 'resourceType')\");\r\n");
     write("  }\r\n\r\n");
-    write("  protected Type parseType(String prefix, JsonObject json) throws Exception {\r\n");
+    write("  protected Type parseType(String prefix, JsonObject json) throws IOException, FHIRFormatError {\r\n");
     write("    "+regt.toString().substring(9));
     write("    return null;\r\n");
     write("  }\r\n\r\n");
-    write("  protected Type parseType(JsonObject json, String type) throws Exception {\r\n");
+    write("  protected Type parseType(JsonObject json, String type) throws IOException, FHIRFormatError {\r\n");
     write("    "+regt2.toString().substring(9));
-    write("    throw new Exception(\"Unknown Type \"+type);\r\n");
+    write("    throw new FHIRFormatError(\"Unknown Type \"+type);\r\n");
     write("  }\r\n\r\n");
 
-    //    write("  public Element parseFragment(XmlPullParser xpp, String type) throws Exception {\r\n");
+    //    write("  public Element parseFragment(XmlPullParser xpp, String type) {\r\n");
     //    write("    "+regf.toString().substring(9));
-    //    write("    throw new Exception(\"Unknown type \"+type);\r\n");
+    //    write("    throw new FHIRException(\"Unknown type \"+type);\r\n");
     //    write("  }\r\n\r\n");
     //
     write("  protected boolean hasTypeName(JsonObject json, String prefix) {\r\n");
@@ -661,7 +663,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void genElementComposer() throws Exception {
 
-    write("  protected void composeElement(Element element) throws Exception {\r\n");
+    write("  protected void composeElement(Element element) throws IOException {\r\n");
     write("    if (element.hasId())\r\n");
     write("      prop(\"id\", element.getId());\r\n");
     write("      if (makeComments(element)) {\r\n");
@@ -680,7 +682,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
-    write("  protected void composeBackbone(BackboneElement element) throws Exception {\r\n");
+    write("  protected void composeBackbone(BackboneElement element) throws IOException {\r\n");
     write("    composeElement(element);\r\n");
     write("    if (element.hasModifierExtension()) {\r\n");
     write("      openArray(\"modifierExtension\");\r\n");
@@ -698,14 +700,14 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
 
   private void generateEnumComposer() throws Exception {
-    write("  protected <E extends Enum<E>> void composeEnumerationCore(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
+    write("  protected <E extends Enum<E>> void composeEnumerationCore(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws IOException {\r\n");
     write("    if (value != null && value.getValue() != null) {\r\n");
     write("      prop(name, e.toCode(value.getValue()));\r\n");
     write("    } else if (inArray)   \r\n");
     write("      writeNull(name);\r\n");
     write("  }    \r\n");
     write("\r\n");
-    write("  protected <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
+    write("  protected <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws IOException {\r\n");
     write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || makeComments(value))) {\r\n");
     write("      open(inArray ? null : \"_\"+name);\r\n");
     write("      composeElement(value);\r\n");
@@ -727,7 +729,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void generatePrimitiveComposer(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
 
-    write("  protected void compose"+upFirst(dc.getCode())+"Core(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(dc.getCode())+"Core(String name, "+tn+" value, boolean inArray) throws IOException {\r\n");
     write("    if (value != null && value.hasValue()) {\r\n");
     if (dc.getCode().equals("integer") || dc.getCode().equals("positiveInt") || dc.getCode().equals("unsignedInt"))
       write("        prop(name, Integer.valueOf(value.getValue()));\r\n");
@@ -746,7 +748,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("  }    \r\n");
     write("\r\n");
 
-    write("  protected void compose"+upFirst(dc.getCode())+"Extras(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(dc.getCode())+"Extras(String name, "+tn+" value, boolean inArray) throws IOException {\r\n");
     write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || makeComments(value))) {\r\n");
     write("      open(inArray ? null : \"_\"+name);\r\n");
     write("      composeElement(value);\r\n");
@@ -807,7 +809,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genInnerComposer(ElementDefn n, JavaGenClass clss) throws IOException, Exception {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
 
-    write("  protected void compose"+upFirst(tn).replace(".", "")+"(String name, "+tn+" element) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"(String name, "+tn+" element) throws IOException {\r\n");
     write("    if (element != null) {\r\n");
     if (clss == JavaGenClass.Resource) 
       write("      prop(\"resourceType\", name);\r\n");
@@ -818,7 +820,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       write("      close();\r\n");
     write("    }\r\n");    
     write("  }\r\n\r\n");    
-    write("  protected void compose"+upFirst(tn).replace(".", "")+"Inner("+tn+" element) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"Inner("+tn+" element) throws IOException {\r\n");
     if (clss == JavaGenClass.Resource) 
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
     else if (clss == JavaGenClass.Backbone) 
@@ -833,7 +835,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genInnerAbstractComposer(ElementDefn n) throws IOException, Exception {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
 
-    write("  protected void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws IOException {\r\n");
     if (!Utilities.noString(n.typeCode())) 
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
     for (ElementDefn e : n.getElements()) 
@@ -1034,34 +1036,34 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void finishComposer() throws Exception {
     write("  @Override\r\n");
-    write("  protected void composeResource(Resource resource) throws Exception {\r\n");
+    write("  protected void composeResource(Resource resource) throws IOException {\r\n");
     write("    "+reg.toString().substring(9));
     write("    else if (resource instanceof Binary)\r\n");
     write("      composeBinary(\"Binary\", (Binary)resource);\r\n");
     write("    else\r\n");
-    write("      throw new Exception(\"Unhanded resource type \"+resource.getClass().getName());\r\n");
+    write("      throw new Error(\"Unhandled resource type \"+resource.getClass().getName());\r\n");
     write("  }\r\n\r\n");
-    write("  protected void composeNamedReference(String name, Resource resource) throws Exception {\r\n");
+    write("  protected void composeNamedReference(String name, Resource resource) throws IOException {\r\n");
     write("    "+regn.toString().substring(9));
     write("    else if (resource instanceof Binary)\r\n");
     write("      composeBinary(name, (Binary)resource);\r\n");
     write("    else\r\n");
-    write("      throw new Exception(\"Unhanded resource type \"+resource.getClass().getName());\r\n");
+    write("      throw new Error(\"Unhandled resource type \"+resource.getClass().getName());\r\n");
     write("  }\r\n\r\n");
-    write("  protected void composeType(String prefix, Type type) throws Exception {\r\n");
+    write("  protected void composeType(String prefix, Type type) throws IOException {\r\n");
     write("    if (type == null)\r\n");
     write("      ;\r\n");
     write(regtp.toString());
     write(regtn.toString());
     write("    else\r\n");
-    write("      throw new Exception(\"Unhanded type\");\r\n");
+    write("      throw new Error(\"Unhandled type\");\r\n");
     write("  }\r\n\r\n");
-    write("  protected void composeTypeInner(Type type) throws Exception {\r\n");
+    write("  protected void composeTypeInner(Type type) throws IOException {\r\n");
     write("    if (type == null)\r\n");
     write("      ;\r\n");
     write(regti.toString());
     write("    else\r\n");
-    write("      throw new Exception(\"Unhanded type\");\r\n");
+    write("      throw new Error(\"Unhandled type\");\r\n");
     write("  }\r\n\r\n");
     //
     //    write("  private boolean nameIsTypeName(XmlPullParser xpp, String prefix) {\r\n");

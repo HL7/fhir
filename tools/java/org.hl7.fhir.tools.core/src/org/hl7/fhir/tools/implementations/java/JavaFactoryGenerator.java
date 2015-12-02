@@ -55,22 +55,24 @@ public class JavaFactoryGenerator extends OutputStreamWriter {
   }
   
 	public void generate(String version, Date genDate) throws Exception {
-		write("package org.hl7.fhir.instance.model;\r\n");
+		write("package org.hl7.fhir.dstu21.model;\r\n");
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
+    write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
+    write("\r\n");
 		write("public class ResourceFactory extends Factory {\r\n");
 		write("\r\n");
-		write("    public static Resource createResource(String name) throws Exception {\r\n");
+		write("    public static Resource createResource(String name) throws FHIRException {\r\n");
 		for (String name : resources.keySet()) {
 			write("        if (\""+name+"\".equals(name))\r\n");
 			write("            return new "+javaClassName(resources.get(name))+"();\r\n");
 		}
 		
 		write("        else\r\n");
-		write("            throw new Exception(\"Unknown Resource Name '\"+name+\"'\");\r\n");
+		write("            throw new FHIRException(\"Unknown Resource Name '\"+name+\"'\");\r\n");
 		write("    }\r\n");
 		write("\r\n");
-    write("    public static Element createType(String name) throws Exception {\r\n");
+    write("    public static Element createType(String name) throws FHIRException {\r\n");
     for (String name : types.keySet()) {
       write("        if (\""+name+"\".equals(name))\r\n");
       String t = types.get(name);
@@ -80,7 +82,7 @@ public class JavaFactoryGenerator extends OutputStreamWriter {
         write("            return new "+t+"();\r\n");
     }    
     write("        else\r\n");
-    write("            throw new Exception(\"Unknown Type Name '\"+name+\"'\");\r\n");
+    write("            throw new FHIRException(\"Unknown Type Name '\"+name+\"'\");\r\n");
     write("    }\r\n");
     write("\r\n");
 		write("}\r\n");

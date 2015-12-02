@@ -104,59 +104,59 @@ import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
-import org.hl7.fhir.instance.formats.FormatUtilities;
-import org.hl7.fhir.instance.formats.IParser;
-import org.hl7.fhir.instance.formats.IParser.OutputStyle;
-import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.Bundle;
-import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.instance.model.CodeType;
-import org.hl7.fhir.instance.model.CodeableConcept;
-import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.ConceptMap;
-import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.instance.model.ElementDefinition;
-import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionSlicingComponent;
-import org.hl7.fhir.instance.model.ElementDefinition.SlicingRules;
-import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.instance.model.Enumerations.SearchParamType;
-import org.hl7.fhir.instance.model.ImplementationGuide.GuideResourcePurpose;
-import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageComponent;
-import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
-import org.hl7.fhir.instance.model.ImplementationGuide.ImplementationGuidePageComponent;
-import org.hl7.fhir.instance.model.NamingSystem;
-import org.hl7.fhir.instance.model.NamingSystem.NamingSystemIdentifierType;
-import org.hl7.fhir.instance.model.NamingSystem.NamingSystemUniqueIdComponent;
-import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
-import org.hl7.fhir.instance.model.Quantity;
-import org.hl7.fhir.instance.model.Reference;
-import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.SearchParameter;
-import org.hl7.fhir.instance.model.StringType;
-import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.model.StructureDefinition.ExtensionContext;
-import org.hl7.fhir.instance.model.StructureDefinition.StructureDefinitionMappingComponent;
-import org.hl7.fhir.instance.model.Type;
-import org.hl7.fhir.instance.model.UriType;
-import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.instance.utils.NarrativeGenerator;
-import org.hl7.fhir.instance.utils.ProfileComparer;
-import org.hl7.fhir.instance.utils.ProfileComparer.ProfileComparison;
-import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
-import org.hl7.fhir.instance.utils.ResourceUtilities;
-import org.hl7.fhir.instance.utils.ToolingExtensions;
-import org.hl7.fhir.instance.utils.Translations;
-import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
-import org.hl7.fhir.instance.validation.ValidationMessage;
-import org.hl7.fhir.instance.validation.ValidationMessage.Source;
+import org.hl7.fhir.dstu21.formats.FormatUtilities;
+import org.hl7.fhir.dstu21.formats.IParser;
+import org.hl7.fhir.dstu21.formats.JsonParser;
+import org.hl7.fhir.dstu21.formats.XmlParser;
+import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu21.model.Bundle;
+import org.hl7.fhir.dstu21.model.CodeType;
+import org.hl7.fhir.dstu21.model.CodeableConcept;
+import org.hl7.fhir.dstu21.model.Coding;
+import org.hl7.fhir.dstu21.model.ConceptMap;
+import org.hl7.fhir.dstu21.model.ElementDefinition;
+import org.hl7.fhir.dstu21.model.NamingSystem;
+import org.hl7.fhir.dstu21.model.Quantity;
+import org.hl7.fhir.dstu21.model.Reference;
+import org.hl7.fhir.dstu21.model.Resource;
+import org.hl7.fhir.dstu21.model.SearchParameter;
+import org.hl7.fhir.dstu21.model.StringType;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
+import org.hl7.fhir.dstu21.model.Type;
+import org.hl7.fhir.dstu21.model.UriType;
+import org.hl7.fhir.dstu21.model.ValueSet;
+import org.hl7.fhir.dstu21.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu21.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.dstu21.model.ElementDefinition.SlicingRules;
+import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu21.model.Enumerations.SearchParamType;
+import org.hl7.fhir.dstu21.model.ImplementationGuide.GuideResourcePurpose;
+import org.hl7.fhir.dstu21.model.ImplementationGuide.ImplementationGuidePackageComponent;
+import org.hl7.fhir.dstu21.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
+import org.hl7.fhir.dstu21.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.dstu21.model.NamingSystem.NamingSystemIdentifierType;
+import org.hl7.fhir.dstu21.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu21.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu21.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu21.utils.NarrativeGenerator;
+import org.hl7.fhir.dstu21.utils.ProfileComparer;
+import org.hl7.fhir.dstu21.utils.ProfileUtilities;
+import org.hl7.fhir.dstu21.utils.ResourceUtilities;
+import org.hl7.fhir.dstu21.utils.ToolingExtensions;
+import org.hl7.fhir.dstu21.utils.Translations;
+import org.hl7.fhir.dstu21.utils.ProfileComparer.ProfileComparison;
+import org.hl7.fhir.dstu21.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.dstu21.utils.client.FHIRToolingClient;
+import org.hl7.fhir.dstu21.validation.ValidationMessage;
+import org.hl7.fhir.dstu21.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -5596,8 +5596,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String summariseValue(Type fixed) throws Exception {
-    if (fixed instanceof org.hl7.fhir.instance.model.PrimitiveType)
-      return ((org.hl7.fhir.instance.model.PrimitiveType) fixed).asStringValue();
+    if (fixed instanceof org.hl7.fhir.dstu21.model.PrimitiveType)
+      return ((org.hl7.fhir.dstu21.model.PrimitiveType) fixed).asStringValue();
     if (fixed instanceof CodeableConcept) 
       return summarise((CodeableConcept) fixed);
     if (fixed instanceof Quantity) 
@@ -6255,7 +6255,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   @Override
-  public String getLinkFor(String type) throws Exception {
+  public String getLinkFor(String type) {
     if (definitions.hasResource(type) || definitions.getBaseResources().containsKey(type)) 
       return type.toLowerCase()+".html";
     else if (definitions.hasType(type))
@@ -6417,7 +6417,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   @Override
-  public String getLinkForProfile(StructureDefinition profile, String url) throws Exception {
+  public String getLinkForProfile(StructureDefinition profile, String url) {
     String fn;
     if (url.equals("http://hl7.org/fhir/markdown"))  // magic
       return "narrative.html#markdown|markdown";

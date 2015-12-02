@@ -23,43 +23,43 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.definitions.model.Definitions;
-import org.hl7.fhir.instance.formats.IParser;
-import org.hl7.fhir.instance.formats.IParser.OutputStyle;
-import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.ParserType;
-import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.ConceptMap;
-import org.hl7.fhir.instance.model.DataElement;
-import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.instance.model.OperationOutcome;
-import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.instance.model.OperationOutcome.IssueType;
-import org.hl7.fhir.instance.model.Parameters;
-import org.hl7.fhir.instance.model.Parameters.ParametersParameterComponent;
-import org.hl7.fhir.instance.model.Questionnaire;
-import org.hl7.fhir.instance.model.Reference;
-import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.SearchParameter;
-import org.hl7.fhir.instance.model.StringType;
-import org.hl7.fhir.instance.model.StructureDefinition;
-import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
-import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.instance.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.instance.terminologies.ValueSetExpansionCache;
-import org.hl7.fhir.instance.utils.BaseWorkerContext;
-import org.hl7.fhir.instance.utils.EOperationOutcome;
-import org.hl7.fhir.instance.utils.INarrativeGenerator;
-import org.hl7.fhir.instance.utils.IWorkerContext;
-import org.hl7.fhir.instance.utils.NarrativeGenerator;
-import org.hl7.fhir.instance.utils.client.EFhirClientException;
-import org.hl7.fhir.instance.utils.client.FHIRToolingClient;
-import org.hl7.fhir.instance.validation.IResourceValidator;
-import org.hl7.fhir.instance.validation.InstanceValidator;
+import org.hl7.fhir.dstu21.formats.IParser;
+import org.hl7.fhir.dstu21.formats.JsonParser;
+import org.hl7.fhir.dstu21.formats.ParserType;
+import org.hl7.fhir.dstu21.formats.XmlParser;
+import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu21.model.ConceptMap;
+import org.hl7.fhir.dstu21.model.DataElement;
+import org.hl7.fhir.dstu21.model.OperationOutcome;
+import org.hl7.fhir.dstu21.model.Parameters;
+import org.hl7.fhir.dstu21.model.Questionnaire;
+import org.hl7.fhir.dstu21.model.Reference;
+import org.hl7.fhir.dstu21.model.Resource;
+import org.hl7.fhir.dstu21.model.SearchParameter;
+import org.hl7.fhir.dstu21.model.StringType;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
+import org.hl7.fhir.dstu21.model.ValueSet;
+import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu21.model.Parameters.ParametersParameterComponent;
+import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.dstu21.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu21.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionComponent;
+import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu21.terminologies.ValueSetExpansionCache;
+import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu21.utils.BaseWorkerContext;
+import org.hl7.fhir.dstu21.utils.EOperationOutcome;
+import org.hl7.fhir.dstu21.utils.INarrativeGenerator;
+import org.hl7.fhir.dstu21.utils.IWorkerContext;
+import org.hl7.fhir.dstu21.utils.NarrativeGenerator;
+import org.hl7.fhir.dstu21.utils.client.EFhirClientException;
+import org.hl7.fhir.dstu21.utils.client.FHIRToolingClient;
+import org.hl7.fhir.dstu21.validation.IResourceValidator;
+import org.hl7.fhir.dstu21.validation.InstanceValidator;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
@@ -279,7 +279,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   @SuppressWarnings("unchecked")
   @Override
-  public <T extends Resource> T fetchResource(Class<T> class_, String uri) throws EOperationOutcome, Exception {
+  public <T extends Resource> T fetchResource(Class<T> class_, String uri) {
     if (class_ == StructureDefinition.class && !uri.contains("/"))
       uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
     
@@ -324,7 +324,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   @Override
-  public IResourceValidator newValidator() throws Exception {
+  public IResourceValidator newValidator() {
     return new InstanceValidator(this);
   }
 
