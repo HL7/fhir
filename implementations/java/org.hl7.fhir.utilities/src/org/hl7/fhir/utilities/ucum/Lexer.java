@@ -11,6 +11,7 @@
 
 package org.hl7.fhir.utilities.ucum;
 
+import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.Utilities;
 
 public class Lexer {
@@ -25,9 +26,10 @@ public class Lexer {
 	
 	/**
 	 * @param source
-	 * @throws Exception 
+	 * @throws UcumException 
+	 * @ 
 	 */
-	public Lexer(String source) throws Exception {
+	public Lexer(String source) throws UcumException  {
 		super();
 		this.source = source;
 		if (source == null)
@@ -36,7 +38,7 @@ public class Lexer {
 		consume();
 	}
 	
-	public void consume() throws Exception {
+	public void consume() throws UcumException  {
 		token = null;
 		type = TokenType.NONE;
 		start = index;
@@ -49,11 +51,11 @@ public class Lexer {
 					checkAnnotation(ch) ||
 					checkNumber(ch) ||
 					checkNumberOrSymbol(ch)))
-				throw new Exception("Error processing unit '"+source+"': unexpected character '"+ch+"' at position "+Integer.toString(start));			
+				throw new UcumException("Error processing unit '"+source+"': unexpected character '"+ch+"' at position "+Integer.toString(start));			
 		}		
 	}
 
-	private boolean checkNumber(char ch) throws Exception {
+	private boolean checkNumber(char ch) throws UcumException  {
 		if (ch == '+' || ch == '-') {
 			token = String.valueOf(ch);
 			ch = peekChar();
@@ -63,7 +65,7 @@ public class Lexer {
 				ch = peekChar();
 			}
 			if (token.length() == 1) {
-				throw new Exception("Error processing unit'"+source+"': unexpected character '"+ch+"' at position "+Integer.toString(start)+": a + or - must be followed by at least one digit");			
+				throw new UcumException("Error processing unit'"+source+"': unexpected character '"+ch+"' at position "+Integer.toString(start)+": a + or - must be followed by at least one digit");			
 				}
 			type = TokenType.NUMBER;
 			return true;
@@ -71,7 +73,7 @@ public class Lexer {
 			return false;
 	}
 
-	private boolean checkNumberOrSymbol(char ch) throws Exception {
+	private boolean checkNumberOrSymbol(char ch) throws UcumException  {
 		boolean isSymbol = false;
 		boolean inBrackets = false;
 		if (isValidSymbolChar(ch, true)) {
@@ -97,7 +99,7 @@ public class Lexer {
 	}
 
 	
-	private boolean checkBrackets(char ch, boolean inBrackets) throws Exception {
+	private boolean checkBrackets(char ch, boolean inBrackets) throws UcumException  {
 		if (ch == '[')
 			if (inBrackets)
 				error("Nested [");
@@ -117,15 +119,15 @@ public class Lexer {
 		     ch == '"' || ch == '_';
 	}
 
-	private boolean checkAnnotation(char ch) throws Exception {
+	private boolean checkAnnotation(char ch) throws UcumException  {
 		if (ch == '{') {
 			StringBuilder b = new StringBuilder();
 			while (ch != '}') {
 				ch = nextChar();
 				if (!Utilities.isAsciiChar(ch))
-					throw new Exception("Error processing unit'"+source+"': Annotation contains non-ascii characters");
+					throw new UcumException("Error processing unit'"+source+"': Annotation contains non-ascii characters");
 				if (ch == 0) 
-					throw new Exception("Error processing unit'"+source+"': unterminated annotation");
+					throw new UcumException("Error processing unit'"+source+"': unterminated annotation");
 				b.append(ch);
 			}
 			// got to the end of the annotation - need to do it again
@@ -169,8 +171,8 @@ public class Lexer {
 		return type;
 	}
 
-	public void error(String errMsg) throws Exception {
-		throw new Exception("Error processing unit '"+source+"': "+ errMsg +"' at position "+Integer.toString(start));			
+	public void error(String errMsg) throws UcumException  {
+		throw new UcumException("Error processing unit '"+source+"': "+ errMsg +"' at position "+Integer.toString(start));			
 		
 	}
 

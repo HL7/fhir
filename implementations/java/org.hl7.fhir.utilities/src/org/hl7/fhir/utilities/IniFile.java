@@ -657,7 +657,7 @@ public final class IniFile
     /**
      * Flush changes back to the disk file. If the disk file does not exists then
      * creates the new one. 
-     * @throws Exception 
+     * @ 
      */
     public boolean save() 
     {
@@ -1073,9 +1073,9 @@ public final class IniFile
     /**
      * The main entry point for testing.
      * @param pstrArgs the command line arguments array if any.
-     * @throws Exception 
+     * @ 
      */
-    public static void main(String[] pstrArgs) throws Exception
+    public static void main(String[] pstrArgs) 
     {
         IniFile objINI = null;
         String  strFile = null;

@@ -14,6 +14,8 @@ package org.hl7.fhir.utilities.ucum;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.exceptions.UcumException;
+
 
 public class Canonical {
 
@@ -80,11 +82,11 @@ public class Canonical {
 	}
 
 	
-	public void divideValue(Decimal divisor) throws Exception {
+	public void divideValue(Decimal divisor) throws UcumException  {
 		value = value.divide(divisor);		
 	}
 	
-	public void divideValue(int divisor) throws Exception {
+	public void divideValue(int divisor) throws UcumException  {
 		value = value.divide(new Decimal(divisor));		
 	}
 

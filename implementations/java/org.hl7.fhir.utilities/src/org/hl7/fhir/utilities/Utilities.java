@@ -33,6 +33,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -49,6 +50,8 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.SourceDataLine;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamResult;
@@ -57,6 +60,7 @@ import javax.xml.transform.stream.StreamSource;
 import net.sf.saxon.TransformerFactoryImpl;
 
 import org.apache.commons.io.FileUtils;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public class Utilities {
 
@@ -146,10 +150,10 @@ public class Utilities {
 		return s.substring(0, 1).toUpperCase() + s.substring(1);
 	}
 	
-  public static void copyDirectory(String sourceFolder, String destFolder, FileNotifier notifier) throws Exception {
+  public static void copyDirectory(String sourceFolder, String destFolder, FileNotifier notifier) throws IOException, FHIRException  {
     CSFile src = new CSFile(sourceFolder);
     if (!src.exists())
-      throw new Exception("Folder " +sourceFolder+" not found");
+      throw new FHIRException("Folder " +sourceFolder+" not found");
     createDirectory(destFolder);
     
    String[] files = src.list();
@@ -282,7 +286,7 @@ public class Utilities {
   }
 
 
-  public static byte[] saxonTransform(Map<String, byte[]> files, byte[] source, byte[] xslt) throws Exception {
+  public static byte[] saxonTransform(Map<String, byte[]> files, byte[] source, byte[] xslt) throws TransformerException  {
     TransformerFactory f = new net.sf.saxon.TransformerFactoryImpl();
     f.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
     StreamSource xsrc = new StreamSource(new ByteArrayInputStream(xslt));
@@ -297,7 +301,7 @@ public class Utilities {
     return out.toByteArray();    
   }
   
-  public static byte[] transform(Map<String, byte[]> files, byte[] source, byte[] xslt) throws Exception {
+  public static byte[] transform(Map<String, byte[]> files, byte[] source, byte[] xslt) throws TransformerException  {
     TransformerFactory f = TransformerFactory.newInstance();
     f.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
     StreamSource xsrc = new StreamSource(new ByteArrayInputStream(xslt));
@@ -312,14 +316,14 @@ public class Utilities {
     return out.toByteArray();    
   }
   
-  public static void bytesToFile(byte[] content, String filename) throws Exception {
+  public static void bytesToFile(byte[] content, String filename) throws IOException  {
     FileOutputStream out = new FileOutputStream(filename);
     out.write(content);
     out.close();
     
   }
 
-  public static String saxonTransform(String source, String xslt) throws Exception {
+  public static String saxonTransform(String source, String xslt) throws TransformerException, FileNotFoundException  {
     TransformerFactoryImpl f = new net.sf.saxon.TransformerFactoryImpl();
     f.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
     StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
@@ -330,11 +334,11 @@ public class Utilities {
     return res.getOutputStream().toString();   
   }
 
-  public static void saxonTransform(String xsltDir, String source, String xslt, String dest, URIResolver alt) throws Exception {
+  public static void saxonTransform(String xsltDir, String source, String xslt, String dest, URIResolver alt) throws FileNotFoundException, TransformerException  {
   	saxonTransform(xsltDir, source, xslt, dest, alt, null);
   }
 
-  public static void saxonTransform(String xsltDir, String source, String xslt, String dest, URIResolver alt, Map<String, String> params) throws Exception {
+  public static void saxonTransform(String xsltDir, String source, String xslt, String dest, URIResolver alt, Map<String, String> params) throws FileNotFoundException, TransformerException  {
     TransformerFactoryImpl f = new net.sf.saxon.TransformerFactoryImpl();
     f.setAttribute("http://saxon.sf.net/feature/version-warning", Boolean.FALSE);
     StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
@@ -352,7 +356,7 @@ public class Utilities {
     t.transform(src, res);    
   }
   
-  public static void transform(String xsltDir, String source, String xslt, String dest, URIResolver alt) throws Exception {
+  public static void transform(String xsltDir, String source, String xslt, String dest, URIResolver alt) throws FileNotFoundException, TransformerException  {
 
     TransformerFactory f = TransformerFactory.newInstance();
     StreamSource xsrc = new StreamSource(new FileInputStream(xslt));
@@ -394,7 +398,7 @@ public class Utilities {
   }
 
 
-  public static String unescapeXml(String xml) throws Exception {
+  public static String unescapeXml(String xml) throws FHIRException  {
     if (xml == null)
       return null;
     
@@ -419,7 +423,7 @@ public class Utilities {
         else if (e.toString().equals("mu"))
           b.append((char)956);          
         else
-          throw new Exception("unknown XML entity \""+e.toString()+"\"");
+          throw new FHIRException("unknown XML entity \""+e.toString()+"\"");
       }  else
         b.append(xml.charAt(i));
       i++;
@@ -487,7 +491,7 @@ public class Utilities {
 //  public static void checkCase(String filename) {
 //    File f = new CSFile(filename);
 //    if (!f.getName().equals(filename))
-//      throw new Exception("Filename  ")
+//      throw new FHIRException("Filename  ")
 //    
 //  }
 

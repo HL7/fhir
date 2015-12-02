@@ -37,7 +37,9 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -54,12 +56,12 @@ public class XLSXmlParser {
     public Row columns;
     public List<Row> rows = new ArrayList<Row>();
 
-    public boolean hasColumn(int row, String column) throws Exception {
+    public boolean hasColumn(int row, String column)  {
       String s = getColumn(row, column);
       return s != null && !s.equals("");     
     }
     
-    public String getColumn(int row, String column) throws Exception {
+    public String getColumn(int row, String column)  {
       int c = -1;
       String s = "";
       for (int i = 0; i < columns.size(); i++) {
@@ -68,7 +70,23 @@ public class XLSXmlParser {
           c = i;
       }
       if (c == -1)
-        return ""; // throw new Exception("unable to find column "+column+" in "+s.substring(1));
+        return ""; // throw new FHIRException("unable to find column "+column+" in "+s.substring(1));
+      else if (rows.get(row).size() <= c)
+        return "";
+      else
+        return rows.get(row).get(c).trim();
+    }
+
+    public String getByColumnPrefix(int row, String column)  {
+      int c = -1;
+      String s = "";
+      for (int i = 0; i < columns.size(); i++) {
+        s = s + ","+columns.get(i);
+        if (columns.get(i).startsWith(column))
+          c = i;
+      }
+      if (c == -1)
+        return ""; // throw new FHIRException("unable to find column "+column+" in "+s.substring(1));
       else if (rows.get(row).size() <= c)
         return "";
       else
@@ -79,7 +97,7 @@ public class XLSXmlParser {
       return rows;
     }
 
-    public int getIntColumn(int row, String column) throws Exception {
+    public int getIntColumn(int row, String column)  {
       String value = getColumn(row, column);
       if (Utilities.noString(value))
         return 0;
@@ -87,10 +105,10 @@ public class XLSXmlParser {
         return Integer.parseInt(value);
     }
 
-    public String getNonEmptyColumn(int row, String column) throws Exception {
+    public String getNonEmptyColumn(int row, String column) throws FHIRException  {
      String value = getColumn(row, column);
      if (Utilities.noString(value))
-       throw new Exception("The colummn "+column+" cannot be empty");
+       throw new FHIRException("The colummn "+column+" cannot be empty");
      return value;
     }
     
@@ -101,29 +119,29 @@ public class XLSXmlParser {
   private Document xml;
   private String name;
   
-  public XLSXmlParser(InputStream in, String name) throws Exception {
+  public XLSXmlParser(InputStream in, String name) throws FHIRException  {
     this.name = name;
     try {
       xml = parseXml(in);
       sheets = new HashMap<String, Sheet>();
       readXml();
     } catch (Exception e) {
-      throw new Exception("unable to load "+name+": "+e.getMessage(), e);
+      throw new FHIRException("unable to load "+name+": "+e.getMessage(), e);
     }
   }
 
-  private Document parseXml(InputStream in) throws Exception {
+  private Document parseXml(InputStream in) throws FHIRException  {
     try {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       factory.setNamespaceAware(true);
       DocumentBuilder builder = factory.newDocumentBuilder();
       return builder.parse(in);
     } catch (Exception e) {
-      throw new Exception("Error processing "+name+": "+e.getMessage(), e);
+      throw new FHIRException("Error processing "+name+": "+e.getMessage(), e);
     }
   }
 
-  private void readXml() throws Exception {
+  private void readXml() throws FHIRException  {
     Element root = xml.getDocumentElement();
     check(root.getNamespaceURI().equals(XLS_NS), "Spreadsheet namespace incorrect");
     check(root.getNodeName().equals("Workbook"), "Spreadsheet element name incorrect");
@@ -136,7 +154,7 @@ public class XLSXmlParser {
   }
   
   private Integer rowIndex;
-  private void processWorksheet(Element node) throws Exception {
+  private void processWorksheet(Element node) throws FHIRException  {
     Sheet sheet = new Sheet();
     sheet.title = node.getAttributeNS(XLS_NS, "Name");
     sheets.put(node.getAttributeNS(XLS_NS, "Name"), sheet);
@@ -166,7 +184,7 @@ public class XLSXmlParser {
 	  return true;
   }
   
-  private Row readRow(Element row) throws Exception {
+  private Row readRow(Element row) throws DOMException, FHIRException  {
     Row res = new Row();
     int ndx = 1;    
     NodeList cells = row.getElementsByTagNameNS(XLS_NS, "Cell");
@@ -185,7 +203,7 @@ public class XLSXmlParser {
     return res;
   }
 
-  private String readData(Element cell, int col, String s) throws Exception {
+  private String readData(Element cell, int col, String s) throws DOMException, FHIRException  {
     List<Element> data = new ArrayList<Element>(); 
     XMLUtil.getNamedChildren(cell, "Data", data); // cell.getElementsByTagNameNS(XLS_NS, "Data");
     if (data.size() == 0)
@@ -207,12 +225,12 @@ public class XLSXmlParser {
     } else if ("Error".equals(type)) {
       return null;
     } else 
-      throw new Exception("Cell Type is not known ("+d.getAttributeNodeNS(XLS_NS, "Type")+") in "+getLocation());
+      throw new FHIRException("Cell Type is not known ("+d.getAttributeNodeNS(XLS_NS, "Type")+") in "+getLocation());
   }
 
-  private void check(boolean test, String message) throws Exception {
+  private void check(boolean test, String message) throws FHIRException  {
     if (!test)
-      throw new Exception(message+" in "+getLocation());
+      throw new FHIRException(message+" in "+getLocation());
   }
   
   private String getLocation() {

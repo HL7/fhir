@@ -11,6 +11,8 @@
 
 package org.hl7.fhir.utilities.ucum;
 
+import org.hl7.fhir.exceptions.UcumException;
+
 public class ExpressionParser {
 
 	private UcumModel model;
@@ -23,15 +25,15 @@ public class ExpressionParser {
 		this.model = model;
 	}
 
-	public Term parse(String code) throws Exception {
+	public Term parse(String code) throws UcumException  {
 		Lexer lexer = new Lexer(code);
 		Term res = parseTerm(lexer, true);
 		if (!lexer.finished())
-			throw new Exception("Expression was not parsed completely. Syntax Error?");
+			throw new UcumException("Expression was not parsed completely. Syntax Error?");
 		return res;
 	}
 	
-	private Term parseTerm(Lexer lexer, boolean first) throws Exception {
+	private Term parseTerm(Lexer lexer, boolean first) throws UcumException  {
 		Term res = new Term();
 		if (first && lexer.getType() == TokenType.NONE) {
 			res.setComp(new Factor(1));
@@ -62,7 +64,7 @@ public class ExpressionParser {
 		return res;
 	}
 
-	private Component parseComp(Lexer lexer) throws Exception {
+	private Component parseComp(Lexer lexer) throws UcumException  {
 		if (lexer.getType() == TokenType.NUMBER) { 
 			Factor fact = new Factor(lexer.getTokenAsInt());
 			lexer.consume();
@@ -84,7 +86,7 @@ public class ExpressionParser {
 		return null; // we never get to here
 	}
 
-	private Component parseSymbol(Lexer lexer) throws Exception {
+	private Component parseSymbol(Lexer lexer) throws UcumException  {
 		Symbol symbol = new Symbol(); 
 		String sym = lexer.getToken();
 		

@@ -36,6 +36,7 @@ import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XhtmlGeneratorAdorner.XhtmlGeneratorAdornerState;
 import org.w3c.dom.Comment;
@@ -100,7 +101,7 @@ public class XhtmlGenerator {
 		out.flush();
 	}
 
-  private void writeNodePlain(Writer out, Node node, int level) throws Exception {
+  private void writeNodePlain(Writer out, Node node, int level) throws FHIRException, DOMException, IOException  {
     if (node.getNodeType() == Node.ELEMENT_NODE)
       writeElementPlain(out, (Element) node, level);
     else if (node.getNodeType() == Node.TEXT_NODE)
@@ -110,7 +111,7 @@ public class XhtmlGenerator {
     else if (node.getNodeType() == Node.PROCESSING_INSTRUCTION_NODE)
       writeProcessingInstructionPlain(out, (ProcessingInstruction) node);
     else if (node.getNodeType() != Node.ATTRIBUTE_NODE)
-      throw new Exception("Unhandled node type");
+      throw new FHIRException("Unhandled node type");
   }
 
 	private void writeNode(Writer out, Node node, XhtmlGeneratorAdornerState state, int level) throws Exception {
@@ -123,7 +124,7 @@ public class XhtmlGenerator {
 		else if (node.getNodeType() == Node.PROCESSING_INSTRUCTION_NODE)
 			writeProcessingInstruction(out, (ProcessingInstruction) node);
 		else if (node.getNodeType() != Node.ATTRIBUTE_NODE)
-			throw new Exception("Unhandled node type");
+			throw new FHIRException("Unhandled node type");
 	}
 
   private void writeProcessingInstruction(Writer out, ProcessingInstruction node) {
@@ -206,7 +207,7 @@ public class XhtmlGenerator {
       out.write("<span class=\"xmltag\">/&gt;</span>");
 	}
 	
-  private void writeElementPlain(Writer out, Element node, int level) throws Exception {
+  private void writeElementPlain(Writer out, Element node, int level) throws IOException, FHIRException  {
     out.write("<"+node.getNodeName());
     if (node.hasAttributes()) {
       for (int i = 0; i < node.getAttributes().getLength(); i++) {

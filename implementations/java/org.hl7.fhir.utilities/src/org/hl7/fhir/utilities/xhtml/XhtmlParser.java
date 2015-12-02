@@ -38,7 +38,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 public class XhtmlParser {
 
@@ -204,7 +207,7 @@ public enum ParserSecurityPolicy {
 	this.policy = policy; 
   }
 
-  public XhtmlNode parseHtmlNode(XmlPullParser xpp) throws Exception {
+  public XhtmlNode parseHtmlNode(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError  {
     XhtmlNode res = new XhtmlNode(NodeType.Element);
     res.setName(xpp.getName());
     
@@ -224,41 +227,41 @@ public enum ParserSecurityPolicy {
         if (elementIsOk(xpp.getName()))
         res.getChildNodes().add(parseHtmlNode(xpp));
       } else
-        throw new Exception("Unhandled XHTML feature: "+Integer.toString(eventType)+descLoc());
+        throw new FHIRFormatError("Unhandled XHTML feature: "+Integer.toString(eventType)+descLoc());
       eventType = xpp.getEventType();
     }
     xpp.next();
     return res;
   }  
 
-  private boolean attributeIsOk(String elem, String attr, String value) throws Exception {
+  private boolean attributeIsOk(String elem, String attr, String value) throws FHIRFormatError  {
 	boolean ok = attributes.contains(attr) || attributes.contains(elem+"."+attr);
 	if (ok)
 	  return true;
 	else switch (policy) {
 	  case Accept: return true;
 	  case Drop: return false;
-	  case Reject: throw new Exception("Illegal HTML attribute "+elem+"."+attr);
+	  case Reject: throw new FHIRFormatError("Illegal HTML attribute "+elem+"."+attr);
 	}
 
 	if ((elem+"."+attr).equals("img.src") && !(value.startsWith("#") || value.startsWith("http:") || value.startsWith("https:"))) {
 		switch (policy) {
 		  case Accept: return true;
 		  case Drop: return false;
-		  case Reject: throw new Exception("Illegal Image Reference "+value);
+		  case Reject: throw new FHIRFormatError("Illegal Image Reference "+value);
 		}
 	}
 	return false;
   }
 
-private boolean elementIsOk(String name) throws Exception {
+private boolean elementIsOk(String name) throws FHIRFormatError  {
     boolean ok = elements.contains(name);
 	if (ok)
       return true;
 	else switch (policy) {
 	  case Accept: return true;
 	  case Drop: return false;
-	  case Reject: throw new Exception("Illegal HTML element "+name);
+	  case Reject: throw new FHIRFormatError("Illegal HTML element "+name);
 	}
 	return false;
 }
@@ -275,26 +278,26 @@ private boolean elementIsOk(String name) throws Exception {
   private int col = 0;
   private char lastChar;
   
-  public XhtmlDocument parse(String source, String entryName) throws Exception {
+  public XhtmlDocument parse(String source, String entryName) throws FHIRFormatError, IOException  {
     rdr = new StringReader(source);
     return parse(entryName);
   }
   
-  public XhtmlDocument parse(InputStream input, String entryName) throws Exception {
+  public XhtmlDocument parse(InputStream input, String entryName) throws FHIRFormatError, IOException  {
     rdr = new InputStreamReader(input, "UTF-8");
     return parse(entryName);
   }
    
-  private XhtmlDocument parse(String entryName) throws Exception
+  private XhtmlDocument parse(String entryName) throws FHIRFormatError, IOException 
   {
     XhtmlDocument result = new XhtmlDocument();
     skipWhiteSpaceAndComments(result);
     if (peekChar() != '<')
-      throw new Exception("Unable to Parse HTML - does not start with tag. Found "+peekChar()+descLoc());
+      throw new FHIRFormatError("Unable to Parse HTML - does not start with tag. Found "+peekChar()+descLoc());
     readChar();
     String n = readName().toLowerCase();
     if ((entryName != null) && !n.equals(entryName))
-      throw new Exception("Unable to Parse HTML - starts with '"+n+"' not '"+entryName+"'"+descLoc());
+      throw new FHIRFormatError("Unable to Parse HTML - starts with '"+n+"' not '"+entryName+"'"+descLoc());
     XhtmlNode root = result.addTag(n);
 
     readToTagEnd();
@@ -316,7 +319,7 @@ private boolean elementIsOk(String name) throws Exception {
       s.setLength(0);
     }
   }
-  private void parseElementInner(XhtmlNode node, List<XhtmlNode> parents) throws Exception
+  private void parseElementInner(XhtmlNode node, List<XhtmlNode> parents) throws FHIRFormatError, IOException 
   {
     StringBuilder s = new StringBuilder();
     while (peekChar() != '\0' && !parents.contains(unwindPoint) && !(node == unwindPoint))
@@ -338,7 +341,7 @@ private boolean elementIsOk(String name) throws Exception {
           else
           {
             if (mustBeWellFormed)
-              throw new Exception("Malformed XHTML: Found \"</"+n+">\" expecting \"</"+node.getName()+">\""+descLoc());
+              throw new FHIRFormatError("Malformed XHTML: Found \"</"+n+">\" expecting \"</"+node.getName()+">\""+descLoc());
             for (int i = parents.size() - 1; i >= 0; i--)
             {
               if (parents.get(i).getName().equals(n))
@@ -369,7 +372,7 @@ private boolean elementIsOk(String name) throws Exception {
           parseElement(node, parents);
         }
         else
-          throw new Exception("Unable to Parse HTML - node '" + node.getName() + "' has unexpected content '"+peekChar()+"' (last text = '"+lastText+"'"+descLoc());
+          throw new FHIRFormatError("Unable to Parse HTML - node '" + node.getName() + "' has unexpected content '"+peekChar()+"' (last text = '"+lastText+"'"+descLoc());
       }
       else if (peekChar() == '&')
       {
@@ -381,7 +384,7 @@ private boolean elementIsOk(String name) throws Exception {
     addTextNode(node, s);
   }
 
-  private void parseElement(XhtmlNode parent, List<XhtmlNode> parents) throws Exception
+  private void parseElement(XhtmlNode parent, List<XhtmlNode> parents) throws IOException, FHIRFormatError 
   {
     String name = readName();
     XhtmlNode node = parent.addTag(name);
@@ -391,14 +394,14 @@ private boolean elementIsOk(String name) throws Exception {
     parseAttributes(node);
     if (readChar() == '/') {
       if (peekChar() != '>')
-        throw new Exception("unexpected non-end of element"+descLoc());
+        throw new FHIRFormatError("unexpected non-end of element"+descLoc());
       readChar();
     } else {
        parseElementInner(node, newParents);
     }
   }
   
-  private void parseAttributes(XhtmlNode node) throws Exception
+  private void parseAttributes(XhtmlNode node) throws FHIRFormatError, IOException 
   {
     while (Character.isWhitespace(peekChar()))
       readChar();
@@ -407,7 +410,7 @@ private boolean elementIsOk(String name) throws Exception {
       String name = readName();
       if (name.length() == 0)
       {
-        throw new Exception("Unable to read attribute on <"+node.getName()+">"+descLoc());
+        throw new FHIRFormatError("Unable to read attribute on <"+node.getName()+">"+descLoc());
       }
       while (Character.isWhitespace(peekChar()))
         readChar();
@@ -416,7 +419,7 @@ private boolean elementIsOk(String name) throws Exception {
         node.getAttributes().put(name, null);
       else if (peekChar() != '=')
       {
-        throw new Exception("Unable to read attribute '"+name+"' value on <"+node.getName()+">"+descLoc());
+        throw new FHIRFormatError("Unable to read attribute '"+name+"' value on <"+node.getName()+">"+descLoc());
       }
       else
       {
@@ -433,7 +436,7 @@ private boolean elementIsOk(String name) throws Exception {
     }
   }
 
-  private String parseAttributeValue(char term) throws Exception
+  private String parseAttributeValue(char term) throws IOException, FHIRFormatError 
   {
     StringBuilder b = new StringBuilder();
     while (peekChar() != '\0' && peekChar() != '>' && (term != '\0' || peekChar() != '/') && peekChar() != term)
@@ -451,7 +454,7 @@ private boolean elementIsOk(String name) throws Exception {
   }
 
   
-  private void skipWhiteSpaceAndComments(XhtmlNode focus) throws Exception {
+  private void skipWhiteSpaceAndComments(XhtmlNode focus) throws IOException, FHIRFormatError  {
     while (Character.isWhitespace(peekChar()) || (peekChar() == 0xfeff))
       readChar();
     if (peekChar() == '<')
@@ -467,7 +470,7 @@ private boolean elementIsOk(String name) throws Exception {
               readChar();
             focus.addComment(readToCommentEnd());
           } else 
-            throw new Exception("unrecognised element type <!"+peekChar()+descLoc());
+            throw new FHIRFormatError("unrecognised element type <!"+peekChar()+descLoc());
         } else
           focus.addDocType(readToCommentEnd());
         skipWhiteSpaceAndComments(focus);
@@ -532,7 +535,7 @@ private boolean elementIsOk(String name) throws Exception {
     return c;
   }
 
-  private String readToTagEnd() throws Exception
+  private String readToTagEnd() throws IOException, FHIRFormatError 
   {
     StringBuilder s = new StringBuilder();
     while (peekChar() != '>' && peekChar() != '\0')
@@ -542,11 +545,11 @@ private boolean elementIsOk(String name) throws Exception {
       readChar();
       skipWhiteSpace();
     } else if (mustBeWellFormed)
-      throw new Exception("Unexpected termination of html source"+descLoc());
+      throw new FHIRFormatError("Unexpected termination of html source"+descLoc());
     return s.toString();
   }
 
-  private String readToCommentEnd() throws Exception
+  private String readToCommentEnd() throws IOException, FHIRFormatError 
   {
     if (peekChar() == '!')
       readChar();
@@ -580,7 +583,7 @@ private boolean elementIsOk(String name) throws Exception {
       } else if (c != '\0')
         s.append(readChar());
       else if (mustBeWellFormed)
-        throw new Exception("Unexpected termination of html source"+descLoc());
+        throw new FHIRFormatError("Unexpected termination of html source"+descLoc());
     }
     if (peekChar() != '\0')
     {
@@ -612,7 +615,7 @@ private boolean elementIsOk(String name) throws Exception {
     return s.toString();
   }
   
-  private void parseLiteral(StringBuilder s) throws Exception
+  private void parseLiteral(StringBuilder s) throws IOException, FHIRFormatError 
   {
 //    UInt16 w;
     readChar();
@@ -890,7 +893,7 @@ private boolean elementIsOk(String name) throws Exception {
     else if (c.equals("diams"))
       s.append((char)9830); // black diamond suit, U+2666 ISOpub -- 
     else
-      throw new Exception("unable to parse character reference '" + c + "'' (last text = '"+lastText+"'"+descLoc());
+      throw new FHIRFormatError("unable to parse character reference '" + c + "'' (last text = '"+lastText+"'"+descLoc());
 }
 
   private boolean isInteger(String s, int base) {
@@ -902,27 +905,27 @@ private boolean elementIsOk(String name) throws Exception {
     }
   }
 
-  public XhtmlNode parseFragment(String source) throws Exception {
+  public XhtmlNode parseFragment(String source) throws IOException, FHIRException  {
     rdr = new StringReader(source);
     return parseFragment();
   }
   
-  public XhtmlNode parseFragment(InputStream input) throws Exception {
+  public XhtmlNode parseFragment(InputStream input) throws IOException, FHIRException  {
     rdr = new InputStreamReader(input);
     return parseFragment();
   }
   
-  private XhtmlNode parseFragment() throws Exception
+  private XhtmlNode parseFragment() throws IOException, FHIRException 
   {
     skipWhiteSpace();
     if (peekChar() != '<')
-      throw new Exception("Unable to Parse HTML - does not start with tag. Found "+peekChar()+descLoc());
+      throw new FHIRException("Unable to Parse HTML - does not start with tag. Found "+peekChar()+descLoc());
     readChar();
     if (peekChar() == '?') {
       readToTagEnd();
       skipWhiteSpace();
       if (peekChar() != '<')
-        throw new Exception("Unable to Parse HTML - does not start with tag after processing instruction. Found "+peekChar()+descLoc());
+        throw new FHIRException("Unable to Parse HTML - does not start with tag after processing instruction. Found "+peekChar()+descLoc());
       readChar();
     }
     String n = readName().toLowerCase();

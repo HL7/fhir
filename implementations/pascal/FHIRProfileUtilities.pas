@@ -137,8 +137,7 @@ Type
     procedure LoadFromFile(filename : string); overload;
     procedure LoadFromFile(filename: string; parser : TFHIRParser); overload;
 
-
-    function getResourceNames : TAdvStringSet; virtual; abstract;
+    function getResourceNames : TAdvStringSet; virtual;
     function fetchResource(t : TFhirResourceType; url : String) : TFhirResource; virtual;
     function expand(vs : TFhirValueSet) : TFHIRValueSet; virtual; abstract;
     function supportsSystem(system : string) : boolean; virtual; abstract;
@@ -1464,6 +1463,21 @@ begin
     frtStructureDefinition : result := FProfiles.ProfileByURL[url];
   else
     result := nil;
+  end;
+end;
+
+function TValidatorServiceProvider.getResourceNames: TAdvStringSet;
+var
+  a : TFhirResourceType;
+begin
+  result := TAdvStringSet.Create;
+  try
+    for a := Low(TFhirResourceType) to High(TFhirResourceType) do
+      if a <> frtNull then
+        result.add(CODES_TFhirResourceType[a]);
+    result.Link;
+  finally
+    result.Free;
   end;
 end;
 

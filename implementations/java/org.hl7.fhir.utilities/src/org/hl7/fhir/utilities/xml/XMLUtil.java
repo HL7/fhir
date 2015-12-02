@@ -36,13 +36,16 @@ import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
+import org.xml.sax.SAXException;
 
 public class XMLUtil {
 
@@ -342,7 +345,7 @@ public class XMLUtil {
     return s.toString();
   }
 
-  public static String htmlToXmlEscapedPlainText(String definition) throws Exception {
+  public static String htmlToXmlEscapedPlainText(String definition) throws ParserConfigurationException, SAXException, IOException  {
     return htmlToXmlEscapedPlainText(parseToDom("<div>"+definition+"</div>").getDocumentElement());
   }
 
@@ -361,10 +364,10 @@ public class XMLUtil {
     return e == null ? null : e.getAttribute("value");
   }
 
-  public static void setNamedChildValue(Element element, String name, String value) throws Exception {
+  public static void setNamedChildValue(Element element, String name, String value) throws FHIRException  {
     Element e = getNamedChild(element, name);
     if (e == null)
-      throw new Exception("unable to find element "+name);
+      throw new FHIRException("unable to find element "+name);
     e.setAttribute("value", value);
   }
 
@@ -387,7 +390,7 @@ public class XMLUtil {
     return c != null;
   }
 
-  public static Document parseToDom(String content) throws Exception {
+  public static Document parseToDom(String content) throws ParserConfigurationException, SAXException, IOException  {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(false);
     DocumentBuilder builder = factory.newDocumentBuilder();

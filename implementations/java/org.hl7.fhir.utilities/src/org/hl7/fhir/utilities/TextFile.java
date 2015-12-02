@@ -31,11 +31,13 @@ package org.hl7.fhir.utilities;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +76,7 @@ public class TextFile {
 	}
 	
 	
-  public static void stringToFile(String content, String path) throws Exception {
+  public static void stringToFile(String content, String path) throws IOException  {
     File file = new CSFile(path);
     OutputStreamWriter sw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
     sw.write('\ufeff');  // Unicode BOM, translates to UTF-8 with the configured outputstreamwriter
@@ -83,7 +85,7 @@ public class TextFile {
     sw.close();
   }
 
-  public static void stringToFileNoPrefix(String content, String path) throws Exception {
+  public static void stringToFileNoPrefix(String content, String path) throws IOException  {
     File file = new CSFile(path);
     OutputStreamWriter sw = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
     sw.write(content);
@@ -91,11 +93,11 @@ public class TextFile {
     sw.close();
   }
 
-  public static String fileToString(String src) throws Exception {
+  public static String fileToString(String src) throws FileNotFoundException, IOException  {
     return streamToString(new FileInputStream(new CSFile(src)));
 	}
 
-  public static String streamToString(InputStream input) throws Exception {
+  public static String streamToString(InputStream input) throws IOException  {
     InputStreamReader sr = new InputStreamReader(input, "UTF-8");    
     StringBuilder b = new StringBuilder();
     //while (sr.ready()) { Commented out by Claude Nanjo (1/14/2014) - sr.ready() always returns false - please remove if change does not impact other areas of codebase

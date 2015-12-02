@@ -14,6 +14,7 @@ package org.hl7.fhir.utilities.ucum;
 import java.util.Collections;
 import java.util.Comparator;
 
+import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.ucum.Canonical.CanonicalUnit;
 import org.hl7.fhir.utilities.ucum.special.Registry;
 
@@ -32,11 +33,11 @@ public class Converter {
 	}
 
 	
-	public Canonical convert(Term term) throws Exception {
+	public Canonical convert(Term term) throws UcumException  {
 		return normalise("  ", term);
 	}
 	
-	private Canonical normalise(String indent, Term term) throws Exception {
+	private Canonical normalise(String indent, Term term) throws UcumException  {
 		Canonical result = new Canonical(new Decimal(1));
 		
 		debug(indent, "canonicalise", term);
@@ -104,7 +105,7 @@ public class Converter {
 		return result;
 	}
 
-  private Canonical normalise(String indent, Symbol sym) throws Exception {
+  private Canonical normalise(String indent, Symbol sym) throws UcumException  {
   	Canonical result = new Canonical(new Decimal(1));
   	
   	if (sym.getUnit() instanceof BaseUnit) {
@@ -133,11 +134,11 @@ public class Converter {
 		return result;
   }
 
-	private Canonical expandDefinedUnit(String indent, DefinedUnit unit) throws Exception {
+	private Canonical expandDefinedUnit(String indent, DefinedUnit unit) throws UcumException  {
 		String u = unit.getValue().getUnit();
 		if (unit.isSpecial()) {
 			if (!handlers.exists(unit.getCode())) 
-				throw new Exception("Not handled yet (special unit)");
+				throw new UcumException("Not handled yet (special unit)");
 			else 
 				u = handlers.get(unit.getCode()).getUnits();
 		}

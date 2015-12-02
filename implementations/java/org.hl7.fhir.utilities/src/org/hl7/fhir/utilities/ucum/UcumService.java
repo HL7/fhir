@@ -16,6 +16,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.exceptions.UcumException;
+
 
 /**
  * General Ucum Service
@@ -115,9 +117,10 @@ public interface UcumService {
 	 * full names 
 	 * @param units the unit code
 	 * @return formal description
+	 * @throws UcumException 
 	 * @throws OHFException 
 	 */
-	public String analyse(String unit) throws Exception;
+	public String analyse(String unit) throws UcumException ;
 	
 	/**
 	 * validate whether a units are valid UCUM units and additionally require that the 
@@ -141,9 +144,10 @@ public interface UcumService {
 	 * given a set of units, return their canonical form
 	 * @param unit
 	 * @return the canonical form
+	 * @throws UcumException 
 	 * @throws OHFException 
 	 */
-	public abstract String getCanonicalUnits(String unit) throws Exception;
+	public abstract String getCanonicalUnits(String unit) throws UcumException ;
 
   /**
    * given two pairs of units, return true if they sahre the same canonical base
@@ -151,9 +155,10 @@ public interface UcumService {
    * @param units1
    * @param units2
    * @return
-   * @throws Exception 
+   * @throws UcumException 
+   * @ 
    */
-  public abstract boolean isComparable(String units1, String units2) throws Exception;
+  public abstract boolean isComparable(String units1, String units2) throws UcumException ;
   
 	/**
 	 * for a given canonical unit, return all the defined units that have the 
@@ -161,9 +166,10 @@ public interface UcumService {
 	 * 
 	 * @param code
 	 * @return
+	 * @throws UcumException 
 	 * @throws OHFException
 	 */
-	public abstract List<DefinedUnit> getDefinedForms(String code) throws Exception;
+	public abstract List<DefinedUnit> getDefinedForms(String code) throws UcumException ;
 
 	/**
 	 * given a value/unit pair, return the canonical form as a value/unit pair
@@ -171,9 +177,10 @@ public interface UcumService {
 	 * 1 mm -> 1e-3 m
 	 * @param value
 	 * @return
+	 * @throws UcumException 
 	 * @throws OHFException 
 	 */
-	public abstract Pair getCanonicalForm(Pair value) throws Exception;
+	public abstract Pair getCanonicalForm(Pair value) throws UcumException ;
 
 	/**
 	 * given a value and source unit, return the value in the given dest unit
@@ -183,9 +190,10 @@ public interface UcumService {
 	 * @param sourceUnit
 	 * @param destUnit
 	 * @return the value if a conversion is possible
+	 * @throws UcumException 
 	 * @throws OHFException
 	 */
-	public abstract Decimal convert(Decimal value, String sourceUnit, String destUnit) throws Exception;
+	public abstract Decimal convert(Decimal value, String sourceUnit, String destUnit) throws UcumException ;
 
 	/**
 	 * multiply two value/units pairs together and return the result in canonical units
@@ -194,9 +202,10 @@ public interface UcumService {
 	 * @param o1
 	 * @param o2
 	 * @return
-	 * @throws Exception 
+	 * @throws UcumException 
+	 * @ 
 	 */
-	public abstract Pair multiply(Pair o1, Pair o2) throws Exception;
+	public abstract Pair multiply(Pair o1, Pair o2) throws UcumException ;
 
 
 	/**

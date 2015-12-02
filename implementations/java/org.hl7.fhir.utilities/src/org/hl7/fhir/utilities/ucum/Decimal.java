@@ -1,5 +1,6 @@
 package org.hl7.fhir.utilities.ucum;
 
+import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.Utilities;
 
 /*******************************************************************************
@@ -54,7 +55,7 @@ public class Decimal {
 		super();
 	}
 	
-	public Decimal(String value) throws Exception {
+	public Decimal(String value) throws UcumException  {
 		super();
 		value = value.toLowerCase();
 		if (value.contains("e"))
@@ -71,9 +72,10 @@ public class Decimal {
 	 * 
 	 * @param value - a string representation of the value
 	 * @param precision - a 
-	 * @throws Exception
+	 * @throws UcumException 
+	 * @
 	 */
-	public Decimal(String value, int precision) throws Exception {
+	public Decimal(String value, int precision) throws UcumException  {
 		super();
 		value = value.toLowerCase();
 		if (value.contains("e"))
@@ -91,7 +93,7 @@ public class Decimal {
     }
   }
 
-	private void setValueDecimal(String value) throws Exception {
+	private void setValueDecimal(String value) throws UcumException  {
 		//	var
 		//	  dec : integer;
 		//	  i : integer;
@@ -108,7 +110,7 @@ public class Decimal {
 			if (value.charAt(i) == '.' && dec == -1)
 				dec = i;
 			else if (!Character.isDigit(value.charAt(i)))
-				throw new Exception("'"+value+"' is not a valid decimal");
+				throw new UcumException("'"+value+"' is not a valid decimal");
 		}
 
 		if (dec == -1) {
@@ -116,7 +118,7 @@ public class Decimal {
 			decimal = value.length();
 			digits = value;
 		} else if (dec == value.length() -1)
-			throw new Exception("'"+value+"' is not a valid decimal");
+			throw new UcumException("'"+value+"' is not a valid decimal");
 		else {
 			decimal = dec;
 			if (allZeros(value, 1))
@@ -159,15 +161,15 @@ public class Decimal {
 			return value.substring(0,  offset)+value.substring(offset+length);
 	}
 	
-	private void setValueScientific(String value) throws Exception {
+	private void setValueScientific(String value) throws UcumException  {
 		int i = value.indexOf("e");
 		String s = value.substring(0, i);
 		String e = value.substring(i+1);
 				
 	  if (Utilities.noString(s) || s.equals("-") || !Utilities.isDecimal(s))
-	    throw new Exception("'"+value+"' is not a valid decimal (numeric)");
+	    throw new UcumException("'"+value+"' is not a valid decimal (numeric)");
 	  if (Utilities.noString(e) || e.equals("-") || !Utilities.isInteger(e))
-	    throw new Exception("'"+value+"' is not a valid decimal (exponent)");
+	    throw new UcumException("'"+value+"' is not a valid decimal (exponent)");
 
 	  setValueDecimal(s);
 	  scientific = true;
@@ -180,7 +182,7 @@ public class Decimal {
 	    i = 0;
 	  while (i < e.length()) {
 	    if (!Character.isDigit(e.charAt(i)))
-	      throw new Exception(""+value+"' is not a valid decimal");
+	      throw new UcumException(""+value+"' is not a valid decimal");
 	    i++;
 	  }
 	  i = Integer.parseInt(e);
@@ -287,13 +289,13 @@ public class Decimal {
 		return result;
 	}
 
-	public int asInteger() throws Exception {
+	public int asInteger() throws UcumException  {
 	  if (!isWholeNumber())
-	    throw new Exception("Unable to represent "+toString()+" as an integer");
+	    throw new UcumException("Unable to represent "+toString()+" as an integer");
 	  if (comparesTo(new Decimal(Integer.MIN_VALUE)) < 0)
-	  	throw new Exception("Unable to represent "+toString()+" as a signed 8 byte integer");
+	  	throw new UcumException("Unable to represent "+toString()+" as a signed 8 byte integer");
 	  if (comparesTo(new Decimal(Integer.MAX_VALUE)) > 0)
-	  	throw new Exception("Unable to represent "+toString()+" as a signed 8 byte integer");
+	  	throw new UcumException("Unable to represent "+toString()+" as a signed 8 byte integer");
 	  return Integer.parseInt(asDecimal());
   }
 
@@ -604,7 +606,7 @@ public class Decimal {
 		return result;
 	}
 
-	public Decimal divide(Decimal other) throws Exception {
+	public Decimal divide(Decimal other) throws UcumException  {
 		if (other == null)
 			return null;
 
@@ -612,7 +614,7 @@ public class Decimal {
 			return zero();
 
 		if (other.isZero())
-			throw new Exception("Attempt to divide "+toString()+" by zero");
+			throw new UcumException("Attempt to divide "+toString()+" by zero");
 
 		String s = "0"+other.digits;
 		int m = Math.max(digits.length(), other.digits.length()) + 40; // max loops we'll do
@@ -756,14 +758,14 @@ public class Decimal {
 		  return s.substring(i);
 	}
 
-	public Decimal divInt(Decimal other) throws Exception {
+	public Decimal divInt(Decimal other) throws UcumException  {
 	  if (other == null)
 	  	return null;
 	  Decimal t = divide(other);
 	  return t.trunc();
 	}
 
-	public Decimal modulo(Decimal other) throws Exception {
+	public Decimal modulo(Decimal other) throws UcumException  {
 	  if (other == null)  
       return null;
 	  Decimal t = divInt(other);

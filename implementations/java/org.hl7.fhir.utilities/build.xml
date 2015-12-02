@@ -5,7 +5,7 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="org.hl7.fhir.utilities">
     <property environment="env"/>
-    <property name="org.hl7.fhir.implementation.location" value="../../../tools/java/org.hl7.fhir.instance"/>
+    <property name="org.hl7.fhir.implementation.location" value="../../../tools/java/org.hl7.fhir.dstu2"/>
     <property name="org.hl7.fhir.tools.location" value="../../../tools/java/org.hl7.fhir.tools.core"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>

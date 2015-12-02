@@ -1,5 +1,10 @@
 package org.hl7.fhir.utilities;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.hl7.fhir.exceptions.FHIRException;
+
 /**
  * This object processes a string that contains <%%> or [%%] where each of these 
  * represents a 'command' that either does something, or inserts content into the
@@ -50,7 +55,7 @@ public abstract class ScriptedPageProcessor {
       }
       end++;
     }
-    throw new Exception("unterminated insert sequence");
+    throw new FHIRException("unterminated insert sequence");
   }
 
   private String getContent(String command) throws Exception {
@@ -73,7 +78,7 @@ public abstract class ScriptedPageProcessor {
       return "";
     }
     else
-      throw new Exception("Unknown command "+com[0]);
+      throw new FHIRException("Unknown command "+com[0]);
   }
 
   private boolean nextIs(String content, int cursor, String value) {

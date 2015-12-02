@@ -46,6 +46,8 @@ Type
   private
     FMap : TAdvMap<TWrapperElement>;
     FOwnsMap : boolean;
+    FProfile : TFHIRStructureDefinition;
+    FDefinition : TFHIRElementDefinition;
   public
     Constructor Create(map : TAdvMap<TWrapperElement>); Virtual;
     Destructor Destroy; Override;
@@ -67,19 +69,24 @@ Type
 		function hasProcessingInstruction() : boolean; virtual; abstract;
     function locStart: TSourceLocation; virtual; abstract;
     function locEnd: TSourceLocation; virtual; abstract;
+
+    property Definition : TFhirElementDefinition read FDefinition write FDefinition; // no ownership
+    property Profile : TFhirStructureDefinition read FProfile write FProfile;
   end;
 
   TFHIRBaseOnWrapper = class (TFHIRBase)
   private
+    FServices : TValidatorServiceProvider;
     FWrapper : TWrapperElement;
     FElementList : TFHIRElementDefinitionList;
     FProfile: TFHIRStructureDefinition;
     FDefinition : TFHIRElementDefinition;
-    FTypeName : String;
+    FTypeName, FTypeProfile : String;
     childDefinitions: TFHIRElementDefinitionList;
-    function getDefinition(name : String; var tn : String) : TFhirElementDefinition;
+    function getDefinition(name : String; var tn, tp : String) : TFhirElementDefinition;
+    function IsAbstractType(pn: String): Boolean;
   public
-    Constructor Create(wrapper : TWrapperElement; profile: TFHIRStructureDefinition; definition : TFhirElementDefinition; TypeName : String);
+    Constructor Create(services : TValidatorServiceProvider; wrapper : TWrapperElement; profile: TFHIRStructureDefinition; definition : TFhirElementDefinition; TypeName, TypeProfile : String);
     Destructor Destroy; override;
     Procedure GetChildrenByName(child_name : string; list : TFHIRObjectList); override;
     function FhirType : string; override;
@@ -89,13 +96,19 @@ Type
 
   TFHIRResourceOnWrapper = class (TFHIRResource)
   private
+    FServices : TValidatorServiceProvider;
     FWrapper : TWrapperElement;
+    FElementList : TFHIRElementDefinitionList;
+    FProfile: TFHIRStructureDefinition;
+    FDefinition : TFHIRElementDefinition;
+    childDefinitions: TFHIRElementDefinitionList;
+    function getDefinition(name : String; var tn, tp : String) : TFhirElementDefinition;
   public
+    Constructor Create(services : TValidatorServiceProvider; wrapper : TWrapperElement; profile: TFHIRStructureDefinition);
+    Destructor Destroy; override;
+
     Procedure GetChildrenByName(child_name : string; list : TFHIRObjectList); override;
     function FhirType : string; override;
-
-    Constructor Create(wrapper : TWrapperElement);
-    Destructor Destroy; override;
   end;
 
   TNodeStack = class (TAdvObject)
@@ -227,7 +240,7 @@ Type
     procedure validateContains(errors : TFhirOperationOutcomeIssueList; path : String; child : TFHIRElementDefinition; context : TFHIRElementDefinition; element : TWrapperElement; stack : TNodeStack; needsId : boolean);
     function allowUnknownExtension(url : String) : boolean;
 
-    procedure checkInvariants(errors: TFhirOperationOutcomeIssueList; path : String; profile: TFHIRStructureDefinition; ed: TFhirElementDefinition; typename : String; resource, element: TWrapperElement);
+    procedure checkInvariants(errors: TFhirOperationOutcomeIssueList; path : String; profile: TFHIRStructureDefinition; ed: TFhirElementDefinition; typename, typeProfile : String; resource, element: TWrapperElement);
     procedure validateSections(errors : TFhirOperationOutcomeIssueList; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
     procedure validateBundleReference(errors : TFhirOperationOutcomeIssueList; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
     procedure validateDocument(errors : TFhirOperationOutcomeIssueList; entries : TAdvList<TWrapperElement>; composition : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
@@ -478,11 +491,13 @@ end;
 procedure TDOMWrapperElement.getNamedChildren(name: String; list: TAdvList<TWrapperElement>);
 var
   res: IXMLDOMElement;
+  n : String;
 begin
   res := TMsXmlParser.FirstChild(FElement);
   while (res <> nil) do
   begin
-    if (res.tagname = name) OR (res.tagname = name) then
+    n := res.tagName;
+    if (n = name) then
       list.Add(wrap(res).link);
     res := TMsXmlParser.NextSibling(res);
   end;
@@ -838,8 +853,16 @@ begin
 end;
 
 procedure TJsonWrapperElement.getNamedChildrenWithWildcard(name : String; list : TAdvList<TWrapperElement>);
+var
+  j: TJsonWrapperElement;
+  n : String;
 begin
-  raise Exception.Create('not done yet');
+  for j in children do
+  begin
+    n := j.name;
+    if (n = name) or ((name.endsWith('[x]') and (n.startsWith(name.substring(0, name.length - 3))))) then
+      list.Add(j.Link);
+  end;
 end;
 
 function TJsonWrapperElement.hasAttribute(name : String) : boolean;
@@ -1651,6 +1674,11 @@ var
   localStack : TNodeStack;
   thisIsCodeableConcept: boolean;
 begin
+  assert(profile.snapshot.elementList.ExistsByReference(definition));
+  // for later re-use
+  element.Definition := definition;
+  element.Profile := profile;
+
   // irrespective of what element it is, it cannot be empty
 	if (element.isXml()) then
   begin
@@ -1663,7 +1691,7 @@ begin
   rule(errors, IssueTypeINVALID, element.locStart(), element.locEnd(), stack.literalPath, not empty(element),
     'Elements must have some content (@value, extensions, or children elements)');
 
-  checkInvariants(errors, stack.literalPath, profile, definition, '', resource, element);
+  checkInvariants(errors, stack.literalPath, profile, definition, '', '', resource, element);
 
   // get the list of direct defined children, including slices
   children := TAdvList<TElementInfo>.Create();
@@ -2812,6 +2840,7 @@ begin
             begin
               try
                 c := readAsCoding(element);
+                try
                 res := FContext.validateCode(c, vs);
                 try
                 if (not res.isOk()) then
@@ -2827,9 +2856,12 @@ begin
                 finally
                   res.free;
                 end;
+                finally
+                  c.Free;
+                end;
               except
                 on e: Exception do
-                  warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'Error ' + e.message + ' validating CodeableConcept');
+                  warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'Error ' + e.message + ' validating Coding');
             end;
           end
             else if (Binding.ValueSet <> nil) then
@@ -3377,7 +3409,7 @@ begin
   checkFixedValue(errors, path+'.assigner', focus.getNamedChild('assigner'), fixed.Assigner, 'assigner');
 end;
 
-procedure TFHIRValidator.checkInvariants(errors: TFhirOperationOutcomeIssueList; path : String; profile: TFHIRStructureDefinition; ed: TFhirElementDefinition; typename : String; resource, element: TWrapperElement);
+procedure TFHIRValidator.checkInvariants(errors: TFhirOperationOutcomeIssueList; path : String; profile: TFHIRStructureDefinition; ed: TFhirElementDefinition; typename, typeProfile : String; resource, element: TWrapperElement);
 var
   inv : TFhirElementDefinitionConstraint;
   ok : boolean;
@@ -3387,8 +3419,9 @@ begin
   for inv in ed.constraintList do
     if inv.hasExtension('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression') then
     begin
-      res := TFHIRResourceOnWrapper.create(resource.Link);
-      e := TFHIRBaseOnWrapper.create(element.Link, profile.Link, ed.Link, typename);
+      assert(resource.getResourceType = resource.profile.name);
+      res := TFHIRResourceOnWrapper.create(FContext.link, resource.Link, resource.profile.Link);
+      e := TFHIRBaseOnWrapper.create(FContext.link, element.Link, profile.Link, ed.Link, typename, typeProfile);
       try
         ok := FPathEvaluator.evaluateToBoolean(nil, res, e, inv.getExtensionString('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression'));
       finally
@@ -3397,8 +3430,8 @@ begin
       end;
       if not ok then
         case inv.severity of
-          ConstraintSeverityError: rule(errors, IssueTypeInvariant, element.LocStart, element.LocEnd, path, ok, inv.human);
-          ConstraintSeverityWarning: warning(errors, IssueTypeInvariant, element.LocStart, element.LocEnd, path, ok, inv.human);
+          ConstraintSeverityError: rule(errors, IssueTypeInvariant, element.LocStart, element.LocEnd, path, ok, inv.human+' ('+inv.getExtensionString('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression')+')');
+          ConstraintSeverityWarning: warning(errors, IssueTypeInvariant, element.LocStart, element.LocEnd, path, ok, inv.human+' ('+inv.getExtensionString('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression')+')');
         end;
     end;
 end;
@@ -3748,13 +3781,15 @@ end;
 
 { TFHIRBaseOnWrapper }
 
-constructor TFHIRBaseOnWrapper.Create(wrapper: TWrapperElement; profile: TFHIRStructureDefinition; definition : TFhirElementDefinition; TypeName : String);
+constructor TFHIRBaseOnWrapper.Create(services : TValidatorServiceProvider; wrapper: TWrapperElement; profile: TFHIRStructureDefinition; definition : TFhirElementDefinition; TypeName, TypeProfile : String);
     begin
   inherited create;
+  FServices := services;
   FWrapper := wrapper;
   FProfile := profile;
   FDefinition := definition;
   FTypeName := TypeName;
+  FTypeProfile := TypeProfile;
 end;
 
 destructor TFHIRBaseOnWrapper.Destroy;
@@ -3764,6 +3799,7 @@ begin
   FProfile.Free;
   FDefinition.Free;
   FWrapper.Free;
+  FServices.Free;
   inherited;
 end;
 
@@ -3780,35 +3816,81 @@ var
   children : TAdvList<TWrapperElement>;
   child : TWrapperElement;
   definition : TFhirElementDefinition;
-  tn : String;
+  tn, tp : String;
 begin
   children := TAdvList<TWrapperElement>.create;
   try
-    FWrapper.getNamedChildren(child_name, children);
+    FWrapper.getNamedChildrenWithWildcard(child_name, children);
     for child in children do
     begin
-      definition := getDefinition(child.getName, tn);
+      definition := getDefinition(child.getName, tn, tp);
       if (definition <> nil) then
-        list.Add(TFHIRBaseOnWrapper.Create(child.Link, Fprofile.Link, definition.Link, tn));
+        if definition.hasType('Resource') and FWrapper.isXml then // special case for DomainResource.contained and Bundle.entry
+          list.Add(TFHIRBaseOnWrapper.Create(FServices.link, child.getFirstChild.Link, Fprofile.Link, definition.Link, tn, tp))
+        else
+          list.Add(TFHIRBaseOnWrapper.Create(FServices.link, child.Link, Fprofile.Link, definition.Link, tn, tp));
     end;
   finally
     children.Free;
   end;
 end;
 
-function TFHIRBaseOnWrapper.getDefinition(name: String; var tn: String): TFhirElementDefinition;
+function TFHIRBaseOnWrapper.IsAbstractType(pn : String) : Boolean;
+var
+  p : TFhirStructureDefinition;
+begin
+  p := FServices.fetchResource(frtStructureDefinition, pn) as TFhirStructureDefinition;
+  try
+    result := (p <> nil) and (p.abstract);
+  finally
+    p.free;
+  end;
+end;
+
+function TFHIRBaseOnWrapper.getDefinition(name: String; var tn, tp: String): TFhirElementDefinition;
 var
   ed : TFHIRElementDefinition;
   tail : String;
+  profile : TFhirStructureDefinition;
+  pn : String;
 begin
   if childDefinitions = nil then
     childDefinitions := getChildMap(Fprofile, Fdefinition.name, Fdefinition.path, Fdefinition.NameReference);
+  if (childDefinitions.Count = 0) then
+  begin
+    pn := FTypeProfile;
+    if (pn = '') and (FTypeName <> '') then
+      pn := 'http://hl7.org/fhir/StructureDefinition/'+FTypeName;
+    if (pn = '') and (FDefinition.type_List.Count = 1) then
+    begin
+      if FDefinition.type_List[0].profileList.Count > 0 then
+        pn := FDefinition.type_List[0].profileList[0].value
+      else
+        pn := 'http://hl7.org/fhir/StructureDefinition/'+ FDefinition.type_List[0].code;
+    end;
+    if (pn <> '') and IsAbstractType(pn) then
+    begin
+      profile := FServices.fetchResource(frtStructureDefinition, pn) as TFhirStructureDefinition;
+      try
+        if (profile <> nil) then
+        begin
+          FProfile.Free;
+          FProfile := profile.link;
+          childDefinitions.Free;
+          childDefinitions := getChildMap(profile, '', profile.snapshot.elementList[0].path, '');
+        end;
+      finally
+        profile.Free;
+      end;
+    end;
+  end;
+
   for ed in childDefinitions do
   begin
     tail := ed.path.Substring(ed.path.LastIndexOf('.')+1);
     if tail = name then
       exit(ed);
-    if tail.EndsWith('[x]') and (tail.Substring(0, tail.Length-3) = name.Substring(0, tail.Length-3)) and ed.hasType(name.Substring(tail.Length-3)) then
+    if tail.EndsWith('[x]') and (tail.Substring(0, tail.Length-3) = name.Substring(0, tail.Length-3)) and ed.hasType(name.Substring(tail.Length-3), tp) then
     begin
       tn := name.Substring(tail.Length-3);
       exit(ed);
@@ -3829,26 +3911,74 @@ end;
 
 { TFHIRResourceOnWrapper }
 
-constructor TFHIRResourceOnWrapper.Create(wrapper: TWrapperElement);
+constructor TFHIRResourceOnWrapper.Create(services : TValidatorServiceProvider; wrapper : TWrapperElement; profile: TFHIRStructureDefinition);
 begin
   inherited create;
+  FServices := services;
   FWrapper := wrapper;
+  FProfile := profile;
+  FDefinition := profile.snapshot.elementList[0].Link;
 end;
 
 destructor TFHIRResourceOnWrapper.Destroy;
 begin
+  FServices.Free;
+  childDefinitions.Free;
+  FElementList.Free;
+  FProfile.Free;
+  FDefinition.Free;
   FWrapper.Free;
   inherited;
 end;
 
 function TFHIRResourceOnWrapper.FhirType: string;
 begin
-  raise Exception.Create('Not Done Yet');
+  result := FWrapper.getResourceType;
   end;
 
 procedure TFHIRResourceOnWrapper.GetChildrenByName(child_name: string; list: TFHIRObjectList);
+var
+  children : TAdvList<TWrapperElement>;
+  child : TWrapperElement;
+  definition : TFhirElementDefinition;
+  tn, tp : String;
+begin
+  children := TAdvList<TWrapperElement>.create;
+  try
+    FWrapper.getNamedChildren(child_name, children);
+    for child in children do
   begin
-  raise Exception.Create('Not Done Yet');
+      definition := getDefinition(child.getName, tn, tp);
+      if (definition <> nil) then
+        if definition.hasType('Resource') and FWrapper.isXml then // special case for DomainResource.contained and Bundle.entry
+          list.Add(TFHIRBaseOnWrapper.Create(FServices.link, child.getFirstChild.Link, Fprofile.Link, definition.Link, tn, tp))
+        else
+          list.Add(TFHIRBaseOnWrapper.Create(FServices.link, child.Link, Fprofile.Link, definition.Link, tn, tp));
+    end;
+  finally
+    children.Free;
+  end;
+end;
+
+function TFHIRResourceOnWrapper.getDefinition(name: String; var tn, tp: String): TFhirElementDefinition;
+var
+  ed : TFHIRElementDefinition;
+  tail : String;
+begin
+  if childDefinitions = nil then
+    childDefinitions := getChildMap(Fprofile, Fdefinition.name, Fdefinition.path, Fdefinition.NameReference);
+  for ed in childDefinitions do
+  begin
+    tail := ed.path.Substring(ed.path.LastIndexOf('.')+1);
+    if tail = name then
+      exit(ed);
+    if tail.EndsWith('[x]') and (tail.Substring(0, tail.Length-3) = name.Substring(0, tail.Length-3)) and ed.hasType(name.Substring(tail.Length-3), tp) then
+    begin
+      tn := name.Substring(tail.Length-3);
+      exit(ed);
+    end;
+  end;
+  result := nil;
 end;
 
 end.

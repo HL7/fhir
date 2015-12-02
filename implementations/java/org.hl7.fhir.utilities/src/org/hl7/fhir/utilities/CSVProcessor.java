@@ -29,11 +29,14 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.utilities;
 
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+
+import org.hl7.fhir.exceptions.FHIRException;
 
 /**
  * A file processor that reads a templated source file with markers ([%columnname%]), reads data
@@ -50,7 +53,7 @@ public class CSVProcessor {
       super(data);
     }
 
-    public void process() throws Exception {
+    public void process() throws IOException, FHIRException  {
       String[] titles = parseLine();
       while (ready())
       {
@@ -60,7 +63,7 @@ public class CSVProcessor {
       close();
     }
 
-    private void processLine(String[] titles, String[] values) throws Exception {
+    private void processLine(String[] titles, String[] values) throws FHIRException  {
       count++;
       String src = loop;
       while (src.contains("[%")) {
@@ -80,7 +83,7 @@ public class CSVProcessor {
             }
           }
           if (!b)
-            throw new Exception("unknown column: '"+s2+"'");
+            throw new FHIRException("unknown column: '"+s2+"'");
         }
       }
       dest.append(src);
@@ -113,7 +116,7 @@ public class CSVProcessor {
     this.out = new OutputStreamWriter(out, "UTF-8");   
   }
 
-  public void process() throws Exception {
+  public void process() throws IOException, FHIRException  {
     buildTemplate(readSource());
     dest = new StringBuilder();
     dest.append(start);
@@ -123,31 +126,31 @@ public class CSVProcessor {
     out.close();
   }
 
-  private void buildTemplate(String template) throws Exception {
+  private void buildTemplate(String template) throws FHIRException  {
     int i = template.indexOf("[%loop");
     if (i < 0)
-      throw new Exception("Unable to process template - didn't find [%loop");
+      throw new FHIRException("Unable to process template - didn't find [%loop");
     start = template.substring(0, i);
     template = template.substring(i+6);
     i = template.indexOf("%]");
     if (i < 0)
-      throw new Exception("Unable to process template - didn't find %] matching [%loop");
+      throw new FHIRException("Unable to process template - didn't find %] matching [%loop");
     String tmp = template.substring(0, i);
     if (tmp != null && !tmp.equals("")) {
       if (!tmp.startsWith(" count="))
-        throw new Exception("Unable to process template - unrecognised content on [%loop");
+        throw new FHIRException("Unable to process template - unrecognised content on [%loop");
       count = Integer.parseInt(tmp.substring(7));
     }
     
     template = template.substring(i+2);
     i = template.indexOf("[%endloop%]");
     if (i < 0)
-      throw new Exception("Unable to process template - didn't find [%endloop%]");
+      throw new FHIRException("Unable to process template - didn't find [%endloop%]");
     loop = template.substring(0, i);
     stop = template.substring(i+11);
   }
 
-  private String readSource() throws Exception {
+  private String readSource() throws IOException  {
     StringBuilder s = new StringBuilder();
     InputStreamReader r = new InputStreamReader(source,"UTF-8");
     while (r.ready()) {

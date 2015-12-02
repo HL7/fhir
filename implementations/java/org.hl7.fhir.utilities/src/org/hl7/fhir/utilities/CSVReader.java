@@ -28,11 +28,14 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.hl7.fhir.exceptions.FHIRException;
 
 /**
  * Baseclass for readers that read data from files in comma separated file format
@@ -54,7 +57,7 @@ public class CSVReader extends InputStreamReader {
 			return false;
 	}
 
-	protected static String getColumn(String[] titles, String[] values, String column) throws Exception {
+	protected static String getColumn(String[] titles, String[] values, String column)  {
 		int c = -1;
 	//	String s = "";
 		for (int i = 0; i < titles.length; i++) {
@@ -75,9 +78,11 @@ public class CSVReader extends InputStreamReader {
 	 * Split one line in a CSV file into its rows. Comma's appearing in double quoted strings will
 	 * not be seen as a separator.
 	 * @return
-	 * @throws Exception
+	 * @throws IOException 
+	 * @throws FHIRException 
+	 * @
 	 */
-	protected String[] parseLine() throws Exception {
+	protected String[] parseLine() throws IOException, FHIRException  {
 		List<String> res = new ArrayList<String>();
 		StringBuilder b = new StringBuilder();
 		boolean inQuote = false;
@@ -108,20 +113,20 @@ public class CSVReader extends InputStreamReader {
 	private int state = 0;
 	private char pc;
 	
-	private char peek() throws Exception
+	private char peek() throws FHIRException, IOException 
 	{
 	  if (state == 0)
 		  next();
 	  if (state == 1)
 		  return pc;
 	  else
-		  throw new Exception("read past end of source");
+		  throw new FHIRException("read past end of source");
 	}
 	
-	private void next() throws Exception
+	private void next() throws FHIRException, IOException 
 	{
 		  if (state == 2)
-			  throw new Exception("read past end of source");
+			  throw new FHIRException("read past end of source");
           state = 1;
 		  int i = read();
 		  if (i == -1)

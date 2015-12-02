@@ -32,8 +32,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.IXMLWriter;
 import org.w3c.dom.Element;
@@ -65,21 +67,21 @@ public class XhtmlComposer {
 
   private Writer dst;
 
-  public String compose(XhtmlDocument doc) throws Exception {
+  public String compose(XhtmlDocument doc) throws IOException, FHIRException  {
     StringWriter sdst = new StringWriter();
     dst = sdst;
     composeDoc(doc);
     return sdst.toString();
   }
 
-  public String compose(XhtmlNode node) throws Exception {
+  public String compose(XhtmlNode node) throws IOException  {
     StringWriter sdst = new StringWriter();
     dst = sdst;
     writeNode("", node);
     return sdst.toString();
   }
 
-  public void compose(OutputStream stream, XhtmlDocument doc) throws Exception {
+  public void compose(OutputStream stream, XhtmlDocument doc) throws IOException, FHIRException  {
     byte[] bom = new byte[] { (byte)0xEF, (byte)0xBB, (byte)0xBF };
     stream.write(bom);
     dst = new OutputStreamWriter(stream, "UTF-8");
@@ -87,7 +89,7 @@ public class XhtmlComposer {
     dst.flush();
   }
 
-  private void composeDoc(XhtmlDocument doc) throws Exception {
+  private void composeDoc(XhtmlDocument doc) throws IOException, FHIRException  {
     // headers....
 //    dst.append("<html>" + (isPretty() ? "\r\n" : ""));
     for (XhtmlNode c : doc.getChildNodes())
@@ -95,7 +97,7 @@ public class XhtmlComposer {
 //    dst.append("</html>" + (isPretty() ? "\r\n" : ""));
   }
 
-  private void writeNode(String indent, XhtmlNode node) throws Exception {
+  private void writeNode(String indent, XhtmlNode node) throws IOException  {
     if (node.getNodeType() == NodeType.Comment)
       writeComment(indent, node);
     else if (node.getNodeType() == NodeType.DocType)
@@ -107,10 +109,10 @@ public class XhtmlComposer {
     else if (node.getNodeType() == NodeType.Text)
       writeText(node);
     else
-      throw new Exception("Unknown node type: "+node.getNodeType().toString());
+      throw new Error("Unknown node type: "+node.getNodeType().toString());
   }
 
-  private void writeText(XhtmlNode node) throws Exception {
+  private void writeText(XhtmlNode node) throws IOException  {
     for (char c : node.getContent().toCharArray())
     {
       if (c == '&')
@@ -179,7 +181,7 @@ public class XhtmlComposer {
     return s.toString();
   }
   
-  private void writeElement(String indent, XhtmlNode node) throws Exception {
+  private void writeElement(String indent, XhtmlNode node) throws IOException  {
     if (!pretty)
       indent = "";
     
@@ -206,7 +208,7 @@ public class XhtmlComposer {
     }
   }
 
-  public void compose(IXMLWriter xml, XhtmlNode node) throws Exception {
+  public void compose(IXMLWriter xml, XhtmlNode node) throws IOException  {
     if (node.getNodeType() == NodeType.Comment)
       xml.comment(node.getContent(), isPretty());
     else if (node.getNodeType() == NodeType.Element)
@@ -214,10 +216,10 @@ public class XhtmlComposer {
     else if (node.getNodeType() == NodeType.Text)
       xml.text(node.getContent());
     else
-      throw new Exception("Unhandled node type: "+node.getNodeType().toString());
+      throw new Error("Unhandled node type: "+node.getNodeType().toString());
   }
 
-  private void composeElement(IXMLWriter xml, XhtmlNode node) throws Exception {
+  private void composeElement(IXMLWriter xml, XhtmlNode node) throws IOException  {
     for (String n : node.getAttributes().keySet())
       xml.attribute(n, node.getAttributes().get(n));
     xml.enter(XHTML_NS, node.getName());

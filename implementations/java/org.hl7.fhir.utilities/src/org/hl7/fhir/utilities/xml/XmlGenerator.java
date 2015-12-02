@@ -31,9 +31,12 @@ package org.hl7.fhir.utilities.xml;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 
+import org.hl7.fhir.exceptions.FHIRException;
 import org.w3c.dom.Comment;
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -43,7 +46,7 @@ public class XmlGenerator {
 
 	private XMLWriter xml;
 	
-	public void generate(Element element, File file, String defaultNamespace, String elementName) throws Exception {
+	public void generate(Element element, File file, String defaultNamespace, String elementName) throws FHIRException, IOException  {
 		
 		OutputStream stream = new FileOutputStream(file);
 		
@@ -60,18 +63,18 @@ public class XmlGenerator {
 		stream.close();
 	}
 	
-  public String generate(Element element) throws Exception {
+  public String generate(Element element) throws IOException, FHIRException  {
     ByteArrayOutputStream stream = new ByteArrayOutputStream();
     generate(element, stream);
     return new String(stream.toByteArray());
   } 
   
-	public void generate(Element element, File file) throws Exception {
+	public void generate(Element element, File file) throws IOException, FHIRException  {
 		OutputStream stream = new FileOutputStream(file);
 		generate(element, stream);
 	}	
 	
-	public void generate(Element element, OutputStream stream) throws Exception {
+	public void generate(Element element, OutputStream stream) throws IOException, FHIRException  {
 		xml = new XMLWriter(stream, "UTF-8");
 		xml.start();
 		xml.setDefaultNamespace(element.getNamespaceURI());
@@ -79,7 +82,7 @@ public class XmlGenerator {
 		xml.end();
 	}
 	
-	private void processContents(Element element) throws Exception {
+	private void processContents(Element element) throws FHIRException, IOException  {
 		Node node = element.getFirstChild();
 		while (node != null) {
 			switch (node.getNodeType()) {
@@ -93,18 +96,18 @@ public class XmlGenerator {
 				processComment((Comment) node);
 				break;
 			default:
-				throw new Exception("unhandled node type "+Integer.toString(node.getNodeType()));
+				throw new FHIRException("unhandled node type "+Integer.toString(node.getNodeType()));
 			}
 				
 		    node = node.getNextSibling();
 		}
 	}
 	
-	private void processComment(Comment node) throws Exception {
+	private void processComment(Comment node) throws DOMException, IOException  {
 		xml.comment(node.getNodeValue(), true);
 	}
 
-	private void processElement(Element element) throws Exception {
+	private void processElement(Element element) throws IOException, FHIRException  {
 		if (!xml.getDefaultNamespace().equals(element.getNamespaceURI()))
 			xml.setDefaultNamespace(element.getNamespaceURI());
 
@@ -116,11 +119,11 @@ public class XmlGenerator {
 		xml.exit();
 	}
 
-	private void processText(Node node) throws Exception {
+	private void processText(Node node) throws DOMException, IOException  {
 		xml.text(node.getNodeValue());
 	}
 
-	private void processAttributes(Element element) throws Exception {
+	private void processAttributes(Element element) throws DOMException, IOException  {
 		NamedNodeMap nodes = element.getAttributes();
 		for (int i = 0; i < nodes.getLength(); i++) {
 			Node attr = nodes.item(i);

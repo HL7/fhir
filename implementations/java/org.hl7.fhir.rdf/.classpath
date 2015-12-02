@@ -9,7 +9,7 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-api-1.7.12.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-jdk14-1.7.12.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xercesImpl-2.11.0.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.implementation"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xml-apis-1.4.01.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu21"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

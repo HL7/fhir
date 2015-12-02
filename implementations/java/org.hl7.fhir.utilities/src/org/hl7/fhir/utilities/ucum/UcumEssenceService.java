@@ -19,6 +19,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.special.Registry;
 
@@ -49,28 +50,30 @@ public class UcumEssenceService implements UcumService {
 	/**
 	 * Create an instance of Ucum services. Stream must point to a
 	 * valid ucum-essence file (see class documentation) 
+	 * @throws UcumException 
 	 */
-	public UcumEssenceService(InputStream stream) throws Exception {
+	public UcumEssenceService(InputStream stream) throws UcumException  {
 		super();
 		assert stream != null : paramError("factory", "stream", "must not be null");
 		try {
 			model = new DefinitionParser().parse(stream);
 		} catch (Exception e) {
-			throw new Exception(e); 
+			throw new UcumException(e); 
 		}
 	}
 
 	/**
 	 * Create an instance of Ucum services. filename must point to a
 	 * valid ucum-essence file (see class documentation) 	
+	 * @throws UcumException 
 	 */
-	public UcumEssenceService(String filename) throws Exception {
+	public UcumEssenceService(String filename) throws UcumException  {
 		super();
 		assert new File(filename).exists() : paramError("factory", "file", "must exist");
 		try {
 			model = new DefinitionParser().parse(filename);
 		} catch (Exception e) {
-			throw new Exception(e); 
+			throw new UcumException(e); 
 		}
 	}
 
@@ -189,10 +192,11 @@ public class UcumEssenceService implements UcumService {
 	 * full names 
 	 * @param units the unit code
 	 * @return formal description
-	 * @throws Exception 
+	 * @throws UcumException 
+	 * @ 
 	 */
 	@Override
-  public String analyse(String unit) throws Exception {
+  public String analyse(String unit) throws UcumException  {
 		if (Utilities.noString(unit))
 			return "(unity)";
 		assert checkStringParam(unit) : paramError("analyse", "unit", "must not be null or empty");
@@ -204,13 +208,13 @@ public class UcumEssenceService implements UcumService {
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#getCanonicalUnits(java.lang.String)
 	 */
 	@Override
-  public String getCanonicalUnits(String unit) throws Exception {
+  public String getCanonicalUnits(String unit) throws UcumException  {
 		assert checkStringParam(unit) : paramError("getCanonicalUnits", "unit", "must not be null or empty");
 		try {
 			Term term = new ExpressionParser(model).parse(unit);
 			return new ExpressionComposer().compose(new Converter(model, handlers).convert(term), false);	
 		} catch (Exception e) {
-			throw new Exception("Error processing "+unit+": "+e.getMessage(), e);
+			throw new UcumException("Error processing "+unit+": "+e.getMessage(), e);
 		}
 	}
 	
@@ -218,7 +222,7 @@ public class UcumEssenceService implements UcumService {
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#getDefinedForms(java.lang.String)
 	 */
 	@Override
-  public List<DefinedUnit> getDefinedForms(String code) throws Exception {
+  public List<DefinedUnit> getDefinedForms(String code) throws UcumException  {
 		assert checkStringParam(code) : paramError("getDefinedForms", "code", "must not be null or empty");
 		List<DefinedUnit> result = new ArrayList<DefinedUnit>(); 
 		BaseUnit base = model.getBaseUnit(code);
@@ -240,7 +244,7 @@ public class UcumEssenceService implements UcumService {
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#getCanonicalForm(org.eclipse.ohf.ucum.UcumEssenceService.Pair)
 	 */
 	@Override
-  public Pair getCanonicalForm(Pair value) throws Exception {
+  public Pair getCanonicalForm(Pair value) throws UcumException  {
 		assert value != null : paramError("getCanonicalForm", "value", "must not be null");
 		assert checkStringParam(value.getCode()) : paramError("getCanonicalForm", "value.code", "must not be null or empty");
 		
@@ -256,7 +260,7 @@ public class UcumEssenceService implements UcumService {
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#convert(java.math.BigDecimal, java.lang.String, java.lang.String)
 	 */
 	@Override
-  public Decimal convert(Decimal value, String sourceUnit, String destUnit) throws Exception {
+  public Decimal convert(Decimal value, String sourceUnit, String destUnit) throws UcumException  {
 		assert value != null : paramError("convert", "value", "must not be null");
 		assert checkStringParam(sourceUnit) : paramError("convert", "sourceUnit", "must not be null or empty");
 		assert checkStringParam(destUnit) : paramError("convert", "destUnit", "must not be null or empty");
@@ -269,7 +273,7 @@ public class UcumEssenceService implements UcumService {
 		String s = new ExpressionComposer().compose(src, false);
 		String d = new ExpressionComposer().compose(dst, false);
 		if (!s.equals(d))
-			throw new Exception("Unable to convert between units "+sourceUnit+" and "+destUnit+" as they do not have matching canonical forms ("+s+" and "+d+" respectively)");
+			throw new UcumException("Unable to convert between units "+sourceUnit+" and "+destUnit+" as they do not have matching canonical forms ("+s+" and "+d+" respectively)");
 		Decimal canValue = value.multiply(src.getValue());
 //		System.out.println(value.toPlainString()+sourceUnit+" =("+src.getValue().toPlainString()+")= "+
 //				canValue.toPlainString()+s+" =("+dst.getValue().toPlainString()+")= "+
@@ -278,7 +282,7 @@ public class UcumEssenceService implements UcumService {
 	}
 
 	@Override
-  public Pair multiply(Pair o1, Pair o2) throws Exception {
+  public Pair multiply(Pair o1, Pair o2) throws UcumException  {
 	  Pair res = new Pair(o1.getValue().multiply(o2.getValue()), o1.getCode() +"."+o2.getCode());
 	  return getCanonicalForm(res);
 	}
@@ -290,7 +294,7 @@ public class UcumEssenceService implements UcumService {
   }
 
   @Override
-  public boolean isComparable(String units1, String units2) throws Exception {
+  public boolean isComparable(String units1, String units2) throws UcumException  {
     if (units1 == null)
       return false;
     if (units2 == null)

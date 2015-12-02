@@ -143,14 +143,15 @@ type
     function funcTail(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcCount(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcAsInteger(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
-    function funcStartsWith(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcLength(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
-    function funcMatches(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcDistinct(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcNot(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcResolve(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcContains(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
+    function funcMatches(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
+    function funcStartsWith(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcSubString(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
+    function funcExtension(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
 
     function opEquals(left, right : TFHIRBaseList) : TFHIRBaseList;
     function opNotEquals(left, right : TFHIRBaseList) : TFHIRBaseList;
@@ -167,8 +168,12 @@ type
     function opAnd(left, right : TFHIRBaseList) : TFHIRBaseList;
     function opOr(left, right : TFHIRBaseList) : TFHIRBaseList;
     function opXor(left, right : TFHIRBaseList) : TFHIRBaseList;
+    function opImplies(left, right : TFHIRBaseList) : TFHIRBaseList;
     function opConcatenate(left, right : TFHIRBaseList) : TFHIRBaseList;
     function areDistinct(a1, a2: array of TFHIRBaseList): boolean;
+    function organisePrecedence(lexer : TFHIRPathLexer; node: TFHIRExpressionNode) : TFHIRExpressionNode;
+    function gatherPrecedence(lexer : TFHIRPathLexer; node: TFHIRExpressionNode; ops: TFHIRPathOperationSet): TFHIRExpressionNode;
+    function newGroup(lexer : TFHIRPathLexer; next: TFHIRExpressionNode): TFHIRExpressionNode;
 
   public
     constructor create(context : TValidatorServiceProvider);
@@ -268,6 +273,7 @@ begin
     pfNot: CheckNoParams;
     pfResolve: CheckNoParams;
     pfContains: CheckParamCount(1);
+    pfExtension: CheckParamCount(1);
     pfDistinct: {no chcek};
   end;
 end;
@@ -448,7 +454,7 @@ function TFHIRPathEvaluator.evaluateToBoolean(appInfo : TAdvObject; resource : T
 var
   res : TFHIRBaseList;
 begin
-  res := evaluate(appInfo, base, path);
+  res := evaluate(appInfo, resource, base, path);
   try
     result := convertToBoolean(res);
   finally
@@ -863,8 +869,84 @@ begin
 end;
 
 function TFHIRPathEvaluator.funcSubString(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+var
+  item : TFHIRBase;
+  pc, res : TFHIRBaseList;
+  s, sw : String;
+  n1, n2 : TFhirBaseList;
+  i1, i2 : integer;
 begin
-  raise Exception.Create('The function '+exp.name+' is not done yet');
+  n1 := nil;
+  n2 := nil;
+  result := TFHIRBaseList.Create;
+  try
+    n1 := execute(ctxt, context, exp.Parameters[0], false);
+    i1 := StrToInt(n1[0].primitiveValue);
+    if (exp.ParameterCount = 2) then
+    begin
+      n2 := execute(ctxt, context, exp.Parameters[1], false);
+      i2 := StrToInt(n2[0].primitiveValue);
+    end;
+
+    for item in context do
+    begin
+      sw := convertToString(item);
+      if n2 <> nil then
+        s := sw.Substring(i1, i2)
+      else
+        s := sw.Substring(i1);
+      if (s <> '') then
+        result.Add(TFhirString.Create(s));
+    end;
+
+    result.Link;
+  finally
+    n1.free;
+    n2.free;
+    result.Free;
+  end;
+end;
+
+function TFHIRPathEvaluator.funcExtension(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+var
+  item, ex : TFHIRBase;
+  pc, res, vl : TFHIRBaseList;
+  s, url : String;
+  n1, ext, v : TFhirBaseList;
+begin
+  n1 := nil;
+  result := TFHIRBaseList.Create;
+  try
+    n1 := execute(ctxt, context, exp.Parameters[0], false);
+    url := n1[0].primitiveValue;
+
+    for item in context do
+    begin
+      ext := TFHIRBaseList.Create;
+      try
+        item.ListChildrenByName('extension', ext);
+        item.ListChildrenByName('modifierExtension', ext);
+        for ex in ext do
+        begin
+          vl := TFHIRBaseList.Create;
+          try
+            ex.ListChildrenByName('url', vl);
+            if convertToString(vl) = url then
+              result.Add(ex.Link);
+          finally
+            vl.Free;
+          end;
+        end;
+      finally
+        ext.Free;
+      end;
+    end;
+
+    result.Link;
+  finally
+    n1.free;
+    result.Free;
+  end;
 end;
 
 function TFHIRPathEvaluator.funcTail(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
@@ -937,6 +1019,7 @@ begin
     poAnd: result := opAnd(left, right);
     poOr: result := opOr(left, right);
     poXor: result := opXor(left, right);
+    poImplies: result := opImplies(left, right);
     poConcatenate: result := opConcatenate(left, right);
 
   else
@@ -963,6 +1046,7 @@ begin
     poOr: result := TAdvStringSet.Create('boolean');
     poAnd: result := TAdvStringSet.Create('boolean');
     poXor: result := TAdvStringSet.Create('boolean');
+    poImplies: result := TAdvStringSet.Create('boolean');
     poUnion: result := TAdvStringSet.Create(left, right);
   else
     raise Exception.Create('not done yet');
@@ -1199,6 +1283,15 @@ begin
   result.Add(TFhirBoolean.Create(convertToBoolean(left) xor convertToBoolean(right)));
 end;
 
+function TFHIRPathEvaluator.opImplies(left, right: TFHIRBaseList): TFHIRBaseList;
+begin
+  result := TFHIRBaseList.Create;
+  if convertToBoolean(left) then
+    result.Add(TFhirBoolean.Create(convertToBoolean(right)))
+  else
+    result.Add(TFhirBoolean.Create(true));
+end;
+
 function TFHIRPathEvaluator.execute(ctxt : TFHIRPathExecutionContext; focus: TFHIRBaseList; exp: TFHIRExpressionNode; atEntry : boolean): TFHIRBaseList;
 var
   work, work2 : TFHIRBaseList;
@@ -1349,6 +1442,7 @@ begin
     for s in collection do
       if (isPrimitiveType(s)) then
         result.add(s);
+    result.link;
   finally
     result.free;
   end;
@@ -1491,6 +1585,7 @@ begin
         lexer.next;
         result.Inner := parseExpression(lexer, false);
       end;
+    result.Proximal := proximal;
     if (proximal) then
     begin
       focus := result;
@@ -1503,13 +1598,118 @@ begin
         focus.opNext := parseExpression(lexer, false);
         focus := focus.OpNext;
       end;
+      focus := organisePrecedence(lexer, result).Link;
+      result.Free;
+      result := focus;
     end;
-    result.Proximal := proximal;
     result.link;
   finally
     result.Free;
   end;
 end;
+
+function TFHIRPathEvaluator.newGroup(lexer : TFHIRPathLexer; next : TFHIRExpressionNode) : TFHIRExpressionNode;
+begin
+  result := TFHIRExpressionNode.Create(lexer.nextId);
+  try
+    result.kind := entGroup;
+    result.Group := next.Link;
+    result.link;
+  finally
+    result.free;
+  end;
+end;
+
+function TFHIRPathEvaluator.gatherPrecedence(lexer : TFHIRPathLexer; node : TFHIRExpressionNode; ops : TFHIRPathOperationSet) : TFHIRExpressionNode;
+var
+  work : boolean;
+  focus, group : TFHIRExpressionNode;
+begin
+  // is there anything to do?
+  work := false;
+  focus := node.OpNext;
+  if node.Operation in ops then
+    while (focus <> nil) do
+    begin
+      work := work and not (focus.Operation in Ops);
+      focus := focus.OpNext;
+    end
+  else
+    while (focus <> nil) do
+    begin
+      work := work or (focus.Operation in Ops);
+      focus := focus.OpNext;
+    end;
+  if not work then
+    exit(node);
+  // entry point: tricky
+  if node.Operation in ops then
+  begin
+    group := newGroup(lexer, node);
+    result := group;
+    focus := node;
+  end
+  else
+  begin
+    result := node;
+    focus := node.OpNext;
+    while not (focus.Operation in Ops) do
+    begin
+      node := focus;
+      focus := focus.OpNext;
+    end;
+    group := newGroup(lexer, focus);
+    node.OpNext := group;
+  end;
+
+  // now, at this point, group is the group we are adding to,
+  // and it already has a .group property filled out. focus points
+  // at the group.group
+  repeat
+    // run until we find the end of the sequence
+    while (focus.Operation in ops) do
+      focus := focus.OpNext;
+    if (focus.Operation <> opNull) then
+    begin
+      group.Operation := focus.Operation;
+      group.OpNext := focus.OpNext.Link;
+      focus.Operation := opNull;
+      group.OpNext := nil;
+      // now look for another sequence, and start it
+      node := group;
+      focus := group.OpNext;
+      while not (focus.Operation in Ops) do
+      begin
+        node := focus;
+        focus := focus.OpNext;
+      end;
+      group := newGroup(lexer, focus);
+      node.OpNext := group;
+    end;
+  until (focus.Operation = opNull);
+end;
+
+function TFHIRPathEvaluator.organisePrecedence(lexer : TFHIRPathLexer; node : TFHIRExpressionNode) : TFHIRExpressionNode;
+begin
+  // precedence:
+  // #1 . (path/function invocation) - this has already been handled by the parsing
+  // #2: *, /
+  // #3: +, -, &, |
+  // #4: =, ~, !=, !~, >, <, >=, <=, in
+  // #5: and, xor, or, implies
+  result := node;
+  try
+//  result := gatherPrecedence(result, [opMultiply, opDivide]);
+    result := gatherPrecedence(lexer, result, [poPlus, poMinus, poConcatenate, poUnion]);
+    result := gatherPrecedence(lexer, result, [poEquals, poEquivalent, poNotEquals, poNotEquivalent, poLessThen, poGreater, poLessOrEqual, poGreaterOrEqual, poIn]);
+    result := gatherPrecedence(lexer, result, [poEquals, poEquivalent, poNotEquals, poNotEquivalent, poLessThen, poGreater, poLessOrEqual, poGreaterOrEqual, poIn]);
+    // which just leaves poAnd, poOr, poXor, poImplies
+    result.Link;
+  finally
+    result.Free;
+  end;
+end;
+
 
 function TFHIRPathEvaluator.readConstant(constant: String): TFHIRType;
 begin
@@ -1623,7 +1823,7 @@ begin
                 tn := ed.path
               else
                 tn := t.code;
-              if (not result.contains(tn)) then
+              if (not result.contains(tn)) and (tn <> '') then
               begin
                 result.add(tn);
                 ListChildTypesByName(tn, '**', result);

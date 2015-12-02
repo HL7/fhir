@@ -150,7 +150,8 @@ type
 
   TFhirElementDefinitionHelper = class helper for TFhirElementDefinition
   public
-    function hasType(t : String) : boolean;
+    function hasType(t : String; out profile : String) : boolean;  overload;
+    function hasType(t : String) : boolean; overload;
   end;
 
   TFHIRResourceHelper = class helper for TFHIRResource
@@ -3144,6 +3145,22 @@ begin
   for edt in type_List do
     if edt.code = t then
       exit(true);
+end;
+
+function TFhirElementDefinitionHelper.hasType(t: String; out profile: String): boolean;
+var
+  edt : TFhirElementDefinitionType;
+begin
+  result := false;
+  for edt in type_List do
+    if edt.code = t then
+    begin
+      if edt.profileList.Count > 0 then
+        profile := edt.profileList[0].value
+      else
+        profile := '';
+      exit(true);
+    end;
 end;
 
 end.

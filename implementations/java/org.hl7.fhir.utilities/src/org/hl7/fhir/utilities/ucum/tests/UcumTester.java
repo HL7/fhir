@@ -14,7 +14,10 @@ package org.hl7.fhir.utilities.ucum.tests;
  ******************************************************************************/
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
+import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.Decimal;
 import org.hl7.fhir.utilities.ucum.Pair;
@@ -28,9 +31,12 @@ public class UcumTester {
 
 	/**
 	 * @param args
-	 * @throws Exception 
+	 * @throws IOException 
+	 * @throws XmlPullParserException 
+	 * @throws UcumException 
+	 * @ 
 	 */
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws XmlPullParserException, IOException, UcumException  {
 		if (args.length == 0) {
 			System.out.println("UCUM Tester - parameters:");
 			System.out.println("  -definitions [filename] - filename for the UCUM definitions");
@@ -74,7 +80,7 @@ public class UcumTester {
 	private UcumService ucumSvc;
 	private int errCount;
 	
-	private void execute() throws Exception {
+	private void execute() throws XmlPullParserException, IOException, UcumException  {
 
 		testDecimal();
 		
@@ -117,7 +123,7 @@ public class UcumTester {
 			System.err.println(Integer.toString(errCount)+" errors");
 	}
 	
-	private void runMultiplication(XmlPullParser xpp) throws Exception {
+	private void runMultiplication(XmlPullParser xpp) throws XmlPullParserException, IOException, UcumException  {
 		xpp.next();
 		while (xpp.getEventType() != XmlPullParser.END_TAG) {
 			if (xpp.getEventType() == XmlPullParser.TEXT) {
@@ -133,7 +139,7 @@ public class UcumTester {
 		xpp.next();	  
   }
 	
-	private void runMultiplicationCase(XmlPullParser xpp) throws Exception {
+	private void runMultiplicationCase(XmlPullParser xpp) throws XmlPullParserException, IOException, UcumException  {
 		
 	  String id = xpp.getAttributeValue(null, "id");
 	  String v1 = xpp.getAttributeValue(null, "v1");
@@ -160,7 +166,7 @@ public class UcumTester {
  		
   }
 	
-	private void testDecimal() throws Exception {
+	private void testDecimal() throws UcumException  {
     testAsInteger();
     testStringSupport();
     testCompares();
@@ -168,7 +174,7 @@ public class UcumTester {
     testMultiplication();
   }
 	
-	private void testMultiplication() throws Exception {
+	private void testMultiplication() throws UcumException  {
 	  testMultiply("2", "2", "4");
 	  testMultiply("2", "0.5", "1");
 	  testMultiply("0", "0", "0");
@@ -267,35 +273,35 @@ public class UcumTester {
 	  
   }
 
-	private void testModulo(String s1, String s2, String s3) throws Exception {
+	private void testModulo(String s1, String s2, String s3) throws UcumException   {
 	  Decimal v1 = new Decimal(s1);
 	  Decimal v2 = new Decimal(s2);
 	  Decimal v3 = v1.modulo(v2);
     check(v3.asDecimal().equals(s3), s1+" % "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
   }
 
-	private void testDivInt(String s1, String s2, String s3) throws Exception {
+	private void testDivInt(String s1, String s2, String s3) throws UcumException   {
 	  Decimal v1 = new Decimal(s1);
 	  Decimal v2 = new Decimal(s2);
 	  Decimal v3 = v1.divInt(v2);
     check(v3.asDecimal().equals(s3), s1+" /(int) "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
   }
 
-	private void testDivide(String s1, String s2, String s3) throws Exception {
+	private void testDivide(String s1, String s2, String s3)  throws UcumException  {
 	  Decimal v1 = new Decimal(s1);
 	  Decimal v2 = new Decimal(s2);
 	  Decimal v3 = v1.divide(v2);
     check(v3.asDecimal().equals(s3), s1+" / "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
   }
 
-	private void testMultiply(String s1, String s2, String s3) throws Exception {
+	private void testMultiply(String s1, String s2, String s3) throws UcumException  {
 	  Decimal v1 = new Decimal(s1);
 	  Decimal v2 = new Decimal(s2);
 	  Decimal v3 = v1.multiply(v2);
     check(v3.asDecimal().equals(s3), s1+" * "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
   }
 
-	private void testAddition() throws Exception {
+	private void testAddition() throws UcumException  {
 	  testAdd("1", "1", "2");
 	  testAdd("0", "1", "1");
 	  testAdd("0", "0", "0");
@@ -342,21 +348,21 @@ public class UcumTester {
 	  
   }
 	
-	private void testSubtract(String s1, String s2, String s3) throws Exception {
+	private void testSubtract(String s1, String s2, String s3) throws UcumException  {
 	  Decimal v1 = new Decimal(s1);
 	  Decimal v2 = new Decimal(s2);
 	  Decimal v3 = v1.subtract(v2);
     check(v3.asDecimal().equals(s3), s1+" - "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
   }
 	
-	private void testAdd(String s1, String s2, String s3) throws Exception {
+	private void testAdd(String s1, String s2, String s3) throws UcumException  {
 	  Decimal v1 = new Decimal(s1);
 	  Decimal v2 = new Decimal(s2);
 	  Decimal v3 = v1.add(v2);
     check(v3.asDecimal().equals(s3), s1+" + "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
   }
 	
-	private void testCompares() throws Exception {
+	private void testCompares() throws UcumException  {
 		testCompares("1", "1", 0);
 		testCompares("0", "0", 0);
 		testCompares("0", "1", -1);
@@ -371,14 +377,14 @@ public class UcumTester {
 		testCompares("1.111111", "1.111111", 0);
 	}
 	
-	private void testCompares(String v1, String v2, int outcome) throws Exception {
+	private void testCompares(String v1, String v2, int outcome) throws UcumException  {
 	  Decimal d1 = new Decimal(v1);
 	  Decimal d2 = new Decimal(v2);
 	  int result = d1.comparesTo(d2);
 	  check(result == outcome, "Compare fail: "+v1+".compares("+v2+") should be "+Integer.toString(outcome)+" but was "+Integer.toString(result));	  
   }
 	
-	private void testStringSupport() throws Exception {
+	private void testStringSupport() throws UcumException  {
 	  testString("1", "1", "1e0");
 	  testString("0", "0", "0e0");
 	  testString("10", "10", "1.0e1");
@@ -461,13 +467,13 @@ public class UcumTester {
 	  testTrunc("100.000000000000000000000000000000000000000001", "100");
   }
 	
-	private void testTrunc(String s1, String s2) throws Exception {
+	private void testTrunc(String s1, String s2) throws UcumException  {
 	  Decimal o1 = new Decimal(s1);
 	  Decimal o2 = o1.trunc();
     check(o2.asDecimal().equals(s2), "wrong trunc - expected "+s2+" but got "+o2.asDecimal());
   }
 	
-	private void testString(String s, String st, String std) throws Exception {
+	private void testString(String s, String st, String std) throws UcumException  {
 	  Decimal dec = new Decimal(s);
 	  String s1 = dec.toString();
 	  String s2 = dec.asScientific();
@@ -480,7 +486,7 @@ public class UcumTester {
 	  check(s1.equals(st), "decimal(2): expected "+st+" but got "+s1);	  
   }
 	
-	private void testAsInteger() throws Exception {
+	private void testAsInteger() throws UcumException  {
 	  testInteger(0);
 	  testInteger(1);
 	  testInteger(2);
@@ -492,7 +498,7 @@ public class UcumTester {
 	  testInteger(Integer.MIN_VALUE);	  
   }
 	
-	private void testInteger(int i) throws Exception {
+	private void testInteger(int i) throws UcumException  {
 		Decimal d = new Decimal(i);
 		check(d.asInteger() == i, "Failed to round trip the integer "+Integer.toString(i));
 	}
@@ -502,7 +508,7 @@ public class UcumTester {
 	  	throw new Error(msg);	  
   }
 	
-	private void runConversion(XmlPullParser xpp) throws Exception {
+	private void runConversion(XmlPullParser xpp) throws XmlPullParserException, IOException, UcumException  {
 		xpp.next();
 		while (xpp.getEventType() != XmlPullParser.END_TAG) {
 			if (xpp.getEventType() == XmlPullParser.TEXT) {
@@ -518,7 +524,7 @@ public class UcumTester {
 		xpp.next();
   }
 
-	private void runConversionCase(XmlPullParser xpp) throws Exception {
+	private void runConversionCase(XmlPullParser xpp) throws XmlPullParserException, IOException, UcumException  {
 		
 	  String id = xpp.getAttributeValue(null, "id");
 	  String value = xpp.getAttributeValue(null, "value");
@@ -544,7 +550,7 @@ public class UcumTester {
 		System.out.println(string);
 	  
   }
-	private void runDisplayNameGeneration(XmlPullParser xpp) throws Exception {
+	private void runDisplayNameGeneration(XmlPullParser xpp) throws XmlPullParserException, IOException, UcumException  {
 		xpp.next();
 		while (xpp.getEventType() != XmlPullParser.END_TAG) {
 			if (xpp.getEventType() == XmlPullParser.TEXT) {
@@ -560,7 +566,7 @@ public class UcumTester {
 		xpp.next();
   }
 
-	private void runDisplayNameGenerationCase(XmlPullParser xpp) throws Exception {
+	private void runDisplayNameGenerationCase(XmlPullParser xpp) throws XmlPullParserException, IOException, UcumException  {
 	  String id = xpp.getAttributeValue(null, "id");
 	  String unit = xpp.getAttributeValue(null, "unit");
 	  String display = xpp.getAttributeValue(null, "display");
@@ -577,7 +583,7 @@ public class UcumTester {
  		xpp.next();
   }
 	
-	private void runValidationTests(XmlPullParser xpp) throws Exception {
+	private void runValidationTests(XmlPullParser xpp) throws XmlPullParserException, IOException  {
 		xpp.next();
 		while (xpp.getEventType() != XmlPullParser.END_TAG) {
 			if (xpp.getEventType() == XmlPullParser.TEXT) {
@@ -593,7 +599,7 @@ public class UcumTester {
 		xpp.next();
   }
 	
-	private void runValidationCase(XmlPullParser xpp) throws Exception {
+	private void runValidationCase(XmlPullParser xpp) throws XmlPullParserException, IOException  {
 	  String id = xpp.getAttributeValue(null, "id");
 	  String unit = xpp.getAttributeValue(null, "unit");
 	  boolean valid = "true".equals(xpp.getAttributeValue(null, "valid"));
@@ -618,7 +624,7 @@ public class UcumTester {
  		xpp.next();
   }
 	
-	private void skipElement(XmlPullParser xpp) throws Exception {
+	private void skipElement(XmlPullParser xpp) throws XmlPullParserException, IOException  {
 		xpp.next();
 		while (xpp.getEventType() != XmlPullParser.END_TAG) {
 			if (xpp.getEventType() == XmlPullParser.START_TAG)

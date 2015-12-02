@@ -46,6 +46,7 @@ import javax.imageio.ImageIO;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -296,7 +297,7 @@ public class HierarchicalTableGenerator  {
     return model;
   }
 
-  public XhtmlNode generate(TableModel model, String corePrefix) throws Exception {
+  public XhtmlNode generate(TableModel model, String corePrefix) throws IOException, FHIRException  {
     checkModel(model);
     XhtmlNode table = new XhtmlNode(NodeType.Element, "table").setAttribute("border", "0").setAttribute("cellspacing", "0").setAttribute("cellpadding", "0");
     table.setAttribute("style", "border: 0px; font-size: 11px; font-family: verdana; vertical-align: top;");
@@ -329,7 +330,7 @@ public class HierarchicalTableGenerator  {
   }
 
 
-  private void renderRow(XhtmlNode table, Row r, int indent, List<Boolean> indents, String corePrefix) throws Exception {
+  private void renderRow(XhtmlNode table, Row r, int indent, List<Boolean> indents, String corePrefix) throws IOException  {
     XhtmlNode tr = table.addTag("tr");
     String color = "white";
     if (r.getColor() != null)
@@ -355,7 +356,7 @@ public class HierarchicalTableGenerator  {
   }
 
 
-  private XhtmlNode renderCell(XhtmlNode tr, Cell c, String name, String icon, String hint, List<Boolean> indents, boolean hasChildren, String anchor, String color, String corePrefix) throws Exception {
+  private XhtmlNode renderCell(XhtmlNode tr, Cell c, String name, String icon, String hint, List<Boolean> indents, boolean hasChildren, String anchor, String color, String corePrefix) throws IOException  {
     XhtmlNode tc = tr.addTag(name);
     tc.setAttribute("class", "hierarchy");
     if (indents != null) {
@@ -444,7 +445,7 @@ public class HierarchicalTableGenerator  {
   }
 
 
-  private void checkModel(TableModel model) throws Exception {
+  private void checkModel(TableModel model) throws FHIRException  {
     check(!model.getRows().isEmpty(), "Must have rows");
     check(!model.getTitles().isEmpty(), "Must have titles");
     for (Cell c : model.getTitles())
@@ -457,7 +458,7 @@ public class HierarchicalTableGenerator  {
   }
 
 
-  private void check(Cell c) throws Exception {  
+  private void check(Cell c) throws FHIRException  {  
     boolean hasText = false;
     for (Piece p : c.pieces)
       if (!Utilities.noString(p.getText()))
@@ -466,7 +467,7 @@ public class HierarchicalTableGenerator  {
   }
 
 
-  private void check(Row r, String string, int size, String path) throws Exception {    
+  private void check(Row r, String string, int size, String path) throws FHIRException  {    
     check(r.getCells().size() == size, "All rows must have the same number of columns ("+Integer.toString(size)+") as the titles but row "+path+" doesn't ("+r.getCells().get(0).text()+")");
     int i = 0;
     for (Row c : r.getSubRows()) {
@@ -476,7 +477,7 @@ public class HierarchicalTableGenerator  {
   }
 
 
-  private String checkExists(List<Boolean> indents, boolean hasChildren) throws Exception {
+  private String checkExists(List<Boolean> indents, boolean hasChildren) throws IOException  {
     String filename = makeName(indents);
     
     StringBuilder b = new StringBuilder();
@@ -536,8 +537,8 @@ public class HierarchicalTableGenerator  {
     return b.toString();
   }
 
-  private void check(boolean check, String message) throws Exception {
+  private void check(boolean check, String message) throws FHIRException  {
     if (!check)
-      throw new Exception(message);
+      throw new FHIRException(message);
   }
 }
