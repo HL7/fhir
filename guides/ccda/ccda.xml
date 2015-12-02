@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ccda"/>
+  <language value="English"/>
+  <url value="http://hl7.org/fhir/ccda"/>
+  <version value="1.0.0"/>
+  <name value="C-CDA on FHIR"/>
+  <status value="draft"/>
+  <publisher value="HL7"/>
+  <description value="This is the C-CDA on FHIR Implementation Guide"/>
+  <fhirVersion value="1.0.2"/>
+  <package>
+    <name value="CCDA Package"/>
+    <description value="Resource profiles and extensions necessary to support C-CDA on FHIR."/>
+  </package>
+  <page>
+    <source value="ccda.html"/>
+    <name value="C-CDA on FHIR Introduction"/>
+    <kind value="page"/>
+    <page>
+      <source value="ccda-toc.html"/>
+      <name value="Table of Contents"/>
+      <kind value="toc"/>
+    </page>
+    <!-- Put Other pages here --></page>
+    <!-- page>
+      <source value=""/>
+      <name value=""/>
+      <kind value="page"/>
+      <format value="generated"/>
+    </page -->
+</ImplementationGuide>
