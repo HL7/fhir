@@ -128,7 +128,7 @@
   Context = Bundle
   English = total only when a search or history
   XPath = not(f:total) or (f:type/@value = \'searchset\') or (f:type/@value = \'history\')
-  Expression = total or (type = \' searchset\') or (type = \'history\')
+  Expression = total.empty() or (type = \'searchset\') or (type = \'history\')
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -176,7 +176,7 @@
   Context = Bundle
   English = FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId
   XPath = count(for $entry in f:entry[f:resource] return $entry[count(parent::f:Bundle/f:entry[f:fullUrl/@value=$entry/f:fullUrl/@value and ((not(f:resource/*/f:meta/f:versionId/@value) and not($entry/f:resource/*/f:meta/f:versionId/@value)) or f:resource/*/f:meta/f:versionId/@value=$entry/f:resource/*/f:meta/f:versionId/@value)])!=1])=0
-  Expression = entry.distinct(fullUrl,resource.meta.versionId)
+  Expression = entry.where(fullUrl).distinct(fullUrl,resource.meta.versionId)
   Severity = error
 
 === Sheet Data Elements =====================================

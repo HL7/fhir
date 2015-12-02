@@ -207,7 +207,7 @@
   Context = Timing.repeat
   English = Either frequency or when can exist, not both
   XPath = not((f:period or f:frequency) and f:when)
-  Expression = (period.empty() and frequency.empty()) xor when.empty()
+  Expression = ((period or frequency) and when).not()
 
  -- Row 4 -----------------------------------
   Id = 4

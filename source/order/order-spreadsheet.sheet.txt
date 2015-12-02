@@ -18,7 +18,7 @@
   Context = Order.when
   English = Provide a code or a schedule, but not both
   XPath = exists(f:code) != exists(f:schedule)
-  FHIRPath = code.empty() xor schedule
+  Expression = code.empty() or schedule.empty()
 
 === Sheet Data Elements =====================================
 

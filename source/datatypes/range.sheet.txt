@@ -8,7 +8,7 @@
   Context = Range
   English = If present, low SHALL have a lower value than high
   XPath = not(exists(f:low/f:value/@value)) or not(exists(f:high/f:value/@value)) or (number(f:low/f:value/@value) <= number(f:high/f:value/@value))
-  FHIRPath = low.empty() or high.empty() or (low.value <= high.value)
+  Expression = low.empty() or high.empty() or (low <= high)
 
 === Sheet Data Elements =====================================
 

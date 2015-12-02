@@ -78,7 +78,7 @@
   Context = Immunization
   English = If immunization was administered (wasNotGiven=false) then explanation.reasonNotGiven SHALL be absent.
   XPath = not(f:wasNotGiven/@value=false() and exists(f:explanation/f:reasonNotGiven))
-  Expression = (wasNotGiven = \'true\').not() or explanation.reasonNotGiven.empty()
+  Expression = (wasNotGiven = \'true\') or explanation.reasonNotGiven.empty()
 
 === Sheet Data Elements =====================================
 

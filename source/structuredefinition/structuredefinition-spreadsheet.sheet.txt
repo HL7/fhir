@@ -117,7 +117,7 @@
   Context = StructureDefinition
   English = If the structure describes a base Resource or Type, the URL has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the id
   XPath = exists(f:constrainedType) or f:url/@value=concat(\'http://hl7.org/fhir/StructureDefinition/\', f:id/@value)
-  Expression = constrainedType or url = \'http://hl7.org/fhir/StuctureDefinition/\'+id
+  Expression = constrainedType or url = \'http://hl7.org/fhir/StructureDefinition/\'+id
 
  -- Row 8 -----------------------------------
   Id = 8
@@ -148,7 +148,7 @@
   Context = StructureDefinition
   English = If there\'s a constrained type, its content must match the path name in the first element of a snapshot
   XPath = not(exists(f:constrainedType)) or not(exists(f:snapshot)) or (f:constrainedType/@value = f:snapshot/f:element[1]/f:path/@value)
-  Expression = constrainedType.empty() or snapshot.element.first.path = constrainedType
+  Expression = constrainedType.empty() or snapshot.element.first().path = constrainedType
 
  -- Row 12 -----------------------------------
   Id = 12
@@ -156,15 +156,7 @@
   Context = StructureDefinition
   English = element.base cannot appear if there is no base on the structure definition
   XPath = f:base or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))
-  Expression = snapshot.element.base.empty() xor base
-
- -- Row 13 -----------------------------------
-  Id = 13
-  Requirements = Ensure that element.base appears if there\'s a constrained type on the structure definition
-  Context = StructureDefinition
-  English = element.base must appear if there is a base on the structure definition
-  XPath = not(f:constrainedType) or not(f:snapshot/f:element[not(f:base)])
-  Expression = snapshot.element.base.empty() xor base
+  Expression = snapshot.element.base implies base
 
 === Sheet Data Elements =====================================
 

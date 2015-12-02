@@ -2,7 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/specimen-container-type",
   "outcomes": [
     {
-      "hash": "#|http://acme.com/labs|null|SST|Serum Separator Tube",
+      "hash": "#|http://acme.com/labs|null|UCUP|100mL sterile cup",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|434746001|Specimen vial",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -12,12 +17,7 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://acme.com/labs|null|UCUP|100mL sterile cup",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|434746001|Specimen vial",
+      "hash": "#|http://acme.com/labs|null|SST|Serum Separator Tube",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }
