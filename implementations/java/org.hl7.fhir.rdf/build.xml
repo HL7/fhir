@@ -14,7 +14,7 @@
     <pathelement location="${org.hl7.fhir.utilities.location}/bin"/>
   </path>
   <path id="org.hl7.fhir.rdf.classpath">
-    <pathelement location="../../../tools/java/org.hl7.fhir.instance/bin/"/>
+    <pathelement location="../../../tools/java/org.hl7.fhir.dstu21/bin/"/>
     <fileset dir="../../../tools/java/imports" includes="*.jar"/>
     <path refid="org.hl7.fhir.utilities.classpath"/>
   </path>
