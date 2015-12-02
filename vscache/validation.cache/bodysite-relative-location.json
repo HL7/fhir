@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/bodysite-relative-location",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/sct|null|255549009|Anterior",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|261183002|Upper",
       "severity": null,
       "message": null,
@@ -11,11 +16,6 @@
         "definition": null,
         "display": "Upper"
       }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|255549009|Anterior",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|419161000|Unilateral left",

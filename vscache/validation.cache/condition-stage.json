@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/condition-stage",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|258219007|stage II",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Stage 2"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|14803004|Temporary",
       "severity": null,
       "message": null,
@@ -21,6 +10,17 @@
         "code": null,
         "definition": null,
         "display": "Transitory"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|258219007|stage II",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Stage 2"
       }
     }
   ]

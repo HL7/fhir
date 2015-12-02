@@ -208,6 +208,8 @@
   Type = DomainResource
   Short Label = Prostate
   Definition = Prostate cancer
+  Logical Mapping = dr := DiagnosticReport
+  CAP Code = 28992.1000043
 
  -- Row 2 -----------------------------------
   Element = Prostate.subject
@@ -217,6 +219,7 @@
   Type = Reference(Patient|Group)
   Short Label = The subject of the report, usually, but not always, the patient
   Definition = The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
+  Logical Mapping = dr.subject
   v2 Mapping = PID-3-Patient ID List (no V2 mapping for Group or Device)
   RIM Mapping = participation[typeCode=SBJ]
   To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
@@ -228,6 +231,7 @@
   Type = Reference(Practitioner)
   Short Label = Who ordered the test
   Definition = The practitioner that holds legal responsibility for ordering the investigation
+  Logical Mapping = !req := dr.request->DiagnosticOrder; req[orderer := $value]
   RIM Mapping = participation[typeCode=AUT].role
   To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
 
@@ -241,6 +245,7 @@
   Definition = The diagnostic service that is responsible for issuing the report
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
   Comments = This is not necessarily the source of the atomic data items - it is the entity that takes responsibility for the clinical report.
+  Logical Mapping = dr[performer := $value]
   v2 Mapping = PRT-8-Participation Organization (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
   To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
@@ -252,6 +257,8 @@
   Short Label = Pre Analytic
   Definition = Pre Analytic component - information collection prior to specimen receipt at laboratory.
   Comments = This is just a group/section header and is not a result field
+  Logical Mapping = req := dr.request->DiagnosticOrder; req[orderer := $value]
+  CAP Code = 28592.1000043
 
  -- Row 6 -----------------------------------
   Element = Prostate.preAnalytic.clinicalInformation
@@ -259,6 +266,8 @@
   Type = string
   Short Label = Clinical information
   Definition = Clinical information provided on request form
+  Logical Mapping = req.reason[text := $value]
+  CAP Code = 28589.1000043
 
  -- Row 7 -----------------------------------
   Element = Prostate.preAnalytic.surgicalProcedure
@@ -266,6 +275,8 @@
   Type = string
   Short Label = Surgical Procedure
   Definition = Surgical Procedure
+  Logical Mapping = sp.text
+  CAP Code = 28993.1000043
 
  -- Row 8 -----------------------------------
   Element = Prostate.preAnalytic.natureOfSpecimen
@@ -273,6 +284,8 @@
   Type = string
   Short Label = Nature of specimen
   Definition = Nature of the specimen
+  Logical Mapping = sp := dr.specimen->Specimen; sp[type := $value]
+  CAP Code = 28994.1000043
 
  -- Row 9 -----------------------------------
   Element = Prostate.preAnalytic.clinicalHistory
@@ -280,6 +293,8 @@
   Type = string
   Short Label = Clinical history
   Definition = Clinical history (including\nGleason grade and score of\nprevious specimens)
+  Logical Mapping = req.reason[text := $value]
+  CAP Code = 28995.1000043
 
  -- Row 10 -----------------------------------
   Element = Prostate.preAnalytic.previousTherapy
@@ -287,6 +302,8 @@
   Type = string
   Short Label = Previous therapy
   Definition = Previous therapy
+  Logical Mapping = req.supportingInformation -> Observation[code := %map-codes; value[x] := $value]
+  CAP Code = 29002.1000043
 
  -- Row 11 -----------------------------------
   Element = Prostate.preAnalytic.psa
@@ -295,6 +312,8 @@
   Short Label = Pre-biopsy serum PSA
   Definition = Pre-biopsy serum Prostate Specific Antigen (PSA)
   Requirements = Units in ng/|mL
+  Logical Mapping = dr.result[text := $value]
+  CAP Code = 29003.1000043
 
  -- Row 12 -----------------------------------
   Element = Prostate.preAnalytic.stagingInfo
@@ -302,6 +321,8 @@
   Type = string
   Short Label = Relevant clinical information for\nclinicopathological staging
   Definition = Relevant clinical information for\nclinicopathological staging.
+  Logical Mapping = si.text
+  CAP Code = 29006.1000043
 
  -- Row 13 -----------------------------------
   Element = Prostate.preAnalytic.pathologyAccessionNumber
@@ -309,6 +330,8 @@
   Type = string
   Short Label = Pathology number
   Definition = Pathology accession number
+  Logical Mapping = dr[identifier := $value]
+  CAP Code = 29013.1000043
 
  -- Row 14 -----------------------------------
   Element = Prostate.preAnalytic.principalClinician
@@ -316,6 +339,8 @@
   Type = string
   Short Label = Principal clinician
   Definition = Principal clinician
+  Logical Mapping = Practitioner.name[text := $value]
+  CAP Code = 29014.1000043
 
  -- Row 15 -----------------------------------
   Element = Prostate.preAnalytic.comments
@@ -323,6 +348,8 @@
   Type = string
   Short Label = Comments
   Definition = Comments
+  Logical Mapping = req.note[text := $value]
+  CAP Code = 29015.1000043
 
  -- Row 16 -----------------------------------
   Element = Prostate.macro
@@ -331,6 +358,8 @@
   Short Label = Macroscopy
   Definition = Macroscopic findings
   Comments = This is just a group/section header and is not a result field
+  Logical Mapping = macro := dr.result->Observation[code := %map-codes]
+  CAP Code = 28858.1000043
 
  -- Row 17 -----------------------------------
   Element = Prostate.macro.specimenWeight
@@ -339,6 +368,8 @@
   Short Label = Specimen weight
   Definition = Specimen weight (ie Prostate\nwithout seminal vesicles)
   Requirements = measurement in g.
+  Logical Mapping = sp1 := dr.specimen->Specimen; sp1.collection[quantity := $value]
+  CAP Code = 28865.1000043
 
  -- Row 18 -----------------------------------
   Element = Prostate.macro.specimenDimensions
@@ -347,6 +378,8 @@
   Short Label = Specimen dimensions
   Definition = Specimen dimensions (prostate)
   Requirements = measured: __ x __ x __ mm
+  Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 29016.1000043
   To Do = Ask GG how to have dismensions in a qualntity value data type or just use string??
 
  -- Row 19 -----------------------------------
@@ -356,6 +389,8 @@
   Binding = SeminalVesiclesMacro
   Short Label = Seminal vesicles
   Definition = Seminal Vesicles
+  Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28513.1000043
 
  -- Row 20 -----------------------------------
   Element = Prostate.macro.lymphNodes
@@ -366,6 +401,8 @@
   Short Label = Lymph nodes
   Definition = If lymph nodes are received, then they should be recorded.
   Requirements = Conditional:\nIf received, record the number of nodes
+  Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28866.1000043
 
  -- Row 21 -----------------------------------
   Element = Prostate.macro.lymphNodes.laterality
@@ -375,6 +412,8 @@
   Short Label = Lymph nodes
   Definition = If lymph nodes are received, then they should be recorded.
   Requirements = Conditional:\nIf received, record the number of nodes
+  Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 29023.1000043
 
  -- Row 22 -----------------------------------
   Element = Prostate.macro.lymphNodes.siteAndNoLymphNodes
@@ -383,6 +422,8 @@
   Short Label = Site(s) and numbers of lymph\nnodes
   Definition = Site(s) and numbers of lymph\nnodes
   Requirements = Note that the site and number of LNs for that site may need to be repeated for each site received.
+  Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 29029.1000043
   To Do = Ask GG how to represent this in a data type or just a string/text.
 
  -- Row 23 -----------------------------------
@@ -391,6 +432,8 @@
   Type = string
   Short Label = Block identification key
   Definition = Block identification key
+  Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 29031.1000043
 
  -- Row 24 -----------------------------------
   Element = Prostate.macro.otherMacroComments
@@ -398,6 +441,8 @@
   Type = string
   Short Label = Other macroscopic comments
   Definition = A descriptive or narrative field should be provided to record any macroscopic information that is not recorded in the above standards and guidelines, and that would normally form part of the macroscopic description.
+  Logical Mapping = macro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 29032.1000043
 
  -- Row 25 -----------------------------------
   Element = Prostate.micro
@@ -406,6 +451,8 @@
   Short Label = Microscopy
   Definition = Microscopy of the sample
   Comments = This is just a group/section header and is not a result field
+  Logical Mapping = micro := dr.result->Observation[code := %map-codes]
+  CAP Code = 28869.1000043
 
  -- Row 26 -----------------------------------
   Element = Prostate.micro.tumourType
@@ -415,6 +462,8 @@
   Binding = TumourType
   Short Label = Tumour type
   Definition = Tumour type
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28870.1000043
 
  -- Row 27 -----------------------------------
   Element = Prostate.micro.tumourType.other
@@ -422,6 +471,8 @@
   Type = string
   Short Label = Other tumour type
   Definition = Other tumour type
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = Field wasn\'t in protocol but should have been!!
 
  -- Row 28 -----------------------------------
   Element = Prostate.micro.tumourType.acinarVariant
@@ -429,6 +480,8 @@
   Type = string
   Short Label = Acinar variant
   Definition = Acinar variant
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = ???
 
  -- Row 29 -----------------------------------
   Element = Prostate.micro.tumourLocation
@@ -437,6 +490,8 @@
   Short Label = Tumour location
   Definition = Tumour location
   Comments = This is just a group/section header and is not a result field
+  Logical Mapping = micro := BodySite[code := $value]
+  CAP Code = 28271.1000043
 
  -- Row 30 -----------------------------------
   Element = Prostate.micro.tumourLocation.quadrant
@@ -447,6 +502,8 @@
   Short Label = Largest nodule located by\nquadrant
   Definition = Largest nodule located by\nquadrant
   Requirements = Single selection value list.
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28272.1000043
 
  -- Row 31 -----------------------------------
   Element = Prostate.micro.tumourLocation.plane
@@ -456,6 +513,8 @@
   Short Label = Largest nodule located by\nquadrant
   Definition = Largest nodule located by\nquadrant
   Requirements = Single selection value list.
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28469.1000043
 
  -- Row 32 -----------------------------------
   Element = Prostate.micro.tumourLocation.otherNodules
@@ -466,6 +525,7 @@
   Definition = Other nodules >10mm in\ndiameter
   Requirements = Single selection value list.
   Comments = If present, record the locations in quadrant and plane
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
  -- Row 33 -----------------------------------
   Element = Prostate.micro.tumourLocation.otherNodules.quadrant
@@ -475,6 +535,8 @@
   Short Label = Other nodules - locations by quadrant
   Definition = Other nodules - locations by quadrant
   Requirements = Multi selection value list.
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28487.1000043
 
  -- Row 34 -----------------------------------
   Element = Prostate.micro.tumourLocation.otherNodules.plane
@@ -484,6 +546,8 @@
   Short Label = Other nodules - locations by plane
   Definition = Other nodules - locations by plane
   Requirements = Multi selection value list.
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28497.1000043
 
  -- Row 35 -----------------------------------
   Element = Prostate.micro.intraglandularExtent
@@ -492,6 +556,8 @@
   Short Label = Intraglandular extent
   Definition = Intraglandular extent
   Requirements = Numeric:  __%
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28906.1000043
 
  -- Row 36 -----------------------------------
   Element = Prostate.micro.sizeDominantNodule
@@ -500,6 +566,8 @@
   Short Label = Maximum size of dominant nodule
   Definition = Maximum size of dominant\nnodule
   Requirements = Numeric:  __mm
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28908.1000043
 
  -- Row 37 -----------------------------------
   Element = Prostate.micro.histologicalGrade
@@ -508,6 +576,8 @@
   Short Label = Histological grade
   Definition = Histological grade
   Comments = This is just a group/section header and is not a result field
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28880.1000043
 
  -- Row 38 -----------------------------------
   Element = Prostate.micro.histologicalGrade.primary
@@ -516,6 +586,8 @@
   Short Label = Primary Gleason grade
   Definition = Primary Gleason grade
   Requirements = Numeric: ___ (1-5)
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28503.1000043
 
  -- Row 39 -----------------------------------
   Element = Prostate.micro.histologicalGrade.secondary
@@ -524,6 +596,8 @@
   Short Label = Secondary Gleason grade
   Definition = Secondary Gleason grade
   Requirements = Numeric: ___ (1-5)
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28504.1000043
 
  -- Row 40 -----------------------------------
   Element = Prostate.micro.histologicalGrade.tertiary
@@ -532,6 +606,8 @@
   Short Label = Tertiary Gleason grade
   Definition = Tertiary Gleason grade
   Requirements = Numeric: ___ (3-5) or Not applicable
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28505.1000043
 
  -- Row 41 -----------------------------------
   Element = Prostate.micro.histologicalGrade.score
@@ -539,6 +615,8 @@
   Type = string
   Short Label = Gleason score
   Definition = Gleason score
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28903.1000043
 
  -- Row 42 -----------------------------------
   Element = Prostate.micro.extraprostaticExtension
@@ -550,6 +628,7 @@
   Definition = Extraprostatic extension
   Requirements = Single selection value list
   Comments = If present, record S3.04 extent.\nIf present, consider recording\nG3.04
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
  -- Row 43 -----------------------------------
   Element = Prostate.micro.extraprostaticExtension.extent
@@ -560,6 +639,8 @@
   Definition = Extraprostatic extension - extent
   Requirements = Single selection value list
   Comments = If present, record S3.04 extent.\nIf present, consider recording\nG3.04
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28911.1000043
 
  -- Row 44 -----------------------------------
   Element = Prostate.micro.extraprostaticExtension.locations
@@ -571,6 +652,8 @@
   Definition = Extraprostatic extension - locations of EPE
   Requirements = Single selection value list
   Comments = If other, specify the other\nlocation.
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28566.1000043
 
  -- Row 45 -----------------------------------
   Element = Prostate.micro.extraprostaticExtension.locations.other
@@ -578,6 +661,7 @@
   Type = string
   Short Label = Extraprostatic extension - other location
   Definition = Extraprostatic extension - other location
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
  -- Row 46 -----------------------------------
   Element = Prostate.micro.marginStatus
@@ -588,6 +672,8 @@
   Short Label = Margin status
   Definition = Margin status
   Requirements = Single selection value list:
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28929.1000043
 
  -- Row 47 -----------------------------------
   Element = Prostate.micro.marginStatus.location
@@ -597,6 +683,8 @@
   Short Label = Involved margin location
   Definition = Involved margin location
   Requirements = Multi select value list (select all that apply):
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28936.1000043
 
  -- Row 48 -----------------------------------
   Element = Prostate.micro.marginStatus.location.other
@@ -604,6 +692,7 @@
   Type = string
   Short Label = Margin status - other location
   Definition = Margin status - other location
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
  -- Row 49 -----------------------------------
   Element = Prostate.micro.marginStatus.extent
@@ -613,6 +702,8 @@
   Definition = Involved margin extent
   Requirements = Numeric: ___mm\nNotes:\nIf more than 1 positive margin, record the\ncummulative length.
   Comments = Conditional on margin\ninvolvement
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28511.1000043
 
  -- Row 50 -----------------------------------
   Element = Prostate.micro.marginStatus.score
@@ -622,6 +713,8 @@
   Definition = Gleason score at margin
   Requirements = Numeric: __\nNotes:\nIf more than 1 positive margin, record the\nhighest score
   Comments = Conditional on margin\ninvolvement
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28516.1000043
 
  -- Row 51 -----------------------------------
   Element = Prostate.micro.marginStatus.positivity
@@ -632,6 +725,8 @@
   Definition = Type of margin positivity
   Requirements = Multi select value list (select all that apply):
   Comments = Conditional on margin\ninvolvement
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28520.1000043
 
  -- Row 52 -----------------------------------
   Element = Prostate.micro.seminalVesicles
@@ -643,6 +738,8 @@
   Definition = Seminal vesicles
   Requirements = Single selection value list:
   Comments = If involved, record side
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28920.1000043
 
  -- Row 53 -----------------------------------
   Element = Prostate.micro.seminalVesicles.side
@@ -652,6 +749,8 @@
   Short Label = Seminal vesicles - side
   Definition = Seminal vesicles - side
   Requirements = Single selection value list:
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28922.1000043
 
  -- Row 54 -----------------------------------
   Element = Prostate.micro.bladderNeck
@@ -661,6 +760,8 @@
   Short Label = Bladder neck
   Definition = Bladder neck
   Requirements = Single selection value list:
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28975.1000043
 
  -- Row 55 -----------------------------------
   Element = Prostate.micro.lymphNodeStatus
@@ -669,6 +770,8 @@
   Short Label = Lymph node status
   Definition = Lymph node status
   Comments = This is just a group/section header and is not a result field\nThis is conditional on receipt of LNs in S2.03.
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28965.1000043
 
  -- Row 56 -----------------------------------
   Element = Prostate.micro.lymphNodeStatus.number
@@ -677,6 +780,8 @@
   Short Label = Number of lymph nodes\nexamined
   Definition = Number of lymph nodes\nexamined
   Requirements = Numeric: __
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28968.1000043
 
  -- Row 57 -----------------------------------
   Element = Prostate.micro.lymphNodeStatus.numberPositive
@@ -687,6 +792,8 @@
   Definition = Number of positive lymph\nnodes
   Requirements = Numeric: __
   Comments = If >0 consider recording G3.09 and G3.10.
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28970.1000043
 
  -- Row 58 -----------------------------------
   Element = Prostate.micro.lymphNodeStatus.laterality
@@ -697,6 +804,8 @@
   Short Label = Lymph node laterality
   Definition = The laterality of any lymph node involvement should be recorded.
   Comments = Consider recording the site(s) of involved nodes
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28520.1000043
 
  -- Row 59 -----------------------------------
   Element = Prostate.micro.lymphNodeStatus.sitesInvolved
@@ -704,6 +813,8 @@
   Type = string
   Short Label = Site(s) of involved nodes
   Definition = Site(s) of involved nodes
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28524.1000043
 
  -- Row 60 -----------------------------------
   Element = Prostate.micro.lymphNodeStatus.maxDimension
@@ -712,6 +823,8 @@
   Short Label = Maximum dimension of largest deposit
   Definition = The maximum dimension of the largest lymph node deposit may be\nrecorded.
   Requirements = Numeric: __
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28975.1000043
 
  -- Row 61 -----------------------------------
   Element = Prostate.micro.lymphNodeStatus.invasion
@@ -720,6 +833,8 @@
   Binding = LymphovascularInvasion
   Short Label = Lymphovascular invasion
   Definition = Lymphovascular invasion should be recorded.
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28946.1000043
 
  -- Row 62 -----------------------------------
   Element = Prostate.micro.addtionalComment
@@ -727,6 +842,8 @@
   Type = string
   Short Label = Additional microscopic comment
   Definition = Additional microscopic comment
+  Logical Mapping = micro.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28526.1000043
 
  -- Row 63 -----------------------------------
   Element = Prostate.synthesisOverview
@@ -735,6 +852,8 @@
   Short Label = Synthesis and Overview
   Definition = Synthesis and Overview are to be recorded
   Comments = This is just a group/section header and is not a result field
+  Logical Mapping = synthesis := dr.result->Observation[code := %map-codes]
+  CAP Code = 28527.1000043
 
  -- Row 64 -----------------------------------
   Element = Prostate.synthesisOverview.tumourStage
@@ -743,6 +862,8 @@
   Short Label = Tumour stage
   Definition = Tumour stage is to be recorded
   Comments = This is just a sub-group/sub-section header and is not a result field
+  Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28525.1000043
 
  -- Row 65 -----------------------------------
   Element = Prostate.synthesisOverview.tumourStage.t
@@ -753,6 +874,8 @@
   Definition = Primary Tumour stage T is to be recorded
   Requirements = Single selection value list.
   Comments = Notes:\n1. Invasion into the prostate apex or into\n(but not beyond) the prostate capsule is\nnot classified as T3, but as T2.\n* There is no pathologic T1 classification for\nradical prostatectomy specimens\n** Positive surgical margin should be\nindicated by an R1 descriptor (residual\nmicroscopic disease)
+  Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28950.1000043
 
  -- Row 66 -----------------------------------
   Element = Prostate.synthesisOverview.tumourStage.n
@@ -762,6 +885,8 @@
   Short Label = Regional lymph nodes (N)
   Definition = Regional lymph nodes (N) is to be recorded
   Requirements = Single selection value list.
+  Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28961.1000043
 
  -- Row 67 -----------------------------------
   Element = Prostate.synthesisOverview.tumourStage.m
@@ -771,6 +896,8 @@
   Short Label = Distant metastasis (M)
   Definition = Distant metastasis (M) is to be recorded
   Requirements = Single selection value list.
+  Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28976.1000043
 
  -- Row 68 -----------------------------------
   Element = Prostate.synthesisOverview.tumourStage.stagingSystemDetails
@@ -779,6 +906,7 @@
   Short Label = Year and/or edition of staging system
   Definition = Year and/or edition of staging system is to be recorded
   Requirements = Numeric: year\nAND/OR\nText: Edition eg 1st, 2nd etc
+  Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
 
  -- Row 69 -----------------------------------
   Element = Prostate.synthesisOverview.diagnosticSummary
@@ -787,6 +915,8 @@
   Short Label = Diagnostic summary
   Definition = Diagnostic summary is to be recorded
   Requirements = Include:\na. specimen type\nb. tumour site\nc. Gleason score\nd. tumour stage\ne. whether or not the specimen margins are involved
+  Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28533.1000043
 
  -- Row 70 -----------------------------------
   Element = Prostate.synthesisOverview.overarchingComment
@@ -795,3 +925,5 @@
   Short Label = Overarching comment
   Definition = Synthesis and overview overarching comment
   Requirements = Conditional
+  Logical Mapping = synthesis.related[type:=\'has-member\'].target->Observation[code:=%map-codes; value[x] := $value]
+  CAP Code = 28991.1000043
