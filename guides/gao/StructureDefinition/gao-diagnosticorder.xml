@@ -18,7 +18,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="Profiles the diagnostic order to ensure that the services ordered can be identified and evaluated for appropraiteness"></description>
   <requirements value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."></requirements>
-  <fhirVersion value="1.0.2"></fhirVersion>
+  <fhirVersion value="1.1.0"></fhirVersion>
   
   
   
