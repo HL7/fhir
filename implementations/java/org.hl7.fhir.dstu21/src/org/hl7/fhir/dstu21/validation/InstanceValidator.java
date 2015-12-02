@@ -293,8 +293,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		public String fhirType() {
 			if (!Utilities.noString(typeName))
 				return typeName;
-			else
+			else if (definition.hasType())
 				return definition.getType().get(0).getCode();
+			else if (profile.getKind() == StructureDefinitionKind.DATATYPE)
+			  return "Element";
+			else
+			  return "BackboneElement";
 		}
 
 		@Override
