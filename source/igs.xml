@@ -17,6 +17,6 @@
 <!--  <ig code="hspc"     name="Healthcare Services Platform Consortium" brief="HSPC" review="yes" source="\guides\hspc\hspc.xml" committee="fhir" ballot="draft" fmm="0" section="H"/>  -->
   <ig code="nehta"    name="NEHTA Tooling/Method Evaluation" brief="NEHTA" review="" source="\guides\nehta\nehta.xml" committee="fhir" ballot="draft" fmm="0" section="I"/> 
   <ig code="argonaut" name="Argonaut" brief="Argonaut" source="\guides\argonaut\argonaut.xml" committeereview="0" committee="fhir" ballot="draft" fmm="0" section="J"/>
-<!--  <ig code="gao"      name="Guideline Appropriate Ordering" brief="GAO" source="\guides\gao\gao.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="K"/>
-  <ig code="hl7nl" name="HL7 Netherlands Basic Components" brief="HL7NL" source="\guides\hl7nl\hl7nl.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="L"/>  -->
+  <ig code="gao"      name="Guideline Appropriate Ordering" brief="GAO" source="\guides\gao\gao.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="K"/>
+<!--  <ig code="hl7nl" name="HL7 Netherlands Basic Components" brief="HL7NL" source="\guides\hl7nl\hl7nl.xml" committeereview="0" committee="cds" ballot="draft" fmm="0" section="L"/>  -->
 </igs>
