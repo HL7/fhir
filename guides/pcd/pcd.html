@@ -7,12 +7,80 @@
   <body> 
 [%file newnavbar%] 
     <div class="col-9">
-      <a name="PCD"> </a>
+      <a name="PCD"> Privacy Consent Directive (PCD) </a>
       <h2>PCD on FHIR Implementation Guide (IG)</h2>
       <p>This is the IG Overview.</p>
+	  <h3>Introduction</h3>
+	  <p>
+	  The purpose of this document is to describe constraints on the FHIR Contract used to express a Privacy Consent Directive.
+	  </p><p>
+		Privacy policies define how Individually Identifiable Health Information (IIHI) is to be collected, accessed, 
+		used and disclosed.  A Privacy Consent Directive is a record of a client’s (e.g., patient, consumer) 
+		health information privacy policy.  A Privacy Consent Directive grants or withholds authorization to collect, 
+		access, use, or disclose IIHI about the client. A client may author/publish their privacy preferences as a 
+		self-declared Privacy Consent Directive.  Effective Privacy Consent Directives are a bilateral agreement between 
+		the client and an individual/organization that is in accord with law, regulation and organizational policies with 
+		regard to their content. In addition, Privacy Consent Directives provide the ability for a healthcare client 
+		to delegate authority to a Substitute Decision Maker who may act on behalf of that individual.
+	  </p><p>
+		The Privacy Consent Directive on FHIR provides support for alternative representations for expressing 
+		health information privacy consent directives in a standard form for the exchange of privacy policies 
+		that can be enforced by consuming systems (e.g., scanned documents, computable structured entries).
+	  </p><p>
+		The implementation guide also supports backward compatibility by enabling references to CDA Consent Directives 
+		following the 
+		<a href="http://gforge.hl7.org/gf/project/cbcc/frs/?action=FrsReleaseView&amp;release_id=732">HL7 CDAR2 ConsentDirective Implementation Guide</a> 
+		which incorporated the 
+		<a href="http://wiki.ihe.net/index.php?title=Basic_Patient_Privacy_Consents">IHE Basic Patient Privacy Consents (BPPC)</a> 
+		mechanism of acknowledging a Privacy Policy identifier and expanded upon it with privacy policy 
+		attributes captured in the CDA document according to the CDA-CD-IG specification.  This guide allows for the 
+		capture of a scanned document in the structuredBody of a CDA document to support manual interpretation of the 
+		meaning of the privacy consent directive as well as to support the capture of a client’s wet signature.
+	  </p><p>
+		This guide supports sending a computable representation of privacy consent directives using structured 
+		entries based on a mapping of the 
+		<a href="http://www.hl7.org/documentcenter/public/standards/dstu/V3DAM_MR_CPCD_DSTU_R2_2010APR.pdf">HL7 Version 3 Domain Analysis Model: Medical Records; Composite Privacy Consent Directive, Draft Standard for Trial Use (DSTU) Release 2 (CPCD DAM)</a> 
+		to HL7 FHIR Contract attributes, or by using standard access control markup languages (XACML, XrML and others).  
+		It is expected that other SDOs will use the Privacy domain analysis model to create profiles (e.g., OASIS 
+		Cross-Enterprise Security and Privacy Authorization (XSPA) Technical Committee) and that for encoding 
+		capabilities, formal policy languages will be used.
+	  </p>
+	  <h4>US Realm sample Use-Cases</h4>
+	  <p>
+		Five categories of Privacy Consent Directives are described in the Office of the National Coordinator for 
+		Health Information (ONC) Consent Directives Document released March 31, 2010, and include the following 
+		US-specific “Core consent options” for electronic exchange:
+	  </p>
+	  <ol>
+	  <li>No consent: Health information of patients is automatically included—patients cannot opt out;</li>
+	  <li>Opt-out: Default is for health information of patients to be included automatically, but the patient can opt out completely;</li>
+	  <li>Opt-out with exceptions: Default is for health information of patients to be included, but the patient can opt out completely or allow only select data to be included;</li>
+	  <li>Opt-in: Default is that no patient health information is included; patients must actively express consent to be included, but if they do so then their information must be all in or all out; and</li>
+	  <li>Opt-in with restrictions: Default is that no patient health information is made available, but the patient may allow a subset of select data to be included.</li>
+	  </ol>
+	  <h4>Canada Realm sample Use-Cases</h4>
+	  <p>
+	  The following scenarios are based on existing jurisdictional policy and are realized in existing systems in 
+	  Canada. The default policy is one of implied consent for the provision of care, so these scenarios all deal 
+	  with withdrawal or withholding consent for that purpose. In other jurisdictions, where an express consent 
+	  model is used (Opt-In), these would examples would contain the phrase "consent to" rather than "withhold" 
+	  or "withdraw" consent for.
+	  </p>
+	  <ol>
+	    <li>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)</li>
+		<li>Withhold or withdraw consent for disclosure of a specific record (e.g. Lab Order/Result) </li>
+		<li>Withhold or withdraw consent for disclosure to a specific provider organization </li>
+		<li>Withhold or withdraw consent for disclosure to a specific provider agent (an individual within an organization) </li>
+		<li>Withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location). </li>
+		<li>Combinations of the above </li>
+	  </ol>
       <h3>Scope</h3>
-      <p>The scope of this IG is to define a form for capturing a Privacy Consent Directive.
-      </p>
+      <p>The scope of this IG is to define a FHIR profile for a Privacy Consent Directive in a structured and coded way so 
+	  so that the rules can be enforced.
+      </p><p>
+	  The enforcement of the Privacy Consent Directive is not included in this Implementation Guide, but is expected that 
+	  enforcement can be done using various Access Control enforcement methodologies (e.g. XACML).
+	  </p>
       <h3>Conformance</h3>
       <p>This guide defines the following conformance statements. Systems implementing the
         actors described below should provide a conformance resource documenting their conformance
@@ -20,31 +88,35 @@
       </p>
       <table class="codes">
         <tr><td><b>Actor</b></td><td><b>Description</b></td></tr>
-        <tr><td><a href="actor-one.html">Actor 1</a></td>
+        <tr><td><a href="actor-one.html">Actor 1 (Consent Writer?)</a></td>
           <td>Brief description of Actor 1 conformance requirements.</td></tr>
-        <tr><td><a href="actor-two.html">Actor 2</a></td>
+        <tr><td><a href="actor-two.html">Actor 2 (Consent Reader?)</a></td>
           <td>Brief description of Actor 2 conformance requirements.</td></tr>
+        <tr><td><a href="actor-three.html">Actor 3 (Consent Enforcer?)</a></td>
+          <td>Brief description of Actor 3 conformance requirements.</td></tr>
       </table>
+      <!-- 
       <h3>Operations</h3>
-      <p>This guide defines the following operations.</p>
+	  <p>This guide defines the following operations.</p>
       <table class="codes">
         <tr><td><b>Operation</b></td><td><b>Description</b></td></tr>
         <tr><td><a href="operarion-one.html">[base]/[Resource]/$[operation-name]</a></td>
           <td>Brief description of operation one.</td></tr>
       </table>
+	  -->
       <h3>Resource Profiles</h3>
       <p>This guide defines the following profiles.</p>
       <table class="codes">
         <tr><td><b>Profile Name</b></td><td><b>Description</b></td></tr>
-        <tr><td><a href="profile-one.html">Profile 1</a></td><td>Brief description of profile 1.</td></tr>
-        <tr><td>&#xA0;<a href="profile-one-a.html">Profile 1-a</a></td><td>Brief description of profile 1-a.</td></tr>
+        <tr><td><a href="consentdirective.html">Base Privacy Consent Directive</a></td><td>Constraints upon Contract to support documentation of a Patient Privacy Consent Directive.</td></tr>
+        <tr><td>&#xA0;<a href="profile-contract-a.html">Profile 1-a</a></td><td>Brief description of profile 1-a.</td></tr>
         <tr><td><a href="profile-two.html">Profile 2</a></td><td>Brief description of profile 2.</td></tr>
       </table>
       <h3>Extensions</h3>
       <p>The following extensions have been defined to support ..
-        These extensions are used within the <a href="profile-one.html">Profile 1</a> and <a
-          href="profile-two.html">Profile 2</a> profiles on the <a href="../resource.html"
-          >Resource Name</a> Resource. </p>
+        These extensions are used within the <a href="profile-one.html">Profile 1</a> and 
+		<a href="profile-two.html">Profile 2</a> profiles on the 
+		<a href="../resource.html">Resource Name</a> Resource. </p>
       <table class="codes">
         <tr>
           <td><b>Extension</b></td><td><b>Definition</b></td>
@@ -62,10 +134,13 @@
         <tr><td><a href="valueset-one.html">Value Set 1</a></td><td>Brief description of value set 1.</td></tr>
       </table>
       <h3>References</h3>
-      <p><sup><a name="fn1">1</a></sup> Implications of SOA Architecture for Security and Privacy Bernd Blobel, PhD <a
-          href="http://www.hl7.org/documentcenter/public_temp_A58A06F7-1C23-BA17-0CBF5EBEE6FE410C/wg/secure/Report%20to%20Security%20WG_Blobel_Implications%20of%20SOA%20architectures%20for%20security%20and%20privacy.pdf">
-    Implications of SOA Architectures for Security and Privacy Bernd Blobel, PhD, FACMI, FACHI, FHL7 eHealth Competence Center Regensburg</a>
-      </p>
+      <p><sup><a name="fn1">1</a></sup> <a href="http://www.hl7.org/documentcenter/public_temp_A58A06F7-1C23-BA17-0CBF5EBEE6FE410C/wg/secure/Report%20to%20Security%20WG_Blobel_Implications%20of%20SOA%20architectures%20for%20security%20and%20privacy.pdf">    Implications of SOA Architectures for Security and Privacy Bernd Blobel, PhD, FACMI, FACHI, FHL7 eHealth Competence Center Regensburg</a></p>
+	  <p><sup><a name="fn2">2</a></sup> <a href="http://gforge.hl7.org/gf/project/cbcc/frs/?action=FrsReleaseView&amp;release_id=732">HL7 CDAR2 ConsentDirective Implementation Guide</a></p>
+	  <p><sup><a name="fn3">3</a></sup> <a href="http://wiki.ihe.net/index.php?title=Basic_Patient_Privacy_Consents">IHE Basic Patient Privacy Consents (BPPC)</a></p>
+	  <p><sup><a name="fn4">4</a></sup> <a href="http://www.hl7.org/documentcenter/public/standards/dstu/V3DAM_MR_CPCD_DSTU_R2_2010APR.pdf">
+		HL7 Version 3 Domain Analysis Model: Medical Records; Composite Privacy 
+		Consent Directive, Draft Standard for Trial Use (DSTU) Release 2 (CPCD DAM)</a> </p>
+	  
   </div>
   [%file newfooter%]
   </body>

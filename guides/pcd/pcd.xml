@@ -1,26 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><ImplementationGuide xmlns="http://hl7.org/fhir">
-  <id value="pcd"/>
-  <language value="English"/>
-  <url value="http://hl7.org/fhir/pcd"/>
-  <version value="1.0.0"/>
-  <name value="Privacy Consent Directive on FHIR"/>
-  <status value="draft"/>
-  <publisher value="HL7"/>
-  <description value="This is the Privacy Consent Directive on FHIR Implementation Guide"/>
-  <fhirVersion value="1.0.2"/>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="pcd" />
+  <language value="English" />
+  <url value="http://hl7.org/fhir/pcd" />
+  <version value="1.0.0" />
+  <name value="Privacy Consent Directive on FHIR" />
+  <status value="draft" />
+  <publisher value="HL7" />
+  <date value="2015-12-03T17:17:46-06:00" />
+  <description value="This is the Privacy Consent Directive on FHIR Implementation Guide" />
+  <fhirVersion value="1.0.2" />
   <package>
-    <name value="PCD Package"/>
-    <description value="Resource profiles and extensions necessary to support Privacy Consent Directive on FHIR."/>
+    <name value="PCD Package" />
+    <description value="Resource profiles and extensions necessary to support Privacy Consent Directive on FHIR." />
+    <resource>
+      <purpose value="profile" />
+      <name value="ConsentDirective" />
+      <description value="Privacy Consent Directive" />
+      <acronym value="PCD-Contract" />
+      <sourceUri value="StructureDefinition/consentdirective.profile.xml" />
+    </resource>
+    <resource>
+      <purpose value="example" />
+      <name value="pcd-example-notLabs" />
+      <description value="Consent to share except to withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.) " />
+      <sourceUri value="Example/pcd-example-notLabs.xml" />
+      <exampleFor>
+        <reference value="Allow access except for Labs" />
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example" />
+      <name value="pcd-example-notThis" />
+      <description value="Consent to share except to withhold or withdraw consent for disclosure of a specific record (e.g. LAB) " />
+      <sourceUri value="Example/pcd-example-notThis.xml" />
+      <exampleFor>
+        <reference value="Allow access except for specific Lab record" />
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example" />
+      <name value="pcd-example-notOrg" />
+      <description value="Consent to share except to withhold or withdraw consent for disclosure to an organization." />
+      <sourceUri value="Example/pcd-example-notOrg.xml" />
+      <exampleFor>
+        <reference value="Allow access except to an organization" />
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example" />
+      <name value="pcd-example-notThem" />
+      <description value="Consent to share except to withhold or withdraw consent for disclosure to an individual." />
+      <sourceUri value="Example/pcd-example-notThem.xml" />
+      <exampleFor>
+        <reference value="Allow access except to an individual" />
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example" />
+      <name value="pcd-example-notAuthor" />
+      <description value="Consent to share except to withhold or withdraw consent for disclosure of records authored by a specific organization." />
+      <sourceUri value="Example/pcd-example-notAuthor.xml" />
+      <exampleFor>
+        <reference value="Allow access except those authored by a specific organization" />
+      </exampleFor>
+    </resource>
   </package>
   <page>
-    <source value="pcd.html"/>
-    <name value="Privacy Consent Directive on FHIR Introduction"/>
-    <kind value="page"/>
+    <source value="pcd.html" />
+    <name value="Privacy Consent Directive on FHIR Introduction" />
+    <kind value="page" />
   </page>
-    <!-- page>
-      <source value=""/>
-      <name value=""/>
-      <kind value="page"/>
-      <format value="generated"/>
-    </page -->
 </ImplementationGuide>

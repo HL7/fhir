@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Contract xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/contract.xsd">
+  <id value="pcd-example-notOrg"/>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
+	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
+	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
+	than "withhold" or "withdraw" consent for.
+    <p>
+	specific to use-case 3) Withhold or withdraw consent for disclosure to a specific provider organization  
+	</p><p>
+    Patient "P. van de Heuvel" ex-spouse is a Physician that is employed by Good Health Clinic.  P. decides
+   that he would like to withdraw/withhold consent to disclose any instance of his health information 
+   to Good Health Clinic.
+   </p>
+   </div>
+  </text>
+
+  <issued value="2015-11-18"/>
+ <!-- not bound by a timeframe - Contract.applies -->
+ 
+  <subject>
+    <reference value="Patient/f001"/>
+    <display value="P. van de Heuvel"/>
+  </subject>
+
+  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Contract.authority element -->
+  <authority>
+      <reference value="Organization/Infoway"/>
+	  <display value="Canada Infoway"/>
+   </authority>
+	  
+   <!-- and/or would this [also] go into Contract.domain as a Jurisdiction?? (see the example on UK Pharamacy Juristiction) -->
+  <domain>
+      <reference value="Location/Infoway"/>
+	  <display value="Canada Infoway"/>
+   </domain>
+   
+  <type>
+     <coding>
+	   <system value="http://loinc.org"/>
+	   <code value="57016-8"/>
+	 </coding>
+  </type>
+
+  <!-- made up code-system to represent the set of privacy consent sub-types known and published by Canada Infoway -->
+  <subType>
+     <coding>
+	   <system value="http://www.infoway-inforoute.ca.org/Consent-subtype-codes"/>
+	   <code value="Opt-In"/>
+	   <display value="Default Authorization with exceptions."/>
+	 </coding>
+  </subType>
+ 
+  <term>
+     <type>
+       <coding>
+	     <!-- made up code system -->
+	     <system value="http://hl7.org/fhir/consent-term-type-codes"/>
+	     <code value="withhold-from"/>
+		 <display value="Withhold all data from specified actor entity."/>
+	   </coding>
+	 </type>
+	 <actor>
+       <entity>
+    	   <reference value="Organization/2.16.840.1.113883.19.5"/>
+           <display value="Good Health Clinic"/>
+		</entity>
+	 </actor>
+     <!-- by not specifying term.actor I assume this means everyone? -->
+	 <text value="Withhold this order and any results or related objects from any provider."/>
+   </term>
+   <!-- the terms of the consent in friendly consumer speak -->
+   <friendly>
+     <contentAttachment>
+	   <title value="The terms of the consent in friendly consumer speak."/>
+	   <!-- likely use url pointer to common text -->
+	 </contentAttachment>
+   </friendly>
+   <!-- the legal terms of the consent in lawyer speak -->
+   <legal>
+     <contentAttachment>
+	   <title value="The terms of the consent in lawyer speak."/>
+	   <!-- likely use url pointer to common text -->
+	   <!-- I think some think that this should be the pointer to the law by which this consent is derived under. Such as http://lois-laws.justice.gc.ca/eng/acts/P-21/index.html -->
+	 </contentAttachment>
+   </legal>
+</Contract>
