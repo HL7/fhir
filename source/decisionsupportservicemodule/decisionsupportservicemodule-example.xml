@@ -26,33 +26,6 @@
     </ModuleMetadata>
   </contained>
   
-  <contained>
-    <ModuleDefinition>
-		<id value="example-module-definition"/>
-		<identifier>
-          <use value="official"/>
-		  <value value="guildeline-appropriate-ordering"/>
-		</identifier>
-		<version value="1.0.0"/>
-		<!-- Patient Data Requirement -->
-		<data>
-			<type value="Patient"/>
-			<profile>
-				<reference value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
-			</profile>
-			<mustSupport value="gender"/>
-			<mustSupport value="birthDate"/>
-		</data>
-		<!-- Order Data Requirement -->
-		<data>
-			<type value="Order"/>
-			<profile>
-				<reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
-			</profile>
-		</data>
-    </ModuleDefinition>
-  </contained>
-  
   <identifier>
 		<use value="official"/>
 		<value value="guideline-appropriate-ordering"/>
@@ -63,8 +36,25 @@
     <reference value="#example-module-metadata"/>
   </moduleMetadata>
   
-  <moduleDefinition>
-    <reference value="#example-module-definition"/>
-  </moduleDefinition>
-  
+	<!-- Patient Data Requirement -->
+	<parameter>
+		<name value="patient"/>
+		<use value="in"/>
+		<type value="Patient"/>
+		<profile>
+			<reference value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
+		</profile>
+		<mustSupport value="gender"/>
+		<mustSupport value="birthDate"/>
+	</parameter>
+
+	<!-- Order Data Requirement -->
+	<parameter>
+		<name value="order"/>
+		<use value="in"/>
+		<type value="Order"/>
+		<profile>
+			<reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
+		</profile>
+	</parameter>
 </DecisionSupportServiceModule>
