@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,15 +51,15 @@ public class SupplyDelivery extends DomainResource {
         /**
          * Supply has been requested, but not delivered.
          */
-        INPROGRESS, 
+        INPROGRESS,
         /**
          * Supply has been delivered ("completed").
          */
-        COMPLETED, 
+        COMPLETED,
         /**
          * Dispensing was not completed.
          */
-        ABANDONED, 
+        ABANDONED,
         /**
          * added to help the parsers
          */
@@ -261,7 +261,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier assigned by the dispensing facility when the item(s) is dispensed.)
      */
-    public Identifier getIdentifier() { 
+    public Identifier getIdentifier() {
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.identifier");
@@ -270,14 +270,14 @@ public class SupplyDelivery extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Identifier assigned by the dispensing facility when the item(s) is dispensed.)
      */
-    public SupplyDelivery setIdentifier(Identifier value) { 
+    public SupplyDelivery setIdentifier(Identifier value) {
       this.identifier = value;
       return this;
     }
@@ -285,7 +285,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<SupplyDeliveryStatus> getStatusElement() { 
+    public Enumeration<SupplyDeliveryStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.status");
@@ -294,18 +294,18 @@ public class SupplyDelivery extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (A code specifying the state of the dispense event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public SupplyDelivery setStatusElement(Enumeration<SupplyDeliveryStatus> value) { 
+    public SupplyDelivery setStatusElement(Enumeration<SupplyDeliveryStatus> value) {
       this.status = value;
       return this;
     }
@@ -313,14 +313,14 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return A code specifying the state of the dispense event.
      */
-    public SupplyDeliveryStatus getStatus() { 
+    public SupplyDeliveryStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value A code specifying the state of the dispense event.
      */
-    public SupplyDelivery setStatus(SupplyDeliveryStatus value) { 
+    public SupplyDelivery setStatus(SupplyDeliveryStatus value) {
       if (value == null)
         this.status = null;
       else {
@@ -334,7 +334,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #patient} (A link to a resource representing the person whom the delivered item is for.)
      */
-    public Reference getPatient() { 
+    public Reference getPatient() {
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.patient");
@@ -343,14 +343,14 @@ public class SupplyDelivery extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() { 
+    public boolean hasPatient() {
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (A link to a resource representing the person whom the delivered item is for.)
      */
-    public SupplyDelivery setPatient(Reference value) { 
+    public SupplyDelivery setPatient(Reference value) {
       this.patient = value;
       return this;
     }
@@ -358,7 +358,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person whom the delivered item is for.)
      */
-    public Patient getPatientTarget() { 
+    public Patient getPatientTarget() {
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.patient");
@@ -370,7 +370,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person whom the delivered item is for.)
      */
-    public SupplyDelivery setPatientTarget(Patient value) { 
+    public SupplyDelivery setPatientTarget(Patient value) {
       this.patientTarget = value;
       return this;
     }
@@ -378,7 +378,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #type} (Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.)
      */
-    public CodeableConcept getType() { 
+    public CodeableConcept getType() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.type");
@@ -387,14 +387,14 @@ public class SupplyDelivery extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.)
      */
-    public SupplyDelivery setType(CodeableConcept value) { 
+    public SupplyDelivery setType(CodeableConcept value) {
       this.type = value;
       return this;
     }
@@ -402,7 +402,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #quantity} (The amount of supply that has been dispensed. Includes unit of measure.)
      */
-    public SimpleQuantity getQuantity() { 
+    public SimpleQuantity getQuantity() {
       if (this.quantity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.quantity");
@@ -411,14 +411,14 @@ public class SupplyDelivery extends DomainResource {
       return this.quantity;
     }
 
-    public boolean hasQuantity() { 
+    public boolean hasQuantity() {
       return this.quantity != null && !this.quantity.isEmpty();
     }
 
     /**
      * @param value {@link #quantity} (The amount of supply that has been dispensed. Includes unit of measure.)
      */
-    public SupplyDelivery setQuantity(SimpleQuantity value) { 
+    public SupplyDelivery setQuantity(SimpleQuantity value) {
       this.quantity = value;
       return this;
     }
@@ -426,7 +426,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #suppliedItem} (Identifies the medication, substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.)
      */
-    public Reference getSuppliedItem() { 
+    public Reference getSuppliedItem() {
       if (this.suppliedItem == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.suppliedItem");
@@ -435,14 +435,14 @@ public class SupplyDelivery extends DomainResource {
       return this.suppliedItem;
     }
 
-    public boolean hasSuppliedItem() { 
+    public boolean hasSuppliedItem() {
       return this.suppliedItem != null && !this.suppliedItem.isEmpty();
     }
 
     /**
      * @param value {@link #suppliedItem} (Identifies the medication, substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.)
      */
-    public SupplyDelivery setSuppliedItem(Reference value) { 
+    public SupplyDelivery setSuppliedItem(Reference value) {
       this.suppliedItem = value;
       return this;
     }
@@ -450,14 +450,14 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #suppliedItem} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the medication, substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.)
      */
-    public Resource getSuppliedItemTarget() { 
+    public Resource getSuppliedItemTarget() {
       return this.suppliedItemTarget;
     }
 
     /**
      * @param value {@link #suppliedItem} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the medication, substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.)
      */
-    public SupplyDelivery setSuppliedItemTarget(Resource value) { 
+    public SupplyDelivery setSuppliedItemTarget(Resource value) {
       this.suppliedItemTarget = value;
       return this;
     }
@@ -465,7 +465,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #supplier} (The individual responsible for dispensing the medication, supplier or device.)
      */
-    public Reference getSupplier() { 
+    public Reference getSupplier() {
       if (this.supplier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.supplier");
@@ -474,14 +474,14 @@ public class SupplyDelivery extends DomainResource {
       return this.supplier;
     }
 
-    public boolean hasSupplier() { 
+    public boolean hasSupplier() {
       return this.supplier != null && !this.supplier.isEmpty();
     }
 
     /**
      * @param value {@link #supplier} (The individual responsible for dispensing the medication, supplier or device.)
      */
-    public SupplyDelivery setSupplier(Reference value) { 
+    public SupplyDelivery setSupplier(Reference value) {
       this.supplier = value;
       return this;
     }
@@ -489,7 +489,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #supplier} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication, supplier or device.)
      */
-    public Practitioner getSupplierTarget() { 
+    public Practitioner getSupplierTarget() {
       if (this.supplierTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.supplier");
@@ -501,7 +501,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @param value {@link #supplier} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication, supplier or device.)
      */
-    public SupplyDelivery setSupplierTarget(Practitioner value) { 
+    public SupplyDelivery setSupplierTarget(Practitioner value) {
       this.supplierTarget = value;
       return this;
     }
@@ -509,7 +509,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #whenPrepared} (The time the dispense event occurred.)
      */
-    public Period getWhenPrepared() { 
+    public Period getWhenPrepared() {
       if (this.whenPrepared == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.whenPrepared");
@@ -518,14 +518,14 @@ public class SupplyDelivery extends DomainResource {
       return this.whenPrepared;
     }
 
-    public boolean hasWhenPrepared() { 
+    public boolean hasWhenPrepared() {
       return this.whenPrepared != null && !this.whenPrepared.isEmpty();
     }
 
     /**
      * @param value {@link #whenPrepared} (The time the dispense event occurred.)
      */
-    public SupplyDelivery setWhenPrepared(Period value) { 
+    public SupplyDelivery setWhenPrepared(Period value) {
       this.whenPrepared = value;
       return this;
     }
@@ -533,7 +533,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #time} (The time the dispensed item was sent or handed to the patient (or agent).). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
      */
-    public DateTimeType getTimeElement() { 
+    public DateTimeType getTimeElement() {
       if (this.time == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.time");
@@ -542,18 +542,18 @@ public class SupplyDelivery extends DomainResource {
       return this.time;
     }
 
-    public boolean hasTimeElement() { 
+    public boolean hasTimeElement() {
       return this.time != null && !this.time.isEmpty();
     }
 
-    public boolean hasTime() { 
+    public boolean hasTime() {
       return this.time != null && !this.time.isEmpty();
     }
 
     /**
      * @param value {@link #time} (The time the dispensed item was sent or handed to the patient (or agent).). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
      */
-    public SupplyDelivery setTimeElement(DateTimeType value) { 
+    public SupplyDelivery setTimeElement(DateTimeType value) {
       this.time = value;
       return this;
     }
@@ -561,14 +561,14 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return The time the dispensed item was sent or handed to the patient (or agent).
      */
-    public Date getTime() { 
+    public Date getTime() {
       return this.time == null ? null : this.time.getValue();
     }
 
     /**
      * @param value The time the dispensed item was sent or handed to the patient (or agent).
      */
-    public SupplyDelivery setTime(Date value) { 
+    public SupplyDelivery setTime(Date value) {
       if (value == null)
         this.time = null;
       else {
@@ -582,7 +582,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #destination} (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
      */
-    public Reference getDestination() { 
+    public Reference getDestination() {
       if (this.destination == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.destination");
@@ -591,14 +591,14 @@ public class SupplyDelivery extends DomainResource {
       return this.destination;
     }
 
-    public boolean hasDestination() { 
+    public boolean hasDestination() {
       return this.destination != null && !this.destination.isEmpty();
     }
 
     /**
      * @param value {@link #destination} (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
      */
-    public SupplyDelivery setDestination(Reference value) { 
+    public SupplyDelivery setDestination(Reference value) {
       this.destination = value;
       return this;
     }
@@ -606,7 +606,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #destination} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
      */
-    public Location getDestinationTarget() { 
+    public Location getDestinationTarget() {
       if (this.destinationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyDelivery.destination");
@@ -618,7 +618,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @param value {@link #destination} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
      */
-    public SupplyDelivery setDestinationTarget(Location value) { 
+    public SupplyDelivery setDestinationTarget(Location value) {
       this.destinationTarget = value;
       return this;
     }
@@ -626,13 +626,13 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #receiver} (Identifies the person who picked up the Supply.)
      */
-    public List<Reference> getReceiver() { 
+    public List<Reference> getReceiver() {
       if (this.receiver == null)
         this.receiver = new ArrayList<Reference>();
       return this.receiver;
     }
 
-    public boolean hasReceiver() { 
+    public boolean hasReceiver() {
       if (this.receiver == null)
         return false;
       for (Reference item : this.receiver)
@@ -666,7 +666,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #receiver} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the Supply.)
      */
-    public List<Practitioner> getReceiverTarget() { 
+    public List<Practitioner> getReceiverTarget() {
       if (this.receiverTarget == null)
         this.receiverTarget = new ArrayList<Practitioner>();
       return this.receiverTarget;
@@ -676,7 +676,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * @return {@link #receiver} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Identifies the person who picked up the Supply.)
      */
-    public Practitioner addReceiverTarget() { 
+    public Practitioner addReceiverTarget() {
       Practitioner r = new Practitioner();
       if (this.receiverTarget == null)
         this.receiverTarget = new ArrayList<Practitioner>();

@@ -2,14 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/designation-use",
   "outcomes": [
     {
-      "hash": "|http://acme.com/config/fhir/codesystems/internal|null|internal-label|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@72c2cf7e\" in system \"http://acme.com/config/fhir/codesystems/internal\": null"
-    },
-    {
       "hash": "|http://snomed.info/sct|null|900000000000003001|Fully specified name",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@6e4a4c3c\" in system \"http://snomed.info/sct\": null"
+    },
+    {
+      "hash": "|http://acme.com/config/fhir/codesystems/internal|null|internal-label|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@72c2cf7e\" in system \"http://acme.com/config/fhir/codesystems/internal\": null"
     }
   ]
 }

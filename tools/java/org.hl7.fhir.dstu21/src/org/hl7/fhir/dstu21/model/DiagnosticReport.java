@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,31 +51,31 @@ public class DiagnosticReport extends DomainResource {
         /**
          * The existence of the report is registered, but there is nothing yet available.
          */
-        REGISTERED, 
+        REGISTERED,
         /**
          * This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.
          */
-        PARTIAL, 
+        PARTIAL,
         /**
          * The report is complete and verified by an authorized person.
          */
-        FINAL, 
+        FINAL,
         /**
          * The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed
          */
-        CORRECTED, 
+        CORRECTED,
         /**
          * The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.
          */
-        APPENDED, 
+        APPENDED,
         /**
          * The report is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
          */
-        CANCELLED, 
+        CANCELLED,
         /**
          * The report has been withdrawn following a previous final release.
          */
-        ENTEREDINERROR, 
+        ENTEREDINERROR,
         /**
          * added to help the parsers
          */
@@ -252,7 +252,7 @@ public class DiagnosticReport extends DomainResource {
         /**
          * @return {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public StringType getCommentElement() { 
+        public StringType getCommentElement() {
           if (this.comment == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticReportImageComponent.comment");
@@ -261,18 +261,18 @@ public class DiagnosticReport extends DomainResource {
           return this.comment;
         }
 
-        public boolean hasCommentElement() { 
+        public boolean hasCommentElement() {
           return this.comment != null && !this.comment.isEmpty();
         }
 
-        public boolean hasComment() { 
+        public boolean hasComment() {
           return this.comment != null && !this.comment.isEmpty();
         }
 
         /**
          * @param value {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public DiagnosticReportImageComponent setCommentElement(StringType value) { 
+        public DiagnosticReportImageComponent setCommentElement(StringType value) {
           this.comment = value;
           return this;
         }
@@ -280,14 +280,14 @@ public class DiagnosticReport extends DomainResource {
         /**
          * @return A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
-        public String getComment() { 
+        public String getComment() {
           return this.comment == null ? null : this.comment.getValue();
         }
 
         /**
          * @param value A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
-        public DiagnosticReportImageComponent setComment(String value) { 
+        public DiagnosticReportImageComponent setComment(String value) {
           if (Utilities.noString(value))
             this.comment = null;
           else {
@@ -301,7 +301,7 @@ public class DiagnosticReport extends DomainResource {
         /**
          * @return {@link #link} (Reference to the image source.)
          */
-        public Reference getLink() { 
+        public Reference getLink() {
           if (this.link == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticReportImageComponent.link");
@@ -310,14 +310,14 @@ public class DiagnosticReport extends DomainResource {
           return this.link;
         }
 
-        public boolean hasLink() { 
+        public boolean hasLink() {
           return this.link != null && !this.link.isEmpty();
         }
 
         /**
          * @param value {@link #link} (Reference to the image source.)
          */
-        public DiagnosticReportImageComponent setLink(Reference value) { 
+        public DiagnosticReportImageComponent setLink(Reference value) {
           this.link = value;
           return this;
         }
@@ -325,7 +325,7 @@ public class DiagnosticReport extends DomainResource {
         /**
          * @return {@link #link} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the image source.)
          */
-        public Media getLinkTarget() { 
+        public Media getLinkTarget() {
           if (this.linkTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticReportImageComponent.link");
@@ -337,7 +337,7 @@ public class DiagnosticReport extends DomainResource {
         /**
          * @param value {@link #link} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the image source.)
          */
-        public DiagnosticReportImageComponent setLinkTarget(Media value) { 
+        public DiagnosticReportImageComponent setLinkTarget(Media value) {
           this.linkTarget = value;
           return this;
         }
@@ -590,13 +590,13 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #identifier} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -630,7 +630,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #status} (The status of the diagnostic report as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DiagnosticReportStatus> getStatusElement() { 
+    public Enumeration<DiagnosticReportStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.status");
@@ -639,18 +639,18 @@ public class DiagnosticReport extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the diagnostic report as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DiagnosticReport setStatusElement(Enumeration<DiagnosticReportStatus> value) { 
+    public DiagnosticReport setStatusElement(Enumeration<DiagnosticReportStatus> value) {
       this.status = value;
       return this;
     }
@@ -658,14 +658,14 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return The status of the diagnostic report as a whole.
      */
-    public DiagnosticReportStatus getStatus() { 
+    public DiagnosticReportStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the diagnostic report as a whole.
      */
-    public DiagnosticReport setStatus(DiagnosticReportStatus value) { 
+    public DiagnosticReport setStatus(DiagnosticReportStatus value) {
         if (this.status == null)
           this.status = new Enumeration<DiagnosticReportStatus>(new DiagnosticReportStatusEnumFactory());
         this.status.setValue(value);
@@ -675,7 +675,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #category} (A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.)
      */
-    public CodeableConcept getCategory() { 
+    public CodeableConcept getCategory() {
       if (this.category == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.category");
@@ -684,14 +684,14 @@ public class DiagnosticReport extends DomainResource {
       return this.category;
     }
 
-    public boolean hasCategory() { 
+    public boolean hasCategory() {
       return this.category != null && !this.category.isEmpty();
     }
 
     /**
      * @param value {@link #category} (A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.)
      */
-    public DiagnosticReport setCategory(CodeableConcept value) { 
+    public DiagnosticReport setCategory(CodeableConcept value) {
       this.category = value;
       return this;
     }
@@ -699,7 +699,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #code} (A code or name that describes this diagnostic report.)
      */
-    public CodeableConcept getCode() { 
+    public CodeableConcept getCode() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.code");
@@ -708,14 +708,14 @@ public class DiagnosticReport extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (A code or name that describes this diagnostic report.)
      */
-    public DiagnosticReport setCode(CodeableConcept value) { 
+    public DiagnosticReport setCode(CodeableConcept value) {
       this.code = value;
       return this;
     }
@@ -723,7 +723,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #subject} (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.subject");
@@ -732,14 +732,14 @@ public class DiagnosticReport extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
      */
-    public DiagnosticReport setSubject(Reference value) { 
+    public DiagnosticReport setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -747,14 +747,14 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
      */
-    public Resource getSubjectTarget() { 
+    public Resource getSubjectTarget() {
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
      */
-    public DiagnosticReport setSubjectTarget(Resource value) { 
+    public DiagnosticReport setSubjectTarget(Resource value) {
       this.subjectTarget = value;
       return this;
     }
@@ -762,7 +762,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #encounter} (The link to the health care event (encounter) when the order was made.)
      */
-    public Reference getEncounter() { 
+    public Reference getEncounter() {
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.encounter");
@@ -771,14 +771,14 @@ public class DiagnosticReport extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() { 
+    public boolean hasEncounter() {
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (The link to the health care event (encounter) when the order was made.)
      */
-    public DiagnosticReport setEncounter(Reference value) { 
+    public DiagnosticReport setEncounter(Reference value) {
       this.encounter = value;
       return this;
     }
@@ -786,7 +786,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The link to the health care event (encounter) when the order was made.)
      */
-    public Encounter getEncounterTarget() { 
+    public Encounter getEncounterTarget() {
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.encounter");
@@ -798,7 +798,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The link to the health care event (encounter) when the order was made.)
      */
-    public DiagnosticReport setEncounterTarget(Encounter value) { 
+    public DiagnosticReport setEncounterTarget(Encounter value) {
       this.encounterTarget = value;
       return this;
     }
@@ -806,44 +806,44 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #effective} (The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.)
      */
-    public Type getEffective() { 
+    public Type getEffective() {
       return this.effective;
     }
 
     /**
      * @return {@link #effective} (The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.)
      */
-    public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
+    public DateTimeType getEffectiveDateTimeType() throws FHIRException {
       if (!(this.effective instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (DateTimeType) this.effective;
     }
 
-    public boolean hasEffectiveDateTimeType() { 
+    public boolean hasEffectiveDateTimeType() {
       return this.effective instanceof DateTimeType;
     }
 
     /**
      * @return {@link #effective} (The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.)
      */
-    public Period getEffectivePeriod() throws FHIRException { 
+    public Period getEffectivePeriod() throws FHIRException {
       if (!(this.effective instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (Period) this.effective;
     }
 
-    public boolean hasEffectivePeriod() { 
+    public boolean hasEffectivePeriod() {
       return this.effective instanceof Period;
     }
 
-    public boolean hasEffective() { 
+    public boolean hasEffective() {
       return this.effective != null && !this.effective.isEmpty();
     }
 
     /**
      * @param value {@link #effective} (The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.)
      */
-    public DiagnosticReport setEffective(Type value) { 
+    public DiagnosticReport setEffective(Type value) {
       this.effective = value;
       return this;
     }
@@ -851,7 +851,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #issued} (The date and time that this version of the report was released from the source diagnostic service.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public InstantType getIssuedElement() { 
+    public InstantType getIssuedElement() {
       if (this.issued == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.issued");
@@ -860,18 +860,18 @@ public class DiagnosticReport extends DomainResource {
       return this.issued;
     }
 
-    public boolean hasIssuedElement() { 
+    public boolean hasIssuedElement() {
       return this.issued != null && !this.issued.isEmpty();
     }
 
-    public boolean hasIssued() { 
+    public boolean hasIssued() {
       return this.issued != null && !this.issued.isEmpty();
     }
 
     /**
      * @param value {@link #issued} (The date and time that this version of the report was released from the source diagnostic service.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public DiagnosticReport setIssuedElement(InstantType value) { 
+    public DiagnosticReport setIssuedElement(InstantType value) {
       this.issued = value;
       return this;
     }
@@ -879,14 +879,14 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return The date and time that this version of the report was released from the source diagnostic service.
      */
-    public Date getIssued() { 
+    public Date getIssued() {
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
      * @param value The date and time that this version of the report was released from the source diagnostic service.
      */
-    public DiagnosticReport setIssued(Date value) { 
+    public DiagnosticReport setIssued(Date value) {
         if (this.issued == null)
           this.issued = new InstantType();
         this.issued.setValue(value);
@@ -896,7 +896,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #performer} (The diagnostic service that is responsible for issuing the report.)
      */
-    public Reference getPerformer() { 
+    public Reference getPerformer() {
       if (this.performer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.performer");
@@ -905,14 +905,14 @@ public class DiagnosticReport extends DomainResource {
       return this.performer;
     }
 
-    public boolean hasPerformer() { 
+    public boolean hasPerformer() {
       return this.performer != null && !this.performer.isEmpty();
     }
 
     /**
      * @param value {@link #performer} (The diagnostic service that is responsible for issuing the report.)
      */
-    public DiagnosticReport setPerformer(Reference value) { 
+    public DiagnosticReport setPerformer(Reference value) {
       this.performer = value;
       return this;
     }
@@ -920,14 +920,14 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The diagnostic service that is responsible for issuing the report.)
      */
-    public Resource getPerformerTarget() { 
+    public Resource getPerformerTarget() {
       return this.performerTarget;
     }
 
     /**
      * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The diagnostic service that is responsible for issuing the report.)
      */
-    public DiagnosticReport setPerformerTarget(Resource value) { 
+    public DiagnosticReport setPerformerTarget(Resource value) {
       this.performerTarget = value;
       return this;
     }
@@ -935,13 +935,13 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #request} (Details concerning a test or procedure requested.)
      */
-    public List<Reference> getRequest() { 
+    public List<Reference> getRequest() {
       if (this.request == null)
         this.request = new ArrayList<Reference>();
       return this.request;
     }
 
-    public boolean hasRequest() { 
+    public boolean hasRequest() {
       if (this.request == null)
         return false;
       for (Reference item : this.request)
@@ -975,7 +975,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #request} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Details concerning a test or procedure requested.)
      */
-    public List<Resource> getRequestTarget() { 
+    public List<Resource> getRequestTarget() {
       if (this.requestTarget == null)
         this.requestTarget = new ArrayList<Resource>();
       return this.requestTarget;
@@ -984,13 +984,13 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #specimen} (Details about the specimens on which this diagnostic report is based.)
      */
-    public List<Reference> getSpecimen() { 
+    public List<Reference> getSpecimen() {
       if (this.specimen == null)
         this.specimen = new ArrayList<Reference>();
       return this.specimen;
     }
 
-    public boolean hasSpecimen() { 
+    public boolean hasSpecimen() {
       if (this.specimen == null)
         return false;
       for (Reference item : this.specimen)
@@ -1024,7 +1024,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Details about the specimens on which this diagnostic report is based.)
      */
-    public List<Specimen> getSpecimenTarget() { 
+    public List<Specimen> getSpecimenTarget() {
       if (this.specimenTarget == null)
         this.specimenTarget = new ArrayList<Specimen>();
       return this.specimenTarget;
@@ -1034,7 +1034,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Details about the specimens on which this diagnostic report is based.)
      */
-    public Specimen addSpecimenTarget() { 
+    public Specimen addSpecimenTarget() {
       Specimen r = new Specimen();
       if (this.specimenTarget == null)
         this.specimenTarget = new ArrayList<Specimen>();
@@ -1045,13 +1045,13 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #result} (Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
-    public List<Reference> getResult() { 
+    public List<Reference> getResult() {
       if (this.result == null)
         this.result = new ArrayList<Reference>();
       return this.result;
     }
 
-    public boolean hasResult() { 
+    public boolean hasResult() {
       if (this.result == null)
         return false;
       for (Reference item : this.result)
@@ -1085,7 +1085,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #result} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
-    public List<Observation> getResultTarget() { 
+    public List<Observation> getResultTarget() {
       if (this.resultTarget == null)
         this.resultTarget = new ArrayList<Observation>();
       return this.resultTarget;
@@ -1095,7 +1095,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #result} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
-    public Observation addResultTarget() { 
+    public Observation addResultTarget() {
       Observation r = new Observation();
       if (this.resultTarget == null)
         this.resultTarget = new ArrayList<Observation>();
@@ -1106,13 +1106,13 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #imagingStudy} (One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
-    public List<Reference> getImagingStudy() { 
+    public List<Reference> getImagingStudy() {
       if (this.imagingStudy == null)
         this.imagingStudy = new ArrayList<Reference>();
       return this.imagingStudy;
     }
 
-    public boolean hasImagingStudy() { 
+    public boolean hasImagingStudy() {
       if (this.imagingStudy == null)
         return false;
       for (Reference item : this.imagingStudy)
@@ -1146,7 +1146,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #imagingStudy} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
-    public List<Resource> getImagingStudyTarget() { 
+    public List<Resource> getImagingStudyTarget() {
       if (this.imagingStudyTarget == null)
         this.imagingStudyTarget = new ArrayList<Resource>();
       return this.imagingStudyTarget;
@@ -1155,13 +1155,13 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).)
      */
-    public List<DiagnosticReportImageComponent> getImage() { 
+    public List<DiagnosticReportImageComponent> getImage() {
       if (this.image == null)
         this.image = new ArrayList<DiagnosticReportImageComponent>();
       return this.image;
     }
 
-    public boolean hasImage() { 
+    public boolean hasImage() {
       if (this.image == null)
         return false;
       for (DiagnosticReportImageComponent item : this.image)
@@ -1195,7 +1195,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
      */
-    public StringType getConclusionElement() { 
+    public StringType getConclusionElement() {
       if (this.conclusion == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.conclusion");
@@ -1204,18 +1204,18 @@ public class DiagnosticReport extends DomainResource {
       return this.conclusion;
     }
 
-    public boolean hasConclusionElement() { 
+    public boolean hasConclusionElement() {
       return this.conclusion != null && !this.conclusion.isEmpty();
     }
 
-    public boolean hasConclusion() { 
+    public boolean hasConclusion() {
       return this.conclusion != null && !this.conclusion.isEmpty();
     }
 
     /**
      * @param value {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getConclusion" gives direct access to the value
      */
-    public DiagnosticReport setConclusionElement(StringType value) { 
+    public DiagnosticReport setConclusionElement(StringType value) {
       this.conclusion = value;
       return this;
     }
@@ -1223,14 +1223,14 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
-    public String getConclusion() { 
+    public String getConclusion() {
       return this.conclusion == null ? null : this.conclusion.getValue();
     }
 
     /**
      * @param value Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
-    public DiagnosticReport setConclusion(String value) { 
+    public DiagnosticReport setConclusion(String value) {
       if (Utilities.noString(value))
         this.conclusion = null;
       else {
@@ -1244,13 +1244,13 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #codedDiagnosis} (Codes for the conclusion.)
      */
-    public List<CodeableConcept> getCodedDiagnosis() { 
+    public List<CodeableConcept> getCodedDiagnosis() {
       if (this.codedDiagnosis == null)
         this.codedDiagnosis = new ArrayList<CodeableConcept>();
       return this.codedDiagnosis;
     }
 
-    public boolean hasCodedDiagnosis() { 
+    public boolean hasCodedDiagnosis() {
       if (this.codedDiagnosis == null)
         return false;
       for (CodeableConcept item : this.codedDiagnosis)
@@ -1284,13 +1284,13 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return {@link #presentedForm} (Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.)
      */
-    public List<Attachment> getPresentedForm() { 
+    public List<Attachment> getPresentedForm() {
       if (this.presentedForm == null)
         this.presentedForm = new ArrayList<Attachment>();
       return this.presentedForm;
     }
 
-    public boolean hasPresentedForm() { 
+    public boolean hasPresentedForm() {
       if (this.presentedForm == null)
         return false;
       for (Attachment item : this.presentedForm)

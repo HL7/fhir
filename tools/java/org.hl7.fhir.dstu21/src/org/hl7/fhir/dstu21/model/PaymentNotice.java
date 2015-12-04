@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -162,13 +162,13 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #identifier} (The Response business identifier.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -202,7 +202,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public Coding getRuleset() { 
+    public Coding getRuleset() {
       if (this.ruleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.ruleset");
@@ -211,14 +211,14 @@ public class PaymentNotice extends DomainResource {
       return this.ruleset;
     }
 
-    public boolean hasRuleset() { 
+    public boolean hasRuleset() {
       return this.ruleset != null && !this.ruleset.isEmpty();
     }
 
     /**
      * @param value {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public PaymentNotice setRuleset(Coding value) { 
+    public PaymentNotice setRuleset(Coding value) {
       this.ruleset = value;
       return this;
     }
@@ -226,7 +226,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public Coding getOriginalRuleset() { 
+    public Coding getOriginalRuleset() {
       if (this.originalRuleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.originalRuleset");
@@ -235,14 +235,14 @@ public class PaymentNotice extends DomainResource {
       return this.originalRuleset;
     }
 
-    public boolean hasOriginalRuleset() { 
+    public boolean hasOriginalRuleset() {
       return this.originalRuleset != null && !this.originalRuleset.isEmpty();
     }
 
     /**
      * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public PaymentNotice setOriginalRuleset(Coding value) { 
+    public PaymentNotice setOriginalRuleset(Coding value) {
       this.originalRuleset = value;
       return this;
     }
@@ -250,7 +250,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #created} (The date when this resource was created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getCreatedElement() { 
+    public DateTimeType getCreatedElement() {
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.created");
@@ -259,18 +259,18 @@ public class PaymentNotice extends DomainResource {
       return this.created;
     }
 
-    public boolean hasCreatedElement() { 
+    public boolean hasCreatedElement() {
       return this.created != null && !this.created.isEmpty();
     }
 
-    public boolean hasCreated() { 
+    public boolean hasCreated() {
       return this.created != null && !this.created.isEmpty();
     }
 
     /**
      * @param value {@link #created} (The date when this resource was created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public PaymentNotice setCreatedElement(DateTimeType value) { 
+    public PaymentNotice setCreatedElement(DateTimeType value) {
       this.created = value;
       return this;
     }
@@ -278,14 +278,14 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return The date when this resource was created.
      */
-    public Date getCreated() { 
+    public Date getCreated() {
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when this resource was created.
      */
-    public PaymentNotice setCreated(Date value) { 
+    public PaymentNotice setCreated(Date value) {
       if (value == null)
         this.created = null;
       else {
@@ -299,7 +299,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #target} (The Insurer who is target  of the request.)
      */
-    public Reference getTarget() { 
+    public Reference getTarget() {
       if (this.target == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.target");
@@ -308,14 +308,14 @@ public class PaymentNotice extends DomainResource {
       return this.target;
     }
 
-    public boolean hasTarget() { 
+    public boolean hasTarget() {
       return this.target != null && !this.target.isEmpty();
     }
 
     /**
      * @param value {@link #target} (The Insurer who is target  of the request.)
      */
-    public PaymentNotice setTarget(Reference value) { 
+    public PaymentNotice setTarget(Reference value) {
       this.target = value;
       return this;
     }
@@ -323,7 +323,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
      */
-    public Organization getTargetTarget() { 
+    public Organization getTargetTarget() {
       if (this.targetTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.target");
@@ -335,7 +335,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
      */
-    public PaymentNotice setTargetTarget(Organization value) { 
+    public PaymentNotice setTargetTarget(Organization value) {
       this.targetTarget = value;
       return this;
     }
@@ -343,7 +343,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Reference getProvider() { 
+    public Reference getProvider() {
       if (this.provider == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.provider");
@@ -352,14 +352,14 @@ public class PaymentNotice extends DomainResource {
       return this.provider;
     }
 
-    public boolean hasProvider() { 
+    public boolean hasProvider() {
       return this.provider != null && !this.provider.isEmpty();
     }
 
     /**
      * @param value {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public PaymentNotice setProvider(Reference value) { 
+    public PaymentNotice setProvider(Reference value) {
       this.provider = value;
       return this;
     }
@@ -367,7 +367,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Practitioner getProviderTarget() { 
+    public Practitioner getProviderTarget() {
       if (this.providerTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.provider");
@@ -379,7 +379,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public PaymentNotice setProviderTarget(Practitioner value) { 
+    public PaymentNotice setProviderTarget(Practitioner value) {
       this.providerTarget = value;
       return this;
     }
@@ -387,7 +387,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #organization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public Reference getOrganization() { 
+    public Reference getOrganization() {
       if (this.organization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.organization");
@@ -396,14 +396,14 @@ public class PaymentNotice extends DomainResource {
       return this.organization;
     }
 
-    public boolean hasOrganization() { 
+    public boolean hasOrganization() {
       return this.organization != null && !this.organization.isEmpty();
     }
 
     /**
      * @param value {@link #organization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public PaymentNotice setOrganization(Reference value) { 
+    public PaymentNotice setOrganization(Reference value) {
       this.organization = value;
       return this;
     }
@@ -411,7 +411,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public Organization getOrganizationTarget() { 
+    public Organization getOrganizationTarget() {
       if (this.organizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.organization");
@@ -423,7 +423,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public PaymentNotice setOrganizationTarget(Organization value) { 
+    public PaymentNotice setOrganizationTarget(Organization value) {
       this.organizationTarget = value;
       return this;
     }
@@ -431,7 +431,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #request} (Reference of resource to reverse.)
      */
-    public Reference getRequest() { 
+    public Reference getRequest() {
       if (this.request == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.request");
@@ -440,14 +440,14 @@ public class PaymentNotice extends DomainResource {
       return this.request;
     }
 
-    public boolean hasRequest() { 
+    public boolean hasRequest() {
       return this.request != null && !this.request.isEmpty();
     }
 
     /**
      * @param value {@link #request} (Reference of resource to reverse.)
      */
-    public PaymentNotice setRequest(Reference value) { 
+    public PaymentNotice setRequest(Reference value) {
       this.request = value;
       return this;
     }
@@ -455,14 +455,14 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference of resource to reverse.)
      */
-    public Resource getRequestTarget() { 
+    public Resource getRequestTarget() {
       return this.requestTarget;
     }
 
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference of resource to reverse.)
      */
-    public PaymentNotice setRequestTarget(Resource value) { 
+    public PaymentNotice setRequestTarget(Resource value) {
       this.requestTarget = value;
       return this;
     }
@@ -470,7 +470,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #response} (Reference of response to resource to reverse.)
      */
-    public Reference getResponse() { 
+    public Reference getResponse() {
       if (this.response == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.response");
@@ -479,14 +479,14 @@ public class PaymentNotice extends DomainResource {
       return this.response;
     }
 
-    public boolean hasResponse() { 
+    public boolean hasResponse() {
       return this.response != null && !this.response.isEmpty();
     }
 
     /**
      * @param value {@link #response} (Reference of response to resource to reverse.)
      */
-    public PaymentNotice setResponse(Reference value) { 
+    public PaymentNotice setResponse(Reference value) {
       this.response = value;
       return this;
     }
@@ -494,14 +494,14 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #response} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference of response to resource to reverse.)
      */
-    public Resource getResponseTarget() { 
+    public Resource getResponseTarget() {
       return this.responseTarget;
     }
 
     /**
      * @param value {@link #response} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference of response to resource to reverse.)
      */
-    public PaymentNotice setResponseTarget(Resource value) { 
+    public PaymentNotice setResponseTarget(Resource value) {
       this.responseTarget = value;
       return this;
     }
@@ -509,7 +509,7 @@ public class PaymentNotice extends DomainResource {
     /**
      * @return {@link #paymentStatus} (The payment status, typically paid: payment sent, cleared: payment received.)
      */
-    public Coding getPaymentStatus() { 
+    public Coding getPaymentStatus() {
       if (this.paymentStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentNotice.paymentStatus");
@@ -518,14 +518,14 @@ public class PaymentNotice extends DomainResource {
       return this.paymentStatus;
     }
 
-    public boolean hasPaymentStatus() { 
+    public boolean hasPaymentStatus() {
       return this.paymentStatus != null && !this.paymentStatus.isEmpty();
     }
 
     /**
      * @param value {@link #paymentStatus} (The payment status, typically paid: payment sent, cleared: payment received.)
      */
-    public PaymentNotice setPaymentStatus(Coding value) { 
+    public PaymentNotice setPaymentStatus(Coding value) {
       this.paymentStatus = value;
       return this;
     }

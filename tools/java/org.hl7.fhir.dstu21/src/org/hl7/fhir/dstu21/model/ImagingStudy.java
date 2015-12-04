@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class ImagingStudy extends DomainResource {
         /**
          * null
          */
-        ONLINE, 
+        ONLINE,
         /**
          * null
          */
-        OFFLINE, 
+        OFFLINE,
         /**
          * null
          */
-        NEARLINE, 
+        NEARLINE,
         /**
          * null
          */
-        UNAVAILABLE, 
+        UNAVAILABLE,
         /**
          * added to help the parsers
          */
@@ -264,7 +264,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #number} (The Numeric identifier of this series in the study.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public UnsignedIntType getNumberElement() { 
+        public UnsignedIntType getNumberElement() {
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.number");
@@ -273,18 +273,18 @@ public class ImagingStudy extends DomainResource {
           return this.number;
         }
 
-        public boolean hasNumberElement() { 
+        public boolean hasNumberElement() {
           return this.number != null && !this.number.isEmpty();
         }
 
-        public boolean hasNumber() { 
+        public boolean hasNumber() {
           return this.number != null && !this.number.isEmpty();
         }
 
         /**
          * @param value {@link #number} (The Numeric identifier of this series in the study.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setNumberElement(UnsignedIntType value) { 
+        public ImagingStudySeriesComponent setNumberElement(UnsignedIntType value) {
           this.number = value;
           return this;
         }
@@ -292,14 +292,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return The Numeric identifier of this series in the study.
          */
-        public int getNumber() { 
+        public int getNumber() {
           return this.number == null || this.number.isEmpty() ? 0 : this.number.getValue();
         }
 
         /**
          * @param value The Numeric identifier of this series in the study.
          */
-        public ImagingStudySeriesComponent setNumber(int value) { 
+        public ImagingStudySeriesComponent setNumber(int value) {
             if (this.number == null)
               this.number = new UnsignedIntType();
             this.number.setValue(value);
@@ -309,7 +309,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #modality} (The modality of this series sequence.)
          */
-        public Coding getModality() { 
+        public Coding getModality() {
           if (this.modality == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.modality");
@@ -318,14 +318,14 @@ public class ImagingStudy extends DomainResource {
           return this.modality;
         }
 
-        public boolean hasModality() { 
+        public boolean hasModality() {
           return this.modality != null && !this.modality.isEmpty();
         }
 
         /**
          * @param value {@link #modality} (The modality of this series sequence.)
          */
-        public ImagingStudySeriesComponent setModality(Coding value) { 
+        public ImagingStudySeriesComponent setModality(Coding value) {
           this.modality = value;
           return this;
         }
@@ -333,7 +333,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #uid} (Formal identifier for this series.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public OidType getUidElement() { 
+        public OidType getUidElement() {
           if (this.uid == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.uid");
@@ -342,18 +342,18 @@ public class ImagingStudy extends DomainResource {
           return this.uid;
         }
 
-        public boolean hasUidElement() { 
+        public boolean hasUidElement() {
           return this.uid != null && !this.uid.isEmpty();
         }
 
-        public boolean hasUid() { 
+        public boolean hasUid() {
           return this.uid != null && !this.uid.isEmpty();
         }
 
         /**
          * @param value {@link #uid} (Formal identifier for this series.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setUidElement(OidType value) { 
+        public ImagingStudySeriesComponent setUidElement(OidType value) {
           this.uid = value;
           return this;
         }
@@ -361,14 +361,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return Formal identifier for this series.
          */
-        public String getUid() { 
+        public String getUid() {
           return this.uid == null ? null : this.uid.getValue();
         }
 
         /**
          * @param value Formal identifier for this series.
          */
-        public ImagingStudySeriesComponent setUid(String value) { 
+        public ImagingStudySeriesComponent setUid(String value) {
             if (this.uid == null)
               this.uid = new OidType();
             this.uid.setValue(value);
@@ -378,7 +378,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #description} (A description of the series.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.description");
@@ -387,18 +387,18 @@ public class ImagingStudy extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (A description of the series.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setDescriptionElement(StringType value) { 
+        public ImagingStudySeriesComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -406,14 +406,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return A description of the series.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value A description of the series.
          */
-        public ImagingStudySeriesComponent setDescription(String value) { 
+        public ImagingStudySeriesComponent setDescription(String value) {
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -427,7 +427,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #numberOfInstances} (Number of SOP Instances in Series.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
          */
-        public UnsignedIntType getNumberOfInstancesElement() { 
+        public UnsignedIntType getNumberOfInstancesElement() {
           if (this.numberOfInstances == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.numberOfInstances");
@@ -436,18 +436,18 @@ public class ImagingStudy extends DomainResource {
           return this.numberOfInstances;
         }
 
-        public boolean hasNumberOfInstancesElement() { 
+        public boolean hasNumberOfInstancesElement() {
           return this.numberOfInstances != null && !this.numberOfInstances.isEmpty();
         }
 
-        public boolean hasNumberOfInstances() { 
+        public boolean hasNumberOfInstances() {
           return this.numberOfInstances != null && !this.numberOfInstances.isEmpty();
         }
 
         /**
          * @param value {@link #numberOfInstances} (Number of SOP Instances in Series.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setNumberOfInstancesElement(UnsignedIntType value) { 
+        public ImagingStudySeriesComponent setNumberOfInstancesElement(UnsignedIntType value) {
           this.numberOfInstances = value;
           return this;
         }
@@ -455,14 +455,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return Number of SOP Instances in Series.
          */
-        public int getNumberOfInstances() { 
+        public int getNumberOfInstances() {
           return this.numberOfInstances == null || this.numberOfInstances.isEmpty() ? 0 : this.numberOfInstances.getValue();
         }
 
         /**
          * @param value Number of SOP Instances in Series.
          */
-        public ImagingStudySeriesComponent setNumberOfInstances(int value) { 
+        public ImagingStudySeriesComponent setNumberOfInstances(int value) {
             if (this.numberOfInstances == null)
               this.numberOfInstances = new UnsignedIntType();
             this.numberOfInstances.setValue(value);
@@ -472,7 +472,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #availability} (Availability of series (online, offline or nearline).). This is the underlying object with id, value and extensions. The accessor "getAvailability" gives direct access to the value
          */
-        public Enumeration<InstanceAvailability> getAvailabilityElement() { 
+        public Enumeration<InstanceAvailability> getAvailabilityElement() {
           if (this.availability == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.availability");
@@ -481,18 +481,18 @@ public class ImagingStudy extends DomainResource {
           return this.availability;
         }
 
-        public boolean hasAvailabilityElement() { 
+        public boolean hasAvailabilityElement() {
           return this.availability != null && !this.availability.isEmpty();
         }
 
-        public boolean hasAvailability() { 
+        public boolean hasAvailability() {
           return this.availability != null && !this.availability.isEmpty();
         }
 
         /**
          * @param value {@link #availability} (Availability of series (online, offline or nearline).). This is the underlying object with id, value and extensions. The accessor "getAvailability" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setAvailabilityElement(Enumeration<InstanceAvailability> value) { 
+        public ImagingStudySeriesComponent setAvailabilityElement(Enumeration<InstanceAvailability> value) {
           this.availability = value;
           return this;
         }
@@ -500,14 +500,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return Availability of series (online, offline or nearline).
          */
-        public InstanceAvailability getAvailability() { 
+        public InstanceAvailability getAvailability() {
           return this.availability == null ? null : this.availability.getValue();
         }
 
         /**
          * @param value Availability of series (online, offline or nearline).
          */
-        public ImagingStudySeriesComponent setAvailability(InstanceAvailability value) { 
+        public ImagingStudySeriesComponent setAvailability(InstanceAvailability value) {
           if (value == null)
             this.availability = null;
           else {
@@ -521,7 +521,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #url} (URI/URL specifying the location of the referenced series using WADO-RS.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlElement() { 
+        public UriType getUrlElement() {
           if (this.url == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.url");
@@ -530,18 +530,18 @@ public class ImagingStudy extends DomainResource {
           return this.url;
         }
 
-        public boolean hasUrlElement() { 
+        public boolean hasUrlElement() {
           return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasUrl() { 
+        public boolean hasUrl() {
           return this.url != null && !this.url.isEmpty();
         }
 
         /**
          * @param value {@link #url} (URI/URL specifying the location of the referenced series using WADO-RS.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setUrlElement(UriType value) { 
+        public ImagingStudySeriesComponent setUrlElement(UriType value) {
           this.url = value;
           return this;
         }
@@ -549,14 +549,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return URI/URL specifying the location of the referenced series using WADO-RS.
          */
-        public String getUrl() { 
+        public String getUrl() {
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value URI/URL specifying the location of the referenced series using WADO-RS.
          */
-        public ImagingStudySeriesComponent setUrl(String value) { 
+        public ImagingStudySeriesComponent setUrl(String value) {
           if (Utilities.noString(value))
             this.url = null;
           else {
@@ -570,7 +570,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #bodySite} (Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT.)
          */
-        public Coding getBodySite() { 
+        public Coding getBodySite() {
           if (this.bodySite == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.bodySite");
@@ -579,14 +579,14 @@ public class ImagingStudy extends DomainResource {
           return this.bodySite;
         }
 
-        public boolean hasBodySite() { 
+        public boolean hasBodySite() {
           return this.bodySite != null && !this.bodySite.isEmpty();
         }
 
         /**
          * @param value {@link #bodySite} (Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT.)
          */
-        public ImagingStudySeriesComponent setBodySite(Coding value) { 
+        public ImagingStudySeriesComponent setBodySite(Coding value) {
           this.bodySite = value;
           return this;
         }
@@ -594,7 +594,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #laterality} (Laterality if body site is paired anatomic structure and laterality is not pre-coordinated in body site code.)
          */
-        public Coding getLaterality() { 
+        public Coding getLaterality() {
           if (this.laterality == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.laterality");
@@ -603,14 +603,14 @@ public class ImagingStudy extends DomainResource {
           return this.laterality;
         }
 
-        public boolean hasLaterality() { 
+        public boolean hasLaterality() {
           return this.laterality != null && !this.laterality.isEmpty();
         }
 
         /**
          * @param value {@link #laterality} (Laterality if body site is paired anatomic structure and laterality is not pre-coordinated in body site code.)
          */
-        public ImagingStudySeriesComponent setLaterality(Coding value) { 
+        public ImagingStudySeriesComponent setLaterality(Coding value) {
           this.laterality = value;
           return this;
         }
@@ -618,7 +618,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #started} (The date and time the series was started.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
          */
-        public DateTimeType getStartedElement() { 
+        public DateTimeType getStartedElement() {
           if (this.started == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.started");
@@ -627,18 +627,18 @@ public class ImagingStudy extends DomainResource {
           return this.started;
         }
 
-        public boolean hasStartedElement() { 
+        public boolean hasStartedElement() {
           return this.started != null && !this.started.isEmpty();
         }
 
-        public boolean hasStarted() { 
+        public boolean hasStarted() {
           return this.started != null && !this.started.isEmpty();
         }
 
         /**
          * @param value {@link #started} (The date and time the series was started.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
          */
-        public ImagingStudySeriesComponent setStartedElement(DateTimeType value) { 
+        public ImagingStudySeriesComponent setStartedElement(DateTimeType value) {
           this.started = value;
           return this;
         }
@@ -646,14 +646,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return The date and time the series was started.
          */
-        public Date getStarted() { 
+        public Date getStarted() {
           return this.started == null ? null : this.started.getValue();
         }
 
         /**
          * @param value The date and time the series was started.
          */
-        public ImagingStudySeriesComponent setStarted(Date value) { 
+        public ImagingStudySeriesComponent setStarted(Date value) {
           if (value == null)
             this.started = null;
           else {
@@ -667,13 +667,13 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #instance} (A single SOP Instance within the series, e.g. an image, or presentation state.)
          */
-        public List<ImagingStudySeriesInstanceComponent> getInstance() { 
+        public List<ImagingStudySeriesInstanceComponent> getInstance() {
           if (this.instance == null)
             this.instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
           return this.instance;
         }
 
-        public boolean hasInstance() { 
+        public boolean hasInstance() {
           if (this.instance == null)
             return false;
           for (ImagingStudySeriesInstanceComponent item : this.instance)
@@ -916,7 +916,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #number} (The number of instance in the series.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public UnsignedIntType getNumberElement() { 
+        public UnsignedIntType getNumberElement() {
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.number");
@@ -925,18 +925,18 @@ public class ImagingStudy extends DomainResource {
           return this.number;
         }
 
-        public boolean hasNumberElement() { 
+        public boolean hasNumberElement() {
           return this.number != null && !this.number.isEmpty();
         }
 
-        public boolean hasNumber() { 
+        public boolean hasNumber() {
           return this.number != null && !this.number.isEmpty();
         }
 
         /**
          * @param value {@link #number} (The number of instance in the series.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setNumberElement(UnsignedIntType value) { 
+        public ImagingStudySeriesInstanceComponent setNumberElement(UnsignedIntType value) {
           this.number = value;
           return this;
         }
@@ -944,14 +944,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return The number of instance in the series.
          */
-        public int getNumber() { 
+        public int getNumber() {
           return this.number == null || this.number.isEmpty() ? 0 : this.number.getValue();
         }
 
         /**
          * @param value The number of instance in the series.
          */
-        public ImagingStudySeriesInstanceComponent setNumber(int value) { 
+        public ImagingStudySeriesInstanceComponent setNumber(int value) {
             if (this.number == null)
               this.number = new UnsignedIntType();
             this.number.setValue(value);
@@ -961,7 +961,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #uid} (Formal identifier for this image or other content.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public OidType getUidElement() { 
+        public OidType getUidElement() {
           if (this.uid == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.uid");
@@ -970,18 +970,18 @@ public class ImagingStudy extends DomainResource {
           return this.uid;
         }
 
-        public boolean hasUidElement() { 
+        public boolean hasUidElement() {
           return this.uid != null && !this.uid.isEmpty();
         }
 
-        public boolean hasUid() { 
+        public boolean hasUid() {
           return this.uid != null && !this.uid.isEmpty();
         }
 
         /**
          * @param value {@link #uid} (Formal identifier for this image or other content.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setUidElement(OidType value) { 
+        public ImagingStudySeriesInstanceComponent setUidElement(OidType value) {
           this.uid = value;
           return this;
         }
@@ -989,14 +989,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return Formal identifier for this image or other content.
          */
-        public String getUid() { 
+        public String getUid() {
           return this.uid == null ? null : this.uid.getValue();
         }
 
         /**
          * @param value Formal identifier for this image or other content.
          */
-        public ImagingStudySeriesInstanceComponent setUid(String value) { 
+        public ImagingStudySeriesInstanceComponent setUid(String value) {
             if (this.uid == null)
               this.uid = new OidType();
             this.uid.setValue(value);
@@ -1006,7 +1006,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #sopClass} (DICOM instance  type.). This is the underlying object with id, value and extensions. The accessor "getSopClass" gives direct access to the value
          */
-        public OidType getSopClassElement() { 
+        public OidType getSopClassElement() {
           if (this.sopClass == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.sopClass");
@@ -1015,18 +1015,18 @@ public class ImagingStudy extends DomainResource {
           return this.sopClass;
         }
 
-        public boolean hasSopClassElement() { 
+        public boolean hasSopClassElement() {
           return this.sopClass != null && !this.sopClass.isEmpty();
         }
 
-        public boolean hasSopClass() { 
+        public boolean hasSopClass() {
           return this.sopClass != null && !this.sopClass.isEmpty();
         }
 
         /**
          * @param value {@link #sopClass} (DICOM instance  type.). This is the underlying object with id, value and extensions. The accessor "getSopClass" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setSopClassElement(OidType value) { 
+        public ImagingStudySeriesInstanceComponent setSopClassElement(OidType value) {
           this.sopClass = value;
           return this;
         }
@@ -1034,14 +1034,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return DICOM instance  type.
          */
-        public String getSopClass() { 
+        public String getSopClass() {
           return this.sopClass == null ? null : this.sopClass.getValue();
         }
 
         /**
          * @param value DICOM instance  type.
          */
-        public ImagingStudySeriesInstanceComponent setSopClass(String value) { 
+        public ImagingStudySeriesInstanceComponent setSopClass(String value) {
             if (this.sopClass == null)
               this.sopClass = new OidType();
             this.sopClass.setValue(value);
@@ -1051,7 +1051,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #type} (A human-friendly SOP Class name.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public StringType getTypeElement() { 
+        public StringType getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.type");
@@ -1060,18 +1060,18 @@ public class ImagingStudy extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (A human-friendly SOP Class name.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setTypeElement(StringType value) { 
+        public ImagingStudySeriesInstanceComponent setTypeElement(StringType value) {
           this.type = value;
           return this;
         }
@@ -1079,14 +1079,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return A human-friendly SOP Class name.
          */
-        public String getType() { 
+        public String getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value A human-friendly SOP Class name.
          */
-        public ImagingStudySeriesInstanceComponent setType(String value) { 
+        public ImagingStudySeriesInstanceComponent setType(String value) {
           if (Utilities.noString(value))
             this.type = null;
           else {
@@ -1100,7 +1100,7 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #title} (The description of the instance.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitleElement() { 
+        public StringType getTitleElement() {
           if (this.title == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.title");
@@ -1109,18 +1109,18 @@ public class ImagingStudy extends DomainResource {
           return this.title;
         }
 
-        public boolean hasTitleElement() { 
+        public boolean hasTitleElement() {
           return this.title != null && !this.title.isEmpty();
         }
 
-        public boolean hasTitle() { 
+        public boolean hasTitle() {
           return this.title != null && !this.title.isEmpty();
         }
 
         /**
          * @param value {@link #title} (The description of the instance.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public ImagingStudySeriesInstanceComponent setTitleElement(StringType value) { 
+        public ImagingStudySeriesInstanceComponent setTitleElement(StringType value) {
           this.title = value;
           return this;
         }
@@ -1128,14 +1128,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return The description of the instance.
          */
-        public String getTitle() { 
+        public String getTitle() {
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
          * @param value The description of the instance.
          */
-        public ImagingStudySeriesInstanceComponent setTitle(String value) { 
+        public ImagingStudySeriesInstanceComponent setTitle(String value) {
           if (Utilities.noString(value))
             this.title = null;
           else {
@@ -1149,13 +1149,13 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return {@link #content} (Content of the instance or a rendering thereof (e.g. a JPEG of an image, or an XML of a structured report). May be represented for example by inline encoding; by a URL reference to a WADO-RS service that makes the instance available; or to a FHIR Resource (e.g. Media, Document, etc.). Multiple content attachments may be used for alternate representations of the instance.)
          */
-        public List<Attachment> getContent() { 
+        public List<Attachment> getContent() {
           if (this.content == null)
             this.content = new ArrayList<Attachment>();
           return this.content;
         }
 
-        public boolean hasContent() { 
+        public boolean hasContent() {
           if (this.content == null)
             return false;
           for (Attachment item : this.content)
@@ -1450,7 +1450,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #started} (Date and Time the study started.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
      */
-    public DateTimeType getStartedElement() { 
+    public DateTimeType getStartedElement() {
       if (this.started == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.started");
@@ -1459,18 +1459,18 @@ public class ImagingStudy extends DomainResource {
       return this.started;
     }
 
-    public boolean hasStartedElement() { 
+    public boolean hasStartedElement() {
       return this.started != null && !this.started.isEmpty();
     }
 
-    public boolean hasStarted() { 
+    public boolean hasStarted() {
       return this.started != null && !this.started.isEmpty();
     }
 
     /**
      * @param value {@link #started} (Date and Time the study started.). This is the underlying object with id, value and extensions. The accessor "getStarted" gives direct access to the value
      */
-    public ImagingStudy setStartedElement(DateTimeType value) { 
+    public ImagingStudy setStartedElement(DateTimeType value) {
       this.started = value;
       return this;
     }
@@ -1478,14 +1478,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return Date and Time the study started.
      */
-    public Date getStarted() { 
+    public Date getStarted() {
       return this.started == null ? null : this.started.getValue();
     }
 
     /**
      * @param value Date and Time the study started.
      */
-    public ImagingStudy setStarted(Date value) { 
+    public ImagingStudy setStarted(Date value) {
       if (value == null)
         this.started = null;
       else {
@@ -1499,7 +1499,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #patient} (The patient imaged in the study.)
      */
-    public Reference getPatient() { 
+    public Reference getPatient() {
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.patient");
@@ -1508,14 +1508,14 @@ public class ImagingStudy extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() { 
+    public boolean hasPatient() {
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The patient imaged in the study.)
      */
-    public ImagingStudy setPatient(Reference value) { 
+    public ImagingStudy setPatient(Reference value) {
       this.patient = value;
       return this;
     }
@@ -1523,7 +1523,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient imaged in the study.)
      */
-    public Patient getPatientTarget() { 
+    public Patient getPatientTarget() {
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.patient");
@@ -1535,7 +1535,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient imaged in the study.)
      */
-    public ImagingStudy setPatientTarget(Patient value) { 
+    public ImagingStudy setPatientTarget(Patient value) {
       this.patientTarget = value;
       return this;
     }
@@ -1543,7 +1543,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #uid} (Formal identifier for the study.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
      */
-    public OidType getUidElement() { 
+    public OidType getUidElement() {
       if (this.uid == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.uid");
@@ -1552,18 +1552,18 @@ public class ImagingStudy extends DomainResource {
       return this.uid;
     }
 
-    public boolean hasUidElement() { 
+    public boolean hasUidElement() {
       return this.uid != null && !this.uid.isEmpty();
     }
 
-    public boolean hasUid() { 
+    public boolean hasUid() {
       return this.uid != null && !this.uid.isEmpty();
     }
 
     /**
      * @param value {@link #uid} (Formal identifier for the study.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
      */
-    public ImagingStudy setUidElement(OidType value) { 
+    public ImagingStudy setUidElement(OidType value) {
       this.uid = value;
       return this;
     }
@@ -1571,14 +1571,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return Formal identifier for the study.
      */
-    public String getUid() { 
+    public String getUid() {
       return this.uid == null ? null : this.uid.getValue();
     }
 
     /**
      * @param value Formal identifier for the study.
      */
-    public ImagingStudy setUid(String value) { 
+    public ImagingStudy setUid(String value) {
         if (this.uid == null)
           this.uid = new OidType();
         this.uid.setValue(value);
@@ -1588,7 +1588,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #accession} (Accession Number is an identifier related to some aspect of imaging workflow and data management. Usage may vary across different institutions.  See for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf).)
      */
-    public Identifier getAccession() { 
+    public Identifier getAccession() {
       if (this.accession == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.accession");
@@ -1597,14 +1597,14 @@ public class ImagingStudy extends DomainResource {
       return this.accession;
     }
 
-    public boolean hasAccession() { 
+    public boolean hasAccession() {
       return this.accession != null && !this.accession.isEmpty();
     }
 
     /**
      * @param value {@link #accession} (Accession Number is an identifier related to some aspect of imaging workflow and data management. Usage may vary across different institutions.  See for instance [IHE Radiology Technical Framework Volume 1 Appendix A](http://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Rev13.0_Vol1_FT_2014-07-30.pdf).)
      */
-    public ImagingStudy setAccession(Identifier value) { 
+    public ImagingStudy setAccession(Identifier value) {
       this.accession = value;
       return this;
     }
@@ -1612,13 +1612,13 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #identifier} (Other identifiers for the study.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1652,13 +1652,13 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #order} (A list of the diagnostic orders that resulted in this imaging study being performed.)
      */
-    public List<Reference> getOrder() { 
+    public List<Reference> getOrder() {
       if (this.order == null)
         this.order = new ArrayList<Reference>();
       return this.order;
     }
 
-    public boolean hasOrder() { 
+    public boolean hasOrder() {
       if (this.order == null)
         return false;
       for (Reference item : this.order)
@@ -1692,7 +1692,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #order} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of the diagnostic orders that resulted in this imaging study being performed.)
      */
-    public List<DiagnosticOrder> getOrderTarget() { 
+    public List<DiagnosticOrder> getOrderTarget() {
       if (this.orderTarget == null)
         this.orderTarget = new ArrayList<DiagnosticOrder>();
       return this.orderTarget;
@@ -1702,7 +1702,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #order} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A list of the diagnostic orders that resulted in this imaging study being performed.)
      */
-    public DiagnosticOrder addOrderTarget() { 
+    public DiagnosticOrder addOrderTarget() {
       DiagnosticOrder r = new DiagnosticOrder();
       if (this.orderTarget == null)
         this.orderTarget = new ArrayList<DiagnosticOrder>();
@@ -1713,13 +1713,13 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
-    public List<Coding> getModalityList() { 
+    public List<Coding> getModalityList() {
       if (this.modalityList == null)
         this.modalityList = new ArrayList<Coding>();
       return this.modalityList;
     }
 
-    public boolean hasModalityList() { 
+    public boolean hasModalityList() {
       if (this.modalityList == null)
         return false;
       for (Coding item : this.modalityList)
@@ -1753,7 +1753,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #referrer} (The requesting/referring physician.)
      */
-    public Reference getReferrer() { 
+    public Reference getReferrer() {
       if (this.referrer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.referrer");
@@ -1762,14 +1762,14 @@ public class ImagingStudy extends DomainResource {
       return this.referrer;
     }
 
-    public boolean hasReferrer() { 
+    public boolean hasReferrer() {
       return this.referrer != null && !this.referrer.isEmpty();
     }
 
     /**
      * @param value {@link #referrer} (The requesting/referring physician.)
      */
-    public ImagingStudy setReferrer(Reference value) { 
+    public ImagingStudy setReferrer(Reference value) {
       this.referrer = value;
       return this;
     }
@@ -1777,7 +1777,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #referrer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The requesting/referring physician.)
      */
-    public Practitioner getReferrerTarget() { 
+    public Practitioner getReferrerTarget() {
       if (this.referrerTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.referrer");
@@ -1789,7 +1789,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @param value {@link #referrer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The requesting/referring physician.)
      */
-    public ImagingStudy setReferrerTarget(Practitioner value) { 
+    public ImagingStudy setReferrerTarget(Practitioner value) {
       this.referrerTarget = value;
       return this;
     }
@@ -1797,7 +1797,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #availability} (Availability of study (online, offline or nearline).). This is the underlying object with id, value and extensions. The accessor "getAvailability" gives direct access to the value
      */
-    public Enumeration<InstanceAvailability> getAvailabilityElement() { 
+    public Enumeration<InstanceAvailability> getAvailabilityElement() {
       if (this.availability == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.availability");
@@ -1806,18 +1806,18 @@ public class ImagingStudy extends DomainResource {
       return this.availability;
     }
 
-    public boolean hasAvailabilityElement() { 
+    public boolean hasAvailabilityElement() {
       return this.availability != null && !this.availability.isEmpty();
     }
 
-    public boolean hasAvailability() { 
+    public boolean hasAvailability() {
       return this.availability != null && !this.availability.isEmpty();
     }
 
     /**
      * @param value {@link #availability} (Availability of study (online, offline or nearline).). This is the underlying object with id, value and extensions. The accessor "getAvailability" gives direct access to the value
      */
-    public ImagingStudy setAvailabilityElement(Enumeration<InstanceAvailability> value) { 
+    public ImagingStudy setAvailabilityElement(Enumeration<InstanceAvailability> value) {
       this.availability = value;
       return this;
     }
@@ -1825,14 +1825,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return Availability of study (online, offline or nearline).
      */
-    public InstanceAvailability getAvailability() { 
+    public InstanceAvailability getAvailability() {
       return this.availability == null ? null : this.availability.getValue();
     }
 
     /**
      * @param value Availability of study (online, offline or nearline).
      */
-    public ImagingStudy setAvailability(InstanceAvailability value) { 
+    public ImagingStudy setAvailability(InstanceAvailability value) {
       if (value == null)
         this.availability = null;
       else {
@@ -1846,7 +1846,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #url} (WADO-RS resource where Study is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() { 
+    public UriType getUrlElement() {
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.url");
@@ -1855,18 +1855,18 @@ public class ImagingStudy extends DomainResource {
       return this.url;
     }
 
-    public boolean hasUrlElement() { 
+    public boolean hasUrlElement() {
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() { 
+    public boolean hasUrl() {
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (WADO-RS resource where Study is available.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public ImagingStudy setUrlElement(UriType value) { 
+    public ImagingStudy setUrlElement(UriType value) {
       this.url = value;
       return this;
     }
@@ -1874,14 +1874,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return WADO-RS resource where Study is available.
      */
-    public String getUrl() { 
+    public String getUrl() {
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value WADO-RS resource where Study is available.
      */
-    public ImagingStudy setUrl(String value) { 
+    public ImagingStudy setUrl(String value) {
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -1895,7 +1895,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #numberOfSeries} (Number of Series in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfSeries" gives direct access to the value
      */
-    public UnsignedIntType getNumberOfSeriesElement() { 
+    public UnsignedIntType getNumberOfSeriesElement() {
       if (this.numberOfSeries == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.numberOfSeries");
@@ -1904,18 +1904,18 @@ public class ImagingStudy extends DomainResource {
       return this.numberOfSeries;
     }
 
-    public boolean hasNumberOfSeriesElement() { 
+    public boolean hasNumberOfSeriesElement() {
       return this.numberOfSeries != null && !this.numberOfSeries.isEmpty();
     }
 
-    public boolean hasNumberOfSeries() { 
+    public boolean hasNumberOfSeries() {
       return this.numberOfSeries != null && !this.numberOfSeries.isEmpty();
     }
 
     /**
      * @param value {@link #numberOfSeries} (Number of Series in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfSeries" gives direct access to the value
      */
-    public ImagingStudy setNumberOfSeriesElement(UnsignedIntType value) { 
+    public ImagingStudy setNumberOfSeriesElement(UnsignedIntType value) {
       this.numberOfSeries = value;
       return this;
     }
@@ -1923,14 +1923,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return Number of Series in Study.
      */
-    public int getNumberOfSeries() { 
+    public int getNumberOfSeries() {
       return this.numberOfSeries == null || this.numberOfSeries.isEmpty() ? 0 : this.numberOfSeries.getValue();
     }
 
     /**
      * @param value Number of Series in Study.
      */
-    public ImagingStudy setNumberOfSeries(int value) { 
+    public ImagingStudy setNumberOfSeries(int value) {
         if (this.numberOfSeries == null)
           this.numberOfSeries = new UnsignedIntType();
         this.numberOfSeries.setValue(value);
@@ -1940,7 +1940,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #numberOfInstances} (Number of SOP Instances in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
      */
-    public UnsignedIntType getNumberOfInstancesElement() { 
+    public UnsignedIntType getNumberOfInstancesElement() {
       if (this.numberOfInstances == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.numberOfInstances");
@@ -1949,18 +1949,18 @@ public class ImagingStudy extends DomainResource {
       return this.numberOfInstances;
     }
 
-    public boolean hasNumberOfInstancesElement() { 
+    public boolean hasNumberOfInstancesElement() {
       return this.numberOfInstances != null && !this.numberOfInstances.isEmpty();
     }
 
-    public boolean hasNumberOfInstances() { 
+    public boolean hasNumberOfInstances() {
       return this.numberOfInstances != null && !this.numberOfInstances.isEmpty();
     }
 
     /**
      * @param value {@link #numberOfInstances} (Number of SOP Instances in Study.). This is the underlying object with id, value and extensions. The accessor "getNumberOfInstances" gives direct access to the value
      */
-    public ImagingStudy setNumberOfInstancesElement(UnsignedIntType value) { 
+    public ImagingStudy setNumberOfInstancesElement(UnsignedIntType value) {
       this.numberOfInstances = value;
       return this;
     }
@@ -1968,14 +1968,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return Number of SOP Instances in Study.
      */
-    public int getNumberOfInstances() { 
+    public int getNumberOfInstances() {
       return this.numberOfInstances == null || this.numberOfInstances.isEmpty() ? 0 : this.numberOfInstances.getValue();
     }
 
     /**
      * @param value Number of SOP Instances in Study.
      */
-    public ImagingStudy setNumberOfInstances(int value) { 
+    public ImagingStudy setNumberOfInstances(int value) {
         if (this.numberOfInstances == null)
           this.numberOfInstances = new UnsignedIntType();
         this.numberOfInstances.setValue(value);
@@ -1985,13 +1985,13 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #procedure} (Type of procedure performed.)
      */
-    public List<Reference> getProcedure() { 
+    public List<Reference> getProcedure() {
       if (this.procedure == null)
         this.procedure = new ArrayList<Reference>();
       return this.procedure;
     }
 
-    public boolean hasProcedure() { 
+    public boolean hasProcedure() {
       if (this.procedure == null)
         return false;
       for (Reference item : this.procedure)
@@ -2025,7 +2025,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #procedure} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Type of procedure performed.)
      */
-    public List<Procedure> getProcedureTarget() { 
+    public List<Procedure> getProcedureTarget() {
       if (this.procedureTarget == null)
         this.procedureTarget = new ArrayList<Procedure>();
       return this.procedureTarget;
@@ -2035,7 +2035,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #procedure} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Type of procedure performed.)
      */
-    public Procedure addProcedureTarget() { 
+    public Procedure addProcedureTarget() {
       Procedure r = new Procedure();
       if (this.procedureTarget == null)
         this.procedureTarget = new ArrayList<Procedure>();
@@ -2046,7 +2046,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #interpreter} (Who read the study and interpreted the images or other content.)
      */
-    public Reference getInterpreter() { 
+    public Reference getInterpreter() {
       if (this.interpreter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.interpreter");
@@ -2055,14 +2055,14 @@ public class ImagingStudy extends DomainResource {
       return this.interpreter;
     }
 
-    public boolean hasInterpreter() { 
+    public boolean hasInterpreter() {
       return this.interpreter != null && !this.interpreter.isEmpty();
     }
 
     /**
      * @param value {@link #interpreter} (Who read the study and interpreted the images or other content.)
      */
-    public ImagingStudy setInterpreter(Reference value) { 
+    public ImagingStudy setInterpreter(Reference value) {
       this.interpreter = value;
       return this;
     }
@@ -2070,7 +2070,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #interpreter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who read the study and interpreted the images or other content.)
      */
-    public Practitioner getInterpreterTarget() { 
+    public Practitioner getInterpreterTarget() {
       if (this.interpreterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.interpreter");
@@ -2082,7 +2082,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @param value {@link #interpreter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who read the study and interpreted the images or other content.)
      */
-    public ImagingStudy setInterpreterTarget(Practitioner value) { 
+    public ImagingStudy setInterpreterTarget(Practitioner value) {
       this.interpreterTarget = value;
       return this;
     }
@@ -2090,7 +2090,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #description} (Institution-generated description or classification of the Study performed.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() { 
+    public StringType getDescriptionElement() {
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.description");
@@ -2099,18 +2099,18 @@ public class ImagingStudy extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() { 
+    public boolean hasDescriptionElement() {
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() { 
+    public boolean hasDescription() {
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (Institution-generated description or classification of the Study performed.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ImagingStudy setDescriptionElement(StringType value) { 
+    public ImagingStudy setDescriptionElement(StringType value) {
       this.description = value;
       return this;
     }
@@ -2118,14 +2118,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return Institution-generated description or classification of the Study performed.
      */
-    public String getDescription() { 
+    public String getDescription() {
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Institution-generated description or classification of the Study performed.
      */
-    public ImagingStudy setDescription(String value) { 
+    public ImagingStudy setDescription(String value) {
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -2139,13 +2139,13 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return {@link #series} (Each study has one or more series of images or other content.)
      */
-    public List<ImagingStudySeriesComponent> getSeries() { 
+    public List<ImagingStudySeriesComponent> getSeries() {
       if (this.series == null)
         this.series = new ArrayList<ImagingStudySeriesComponent>();
       return this.series;
     }
 
-    public boolean hasSeries() { 
+    public boolean hasSeries() {
       if (this.series == null)
         return false;
       for (ImagingStudySeriesComponent item : this.series)

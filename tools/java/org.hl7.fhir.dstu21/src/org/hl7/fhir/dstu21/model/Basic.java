@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -111,13 +111,13 @@ public class Basic extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier assigned to the resource for business purposes, outside the context of FHIR.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -151,7 +151,7 @@ public class Basic extends DomainResource {
     /**
      * @return {@link #code} (Identifies the 'type' of resource - equivalent to the resource name for other resources.)
      */
-    public CodeableConcept getCode() { 
+    public CodeableConcept getCode() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Basic.code");
@@ -160,14 +160,14 @@ public class Basic extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (Identifies the 'type' of resource - equivalent to the resource name for other resources.)
      */
-    public Basic setCode(CodeableConcept value) { 
+    public Basic setCode(CodeableConcept value) {
       this.code = value;
       return this;
     }
@@ -175,7 +175,7 @@ public class Basic extends DomainResource {
     /**
      * @return {@link #subject} (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resource.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Basic.subject");
@@ -184,14 +184,14 @@ public class Basic extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resource.)
      */
-    public Basic setSubject(Reference value) { 
+    public Basic setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -199,14 +199,14 @@ public class Basic extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resource.)
      */
-    public Resource getSubjectTarget() { 
+    public Resource getSubjectTarget() {
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resource.)
      */
-    public Basic setSubjectTarget(Resource value) { 
+    public Basic setSubjectTarget(Resource value) {
       this.subjectTarget = value;
       return this;
     }
@@ -214,7 +214,7 @@ public class Basic extends DomainResource {
     /**
      * @return {@link #author} (Indicates who was responsible for creating the resource instance.)
      */
-    public Reference getAuthor() { 
+    public Reference getAuthor() {
       if (this.author == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Basic.author");
@@ -223,14 +223,14 @@ public class Basic extends DomainResource {
       return this.author;
     }
 
-    public boolean hasAuthor() { 
+    public boolean hasAuthor() {
       return this.author != null && !this.author.isEmpty();
     }
 
     /**
      * @param value {@link #author} (Indicates who was responsible for creating the resource instance.)
      */
-    public Basic setAuthor(Reference value) { 
+    public Basic setAuthor(Reference value) {
       this.author = value;
       return this;
     }
@@ -238,14 +238,14 @@ public class Basic extends DomainResource {
     /**
      * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates who was responsible for creating the resource instance.)
      */
-    public Resource getAuthorTarget() { 
+    public Resource getAuthorTarget() {
       return this.authorTarget;
     }
 
     /**
      * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates who was responsible for creating the resource instance.)
      */
-    public Basic setAuthorTarget(Resource value) { 
+    public Basic setAuthorTarget(Resource value) {
       this.authorTarget = value;
       return this;
     }
@@ -253,7 +253,7 @@ public class Basic extends DomainResource {
     /**
      * @return {@link #created} (Identifies when the resource was first created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateType getCreatedElement() { 
+    public DateType getCreatedElement() {
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Basic.created");
@@ -262,18 +262,18 @@ public class Basic extends DomainResource {
       return this.created;
     }
 
-    public boolean hasCreatedElement() { 
+    public boolean hasCreatedElement() {
       return this.created != null && !this.created.isEmpty();
     }
 
-    public boolean hasCreated() { 
+    public boolean hasCreated() {
       return this.created != null && !this.created.isEmpty();
     }
 
     /**
      * @param value {@link #created} (Identifies when the resource was first created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public Basic setCreatedElement(DateType value) { 
+    public Basic setCreatedElement(DateType value) {
       this.created = value;
       return this;
     }
@@ -281,14 +281,14 @@ public class Basic extends DomainResource {
     /**
      * @return Identifies when the resource was first created.
      */
-    public Date getCreated() { 
+    public Date getCreated() {
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value Identifies when the resource was first created.
      */
-    public Basic setCreated(Date value) { 
+    public Basic setCreated(Date value) {
       if (value == null)
         this.created = null;
       else {

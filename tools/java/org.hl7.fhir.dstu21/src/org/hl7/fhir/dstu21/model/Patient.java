@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,15 +52,15 @@ public class Patient extends DomainResource {
         /**
          * The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains this link.
          */
-        REPLACE, 
+        REPLACE,
         /**
          * The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.
          */
-        REFER, 
+        REFER,
         /**
          * The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.
          */
-        SEEALSO, 
+        SEEALSO,
         /**
          * added to help the parsers
          */
@@ -216,13 +216,13 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #relationship} (The nature of the relationship between the patient and the contact person.)
          */
-        public List<CodeableConcept> getRelationship() { 
+        public List<CodeableConcept> getRelationship() {
           if (this.relationship == null)
             this.relationship = new ArrayList<CodeableConcept>();
           return this.relationship;
         }
 
-        public boolean hasRelationship() { 
+        public boolean hasRelationship() {
           if (this.relationship == null)
             return false;
           for (CodeableConcept item : this.relationship)
@@ -256,7 +256,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #name} (A name associated with the contact person.)
          */
-        public HumanName getName() { 
+        public HumanName getName() {
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.name");
@@ -265,14 +265,14 @@ public class Patient extends DomainResource {
           return this.name;
         }
 
-        public boolean hasName() { 
+        public boolean hasName() {
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (A name associated with the contact person.)
          */
-        public ContactComponent setName(HumanName value) { 
+        public ContactComponent setName(HumanName value) {
           this.name = value;
           return this;
         }
@@ -280,13 +280,13 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
          */
-        public List<ContactPoint> getTelecom() { 
+        public List<ContactPoint> getTelecom() {
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() { 
+        public boolean hasTelecom() {
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -320,7 +320,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #address} (Address for the contact person.)
          */
-        public Address getAddress() { 
+        public Address getAddress() {
           if (this.address == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.address");
@@ -329,14 +329,14 @@ public class Patient extends DomainResource {
           return this.address;
         }
 
-        public boolean hasAddress() { 
+        public boolean hasAddress() {
           return this.address != null && !this.address.isEmpty();
         }
 
         /**
          * @param value {@link #address} (Address for the contact person.)
          */
-        public ContactComponent setAddress(Address value) { 
+        public ContactComponent setAddress(Address value) {
           this.address = value;
           return this;
         }
@@ -344,7 +344,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #gender} (Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public Enumeration<AdministrativeGender> getGenderElement() { 
+        public Enumeration<AdministrativeGender> getGenderElement() {
           if (this.gender == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.gender");
@@ -353,18 +353,18 @@ public class Patient extends DomainResource {
           return this.gender;
         }
 
-        public boolean hasGenderElement() { 
+        public boolean hasGenderElement() {
           return this.gender != null && !this.gender.isEmpty();
         }
 
-        public boolean hasGender() { 
+        public boolean hasGender() {
           return this.gender != null && !this.gender.isEmpty();
         }
 
         /**
          * @param value {@link #gender} (Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
-        public ContactComponent setGenderElement(Enumeration<AdministrativeGender> value) { 
+        public ContactComponent setGenderElement(Enumeration<AdministrativeGender> value) {
           this.gender = value;
           return this;
         }
@@ -372,14 +372,14 @@ public class Patient extends DomainResource {
         /**
          * @return Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
          */
-        public AdministrativeGender getGender() { 
+        public AdministrativeGender getGender() {
           return this.gender == null ? null : this.gender.getValue();
         }
 
         /**
          * @param value Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
          */
-        public ContactComponent setGender(AdministrativeGender value) { 
+        public ContactComponent setGender(AdministrativeGender value) {
           if (value == null)
             this.gender = null;
           else {
@@ -393,7 +393,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #organization} (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
-        public Reference getOrganization() { 
+        public Reference getOrganization() {
           if (this.organization == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.organization");
@@ -402,14 +402,14 @@ public class Patient extends DomainResource {
           return this.organization;
         }
 
-        public boolean hasOrganization() { 
+        public boolean hasOrganization() {
           return this.organization != null && !this.organization.isEmpty();
         }
 
         /**
          * @param value {@link #organization} (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
-        public ContactComponent setOrganization(Reference value) { 
+        public ContactComponent setOrganization(Reference value) {
           this.organization = value;
           return this;
         }
@@ -417,7 +417,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
-        public Organization getOrganizationTarget() { 
+        public Organization getOrganizationTarget() {
           if (this.organizationTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.organization");
@@ -429,7 +429,7 @@ public class Patient extends DomainResource {
         /**
          * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
-        public ContactComponent setOrganizationTarget(Organization value) { 
+        public ContactComponent setOrganizationTarget(Organization value) {
           this.organizationTarget = value;
           return this;
         }
@@ -437,7 +437,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #period} (The period during which this contact person or organization is valid to be contacted relating to this patient.)
          */
-        public Period getPeriod() { 
+        public Period getPeriod() {
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.period");
@@ -446,14 +446,14 @@ public class Patient extends DomainResource {
           return this.period;
         }
 
-        public boolean hasPeriod() { 
+        public boolean hasPeriod() {
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (The period during which this contact person or organization is valid to be contacted relating to this patient.)
          */
-        public ContactComponent setPeriod(Period value) { 
+        public ContactComponent setPeriod(Period value) {
           this.period = value;
           return this;
         }
@@ -620,7 +620,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #species} (Identifies the high level taxonomic categorization of the kind of animal.)
          */
-        public CodeableConcept getSpecies() { 
+        public CodeableConcept getSpecies() {
           if (this.species == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AnimalComponent.species");
@@ -629,14 +629,14 @@ public class Patient extends DomainResource {
           return this.species;
         }
 
-        public boolean hasSpecies() { 
+        public boolean hasSpecies() {
           return this.species != null && !this.species.isEmpty();
         }
 
         /**
          * @param value {@link #species} (Identifies the high level taxonomic categorization of the kind of animal.)
          */
-        public AnimalComponent setSpecies(CodeableConcept value) { 
+        public AnimalComponent setSpecies(CodeableConcept value) {
           this.species = value;
           return this;
         }
@@ -644,7 +644,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #breed} (Identifies the detailed categorization of the kind of animal.)
          */
-        public CodeableConcept getBreed() { 
+        public CodeableConcept getBreed() {
           if (this.breed == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AnimalComponent.breed");
@@ -653,14 +653,14 @@ public class Patient extends DomainResource {
           return this.breed;
         }
 
-        public boolean hasBreed() { 
+        public boolean hasBreed() {
           return this.breed != null && !this.breed.isEmpty();
         }
 
         /**
          * @param value {@link #breed} (Identifies the detailed categorization of the kind of animal.)
          */
-        public AnimalComponent setBreed(CodeableConcept value) { 
+        public AnimalComponent setBreed(CodeableConcept value) {
           this.breed = value;
           return this;
         }
@@ -668,7 +668,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #genderStatus} (Indicates the current state of the animal's reproductive organs.)
          */
-        public CodeableConcept getGenderStatus() { 
+        public CodeableConcept getGenderStatus() {
           if (this.genderStatus == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AnimalComponent.genderStatus");
@@ -677,14 +677,14 @@ public class Patient extends DomainResource {
           return this.genderStatus;
         }
 
-        public boolean hasGenderStatus() { 
+        public boolean hasGenderStatus() {
           return this.genderStatus != null && !this.genderStatus.isEmpty();
         }
 
         /**
          * @param value {@link #genderStatus} (Indicates the current state of the animal's reproductive organs.)
          */
-        public AnimalComponent setGenderStatus(CodeableConcept value) { 
+        public AnimalComponent setGenderStatus(CodeableConcept value) {
           this.genderStatus = value;
           return this;
         }
@@ -804,7 +804,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #language} (The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.)
          */
-        public CodeableConcept getLanguage() { 
+        public CodeableConcept getLanguage() {
           if (this.language == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PatientCommunicationComponent.language");
@@ -813,14 +813,14 @@ public class Patient extends DomainResource {
           return this.language;
         }
 
-        public boolean hasLanguage() { 
+        public boolean hasLanguage() {
           return this.language != null && !this.language.isEmpty();
         }
 
         /**
          * @param value {@link #language} (The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.)
          */
-        public PatientCommunicationComponent setLanguage(CodeableConcept value) { 
+        public PatientCommunicationComponent setLanguage(CodeableConcept value) {
           this.language = value;
           return this;
         }
@@ -828,7 +828,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #preferred} (Indicates whether or not the patient prefers this language (over other languages he masters up a certain level).). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
          */
-        public BooleanType getPreferredElement() { 
+        public BooleanType getPreferredElement() {
           if (this.preferred == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PatientCommunicationComponent.preferred");
@@ -837,18 +837,18 @@ public class Patient extends DomainResource {
           return this.preferred;
         }
 
-        public boolean hasPreferredElement() { 
+        public boolean hasPreferredElement() {
           return this.preferred != null && !this.preferred.isEmpty();
         }
 
-        public boolean hasPreferred() { 
+        public boolean hasPreferred() {
           return this.preferred != null && !this.preferred.isEmpty();
         }
 
         /**
          * @param value {@link #preferred} (Indicates whether or not the patient prefers this language (over other languages he masters up a certain level).). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
          */
-        public PatientCommunicationComponent setPreferredElement(BooleanType value) { 
+        public PatientCommunicationComponent setPreferredElement(BooleanType value) {
           this.preferred = value;
           return this;
         }
@@ -856,14 +856,14 @@ public class Patient extends DomainResource {
         /**
          * @return Indicates whether or not the patient prefers this language (over other languages he masters up a certain level).
          */
-        public boolean getPreferred() { 
+        public boolean getPreferred() {
           return this.preferred == null || this.preferred.isEmpty() ? false : this.preferred.getValue();
         }
 
         /**
          * @param value Indicates whether or not the patient prefers this language (over other languages he masters up a certain level).
          */
-        public PatientCommunicationComponent setPreferred(boolean value) { 
+        public PatientCommunicationComponent setPreferred(boolean value) {
             if (this.preferred == null)
               this.preferred = new BooleanType();
             this.preferred.setValue(value);
@@ -981,7 +981,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #other} (The other patient resource that the link refers to.)
          */
-        public Reference getOther() { 
+        public Reference getOther() {
           if (this.other == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PatientLinkComponent.other");
@@ -990,14 +990,14 @@ public class Patient extends DomainResource {
           return this.other;
         }
 
-        public boolean hasOther() { 
+        public boolean hasOther() {
           return this.other != null && !this.other.isEmpty();
         }
 
         /**
          * @param value {@link #other} (The other patient resource that the link refers to.)
          */
-        public PatientLinkComponent setOther(Reference value) { 
+        public PatientLinkComponent setOther(Reference value) {
           this.other = value;
           return this;
         }
@@ -1005,7 +1005,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #other} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The other patient resource that the link refers to.)
          */
-        public Patient getOtherTarget() { 
+        public Patient getOtherTarget() {
           if (this.otherTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PatientLinkComponent.other");
@@ -1017,7 +1017,7 @@ public class Patient extends DomainResource {
         /**
          * @param value {@link #other} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The other patient resource that the link refers to.)
          */
-        public PatientLinkComponent setOtherTarget(Patient value) { 
+        public PatientLinkComponent setOtherTarget(Patient value) {
           this.otherTarget = value;
           return this;
         }
@@ -1025,7 +1025,7 @@ public class Patient extends DomainResource {
         /**
          * @return {@link #type} (The type of link between this patient resource and another patient resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<LinkType> getTypeElement() { 
+        public Enumeration<LinkType> getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PatientLinkComponent.type");
@@ -1034,18 +1034,18 @@ public class Patient extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of link between this patient resource and another patient resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public PatientLinkComponent setTypeElement(Enumeration<LinkType> value) { 
+        public PatientLinkComponent setTypeElement(Enumeration<LinkType> value) {
           this.type = value;
           return this;
         }
@@ -1053,14 +1053,14 @@ public class Patient extends DomainResource {
         /**
          * @return The type of link between this patient resource and another patient resource.
          */
-        public LinkType getType() { 
+        public LinkType getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of link between this patient resource and another patient resource.
          */
-        public PatientLinkComponent setType(LinkType value) { 
+        public PatientLinkComponent setType(LinkType value) {
             if (this.type == null)
               this.type = new Enumeration<LinkType>(new LinkTypeEnumFactory());
             this.type.setValue(value);
@@ -1277,13 +1277,13 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #identifier} (An identifier for this patient.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1317,7 +1317,7 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #active} (Whether this patient record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public BooleanType getActiveElement() { 
+    public BooleanType getActiveElement() {
       if (this.active == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.active");
@@ -1326,18 +1326,18 @@ public class Patient extends DomainResource {
       return this.active;
     }
 
-    public boolean hasActiveElement() { 
+    public boolean hasActiveElement() {
       return this.active != null && !this.active.isEmpty();
     }
 
-    public boolean hasActive() { 
+    public boolean hasActive() {
       return this.active != null && !this.active.isEmpty();
     }
 
     /**
      * @param value {@link #active} (Whether this patient record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public Patient setActiveElement(BooleanType value) { 
+    public Patient setActiveElement(BooleanType value) {
       this.active = value;
       return this;
     }
@@ -1345,14 +1345,14 @@ public class Patient extends DomainResource {
     /**
      * @return Whether this patient record is in active use.
      */
-    public boolean getActive() { 
+    public boolean getActive() {
       return this.active == null || this.active.isEmpty() ? false : this.active.getValue();
     }
 
     /**
      * @param value Whether this patient record is in active use.
      */
-    public Patient setActive(boolean value) { 
+    public Patient setActive(boolean value) {
         if (this.active == null)
           this.active = new BooleanType();
         this.active.setValue(value);
@@ -1362,13 +1362,13 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #name} (A name associated with the individual.)
      */
-    public List<HumanName> getName() { 
+    public List<HumanName> getName() {
       if (this.name == null)
         this.name = new ArrayList<HumanName>();
       return this.name;
     }
 
-    public boolean hasName() { 
+    public boolean hasName() {
       if (this.name == null)
         return false;
       for (HumanName item : this.name)
@@ -1402,13 +1402,13 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
      */
-    public List<ContactPoint> getTelecom() { 
+    public List<ContactPoint> getTelecom() {
       if (this.telecom == null)
         this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
     }
 
-    public boolean hasTelecom() { 
+    public boolean hasTelecom() {
       if (this.telecom == null)
         return false;
       for (ContactPoint item : this.telecom)
@@ -1442,7 +1442,7 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Enumeration<AdministrativeGender> getGenderElement() { 
+    public Enumeration<AdministrativeGender> getGenderElement() {
       if (this.gender == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.gender");
@@ -1451,18 +1451,18 @@ public class Patient extends DomainResource {
       return this.gender;
     }
 
-    public boolean hasGenderElement() { 
+    public boolean hasGenderElement() {
       return this.gender != null && !this.gender.isEmpty();
     }
 
-    public boolean hasGender() { 
+    public boolean hasGender() {
       return this.gender != null && !this.gender.isEmpty();
     }
 
     /**
      * @param value {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Patient setGenderElement(Enumeration<AdministrativeGender> value) { 
+    public Patient setGenderElement(Enumeration<AdministrativeGender> value) {
       this.gender = value;
       return this;
     }
@@ -1470,14 +1470,14 @@ public class Patient extends DomainResource {
     /**
      * @return Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
      */
-    public AdministrativeGender getGender() { 
+    public AdministrativeGender getGender() {
       return this.gender == null ? null : this.gender.getValue();
     }
 
     /**
      * @param value Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
      */
-    public Patient setGender(AdministrativeGender value) { 
+    public Patient setGender(AdministrativeGender value) {
       if (value == null)
         this.gender = null;
       else {
@@ -1491,7 +1491,7 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #birthDate} (The date of birth for the individual.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public DateType getBirthDateElement() { 
+    public DateType getBirthDateElement() {
       if (this.birthDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.birthDate");
@@ -1500,18 +1500,18 @@ public class Patient extends DomainResource {
       return this.birthDate;
     }
 
-    public boolean hasBirthDateElement() { 
+    public boolean hasBirthDateElement() {
       return this.birthDate != null && !this.birthDate.isEmpty();
     }
 
-    public boolean hasBirthDate() { 
+    public boolean hasBirthDate() {
       return this.birthDate != null && !this.birthDate.isEmpty();
     }
 
     /**
      * @param value {@link #birthDate} (The date of birth for the individual.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public Patient setBirthDateElement(DateType value) { 
+    public Patient setBirthDateElement(DateType value) {
       this.birthDate = value;
       return this;
     }
@@ -1519,14 +1519,14 @@ public class Patient extends DomainResource {
     /**
      * @return The date of birth for the individual.
      */
-    public Date getBirthDate() { 
+    public Date getBirthDate() {
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
      * @param value The date of birth for the individual.
      */
-    public Patient setBirthDate(Date value) { 
+    public Patient setBirthDate(Date value) {
       if (value == null)
         this.birthDate = null;
       else {
@@ -1540,44 +1540,44 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #deceased} (Indicates if the individual is deceased or not.)
      */
-    public Type getDeceased() { 
+    public Type getDeceased() {
       return this.deceased;
     }
 
     /**
      * @return {@link #deceased} (Indicates if the individual is deceased or not.)
      */
-    public BooleanType getDeceasedBooleanType() throws FHIRException { 
+    public BooleanType getDeceasedBooleanType() throws FHIRException {
       if (!(this.deceased instanceof BooleanType))
         throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.deceased.getClass().getName()+" was encountered");
       return (BooleanType) this.deceased;
     }
 
-    public boolean hasDeceasedBooleanType() { 
+    public boolean hasDeceasedBooleanType() {
       return this.deceased instanceof BooleanType;
     }
 
     /**
      * @return {@link #deceased} (Indicates if the individual is deceased or not.)
      */
-    public DateTimeType getDeceasedDateTimeType() throws FHIRException { 
+    public DateTimeType getDeceasedDateTimeType() throws FHIRException {
       if (!(this.deceased instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.deceased.getClass().getName()+" was encountered");
       return (DateTimeType) this.deceased;
     }
 
-    public boolean hasDeceasedDateTimeType() { 
+    public boolean hasDeceasedDateTimeType() {
       return this.deceased instanceof DateTimeType;
     }
 
-    public boolean hasDeceased() { 
+    public boolean hasDeceased() {
       return this.deceased != null && !this.deceased.isEmpty();
     }
 
     /**
      * @param value {@link #deceased} (Indicates if the individual is deceased or not.)
      */
-    public Patient setDeceased(Type value) { 
+    public Patient setDeceased(Type value) {
       this.deceased = value;
       return this;
     }
@@ -1585,13 +1585,13 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #address} (Addresses for the individual.)
      */
-    public List<Address> getAddress() { 
+    public List<Address> getAddress() {
       if (this.address == null)
         this.address = new ArrayList<Address>();
       return this.address;
     }
 
-    public boolean hasAddress() { 
+    public boolean hasAddress() {
       if (this.address == null)
         return false;
       for (Address item : this.address)
@@ -1625,7 +1625,7 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #maritalStatus} (This field contains a patient's most recent marital (civil) status.)
      */
-    public CodeableConcept getMaritalStatus() { 
+    public CodeableConcept getMaritalStatus() {
       if (this.maritalStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.maritalStatus");
@@ -1634,14 +1634,14 @@ public class Patient extends DomainResource {
       return this.maritalStatus;
     }
 
-    public boolean hasMaritalStatus() { 
+    public boolean hasMaritalStatus() {
       return this.maritalStatus != null && !this.maritalStatus.isEmpty();
     }
 
     /**
      * @param value {@link #maritalStatus} (This field contains a patient's most recent marital (civil) status.)
      */
-    public Patient setMaritalStatus(CodeableConcept value) { 
+    public Patient setMaritalStatus(CodeableConcept value) {
       this.maritalStatus = value;
       return this;
     }
@@ -1649,44 +1649,44 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
      */
-    public Type getMultipleBirth() { 
+    public Type getMultipleBirth() {
       return this.multipleBirth;
     }
 
     /**
      * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
      */
-    public BooleanType getMultipleBirthBooleanType() throws FHIRException { 
+    public BooleanType getMultipleBirthBooleanType() throws FHIRException {
       if (!(this.multipleBirth instanceof BooleanType))
         throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.multipleBirth.getClass().getName()+" was encountered");
       return (BooleanType) this.multipleBirth;
     }
 
-    public boolean hasMultipleBirthBooleanType() { 
+    public boolean hasMultipleBirthBooleanType() {
       return this.multipleBirth instanceof BooleanType;
     }
 
     /**
      * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
      */
-    public IntegerType getMultipleBirthIntegerType() throws FHIRException { 
+    public IntegerType getMultipleBirthIntegerType() throws FHIRException {
       if (!(this.multipleBirth instanceof IntegerType))
         throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.multipleBirth.getClass().getName()+" was encountered");
       return (IntegerType) this.multipleBirth;
     }
 
-    public boolean hasMultipleBirthIntegerType() { 
+    public boolean hasMultipleBirthIntegerType() {
       return this.multipleBirth instanceof IntegerType;
     }
 
-    public boolean hasMultipleBirth() { 
+    public boolean hasMultipleBirth() {
       return this.multipleBirth != null && !this.multipleBirth.isEmpty();
     }
 
     /**
      * @param value {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
      */
-    public Patient setMultipleBirth(Type value) { 
+    public Patient setMultipleBirth(Type value) {
       this.multipleBirth = value;
       return this;
     }
@@ -1694,13 +1694,13 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #photo} (Image of the patient.)
      */
-    public List<Attachment> getPhoto() { 
+    public List<Attachment> getPhoto() {
       if (this.photo == null)
         this.photo = new ArrayList<Attachment>();
       return this.photo;
     }
 
-    public boolean hasPhoto() { 
+    public boolean hasPhoto() {
       if (this.photo == null)
         return false;
       for (Attachment item : this.photo)
@@ -1734,13 +1734,13 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #contact} (A contact party (e.g. guardian, partner, friend) for the patient.)
      */
-    public List<ContactComponent> getContact() { 
+    public List<ContactComponent> getContact() {
       if (this.contact == null)
         this.contact = new ArrayList<ContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() { 
+    public boolean hasContact() {
       if (this.contact == null)
         return false;
       for (ContactComponent item : this.contact)
@@ -1774,7 +1774,7 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #animal} (This patient is known to be an animal.)
      */
-    public AnimalComponent getAnimal() { 
+    public AnimalComponent getAnimal() {
       if (this.animal == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.animal");
@@ -1783,14 +1783,14 @@ public class Patient extends DomainResource {
       return this.animal;
     }
 
-    public boolean hasAnimal() { 
+    public boolean hasAnimal() {
       return this.animal != null && !this.animal.isEmpty();
     }
 
     /**
      * @param value {@link #animal} (This patient is known to be an animal.)
      */
-    public Patient setAnimal(AnimalComponent value) { 
+    public Patient setAnimal(AnimalComponent value) {
       this.animal = value;
       return this;
     }
@@ -1798,13 +1798,13 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #communication} (Languages which may be used to communicate with the patient about his or her health.)
      */
-    public List<PatientCommunicationComponent> getCommunication() { 
+    public List<PatientCommunicationComponent> getCommunication() {
       if (this.communication == null)
         this.communication = new ArrayList<PatientCommunicationComponent>();
       return this.communication;
     }
 
-    public boolean hasCommunication() { 
+    public boolean hasCommunication() {
       if (this.communication == null)
         return false;
       for (PatientCommunicationComponent item : this.communication)
@@ -1838,13 +1838,13 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #careProvider} (Patient's nominated care provider.)
      */
-    public List<Reference> getCareProvider() { 
+    public List<Reference> getCareProvider() {
       if (this.careProvider == null)
         this.careProvider = new ArrayList<Reference>();
       return this.careProvider;
     }
 
-    public boolean hasCareProvider() { 
+    public boolean hasCareProvider() {
       if (this.careProvider == null)
         return false;
       for (Reference item : this.careProvider)
@@ -1878,7 +1878,7 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #careProvider} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Patient's nominated care provider.)
      */
-    public List<Resource> getCareProviderTarget() { 
+    public List<Resource> getCareProviderTarget() {
       if (this.careProviderTarget == null)
         this.careProviderTarget = new ArrayList<Resource>();
       return this.careProviderTarget;
@@ -1887,7 +1887,7 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #managingOrganization} (Organization that is the custodian of the patient record.)
      */
-    public Reference getManagingOrganization() { 
+    public Reference getManagingOrganization() {
       if (this.managingOrganization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.managingOrganization");
@@ -1896,14 +1896,14 @@ public class Patient extends DomainResource {
       return this.managingOrganization;
     }
 
-    public boolean hasManagingOrganization() { 
+    public boolean hasManagingOrganization() {
       return this.managingOrganization != null && !this.managingOrganization.isEmpty();
     }
 
     /**
      * @param value {@link #managingOrganization} (Organization that is the custodian of the patient record.)
      */
-    public Patient setManagingOrganization(Reference value) { 
+    public Patient setManagingOrganization(Reference value) {
       this.managingOrganization = value;
       return this;
     }
@@ -1911,7 +1911,7 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization that is the custodian of the patient record.)
      */
-    public Organization getManagingOrganizationTarget() { 
+    public Organization getManagingOrganizationTarget() {
       if (this.managingOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.managingOrganization");
@@ -1923,7 +1923,7 @@ public class Patient extends DomainResource {
     /**
      * @param value {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization that is the custodian of the patient record.)
      */
-    public Patient setManagingOrganizationTarget(Organization value) { 
+    public Patient setManagingOrganizationTarget(Organization value) {
       this.managingOrganizationTarget = value;
       return this;
     }
@@ -1931,13 +1931,13 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #link} (Link to another patient resource that concerns the same actual patient.)
      */
-    public List<PatientLinkComponent> getLink() { 
+    public List<PatientLinkComponent> getLink() {
       if (this.link == null)
         this.link = new ArrayList<PatientLinkComponent>();
       return this.link;
     }
 
-    public boolean hasLink() { 
+    public boolean hasLink() {
       if (this.link == null)
         return false;
       for (PatientLinkComponent item : this.link)

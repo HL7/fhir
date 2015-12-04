@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,15 +52,15 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * The Conformance instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
          */
-        INSTANCE, 
+        INSTANCE,
         /**
          * The Conformance instance represents the capabilities of a system or piece of software, independent of a particular installation.
          */
-        CAPABILITY, 
+        CAPABILITY,
         /**
          * The Conformance instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.
          */
-        REQUIREMENTS, 
+        REQUIREMENTS,
         /**
          * added to help the parsers
          */
@@ -152,19 +152,19 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * The application does not accept either unknown elements or extensions.
          */
-        NO, 
+        NO,
         /**
          * The application accepts unknown extensions, but not unknown elements.
          */
-        EXTENSIONS, 
+        EXTENSIONS,
         /**
          * The application accepts unknown elements, but not unknown extensions.
          */
-        ELEMENTS, 
+        ELEMENTS,
         /**
          * The application accepts unknown elements and extensions.
          */
-        BOTH, 
+        BOTH,
         /**
          * added to help the parsers
          */
@@ -268,11 +268,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * The application acts as a client for this resource.
          */
-        CLIENT, 
+        CLIENT,
         /**
          * The application acts as a server for this resource.
          */
-        SERVER, 
+        SERVER,
         /**
          * added to help the parsers
          */
@@ -352,39 +352,39 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * null
          */
-        READ, 
+        READ,
         /**
          * null
          */
-        VREAD, 
+        VREAD,
         /**
          * null
          */
-        UPDATE, 
+        UPDATE,
         /**
          * null
          */
-        DELETE, 
+        DELETE,
         /**
          * null
          */
-        HISTORYINSTANCE, 
+        HISTORYINSTANCE,
         /**
          * null
          */
-        VALIDATE, 
+        VALIDATE,
         /**
          * null
          */
-        HISTORYTYPE, 
+        HISTORYTYPE,
         /**
          * null
          */
-        CREATE, 
+        CREATE,
         /**
          * null
          */
-        SEARCHTYPE, 
+        SEARCHTYPE,
         /**
          * added to help the parsers
          */
@@ -548,15 +548,15 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * VersionId meta-property is not supported (server) or used (client).
          */
-        NOVERSION, 
+        NOVERSION,
         /**
          * VersionId meta-property is supported (server) or used (client).
          */
-        VERSIONED, 
+        VERSIONED,
         /**
          * VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client).
          */
-        VERSIONEDUPDATE, 
+        VERSIONEDUPDATE,
         /**
          * added to help the parsers
          */
@@ -648,15 +648,15 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * No support for conditional deletes.
          */
-        NOTSUPPORTED, 
+        NOTSUPPORTED,
         /**
          * Conditional deletes are supported, but only single resources at a time.
          */
-        SINGLE, 
+        SINGLE,
         /**
          * Conditional deletes are supported, and multiple resources can be deleted in a single interaction.
          */
-        MULTIPLE, 
+        MULTIPLE,
         /**
          * added to help the parsers
          */
@@ -748,43 +748,43 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * The search parameter returns resources that have a value or not.
          */
-        MISSING, 
+        MISSING,
         /**
          * The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents).
          */
-        EXACT, 
+        EXACT,
         /**
          * The search parameter returns resources that include the supplied parameter value anywhere within the field being searched.
          */
-        CONTAINS, 
+        CONTAINS,
         /**
          * The search parameter returns resources that do not contain a match .
          */
-        NOT, 
+        NOT,
         /**
          * The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, or Identifier.type.text.
          */
-        TEXT, 
+        TEXT,
         /**
          * The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set.
          */
-        IN, 
+        IN,
         /**
          * The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set.
          */
-        NOTIN, 
+        NOTIN,
         /**
          * The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships).
          */
-        BELOW, 
+        BELOW,
         /**
          * The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships).
          */
-        ABOVE, 
+        ABOVE,
         /**
          * The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.).
          */
-        TYPE, 
+        TYPE,
         /**
          * added to help the parsers
          */
@@ -960,15 +960,15 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * null
          */
-        TRANSACTION, 
+        TRANSACTION,
         /**
          * null
          */
-        SEARCHSYSTEM, 
+        SEARCHSYSTEM,
         /**
          * null
          */
-        HISTORYSYSTEM, 
+        HISTORYSYSTEM,
         /**
          * added to help the parsers
          */
@@ -1060,19 +1060,19 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * Neither batch or transaction is supported.
          */
-        NOTSUPPORTED, 
+        NOTSUPPORTED,
         /**
          * Batches are  supported.
          */
-        BATCH, 
+        BATCH,
         /**
          * Transactions are supported.
          */
-        TRANSACTION, 
+        TRANSACTION,
         /**
          * Both batches and transactions are supported.
          */
-        BOTH, 
+        BOTH,
         /**
          * added to help the parsers
          */
@@ -1176,15 +1176,15 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * The message represents/requests a change that should not be processed more than once; e.g. Making a booking for an appointment.
          */
-        CONSEQUENCE, 
+        CONSEQUENCE,
         /**
          * The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.
          */
-        CURRENCY, 
+        CURRENCY,
         /**
          * The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.
          */
-        NOTIFICATION, 
+        NOTIFICATION,
         /**
          * added to help the parsers
          */
@@ -1276,11 +1276,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * The application sends requests and receives responses.
          */
-        SENDER, 
+        SENDER,
         /**
          * The application receives requests and sends responses.
          */
-        RECEIVER, 
+        RECEIVER,
         /**
          * added to help the parsers
          */
@@ -1360,11 +1360,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * The application produces documents of the specified type.
          */
-        PRODUCER, 
+        PRODUCER,
         /**
          * The application consumes documents of the specified type.
          */
-        CONSUMER, 
+        CONSUMER,
         /**
          * added to help the parsers
          */
@@ -1468,7 +1468,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #name} (The name of an individual to contact regarding the conformance.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() { 
+        public StringType getNameElement() {
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceContactComponent.name");
@@ -1477,18 +1477,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.name;
         }
 
-        public boolean hasNameElement() { 
+        public boolean hasNameElement() {
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() { 
+        public boolean hasName() {
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of an individual to contact regarding the conformance.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ConformanceContactComponent setNameElement(StringType value) { 
+        public ConformanceContactComponent setNameElement(StringType value) {
           this.name = value;
           return this;
         }
@@ -1496,14 +1496,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return The name of an individual to contact regarding the conformance.
          */
-        public String getName() { 
+        public String getName() {
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of an individual to contact regarding the conformance.
          */
-        public ConformanceContactComponent setName(String value) { 
+        public ConformanceContactComponent setName(String value) {
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -1517,13 +1517,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
-        public List<ContactPoint> getTelecom() { 
+        public List<ContactPoint> getTelecom() {
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() { 
+        public boolean hasTelecom() {
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -1669,7 +1669,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #name} (Name software is known by.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() { 
+        public StringType getNameElement() {
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceSoftwareComponent.name");
@@ -1678,18 +1678,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.name;
         }
 
-        public boolean hasNameElement() { 
+        public boolean hasNameElement() {
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() { 
+        public boolean hasName() {
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (Name software is known by.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ConformanceSoftwareComponent setNameElement(StringType value) { 
+        public ConformanceSoftwareComponent setNameElement(StringType value) {
           this.name = value;
           return this;
         }
@@ -1697,14 +1697,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Name software is known by.
          */
-        public String getName() { 
+        public String getName() {
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value Name software is known by.
          */
-        public ConformanceSoftwareComponent setName(String value) { 
+        public ConformanceSoftwareComponent setName(String value) {
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -1714,7 +1714,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #version} (The version identifier for the software covered by this statement.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionElement() { 
+        public StringType getVersionElement() {
           if (this.version == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceSoftwareComponent.version");
@@ -1723,18 +1723,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.version;
         }
 
-        public boolean hasVersionElement() { 
+        public boolean hasVersionElement() {
           return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasVersion() { 
+        public boolean hasVersion() {
           return this.version != null && !this.version.isEmpty();
         }
 
         /**
          * @param value {@link #version} (The version identifier for the software covered by this statement.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public ConformanceSoftwareComponent setVersionElement(StringType value) { 
+        public ConformanceSoftwareComponent setVersionElement(StringType value) {
           this.version = value;
           return this;
         }
@@ -1742,14 +1742,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return The version identifier for the software covered by this statement.
          */
-        public String getVersion() { 
+        public String getVersion() {
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value The version identifier for the software covered by this statement.
          */
-        public ConformanceSoftwareComponent setVersion(String value) { 
+        public ConformanceSoftwareComponent setVersion(String value) {
           if (Utilities.noString(value))
             this.version = null;
           else {
@@ -1763,7 +1763,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #releaseDate} (Date this version of the software released.). This is the underlying object with id, value and extensions. The accessor "getReleaseDate" gives direct access to the value
          */
-        public DateTimeType getReleaseDateElement() { 
+        public DateTimeType getReleaseDateElement() {
           if (this.releaseDate == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceSoftwareComponent.releaseDate");
@@ -1772,18 +1772,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.releaseDate;
         }
 
-        public boolean hasReleaseDateElement() { 
+        public boolean hasReleaseDateElement() {
           return this.releaseDate != null && !this.releaseDate.isEmpty();
         }
 
-        public boolean hasReleaseDate() { 
+        public boolean hasReleaseDate() {
           return this.releaseDate != null && !this.releaseDate.isEmpty();
         }
 
         /**
          * @param value {@link #releaseDate} (Date this version of the software released.). This is the underlying object with id, value and extensions. The accessor "getReleaseDate" gives direct access to the value
          */
-        public ConformanceSoftwareComponent setReleaseDateElement(DateTimeType value) { 
+        public ConformanceSoftwareComponent setReleaseDateElement(DateTimeType value) {
           this.releaseDate = value;
           return this;
         }
@@ -1791,14 +1791,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Date this version of the software released.
          */
-        public Date getReleaseDate() { 
+        public Date getReleaseDate() {
           return this.releaseDate == null ? null : this.releaseDate.getValue();
         }
 
         /**
          * @param value Date this version of the software released.
          */
-        public ConformanceSoftwareComponent setReleaseDate(Date value) { 
+        public ConformanceSoftwareComponent setReleaseDate(Date value) {
           if (value == null)
             this.releaseDate = null;
           else {
@@ -1922,7 +1922,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #description} (Information about the specific installation that this conformance statement relates to.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceImplementationComponent.description");
@@ -1931,18 +1931,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (Information about the specific installation that this conformance statement relates to.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ConformanceImplementationComponent setDescriptionElement(StringType value) { 
+        public ConformanceImplementationComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -1950,14 +1950,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Information about the specific installation that this conformance statement relates to.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Information about the specific installation that this conformance statement relates to.
          */
-        public ConformanceImplementationComponent setDescription(String value) { 
+        public ConformanceImplementationComponent setDescription(String value) {
             if (this.description == null)
               this.description = new StringType();
             this.description.setValue(value);
@@ -1967,7 +1967,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #url} (An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlElement() { 
+        public UriType getUrlElement() {
           if (this.url == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceImplementationComponent.url");
@@ -1976,18 +1976,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.url;
         }
 
-        public boolean hasUrlElement() { 
+        public boolean hasUrlElement() {
           return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasUrl() { 
+        public boolean hasUrl() {
           return this.url != null && !this.url.isEmpty();
         }
 
         /**
          * @param value {@link #url} (An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public ConformanceImplementationComponent setUrlElement(UriType value) { 
+        public ConformanceImplementationComponent setUrlElement(UriType value) {
           this.url = value;
           return this;
         }
@@ -1995,14 +1995,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
          */
-        public String getUrl() { 
+        public String getUrl() {
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
          */
-        public ConformanceImplementationComponent setUrl(String value) { 
+        public ConformanceImplementationComponent setUrl(String value) {
           if (Utilities.noString(value))
             this.url = null;
           else {
@@ -2166,7 +2166,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #mode} (Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public Enumeration<RestfulConformanceMode> getModeElement() { 
+        public Enumeration<RestfulConformanceMode> getModeElement() {
           if (this.mode == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestComponent.mode");
@@ -2175,18 +2175,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.mode;
         }
 
-        public boolean hasModeElement() { 
+        public boolean hasModeElement() {
           return this.mode != null && !this.mode.isEmpty();
         }
 
-        public boolean hasMode() { 
+        public boolean hasMode() {
           return this.mode != null && !this.mode.isEmpty();
         }
 
         /**
          * @param value {@link #mode} (Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public ConformanceRestComponent setModeElement(Enumeration<RestfulConformanceMode> value) { 
+        public ConformanceRestComponent setModeElement(Enumeration<RestfulConformanceMode> value) {
           this.mode = value;
           return this;
         }
@@ -2194,14 +2194,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
          */
-        public RestfulConformanceMode getMode() { 
+        public RestfulConformanceMode getMode() {
           return this.mode == null ? null : this.mode.getValue();
         }
 
         /**
          * @param value Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
          */
-        public ConformanceRestComponent setMode(RestfulConformanceMode value) { 
+        public ConformanceRestComponent setMode(RestfulConformanceMode value) {
             if (this.mode == null)
               this.mode = new Enumeration<RestfulConformanceMode>(new RestfulConformanceModeEnumFactory());
             this.mode.setValue(value);
@@ -2211,7 +2211,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #documentation} (Information about the system's restful capabilities that apply across all applications, such as security.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public StringType getDocumentationElement() {
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestComponent.documentation");
@@ -2220,18 +2220,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.documentation;
         }
 
-        public boolean hasDocumentationElement() { 
+        public boolean hasDocumentationElement() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
-        public boolean hasDocumentation() { 
+        public boolean hasDocumentation() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
          * @param value {@link #documentation} (Information about the system's restful capabilities that apply across all applications, such as security.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceRestComponent setDocumentationElement(StringType value) { 
+        public ConformanceRestComponent setDocumentationElement(StringType value) {
           this.documentation = value;
           return this;
         }
@@ -2239,14 +2239,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Information about the system's restful capabilities that apply across all applications, such as security.
          */
-        public String getDocumentation() { 
+        public String getDocumentation() {
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value Information about the system's restful capabilities that apply across all applications, such as security.
          */
-        public ConformanceRestComponent setDocumentation(String value) { 
+        public ConformanceRestComponent setDocumentation(String value) {
           if (Utilities.noString(value))
             this.documentation = null;
           else {
@@ -2260,7 +2260,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #security} (Information about security implementation from an interface perspective - what a client needs to know.)
          */
-        public ConformanceRestSecurityComponent getSecurity() { 
+        public ConformanceRestSecurityComponent getSecurity() {
           if (this.security == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestComponent.security");
@@ -2269,14 +2269,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.security;
         }
 
-        public boolean hasSecurity() { 
+        public boolean hasSecurity() {
           return this.security != null && !this.security.isEmpty();
         }
 
         /**
          * @param value {@link #security} (Information about security implementation from an interface perspective - what a client needs to know.)
          */
-        public ConformanceRestComponent setSecurity(ConformanceRestSecurityComponent value) { 
+        public ConformanceRestComponent setSecurity(ConformanceRestSecurityComponent value) {
           this.security = value;
           return this;
         }
@@ -2284,13 +2284,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #resource} (A specification of the restful capabilities of the solution for a specific resource type.)
          */
-        public List<ConformanceRestResourceComponent> getResource() { 
+        public List<ConformanceRestResourceComponent> getResource() {
           if (this.resource == null)
             this.resource = new ArrayList<ConformanceRestResourceComponent>();
           return this.resource;
         }
 
-        public boolean hasResource() { 
+        public boolean hasResource() {
           if (this.resource == null)
             return false;
           for (ConformanceRestResourceComponent item : this.resource)
@@ -2324,13 +2324,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #interaction} (A specification of restful operations supported by the system.)
          */
-        public List<SystemInteractionComponent> getInteraction() { 
+        public List<SystemInteractionComponent> getInteraction() {
           if (this.interaction == null)
             this.interaction = new ArrayList<SystemInteractionComponent>();
           return this.interaction;
         }
 
-        public boolean hasInteraction() { 
+        public boolean hasInteraction() {
           if (this.interaction == null)
             return false;
           for (SystemInteractionComponent item : this.interaction)
@@ -2364,7 +2364,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #transactionMode} (A code that indicates how transactions are supported.). This is the underlying object with id, value and extensions. The accessor "getTransactionMode" gives direct access to the value
          */
-        public Enumeration<TransactionMode> getTransactionModeElement() { 
+        public Enumeration<TransactionMode> getTransactionModeElement() {
           if (this.transactionMode == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestComponent.transactionMode");
@@ -2373,18 +2373,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.transactionMode;
         }
 
-        public boolean hasTransactionModeElement() { 
+        public boolean hasTransactionModeElement() {
           return this.transactionMode != null && !this.transactionMode.isEmpty();
         }
 
-        public boolean hasTransactionMode() { 
+        public boolean hasTransactionMode() {
           return this.transactionMode != null && !this.transactionMode.isEmpty();
         }
 
         /**
          * @param value {@link #transactionMode} (A code that indicates how transactions are supported.). This is the underlying object with id, value and extensions. The accessor "getTransactionMode" gives direct access to the value
          */
-        public ConformanceRestComponent setTransactionModeElement(Enumeration<TransactionMode> value) { 
+        public ConformanceRestComponent setTransactionModeElement(Enumeration<TransactionMode> value) {
           this.transactionMode = value;
           return this;
         }
@@ -2392,14 +2392,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A code that indicates how transactions are supported.
          */
-        public TransactionMode getTransactionMode() { 
+        public TransactionMode getTransactionMode() {
           return this.transactionMode == null ? null : this.transactionMode.getValue();
         }
 
         /**
          * @param value A code that indicates how transactions are supported.
          */
-        public ConformanceRestComponent setTransactionMode(TransactionMode value) { 
+        public ConformanceRestComponent setTransactionMode(TransactionMode value) {
           if (value == null)
             this.transactionMode = null;
           else {
@@ -2413,13 +2413,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #searchParam} (Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
          */
-        public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
+        public List<ConformanceRestResourceSearchParamComponent> getSearchParam() {
           if (this.searchParam == null)
             this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
           return this.searchParam;
         }
 
-        public boolean hasSearchParam() { 
+        public boolean hasSearchParam() {
           if (this.searchParam == null)
             return false;
           for (ConformanceRestResourceSearchParamComponent item : this.searchParam)
@@ -2453,13 +2453,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #operation} (Definition of an operation or a named query and with its parameters and their meaning and type.)
          */
-        public List<ConformanceRestOperationComponent> getOperation() { 
+        public List<ConformanceRestOperationComponent> getOperation() {
           if (this.operation == null)
             this.operation = new ArrayList<ConformanceRestOperationComponent>();
           return this.operation;
         }
 
-        public boolean hasOperation() { 
+        public boolean hasOperation() {
           if (this.operation == null)
             return false;
           for (ConformanceRestOperationComponent item : this.operation)
@@ -2493,13 +2493,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
          */
-        public List<UriType> getCompartment() { 
+        public List<UriType> getCompartment() {
           if (this.compartment == null)
             this.compartment = new ArrayList<UriType>();
           return this.compartment;
         }
 
-        public boolean hasCompartment() { 
+        public boolean hasCompartment() {
           if (this.compartment == null)
             return false;
           for (UriType item : this.compartment)
@@ -2512,7 +2512,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
          * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
          */
     // syntactic sugar
-        public UriType addCompartmentElement() {//2 
+        public UriType addCompartmentElement() {//2
           UriType t = new UriType();
           if (this.compartment == null)
             this.compartment = new ArrayList<UriType>();
@@ -2535,7 +2535,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
          */
-        public boolean hasCompartment(String value) { 
+        public boolean hasCompartment(String value) {
           if (this.compartment == null)
             return false;
           for (UriType v : this.compartment)
@@ -2731,7 +2731,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #cors} (Server adds CORS headers when responding to requests - this enables javascript applications to use the server.). This is the underlying object with id, value and extensions. The accessor "getCors" gives direct access to the value
          */
-        public BooleanType getCorsElement() { 
+        public BooleanType getCorsElement() {
           if (this.cors == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestSecurityComponent.cors");
@@ -2740,18 +2740,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.cors;
         }
 
-        public boolean hasCorsElement() { 
+        public boolean hasCorsElement() {
           return this.cors != null && !this.cors.isEmpty();
         }
 
-        public boolean hasCors() { 
+        public boolean hasCors() {
           return this.cors != null && !this.cors.isEmpty();
         }
 
         /**
          * @param value {@link #cors} (Server adds CORS headers when responding to requests - this enables javascript applications to use the server.). This is the underlying object with id, value and extensions. The accessor "getCors" gives direct access to the value
          */
-        public ConformanceRestSecurityComponent setCorsElement(BooleanType value) { 
+        public ConformanceRestSecurityComponent setCorsElement(BooleanType value) {
           this.cors = value;
           return this;
         }
@@ -2759,14 +2759,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
          */
-        public boolean getCors() { 
+        public boolean getCors() {
           return this.cors == null || this.cors.isEmpty() ? false : this.cors.getValue();
         }
 
         /**
          * @param value Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
          */
-        public ConformanceRestSecurityComponent setCors(boolean value) { 
+        public ConformanceRestSecurityComponent setCors(boolean value) {
             if (this.cors == null)
               this.cors = new BooleanType();
             this.cors.setValue(value);
@@ -2776,13 +2776,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #service} (Types of security services are supported/required by the system.)
          */
-        public List<CodeableConcept> getService() { 
+        public List<CodeableConcept> getService() {
           if (this.service == null)
             this.service = new ArrayList<CodeableConcept>();
           return this.service;
         }
 
-        public boolean hasService() { 
+        public boolean hasService() {
           if (this.service == null)
             return false;
           for (CodeableConcept item : this.service)
@@ -2816,7 +2816,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #description} (General description of how security works.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestSecurityComponent.description");
@@ -2825,18 +2825,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (General description of how security works.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ConformanceRestSecurityComponent setDescriptionElement(StringType value) { 
+        public ConformanceRestSecurityComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -2844,14 +2844,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return General description of how security works.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value General description of how security works.
          */
-        public ConformanceRestSecurityComponent setDescription(String value) { 
+        public ConformanceRestSecurityComponent setDescription(String value) {
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -2865,13 +2865,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #certificate} (Certificates associated with security profiles.)
          */
-        public List<ConformanceRestSecurityCertificateComponent> getCertificate() { 
+        public List<ConformanceRestSecurityCertificateComponent> getCertificate() {
           if (this.certificate == null)
             this.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
           return this.certificate;
         }
 
-        public boolean hasCertificate() { 
+        public boolean hasCertificate() {
           if (this.certificate == null)
             return false;
           for (ConformanceRestSecurityCertificateComponent item : this.certificate)
@@ -3022,7 +3022,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #type} (Mime type for certificate.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public CodeType getTypeElement() { 
+        public CodeType getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestSecurityCertificateComponent.type");
@@ -3031,18 +3031,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Mime type for certificate.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ConformanceRestSecurityCertificateComponent setTypeElement(CodeType value) { 
+        public ConformanceRestSecurityCertificateComponent setTypeElement(CodeType value) {
           this.type = value;
           return this;
         }
@@ -3050,14 +3050,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Mime type for certificate.
          */
-        public String getType() { 
+        public String getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value Mime type for certificate.
          */
-        public ConformanceRestSecurityCertificateComponent setType(String value) { 
+        public ConformanceRestSecurityCertificateComponent setType(String value) {
           if (Utilities.noString(value))
             this.type = null;
           else {
@@ -3071,7 +3071,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #blob} (Actual certificate.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
          */
-        public Base64BinaryType getBlobElement() { 
+        public Base64BinaryType getBlobElement() {
           if (this.blob == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestSecurityCertificateComponent.blob");
@@ -3080,18 +3080,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.blob;
         }
 
-        public boolean hasBlobElement() { 
+        public boolean hasBlobElement() {
           return this.blob != null && !this.blob.isEmpty();
         }
 
-        public boolean hasBlob() { 
+        public boolean hasBlob() {
           return this.blob != null && !this.blob.isEmpty();
         }
 
         /**
          * @param value {@link #blob} (Actual certificate.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
          */
-        public ConformanceRestSecurityCertificateComponent setBlobElement(Base64BinaryType value) { 
+        public ConformanceRestSecurityCertificateComponent setBlobElement(Base64BinaryType value) {
           this.blob = value;
           return this;
         }
@@ -3099,14 +3099,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Actual certificate.
          */
-        public byte[] getBlob() { 
+        public byte[] getBlob() {
           return this.blob == null ? null : this.blob.getValue();
         }
 
         /**
          * @param value Actual certificate.
          */
-        public ConformanceRestSecurityCertificateComponent setBlob(byte[] value) { 
+        public ConformanceRestSecurityCertificateComponent setBlob(byte[] value) {
           if (value == null)
             this.blob = null;
           else {
@@ -3296,7 +3296,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #type} (A type of resource exposed via the restful interface.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public CodeType getTypeElement() { 
+        public CodeType getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.type");
@@ -3305,18 +3305,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (A type of resource exposed via the restful interface.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setTypeElement(CodeType value) { 
+        public ConformanceRestResourceComponent setTypeElement(CodeType value) {
           this.type = value;
           return this;
         }
@@ -3324,14 +3324,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A type of resource exposed via the restful interface.
          */
-        public String getType() { 
+        public String getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value A type of resource exposed via the restful interface.
          */
-        public ConformanceRestResourceComponent setType(String value) { 
+        public ConformanceRestResourceComponent setType(String value) {
             if (this.type == null)
               this.type = new CodeType();
             this.type.setValue(value);
@@ -3341,7 +3341,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #profile} (A specification of the profile that describes the solution's overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
          */
-        public Reference getProfile() { 
+        public Reference getProfile() {
           if (this.profile == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.profile");
@@ -3350,14 +3350,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.profile;
         }
 
-        public boolean hasProfile() { 
+        public boolean hasProfile() {
           return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
          * @param value {@link #profile} (A specification of the profile that describes the solution's overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
          */
-        public ConformanceRestResourceComponent setProfile(Reference value) { 
+        public ConformanceRestResourceComponent setProfile(Reference value) {
           this.profile = value;
           return this;
         }
@@ -3365,7 +3365,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A specification of the profile that describes the solution's overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
          */
-        public StructureDefinition getProfileTarget() { 
+        public StructureDefinition getProfileTarget() {
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.profile");
@@ -3377,7 +3377,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A specification of the profile that describes the solution's overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
          */
-        public ConformanceRestResourceComponent setProfileTarget(StructureDefinition value) { 
+        public ConformanceRestResourceComponent setProfileTarget(StructureDefinition value) {
           this.profileTarget = value;
           return this;
         }
@@ -3385,13 +3385,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #interaction} (Identifies a restful operation supported by the solution.)
          */
-        public List<ResourceInteractionComponent> getInteraction() { 
+        public List<ResourceInteractionComponent> getInteraction() {
           if (this.interaction == null)
             this.interaction = new ArrayList<ResourceInteractionComponent>();
           return this.interaction;
         }
 
-        public boolean hasInteraction() { 
+        public boolean hasInteraction() {
           if (this.interaction == null)
             return false;
           for (ResourceInteractionComponent item : this.interaction)
@@ -3425,7 +3425,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #versioning} (This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
          */
-        public Enumeration<ResourceVersionPolicy> getVersioningElement() { 
+        public Enumeration<ResourceVersionPolicy> getVersioningElement() {
           if (this.versioning == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.versioning");
@@ -3434,18 +3434,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.versioning;
         }
 
-        public boolean hasVersioningElement() { 
+        public boolean hasVersioningElement() {
           return this.versioning != null && !this.versioning.isEmpty();
         }
 
-        public boolean hasVersioning() { 
+        public boolean hasVersioning() {
           return this.versioning != null && !this.versioning.isEmpty();
         }
 
         /**
          * @param value {@link #versioning} (This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setVersioningElement(Enumeration<ResourceVersionPolicy> value) { 
+        public ConformanceRestResourceComponent setVersioningElement(Enumeration<ResourceVersionPolicy> value) {
           this.versioning = value;
           return this;
         }
@@ -3453,14 +3453,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.
          */
-        public ResourceVersionPolicy getVersioning() { 
+        public ResourceVersionPolicy getVersioning() {
           return this.versioning == null ? null : this.versioning.getValue();
         }
 
         /**
          * @param value This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API.
          */
-        public ConformanceRestResourceComponent setVersioning(ResourceVersionPolicy value) { 
+        public ConformanceRestResourceComponent setVersioning(ResourceVersionPolicy value) {
           if (value == null)
             this.versioning = null;
           else {
@@ -3474,7 +3474,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #readHistory} (A flag for whether the server is able to return past versions as part of the vRead operation.). This is the underlying object with id, value and extensions. The accessor "getReadHistory" gives direct access to the value
          */
-        public BooleanType getReadHistoryElement() { 
+        public BooleanType getReadHistoryElement() {
           if (this.readHistory == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.readHistory");
@@ -3483,18 +3483,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.readHistory;
         }
 
-        public boolean hasReadHistoryElement() { 
+        public boolean hasReadHistoryElement() {
           return this.readHistory != null && !this.readHistory.isEmpty();
         }
 
-        public boolean hasReadHistory() { 
+        public boolean hasReadHistory() {
           return this.readHistory != null && !this.readHistory.isEmpty();
         }
 
         /**
          * @param value {@link #readHistory} (A flag for whether the server is able to return past versions as part of the vRead operation.). This is the underlying object with id, value and extensions. The accessor "getReadHistory" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setReadHistoryElement(BooleanType value) { 
+        public ConformanceRestResourceComponent setReadHistoryElement(BooleanType value) {
           this.readHistory = value;
           return this;
         }
@@ -3502,14 +3502,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A flag for whether the server is able to return past versions as part of the vRead operation.
          */
-        public boolean getReadHistory() { 
+        public boolean getReadHistory() {
           return this.readHistory == null || this.readHistory.isEmpty() ? false : this.readHistory.getValue();
         }
 
         /**
          * @param value A flag for whether the server is able to return past versions as part of the vRead operation.
          */
-        public ConformanceRestResourceComponent setReadHistory(boolean value) { 
+        public ConformanceRestResourceComponent setReadHistory(boolean value) {
             if (this.readHistory == null)
               this.readHistory = new BooleanType();
             this.readHistory.setValue(value);
@@ -3519,7 +3519,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #updateCreate} (A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.). This is the underlying object with id, value and extensions. The accessor "getUpdateCreate" gives direct access to the value
          */
-        public BooleanType getUpdateCreateElement() { 
+        public BooleanType getUpdateCreateElement() {
           if (this.updateCreate == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.updateCreate");
@@ -3528,18 +3528,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.updateCreate;
         }
 
-        public boolean hasUpdateCreateElement() { 
+        public boolean hasUpdateCreateElement() {
           return this.updateCreate != null && !this.updateCreate.isEmpty();
         }
 
-        public boolean hasUpdateCreate() { 
+        public boolean hasUpdateCreate() {
           return this.updateCreate != null && !this.updateCreate.isEmpty();
         }
 
         /**
          * @param value {@link #updateCreate} (A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.). This is the underlying object with id, value and extensions. The accessor "getUpdateCreate" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setUpdateCreateElement(BooleanType value) { 
+        public ConformanceRestResourceComponent setUpdateCreateElement(BooleanType value) {
           this.updateCreate = value;
           return this;
         }
@@ -3547,14 +3547,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.
          */
-        public boolean getUpdateCreate() { 
+        public boolean getUpdateCreate() {
           return this.updateCreate == null || this.updateCreate.isEmpty() ? false : this.updateCreate.getValue();
         }
 
         /**
          * @param value A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.
          */
-        public ConformanceRestResourceComponent setUpdateCreate(boolean value) { 
+        public ConformanceRestResourceComponent setUpdateCreate(boolean value) {
             if (this.updateCreate == null)
               this.updateCreate = new BooleanType();
             this.updateCreate.setValue(value);
@@ -3564,7 +3564,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #conditionalCreate} (A flag that indicates that the server supports conditional create.). This is the underlying object with id, value and extensions. The accessor "getConditionalCreate" gives direct access to the value
          */
-        public BooleanType getConditionalCreateElement() { 
+        public BooleanType getConditionalCreateElement() {
           if (this.conditionalCreate == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.conditionalCreate");
@@ -3573,18 +3573,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.conditionalCreate;
         }
 
-        public boolean hasConditionalCreateElement() { 
+        public boolean hasConditionalCreateElement() {
           return this.conditionalCreate != null && !this.conditionalCreate.isEmpty();
         }
 
-        public boolean hasConditionalCreate() { 
+        public boolean hasConditionalCreate() {
           return this.conditionalCreate != null && !this.conditionalCreate.isEmpty();
         }
 
         /**
          * @param value {@link #conditionalCreate} (A flag that indicates that the server supports conditional create.). This is the underlying object with id, value and extensions. The accessor "getConditionalCreate" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setConditionalCreateElement(BooleanType value) { 
+        public ConformanceRestResourceComponent setConditionalCreateElement(BooleanType value) {
           this.conditionalCreate = value;
           return this;
         }
@@ -3592,14 +3592,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A flag that indicates that the server supports conditional create.
          */
-        public boolean getConditionalCreate() { 
+        public boolean getConditionalCreate() {
           return this.conditionalCreate == null || this.conditionalCreate.isEmpty() ? false : this.conditionalCreate.getValue();
         }
 
         /**
          * @param value A flag that indicates that the server supports conditional create.
          */
-        public ConformanceRestResourceComponent setConditionalCreate(boolean value) { 
+        public ConformanceRestResourceComponent setConditionalCreate(boolean value) {
             if (this.conditionalCreate == null)
               this.conditionalCreate = new BooleanType();
             this.conditionalCreate.setValue(value);
@@ -3609,7 +3609,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #conditionalUpdate} (A flag that indicates that the server supports conditional update.). This is the underlying object with id, value and extensions. The accessor "getConditionalUpdate" gives direct access to the value
          */
-        public BooleanType getConditionalUpdateElement() { 
+        public BooleanType getConditionalUpdateElement() {
           if (this.conditionalUpdate == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.conditionalUpdate");
@@ -3618,18 +3618,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.conditionalUpdate;
         }
 
-        public boolean hasConditionalUpdateElement() { 
+        public boolean hasConditionalUpdateElement() {
           return this.conditionalUpdate != null && !this.conditionalUpdate.isEmpty();
         }
 
-        public boolean hasConditionalUpdate() { 
+        public boolean hasConditionalUpdate() {
           return this.conditionalUpdate != null && !this.conditionalUpdate.isEmpty();
         }
 
         /**
          * @param value {@link #conditionalUpdate} (A flag that indicates that the server supports conditional update.). This is the underlying object with id, value and extensions. The accessor "getConditionalUpdate" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setConditionalUpdateElement(BooleanType value) { 
+        public ConformanceRestResourceComponent setConditionalUpdateElement(BooleanType value) {
           this.conditionalUpdate = value;
           return this;
         }
@@ -3637,14 +3637,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A flag that indicates that the server supports conditional update.
          */
-        public boolean getConditionalUpdate() { 
+        public boolean getConditionalUpdate() {
           return this.conditionalUpdate == null || this.conditionalUpdate.isEmpty() ? false : this.conditionalUpdate.getValue();
         }
 
         /**
          * @param value A flag that indicates that the server supports conditional update.
          */
-        public ConformanceRestResourceComponent setConditionalUpdate(boolean value) { 
+        public ConformanceRestResourceComponent setConditionalUpdate(boolean value) {
             if (this.conditionalUpdate == null)
               this.conditionalUpdate = new BooleanType();
             this.conditionalUpdate.setValue(value);
@@ -3654,7 +3654,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #conditionalDelete} (A code that indicates how the server supports conditional delete.). This is the underlying object with id, value and extensions. The accessor "getConditionalDelete" gives direct access to the value
          */
-        public Enumeration<ConditionalDeleteStatus> getConditionalDeleteElement() { 
+        public Enumeration<ConditionalDeleteStatus> getConditionalDeleteElement() {
           if (this.conditionalDelete == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.conditionalDelete");
@@ -3663,18 +3663,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.conditionalDelete;
         }
 
-        public boolean hasConditionalDeleteElement() { 
+        public boolean hasConditionalDeleteElement() {
           return this.conditionalDelete != null && !this.conditionalDelete.isEmpty();
         }
 
-        public boolean hasConditionalDelete() { 
+        public boolean hasConditionalDelete() {
           return this.conditionalDelete != null && !this.conditionalDelete.isEmpty();
         }
 
         /**
          * @param value {@link #conditionalDelete} (A code that indicates how the server supports conditional delete.). This is the underlying object with id, value and extensions. The accessor "getConditionalDelete" gives direct access to the value
          */
-        public ConformanceRestResourceComponent setConditionalDeleteElement(Enumeration<ConditionalDeleteStatus> value) { 
+        public ConformanceRestResourceComponent setConditionalDeleteElement(Enumeration<ConditionalDeleteStatus> value) {
           this.conditionalDelete = value;
           return this;
         }
@@ -3682,14 +3682,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A code that indicates how the server supports conditional delete.
          */
-        public ConditionalDeleteStatus getConditionalDelete() { 
+        public ConditionalDeleteStatus getConditionalDelete() {
           return this.conditionalDelete == null ? null : this.conditionalDelete.getValue();
         }
 
         /**
          * @param value A code that indicates how the server supports conditional delete.
          */
-        public ConformanceRestResourceComponent setConditionalDelete(ConditionalDeleteStatus value) { 
+        public ConformanceRestResourceComponent setConditionalDelete(ConditionalDeleteStatus value) {
           if (value == null)
             this.conditionalDelete = null;
           else {
@@ -3703,13 +3703,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #searchInclude} (A list of _include values supported by the server.)
          */
-        public List<StringType> getSearchInclude() { 
+        public List<StringType> getSearchInclude() {
           if (this.searchInclude == null)
             this.searchInclude = new ArrayList<StringType>();
           return this.searchInclude;
         }
 
-        public boolean hasSearchInclude() { 
+        public boolean hasSearchInclude() {
           if (this.searchInclude == null)
             return false;
           for (StringType item : this.searchInclude)
@@ -3722,7 +3722,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
          * @return {@link #searchInclude} (A list of _include values supported by the server.)
          */
     // syntactic sugar
-        public StringType addSearchIncludeElement() {//2 
+        public StringType addSearchIncludeElement() {//2
           StringType t = new StringType();
           if (this.searchInclude == null)
             this.searchInclude = new ArrayList<StringType>();
@@ -3745,7 +3745,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #searchInclude} (A list of _include values supported by the server.)
          */
-        public boolean hasSearchInclude(String value) { 
+        public boolean hasSearchInclude(String value) {
           if (this.searchInclude == null)
             return false;
           for (StringType v : this.searchInclude)
@@ -3757,13 +3757,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #searchRevInclude} (A list of _revinclude (reverse include) values supported by the server.)
          */
-        public List<StringType> getSearchRevInclude() { 
+        public List<StringType> getSearchRevInclude() {
           if (this.searchRevInclude == null)
             this.searchRevInclude = new ArrayList<StringType>();
           return this.searchRevInclude;
         }
 
-        public boolean hasSearchRevInclude() { 
+        public boolean hasSearchRevInclude() {
           if (this.searchRevInclude == null)
             return false;
           for (StringType item : this.searchRevInclude)
@@ -3776,7 +3776,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
          * @return {@link #searchRevInclude} (A list of _revinclude (reverse include) values supported by the server.)
          */
     // syntactic sugar
-        public StringType addSearchRevIncludeElement() {//2 
+        public StringType addSearchRevIncludeElement() {//2
           StringType t = new StringType();
           if (this.searchRevInclude == null)
             this.searchRevInclude = new ArrayList<StringType>();
@@ -3799,7 +3799,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #searchRevInclude} (A list of _revinclude (reverse include) values supported by the server.)
          */
-        public boolean hasSearchRevInclude(String value) { 
+        public boolean hasSearchRevInclude(String value) {
           if (this.searchRevInclude == null)
             return false;
           for (StringType v : this.searchRevInclude)
@@ -3811,13 +3811,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #searchParam} (Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
          */
-        public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
+        public List<ConformanceRestResourceSearchParamComponent> getSearchParam() {
           if (this.searchParam == null)
             this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
           return this.searchParam;
         }
 
-        public boolean hasSearchParam() { 
+        public boolean hasSearchParam() {
           if (this.searchParam == null)
             return false;
           for (ConformanceRestResourceSearchParamComponent item : this.searchParam)
@@ -4053,7 +4053,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #code} (Coded identifier of the operation, supported by the system resource.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<TypeRestfulInteraction> getCodeElement() { 
+        public Enumeration<TypeRestfulInteraction> getCodeElement() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ResourceInteractionComponent.code");
@@ -4062,18 +4062,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.code;
         }
 
-        public boolean hasCodeElement() { 
+        public boolean hasCodeElement() {
           return this.code != null && !this.code.isEmpty();
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Coded identifier of the operation, supported by the system resource.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public ResourceInteractionComponent setCodeElement(Enumeration<TypeRestfulInteraction> value) { 
+        public ResourceInteractionComponent setCodeElement(Enumeration<TypeRestfulInteraction> value) {
           this.code = value;
           return this;
         }
@@ -4081,14 +4081,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Coded identifier of the operation, supported by the system resource.
          */
-        public TypeRestfulInteraction getCode() { 
+        public TypeRestfulInteraction getCode() {
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Coded identifier of the operation, supported by the system resource.
          */
-        public ResourceInteractionComponent setCode(TypeRestfulInteraction value) { 
+        public ResourceInteractionComponent setCode(TypeRestfulInteraction value) {
             if (this.code == null)
               this.code = new Enumeration<TypeRestfulInteraction>(new TypeRestfulInteractionEnumFactory());
             this.code.setValue(value);
@@ -4098,7 +4098,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #documentation} (Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public StringType getDocumentationElement() {
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ResourceInteractionComponent.documentation");
@@ -4107,18 +4107,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.documentation;
         }
 
-        public boolean hasDocumentationElement() { 
+        public boolean hasDocumentationElement() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
-        public boolean hasDocumentation() { 
+        public boolean hasDocumentation() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
          * @param value {@link #documentation} (Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ResourceInteractionComponent setDocumentationElement(StringType value) { 
+        public ResourceInteractionComponent setDocumentationElement(StringType value) {
           this.documentation = value;
           return this;
         }
@@ -4126,14 +4126,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
-        public String getDocumentation() { 
+        public String getDocumentation() {
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
-        public ResourceInteractionComponent setDocumentation(String value) { 
+        public ResourceInteractionComponent setDocumentation(String value) {
           if (Utilities.noString(value))
             this.documentation = null;
           else {
@@ -4284,7 +4284,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #name} (The name of the search parameter used in the interface.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() { 
+        public StringType getNameElement() {
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.name");
@@ -4293,18 +4293,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.name;
         }
 
-        public boolean hasNameElement() { 
+        public boolean hasNameElement() {
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() { 
+        public boolean hasName() {
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of the search parameter used in the interface.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ConformanceRestResourceSearchParamComponent setNameElement(StringType value) { 
+        public ConformanceRestResourceSearchParamComponent setNameElement(StringType value) {
           this.name = value;
           return this;
         }
@@ -4312,14 +4312,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return The name of the search parameter used in the interface.
          */
-        public String getName() { 
+        public String getName() {
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of the search parameter used in the interface.
          */
-        public ConformanceRestResourceSearchParamComponent setName(String value) { 
+        public ConformanceRestResourceSearchParamComponent setName(String value) {
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -4329,7 +4329,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #definition} (An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
-        public UriType getDefinitionElement() { 
+        public UriType getDefinitionElement() {
           if (this.definition == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.definition");
@@ -4338,18 +4338,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.definition;
         }
 
-        public boolean hasDefinitionElement() { 
+        public boolean hasDefinitionElement() {
           return this.definition != null && !this.definition.isEmpty();
         }
 
-        public boolean hasDefinition() { 
+        public boolean hasDefinition() {
           return this.definition != null && !this.definition.isEmpty();
         }
 
         /**
          * @param value {@link #definition} (An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
-        public ConformanceRestResourceSearchParamComponent setDefinitionElement(UriType value) { 
+        public ConformanceRestResourceSearchParamComponent setDefinitionElement(UriType value) {
           this.definition = value;
           return this;
         }
@@ -4357,14 +4357,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
          */
-        public String getDefinition() { 
+        public String getDefinition() {
           return this.definition == null ? null : this.definition.getValue();
         }
 
         /**
          * @param value An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
          */
-        public ConformanceRestResourceSearchParamComponent setDefinition(String value) { 
+        public ConformanceRestResourceSearchParamComponent setDefinition(String value) {
           if (Utilities.noString(value))
             this.definition = null;
           else {
@@ -4378,7 +4378,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<SearchParamType> getTypeElement() { 
+        public Enumeration<SearchParamType> getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.type");
@@ -4387,18 +4387,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ConformanceRestResourceSearchParamComponent setTypeElement(Enumeration<SearchParamType> value) { 
+        public ConformanceRestResourceSearchParamComponent setTypeElement(Enumeration<SearchParamType> value) {
           this.type = value;
           return this;
         }
@@ -4406,14 +4406,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return The type of value a search parameter refers to, and how the content is interpreted.
          */
-        public SearchParamType getType() { 
+        public SearchParamType getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of value a search parameter refers to, and how the content is interpreted.
          */
-        public ConformanceRestResourceSearchParamComponent setType(SearchParamType value) { 
+        public ConformanceRestResourceSearchParamComponent setType(SearchParamType value) {
             if (this.type == null)
               this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
             this.type.setValue(value);
@@ -4423,7 +4423,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #documentation} (This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public StringType getDocumentationElement() {
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.documentation");
@@ -4432,18 +4432,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.documentation;
         }
 
-        public boolean hasDocumentationElement() { 
+        public boolean hasDocumentationElement() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
-        public boolean hasDocumentation() { 
+        public boolean hasDocumentation() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
          * @param value {@link #documentation} (This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceRestResourceSearchParamComponent setDocumentationElement(StringType value) { 
+        public ConformanceRestResourceSearchParamComponent setDocumentationElement(StringType value) {
           this.documentation = value;
           return this;
         }
@@ -4451,14 +4451,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
          */
-        public String getDocumentation() { 
+        public String getDocumentation() {
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
          */
-        public ConformanceRestResourceSearchParamComponent setDocumentation(String value) { 
+        public ConformanceRestResourceSearchParamComponent setDocumentation(String value) {
           if (Utilities.noString(value))
             this.documentation = null;
           else {
@@ -4472,13 +4472,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #target} (Types of resource (if a resource is referenced).)
          */
-        public List<CodeType> getTarget() { 
+        public List<CodeType> getTarget() {
           if (this.target == null)
             this.target = new ArrayList<CodeType>();
           return this.target;
         }
 
-        public boolean hasTarget() { 
+        public boolean hasTarget() {
           if (this.target == null)
             return false;
           for (CodeType item : this.target)
@@ -4491,7 +4491,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
          * @return {@link #target} (Types of resource (if a resource is referenced).)
          */
     // syntactic sugar
-        public CodeType addTargetElement() {//2 
+        public CodeType addTargetElement() {//2
           CodeType t = new CodeType();
           if (this.target == null)
             this.target = new ArrayList<CodeType>();
@@ -4514,7 +4514,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #target} (Types of resource (if a resource is referenced).)
          */
-        public boolean hasTarget(String value) { 
+        public boolean hasTarget(String value) {
           if (this.target == null)
             return false;
           for (CodeType v : this.target)
@@ -4526,13 +4526,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #modifier} (A modifier supported for the search parameter.)
          */
-        public List<Enumeration<SearchModifierCode>> getModifier() { 
+        public List<Enumeration<SearchModifierCode>> getModifier() {
           if (this.modifier == null)
             this.modifier = new ArrayList<Enumeration<SearchModifierCode>>();
           return this.modifier;
         }
 
-        public boolean hasModifier() { 
+        public boolean hasModifier() {
           if (this.modifier == null)
             return false;
           for (Enumeration<SearchModifierCode> item : this.modifier)
@@ -4545,7 +4545,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
          * @return {@link #modifier} (A modifier supported for the search parameter.)
          */
     // syntactic sugar
-        public Enumeration<SearchModifierCode> addModifierElement() {//2 
+        public Enumeration<SearchModifierCode> addModifierElement() {//2
           Enumeration<SearchModifierCode> t = new Enumeration<SearchModifierCode>(new SearchModifierCodeEnumFactory());
           if (this.modifier == null)
             this.modifier = new ArrayList<Enumeration<SearchModifierCode>>();
@@ -4568,7 +4568,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #modifier} (A modifier supported for the search parameter.)
          */
-        public boolean hasModifier(SearchModifierCode value) { 
+        public boolean hasModifier(SearchModifierCode value) {
           if (this.modifier == null)
             return false;
           for (Enumeration<SearchModifierCode> v : this.modifier)
@@ -4580,13 +4580,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.)
          */
-        public List<StringType> getChain() { 
+        public List<StringType> getChain() {
           if (this.chain == null)
             this.chain = new ArrayList<StringType>();
           return this.chain;
         }
 
-        public boolean hasChain() { 
+        public boolean hasChain() {
           if (this.chain == null)
             return false;
           for (StringType item : this.chain)
@@ -4599,7 +4599,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
          * @return {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.)
          */
     // syntactic sugar
-        public StringType addChainElement() {//2 
+        public StringType addChainElement() {//2
           StringType t = new StringType();
           if (this.chain == null)
             this.chain = new ArrayList<StringType>();
@@ -4622,7 +4622,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from Conformance.rest.resource.searchParam.name on the target resource type.)
          */
-        public boolean hasChain(String value) { 
+        public boolean hasChain(String value) {
           if (this.chain == null)
             return false;
           for (StringType v : this.chain)
@@ -4788,7 +4788,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #code} (A coded identifier of the operation, supported by the system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<SystemRestfulInteraction> getCodeElement() { 
+        public Enumeration<SystemRestfulInteraction> getCodeElement() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SystemInteractionComponent.code");
@@ -4797,18 +4797,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.code;
         }
 
-        public boolean hasCodeElement() { 
+        public boolean hasCodeElement() {
           return this.code != null && !this.code.isEmpty();
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (A coded identifier of the operation, supported by the system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public SystemInteractionComponent setCodeElement(Enumeration<SystemRestfulInteraction> value) { 
+        public SystemInteractionComponent setCodeElement(Enumeration<SystemRestfulInteraction> value) {
           this.code = value;
           return this;
         }
@@ -4816,14 +4816,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A coded identifier of the operation, supported by the system.
          */
-        public SystemRestfulInteraction getCode() { 
+        public SystemRestfulInteraction getCode() {
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value A coded identifier of the operation, supported by the system.
          */
-        public SystemInteractionComponent setCode(SystemRestfulInteraction value) { 
+        public SystemInteractionComponent setCode(SystemRestfulInteraction value) {
             if (this.code == null)
               this.code = new Enumeration<SystemRestfulInteraction>(new SystemRestfulInteractionEnumFactory());
             this.code.setValue(value);
@@ -4833,7 +4833,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #documentation} (Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public StringType getDocumentationElement() {
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SystemInteractionComponent.documentation");
@@ -4842,18 +4842,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.documentation;
         }
 
-        public boolean hasDocumentationElement() { 
+        public boolean hasDocumentationElement() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
-        public boolean hasDocumentation() { 
+        public boolean hasDocumentation() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
          * @param value {@link #documentation} (Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public SystemInteractionComponent setDocumentationElement(StringType value) { 
+        public SystemInteractionComponent setDocumentationElement(StringType value) {
           this.documentation = value;
           return this;
         }
@@ -4861,14 +4861,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
          */
-        public String getDocumentation() { 
+        public String getDocumentation() {
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
          */
-        public SystemInteractionComponent setDocumentation(String value) { 
+        public SystemInteractionComponent setDocumentation(String value) {
           if (Utilities.noString(value))
             this.documentation = null;
           else {
@@ -4989,7 +4989,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #name} (The name of a query, which is used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() { 
+        public StringType getNameElement() {
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestOperationComponent.name");
@@ -4998,18 +4998,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.name;
         }
 
-        public boolean hasNameElement() { 
+        public boolean hasNameElement() {
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() { 
+        public boolean hasName() {
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of a query, which is used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ConformanceRestOperationComponent setNameElement(StringType value) { 
+        public ConformanceRestOperationComponent setNameElement(StringType value) {
           this.name = value;
           return this;
         }
@@ -5017,14 +5017,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return The name of a query, which is used in the _query parameter when the query is called.
          */
-        public String getName() { 
+        public String getName() {
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of a query, which is used in the _query parameter when the query is called.
          */
-        public ConformanceRestOperationComponent setName(String value) { 
+        public ConformanceRestOperationComponent setName(String value) {
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -5034,7 +5034,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #definition} (Where the formal definition can be found.)
          */
-        public Reference getDefinition() { 
+        public Reference getDefinition() {
           if (this.definition == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestOperationComponent.definition");
@@ -5043,14 +5043,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.definition;
         }
 
-        public boolean hasDefinition() { 
+        public boolean hasDefinition() {
           return this.definition != null && !this.definition.isEmpty();
         }
 
         /**
          * @param value {@link #definition} (Where the formal definition can be found.)
          */
-        public ConformanceRestOperationComponent setDefinition(Reference value) { 
+        public ConformanceRestOperationComponent setDefinition(Reference value) {
           this.definition = value;
           return this;
         }
@@ -5058,7 +5058,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #definition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the formal definition can be found.)
          */
-        public OperationDefinition getDefinitionTarget() { 
+        public OperationDefinition getDefinitionTarget() {
           if (this.definitionTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestOperationComponent.definition");
@@ -5070,7 +5070,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #definition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the formal definition can be found.)
          */
-        public ConformanceRestOperationComponent setDefinitionTarget(OperationDefinition value) { 
+        public ConformanceRestOperationComponent setDefinitionTarget(OperationDefinition value) {
           this.definitionTarget = value;
           return this;
         }
@@ -5186,13 +5186,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #endpoint} (An endpoint (network accessible address) to which messages and/or replies are to be sent.)
          */
-        public List<ConformanceMessagingEndpointComponent> getEndpoint() { 
+        public List<ConformanceMessagingEndpointComponent> getEndpoint() {
           if (this.endpoint == null)
             this.endpoint = new ArrayList<ConformanceMessagingEndpointComponent>();
           return this.endpoint;
         }
 
-        public boolean hasEndpoint() { 
+        public boolean hasEndpoint() {
           if (this.endpoint == null)
             return false;
           for (ConformanceMessagingEndpointComponent item : this.endpoint)
@@ -5226,7 +5226,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #reliableCache} (Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
          */
-        public UnsignedIntType getReliableCacheElement() { 
+        public UnsignedIntType getReliableCacheElement() {
           if (this.reliableCache == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingComponent.reliableCache");
@@ -5235,18 +5235,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.reliableCache;
         }
 
-        public boolean hasReliableCacheElement() { 
+        public boolean hasReliableCacheElement() {
           return this.reliableCache != null && !this.reliableCache.isEmpty();
         }
 
-        public boolean hasReliableCache() { 
+        public boolean hasReliableCache() {
           return this.reliableCache != null && !this.reliableCache.isEmpty();
         }
 
         /**
          * @param value {@link #reliableCache} (Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
          */
-        public ConformanceMessagingComponent setReliableCacheElement(UnsignedIntType value) { 
+        public ConformanceMessagingComponent setReliableCacheElement(UnsignedIntType value) {
           this.reliableCache = value;
           return this;
         }
@@ -5254,14 +5254,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
-        public int getReliableCache() { 
+        public int getReliableCache() {
           return this.reliableCache == null || this.reliableCache.isEmpty() ? 0 : this.reliableCache.getValue();
         }
 
         /**
          * @param value Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
-        public ConformanceMessagingComponent setReliableCache(int value) { 
+        public ConformanceMessagingComponent setReliableCache(int value) {
             if (this.reliableCache == null)
               this.reliableCache = new UnsignedIntType();
             this.reliableCache.setValue(value);
@@ -5271,7 +5271,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #documentation} (Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public StringType getDocumentationElement() {
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingComponent.documentation");
@@ -5280,18 +5280,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.documentation;
         }
 
-        public boolean hasDocumentationElement() { 
+        public boolean hasDocumentationElement() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
-        public boolean hasDocumentation() { 
+        public boolean hasDocumentation() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
          * @param value {@link #documentation} (Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceMessagingComponent setDocumentationElement(StringType value) { 
+        public ConformanceMessagingComponent setDocumentationElement(StringType value) {
           this.documentation = value;
           return this;
         }
@@ -5299,14 +5299,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
          */
-        public String getDocumentation() { 
+        public String getDocumentation() {
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
          */
-        public ConformanceMessagingComponent setDocumentation(String value) { 
+        public ConformanceMessagingComponent setDocumentation(String value) {
           if (Utilities.noString(value))
             this.documentation = null;
           else {
@@ -5320,13 +5320,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #event} (A description of the solution's support for an event at this end-point.)
          */
-        public List<ConformanceMessagingEventComponent> getEvent() { 
+        public List<ConformanceMessagingEventComponent> getEvent() {
           if (this.event == null)
             this.event = new ArrayList<ConformanceMessagingEventComponent>();
           return this.event;
         }
 
-        public boolean hasEvent() { 
+        public boolean hasEvent() {
           if (this.event == null)
             return false;
           for (ConformanceMessagingEventComponent item : this.event)
@@ -5487,7 +5487,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #protocol} (A list of the messaging transport protocol(s) identifiers, supported by this endpoint.)
          */
-        public Coding getProtocol() { 
+        public Coding getProtocol() {
           if (this.protocol == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEndpointComponent.protocol");
@@ -5496,14 +5496,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.protocol;
         }
 
-        public boolean hasProtocol() { 
+        public boolean hasProtocol() {
           return this.protocol != null && !this.protocol.isEmpty();
         }
 
         /**
          * @param value {@link #protocol} (A list of the messaging transport protocol(s) identifiers, supported by this endpoint.)
          */
-        public ConformanceMessagingEndpointComponent setProtocol(Coding value) { 
+        public ConformanceMessagingEndpointComponent setProtocol(Coding value) {
           this.protocol = value;
           return this;
         }
@@ -5511,7 +5511,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #address} (The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
          */
-        public UriType getAddressElement() { 
+        public UriType getAddressElement() {
           if (this.address == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEndpointComponent.address");
@@ -5520,18 +5520,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.address;
         }
 
-        public boolean hasAddressElement() { 
+        public boolean hasAddressElement() {
           return this.address != null && !this.address.isEmpty();
         }
 
-        public boolean hasAddress() { 
+        public boolean hasAddress() {
           return this.address != null && !this.address.isEmpty();
         }
 
         /**
          * @param value {@link #address} (The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
          */
-        public ConformanceMessagingEndpointComponent setAddressElement(UriType value) { 
+        public ConformanceMessagingEndpointComponent setAddressElement(UriType value) {
           this.address = value;
           return this;
         }
@@ -5539,14 +5539,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.
          */
-        public String getAddress() { 
+        public String getAddress() {
           return this.address == null ? null : this.address.getValue();
         }
 
         /**
          * @param value The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.
          */
-        public ConformanceMessagingEndpointComponent setAddress(String value) { 
+        public ConformanceMessagingEndpointComponent setAddress(String value) {
             if (this.address == null)
               this.address = new UriType();
             this.address.setValue(value);
@@ -5707,7 +5707,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #code} (A coded identifier of a supported messaging event.)
          */
-        public Coding getCode() { 
+        public Coding getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.code");
@@ -5716,14 +5716,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (A coded identifier of a supported messaging event.)
          */
-        public ConformanceMessagingEventComponent setCode(Coding value) { 
+        public ConformanceMessagingEventComponent setCode(Coding value) {
           this.code = value;
           return this;
         }
@@ -5731,7 +5731,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #category} (The impact of the content of the message.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
          */
-        public Enumeration<MessageSignificanceCategory> getCategoryElement() { 
+        public Enumeration<MessageSignificanceCategory> getCategoryElement() {
           if (this.category == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.category");
@@ -5740,18 +5740,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.category;
         }
 
-        public boolean hasCategoryElement() { 
+        public boolean hasCategoryElement() {
           return this.category != null && !this.category.isEmpty();
         }
 
-        public boolean hasCategory() { 
+        public boolean hasCategory() {
           return this.category != null && !this.category.isEmpty();
         }
 
         /**
          * @param value {@link #category} (The impact of the content of the message.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
          */
-        public ConformanceMessagingEventComponent setCategoryElement(Enumeration<MessageSignificanceCategory> value) { 
+        public ConformanceMessagingEventComponent setCategoryElement(Enumeration<MessageSignificanceCategory> value) {
           this.category = value;
           return this;
         }
@@ -5759,14 +5759,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return The impact of the content of the message.
          */
-        public MessageSignificanceCategory getCategory() { 
+        public MessageSignificanceCategory getCategory() {
           return this.category == null ? null : this.category.getValue();
         }
 
         /**
          * @param value The impact of the content of the message.
          */
-        public ConformanceMessagingEventComponent setCategory(MessageSignificanceCategory value) { 
+        public ConformanceMessagingEventComponent setCategory(MessageSignificanceCategory value) {
           if (value == null)
             this.category = null;
           else {
@@ -5780,7 +5780,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #mode} (The mode of this event declaration - whether application is sender or receiver.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public Enumeration<ConformanceEventMode> getModeElement() { 
+        public Enumeration<ConformanceEventMode> getModeElement() {
           if (this.mode == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.mode");
@@ -5789,18 +5789,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.mode;
         }
 
-        public boolean hasModeElement() { 
+        public boolean hasModeElement() {
           return this.mode != null && !this.mode.isEmpty();
         }
 
-        public boolean hasMode() { 
+        public boolean hasMode() {
           return this.mode != null && !this.mode.isEmpty();
         }
 
         /**
          * @param value {@link #mode} (The mode of this event declaration - whether application is sender or receiver.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public ConformanceMessagingEventComponent setModeElement(Enumeration<ConformanceEventMode> value) { 
+        public ConformanceMessagingEventComponent setModeElement(Enumeration<ConformanceEventMode> value) {
           this.mode = value;
           return this;
         }
@@ -5808,14 +5808,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return The mode of this event declaration - whether application is sender or receiver.
          */
-        public ConformanceEventMode getMode() { 
+        public ConformanceEventMode getMode() {
           return this.mode == null ? null : this.mode.getValue();
         }
 
         /**
          * @param value The mode of this event declaration - whether application is sender or receiver.
          */
-        public ConformanceMessagingEventComponent setMode(ConformanceEventMode value) { 
+        public ConformanceMessagingEventComponent setMode(ConformanceEventMode value) {
             if (this.mode == null)
               this.mode = new Enumeration<ConformanceEventMode>(new ConformanceEventModeEnumFactory());
             this.mode.setValue(value);
@@ -5825,7 +5825,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #focus} (A resource associated with the event.  This is the resource that defines the event.). This is the underlying object with id, value and extensions. The accessor "getFocus" gives direct access to the value
          */
-        public CodeType getFocusElement() { 
+        public CodeType getFocusElement() {
           if (this.focus == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.focus");
@@ -5834,18 +5834,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.focus;
         }
 
-        public boolean hasFocusElement() { 
+        public boolean hasFocusElement() {
           return this.focus != null && !this.focus.isEmpty();
         }
 
-        public boolean hasFocus() { 
+        public boolean hasFocus() {
           return this.focus != null && !this.focus.isEmpty();
         }
 
         /**
          * @param value {@link #focus} (A resource associated with the event.  This is the resource that defines the event.). This is the underlying object with id, value and extensions. The accessor "getFocus" gives direct access to the value
          */
-        public ConformanceMessagingEventComponent setFocusElement(CodeType value) { 
+        public ConformanceMessagingEventComponent setFocusElement(CodeType value) {
           this.focus = value;
           return this;
         }
@@ -5853,14 +5853,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A resource associated with the event.  This is the resource that defines the event.
          */
-        public String getFocus() { 
+        public String getFocus() {
           return this.focus == null ? null : this.focus.getValue();
         }
 
         /**
          * @param value A resource associated with the event.  This is the resource that defines the event.
          */
-        public ConformanceMessagingEventComponent setFocus(String value) { 
+        public ConformanceMessagingEventComponent setFocus(String value) {
             if (this.focus == null)
               this.focus = new CodeType();
             this.focus.setValue(value);
@@ -5870,7 +5870,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #request} (Information about the request for this event.)
          */
-        public Reference getRequest() { 
+        public Reference getRequest() {
           if (this.request == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.request");
@@ -5879,14 +5879,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.request;
         }
 
-        public boolean hasRequest() { 
+        public boolean hasRequest() {
           return this.request != null && !this.request.isEmpty();
         }
 
         /**
          * @param value {@link #request} (Information about the request for this event.)
          */
-        public ConformanceMessagingEventComponent setRequest(Reference value) { 
+        public ConformanceMessagingEventComponent setRequest(Reference value) {
           this.request = value;
           return this;
         }
@@ -5894,7 +5894,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Information about the request for this event.)
          */
-        public StructureDefinition getRequestTarget() { 
+        public StructureDefinition getRequestTarget() {
           if (this.requestTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.request");
@@ -5906,7 +5906,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Information about the request for this event.)
          */
-        public ConformanceMessagingEventComponent setRequestTarget(StructureDefinition value) { 
+        public ConformanceMessagingEventComponent setRequestTarget(StructureDefinition value) {
           this.requestTarget = value;
           return this;
         }
@@ -5914,7 +5914,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #response} (Information about the response for this event.)
          */
-        public Reference getResponse() { 
+        public Reference getResponse() {
           if (this.response == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.response");
@@ -5923,14 +5923,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.response;
         }
 
-        public boolean hasResponse() { 
+        public boolean hasResponse() {
           return this.response != null && !this.response.isEmpty();
         }
 
         /**
          * @param value {@link #response} (Information about the response for this event.)
          */
-        public ConformanceMessagingEventComponent setResponse(Reference value) { 
+        public ConformanceMessagingEventComponent setResponse(Reference value) {
           this.response = value;
           return this;
         }
@@ -5938,7 +5938,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #response} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Information about the response for this event.)
          */
-        public StructureDefinition getResponseTarget() { 
+        public StructureDefinition getResponseTarget() {
           if (this.responseTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.response");
@@ -5950,7 +5950,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #response} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Information about the response for this event.)
          */
-        public ConformanceMessagingEventComponent setResponseTarget(StructureDefinition value) { 
+        public ConformanceMessagingEventComponent setResponseTarget(StructureDefinition value) {
           this.responseTarget = value;
           return this;
         }
@@ -5958,7 +5958,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #documentation} (Guidance on how this event is handled, such as internal system trigger points, business rules, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public StringType getDocumentationElement() {
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.documentation");
@@ -5967,18 +5967,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.documentation;
         }
 
-        public boolean hasDocumentationElement() { 
+        public boolean hasDocumentationElement() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
-        public boolean hasDocumentation() { 
+        public boolean hasDocumentation() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
          * @param value {@link #documentation} (Guidance on how this event is handled, such as internal system trigger points, business rules, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceMessagingEventComponent setDocumentationElement(StringType value) { 
+        public ConformanceMessagingEventComponent setDocumentationElement(StringType value) {
           this.documentation = value;
           return this;
         }
@@ -5986,14 +5986,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
          */
-        public String getDocumentation() { 
+        public String getDocumentation() {
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
          */
-        public ConformanceMessagingEventComponent setDocumentation(String value) { 
+        public ConformanceMessagingEventComponent setDocumentation(String value) {
           if (Utilities.noString(value))
             this.documentation = null;
           else {
@@ -6164,7 +6164,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #mode} (Mode of this document declaration - whether application is producer or consumer.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public Enumeration<DocumentMode> getModeElement() { 
+        public Enumeration<DocumentMode> getModeElement() {
           if (this.mode == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceDocumentComponent.mode");
@@ -6173,18 +6173,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.mode;
         }
 
-        public boolean hasModeElement() { 
+        public boolean hasModeElement() {
           return this.mode != null && !this.mode.isEmpty();
         }
 
-        public boolean hasMode() { 
+        public boolean hasMode() {
           return this.mode != null && !this.mode.isEmpty();
         }
 
         /**
          * @param value {@link #mode} (Mode of this document declaration - whether application is producer or consumer.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public ConformanceDocumentComponent setModeElement(Enumeration<DocumentMode> value) { 
+        public ConformanceDocumentComponent setModeElement(Enumeration<DocumentMode> value) {
           this.mode = value;
           return this;
         }
@@ -6192,14 +6192,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return Mode of this document declaration - whether application is producer or consumer.
          */
-        public DocumentMode getMode() { 
+        public DocumentMode getMode() {
           return this.mode == null ? null : this.mode.getValue();
         }
 
         /**
          * @param value Mode of this document declaration - whether application is producer or consumer.
          */
-        public ConformanceDocumentComponent setMode(DocumentMode value) { 
+        public ConformanceDocumentComponent setMode(DocumentMode value) {
             if (this.mode == null)
               this.mode = new Enumeration<DocumentMode>(new DocumentModeEnumFactory());
             this.mode.setValue(value);
@@ -6209,7 +6209,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #documentation} (A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public StringType getDocumentationElement() {
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceDocumentComponent.documentation");
@@ -6218,18 +6218,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.documentation;
         }
 
-        public boolean hasDocumentationElement() { 
+        public boolean hasDocumentationElement() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
-        public boolean hasDocumentation() { 
+        public boolean hasDocumentation() {
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
          * @param value {@link #documentation} (A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ConformanceDocumentComponent setDocumentationElement(StringType value) { 
+        public ConformanceDocumentComponent setDocumentationElement(StringType value) {
           this.documentation = value;
           return this;
         }
@@ -6237,14 +6237,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
          */
-        public String getDocumentation() { 
+        public String getDocumentation() {
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
          */
-        public ConformanceDocumentComponent setDocumentation(String value) { 
+        public ConformanceDocumentComponent setDocumentation(String value) {
           if (Utilities.noString(value))
             this.documentation = null;
           else {
@@ -6258,7 +6258,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #profile} (A constraint on a resource used in the document.)
          */
-        public Reference getProfile() { 
+        public Reference getProfile() {
           if (this.profile == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceDocumentComponent.profile");
@@ -6267,14 +6267,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return this.profile;
         }
 
-        public boolean hasProfile() { 
+        public boolean hasProfile() {
           return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
          * @param value {@link #profile} (A constraint on a resource used in the document.)
          */
-        public ConformanceDocumentComponent setProfile(Reference value) { 
+        public ConformanceDocumentComponent setProfile(Reference value) {
           this.profile = value;
           return this;
         }
@@ -6282,7 +6282,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A constraint on a resource used in the document.)
          */
-        public StructureDefinition getProfileTarget() { 
+        public StructureDefinition getProfileTarget() {
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceDocumentComponent.profile");
@@ -6294,7 +6294,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A constraint on a resource used in the document.)
          */
-        public ConformanceDocumentComponent setProfileTarget(StructureDefinition value) { 
+        public ConformanceDocumentComponent setProfileTarget(StructureDefinition value) {
           this.profileTarget = value;
           return this;
         }
@@ -6551,7 +6551,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #url} (An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() { 
+    public UriType getUrlElement() {
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.url");
@@ -6560,18 +6560,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.url;
     }
 
-    public boolean hasUrlElement() { 
+    public boolean hasUrlElement() {
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() { 
+    public boolean hasUrl() {
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public Conformance setUrlElement(UriType value) { 
+    public Conformance setUrlElement(UriType value) {
       this.url = value;
       return this;
     }
@@ -6579,14 +6579,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published.
      */
-    public String getUrl() { 
+    public String getUrl() {
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value An absolute URL that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this conformance statement is (or will be) published.
      */
-    public Conformance setUrl(String value) { 
+    public Conformance setUrl(String value) {
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -6600,7 +6600,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() { 
+    public StringType getVersionElement() {
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.version");
@@ -6609,18 +6609,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.version;
     }
 
-    public boolean hasVersionElement() { 
+    public boolean hasVersionElement() {
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() { 
+    public boolean hasVersion() {
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Conformance setVersionElement(StringType value) { 
+    public Conformance setVersionElement(StringType value) {
       this.version = value;
       return this;
     }
@@ -6628,14 +6628,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public String getVersion() { 
+    public String getVersion() {
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public Conformance setVersion(String value) { 
+    public Conformance setVersion(String value) {
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -6649,7 +6649,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #name} (A free text natural language name identifying the conformance statement.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() { 
+    public StringType getNameElement() {
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.name");
@@ -6658,18 +6658,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.name;
     }
 
-    public boolean hasNameElement() { 
+    public boolean hasNameElement() {
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() { 
+    public boolean hasName() {
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A free text natural language name identifying the conformance statement.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Conformance setNameElement(StringType value) { 
+    public Conformance setNameElement(StringType value) {
       this.name = value;
       return this;
     }
@@ -6677,14 +6677,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return A free text natural language name identifying the conformance statement.
      */
-    public String getName() { 
+    public String getName() {
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A free text natural language name identifying the conformance statement.
      */
-    public Conformance setName(String value) { 
+    public Conformance setName(String value) {
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -6698,7 +6698,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<ConformanceResourceStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.status");
@@ -6707,18 +6707,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Conformance setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public Conformance setStatusElement(Enumeration<ConformanceResourceStatus> value) {
       this.status = value;
       return this;
     }
@@ -6726,14 +6726,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return The status of this conformance statement.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public ConformanceResourceStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this conformance statement.
      */
-    public Conformance setStatus(ConformanceResourceStatus value) { 
+    public Conformance setStatus(ConformanceResourceStatus value) {
       if (value == null)
         this.status = null;
       else {
@@ -6747,7 +6747,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalElement() { 
+    public BooleanType getExperimentalElement() {
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.experimental");
@@ -6756,18 +6756,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.experimental;
     }
 
-    public boolean hasExperimentalElement() { 
+    public boolean hasExperimentalElement() {
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
-    public boolean hasExperimental() { 
+    public boolean hasExperimental() {
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
      * @param value {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public Conformance setExperimentalElement(BooleanType value) { 
+    public Conformance setExperimentalElement(BooleanType value) {
       this.experimental = value;
       return this;
     }
@@ -6775,14 +6775,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimental() { 
+    public boolean getExperimental() {
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
      * @param value A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public Conformance setExperimental(boolean value) { 
+    public Conformance setExperimental(boolean value) {
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -6792,7 +6792,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the conformance.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() { 
+    public StringType getPublisherElement() {
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.publisher");
@@ -6801,18 +6801,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() { 
+    public boolean hasPublisherElement() {
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() { 
+    public boolean hasPublisher() {
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the conformance.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public Conformance setPublisherElement(StringType value) { 
+    public Conformance setPublisherElement(StringType value) {
       this.publisher = value;
       return this;
     }
@@ -6820,14 +6820,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return The name of the individual or organization that published the conformance.
      */
-    public String getPublisher() { 
+    public String getPublisher() {
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the conformance.
      */
-    public Conformance setPublisher(String value) { 
+    public Conformance setPublisher(String value) {
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -6841,13 +6841,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<ConformanceContactComponent> getContact() { 
+    public List<ConformanceContactComponent> getContact() {
       if (this.contact == null)
         this.contact = new ArrayList<ConformanceContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() { 
+    public boolean hasContact() {
       if (this.contact == null)
         return false;
       for (ConformanceContactComponent item : this.contact)
@@ -6881,7 +6881,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #date} (The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the conformance statement changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() { 
+    public DateTimeType getDateElement() {
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.date");
@@ -6890,18 +6890,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.date;
     }
 
-    public boolean hasDateElement() { 
+    public boolean hasDateElement() {
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() { 
+    public boolean hasDate() {
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the conformance statement changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Conformance setDateElement(DateTimeType value) { 
+    public Conformance setDateElement(DateTimeType value) {
       this.date = value;
       return this;
     }
@@ -6909,14 +6909,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the conformance statement changes.
      */
-    public Date getDate() { 
+    public Date getDate() {
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the conformance statement changes.
      */
-    public Conformance setDate(Date value) { 
+    public Conformance setDate(Date value) {
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
@@ -6926,7 +6926,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() { 
+    public StringType getDescriptionElement() {
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.description");
@@ -6935,18 +6935,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() { 
+    public boolean hasDescriptionElement() {
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() { 
+    public boolean hasDescription() {
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Conformance setDescriptionElement(StringType value) { 
+    public Conformance setDescriptionElement(StringType value) {
       this.description = value;
       return this;
     }
@@ -6954,14 +6954,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
-    public String getDescription() { 
+    public String getDescription() {
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
-    public Conformance setDescription(String value) { 
+    public Conformance setDescription(String value) {
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -6975,7 +6975,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #requirements} (Explains why this conformance statement is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public StringType getRequirementsElement() { 
+    public StringType getRequirementsElement() {
       if (this.requirements == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.requirements");
@@ -6984,18 +6984,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.requirements;
     }
 
-    public boolean hasRequirementsElement() { 
+    public boolean hasRequirementsElement() {
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
-    public boolean hasRequirements() { 
+    public boolean hasRequirements() {
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
     /**
      * @param value {@link #requirements} (Explains why this conformance statement is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public Conformance setRequirementsElement(StringType value) { 
+    public Conformance setRequirementsElement(StringType value) {
       this.requirements = value;
       return this;
     }
@@ -7003,14 +7003,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return Explains why this conformance statement is needed and why it's been constrained as it has.
      */
-    public String getRequirements() { 
+    public String getRequirements() {
       return this.requirements == null ? null : this.requirements.getValue();
     }
 
     /**
      * @param value Explains why this conformance statement is needed and why it's been constrained as it has.
      */
-    public Conformance setRequirements(String value) { 
+    public Conformance setRequirements(String value) {
       if (Utilities.noString(value))
         this.requirements = null;
       else {
@@ -7024,7 +7024,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #copyright} (A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public StringType getCopyrightElement() { 
+    public StringType getCopyrightElement() {
       if (this.copyright == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.copyright");
@@ -7033,18 +7033,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.copyright;
     }
 
-    public boolean hasCopyrightElement() { 
+    public boolean hasCopyrightElement() {
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
-    public boolean hasCopyright() { 
+    public boolean hasCopyright() {
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
     /**
      * @param value {@link #copyright} (A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public Conformance setCopyrightElement(StringType value) { 
+    public Conformance setCopyrightElement(StringType value) {
       this.copyright = value;
       return this;
     }
@@ -7052,14 +7052,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.
      */
-    public String getCopyright() { 
+    public String getCopyright() {
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
      * @param value A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.
      */
-    public Conformance setCopyright(String value) { 
+    public Conformance setCopyright(String value) {
       if (Utilities.noString(value))
         this.copyright = null;
       else {
@@ -7073,7 +7073,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #kind} (The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Enumeration<ConformanceStatementKind> getKindElement() { 
+    public Enumeration<ConformanceStatementKind> getKindElement() {
       if (this.kind == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.kind");
@@ -7082,18 +7082,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.kind;
     }
 
-    public boolean hasKindElement() { 
+    public boolean hasKindElement() {
       return this.kind != null && !this.kind.isEmpty();
     }
 
-    public boolean hasKind() { 
+    public boolean hasKind() {
       return this.kind != null && !this.kind.isEmpty();
     }
 
     /**
      * @param value {@link #kind} (The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Conformance setKindElement(Enumeration<ConformanceStatementKind> value) { 
+    public Conformance setKindElement(Enumeration<ConformanceStatementKind> value) {
       this.kind = value;
       return this;
     }
@@ -7101,14 +7101,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
      */
-    public ConformanceStatementKind getKind() { 
+    public ConformanceStatementKind getKind() {
       return this.kind == null ? null : this.kind.getValue();
     }
 
     /**
      * @param value The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
      */
-    public Conformance setKind(ConformanceStatementKind value) { 
+    public Conformance setKind(ConformanceStatementKind value) {
         if (this.kind == null)
           this.kind = new Enumeration<ConformanceStatementKind>(new ConformanceStatementKindEnumFactory());
         this.kind.setValue(value);
@@ -7118,7 +7118,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #software} (Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.)
      */
-    public ConformanceSoftwareComponent getSoftware() { 
+    public ConformanceSoftwareComponent getSoftware() {
       if (this.software == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.software");
@@ -7127,14 +7127,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.software;
     }
 
-    public boolean hasSoftware() { 
+    public boolean hasSoftware() {
       return this.software != null && !this.software.isEmpty();
     }
 
     /**
      * @param value {@link #software} (Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.)
      */
-    public Conformance setSoftware(ConformanceSoftwareComponent value) { 
+    public Conformance setSoftware(ConformanceSoftwareComponent value) {
       this.software = value;
       return this;
     }
@@ -7142,7 +7142,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #implementation} (Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.)
      */
-    public ConformanceImplementationComponent getImplementation() { 
+    public ConformanceImplementationComponent getImplementation() {
       if (this.implementation == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.implementation");
@@ -7151,14 +7151,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.implementation;
     }
 
-    public boolean hasImplementation() { 
+    public boolean hasImplementation() {
       return this.implementation != null && !this.implementation.isEmpty();
     }
 
     /**
      * @param value {@link #implementation} (Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.)
      */
-    public Conformance setImplementation(ConformanceImplementationComponent value) { 
+    public Conformance setImplementation(ConformanceImplementationComponent value) {
       this.implementation = value;
       return this;
     }
@@ -7166,7 +7166,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #fhirVersion} (The version of the FHIR specification on which this conformance statement is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public IdType getFhirVersionElement() { 
+    public IdType getFhirVersionElement() {
       if (this.fhirVersion == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.fhirVersion");
@@ -7175,18 +7175,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.fhirVersion;
     }
 
-    public boolean hasFhirVersionElement() { 
+    public boolean hasFhirVersionElement() {
       return this.fhirVersion != null && !this.fhirVersion.isEmpty();
     }
 
-    public boolean hasFhirVersion() { 
+    public boolean hasFhirVersion() {
       return this.fhirVersion != null && !this.fhirVersion.isEmpty();
     }
 
     /**
      * @param value {@link #fhirVersion} (The version of the FHIR specification on which this conformance statement is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public Conformance setFhirVersionElement(IdType value) { 
+    public Conformance setFhirVersionElement(IdType value) {
       this.fhirVersion = value;
       return this;
     }
@@ -7194,14 +7194,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return The version of the FHIR specification on which this conformance statement is based.
      */
-    public String getFhirVersion() { 
+    public String getFhirVersion() {
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
     /**
      * @param value The version of the FHIR specification on which this conformance statement is based.
      */
-    public Conformance setFhirVersion(String value) { 
+    public Conformance setFhirVersion(String value) {
         if (this.fhirVersion == null)
           this.fhirVersion = new IdType();
         this.fhirVersion.setValue(value);
@@ -7211,7 +7211,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #acceptUnknown} (A code that indicates whether the application accepts unknown elements or extensions when reading resources.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
      */
-    public Enumeration<UnknownContentCode> getAcceptUnknownElement() { 
+    public Enumeration<UnknownContentCode> getAcceptUnknownElement() {
       if (this.acceptUnknown == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.acceptUnknown");
@@ -7220,18 +7220,18 @@ public class Conformance extends DomainResource implements IBaseConformance {
       return this.acceptUnknown;
     }
 
-    public boolean hasAcceptUnknownElement() { 
+    public boolean hasAcceptUnknownElement() {
       return this.acceptUnknown != null && !this.acceptUnknown.isEmpty();
     }
 
-    public boolean hasAcceptUnknown() { 
+    public boolean hasAcceptUnknown() {
       return this.acceptUnknown != null && !this.acceptUnknown.isEmpty();
     }
 
     /**
      * @param value {@link #acceptUnknown} (A code that indicates whether the application accepts unknown elements or extensions when reading resources.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
      */
-    public Conformance setAcceptUnknownElement(Enumeration<UnknownContentCode> value) { 
+    public Conformance setAcceptUnknownElement(Enumeration<UnknownContentCode> value) {
       this.acceptUnknown = value;
       return this;
     }
@@ -7239,14 +7239,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return A code that indicates whether the application accepts unknown elements or extensions when reading resources.
      */
-    public UnknownContentCode getAcceptUnknown() { 
+    public UnknownContentCode getAcceptUnknown() {
       return this.acceptUnknown == null ? null : this.acceptUnknown.getValue();
     }
 
     /**
      * @param value A code that indicates whether the application accepts unknown elements or extensions when reading resources.
      */
-    public Conformance setAcceptUnknown(UnknownContentCode value) { 
+    public Conformance setAcceptUnknown(UnknownContentCode value) {
         if (this.acceptUnknown == null)
           this.acceptUnknown = new Enumeration<UnknownContentCode>(new UnknownContentCodeEnumFactory());
         this.acceptUnknown.setValue(value);
@@ -7256,13 +7256,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #format} (A list of the formats supported by this implementation using their content types.)
      */
-    public List<CodeType> getFormat() { 
+    public List<CodeType> getFormat() {
       if (this.format == null)
         this.format = new ArrayList<CodeType>();
       return this.format;
     }
 
-    public boolean hasFormat() { 
+    public boolean hasFormat() {
       if (this.format == null)
         return false;
       for (CodeType item : this.format)
@@ -7275,7 +7275,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
      * @return {@link #format} (A list of the formats supported by this implementation using their content types.)
      */
     // syntactic sugar
-    public CodeType addFormatElement() {//2 
+    public CodeType addFormatElement() {//2
       CodeType t = new CodeType();
       if (this.format == null)
         this.format = new ArrayList<CodeType>();
@@ -7298,7 +7298,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @param value {@link #format} (A list of the formats supported by this implementation using their content types.)
      */
-    public boolean hasFormat(String value) { 
+    public boolean hasFormat(String value) {
       if (this.format == null)
         return false;
       for (CodeType v : this.format)
@@ -7310,13 +7310,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #profile} (A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
      */
-    public List<Reference> getProfile() { 
+    public List<Reference> getProfile() {
       if (this.profile == null)
         this.profile = new ArrayList<Reference>();
       return this.profile;
     }
 
-    public boolean hasProfile() { 
+    public boolean hasProfile() {
       if (this.profile == null)
         return false;
       for (Reference item : this.profile)
@@ -7350,7 +7350,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #profile} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
      */
-    public List<StructureDefinition> getProfileTarget() { 
+    public List<StructureDefinition> getProfileTarget() {
       if (this.profileTarget == null)
         this.profileTarget = new ArrayList<StructureDefinition>();
       return this.profileTarget;
@@ -7360,7 +7360,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #profile} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
      */
-    public StructureDefinition addProfileTarget() { 
+    public StructureDefinition addProfileTarget() {
       StructureDefinition r = new StructureDefinition();
       if (this.profileTarget == null)
         this.profileTarget = new ArrayList<StructureDefinition>();
@@ -7371,13 +7371,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #rest} (A definition of the restful capabilities of the solution, if any.)
      */
-    public List<ConformanceRestComponent> getRest() { 
+    public List<ConformanceRestComponent> getRest() {
       if (this.rest == null)
         this.rest = new ArrayList<ConformanceRestComponent>();
       return this.rest;
     }
 
-    public boolean hasRest() { 
+    public boolean hasRest() {
       if (this.rest == null)
         return false;
       for (ConformanceRestComponent item : this.rest)
@@ -7411,13 +7411,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #messaging} (A description of the messaging capabilities of the solution.)
      */
-    public List<ConformanceMessagingComponent> getMessaging() { 
+    public List<ConformanceMessagingComponent> getMessaging() {
       if (this.messaging == null)
         this.messaging = new ArrayList<ConformanceMessagingComponent>();
       return this.messaging;
     }
 
-    public boolean hasMessaging() { 
+    public boolean hasMessaging() {
       if (this.messaging == null)
         return false;
       for (ConformanceMessagingComponent item : this.messaging)
@@ -7451,13 +7451,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * @return {@link #document} (A document definition.)
      */
-    public List<ConformanceDocumentComponent> getDocument() { 
+    public List<ConformanceDocumentComponent> getDocument() {
       if (this.document == null)
         this.document = new ArrayList<ConformanceDocumentComponent>();
       return this.document;
     }
 
-    public boolean hasDocument() { 
+    public boolean hasDocument() {
       if (this.document == null)
         return false;
       for (ConformanceDocumentComponent item : this.document)

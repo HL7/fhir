@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class Specimen extends DomainResource {
         /**
          * The physical specimen is present and in good condition.
          */
-        AVAILABLE, 
+        AVAILABLE,
         /**
          * There is no physical specimen because it is either lost, destroyed or consumed.
          */
-        UNAVAILABLE, 
+        UNAVAILABLE,
         /**
          * The specimen cannot be used because of a quality issue such as a broken container, contamination, or too old.
          */
-        UNSATISFACTORY, 
+        UNSATISFACTORY,
         /**
          * The specimen was entered in error and therefore nullified.
          */
-        ENTEREDINERROR, 
+        ENTEREDINERROR,
         /**
          * added to help the parsers
          */
@@ -224,7 +224,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #collector} (Person who collected the specimen.)
          */
-        public Reference getCollector() { 
+        public Reference getCollector() {
           if (this.collector == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.collector");
@@ -233,14 +233,14 @@ public class Specimen extends DomainResource {
           return this.collector;
         }
 
-        public boolean hasCollector() { 
+        public boolean hasCollector() {
           return this.collector != null && !this.collector.isEmpty();
         }
 
         /**
          * @param value {@link #collector} (Person who collected the specimen.)
          */
-        public SpecimenCollectionComponent setCollector(Reference value) { 
+        public SpecimenCollectionComponent setCollector(Reference value) {
           this.collector = value;
           return this;
         }
@@ -248,7 +248,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #collector} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who collected the specimen.)
          */
-        public Practitioner getCollectorTarget() { 
+        public Practitioner getCollectorTarget() {
           if (this.collectorTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.collector");
@@ -260,7 +260,7 @@ public class Specimen extends DomainResource {
         /**
          * @param value {@link #collector} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who collected the specimen.)
          */
-        public SpecimenCollectionComponent setCollectorTarget(Practitioner value) { 
+        public SpecimenCollectionComponent setCollectorTarget(Practitioner value) {
           this.collectorTarget = value;
           return this;
         }
@@ -268,13 +268,13 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public List<StringType> getComment() { 
+        public List<StringType> getComment() {
           if (this.comment == null)
             this.comment = new ArrayList<StringType>();
           return this.comment;
         }
 
-        public boolean hasComment() { 
+        public boolean hasComment() {
           if (this.comment == null)
             return false;
           for (StringType item : this.comment)
@@ -287,7 +287,7 @@ public class Specimen extends DomainResource {
          * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
     // syntactic sugar
-        public StringType addCommentElement() {//2 
+        public StringType addCommentElement() {//2
           StringType t = new StringType();
           if (this.comment == null)
             this.comment = new ArrayList<StringType>();
@@ -310,7 +310,7 @@ public class Specimen extends DomainResource {
         /**
          * @param value {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public boolean hasComment(String value) { 
+        public boolean hasComment(String value) {
           if (this.comment == null)
             return false;
           for (StringType v : this.comment)
@@ -322,44 +322,44 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #collected} (Time when specimen was collected from subject - the physiologically relevant time.)
          */
-        public Type getCollected() { 
+        public Type getCollected() {
           return this.collected;
         }
 
         /**
          * @return {@link #collected} (Time when specimen was collected from subject - the physiologically relevant time.)
          */
-        public DateTimeType getCollectedDateTimeType() throws FHIRException { 
+        public DateTimeType getCollectedDateTimeType() throws FHIRException {
           if (!(this.collected instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.collected.getClass().getName()+" was encountered");
           return (DateTimeType) this.collected;
         }
 
-        public boolean hasCollectedDateTimeType() { 
+        public boolean hasCollectedDateTimeType() {
           return this.collected instanceof DateTimeType;
         }
 
         /**
          * @return {@link #collected} (Time when specimen was collected from subject - the physiologically relevant time.)
          */
-        public Period getCollectedPeriod() throws FHIRException { 
+        public Period getCollectedPeriod() throws FHIRException {
           if (!(this.collected instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.collected.getClass().getName()+" was encountered");
           return (Period) this.collected;
         }
 
-        public boolean hasCollectedPeriod() { 
+        public boolean hasCollectedPeriod() {
           return this.collected instanceof Period;
         }
 
-        public boolean hasCollected() { 
+        public boolean hasCollected() {
           return this.collected != null && !this.collected.isEmpty();
         }
 
         /**
          * @param value {@link #collected} (Time when specimen was collected from subject - the physiologically relevant time.)
          */
-        public SpecimenCollectionComponent setCollected(Type value) { 
+        public SpecimenCollectionComponent setCollected(Type value) {
           this.collected = value;
           return this;
         }
@@ -367,7 +367,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #quantity} (The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.)
          */
-        public SimpleQuantity getQuantity() { 
+        public SimpleQuantity getQuantity() {
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.quantity");
@@ -376,14 +376,14 @@ public class Specimen extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() { 
+        public boolean hasQuantity() {
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.)
          */
-        public SpecimenCollectionComponent setQuantity(SimpleQuantity value) { 
+        public SpecimenCollectionComponent setQuantity(SimpleQuantity value) {
           this.quantity = value;
           return this;
         }
@@ -391,7 +391,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #method} (A coded value specifying the technique that is used to perform the procedure.)
          */
-        public CodeableConcept getMethod() { 
+        public CodeableConcept getMethod() {
           if (this.method == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.method");
@@ -400,14 +400,14 @@ public class Specimen extends DomainResource {
           return this.method;
         }
 
-        public boolean hasMethod() { 
+        public boolean hasMethod() {
           return this.method != null && !this.method.isEmpty();
         }
 
         /**
          * @param value {@link #method} (A coded value specifying the technique that is used to perform the procedure.)
          */
-        public SpecimenCollectionComponent setMethod(CodeableConcept value) { 
+        public SpecimenCollectionComponent setMethod(CodeableConcept value) {
           this.method = value;
           return this;
         }
@@ -415,7 +415,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #bodySite} (Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens.)
          */
-        public CodeableConcept getBodySite() { 
+        public CodeableConcept getBodySite() {
           if (this.bodySite == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.bodySite");
@@ -424,14 +424,14 @@ public class Specimen extends DomainResource {
           return this.bodySite;
         }
 
-        public boolean hasBodySite() { 
+        public boolean hasBodySite() {
           return this.bodySite != null && !this.bodySite.isEmpty();
         }
 
         /**
          * @param value {@link #bodySite} (Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens.)
          */
-        public SpecimenCollectionComponent setBodySite(CodeableConcept value) { 
+        public SpecimenCollectionComponent setBodySite(CodeableConcept value) {
           this.bodySite = value;
           return this;
         }
@@ -588,7 +588,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #description} (Textual description of procedure.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenTreatmentComponent.description");
@@ -597,18 +597,18 @@ public class Specimen extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (Textual description of procedure.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SpecimenTreatmentComponent setDescriptionElement(StringType value) { 
+        public SpecimenTreatmentComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -616,14 +616,14 @@ public class Specimen extends DomainResource {
         /**
          * @return Textual description of procedure.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Textual description of procedure.
          */
-        public SpecimenTreatmentComponent setDescription(String value) { 
+        public SpecimenTreatmentComponent setDescription(String value) {
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -637,7 +637,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #procedure} (A coded value specifying the procedure used to process the specimen.)
          */
-        public CodeableConcept getProcedure() { 
+        public CodeableConcept getProcedure() {
           if (this.procedure == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenTreatmentComponent.procedure");
@@ -646,14 +646,14 @@ public class Specimen extends DomainResource {
           return this.procedure;
         }
 
-        public boolean hasProcedure() { 
+        public boolean hasProcedure() {
           return this.procedure != null && !this.procedure.isEmpty();
         }
 
         /**
          * @param value {@link #procedure} (A coded value specifying the procedure used to process the specimen.)
          */
-        public SpecimenTreatmentComponent setProcedure(CodeableConcept value) { 
+        public SpecimenTreatmentComponent setProcedure(CodeableConcept value) {
           this.procedure = value;
           return this;
         }
@@ -661,13 +661,13 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #additive} (Material used in the processing step.)
          */
-        public List<Reference> getAdditive() { 
+        public List<Reference> getAdditive() {
           if (this.additive == null)
             this.additive = new ArrayList<Reference>();
           return this.additive;
         }
 
-        public boolean hasAdditive() { 
+        public boolean hasAdditive() {
           if (this.additive == null)
             return false;
           for (Reference item : this.additive)
@@ -701,7 +701,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #additive} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Material used in the processing step.)
          */
-        public List<Substance> getAdditiveTarget() { 
+        public List<Substance> getAdditiveTarget() {
           if (this.additiveTarget == null)
             this.additiveTarget = new ArrayList<Substance>();
           return this.additiveTarget;
@@ -711,7 +711,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #additive} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Material used in the processing step.)
          */
-        public Substance addAdditiveTarget() { 
+        public Substance addAdditiveTarget() {
           Substance r = new Substance();
           if (this.additiveTarget == null)
             this.additiveTarget = new ArrayList<Substance>();
@@ -856,13 +856,13 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #identifier} (Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.)
          */
-        public List<Identifier> getIdentifier() { 
+        public List<Identifier> getIdentifier() {
           if (this.identifier == null)
             this.identifier = new ArrayList<Identifier>();
           return this.identifier;
         }
 
-        public boolean hasIdentifier() { 
+        public boolean hasIdentifier() {
           if (this.identifier == null)
             return false;
           for (Identifier item : this.identifier)
@@ -896,7 +896,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #description} (Textual description of the container.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.description");
@@ -905,18 +905,18 @@ public class Specimen extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (Textual description of the container.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SpecimenContainerComponent setDescriptionElement(StringType value) { 
+        public SpecimenContainerComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -924,14 +924,14 @@ public class Specimen extends DomainResource {
         /**
          * @return Textual description of the container.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Textual description of the container.
          */
-        public SpecimenContainerComponent setDescription(String value) { 
+        public SpecimenContainerComponent setDescription(String value) {
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -945,7 +945,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #type} (The type of container associated with the specimen (e.g. slide, aliquot, etc.).)
          */
-        public CodeableConcept getType() { 
+        public CodeableConcept getType() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.type");
@@ -954,14 +954,14 @@ public class Specimen extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of container associated with the specimen (e.g. slide, aliquot, etc.).)
          */
-        public SpecimenContainerComponent setType(CodeableConcept value) { 
+        public SpecimenContainerComponent setType(CodeableConcept value) {
           this.type = value;
           return this;
         }
@@ -969,7 +969,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #capacity} (The capacity (volume or other measure) the container may contain.)
          */
-        public SimpleQuantity getCapacity() { 
+        public SimpleQuantity getCapacity() {
           if (this.capacity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.capacity");
@@ -978,14 +978,14 @@ public class Specimen extends DomainResource {
           return this.capacity;
         }
 
-        public boolean hasCapacity() { 
+        public boolean hasCapacity() {
           return this.capacity != null && !this.capacity.isEmpty();
         }
 
         /**
          * @param value {@link #capacity} (The capacity (volume or other measure) the container may contain.)
          */
-        public SpecimenContainerComponent setCapacity(SimpleQuantity value) { 
+        public SpecimenContainerComponent setCapacity(SimpleQuantity value) {
           this.capacity = value;
           return this;
         }
@@ -993,7 +993,7 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #specimenQuantity} (The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.)
          */
-        public SimpleQuantity getSpecimenQuantity() { 
+        public SimpleQuantity getSpecimenQuantity() {
           if (this.specimenQuantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.specimenQuantity");
@@ -1002,14 +1002,14 @@ public class Specimen extends DomainResource {
           return this.specimenQuantity;
         }
 
-        public boolean hasSpecimenQuantity() { 
+        public boolean hasSpecimenQuantity() {
           return this.specimenQuantity != null && !this.specimenQuantity.isEmpty();
         }
 
         /**
          * @param value {@link #specimenQuantity} (The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.)
          */
-        public SpecimenContainerComponent setSpecimenQuantity(SimpleQuantity value) { 
+        public SpecimenContainerComponent setSpecimenQuantity(SimpleQuantity value) {
           this.specimenQuantity = value;
           return this;
         }
@@ -1017,44 +1017,44 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #additive} (Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.)
          */
-        public Type getAdditive() { 
+        public Type getAdditive() {
           return this.additive;
         }
 
         /**
          * @return {@link #additive} (Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.)
          */
-        public CodeableConcept getAdditiveCodeableConcept() throws FHIRException { 
+        public CodeableConcept getAdditiveCodeableConcept() throws FHIRException {
           if (!(this.additive instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.additive.getClass().getName()+" was encountered");
           return (CodeableConcept) this.additive;
         }
 
-        public boolean hasAdditiveCodeableConcept() { 
+        public boolean hasAdditiveCodeableConcept() {
           return this.additive instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #additive} (Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.)
          */
-        public Reference getAdditiveReference() throws FHIRException { 
+        public Reference getAdditiveReference() throws FHIRException {
           if (!(this.additive instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.additive.getClass().getName()+" was encountered");
           return (Reference) this.additive;
         }
 
-        public boolean hasAdditiveReference() { 
+        public boolean hasAdditiveReference() {
           return this.additive instanceof Reference;
         }
 
-        public boolean hasAdditive() { 
+        public boolean hasAdditive() {
           return this.additive != null && !this.additive.isEmpty();
         }
 
         /**
          * @param value {@link #additive} (Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.)
          */
-        public SpecimenContainerComponent setAdditive(Type value) { 
+        public SpecimenContainerComponent setAdditive(Type value) {
           this.additive = value;
           return this;
         }
@@ -1270,13 +1270,13 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #identifier} (Id for specimen.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1310,7 +1310,7 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #status} (The availability of the specimen.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<SpecimenStatus> getStatusElement() { 
+    public Enumeration<SpecimenStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.status");
@@ -1319,18 +1319,18 @@ public class Specimen extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The availability of the specimen.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Specimen setStatusElement(Enumeration<SpecimenStatus> value) { 
+    public Specimen setStatusElement(Enumeration<SpecimenStatus> value) {
       this.status = value;
       return this;
     }
@@ -1338,14 +1338,14 @@ public class Specimen extends DomainResource {
     /**
      * @return The availability of the specimen.
      */
-    public SpecimenStatus getStatus() { 
+    public SpecimenStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The availability of the specimen.
      */
-    public Specimen setStatus(SpecimenStatus value) { 
+    public Specimen setStatus(SpecimenStatus value) {
       if (value == null)
         this.status = null;
       else {
@@ -1359,7 +1359,7 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #type} (The kind of material that forms the specimen.)
      */
-    public CodeableConcept getType() { 
+    public CodeableConcept getType() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.type");
@@ -1368,14 +1368,14 @@ public class Specimen extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (The kind of material that forms the specimen.)
      */
-    public Specimen setType(CodeableConcept value) { 
+    public Specimen setType(CodeableConcept value) {
       this.type = value;
       return this;
     }
@@ -1383,13 +1383,13 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #parent} (Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.)
      */
-    public List<Reference> getParent() { 
+    public List<Reference> getParent() {
       if (this.parent == null)
         this.parent = new ArrayList<Reference>();
       return this.parent;
     }
 
-    public boolean hasParent() { 
+    public boolean hasParent() {
       if (this.parent == null)
         return false;
       for (Reference item : this.parent)
@@ -1423,7 +1423,7 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #parent} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.)
      */
-    public List<Specimen> getParentTarget() { 
+    public List<Specimen> getParentTarget() {
       if (this.parentTarget == null)
         this.parentTarget = new ArrayList<Specimen>();
       return this.parentTarget;
@@ -1433,7 +1433,7 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #parent} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.)
      */
-    public Specimen addParentTarget() { 
+    public Specimen addParentTarget() {
       Specimen r = new Specimen();
       if (this.parentTarget == null)
         this.parentTarget = new ArrayList<Specimen>();
@@ -1444,7 +1444,7 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #subject} (Where the specimen came from. This may be from the patient(s) or from the environment or a device.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.subject");
@@ -1453,14 +1453,14 @@ public class Specimen extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Where the specimen came from. This may be from the patient(s) or from the environment or a device.)
      */
-    public Specimen setSubject(Reference value) { 
+    public Specimen setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -1468,14 +1468,14 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the specimen came from. This may be from the patient(s) or from the environment or a device.)
      */
-    public Resource getSubjectTarget() { 
+    public Resource getSubjectTarget() {
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the specimen came from. This may be from the patient(s) or from the environment or a device.)
      */
-    public Specimen setSubjectTarget(Resource value) { 
+    public Specimen setSubjectTarget(Resource value) {
       this.subjectTarget = value;
       return this;
     }
@@ -1483,7 +1483,7 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #accessionIdentifier} (The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
      */
-    public Identifier getAccessionIdentifier() { 
+    public Identifier getAccessionIdentifier() {
       if (this.accessionIdentifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.accessionIdentifier");
@@ -1492,14 +1492,14 @@ public class Specimen extends DomainResource {
       return this.accessionIdentifier;
     }
 
-    public boolean hasAccessionIdentifier() { 
+    public boolean hasAccessionIdentifier() {
       return this.accessionIdentifier != null && !this.accessionIdentifier.isEmpty();
     }
 
     /**
      * @param value {@link #accessionIdentifier} (The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
      */
-    public Specimen setAccessionIdentifier(Identifier value) { 
+    public Specimen setAccessionIdentifier(Identifier value) {
       this.accessionIdentifier = value;
       return this;
     }
@@ -1507,7 +1507,7 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #receivedTime} (Time when specimen was received for processing or testing.). This is the underlying object with id, value and extensions. The accessor "getReceivedTime" gives direct access to the value
      */
-    public DateTimeType getReceivedTimeElement() { 
+    public DateTimeType getReceivedTimeElement() {
       if (this.receivedTime == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.receivedTime");
@@ -1516,18 +1516,18 @@ public class Specimen extends DomainResource {
       return this.receivedTime;
     }
 
-    public boolean hasReceivedTimeElement() { 
+    public boolean hasReceivedTimeElement() {
       return this.receivedTime != null && !this.receivedTime.isEmpty();
     }
 
-    public boolean hasReceivedTime() { 
+    public boolean hasReceivedTime() {
       return this.receivedTime != null && !this.receivedTime.isEmpty();
     }
 
     /**
      * @param value {@link #receivedTime} (Time when specimen was received for processing or testing.). This is the underlying object with id, value and extensions. The accessor "getReceivedTime" gives direct access to the value
      */
-    public Specimen setReceivedTimeElement(DateTimeType value) { 
+    public Specimen setReceivedTimeElement(DateTimeType value) {
       this.receivedTime = value;
       return this;
     }
@@ -1535,14 +1535,14 @@ public class Specimen extends DomainResource {
     /**
      * @return Time when specimen was received for processing or testing.
      */
-    public Date getReceivedTime() { 
+    public Date getReceivedTime() {
       return this.receivedTime == null ? null : this.receivedTime.getValue();
     }
 
     /**
      * @param value Time when specimen was received for processing or testing.
      */
-    public Specimen setReceivedTime(Date value) { 
+    public Specimen setReceivedTime(Date value) {
       if (value == null)
         this.receivedTime = null;
       else {
@@ -1556,7 +1556,7 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #collection} (Details concerning the specimen collection.)
      */
-    public SpecimenCollectionComponent getCollection() { 
+    public SpecimenCollectionComponent getCollection() {
       if (this.collection == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.collection");
@@ -1565,14 +1565,14 @@ public class Specimen extends DomainResource {
       return this.collection;
     }
 
-    public boolean hasCollection() { 
+    public boolean hasCollection() {
       return this.collection != null && !this.collection.isEmpty();
     }
 
     /**
      * @param value {@link #collection} (Details concerning the specimen collection.)
      */
-    public Specimen setCollection(SpecimenCollectionComponent value) { 
+    public Specimen setCollection(SpecimenCollectionComponent value) {
       this.collection = value;
       return this;
     }
@@ -1580,13 +1580,13 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #treatment} (Details concerning treatment and processing steps for the specimen.)
      */
-    public List<SpecimenTreatmentComponent> getTreatment() { 
+    public List<SpecimenTreatmentComponent> getTreatment() {
       if (this.treatment == null)
         this.treatment = new ArrayList<SpecimenTreatmentComponent>();
       return this.treatment;
     }
 
-    public boolean hasTreatment() { 
+    public boolean hasTreatment() {
       if (this.treatment == null)
         return false;
       for (SpecimenTreatmentComponent item : this.treatment)
@@ -1620,13 +1620,13 @@ public class Specimen extends DomainResource {
     /**
      * @return {@link #container} (The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.)
      */
-    public List<SpecimenContainerComponent> getContainer() { 
+    public List<SpecimenContainerComponent> getContainer() {
       if (this.container == null)
         this.container = new ArrayList<SpecimenContainerComponent>();
       return this.container;
     }
 
-    public boolean hasContainer() { 
+    public boolean hasContainer() {
       if (this.container == null)
         return false;
       for (SpecimenContainerComponent item : this.container)

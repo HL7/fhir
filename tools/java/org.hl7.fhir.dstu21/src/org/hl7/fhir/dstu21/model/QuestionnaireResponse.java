@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,15 +51,15 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * This QuestionnaireResponse has been partially filled out with answers, but changes or additions are still expected to be made to it.
          */
-        INPROGRESS, 
+        INPROGRESS,
         /**
          * This QuestionnaireResponse has been filled out with answers, and the current content is regarded as definitive.
          */
-        COMPLETED, 
+        COMPLETED,
         /**
          * This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.
          */
-        AMENDED, 
+        AMENDED,
         /**
          * added to help the parsers
          */
@@ -201,7 +201,7 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return {@link #linkId} (Identifies the item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public StringType getLinkIdElement() { 
+        public StringType getLinkIdElement() {
           if (this.linkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireResponseItemComponent.linkId");
@@ -210,18 +210,18 @@ public class QuestionnaireResponse extends DomainResource {
           return this.linkId;
         }
 
-        public boolean hasLinkIdElement() { 
+        public boolean hasLinkIdElement() {
           return this.linkId != null && !this.linkId.isEmpty();
         }
 
-        public boolean hasLinkId() { 
+        public boolean hasLinkId() {
           return this.linkId != null && !this.linkId.isEmpty();
         }
 
         /**
          * @param value {@link #linkId} (Identifies the item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public QuestionnaireResponseItemComponent setLinkIdElement(StringType value) { 
+        public QuestionnaireResponseItemComponent setLinkIdElement(StringType value) {
           this.linkId = value;
           return this;
         }
@@ -229,14 +229,14 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return Identifies the item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
          */
-        public String getLinkId() { 
+        public String getLinkId() {
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
          * @param value Identifies the item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
          */
-        public QuestionnaireResponseItemComponent setLinkId(String value) { 
+        public QuestionnaireResponseItemComponent setLinkId(String value) {
           if (Utilities.noString(value))
             this.linkId = null;
           else {
@@ -250,7 +250,7 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return {@link #text} (Text that is displayed above the contents of the group or as the text of the question being answered.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextElement() { 
+        public StringType getTextElement() {
           if (this.text == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireResponseItemComponent.text");
@@ -259,18 +259,18 @@ public class QuestionnaireResponse extends DomainResource {
           return this.text;
         }
 
-        public boolean hasTextElement() { 
+        public boolean hasTextElement() {
           return this.text != null && !this.text.isEmpty();
         }
 
-        public boolean hasText() { 
+        public boolean hasText() {
           return this.text != null && !this.text.isEmpty();
         }
 
         /**
          * @param value {@link #text} (Text that is displayed above the contents of the group or as the text of the question being answered.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public QuestionnaireResponseItemComponent setTextElement(StringType value) { 
+        public QuestionnaireResponseItemComponent setTextElement(StringType value) {
           this.text = value;
           return this;
         }
@@ -278,14 +278,14 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return Text that is displayed above the contents of the group or as the text of the question being answered.
          */
-        public String getText() { 
+        public String getText() {
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Text that is displayed above the contents of the group or as the text of the question being answered.
          */
-        public QuestionnaireResponseItemComponent setText(String value) { 
+        public QuestionnaireResponseItemComponent setText(String value) {
           if (Utilities.noString(value))
             this.text = null;
           else {
@@ -299,7 +299,7 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return {@link #subject} (More specific subject this section's answers are about, details the subject given in QuestionnaireResponse.)
          */
-        public Reference getSubject() { 
+        public Reference getSubject() {
           if (this.subject == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireResponseItemComponent.subject");
@@ -308,14 +308,14 @@ public class QuestionnaireResponse extends DomainResource {
           return this.subject;
         }
 
-        public boolean hasSubject() { 
+        public boolean hasSubject() {
           return this.subject != null && !this.subject.isEmpty();
         }
 
         /**
          * @param value {@link #subject} (More specific subject this section's answers are about, details the subject given in QuestionnaireResponse.)
          */
-        public QuestionnaireResponseItemComponent setSubject(Reference value) { 
+        public QuestionnaireResponseItemComponent setSubject(Reference value) {
           this.subject = value;
           return this;
         }
@@ -323,14 +323,14 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (More specific subject this section's answers are about, details the subject given in QuestionnaireResponse.)
          */
-        public Resource getSubjectTarget() { 
+        public Resource getSubjectTarget() {
           return this.subjectTarget;
         }
 
         /**
          * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (More specific subject this section's answers are about, details the subject given in QuestionnaireResponse.)
          */
-        public QuestionnaireResponseItemComponent setSubjectTarget(Resource value) { 
+        public QuestionnaireResponseItemComponent setSubjectTarget(Resource value) {
           this.subjectTarget = value;
           return this;
         }
@@ -338,13 +338,13 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return {@link #answer} (The respondent's answer(s) to the question.)
          */
-        public List<QuestionnaireResponseItemAnswerComponent> getAnswer() { 
+        public List<QuestionnaireResponseItemAnswerComponent> getAnswer() {
           if (this.answer == null)
             this.answer = new ArrayList<QuestionnaireResponseItemAnswerComponent>();
           return this.answer;
         }
 
-        public boolean hasAnswer() { 
+        public boolean hasAnswer() {
           if (this.answer == null)
             return false;
           for (QuestionnaireResponseItemAnswerComponent item : this.answer)
@@ -378,13 +378,13 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return {@link #item} (Questions or sub-groups nested beneath a question or group.)
          */
-        public List<QuestionnaireResponseItemComponent> getItem() { 
+        public List<QuestionnaireResponseItemComponent> getItem() {
           if (this.item == null)
             this.item = new ArrayList<QuestionnaireResponseItemComponent>();
           return this.item;
         }
 
-        public boolean hasItem() { 
+        public boolean hasItem() {
           if (this.item == null)
             return false;
           for (QuestionnaireResponseItemComponent item : this.item)
@@ -543,187 +543,187 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public Type getValue() { 
+        public Type getValue() {
           return this.value;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public BooleanType getValueBooleanType() throws FHIRException { 
+        public BooleanType getValueBooleanType() throws FHIRException {
           if (!(this.value instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
         }
 
-        public boolean hasValueBooleanType() { 
+        public boolean hasValueBooleanType() {
           return this.value instanceof BooleanType;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public DecimalType getValueDecimalType() throws FHIRException { 
+        public DecimalType getValueDecimalType() throws FHIRException {
           if (!(this.value instanceof DecimalType))
             throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DecimalType) this.value;
         }
 
-        public boolean hasValueDecimalType() { 
+        public boolean hasValueDecimalType() {
           return this.value instanceof DecimalType;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public IntegerType getValueIntegerType() throws FHIRException { 
+        public IntegerType getValueIntegerType() throws FHIRException {
           if (!(this.value instanceof IntegerType))
             throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (IntegerType) this.value;
         }
 
-        public boolean hasValueIntegerType() { 
+        public boolean hasValueIntegerType() {
           return this.value instanceof IntegerType;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public DateType getValueDateType() throws FHIRException { 
+        public DateType getValueDateType() throws FHIRException {
           if (!(this.value instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateType) this.value;
         }
 
-        public boolean hasValueDateType() { 
+        public boolean hasValueDateType() {
           return this.value instanceof DateType;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public DateTimeType getValueDateTimeType() throws FHIRException { 
+        public DateTimeType getValueDateTimeType() throws FHIRException {
           if (!(this.value instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateTimeType) this.value;
         }
 
-        public boolean hasValueDateTimeType() { 
+        public boolean hasValueDateTimeType() {
           return this.value instanceof DateTimeType;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public InstantType getValueInstantType() throws FHIRException { 
+        public InstantType getValueInstantType() throws FHIRException {
           if (!(this.value instanceof InstantType))
             throw new FHIRException("Type mismatch: the type InstantType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (InstantType) this.value;
         }
 
-        public boolean hasValueInstantType() { 
+        public boolean hasValueInstantType() {
           return this.value instanceof InstantType;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public TimeType getValueTimeType() throws FHIRException { 
+        public TimeType getValueTimeType() throws FHIRException {
           if (!(this.value instanceof TimeType))
             throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (TimeType) this.value;
         }
 
-        public boolean hasValueTimeType() { 
+        public boolean hasValueTimeType() {
           return this.value instanceof TimeType;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public StringType getValueStringType() throws FHIRException { 
+        public StringType getValueStringType() throws FHIRException {
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (StringType) this.value;
         }
 
-        public boolean hasValueStringType() { 
+        public boolean hasValueStringType() {
           return this.value instanceof StringType;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public UriType getValueUriType() throws FHIRException { 
+        public UriType getValueUriType() throws FHIRException {
           if (!(this.value instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (UriType) this.value;
         }
 
-        public boolean hasValueUriType() { 
+        public boolean hasValueUriType() {
           return this.value instanceof UriType;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public Attachment getValueAttachment() throws FHIRException { 
+        public Attachment getValueAttachment() throws FHIRException {
           if (!(this.value instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Attachment) this.value;
         }
 
-        public boolean hasValueAttachment() { 
+        public boolean hasValueAttachment() {
           return this.value instanceof Attachment;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public Coding getValueCoding() throws FHIRException { 
+        public Coding getValueCoding() throws FHIRException {
           if (!(this.value instanceof Coding))
             throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Coding) this.value;
         }
 
-        public boolean hasValueCoding() { 
+        public boolean hasValueCoding() {
           return this.value instanceof Coding;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public Quantity getValueQuantity() throws FHIRException { 
+        public Quantity getValueQuantity() throws FHIRException {
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Quantity) this.value;
         }
 
-        public boolean hasValueQuantity() { 
+        public boolean hasValueQuantity() {
           return this.value instanceof Quantity;
         }
 
         /**
          * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public Reference getValueReference() throws FHIRException { 
+        public Reference getValueReference() throws FHIRException {
           if (!(this.value instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Reference) this.value;
         }
 
-        public boolean hasValueReference() { 
+        public boolean hasValueReference() {
           return this.value instanceof Reference;
         }
 
-        public boolean hasValue() { 
+        public boolean hasValue() {
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
          */
-        public QuestionnaireResponseItemAnswerComponent setValue(Type value) { 
+        public QuestionnaireResponseItemAnswerComponent setValue(Type value) {
           this.value = value;
           return this;
         }
@@ -731,13 +731,13 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * @return {@link #item} (Nested groups and/or questions found within this particular answer.)
          */
-        public List<QuestionnaireResponseItemComponent> getItem() { 
+        public List<QuestionnaireResponseItemComponent> getItem() {
           if (this.item == null)
             this.item = new ArrayList<QuestionnaireResponseItemComponent>();
           return this.item;
         }
 
-        public boolean hasItem() { 
+        public boolean hasItem() {
           if (this.item == null)
             return false;
           for (QuestionnaireResponseItemComponent item : this.item)
@@ -997,7 +997,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #identifier} (A business identifier assigned to a particular completed (or partially completed) questionnaire.)
      */
-    public Identifier getIdentifier() { 
+    public Identifier getIdentifier() {
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.identifier");
@@ -1006,14 +1006,14 @@ public class QuestionnaireResponse extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (A business identifier assigned to a particular completed (or partially completed) questionnaire.)
      */
-    public QuestionnaireResponse setIdentifier(Identifier value) { 
+    public QuestionnaireResponse setIdentifier(Identifier value) {
       this.identifier = value;
       return this;
     }
@@ -1021,7 +1021,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #questionnaire} (Indicates the Questionnaire resource that defines the form for which answers are being provided.)
      */
-    public Reference getQuestionnaire() { 
+    public Reference getQuestionnaire() {
       if (this.questionnaire == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.questionnaire");
@@ -1030,14 +1030,14 @@ public class QuestionnaireResponse extends DomainResource {
       return this.questionnaire;
     }
 
-    public boolean hasQuestionnaire() { 
+    public boolean hasQuestionnaire() {
       return this.questionnaire != null && !this.questionnaire.isEmpty();
     }
 
     /**
      * @param value {@link #questionnaire} (Indicates the Questionnaire resource that defines the form for which answers are being provided.)
      */
-    public QuestionnaireResponse setQuestionnaire(Reference value) { 
+    public QuestionnaireResponse setQuestionnaire(Reference value) {
       this.questionnaire = value;
       return this;
     }
@@ -1045,7 +1045,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #questionnaire} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the Questionnaire resource that defines the form for which answers are being provided.)
      */
-    public Questionnaire getQuestionnaireTarget() { 
+    public Questionnaire getQuestionnaireTarget() {
       if (this.questionnaireTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.questionnaire");
@@ -1057,7 +1057,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @param value {@link #questionnaire} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates the Questionnaire resource that defines the form for which answers are being provided.)
      */
-    public QuestionnaireResponse setQuestionnaireTarget(Questionnaire value) { 
+    public QuestionnaireResponse setQuestionnaireTarget(Questionnaire value) {
       this.questionnaireTarget = value;
       return this;
     }
@@ -1065,7 +1065,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #status} (The lifecycle status of the questionnaire response as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<QuestionnaireResponseStatus> getStatusElement() { 
+    public Enumeration<QuestionnaireResponseStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.status");
@@ -1074,18 +1074,18 @@ public class QuestionnaireResponse extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The lifecycle status of the questionnaire response as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public QuestionnaireResponse setStatusElement(Enumeration<QuestionnaireResponseStatus> value) { 
+    public QuestionnaireResponse setStatusElement(Enumeration<QuestionnaireResponseStatus> value) {
       this.status = value;
       return this;
     }
@@ -1093,14 +1093,14 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return The lifecycle status of the questionnaire response as a whole.
      */
-    public QuestionnaireResponseStatus getStatus() { 
+    public QuestionnaireResponseStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The lifecycle status of the questionnaire response as a whole.
      */
-    public QuestionnaireResponse setStatus(QuestionnaireResponseStatus value) { 
+    public QuestionnaireResponse setStatus(QuestionnaireResponseStatus value) {
         if (this.status == null)
           this.status = new Enumeration<QuestionnaireResponseStatus>(new QuestionnaireResponseStatusEnumFactory());
         this.status.setValue(value);
@@ -1110,7 +1110,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #subject} (The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.subject");
@@ -1119,14 +1119,14 @@ public class QuestionnaireResponse extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
      */
-    public QuestionnaireResponse setSubject(Reference value) { 
+    public QuestionnaireResponse setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -1134,14 +1134,14 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
      */
-    public Resource getSubjectTarget() { 
+    public Resource getSubjectTarget() {
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.)
      */
-    public QuestionnaireResponse setSubjectTarget(Resource value) { 
+    public QuestionnaireResponse setSubjectTarget(Resource value) {
       this.subjectTarget = value;
       return this;
     }
@@ -1149,7 +1149,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #author} (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
      */
-    public Reference getAuthor() { 
+    public Reference getAuthor() {
       if (this.author == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.author");
@@ -1158,14 +1158,14 @@ public class QuestionnaireResponse extends DomainResource {
       return this.author;
     }
 
-    public boolean hasAuthor() { 
+    public boolean hasAuthor() {
       return this.author != null && !this.author.isEmpty();
     }
 
     /**
      * @param value {@link #author} (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
      */
-    public QuestionnaireResponse setAuthor(Reference value) { 
+    public QuestionnaireResponse setAuthor(Reference value) {
       this.author = value;
       return this;
     }
@@ -1173,14 +1173,14 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
      */
-    public Resource getAuthorTarget() { 
+    public Resource getAuthorTarget() {
       return this.authorTarget;
     }
 
     /**
      * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
      */
-    public QuestionnaireResponse setAuthorTarget(Resource value) { 
+    public QuestionnaireResponse setAuthorTarget(Resource value) {
       this.authorTarget = value;
       return this;
     }
@@ -1188,7 +1188,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #authored} (The date and/or time that this version of the questionnaire response was authored.). This is the underlying object with id, value and extensions. The accessor "getAuthored" gives direct access to the value
      */
-    public DateTimeType getAuthoredElement() { 
+    public DateTimeType getAuthoredElement() {
       if (this.authored == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.authored");
@@ -1197,18 +1197,18 @@ public class QuestionnaireResponse extends DomainResource {
       return this.authored;
     }
 
-    public boolean hasAuthoredElement() { 
+    public boolean hasAuthoredElement() {
       return this.authored != null && !this.authored.isEmpty();
     }
 
-    public boolean hasAuthored() { 
+    public boolean hasAuthored() {
       return this.authored != null && !this.authored.isEmpty();
     }
 
     /**
      * @param value {@link #authored} (The date and/or time that this version of the questionnaire response was authored.). This is the underlying object with id, value and extensions. The accessor "getAuthored" gives direct access to the value
      */
-    public QuestionnaireResponse setAuthoredElement(DateTimeType value) { 
+    public QuestionnaireResponse setAuthoredElement(DateTimeType value) {
       this.authored = value;
       return this;
     }
@@ -1216,14 +1216,14 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return The date and/or time that this version of the questionnaire response was authored.
      */
-    public Date getAuthored() { 
+    public Date getAuthored() {
       return this.authored == null ? null : this.authored.getValue();
     }
 
     /**
      * @param value The date and/or time that this version of the questionnaire response was authored.
      */
-    public QuestionnaireResponse setAuthored(Date value) { 
+    public QuestionnaireResponse setAuthored(Date value) {
       if (value == null)
         this.authored = null;
       else {
@@ -1237,7 +1237,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #source} (The person who answered the questions about the subject.)
      */
-    public Reference getSource() { 
+    public Reference getSource() {
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.source");
@@ -1246,14 +1246,14 @@ public class QuestionnaireResponse extends DomainResource {
       return this.source;
     }
 
-    public boolean hasSource() { 
+    public boolean hasSource() {
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (The person who answered the questions about the subject.)
      */
-    public QuestionnaireResponse setSource(Reference value) { 
+    public QuestionnaireResponse setSource(Reference value) {
       this.source = value;
       return this;
     }
@@ -1261,14 +1261,14 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who answered the questions about the subject.)
      */
-    public Resource getSourceTarget() { 
+    public Resource getSourceTarget() {
       return this.sourceTarget;
     }
 
     /**
      * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who answered the questions about the subject.)
      */
-    public QuestionnaireResponse setSourceTarget(Resource value) { 
+    public QuestionnaireResponse setSourceTarget(Resource value) {
       this.sourceTarget = value;
       return this;
     }
@@ -1276,7 +1276,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #encounter} (Encounter during which this set of questionnaire response were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
-    public Reference getEncounter() { 
+    public Reference getEncounter() {
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.encounter");
@@ -1285,14 +1285,14 @@ public class QuestionnaireResponse extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() { 
+    public boolean hasEncounter() {
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (Encounter during which this set of questionnaire response were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
-    public QuestionnaireResponse setEncounter(Reference value) { 
+    public QuestionnaireResponse setEncounter(Reference value) {
       this.encounter = value;
       return this;
     }
@@ -1300,7 +1300,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Encounter during which this set of questionnaire response were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
-    public Encounter getEncounterTarget() { 
+    public Encounter getEncounterTarget() {
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireResponse.encounter");
@@ -1312,7 +1312,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Encounter during which this set of questionnaire response were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
-    public QuestionnaireResponse setEncounterTarget(Encounter value) { 
+    public QuestionnaireResponse setEncounterTarget(Encounter value) {
       this.encounterTarget = value;
       return this;
     }
@@ -1320,13 +1320,13 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * @return {@link #item} (Corresponds to a group or question item from the original questionnaire.)
      */
-    public List<QuestionnaireResponseItemComponent> getItem() { 
+    public List<QuestionnaireResponseItemComponent> getItem() {
       if (this.item == null)
         this.item = new ArrayList<QuestionnaireResponseItemComponent>();
       return this.item;
     }
 
-    public boolean hasItem() { 
+    public boolean hasItem() {
       if (this.item == null)
         return false;
       for (QuestionnaireResponseItemComponent item : this.item)

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class Provenance extends DomainResource {
         /**
          * A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity.
          */
-        DERIVATION, 
+        DERIVATION,
         /**
          * A derivation for which the resulting entity is a revised version of some original.
          */
-        REVISION, 
+        REVISION,
         /**
          * The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author.
          */
-        QUOTATION, 
+        QUOTATION,
         /**
          * A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight.
          */
-        SOURCE, 
+        SOURCE,
         /**
          * added to help the parsers
          */
@@ -218,7 +218,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #role} (The function of the agent with respect to the activity.)
          */
-        public Coding getRole() { 
+        public Coding getRole() {
           if (this.role == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceAgentComponent.role");
@@ -227,14 +227,14 @@ public class Provenance extends DomainResource {
           return this.role;
         }
 
-        public boolean hasRole() { 
+        public boolean hasRole() {
           return this.role != null && !this.role.isEmpty();
         }
 
         /**
          * @param value {@link #role} (The function of the agent with respect to the activity.)
          */
-        public ProvenanceAgentComponent setRole(Coding value) { 
+        public ProvenanceAgentComponent setRole(Coding value) {
           this.role = value;
           return this;
         }
@@ -242,7 +242,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #actor} (The individual, device or organization that participated in the event.)
          */
-        public Reference getActor() { 
+        public Reference getActor() {
           if (this.actor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceAgentComponent.actor");
@@ -251,14 +251,14 @@ public class Provenance extends DomainResource {
           return this.actor;
         }
 
-        public boolean hasActor() { 
+        public boolean hasActor() {
           return this.actor != null && !this.actor.isEmpty();
         }
 
         /**
          * @param value {@link #actor} (The individual, device or organization that participated in the event.)
          */
-        public ProvenanceAgentComponent setActor(Reference value) { 
+        public ProvenanceAgentComponent setActor(Reference value) {
           this.actor = value;
           return this;
         }
@@ -266,14 +266,14 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual, device or organization that participated in the event.)
          */
-        public Resource getActorTarget() { 
+        public Resource getActorTarget() {
           return this.actorTarget;
         }
 
         /**
          * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual, device or organization that participated in the event.)
          */
-        public ProvenanceAgentComponent setActorTarget(Resource value) { 
+        public ProvenanceAgentComponent setActorTarget(Resource value) {
           this.actorTarget = value;
           return this;
         }
@@ -281,7 +281,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #userId} (The identity of the agent as known by the authorization system.)
          */
-        public Identifier getUserId() { 
+        public Identifier getUserId() {
           if (this.userId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceAgentComponent.userId");
@@ -290,14 +290,14 @@ public class Provenance extends DomainResource {
           return this.userId;
         }
 
-        public boolean hasUserId() { 
+        public boolean hasUserId() {
           return this.userId != null && !this.userId.isEmpty();
         }
 
         /**
          * @param value {@link #userId} (The identity of the agent as known by the authorization system.)
          */
-        public ProvenanceAgentComponent setUserId(Identifier value) { 
+        public ProvenanceAgentComponent setUserId(Identifier value) {
           this.userId = value;
           return this;
         }
@@ -305,13 +305,13 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #relatedAgent} (A relationship between two the agents referenced in this resource. This is defined to allow for explicit description of the delegation between agents.  For example, this human author used this device, or one person acted on another's behest.)
          */
-        public List<ProvenanceAgentRelatedAgentComponent> getRelatedAgent() { 
+        public List<ProvenanceAgentRelatedAgentComponent> getRelatedAgent() {
           if (this.relatedAgent == null)
             this.relatedAgent = new ArrayList<ProvenanceAgentRelatedAgentComponent>();
           return this.relatedAgent;
         }
 
-        public boolean hasRelatedAgent() { 
+        public boolean hasRelatedAgent() {
           if (this.relatedAgent == null)
             return false;
           for (ProvenanceAgentRelatedAgentComponent item : this.relatedAgent)
@@ -470,7 +470,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #type} (The type of relationship between agents.)
          */
-        public CodeableConcept getType() { 
+        public CodeableConcept getType() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceAgentRelatedAgentComponent.type");
@@ -479,14 +479,14 @@ public class Provenance extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of relationship between agents.)
          */
-        public ProvenanceAgentRelatedAgentComponent setType(CodeableConcept value) { 
+        public ProvenanceAgentRelatedAgentComponent setType(CodeableConcept value) {
           this.type = value;
           return this;
         }
@@ -494,7 +494,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #target} (An internal reference to another agent listed in this provenance by its identifier.). This is the underlying object with id, value and extensions. The accessor "getTarget" gives direct access to the value
          */
-        public UriType getTargetElement() { 
+        public UriType getTargetElement() {
           if (this.target == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceAgentRelatedAgentComponent.target");
@@ -503,18 +503,18 @@ public class Provenance extends DomainResource {
           return this.target;
         }
 
-        public boolean hasTargetElement() { 
+        public boolean hasTargetElement() {
           return this.target != null && !this.target.isEmpty();
         }
 
-        public boolean hasTarget() { 
+        public boolean hasTarget() {
           return this.target != null && !this.target.isEmpty();
         }
 
         /**
          * @param value {@link #target} (An internal reference to another agent listed in this provenance by its identifier.). This is the underlying object with id, value and extensions. The accessor "getTarget" gives direct access to the value
          */
-        public ProvenanceAgentRelatedAgentComponent setTargetElement(UriType value) { 
+        public ProvenanceAgentRelatedAgentComponent setTargetElement(UriType value) {
           this.target = value;
           return this;
         }
@@ -522,14 +522,14 @@ public class Provenance extends DomainResource {
         /**
          * @return An internal reference to another agent listed in this provenance by its identifier.
          */
-        public String getTarget() { 
+        public String getTarget() {
           return this.target == null ? null : this.target.getValue();
         }
 
         /**
          * @param value An internal reference to another agent listed in this provenance by its identifier.
          */
-        public ProvenanceAgentRelatedAgentComponent setTarget(String value) { 
+        public ProvenanceAgentRelatedAgentComponent setTarget(String value) {
             if (this.target == null)
               this.target = new UriType();
             this.target.setValue(value);
@@ -664,7 +664,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #role} (How the entity was used during the activity.). This is the underlying object with id, value and extensions. The accessor "getRole" gives direct access to the value
          */
-        public Enumeration<ProvenanceEntityRole> getRoleElement() { 
+        public Enumeration<ProvenanceEntityRole> getRoleElement() {
           if (this.role == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.role");
@@ -673,18 +673,18 @@ public class Provenance extends DomainResource {
           return this.role;
         }
 
-        public boolean hasRoleElement() { 
+        public boolean hasRoleElement() {
           return this.role != null && !this.role.isEmpty();
         }
 
-        public boolean hasRole() { 
+        public boolean hasRole() {
           return this.role != null && !this.role.isEmpty();
         }
 
         /**
          * @param value {@link #role} (How the entity was used during the activity.). This is the underlying object with id, value and extensions. The accessor "getRole" gives direct access to the value
          */
-        public ProvenanceEntityComponent setRoleElement(Enumeration<ProvenanceEntityRole> value) { 
+        public ProvenanceEntityComponent setRoleElement(Enumeration<ProvenanceEntityRole> value) {
           this.role = value;
           return this;
         }
@@ -692,14 +692,14 @@ public class Provenance extends DomainResource {
         /**
          * @return How the entity was used during the activity.
          */
-        public ProvenanceEntityRole getRole() { 
+        public ProvenanceEntityRole getRole() {
           return this.role == null ? null : this.role.getValue();
         }
 
         /**
          * @param value How the entity was used during the activity.
          */
-        public ProvenanceEntityComponent setRole(ProvenanceEntityRole value) { 
+        public ProvenanceEntityComponent setRole(ProvenanceEntityRole value) {
             if (this.role == null)
               this.role = new Enumeration<ProvenanceEntityRole>(new ProvenanceEntityRoleEnumFactory());
             this.role.setValue(value);
@@ -709,7 +709,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #type} (The type of the entity. If the entity is a resource, then this is a resource type.)
          */
-        public Coding getType() { 
+        public Coding getType() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.type");
@@ -718,14 +718,14 @@ public class Provenance extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of the entity. If the entity is a resource, then this is a resource type.)
          */
-        public ProvenanceEntityComponent setType(Coding value) { 
+        public ProvenanceEntityComponent setType(Coding value) {
           this.type = value;
           return this;
         }
@@ -733,7 +733,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #reference} (Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
          */
-        public UriType getReferenceElement() { 
+        public UriType getReferenceElement() {
           if (this.reference == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.reference");
@@ -742,18 +742,18 @@ public class Provenance extends DomainResource {
           return this.reference;
         }
 
-        public boolean hasReferenceElement() { 
+        public boolean hasReferenceElement() {
           return this.reference != null && !this.reference.isEmpty();
         }
 
-        public boolean hasReference() { 
+        public boolean hasReference() {
           return this.reference != null && !this.reference.isEmpty();
         }
 
         /**
          * @param value {@link #reference} (Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
          */
-        public ProvenanceEntityComponent setReferenceElement(UriType value) { 
+        public ProvenanceEntityComponent setReferenceElement(UriType value) {
           this.reference = value;
           return this;
         }
@@ -761,14 +761,14 @@ public class Provenance extends DomainResource {
         /**
          * @return Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.
          */
-        public String getReference() { 
+        public String getReference() {
           return this.reference == null ? null : this.reference.getValue();
         }
 
         /**
          * @param value Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.
          */
-        public ProvenanceEntityComponent setReference(String value) { 
+        public ProvenanceEntityComponent setReference(String value) {
             if (this.reference == null)
               this.reference = new UriType();
             this.reference.setValue(value);
@@ -778,7 +778,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #display} (Human-readable description of the entity.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
-        public StringType getDisplayElement() { 
+        public StringType getDisplayElement() {
           if (this.display == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.display");
@@ -787,18 +787,18 @@ public class Provenance extends DomainResource {
           return this.display;
         }
 
-        public boolean hasDisplayElement() { 
+        public boolean hasDisplayElement() {
           return this.display != null && !this.display.isEmpty();
         }
 
-        public boolean hasDisplay() { 
+        public boolean hasDisplay() {
           return this.display != null && !this.display.isEmpty();
         }
 
         /**
          * @param value {@link #display} (Human-readable description of the entity.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
          */
-        public ProvenanceEntityComponent setDisplayElement(StringType value) { 
+        public ProvenanceEntityComponent setDisplayElement(StringType value) {
           this.display = value;
           return this;
         }
@@ -806,14 +806,14 @@ public class Provenance extends DomainResource {
         /**
          * @return Human-readable description of the entity.
          */
-        public String getDisplay() { 
+        public String getDisplay() {
           return this.display == null ? null : this.display.getValue();
         }
 
         /**
          * @param value Human-readable description of the entity.
          */
-        public ProvenanceEntityComponent setDisplay(String value) { 
+        public ProvenanceEntityComponent setDisplay(String value) {
           if (Utilities.noString(value))
             this.display = null;
           else {
@@ -827,7 +827,7 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #agent} (The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.)
          */
-        public ProvenanceAgentComponent getAgent() { 
+        public ProvenanceAgentComponent getAgent() {
           if (this.agent == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.agent");
@@ -836,14 +836,14 @@ public class Provenance extends DomainResource {
           return this.agent;
         }
 
-        public boolean hasAgent() { 
+        public boolean hasAgent() {
           return this.agent != null && !this.agent.isEmpty();
         }
 
         /**
          * @param value {@link #agent} (The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.)
          */
-        public ProvenanceEntityComponent setAgent(ProvenanceAgentComponent value) { 
+        public ProvenanceEntityComponent setAgent(ProvenanceAgentComponent value) {
           this.agent = value;
           return this;
         }
@@ -1042,13 +1042,13 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #target} (The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
      */
-    public List<Reference> getTarget() { 
+    public List<Reference> getTarget() {
       if (this.target == null)
         this.target = new ArrayList<Reference>();
       return this.target;
     }
 
-    public boolean hasTarget() { 
+    public boolean hasTarget() {
       if (this.target == null)
         return false;
       for (Reference item : this.target)
@@ -1082,7 +1082,7 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #target} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
      */
-    public List<Resource> getTargetTarget() { 
+    public List<Resource> getTargetTarget() {
       if (this.targetTarget == null)
         this.targetTarget = new ArrayList<Resource>();
       return this.targetTarget;
@@ -1091,7 +1091,7 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #period} (The period during which the activity occurred.)
      */
-    public Period getPeriod() { 
+    public Period getPeriod() {
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.period");
@@ -1100,14 +1100,14 @@ public class Provenance extends DomainResource {
       return this.period;
     }
 
-    public boolean hasPeriod() { 
+    public boolean hasPeriod() {
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (The period during which the activity occurred.)
      */
-    public Provenance setPeriod(Period value) { 
+    public Provenance setPeriod(Period value) {
       this.period = value;
       return this;
     }
@@ -1115,7 +1115,7 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #recorded} (The instant of time at which the activity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecorded" gives direct access to the value
      */
-    public InstantType getRecordedElement() { 
+    public InstantType getRecordedElement() {
       if (this.recorded == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.recorded");
@@ -1124,18 +1124,18 @@ public class Provenance extends DomainResource {
       return this.recorded;
     }
 
-    public boolean hasRecordedElement() { 
+    public boolean hasRecordedElement() {
       return this.recorded != null && !this.recorded.isEmpty();
     }
 
-    public boolean hasRecorded() { 
+    public boolean hasRecorded() {
       return this.recorded != null && !this.recorded.isEmpty();
     }
 
     /**
      * @param value {@link #recorded} (The instant of time at which the activity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecorded" gives direct access to the value
      */
-    public Provenance setRecordedElement(InstantType value) { 
+    public Provenance setRecordedElement(InstantType value) {
       this.recorded = value;
       return this;
     }
@@ -1143,14 +1143,14 @@ public class Provenance extends DomainResource {
     /**
      * @return The instant of time at which the activity was recorded.
      */
-    public Date getRecorded() { 
+    public Date getRecorded() {
       return this.recorded == null ? null : this.recorded.getValue();
     }
 
     /**
      * @param value The instant of time at which the activity was recorded.
      */
-    public Provenance setRecorded(Date value) { 
+    public Provenance setRecorded(Date value) {
         if (this.recorded == null)
           this.recorded = new InstantType();
         this.recorded.setValue(value);
@@ -1160,13 +1160,13 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #reason} (The reason that the activity was taking place.)
      */
-    public List<CodeableConcept> getReason() { 
+    public List<CodeableConcept> getReason() {
       if (this.reason == null)
         this.reason = new ArrayList<CodeableConcept>();
       return this.reason;
     }
 
-    public boolean hasReason() { 
+    public boolean hasReason() {
       if (this.reason == null)
         return false;
       for (CodeableConcept item : this.reason)
@@ -1200,7 +1200,7 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #activity} (An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.)
      */
-    public CodeableConcept getActivity() { 
+    public CodeableConcept getActivity() {
       if (this.activity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.activity");
@@ -1209,14 +1209,14 @@ public class Provenance extends DomainResource {
       return this.activity;
     }
 
-    public boolean hasActivity() { 
+    public boolean hasActivity() {
       return this.activity != null && !this.activity.isEmpty();
     }
 
     /**
      * @param value {@link #activity} (An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.)
      */
-    public Provenance setActivity(CodeableConcept value) { 
+    public Provenance setActivity(CodeableConcept value) {
       this.activity = value;
       return this;
     }
@@ -1224,7 +1224,7 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #location} (Where the activity occurred, if relevant.)
      */
-    public Reference getLocation() { 
+    public Reference getLocation() {
       if (this.location == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.location");
@@ -1233,14 +1233,14 @@ public class Provenance extends DomainResource {
       return this.location;
     }
 
-    public boolean hasLocation() { 
+    public boolean hasLocation() {
       return this.location != null && !this.location.isEmpty();
     }
 
     /**
      * @param value {@link #location} (Where the activity occurred, if relevant.)
      */
-    public Provenance setLocation(Reference value) { 
+    public Provenance setLocation(Reference value) {
       this.location = value;
       return this;
     }
@@ -1248,7 +1248,7 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the activity occurred, if relevant.)
      */
-    public Location getLocationTarget() { 
+    public Location getLocationTarget() {
       if (this.locationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.location");
@@ -1260,7 +1260,7 @@ public class Provenance extends DomainResource {
     /**
      * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the activity occurred, if relevant.)
      */
-    public Provenance setLocationTarget(Location value) { 
+    public Provenance setLocationTarget(Location value) {
       this.locationTarget = value;
       return this;
     }
@@ -1268,13 +1268,13 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
      */
-    public List<UriType> getPolicy() { 
+    public List<UriType> getPolicy() {
       if (this.policy == null)
         this.policy = new ArrayList<UriType>();
       return this.policy;
     }
 
-    public boolean hasPolicy() { 
+    public boolean hasPolicy() {
       if (this.policy == null)
         return false;
       for (UriType item : this.policy)
@@ -1287,7 +1287,7 @@ public class Provenance extends DomainResource {
      * @return {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
      */
     // syntactic sugar
-    public UriType addPolicyElement() {//2 
+    public UriType addPolicyElement() {//2
       UriType t = new UriType();
       if (this.policy == null)
         this.policy = new ArrayList<UriType>();
@@ -1310,7 +1310,7 @@ public class Provenance extends DomainResource {
     /**
      * @param value {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
      */
-    public boolean hasPolicy(String value) { 
+    public boolean hasPolicy(String value) {
       if (this.policy == null)
         return false;
       for (UriType v : this.policy)
@@ -1322,13 +1322,13 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.)
      */
-    public List<ProvenanceAgentComponent> getAgent() { 
+    public List<ProvenanceAgentComponent> getAgent() {
       if (this.agent == null)
         this.agent = new ArrayList<ProvenanceAgentComponent>();
       return this.agent;
     }
 
-    public boolean hasAgent() { 
+    public boolean hasAgent() {
       if (this.agent == null)
         return false;
       for (ProvenanceAgentComponent item : this.agent)
@@ -1362,13 +1362,13 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #entity} (An entity used in this activity.)
      */
-    public List<ProvenanceEntityComponent> getEntity() { 
+    public List<ProvenanceEntityComponent> getEntity() {
       if (this.entity == null)
         this.entity = new ArrayList<ProvenanceEntityComponent>();
       return this.entity;
     }
 
-    public boolean hasEntity() { 
+    public boolean hasEntity() {
       if (this.entity == null)
         return false;
       for (ProvenanceEntityComponent item : this.entity)
@@ -1402,13 +1402,13 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #signature} (A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.)
      */
-    public List<Signature> getSignature() { 
+    public List<Signature> getSignature() {
       if (this.signature == null)
         this.signature = new ArrayList<Signature>();
       return this.signature;
     }
 
-    public boolean hasSignature() { 
+    public boolean hasSignature() {
       if (this.signature == null)
         return false;
       for (Signature item : this.signature)

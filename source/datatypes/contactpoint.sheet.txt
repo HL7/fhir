@@ -100,7 +100,7 @@
   Context = ContactPoint
   English = A system is required if a value is provided.
   XPath = not(exists(f:value)) or exists(f:system)
-  FHIRPath = value.empty() or system
+  Expression = value.empty() or system
 
 === Sheet Data Elements =====================================
 

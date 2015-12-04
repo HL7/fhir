@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -82,7 +82,7 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #form} (Describes the form of the item.  Powder; tablets; carton.)
          */
-        public CodeableConcept getForm() { 
+        public CodeableConcept getForm() {
           if (this.form == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationProductComponent.form");
@@ -91,14 +91,14 @@ public class Medication extends DomainResource {
           return this.form;
         }
 
-        public boolean hasForm() { 
+        public boolean hasForm() {
           return this.form != null && !this.form.isEmpty();
         }
 
         /**
          * @param value {@link #form} (Describes the form of the item.  Powder; tablets; carton.)
          */
-        public MedicationProductComponent setForm(CodeableConcept value) { 
+        public MedicationProductComponent setForm(CodeableConcept value) {
           this.form = value;
           return this;
         }
@@ -106,13 +106,13 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #ingredient} (Identifies a particular constituent of interest in the product.)
          */
-        public List<MedicationProductIngredientComponent> getIngredient() { 
+        public List<MedicationProductIngredientComponent> getIngredient() {
           if (this.ingredient == null)
             this.ingredient = new ArrayList<MedicationProductIngredientComponent>();
           return this.ingredient;
         }
 
-        public boolean hasIngredient() { 
+        public boolean hasIngredient() {
           if (this.ingredient == null)
             return false;
           for (MedicationProductIngredientComponent item : this.ingredient)
@@ -146,13 +146,13 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #batch} (Information about a group of medication produced or packaged from one production run.)
          */
-        public List<MedicationProductBatchComponent> getBatch() { 
+        public List<MedicationProductBatchComponent> getBatch() {
           if (this.batch == null)
             this.batch = new ArrayList<MedicationProductBatchComponent>();
           return this.batch;
         }
 
-        public boolean hasBatch() { 
+        public boolean hasBatch() {
           if (this.batch == null)
             return false;
           for (MedicationProductBatchComponent item : this.batch)
@@ -309,7 +309,7 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
          */
-        public Reference getItem() { 
+        public Reference getItem() {
           if (this.item == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationProductIngredientComponent.item");
@@ -318,14 +318,14 @@ public class Medication extends DomainResource {
           return this.item;
         }
 
-        public boolean hasItem() { 
+        public boolean hasItem() {
           return this.item != null && !this.item.isEmpty();
         }
 
         /**
          * @param value {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
          */
-        public MedicationProductIngredientComponent setItem(Reference value) { 
+        public MedicationProductIngredientComponent setItem(Reference value) {
           this.item = value;
           return this;
         }
@@ -333,14 +333,14 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #item} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The actual ingredient - either a substance (simple ingredient) or another medication.)
          */
-        public Resource getItemTarget() { 
+        public Resource getItemTarget() {
           return this.itemTarget;
         }
 
         /**
          * @param value {@link #item} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The actual ingredient - either a substance (simple ingredient) or another medication.)
          */
-        public MedicationProductIngredientComponent setItemTarget(Resource value) { 
+        public MedicationProductIngredientComponent setItemTarget(Resource value) {
           this.itemTarget = value;
           return this;
         }
@@ -348,7 +348,7 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #amount} (Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.)
          */
-        public Ratio getAmount() { 
+        public Ratio getAmount() {
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationProductIngredientComponent.amount");
@@ -357,14 +357,14 @@ public class Medication extends DomainResource {
           return this.amount;
         }
 
-        public boolean hasAmount() { 
+        public boolean hasAmount() {
           return this.amount != null && !this.amount.isEmpty();
         }
 
         /**
          * @param value {@link #amount} (Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.)
          */
-        public MedicationProductIngredientComponent setAmount(Ratio value) { 
+        public MedicationProductIngredientComponent setAmount(Ratio value) {
           this.amount = value;
           return this;
         }
@@ -467,7 +467,7 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #lotNumber} (The assigned lot number of a batch of the specified product.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
          */
-        public StringType getLotNumberElement() { 
+        public StringType getLotNumberElement() {
           if (this.lotNumber == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationProductBatchComponent.lotNumber");
@@ -476,18 +476,18 @@ public class Medication extends DomainResource {
           return this.lotNumber;
         }
 
-        public boolean hasLotNumberElement() { 
+        public boolean hasLotNumberElement() {
           return this.lotNumber != null && !this.lotNumber.isEmpty();
         }
 
-        public boolean hasLotNumber() { 
+        public boolean hasLotNumber() {
           return this.lotNumber != null && !this.lotNumber.isEmpty();
         }
 
         /**
          * @param value {@link #lotNumber} (The assigned lot number of a batch of the specified product.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
          */
-        public MedicationProductBatchComponent setLotNumberElement(StringType value) { 
+        public MedicationProductBatchComponent setLotNumberElement(StringType value) {
           this.lotNumber = value;
           return this;
         }
@@ -495,14 +495,14 @@ public class Medication extends DomainResource {
         /**
          * @return The assigned lot number of a batch of the specified product.
          */
-        public String getLotNumber() { 
+        public String getLotNumber() {
           return this.lotNumber == null ? null : this.lotNumber.getValue();
         }
 
         /**
          * @param value The assigned lot number of a batch of the specified product.
          */
-        public MedicationProductBatchComponent setLotNumber(String value) { 
+        public MedicationProductBatchComponent setLotNumber(String value) {
           if (Utilities.noString(value))
             this.lotNumber = null;
           else {
@@ -516,7 +516,7 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #expirationDate} (When this specific batch of product will expire.). This is the underlying object with id, value and extensions. The accessor "getExpirationDate" gives direct access to the value
          */
-        public DateTimeType getExpirationDateElement() { 
+        public DateTimeType getExpirationDateElement() {
           if (this.expirationDate == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationProductBatchComponent.expirationDate");
@@ -525,18 +525,18 @@ public class Medication extends DomainResource {
           return this.expirationDate;
         }
 
-        public boolean hasExpirationDateElement() { 
+        public boolean hasExpirationDateElement() {
           return this.expirationDate != null && !this.expirationDate.isEmpty();
         }
 
-        public boolean hasExpirationDate() { 
+        public boolean hasExpirationDate() {
           return this.expirationDate != null && !this.expirationDate.isEmpty();
         }
 
         /**
          * @param value {@link #expirationDate} (When this specific batch of product will expire.). This is the underlying object with id, value and extensions. The accessor "getExpirationDate" gives direct access to the value
          */
-        public MedicationProductBatchComponent setExpirationDateElement(DateTimeType value) { 
+        public MedicationProductBatchComponent setExpirationDateElement(DateTimeType value) {
           this.expirationDate = value;
           return this;
         }
@@ -544,14 +544,14 @@ public class Medication extends DomainResource {
         /**
          * @return When this specific batch of product will expire.
          */
-        public Date getExpirationDate() { 
+        public Date getExpirationDate() {
           return this.expirationDate == null ? null : this.expirationDate.getValue();
         }
 
         /**
          * @param value When this specific batch of product will expire.
          */
-        public MedicationProductBatchComponent setExpirationDate(Date value) { 
+        public MedicationProductBatchComponent setExpirationDate(Date value) {
           if (value == null)
             this.expirationDate = null;
           else {
@@ -660,7 +660,7 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #container} (The kind of container that this package comes as.)
          */
-        public CodeableConcept getContainer() { 
+        public CodeableConcept getContainer() {
           if (this.container == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPackageComponent.container");
@@ -669,14 +669,14 @@ public class Medication extends DomainResource {
           return this.container;
         }
 
-        public boolean hasContainer() { 
+        public boolean hasContainer() {
           return this.container != null && !this.container.isEmpty();
         }
 
         /**
          * @param value {@link #container} (The kind of container that this package comes as.)
          */
-        public MedicationPackageComponent setContainer(CodeableConcept value) { 
+        public MedicationPackageComponent setContainer(CodeableConcept value) {
           this.container = value;
           return this;
         }
@@ -684,13 +684,13 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #content} (A set of components that go to make up the described item.)
          */
-        public List<MedicationPackageContentComponent> getContent() { 
+        public List<MedicationPackageContentComponent> getContent() {
           if (this.content == null)
             this.content = new ArrayList<MedicationPackageContentComponent>();
           return this.content;
         }
 
-        public boolean hasContent() { 
+        public boolean hasContent() {
           if (this.content == null)
             return false;
           for (MedicationPackageContentComponent item : this.content)
@@ -835,7 +835,7 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #item} (Identifies one of the items in the package.)
          */
-        public Reference getItem() { 
+        public Reference getItem() {
           if (this.item == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPackageContentComponent.item");
@@ -844,14 +844,14 @@ public class Medication extends DomainResource {
           return this.item;
         }
 
-        public boolean hasItem() { 
+        public boolean hasItem() {
           return this.item != null && !this.item.isEmpty();
         }
 
         /**
          * @param value {@link #item} (Identifies one of the items in the package.)
          */
-        public MedicationPackageContentComponent setItem(Reference value) { 
+        public MedicationPackageContentComponent setItem(Reference value) {
           this.item = value;
           return this;
         }
@@ -859,7 +859,7 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #item} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies one of the items in the package.)
          */
-        public Medication getItemTarget() { 
+        public Medication getItemTarget() {
           if (this.itemTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPackageContentComponent.item");
@@ -871,7 +871,7 @@ public class Medication extends DomainResource {
         /**
          * @param value {@link #item} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies one of the items in the package.)
          */
-        public MedicationPackageContentComponent setItemTarget(Medication value) { 
+        public MedicationPackageContentComponent setItemTarget(Medication value) {
           this.itemTarget = value;
           return this;
         }
@@ -879,7 +879,7 @@ public class Medication extends DomainResource {
         /**
          * @return {@link #amount} (The amount of the product that is in the package.)
          */
-        public SimpleQuantity getAmount() { 
+        public SimpleQuantity getAmount() {
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPackageContentComponent.amount");
@@ -888,14 +888,14 @@ public class Medication extends DomainResource {
           return this.amount;
         }
 
-        public boolean hasAmount() { 
+        public boolean hasAmount() {
           return this.amount != null && !this.amount.isEmpty();
         }
 
         /**
          * @param value {@link #amount} (The amount of the product that is in the package.)
          */
-        public MedicationPackageContentComponent setAmount(SimpleQuantity value) { 
+        public MedicationPackageContentComponent setAmount(SimpleQuantity value) {
           this.amount = value;
           return this;
         }
@@ -1022,7 +1022,7 @@ public class Medication extends DomainResource {
     /**
      * @return {@link #code} (A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.)
      */
-    public CodeableConcept getCode() { 
+    public CodeableConcept getCode() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.code");
@@ -1031,14 +1031,14 @@ public class Medication extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.)
      */
-    public Medication setCode(CodeableConcept value) { 
+    public Medication setCode(CodeableConcept value) {
       this.code = value;
       return this;
     }
@@ -1046,7 +1046,7 @@ public class Medication extends DomainResource {
     /**
      * @return {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer.). This is the underlying object with id, value and extensions. The accessor "getIsBrand" gives direct access to the value
      */
-    public BooleanType getIsBrandElement() { 
+    public BooleanType getIsBrandElement() {
       if (this.isBrand == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.isBrand");
@@ -1055,18 +1055,18 @@ public class Medication extends DomainResource {
       return this.isBrand;
     }
 
-    public boolean hasIsBrandElement() { 
+    public boolean hasIsBrandElement() {
       return this.isBrand != null && !this.isBrand.isEmpty();
     }
 
-    public boolean hasIsBrand() { 
+    public boolean hasIsBrand() {
       return this.isBrand != null && !this.isBrand.isEmpty();
     }
 
     /**
      * @param value {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer.). This is the underlying object with id, value and extensions. The accessor "getIsBrand" gives direct access to the value
      */
-    public Medication setIsBrandElement(BooleanType value) { 
+    public Medication setIsBrandElement(BooleanType value) {
       this.isBrand = value;
       return this;
     }
@@ -1074,14 +1074,14 @@ public class Medication extends DomainResource {
     /**
      * @return Set to true if the item is attributable to a specific manufacturer.
      */
-    public boolean getIsBrand() { 
+    public boolean getIsBrand() {
       return this.isBrand == null || this.isBrand.isEmpty() ? false : this.isBrand.getValue();
     }
 
     /**
      * @param value Set to true if the item is attributable to a specific manufacturer.
      */
-    public Medication setIsBrand(boolean value) { 
+    public Medication setIsBrand(boolean value) {
         if (this.isBrand == null)
           this.isBrand = new BooleanType();
         this.isBrand.setValue(value);
@@ -1091,7 +1091,7 @@ public class Medication extends DomainResource {
     /**
      * @return {@link #manufacturer} (Describes the details of the manufacturer.)
      */
-    public Reference getManufacturer() { 
+    public Reference getManufacturer() {
       if (this.manufacturer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.manufacturer");
@@ -1100,14 +1100,14 @@ public class Medication extends DomainResource {
       return this.manufacturer;
     }
 
-    public boolean hasManufacturer() { 
+    public boolean hasManufacturer() {
       return this.manufacturer != null && !this.manufacturer.isEmpty();
     }
 
     /**
      * @param value {@link #manufacturer} (Describes the details of the manufacturer.)
      */
-    public Medication setManufacturer(Reference value) { 
+    public Medication setManufacturer(Reference value) {
       this.manufacturer = value;
       return this;
     }
@@ -1115,7 +1115,7 @@ public class Medication extends DomainResource {
     /**
      * @return {@link #manufacturer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the details of the manufacturer.)
      */
-    public Organization getManufacturerTarget() { 
+    public Organization getManufacturerTarget() {
       if (this.manufacturerTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.manufacturer");
@@ -1127,7 +1127,7 @@ public class Medication extends DomainResource {
     /**
      * @param value {@link #manufacturer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the details of the manufacturer.)
      */
-    public Medication setManufacturerTarget(Organization value) { 
+    public Medication setManufacturerTarget(Organization value) {
       this.manufacturerTarget = value;
       return this;
     }
@@ -1135,7 +1135,7 @@ public class Medication extends DomainResource {
     /**
      * @return {@link #product} (Information that only applies to products (not packages).)
      */
-    public MedicationProductComponent getProduct() { 
+    public MedicationProductComponent getProduct() {
       if (this.product == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.product");
@@ -1144,14 +1144,14 @@ public class Medication extends DomainResource {
       return this.product;
     }
 
-    public boolean hasProduct() { 
+    public boolean hasProduct() {
       return this.product != null && !this.product.isEmpty();
     }
 
     /**
      * @param value {@link #product} (Information that only applies to products (not packages).)
      */
-    public Medication setProduct(MedicationProductComponent value) { 
+    public Medication setProduct(MedicationProductComponent value) {
       this.product = value;
       return this;
     }
@@ -1159,7 +1159,7 @@ public class Medication extends DomainResource {
     /**
      * @return {@link #package_} (Information that only applies to packages (not products).)
      */
-    public MedicationPackageComponent getPackage() { 
+    public MedicationPackageComponent getPackage() {
       if (this.package_ == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.package_");
@@ -1168,14 +1168,14 @@ public class Medication extends DomainResource {
       return this.package_;
     }
 
-    public boolean hasPackage() { 
+    public boolean hasPackage() {
       return this.package_ != null && !this.package_.isEmpty();
     }
 
     /**
      * @param value {@link #package_} (Information that only applies to packages (not products).)
      */
-    public Medication setPackage(MedicationPackageComponent value) { 
+    public Medication setPackage(MedicationPackageComponent value) {
       this.package_ = value;
       return this;
     }

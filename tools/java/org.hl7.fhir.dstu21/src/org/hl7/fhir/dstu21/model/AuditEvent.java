@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,23 +52,23 @@ public class AuditEvent extends DomainResource {
         /**
          * Create a new database object, such as placing an order.
          */
-        C, 
+        C,
         /**
          * Display or print data, such as a doctor census.
          */
-        R, 
+        R,
         /**
          * Update data, such as revise patient information.
          */
-        U, 
+        U,
         /**
          * Delete items, such as a doctor master file record.
          */
-        D, 
+        D,
         /**
          * Perform a system or application function such as log-on, program execution or use of an object's method, or perform a query/search operation.
          */
-        E, 
+        E,
         /**
          * added to help the parsers
          */
@@ -184,19 +184,19 @@ public class AuditEvent extends DomainResource {
         /**
          * The operation completed successfully (whether with warnings or not).
          */
-        _0, 
+        _0,
         /**
          * The action was not successful due to some kind of catered for error (often equivalent to an HTTP 400 response).
          */
-        _4, 
+        _4,
         /**
          * The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response).
          */
-        _8, 
+        _8,
         /**
          * An error of such magnitude occurred that the system is no longer available for use (i.e. the system died).
          */
-        _12, 
+        _12,
         /**
          * added to help the parsers
          */
@@ -300,23 +300,23 @@ public class AuditEvent extends DomainResource {
         /**
          * The machine name, including DNS name.
          */
-        _1, 
+        _1,
         /**
          * The assigned Internet Protocol (IP) address.
          */
-        _2, 
+        _2,
         /**
          * The assigned telephone number.
          */
-        _3, 
+        _3,
         /**
          * The assigned email address.
          */
-        _4, 
+        _4,
         /**
          * URI (User directory, HTTP-PUT, ftp, etc.).
          */
-        _5, 
+        _5,
         /**
          * added to help the parsers
          */
@@ -500,7 +500,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #type} (Identifier for a family of the event.  For example, a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function.)
          */
-        public Coding getType() { 
+        public Coding getType() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventEventComponent.type");
@@ -509,14 +509,14 @@ public class AuditEvent extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Identifier for a family of the event.  For example, a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function.)
          */
-        public AuditEventEventComponent setType(Coding value) { 
+        public AuditEventEventComponent setType(Coding value) {
           this.type = value;
           return this;
         }
@@ -524,13 +524,13 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #subtype} (Identifier for the category of event.)
          */
-        public List<Coding> getSubtype() { 
+        public List<Coding> getSubtype() {
           if (this.subtype == null)
             this.subtype = new ArrayList<Coding>();
           return this.subtype;
         }
 
-        public boolean hasSubtype() { 
+        public boolean hasSubtype() {
           if (this.subtype == null)
             return false;
           for (Coding item : this.subtype)
@@ -564,7 +564,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #action} (Indicator for type of action performed during the event that generated the audit.). This is the underlying object with id, value and extensions. The accessor "getAction" gives direct access to the value
          */
-        public Enumeration<AuditEventAction> getActionElement() { 
+        public Enumeration<AuditEventAction> getActionElement() {
           if (this.action == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventEventComponent.action");
@@ -573,18 +573,18 @@ public class AuditEvent extends DomainResource {
           return this.action;
         }
 
-        public boolean hasActionElement() { 
+        public boolean hasActionElement() {
           return this.action != null && !this.action.isEmpty();
         }
 
-        public boolean hasAction() { 
+        public boolean hasAction() {
           return this.action != null && !this.action.isEmpty();
         }
 
         /**
          * @param value {@link #action} (Indicator for type of action performed during the event that generated the audit.). This is the underlying object with id, value and extensions. The accessor "getAction" gives direct access to the value
          */
-        public AuditEventEventComponent setActionElement(Enumeration<AuditEventAction> value) { 
+        public AuditEventEventComponent setActionElement(Enumeration<AuditEventAction> value) {
           this.action = value;
           return this;
         }
@@ -592,14 +592,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return Indicator for type of action performed during the event that generated the audit.
          */
-        public AuditEventAction getAction() { 
+        public AuditEventAction getAction() {
           return this.action == null ? null : this.action.getValue();
         }
 
         /**
          * @param value Indicator for type of action performed during the event that generated the audit.
          */
-        public AuditEventEventComponent setAction(AuditEventAction value) { 
+        public AuditEventEventComponent setAction(AuditEventAction value) {
           if (value == null)
             this.action = null;
           else {
@@ -613,7 +613,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #dateTime} (The time when the event occurred on the source.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public InstantType getDateTimeElement() { 
+        public InstantType getDateTimeElement() {
           if (this.dateTime == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventEventComponent.dateTime");
@@ -622,18 +622,18 @@ public class AuditEvent extends DomainResource {
           return this.dateTime;
         }
 
-        public boolean hasDateTimeElement() { 
+        public boolean hasDateTimeElement() {
           return this.dateTime != null && !this.dateTime.isEmpty();
         }
 
-        public boolean hasDateTime() { 
+        public boolean hasDateTime() {
           return this.dateTime != null && !this.dateTime.isEmpty();
         }
 
         /**
          * @param value {@link #dateTime} (The time when the event occurred on the source.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public AuditEventEventComponent setDateTimeElement(InstantType value) { 
+        public AuditEventEventComponent setDateTimeElement(InstantType value) {
           this.dateTime = value;
           return this;
         }
@@ -641,14 +641,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return The time when the event occurred on the source.
          */
-        public Date getDateTime() { 
+        public Date getDateTime() {
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
          * @param value The time when the event occurred on the source.
          */
-        public AuditEventEventComponent setDateTime(Date value) { 
+        public AuditEventEventComponent setDateTime(Date value) {
             if (this.dateTime == null)
               this.dateTime = new InstantType();
             this.dateTime.setValue(value);
@@ -658,7 +658,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #outcome} (Indicates whether the event succeeded or failed.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public Enumeration<AuditEventOutcome> getOutcomeElement() { 
+        public Enumeration<AuditEventOutcome> getOutcomeElement() {
           if (this.outcome == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventEventComponent.outcome");
@@ -667,18 +667,18 @@ public class AuditEvent extends DomainResource {
           return this.outcome;
         }
 
-        public boolean hasOutcomeElement() { 
+        public boolean hasOutcomeElement() {
           return this.outcome != null && !this.outcome.isEmpty();
         }
 
-        public boolean hasOutcome() { 
+        public boolean hasOutcome() {
           return this.outcome != null && !this.outcome.isEmpty();
         }
 
         /**
          * @param value {@link #outcome} (Indicates whether the event succeeded or failed.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public AuditEventEventComponent setOutcomeElement(Enumeration<AuditEventOutcome> value) { 
+        public AuditEventEventComponent setOutcomeElement(Enumeration<AuditEventOutcome> value) {
           this.outcome = value;
           return this;
         }
@@ -686,14 +686,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return Indicates whether the event succeeded or failed.
          */
-        public AuditEventOutcome getOutcome() { 
+        public AuditEventOutcome getOutcome() {
           return this.outcome == null ? null : this.outcome.getValue();
         }
 
         /**
          * @param value Indicates whether the event succeeded or failed.
          */
-        public AuditEventEventComponent setOutcome(AuditEventOutcome value) { 
+        public AuditEventEventComponent setOutcome(AuditEventOutcome value) {
           if (value == null)
             this.outcome = null;
           else {
@@ -707,7 +707,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #outcomeDesc} (A free text description of the outcome of the event.). This is the underlying object with id, value and extensions. The accessor "getOutcomeDesc" gives direct access to the value
          */
-        public StringType getOutcomeDescElement() { 
+        public StringType getOutcomeDescElement() {
           if (this.outcomeDesc == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventEventComponent.outcomeDesc");
@@ -716,18 +716,18 @@ public class AuditEvent extends DomainResource {
           return this.outcomeDesc;
         }
 
-        public boolean hasOutcomeDescElement() { 
+        public boolean hasOutcomeDescElement() {
           return this.outcomeDesc != null && !this.outcomeDesc.isEmpty();
         }
 
-        public boolean hasOutcomeDesc() { 
+        public boolean hasOutcomeDesc() {
           return this.outcomeDesc != null && !this.outcomeDesc.isEmpty();
         }
 
         /**
          * @param value {@link #outcomeDesc} (A free text description of the outcome of the event.). This is the underlying object with id, value and extensions. The accessor "getOutcomeDesc" gives direct access to the value
          */
-        public AuditEventEventComponent setOutcomeDescElement(StringType value) { 
+        public AuditEventEventComponent setOutcomeDescElement(StringType value) {
           this.outcomeDesc = value;
           return this;
         }
@@ -735,14 +735,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return A free text description of the outcome of the event.
          */
-        public String getOutcomeDesc() { 
+        public String getOutcomeDesc() {
           return this.outcomeDesc == null ? null : this.outcomeDesc.getValue();
         }
 
         /**
          * @param value A free text description of the outcome of the event.
          */
-        public AuditEventEventComponent setOutcomeDesc(String value) { 
+        public AuditEventEventComponent setOutcomeDesc(String value) {
           if (Utilities.noString(value))
             this.outcomeDesc = null;
           else {
@@ -756,13 +756,13 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #purposeOfEvent} (The purposeOfUse (reason) that was used during the event being recorded.)
          */
-        public List<Coding> getPurposeOfEvent() { 
+        public List<Coding> getPurposeOfEvent() {
           if (this.purposeOfEvent == null)
             this.purposeOfEvent = new ArrayList<Coding>();
           return this.purposeOfEvent;
         }
 
-        public boolean hasPurposeOfEvent() { 
+        public boolean hasPurposeOfEvent() {
           if (this.purposeOfEvent == null)
             return false;
           for (Coding item : this.purposeOfEvent)
@@ -1019,13 +1019,13 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.)
          */
-        public List<CodeableConcept> getRole() { 
+        public List<CodeableConcept> getRole() {
           if (this.role == null)
             this.role = new ArrayList<CodeableConcept>();
           return this.role;
         }
 
-        public boolean hasRole() { 
+        public boolean hasRole() {
           if (this.role == null)
             return false;
           for (CodeableConcept item : this.role)
@@ -1059,7 +1059,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #reference} (Direct reference to a resource that identifies the participant.)
          */
-        public Reference getReference() { 
+        public Reference getReference() {
           if (this.reference == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantComponent.reference");
@@ -1068,14 +1068,14 @@ public class AuditEvent extends DomainResource {
           return this.reference;
         }
 
-        public boolean hasReference() { 
+        public boolean hasReference() {
           return this.reference != null && !this.reference.isEmpty();
         }
 
         /**
          * @param value {@link #reference} (Direct reference to a resource that identifies the participant.)
          */
-        public AuditEventParticipantComponent setReference(Reference value) { 
+        public AuditEventParticipantComponent setReference(Reference value) {
           this.reference = value;
           return this;
         }
@@ -1083,14 +1083,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #reference} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Direct reference to a resource that identifies the participant.)
          */
-        public Resource getReferenceTarget() { 
+        public Resource getReferenceTarget() {
           return this.referenceTarget;
         }
 
         /**
          * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Direct reference to a resource that identifies the participant.)
          */
-        public AuditEventParticipantComponent setReferenceTarget(Resource value) { 
+        public AuditEventParticipantComponent setReferenceTarget(Resource value) {
           this.referenceTarget = value;
           return this;
         }
@@ -1098,7 +1098,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #userId} (Unique identifier for the user actively participating in the event.)
          */
-        public Identifier getUserId() { 
+        public Identifier getUserId() {
           if (this.userId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantComponent.userId");
@@ -1107,14 +1107,14 @@ public class AuditEvent extends DomainResource {
           return this.userId;
         }
 
-        public boolean hasUserId() { 
+        public boolean hasUserId() {
           return this.userId != null && !this.userId.isEmpty();
         }
 
         /**
          * @param value {@link #userId} (Unique identifier for the user actively participating in the event.)
          */
-        public AuditEventParticipantComponent setUserId(Identifier value) { 
+        public AuditEventParticipantComponent setUserId(Identifier value) {
           this.userId = value;
           return this;
         }
@@ -1122,7 +1122,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #altId} (Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available.). This is the underlying object with id, value and extensions. The accessor "getAltId" gives direct access to the value
          */
-        public StringType getAltIdElement() { 
+        public StringType getAltIdElement() {
           if (this.altId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantComponent.altId");
@@ -1131,18 +1131,18 @@ public class AuditEvent extends DomainResource {
           return this.altId;
         }
 
-        public boolean hasAltIdElement() { 
+        public boolean hasAltIdElement() {
           return this.altId != null && !this.altId.isEmpty();
         }
 
-        public boolean hasAltId() { 
+        public boolean hasAltId() {
           return this.altId != null && !this.altId.isEmpty();
         }
 
         /**
          * @param value {@link #altId} (Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available.). This is the underlying object with id, value and extensions. The accessor "getAltId" gives direct access to the value
          */
-        public AuditEventParticipantComponent setAltIdElement(StringType value) { 
+        public AuditEventParticipantComponent setAltIdElement(StringType value) {
           this.altId = value;
           return this;
         }
@@ -1150,14 +1150,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available.
          */
-        public String getAltId() { 
+        public String getAltId() {
           return this.altId == null ? null : this.altId.getValue();
         }
 
         /**
          * @param value Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available.
          */
-        public AuditEventParticipantComponent setAltId(String value) { 
+        public AuditEventParticipantComponent setAltId(String value) {
           if (Utilities.noString(value))
             this.altId = null;
           else {
@@ -1171,7 +1171,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #name} (Human-meaningful name for the user.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() { 
+        public StringType getNameElement() {
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantComponent.name");
@@ -1180,18 +1180,18 @@ public class AuditEvent extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() { 
+        public boolean hasNameElement() {
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() { 
+        public boolean hasName() {
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (Human-meaningful name for the user.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public AuditEventParticipantComponent setNameElement(StringType value) { 
+        public AuditEventParticipantComponent setNameElement(StringType value) {
           this.name = value;
           return this;
         }
@@ -1199,14 +1199,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return Human-meaningful name for the user.
          */
-        public String getName() { 
+        public String getName() {
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value Human-meaningful name for the user.
          */
-        public AuditEventParticipantComponent setName(String value) { 
+        public AuditEventParticipantComponent setName(String value) {
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -1220,7 +1220,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #requestor} (Indicator that the user is or is not the requestor, or initiator, for the event being audited.). This is the underlying object with id, value and extensions. The accessor "getRequestor" gives direct access to the value
          */
-        public BooleanType getRequestorElement() { 
+        public BooleanType getRequestorElement() {
           if (this.requestor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantComponent.requestor");
@@ -1229,18 +1229,18 @@ public class AuditEvent extends DomainResource {
           return this.requestor;
         }
 
-        public boolean hasRequestorElement() { 
+        public boolean hasRequestorElement() {
           return this.requestor != null && !this.requestor.isEmpty();
         }
 
-        public boolean hasRequestor() { 
+        public boolean hasRequestor() {
           return this.requestor != null && !this.requestor.isEmpty();
         }
 
         /**
          * @param value {@link #requestor} (Indicator that the user is or is not the requestor, or initiator, for the event being audited.). This is the underlying object with id, value and extensions. The accessor "getRequestor" gives direct access to the value
          */
-        public AuditEventParticipantComponent setRequestorElement(BooleanType value) { 
+        public AuditEventParticipantComponent setRequestorElement(BooleanType value) {
           this.requestor = value;
           return this;
         }
@@ -1248,14 +1248,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return Indicator that the user is or is not the requestor, or initiator, for the event being audited.
          */
-        public boolean getRequestor() { 
+        public boolean getRequestor() {
           return this.requestor == null || this.requestor.isEmpty() ? false : this.requestor.getValue();
         }
 
         /**
          * @param value Indicator that the user is or is not the requestor, or initiator, for the event being audited.
          */
-        public AuditEventParticipantComponent setRequestor(boolean value) { 
+        public AuditEventParticipantComponent setRequestor(boolean value) {
             if (this.requestor == null)
               this.requestor = new BooleanType();
             this.requestor.setValue(value);
@@ -1265,7 +1265,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #location} (Where the event occurred.)
          */
-        public Reference getLocation() { 
+        public Reference getLocation() {
           if (this.location == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantComponent.location");
@@ -1274,14 +1274,14 @@ public class AuditEvent extends DomainResource {
           return this.location;
         }
 
-        public boolean hasLocation() { 
+        public boolean hasLocation() {
           return this.location != null && !this.location.isEmpty();
         }
 
         /**
          * @param value {@link #location} (Where the event occurred.)
          */
-        public AuditEventParticipantComponent setLocation(Reference value) { 
+        public AuditEventParticipantComponent setLocation(Reference value) {
           this.location = value;
           return this;
         }
@@ -1289,7 +1289,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the event occurred.)
          */
-        public Location getLocationTarget() { 
+        public Location getLocationTarget() {
           if (this.locationTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantComponent.location");
@@ -1301,7 +1301,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the event occurred.)
          */
-        public AuditEventParticipantComponent setLocationTarget(Location value) { 
+        public AuditEventParticipantComponent setLocationTarget(Location value) {
           this.locationTarget = value;
           return this;
         }
@@ -1309,13 +1309,13 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #policy} (The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.)
          */
-        public List<UriType> getPolicy() { 
+        public List<UriType> getPolicy() {
           if (this.policy == null)
             this.policy = new ArrayList<UriType>();
           return this.policy;
         }
 
-        public boolean hasPolicy() { 
+        public boolean hasPolicy() {
           if (this.policy == null)
             return false;
           for (UriType item : this.policy)
@@ -1328,7 +1328,7 @@ public class AuditEvent extends DomainResource {
          * @return {@link #policy} (The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.)
          */
     // syntactic sugar
-        public UriType addPolicyElement() {//2 
+        public UriType addPolicyElement() {//2
           UriType t = new UriType();
           if (this.policy == null)
             this.policy = new ArrayList<UriType>();
@@ -1351,7 +1351,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @param value {@link #policy} (The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.)
          */
-        public boolean hasPolicy(String value) { 
+        public boolean hasPolicy(String value) {
           if (this.policy == null)
             return false;
           for (UriType v : this.policy)
@@ -1363,7 +1363,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #media} (Type of media involved. Used when the event is about exporting/importing onto media.)
          */
-        public Coding getMedia() { 
+        public Coding getMedia() {
           if (this.media == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantComponent.media");
@@ -1372,14 +1372,14 @@ public class AuditEvent extends DomainResource {
           return this.media;
         }
 
-        public boolean hasMedia() { 
+        public boolean hasMedia() {
           return this.media != null && !this.media.isEmpty();
         }
 
         /**
          * @param value {@link #media} (Type of media involved. Used when the event is about exporting/importing onto media.)
          */
-        public AuditEventParticipantComponent setMedia(Coding value) { 
+        public AuditEventParticipantComponent setMedia(Coding value) {
           this.media = value;
           return this;
         }
@@ -1387,7 +1387,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #network} (Logical network location for application activity, if the activity has a network location.)
          */
-        public AuditEventParticipantNetworkComponent getNetwork() { 
+        public AuditEventParticipantNetworkComponent getNetwork() {
           if (this.network == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantComponent.network");
@@ -1396,14 +1396,14 @@ public class AuditEvent extends DomainResource {
           return this.network;
         }
 
-        public boolean hasNetwork() { 
+        public boolean hasNetwork() {
           return this.network != null && !this.network.isEmpty();
         }
 
         /**
          * @param value {@link #network} (Logical network location for application activity, if the activity has a network location.)
          */
-        public AuditEventParticipantComponent setNetwork(AuditEventParticipantNetworkComponent value) { 
+        public AuditEventParticipantComponent setNetwork(AuditEventParticipantNetworkComponent value) {
           this.network = value;
           return this;
         }
@@ -1411,13 +1411,13 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #purposeOfUse} (The reason (purpose of use), specific to this participant, that was used during the event being recorded.)
          */
-        public List<Coding> getPurposeOfUse() { 
+        public List<Coding> getPurposeOfUse() {
           if (this.purposeOfUse == null)
             this.purposeOfUse = new ArrayList<Coding>();
           return this.purposeOfUse;
         }
 
-        public boolean hasPurposeOfUse() { 
+        public boolean hasPurposeOfUse() {
           if (this.purposeOfUse == null)
             return false;
           for (Coding item : this.purposeOfUse)
@@ -1631,7 +1631,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #address} (An identifier for the network access point of the user device for the audit event.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
          */
-        public StringType getAddressElement() { 
+        public StringType getAddressElement() {
           if (this.address == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantNetworkComponent.address");
@@ -1640,18 +1640,18 @@ public class AuditEvent extends DomainResource {
           return this.address;
         }
 
-        public boolean hasAddressElement() { 
+        public boolean hasAddressElement() {
           return this.address != null && !this.address.isEmpty();
         }
 
-        public boolean hasAddress() { 
+        public boolean hasAddress() {
           return this.address != null && !this.address.isEmpty();
         }
 
         /**
          * @param value {@link #address} (An identifier for the network access point of the user device for the audit event.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
          */
-        public AuditEventParticipantNetworkComponent setAddressElement(StringType value) { 
+        public AuditEventParticipantNetworkComponent setAddressElement(StringType value) {
           this.address = value;
           return this;
         }
@@ -1659,14 +1659,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return An identifier for the network access point of the user device for the audit event.
          */
-        public String getAddress() { 
+        public String getAddress() {
           return this.address == null ? null : this.address.getValue();
         }
 
         /**
          * @param value An identifier for the network access point of the user device for the audit event.
          */
-        public AuditEventParticipantNetworkComponent setAddress(String value) { 
+        public AuditEventParticipantNetworkComponent setAddress(String value) {
           if (Utilities.noString(value))
             this.address = null;
           else {
@@ -1680,7 +1680,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #type} (An identifier for the type of network access point that originated the audit event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<AuditEventParticipantNetworkType> getTypeElement() { 
+        public Enumeration<AuditEventParticipantNetworkType> getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventParticipantNetworkComponent.type");
@@ -1689,18 +1689,18 @@ public class AuditEvent extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (An identifier for the type of network access point that originated the audit event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public AuditEventParticipantNetworkComponent setTypeElement(Enumeration<AuditEventParticipantNetworkType> value) { 
+        public AuditEventParticipantNetworkComponent setTypeElement(Enumeration<AuditEventParticipantNetworkType> value) {
           this.type = value;
           return this;
         }
@@ -1708,14 +1708,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return An identifier for the type of network access point that originated the audit event.
          */
-        public AuditEventParticipantNetworkType getType() { 
+        public AuditEventParticipantNetworkType getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value An identifier for the type of network access point that originated the audit event.
          */
-        public AuditEventParticipantNetworkComponent setType(AuditEventParticipantNetworkType value) { 
+        public AuditEventParticipantNetworkComponent setType(AuditEventParticipantNetworkType value) {
           if (value == null)
             this.type = null;
           else {
@@ -1837,7 +1837,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #site} (Logical source location within the healthcare enterprise network.  For example, a hospital or other provider location within a multi-entity provider group.). This is the underlying object with id, value and extensions. The accessor "getSite" gives direct access to the value
          */
-        public StringType getSiteElement() { 
+        public StringType getSiteElement() {
           if (this.site == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventSourceComponent.site");
@@ -1846,18 +1846,18 @@ public class AuditEvent extends DomainResource {
           return this.site;
         }
 
-        public boolean hasSiteElement() { 
+        public boolean hasSiteElement() {
           return this.site != null && !this.site.isEmpty();
         }
 
-        public boolean hasSite() { 
+        public boolean hasSite() {
           return this.site != null && !this.site.isEmpty();
         }
 
         /**
          * @param value {@link #site} (Logical source location within the healthcare enterprise network.  For example, a hospital or other provider location within a multi-entity provider group.). This is the underlying object with id, value and extensions. The accessor "getSite" gives direct access to the value
          */
-        public AuditEventSourceComponent setSiteElement(StringType value) { 
+        public AuditEventSourceComponent setSiteElement(StringType value) {
           this.site = value;
           return this;
         }
@@ -1865,14 +1865,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return Logical source location within the healthcare enterprise network.  For example, a hospital or other provider location within a multi-entity provider group.
          */
-        public String getSite() { 
+        public String getSite() {
           return this.site == null ? null : this.site.getValue();
         }
 
         /**
          * @param value Logical source location within the healthcare enterprise network.  For example, a hospital or other provider location within a multi-entity provider group.
          */
-        public AuditEventSourceComponent setSite(String value) { 
+        public AuditEventSourceComponent setSite(String value) {
           if (Utilities.noString(value))
             this.site = null;
           else {
@@ -1886,7 +1886,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #identifier} (Identifier of the source where the event was detected.)
          */
-        public Identifier getIdentifier() { 
+        public Identifier getIdentifier() {
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventSourceComponent.identifier");
@@ -1895,14 +1895,14 @@ public class AuditEvent extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifier() { 
+        public boolean hasIdentifier() {
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (Identifier of the source where the event was detected.)
          */
-        public AuditEventSourceComponent setIdentifier(Identifier value) { 
+        public AuditEventSourceComponent setIdentifier(Identifier value) {
           this.identifier = value;
           return this;
         }
@@ -1910,13 +1910,13 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #type} (Code specifying the type of source where event originated.)
          */
-        public List<Coding> getType() { 
+        public List<Coding> getType() {
           if (this.type == null)
             this.type = new ArrayList<Coding>();
           return this.type;
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           if (this.type == null)
             return false;
           for (Coding item : this.type)
@@ -2117,7 +2117,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #identifier} (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public Identifier getIdentifier() { 
+        public Identifier getIdentifier() {
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectComponent.identifier");
@@ -2126,14 +2126,14 @@ public class AuditEvent extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifier() { 
+        public boolean hasIdentifier() {
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public AuditEventObjectComponent setIdentifier(Identifier value) { 
+        public AuditEventObjectComponent setIdentifier(Identifier value) {
           this.identifier = value;
           return this;
         }
@@ -2141,7 +2141,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #reference} (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public Reference getReference() { 
+        public Reference getReference() {
           if (this.reference == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectComponent.reference");
@@ -2150,14 +2150,14 @@ public class AuditEvent extends DomainResource {
           return this.reference;
         }
 
-        public boolean hasReference() { 
+        public boolean hasReference() {
           return this.reference != null && !this.reference.isEmpty();
         }
 
         /**
          * @param value {@link #reference} (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public AuditEventObjectComponent setReference(Reference value) { 
+        public AuditEventObjectComponent setReference(Reference value) {
           this.reference = value;
           return this;
         }
@@ -2165,14 +2165,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #reference} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public Resource getReferenceTarget() { 
+        public Resource getReferenceTarget() {
           return this.referenceTarget;
         }
 
         /**
          * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public AuditEventObjectComponent setReferenceTarget(Resource value) { 
+        public AuditEventObjectComponent setReferenceTarget(Resource value) {
           this.referenceTarget = value;
           return this;
         }
@@ -2180,7 +2180,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #type} (The type of the object that was involved in this audit event.)
          */
-        public Coding getType() { 
+        public Coding getType() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectComponent.type");
@@ -2189,14 +2189,14 @@ public class AuditEvent extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of the object that was involved in this audit event.)
          */
-        public AuditEventObjectComponent setType(Coding value) { 
+        public AuditEventObjectComponent setType(Coding value) {
           this.type = value;
           return this;
         }
@@ -2204,7 +2204,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #role} (Code representing the functional application role of Participant Object being audited.)
          */
-        public Coding getRole() { 
+        public Coding getRole() {
           if (this.role == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectComponent.role");
@@ -2213,14 +2213,14 @@ public class AuditEvent extends DomainResource {
           return this.role;
         }
 
-        public boolean hasRole() { 
+        public boolean hasRole() {
           return this.role != null && !this.role.isEmpty();
         }
 
         /**
          * @param value {@link #role} (Code representing the functional application role of Participant Object being audited.)
          */
-        public AuditEventObjectComponent setRole(Coding value) { 
+        public AuditEventObjectComponent setRole(Coding value) {
           this.role = value;
           return this;
         }
@@ -2228,7 +2228,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #lifecycle} (Identifier for the data life-cycle stage for the participant object.)
          */
-        public Coding getLifecycle() { 
+        public Coding getLifecycle() {
           if (this.lifecycle == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectComponent.lifecycle");
@@ -2237,14 +2237,14 @@ public class AuditEvent extends DomainResource {
           return this.lifecycle;
         }
 
-        public boolean hasLifecycle() { 
+        public boolean hasLifecycle() {
           return this.lifecycle != null && !this.lifecycle.isEmpty();
         }
 
         /**
          * @param value {@link #lifecycle} (Identifier for the data life-cycle stage for the participant object.)
          */
-        public AuditEventObjectComponent setLifecycle(Coding value) { 
+        public AuditEventObjectComponent setLifecycle(Coding value) {
           this.lifecycle = value;
           return this;
         }
@@ -2252,13 +2252,13 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #securityLabel} (Denotes security labels for the identified object.)
          */
-        public List<Coding> getSecurityLabel() { 
+        public List<Coding> getSecurityLabel() {
           if (this.securityLabel == null)
             this.securityLabel = new ArrayList<Coding>();
           return this.securityLabel;
         }
 
-        public boolean hasSecurityLabel() { 
+        public boolean hasSecurityLabel() {
           if (this.securityLabel == null)
             return false;
           for (Coding item : this.securityLabel)
@@ -2292,7 +2292,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #name} (An instance-specific descriptor of the Participant Object ID audited, such as a person's name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() { 
+        public StringType getNameElement() {
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectComponent.name");
@@ -2301,18 +2301,18 @@ public class AuditEvent extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() { 
+        public boolean hasNameElement() {
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() { 
+        public boolean hasName() {
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (An instance-specific descriptor of the Participant Object ID audited, such as a person's name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public AuditEventObjectComponent setNameElement(StringType value) { 
+        public AuditEventObjectComponent setNameElement(StringType value) {
           this.name = value;
           return this;
         }
@@ -2320,14 +2320,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return An instance-specific descriptor of the Participant Object ID audited, such as a person's name.
          */
-        public String getName() { 
+        public String getName() {
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value An instance-specific descriptor of the Participant Object ID audited, such as a person's name.
          */
-        public AuditEventObjectComponent setName(String value) { 
+        public AuditEventObjectComponent setName(String value) {
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -2341,7 +2341,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #description} (Text that describes the object in more detail.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectComponent.description");
@@ -2350,18 +2350,18 @@ public class AuditEvent extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (Text that describes the object in more detail.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public AuditEventObjectComponent setDescriptionElement(StringType value) { 
+        public AuditEventObjectComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -2369,14 +2369,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return Text that describes the object in more detail.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Text that describes the object in more detail.
          */
-        public AuditEventObjectComponent setDescription(String value) { 
+        public AuditEventObjectComponent setDescription(String value) {
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -2390,7 +2390,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #query} (The actual query for a query-type participant object.). This is the underlying object with id, value and extensions. The accessor "getQuery" gives direct access to the value
          */
-        public Base64BinaryType getQueryElement() { 
+        public Base64BinaryType getQueryElement() {
           if (this.query == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectComponent.query");
@@ -2399,18 +2399,18 @@ public class AuditEvent extends DomainResource {
           return this.query;
         }
 
-        public boolean hasQueryElement() { 
+        public boolean hasQueryElement() {
           return this.query != null && !this.query.isEmpty();
         }
 
-        public boolean hasQuery() { 
+        public boolean hasQuery() {
           return this.query != null && !this.query.isEmpty();
         }
 
         /**
          * @param value {@link #query} (The actual query for a query-type participant object.). This is the underlying object with id, value and extensions. The accessor "getQuery" gives direct access to the value
          */
-        public AuditEventObjectComponent setQueryElement(Base64BinaryType value) { 
+        public AuditEventObjectComponent setQueryElement(Base64BinaryType value) {
           this.query = value;
           return this;
         }
@@ -2418,14 +2418,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return The actual query for a query-type participant object.
          */
-        public byte[] getQuery() { 
+        public byte[] getQuery() {
           return this.query == null ? null : this.query.getValue();
         }
 
         /**
          * @param value The actual query for a query-type participant object.
          */
-        public AuditEventObjectComponent setQuery(byte[] value) { 
+        public AuditEventObjectComponent setQuery(byte[] value) {
           if (value == null)
             this.query = null;
           else {
@@ -2439,13 +2439,13 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #detail} (Additional Information about the Object.)
          */
-        public List<AuditEventObjectDetailComponent> getDetail() { 
+        public List<AuditEventObjectDetailComponent> getDetail() {
           if (this.detail == null)
             this.detail = new ArrayList<AuditEventObjectDetailComponent>();
           return this.detail;
         }
 
-        public boolean hasDetail() { 
+        public boolean hasDetail() {
           if (this.detail == null)
             return false;
           for (AuditEventObjectDetailComponent item : this.detail)
@@ -2657,7 +2657,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #type} (Name of the property.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public StringType getTypeElement() { 
+        public StringType getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectDetailComponent.type");
@@ -2666,18 +2666,18 @@ public class AuditEvent extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Name of the property.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public AuditEventObjectDetailComponent setTypeElement(StringType value) { 
+        public AuditEventObjectDetailComponent setTypeElement(StringType value) {
           this.type = value;
           return this;
         }
@@ -2685,14 +2685,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return Name of the property.
          */
-        public String getType() { 
+        public String getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value Name of the property.
          */
-        public AuditEventObjectDetailComponent setType(String value) { 
+        public AuditEventObjectDetailComponent setType(String value) {
             if (this.type == null)
               this.type = new StringType();
             this.type.setValue(value);
@@ -2702,7 +2702,7 @@ public class AuditEvent extends DomainResource {
         /**
          * @return {@link #value} (Property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public Base64BinaryType getValueElement() { 
+        public Base64BinaryType getValueElement() {
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AuditEventObjectDetailComponent.value");
@@ -2711,18 +2711,18 @@ public class AuditEvent extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValueElement() { 
+        public boolean hasValueElement() {
           return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasValue() { 
+        public boolean hasValue() {
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (Property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public AuditEventObjectDetailComponent setValueElement(Base64BinaryType value) { 
+        public AuditEventObjectDetailComponent setValueElement(Base64BinaryType value) {
           this.value = value;
           return this;
         }
@@ -2730,14 +2730,14 @@ public class AuditEvent extends DomainResource {
         /**
          * @return Property value.
          */
-        public byte[] getValue() { 
+        public byte[] getValue() {
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value Property value.
          */
-        public AuditEventObjectDetailComponent setValue(byte[] value) { 
+        public AuditEventObjectDetailComponent setValue(byte[] value) {
             if (this.value == null)
               this.value = new Base64BinaryType();
             this.value.setValue(value);
@@ -2861,7 +2861,7 @@ public class AuditEvent extends DomainResource {
     /**
      * @return {@link #event} (Identifies the name, action type, time, and disposition of the audited event.)
      */
-    public AuditEventEventComponent getEvent() { 
+    public AuditEventEventComponent getEvent() {
       if (this.event == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AuditEvent.event");
@@ -2870,14 +2870,14 @@ public class AuditEvent extends DomainResource {
       return this.event;
     }
 
-    public boolean hasEvent() { 
+    public boolean hasEvent() {
       return this.event != null && !this.event.isEmpty();
     }
 
     /**
      * @param value {@link #event} (Identifies the name, action type, time, and disposition of the audited event.)
      */
-    public AuditEvent setEvent(AuditEventEventComponent value) { 
+    public AuditEvent setEvent(AuditEventEventComponent value) {
       this.event = value;
       return this;
     }
@@ -2885,13 +2885,13 @@ public class AuditEvent extends DomainResource {
     /**
      * @return {@link #participant} (A person, a hardware device or software process.)
      */
-    public List<AuditEventParticipantComponent> getParticipant() { 
+    public List<AuditEventParticipantComponent> getParticipant() {
       if (this.participant == null)
         this.participant = new ArrayList<AuditEventParticipantComponent>();
       return this.participant;
     }
 
-    public boolean hasParticipant() { 
+    public boolean hasParticipant() {
       if (this.participant == null)
         return false;
       for (AuditEventParticipantComponent item : this.participant)
@@ -2925,7 +2925,7 @@ public class AuditEvent extends DomainResource {
     /**
      * @return {@link #source} (Application systems and processes.)
      */
-    public AuditEventSourceComponent getSource() { 
+    public AuditEventSourceComponent getSource() {
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AuditEvent.source");
@@ -2934,14 +2934,14 @@ public class AuditEvent extends DomainResource {
       return this.source;
     }
 
-    public boolean hasSource() { 
+    public boolean hasSource() {
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (Application systems and processes.)
      */
-    public AuditEvent setSource(AuditEventSourceComponent value) { 
+    public AuditEvent setSource(AuditEventSourceComponent value) {
       this.source = value;
       return this;
     }
@@ -2949,13 +2949,13 @@ public class AuditEvent extends DomainResource {
     /**
      * @return {@link #object} (Specific instances of data or objects that have been accessed.)
      */
-    public List<AuditEventObjectComponent> getObject() { 
+    public List<AuditEventObjectComponent> getObject() {
       if (this.object == null)
         this.object = new ArrayList<AuditEventObjectComponent>();
       return this.object;
     }
 
-    public boolean hasObject() { 
+    public boolean hasObject() {
       if (this.object == null)
         return false;
       for (AuditEventObjectComponent item : this.object)

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,15 +52,15 @@ public class MessageHeader extends DomainResource {
         /**
          * The message was accepted and processed without error.
          */
-        OK, 
+        OK,
         /**
          * Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.
          */
-        TRANSIENTERROR, 
+        TRANSIENTERROR,
         /**
          * The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative SHALL describe the issue.
          */
-        FATALERROR, 
+        FATALERROR,
         /**
          * added to help the parsers
          */
@@ -197,7 +197,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #identifier} (The id of the message that this message is a response to.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public IdType getIdentifierElement() { 
+        public IdType getIdentifierElement() {
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageHeaderResponseComponent.identifier");
@@ -206,18 +206,18 @@ public class MessageHeader extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifierElement() { 
+        public boolean hasIdentifierElement() {
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
-        public boolean hasIdentifier() { 
+        public boolean hasIdentifier() {
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (The id of the message that this message is a response to.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public MessageHeaderResponseComponent setIdentifierElement(IdType value) { 
+        public MessageHeaderResponseComponent setIdentifierElement(IdType value) {
           this.identifier = value;
           return this;
         }
@@ -225,14 +225,14 @@ public class MessageHeader extends DomainResource {
         /**
          * @return The id of the message that this message is a response to.
          */
-        public String getIdentifier() { 
+        public String getIdentifier() {
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
         /**
          * @param value The id of the message that this message is a response to.
          */
-        public MessageHeaderResponseComponent setIdentifier(String value) { 
+        public MessageHeaderResponseComponent setIdentifier(String value) {
             if (this.identifier == null)
               this.identifier = new IdType();
             this.identifier.setValue(value);
@@ -242,7 +242,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<ResponseType> getCodeElement() { 
+        public Enumeration<ResponseType> getCodeElement() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageHeaderResponseComponent.code");
@@ -251,18 +251,18 @@ public class MessageHeader extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCodeElement() { 
+        public boolean hasCodeElement() {
           return this.code != null && !this.code.isEmpty();
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public MessageHeaderResponseComponent setCodeElement(Enumeration<ResponseType> value) { 
+        public MessageHeaderResponseComponent setCodeElement(Enumeration<ResponseType> value) {
           this.code = value;
           return this;
         }
@@ -270,14 +270,14 @@ public class MessageHeader extends DomainResource {
         /**
          * @return Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
          */
-        public ResponseType getCode() { 
+        public ResponseType getCode() {
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
          */
-        public MessageHeaderResponseComponent setCode(ResponseType value) { 
+        public MessageHeaderResponseComponent setCode(ResponseType value) {
             if (this.code == null)
               this.code = new Enumeration<ResponseType>(new ResponseTypeEnumFactory());
             this.code.setValue(value);
@@ -287,7 +287,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #details} (Full details of any issues found in the message.)
          */
-        public Reference getDetails() { 
+        public Reference getDetails() {
           if (this.details == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageHeaderResponseComponent.details");
@@ -296,14 +296,14 @@ public class MessageHeader extends DomainResource {
           return this.details;
         }
 
-        public boolean hasDetails() { 
+        public boolean hasDetails() {
           return this.details != null && !this.details.isEmpty();
         }
 
         /**
          * @param value {@link #details} (Full details of any issues found in the message.)
          */
-        public MessageHeaderResponseComponent setDetails(Reference value) { 
+        public MessageHeaderResponseComponent setDetails(Reference value) {
           this.details = value;
           return this;
         }
@@ -311,7 +311,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #details} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Full details of any issues found in the message.)
          */
-        public OperationOutcome getDetailsTarget() { 
+        public OperationOutcome getDetailsTarget() {
           if (this.detailsTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageHeaderResponseComponent.details");
@@ -323,7 +323,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @param value {@link #details} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Full details of any issues found in the message.)
          */
-        public MessageHeaderResponseComponent setDetailsTarget(OperationOutcome value) { 
+        public MessageHeaderResponseComponent setDetailsTarget(OperationOutcome value) {
           this.detailsTarget = value;
           return this;
         }
@@ -462,7 +462,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() { 
+        public StringType getNameElement() {
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.name");
@@ -471,18 +471,18 @@ public class MessageHeader extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() { 
+        public boolean hasNameElement() {
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() { 
+        public boolean hasName() {
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public MessageSourceComponent setNameElement(StringType value) { 
+        public MessageSourceComponent setNameElement(StringType value) {
           this.name = value;
           return this;
         }
@@ -490,14 +490,14 @@ public class MessageHeader extends DomainResource {
         /**
          * @return Human-readable name for the source system.
          */
-        public String getName() { 
+        public String getName() {
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value Human-readable name for the source system.
          */
-        public MessageSourceComponent setName(String value) { 
+        public MessageSourceComponent setName(String value) {
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -511,7 +511,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #software} (May include configuration or other information useful in debugging.). This is the underlying object with id, value and extensions. The accessor "getSoftware" gives direct access to the value
          */
-        public StringType getSoftwareElement() { 
+        public StringType getSoftwareElement() {
           if (this.software == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.software");
@@ -520,18 +520,18 @@ public class MessageHeader extends DomainResource {
           return this.software;
         }
 
-        public boolean hasSoftwareElement() { 
+        public boolean hasSoftwareElement() {
           return this.software != null && !this.software.isEmpty();
         }
 
-        public boolean hasSoftware() { 
+        public boolean hasSoftware() {
           return this.software != null && !this.software.isEmpty();
         }
 
         /**
          * @param value {@link #software} (May include configuration or other information useful in debugging.). This is the underlying object with id, value and extensions. The accessor "getSoftware" gives direct access to the value
          */
-        public MessageSourceComponent setSoftwareElement(StringType value) { 
+        public MessageSourceComponent setSoftwareElement(StringType value) {
           this.software = value;
           return this;
         }
@@ -539,14 +539,14 @@ public class MessageHeader extends DomainResource {
         /**
          * @return May include configuration or other information useful in debugging.
          */
-        public String getSoftware() { 
+        public String getSoftware() {
           return this.software == null ? null : this.software.getValue();
         }
 
         /**
          * @param value May include configuration or other information useful in debugging.
          */
-        public MessageSourceComponent setSoftware(String value) { 
+        public MessageSourceComponent setSoftware(String value) {
           if (Utilities.noString(value))
             this.software = null;
           else {
@@ -560,7 +560,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionElement() { 
+        public StringType getVersionElement() {
           if (this.version == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.version");
@@ -569,18 +569,18 @@ public class MessageHeader extends DomainResource {
           return this.version;
         }
 
-        public boolean hasVersionElement() { 
+        public boolean hasVersionElement() {
           return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasVersion() { 
+        public boolean hasVersion() {
           return this.version != null && !this.version.isEmpty();
         }
 
         /**
          * @param value {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public MessageSourceComponent setVersionElement(StringType value) { 
+        public MessageSourceComponent setVersionElement(StringType value) {
           this.version = value;
           return this;
         }
@@ -588,14 +588,14 @@ public class MessageHeader extends DomainResource {
         /**
          * @return Can convey versions of multiple systems in situations where a message passes through multiple hands.
          */
-        public String getVersion() { 
+        public String getVersion() {
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value Can convey versions of multiple systems in situations where a message passes through multiple hands.
          */
-        public MessageSourceComponent setVersion(String value) { 
+        public MessageSourceComponent setVersion(String value) {
           if (Utilities.noString(value))
             this.version = null;
           else {
@@ -609,7 +609,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #contact} (An e-mail, phone, website or other contact point to use to resolve issues with message communications.)
          */
-        public ContactPoint getContact() { 
+        public ContactPoint getContact() {
           if (this.contact == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.contact");
@@ -618,14 +618,14 @@ public class MessageHeader extends DomainResource {
           return this.contact;
         }
 
-        public boolean hasContact() { 
+        public boolean hasContact() {
           return this.contact != null && !this.contact.isEmpty();
         }
 
         /**
          * @param value {@link #contact} (An e-mail, phone, website or other contact point to use to resolve issues with message communications.)
          */
-        public MessageSourceComponent setContact(ContactPoint value) { 
+        public MessageSourceComponent setContact(ContactPoint value) {
           this.contact = value;
           return this;
         }
@@ -633,7 +633,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #endpoint} (Identifies the routing target to send acknowledgements to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public UriType getEndpointElement() { 
+        public UriType getEndpointElement() {
           if (this.endpoint == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.endpoint");
@@ -642,18 +642,18 @@ public class MessageHeader extends DomainResource {
           return this.endpoint;
         }
 
-        public boolean hasEndpointElement() { 
+        public boolean hasEndpointElement() {
           return this.endpoint != null && !this.endpoint.isEmpty();
         }
 
-        public boolean hasEndpoint() { 
+        public boolean hasEndpoint() {
           return this.endpoint != null && !this.endpoint.isEmpty();
         }
 
         /**
          * @param value {@link #endpoint} (Identifies the routing target to send acknowledgements to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public MessageSourceComponent setEndpointElement(UriType value) { 
+        public MessageSourceComponent setEndpointElement(UriType value) {
           this.endpoint = value;
           return this;
         }
@@ -661,14 +661,14 @@ public class MessageHeader extends DomainResource {
         /**
          * @return Identifies the routing target to send acknowledgements to.
          */
-        public String getEndpoint() { 
+        public String getEndpoint() {
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
         /**
          * @param value Identifies the routing target to send acknowledgements to.
          */
-        public MessageSourceComponent setEndpoint(String value) { 
+        public MessageSourceComponent setEndpoint(String value) {
             if (this.endpoint == null)
               this.endpoint = new UriType();
             this.endpoint.setValue(value);
@@ -816,7 +816,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() { 
+        public StringType getNameElement() {
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageDestinationComponent.name");
@@ -825,18 +825,18 @@ public class MessageHeader extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() { 
+        public boolean hasNameElement() {
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() { 
+        public boolean hasName() {
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public MessageDestinationComponent setNameElement(StringType value) { 
+        public MessageDestinationComponent setNameElement(StringType value) {
           this.name = value;
           return this;
         }
@@ -844,14 +844,14 @@ public class MessageHeader extends DomainResource {
         /**
          * @return Human-readable name for the target system.
          */
-        public String getName() { 
+        public String getName() {
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value Human-readable name for the target system.
          */
-        public MessageDestinationComponent setName(String value) { 
+        public MessageDestinationComponent setName(String value) {
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -865,7 +865,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #target} (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
-        public Reference getTarget() { 
+        public Reference getTarget() {
           if (this.target == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageDestinationComponent.target");
@@ -874,14 +874,14 @@ public class MessageHeader extends DomainResource {
           return this.target;
         }
 
-        public boolean hasTarget() { 
+        public boolean hasTarget() {
           return this.target != null && !this.target.isEmpty();
         }
 
         /**
          * @param value {@link #target} (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
-        public MessageDestinationComponent setTarget(Reference value) { 
+        public MessageDestinationComponent setTarget(Reference value) {
           this.target = value;
           return this;
         }
@@ -889,7 +889,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
-        public Device getTargetTarget() { 
+        public Device getTargetTarget() {
           if (this.targetTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageDestinationComponent.target");
@@ -901,7 +901,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
-        public MessageDestinationComponent setTargetTarget(Device value) { 
+        public MessageDestinationComponent setTargetTarget(Device value) {
           this.targetTarget = value;
           return this;
         }
@@ -909,7 +909,7 @@ public class MessageHeader extends DomainResource {
         /**
          * @return {@link #endpoint} (Indicates where the message should be routed to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public UriType getEndpointElement() { 
+        public UriType getEndpointElement() {
           if (this.endpoint == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageDestinationComponent.endpoint");
@@ -918,18 +918,18 @@ public class MessageHeader extends DomainResource {
           return this.endpoint;
         }
 
-        public boolean hasEndpointElement() { 
+        public boolean hasEndpointElement() {
           return this.endpoint != null && !this.endpoint.isEmpty();
         }
 
-        public boolean hasEndpoint() { 
+        public boolean hasEndpoint() {
           return this.endpoint != null && !this.endpoint.isEmpty();
         }
 
         /**
          * @param value {@link #endpoint} (Indicates where the message should be routed to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public MessageDestinationComponent setEndpointElement(UriType value) { 
+        public MessageDestinationComponent setEndpointElement(UriType value) {
           this.endpoint = value;
           return this;
         }
@@ -937,14 +937,14 @@ public class MessageHeader extends DomainResource {
         /**
          * @return Indicates where the message should be routed to.
          */
-        public String getEndpoint() { 
+        public String getEndpoint() {
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
         /**
          * @param value Indicates where the message should be routed to.
          */
-        public MessageDestinationComponent setEndpoint(String value) { 
+        public MessageDestinationComponent setEndpoint(String value) {
             if (this.endpoint == null)
               this.endpoint = new UriType();
             this.endpoint.setValue(value);
@@ -1152,7 +1152,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #timestamp} (The time that the message was sent.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
      */
-    public InstantType getTimestampElement() { 
+    public InstantType getTimestampElement() {
       if (this.timestamp == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.timestamp");
@@ -1161,18 +1161,18 @@ public class MessageHeader extends DomainResource {
       return this.timestamp;
     }
 
-    public boolean hasTimestampElement() { 
+    public boolean hasTimestampElement() {
       return this.timestamp != null && !this.timestamp.isEmpty();
     }
 
-    public boolean hasTimestamp() { 
+    public boolean hasTimestamp() {
       return this.timestamp != null && !this.timestamp.isEmpty();
     }
 
     /**
      * @param value {@link #timestamp} (The time that the message was sent.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
      */
-    public MessageHeader setTimestampElement(InstantType value) { 
+    public MessageHeader setTimestampElement(InstantType value) {
       this.timestamp = value;
       return this;
     }
@@ -1180,14 +1180,14 @@ public class MessageHeader extends DomainResource {
     /**
      * @return The time that the message was sent.
      */
-    public Date getTimestamp() { 
+    public Date getTimestamp() {
       return this.timestamp == null ? null : this.timestamp.getValue();
     }
 
     /**
      * @param value The time that the message was sent.
      */
-    public MessageHeader setTimestamp(Date value) { 
+    public MessageHeader setTimestamp(Date value) {
         if (this.timestamp == null)
           this.timestamp = new InstantType();
         this.timestamp.setValue(value);
@@ -1197,7 +1197,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #event} (Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-events".)
      */
-    public Coding getEvent() { 
+    public Coding getEvent() {
       if (this.event == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.event");
@@ -1206,14 +1206,14 @@ public class MessageHeader extends DomainResource {
       return this.event;
     }
 
-    public boolean hasEvent() { 
+    public boolean hasEvent() {
       return this.event != null && !this.event.isEmpty();
     }
 
     /**
      * @param value {@link #event} (Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-events".)
      */
-    public MessageHeader setEvent(Coding value) { 
+    public MessageHeader setEvent(Coding value) {
       this.event = value;
       return this;
     }
@@ -1221,7 +1221,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #response} (Information about the message that this message is a response to.  Only present if this message is a response.)
      */
-    public MessageHeaderResponseComponent getResponse() { 
+    public MessageHeaderResponseComponent getResponse() {
       if (this.response == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.response");
@@ -1230,14 +1230,14 @@ public class MessageHeader extends DomainResource {
       return this.response;
     }
 
-    public boolean hasResponse() { 
+    public boolean hasResponse() {
       return this.response != null && !this.response.isEmpty();
     }
 
     /**
      * @param value {@link #response} (Information about the message that this message is a response to.  Only present if this message is a response.)
      */
-    public MessageHeader setResponse(MessageHeaderResponseComponent value) { 
+    public MessageHeader setResponse(MessageHeaderResponseComponent value) {
       this.response = value;
       return this;
     }
@@ -1245,7 +1245,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #source} (The source application from which this message originated.)
      */
-    public MessageSourceComponent getSource() { 
+    public MessageSourceComponent getSource() {
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.source");
@@ -1254,14 +1254,14 @@ public class MessageHeader extends DomainResource {
       return this.source;
     }
 
-    public boolean hasSource() { 
+    public boolean hasSource() {
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (The source application from which this message originated.)
      */
-    public MessageHeader setSource(MessageSourceComponent value) { 
+    public MessageHeader setSource(MessageSourceComponent value) {
       this.source = value;
       return this;
     }
@@ -1269,13 +1269,13 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #destination} (The destination application which the message is intended for.)
      */
-    public List<MessageDestinationComponent> getDestination() { 
+    public List<MessageDestinationComponent> getDestination() {
       if (this.destination == null)
         this.destination = new ArrayList<MessageDestinationComponent>();
       return this.destination;
     }
 
-    public boolean hasDestination() { 
+    public boolean hasDestination() {
       if (this.destination == null)
         return false;
       for (MessageDestinationComponent item : this.destination)
@@ -1309,7 +1309,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #enterer} (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
-    public Reference getEnterer() { 
+    public Reference getEnterer() {
       if (this.enterer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.enterer");
@@ -1318,14 +1318,14 @@ public class MessageHeader extends DomainResource {
       return this.enterer;
     }
 
-    public boolean hasEnterer() { 
+    public boolean hasEnterer() {
       return this.enterer != null && !this.enterer.isEmpty();
     }
 
     /**
      * @param value {@link #enterer} (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
-    public MessageHeader setEnterer(Reference value) { 
+    public MessageHeader setEnterer(Reference value) {
       this.enterer = value;
       return this;
     }
@@ -1333,7 +1333,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #enterer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
-    public Practitioner getEntererTarget() { 
+    public Practitioner getEntererTarget() {
       if (this.entererTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.enterer");
@@ -1345,7 +1345,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @param value {@link #enterer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
-    public MessageHeader setEntererTarget(Practitioner value) { 
+    public MessageHeader setEntererTarget(Practitioner value) {
       this.entererTarget = value;
       return this;
     }
@@ -1353,7 +1353,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
-    public Reference getAuthor() { 
+    public Reference getAuthor() {
       if (this.author == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.author");
@@ -1362,14 +1362,14 @@ public class MessageHeader extends DomainResource {
       return this.author;
     }
 
-    public boolean hasAuthor() { 
+    public boolean hasAuthor() {
       return this.author != null && !this.author.isEmpty();
     }
 
     /**
      * @param value {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
-    public MessageHeader setAuthor(Reference value) { 
+    public MessageHeader setAuthor(Reference value) {
       this.author = value;
       return this;
     }
@@ -1377,7 +1377,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
-    public Practitioner getAuthorTarget() { 
+    public Practitioner getAuthorTarget() {
       if (this.authorTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.author");
@@ -1389,7 +1389,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
-    public MessageHeader setAuthorTarget(Practitioner value) { 
+    public MessageHeader setAuthorTarget(Practitioner value) {
       this.authorTarget = value;
       return this;
     }
@@ -1397,7 +1397,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #receiver} (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
      */
-    public Reference getReceiver() { 
+    public Reference getReceiver() {
       if (this.receiver == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.receiver");
@@ -1406,14 +1406,14 @@ public class MessageHeader extends DomainResource {
       return this.receiver;
     }
 
-    public boolean hasReceiver() { 
+    public boolean hasReceiver() {
       return this.receiver != null && !this.receiver.isEmpty();
     }
 
     /**
      * @param value {@link #receiver} (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
      */
-    public MessageHeader setReceiver(Reference value) { 
+    public MessageHeader setReceiver(Reference value) {
       this.receiver = value;
       return this;
     }
@@ -1421,14 +1421,14 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #receiver} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
      */
-    public Resource getReceiverTarget() { 
+    public Resource getReceiverTarget() {
       return this.receiverTarget;
     }
 
     /**
      * @param value {@link #receiver} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
      */
-    public MessageHeader setReceiverTarget(Resource value) { 
+    public MessageHeader setReceiverTarget(Resource value) {
       this.receiverTarget = value;
       return this;
     }
@@ -1436,7 +1436,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
-    public Reference getResponsible() { 
+    public Reference getResponsible() {
       if (this.responsible == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.responsible");
@@ -1445,14 +1445,14 @@ public class MessageHeader extends DomainResource {
       return this.responsible;
     }
 
-    public boolean hasResponsible() { 
+    public boolean hasResponsible() {
       return this.responsible != null && !this.responsible.isEmpty();
     }
 
     /**
      * @param value {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
-    public MessageHeader setResponsible(Reference value) { 
+    public MessageHeader setResponsible(Reference value) {
       this.responsible = value;
       return this;
     }
@@ -1460,14 +1460,14 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #responsible} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
-    public Resource getResponsibleTarget() { 
+    public Resource getResponsibleTarget() {
       return this.responsibleTarget;
     }
 
     /**
      * @param value {@link #responsible} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
-    public MessageHeader setResponsibleTarget(Resource value) { 
+    public MessageHeader setResponsibleTarget(Resource value) {
       this.responsibleTarget = value;
       return this;
     }
@@ -1475,7 +1475,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #reason} (Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message.)
      */
-    public CodeableConcept getReason() { 
+    public CodeableConcept getReason() {
       if (this.reason == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.reason");
@@ -1484,14 +1484,14 @@ public class MessageHeader extends DomainResource {
       return this.reason;
     }
 
-    public boolean hasReason() { 
+    public boolean hasReason() {
       return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
      * @param value {@link #reason} (Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message.)
      */
-    public MessageHeader setReason(CodeableConcept value) { 
+    public MessageHeader setReason(CodeableConcept value) {
       this.reason = value;
       return this;
     }
@@ -1499,13 +1499,13 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #data} (The actual data of the message - a reference to the root/focus class of the event.)
      */
-    public List<Reference> getData() { 
+    public List<Reference> getData() {
       if (this.data == null)
         this.data = new ArrayList<Reference>();
       return this.data;
     }
 
-    public boolean hasData() { 
+    public boolean hasData() {
       if (this.data == null)
         return false;
       for (Reference item : this.data)
@@ -1539,7 +1539,7 @@ public class MessageHeader extends DomainResource {
     /**
      * @return {@link #data} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The actual data of the message - a reference to the root/focus class of the event.)
      */
-    public List<Resource> getDataTarget() { 
+    public List<Resource> getDataTarget() {
       if (this.dataTarget == null)
         this.dataTarget = new ArrayList<Resource>();
       return this.dataTarget;

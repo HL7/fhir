@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,27 +51,27 @@ public class EpisodeOfCare extends DomainResource {
         /**
          * This episode of care is planned to start at the date specified in the period.start. During this status an organization may perform assessments to determine if they are eligible to receive services, or be organizing to make resources available to provide care services.
          */
-        PLANNED, 
+        PLANNED,
         /**
          * This episode has been placed on a waitlist, pending the episode being made active (or cancelled).
          */
-        WAITLIST, 
+        WAITLIST,
         /**
          * This episode of care is current.
          */
-        ACTIVE, 
+        ACTIVE,
         /**
          * This episode of care is on hold, the organization has limited responsibility for the patient (such as while on respite).
          */
-        ONHOLD, 
+        ONHOLD,
         /**
          * This episode of care is finished at the organization is not expecting to be providing care to the patient. Can also be known as "closed", "completed" or other similar terms.
          */
-        FINISHED, 
+        FINISHED,
         /**
          * The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow.
          */
-        CANCELLED, 
+        CANCELLED,
         /**
          * added to help the parsers
          */
@@ -232,7 +232,7 @@ public class EpisodeOfCare extends DomainResource {
         /**
          * @return {@link #status} (planned | waitlist | active | onhold | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<EpisodeOfCareStatus> getStatusElement() { 
+        public Enumeration<EpisodeOfCareStatus> getStatusElement() {
           if (this.status == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EpisodeOfCareStatusHistoryComponent.status");
@@ -241,18 +241,18 @@ public class EpisodeOfCare extends DomainResource {
           return this.status;
         }
 
-        public boolean hasStatusElement() { 
+        public boolean hasStatusElement() {
           return this.status != null && !this.status.isEmpty();
         }
 
-        public boolean hasStatus() { 
+        public boolean hasStatus() {
           return this.status != null && !this.status.isEmpty();
         }
 
         /**
          * @param value {@link #status} (planned | waitlist | active | onhold | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public EpisodeOfCareStatusHistoryComponent setStatusElement(Enumeration<EpisodeOfCareStatus> value) { 
+        public EpisodeOfCareStatusHistoryComponent setStatusElement(Enumeration<EpisodeOfCareStatus> value) {
           this.status = value;
           return this;
         }
@@ -260,14 +260,14 @@ public class EpisodeOfCare extends DomainResource {
         /**
          * @return planned | waitlist | active | onhold | finished | cancelled.
          */
-        public EpisodeOfCareStatus getStatus() { 
+        public EpisodeOfCareStatus getStatus() {
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value planned | waitlist | active | onhold | finished | cancelled.
          */
-        public EpisodeOfCareStatusHistoryComponent setStatus(EpisodeOfCareStatus value) { 
+        public EpisodeOfCareStatusHistoryComponent setStatus(EpisodeOfCareStatus value) {
             if (this.status == null)
               this.status = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory());
             this.status.setValue(value);
@@ -277,7 +277,7 @@ public class EpisodeOfCare extends DomainResource {
         /**
          * @return {@link #period} (The period during this EpisodeOfCare that the specific status applied.)
          */
-        public Period getPeriod() { 
+        public Period getPeriod() {
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EpisodeOfCareStatusHistoryComponent.period");
@@ -286,14 +286,14 @@ public class EpisodeOfCare extends DomainResource {
           return this.period;
         }
 
-        public boolean hasPeriod() { 
+        public boolean hasPeriod() {
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (The period during this EpisodeOfCare that the specific status applied.)
          */
-        public EpisodeOfCareStatusHistoryComponent setPeriod(Period value) { 
+        public EpisodeOfCareStatusHistoryComponent setPeriod(Period value) {
           this.period = value;
           return this;
         }
@@ -407,13 +407,13 @@ public class EpisodeOfCare extends DomainResource {
         /**
          * @return {@link #role} (The role this team member is taking within this episode of care.)
          */
-        public List<CodeableConcept> getRole() { 
+        public List<CodeableConcept> getRole() {
           if (this.role == null)
             this.role = new ArrayList<CodeableConcept>();
           return this.role;
         }
 
-        public boolean hasRole() { 
+        public boolean hasRole() {
           if (this.role == null)
             return false;
           for (CodeableConcept item : this.role)
@@ -447,7 +447,7 @@ public class EpisodeOfCare extends DomainResource {
         /**
          * @return {@link #period} (The period of time this practitioner is performing some role within the episode of care.)
          */
-        public Period getPeriod() { 
+        public Period getPeriod() {
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EpisodeOfCareCareTeamComponent.period");
@@ -456,14 +456,14 @@ public class EpisodeOfCare extends DomainResource {
           return this.period;
         }
 
-        public boolean hasPeriod() { 
+        public boolean hasPeriod() {
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (The period of time this practitioner is performing some role within the episode of care.)
          */
-        public EpisodeOfCareCareTeamComponent setPeriod(Period value) { 
+        public EpisodeOfCareCareTeamComponent setPeriod(Period value) {
           this.period = value;
           return this;
         }
@@ -471,7 +471,7 @@ public class EpisodeOfCare extends DomainResource {
         /**
          * @return {@link #member} (The practitioner (or Organization) within the team.)
          */
-        public Reference getMember() { 
+        public Reference getMember() {
           if (this.member == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EpisodeOfCareCareTeamComponent.member");
@@ -480,14 +480,14 @@ public class EpisodeOfCare extends DomainResource {
           return this.member;
         }
 
-        public boolean hasMember() { 
+        public boolean hasMember() {
           return this.member != null && !this.member.isEmpty();
         }
 
         /**
          * @param value {@link #member} (The practitioner (or Organization) within the team.)
          */
-        public EpisodeOfCareCareTeamComponent setMember(Reference value) { 
+        public EpisodeOfCareCareTeamComponent setMember(Reference value) {
           this.member = value;
           return this;
         }
@@ -495,14 +495,14 @@ public class EpisodeOfCare extends DomainResource {
         /**
          * @return {@link #member} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner (or Organization) within the team.)
          */
-        public Resource getMemberTarget() { 
+        public Resource getMemberTarget() {
           return this.memberTarget;
         }
 
         /**
          * @param value {@link #member} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner (or Organization) within the team.)
          */
-        public EpisodeOfCareCareTeamComponent setMemberTarget(Resource value) { 
+        public EpisodeOfCareCareTeamComponent setMemberTarget(Resource value) {
           this.memberTarget = value;
           return this;
         }
@@ -712,13 +712,13 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier(s) by which this EpisodeOfCare is known.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -752,7 +752,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #status} (planned | waitlist | active | onhold | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<EpisodeOfCareStatus> getStatusElement() { 
+    public Enumeration<EpisodeOfCareStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.status");
@@ -761,18 +761,18 @@ public class EpisodeOfCare extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (planned | waitlist | active | onhold | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public EpisodeOfCare setStatusElement(Enumeration<EpisodeOfCareStatus> value) { 
+    public EpisodeOfCare setStatusElement(Enumeration<EpisodeOfCareStatus> value) {
       this.status = value;
       return this;
     }
@@ -780,14 +780,14 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return planned | waitlist | active | onhold | finished | cancelled.
      */
-    public EpisodeOfCareStatus getStatus() { 
+    public EpisodeOfCareStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value planned | waitlist | active | onhold | finished | cancelled.
      */
-    public EpisodeOfCare setStatus(EpisodeOfCareStatus value) { 
+    public EpisodeOfCare setStatus(EpisodeOfCareStatus value) {
         if (this.status == null)
           this.status = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory());
         this.status.setValue(value);
@@ -797,13 +797,13 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #statusHistory} (The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource).)
      */
-    public List<EpisodeOfCareStatusHistoryComponent> getStatusHistory() { 
+    public List<EpisodeOfCareStatusHistoryComponent> getStatusHistory() {
       if (this.statusHistory == null)
         this.statusHistory = new ArrayList<EpisodeOfCareStatusHistoryComponent>();
       return this.statusHistory;
     }
 
-    public boolean hasStatusHistory() { 
+    public boolean hasStatusHistory() {
       if (this.statusHistory == null)
         return false;
       for (EpisodeOfCareStatusHistoryComponent item : this.statusHistory)
@@ -837,13 +837,13 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #type} (A classification of the type of encounter; e.g. specialist referral, disease management, type of funded care.)
      */
-    public List<CodeableConcept> getType() { 
+    public List<CodeableConcept> getType() {
       if (this.type == null)
         this.type = new ArrayList<CodeableConcept>();
       return this.type;
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       if (this.type == null)
         return false;
       for (CodeableConcept item : this.type)
@@ -877,13 +877,13 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #condition} (A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.)
      */
-    public List<Reference> getCondition() { 
+    public List<Reference> getCondition() {
       if (this.condition == null)
         this.condition = new ArrayList<Reference>();
       return this.condition;
     }
 
-    public boolean hasCondition() { 
+    public boolean hasCondition() {
       if (this.condition == null)
         return false;
       for (Reference item : this.condition)
@@ -917,7 +917,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #condition} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.)
      */
-    public List<Condition> getConditionTarget() { 
+    public List<Condition> getConditionTarget() {
       if (this.conditionTarget == null)
         this.conditionTarget = new ArrayList<Condition>();
       return this.conditionTarget;
@@ -927,7 +927,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #condition} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.)
      */
-    public Condition addConditionTarget() { 
+    public Condition addConditionTarget() {
       Condition r = new Condition();
       if (this.conditionTarget == null)
         this.conditionTarget = new ArrayList<Condition>();
@@ -938,7 +938,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #patient} (The patient that this EpisodeOfCare applies to.)
      */
-    public Reference getPatient() { 
+    public Reference getPatient() {
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.patient");
@@ -947,14 +947,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() { 
+    public boolean hasPatient() {
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The patient that this EpisodeOfCare applies to.)
      */
-    public EpisodeOfCare setPatient(Reference value) { 
+    public EpisodeOfCare setPatient(Reference value) {
       this.patient = value;
       return this;
     }
@@ -962,7 +962,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient that this EpisodeOfCare applies to.)
      */
-    public Patient getPatientTarget() { 
+    public Patient getPatientTarget() {
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.patient");
@@ -974,7 +974,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient that this EpisodeOfCare applies to.)
      */
-    public EpisodeOfCare setPatientTarget(Patient value) { 
+    public EpisodeOfCare setPatientTarget(Patient value) {
       this.patientTarget = value;
       return this;
     }
@@ -982,7 +982,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #managingOrganization} (The organization that has assumed the specific responsibilities for the specified duration.)
      */
-    public Reference getManagingOrganization() { 
+    public Reference getManagingOrganization() {
       if (this.managingOrganization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.managingOrganization");
@@ -991,14 +991,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.managingOrganization;
     }
 
-    public boolean hasManagingOrganization() { 
+    public boolean hasManagingOrganization() {
       return this.managingOrganization != null && !this.managingOrganization.isEmpty();
     }
 
     /**
      * @param value {@link #managingOrganization} (The organization that has assumed the specific responsibilities for the specified duration.)
      */
-    public EpisodeOfCare setManagingOrganization(Reference value) { 
+    public EpisodeOfCare setManagingOrganization(Reference value) {
       this.managingOrganization = value;
       return this;
     }
@@ -1006,7 +1006,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization that has assumed the specific responsibilities for the specified duration.)
      */
-    public Organization getManagingOrganizationTarget() { 
+    public Organization getManagingOrganizationTarget() {
       if (this.managingOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.managingOrganization");
@@ -1018,7 +1018,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @param value {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization that has assumed the specific responsibilities for the specified duration.)
      */
-    public EpisodeOfCare setManagingOrganizationTarget(Organization value) { 
+    public EpisodeOfCare setManagingOrganizationTarget(Organization value) {
       this.managingOrganizationTarget = value;
       return this;
     }
@@ -1026,7 +1026,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #period} (The interval during which the managing organization assumes the defined responsibility.)
      */
-    public Period getPeriod() { 
+    public Period getPeriod() {
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.period");
@@ -1035,14 +1035,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.period;
     }
 
-    public boolean hasPeriod() { 
+    public boolean hasPeriod() {
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (The interval during which the managing organization assumes the defined responsibility.)
      */
-    public EpisodeOfCare setPeriod(Period value) { 
+    public EpisodeOfCare setPeriod(Period value) {
       this.period = value;
       return this;
     }
@@ -1050,13 +1050,13 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #referralRequest} (Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
      */
-    public List<Reference> getReferralRequest() { 
+    public List<Reference> getReferralRequest() {
       if (this.referralRequest == null)
         this.referralRequest = new ArrayList<Reference>();
       return this.referralRequest;
     }
 
-    public boolean hasReferralRequest() { 
+    public boolean hasReferralRequest() {
       if (this.referralRequest == null)
         return false;
       for (Reference item : this.referralRequest)
@@ -1090,7 +1090,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #referralRequest} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
      */
-    public List<ReferralRequest> getReferralRequestTarget() { 
+    public List<ReferralRequest> getReferralRequestTarget() {
       if (this.referralRequestTarget == null)
         this.referralRequestTarget = new ArrayList<ReferralRequest>();
       return this.referralRequestTarget;
@@ -1100,7 +1100,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #referralRequest} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
      */
-    public ReferralRequest addReferralRequestTarget() { 
+    public ReferralRequest addReferralRequestTarget() {
       ReferralRequest r = new ReferralRequest();
       if (this.referralRequestTarget == null)
         this.referralRequestTarget = new ArrayList<ReferralRequest>();
@@ -1111,7 +1111,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #careManager} (The practitioner that is the care manager/care co-ordinator for this patient.)
      */
-    public Reference getCareManager() { 
+    public Reference getCareManager() {
       if (this.careManager == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.careManager");
@@ -1120,14 +1120,14 @@ public class EpisodeOfCare extends DomainResource {
       return this.careManager;
     }
 
-    public boolean hasCareManager() { 
+    public boolean hasCareManager() {
       return this.careManager != null && !this.careManager.isEmpty();
     }
 
     /**
      * @param value {@link #careManager} (The practitioner that is the care manager/care co-ordinator for this patient.)
      */
-    public EpisodeOfCare setCareManager(Reference value) { 
+    public EpisodeOfCare setCareManager(Reference value) {
       this.careManager = value;
       return this;
     }
@@ -1135,7 +1135,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #careManager} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner that is the care manager/care co-ordinator for this patient.)
      */
-    public Practitioner getCareManagerTarget() { 
+    public Practitioner getCareManagerTarget() {
       if (this.careManagerTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.careManager");
@@ -1147,7 +1147,7 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @param value {@link #careManager} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner that is the care manager/care co-ordinator for this patient.)
      */
-    public EpisodeOfCare setCareManagerTarget(Practitioner value) { 
+    public EpisodeOfCare setCareManagerTarget(Practitioner value) {
       this.careManagerTarget = value;
       return this;
     }
@@ -1155,13 +1155,13 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * @return {@link #careTeam} (The list of practitioners that may be facilitating this episode of care for specific purposes.)
      */
-    public List<EpisodeOfCareCareTeamComponent> getCareTeam() { 
+    public List<EpisodeOfCareCareTeamComponent> getCareTeam() {
       if (this.careTeam == null)
         this.careTeam = new ArrayList<EpisodeOfCareCareTeamComponent>();
       return this.careTeam;
     }
 
-    public boolean hasCareTeam() { 
+    public boolean hasCareTeam() {
       if (this.careTeam == null)
         return false;
       for (EpisodeOfCareCareTeamComponent item : this.careTeam)

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -105,7 +105,7 @@ public class RiskAssessment extends DomainResource {
         /**
          * @return {@link #outcome} (One of the potential outcomes for the patient (e.g. remission, death,  a particular condition).)
          */
-        public CodeableConcept getOutcome() { 
+        public CodeableConcept getOutcome() {
           if (this.outcome == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create RiskAssessmentPredictionComponent.outcome");
@@ -114,14 +114,14 @@ public class RiskAssessment extends DomainResource {
           return this.outcome;
         }
 
-        public boolean hasOutcome() { 
+        public boolean hasOutcome() {
           return this.outcome != null && !this.outcome.isEmpty();
         }
 
         /**
          * @param value {@link #outcome} (One of the potential outcomes for the patient (e.g. remission, death,  a particular condition).)
          */
-        public RiskAssessmentPredictionComponent setOutcome(CodeableConcept value) { 
+        public RiskAssessmentPredictionComponent setOutcome(CodeableConcept value) {
           this.outcome = value;
           return this;
         }
@@ -129,57 +129,57 @@ public class RiskAssessment extends DomainResource {
         /**
          * @return {@link #probability} (How likely is the outcome (in the specified timeframe).)
          */
-        public Type getProbability() { 
+        public Type getProbability() {
           return this.probability;
         }
 
         /**
          * @return {@link #probability} (How likely is the outcome (in the specified timeframe).)
          */
-        public DecimalType getProbabilityDecimalType() throws FHIRException { 
+        public DecimalType getProbabilityDecimalType() throws FHIRException {
           if (!(this.probability instanceof DecimalType))
             throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.probability.getClass().getName()+" was encountered");
           return (DecimalType) this.probability;
         }
 
-        public boolean hasProbabilityDecimalType() { 
+        public boolean hasProbabilityDecimalType() {
           return this.probability instanceof DecimalType;
         }
 
         /**
          * @return {@link #probability} (How likely is the outcome (in the specified timeframe).)
          */
-        public Range getProbabilityRange() throws FHIRException { 
+        public Range getProbabilityRange() throws FHIRException {
           if (!(this.probability instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.probability.getClass().getName()+" was encountered");
           return (Range) this.probability;
         }
 
-        public boolean hasProbabilityRange() { 
+        public boolean hasProbabilityRange() {
           return this.probability instanceof Range;
         }
 
         /**
          * @return {@link #probability} (How likely is the outcome (in the specified timeframe).)
          */
-        public CodeableConcept getProbabilityCodeableConcept() throws FHIRException { 
+        public CodeableConcept getProbabilityCodeableConcept() throws FHIRException {
           if (!(this.probability instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.probability.getClass().getName()+" was encountered");
           return (CodeableConcept) this.probability;
         }
 
-        public boolean hasProbabilityCodeableConcept() { 
+        public boolean hasProbabilityCodeableConcept() {
           return this.probability instanceof CodeableConcept;
         }
 
-        public boolean hasProbability() { 
+        public boolean hasProbability() {
           return this.probability != null && !this.probability.isEmpty();
         }
 
         /**
          * @param value {@link #probability} (How likely is the outcome (in the specified timeframe).)
          */
-        public RiskAssessmentPredictionComponent setProbability(Type value) { 
+        public RiskAssessmentPredictionComponent setProbability(Type value) {
           this.probability = value;
           return this;
         }
@@ -187,7 +187,7 @@ public class RiskAssessment extends DomainResource {
         /**
          * @return {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).). This is the underlying object with id, value and extensions. The accessor "getRelativeRisk" gives direct access to the value
          */
-        public DecimalType getRelativeRiskElement() { 
+        public DecimalType getRelativeRiskElement() {
           if (this.relativeRisk == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create RiskAssessmentPredictionComponent.relativeRisk");
@@ -196,18 +196,18 @@ public class RiskAssessment extends DomainResource {
           return this.relativeRisk;
         }
 
-        public boolean hasRelativeRiskElement() { 
+        public boolean hasRelativeRiskElement() {
           return this.relativeRisk != null && !this.relativeRisk.isEmpty();
         }
 
-        public boolean hasRelativeRisk() { 
+        public boolean hasRelativeRisk() {
           return this.relativeRisk != null && !this.relativeRisk.isEmpty();
         }
 
         /**
          * @param value {@link #relativeRisk} (Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).). This is the underlying object with id, value and extensions. The accessor "getRelativeRisk" gives direct access to the value
          */
-        public RiskAssessmentPredictionComponent setRelativeRiskElement(DecimalType value) { 
+        public RiskAssessmentPredictionComponent setRelativeRiskElement(DecimalType value) {
           this.relativeRisk = value;
           return this;
         }
@@ -215,14 +215,14 @@ public class RiskAssessment extends DomainResource {
         /**
          * @return Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).
          */
-        public BigDecimal getRelativeRisk() { 
+        public BigDecimal getRelativeRisk() {
           return this.relativeRisk == null ? null : this.relativeRisk.getValue();
         }
 
         /**
          * @param value Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).
          */
-        public RiskAssessmentPredictionComponent setRelativeRisk(BigDecimal value) { 
+        public RiskAssessmentPredictionComponent setRelativeRisk(BigDecimal value) {
           if (value == null)
             this.relativeRisk = null;
           else {
@@ -236,44 +236,44 @@ public class RiskAssessment extends DomainResource {
         /**
          * @return {@link #when} (Indicates the period of time or age range of the subject to which the specified probability applies.)
          */
-        public Type getWhen() { 
+        public Type getWhen() {
           return this.when;
         }
 
         /**
          * @return {@link #when} (Indicates the period of time or age range of the subject to which the specified probability applies.)
          */
-        public Period getWhenPeriod() throws FHIRException { 
+        public Period getWhenPeriod() throws FHIRException {
           if (!(this.when instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.when.getClass().getName()+" was encountered");
           return (Period) this.when;
         }
 
-        public boolean hasWhenPeriod() { 
+        public boolean hasWhenPeriod() {
           return this.when instanceof Period;
         }
 
         /**
          * @return {@link #when} (Indicates the period of time or age range of the subject to which the specified probability applies.)
          */
-        public Range getWhenRange() throws FHIRException { 
+        public Range getWhenRange() throws FHIRException {
           if (!(this.when instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.when.getClass().getName()+" was encountered");
           return (Range) this.when;
         }
 
-        public boolean hasWhenRange() { 
+        public boolean hasWhenRange() {
           return this.when instanceof Range;
         }
 
-        public boolean hasWhen() { 
+        public boolean hasWhen() {
           return this.when != null && !this.when.isEmpty();
         }
 
         /**
          * @param value {@link #when} (Indicates the period of time or age range of the subject to which the specified probability applies.)
          */
-        public RiskAssessmentPredictionComponent setWhen(Type value) { 
+        public RiskAssessmentPredictionComponent setWhen(Type value) {
           this.when = value;
           return this;
         }
@@ -281,7 +281,7 @@ public class RiskAssessment extends DomainResource {
         /**
          * @return {@link #rationale} (Additional information explaining the basis for the prediction.). This is the underlying object with id, value and extensions. The accessor "getRationale" gives direct access to the value
          */
-        public StringType getRationaleElement() { 
+        public StringType getRationaleElement() {
           if (this.rationale == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create RiskAssessmentPredictionComponent.rationale");
@@ -290,18 +290,18 @@ public class RiskAssessment extends DomainResource {
           return this.rationale;
         }
 
-        public boolean hasRationaleElement() { 
+        public boolean hasRationaleElement() {
           return this.rationale != null && !this.rationale.isEmpty();
         }
 
-        public boolean hasRationale() { 
+        public boolean hasRationale() {
           return this.rationale != null && !this.rationale.isEmpty();
         }
 
         /**
          * @param value {@link #rationale} (Additional information explaining the basis for the prediction.). This is the underlying object with id, value and extensions. The accessor "getRationale" gives direct access to the value
          */
-        public RiskAssessmentPredictionComponent setRationaleElement(StringType value) { 
+        public RiskAssessmentPredictionComponent setRationaleElement(StringType value) {
           this.rationale = value;
           return this;
         }
@@ -309,14 +309,14 @@ public class RiskAssessment extends DomainResource {
         /**
          * @return Additional information explaining the basis for the prediction.
          */
-        public String getRationale() { 
+        public String getRationale() {
           return this.rationale == null ? null : this.rationale.getValue();
         }
 
         /**
          * @param value Additional information explaining the basis for the prediction.
          */
-        public RiskAssessmentPredictionComponent setRationale(String value) { 
+        public RiskAssessmentPredictionComponent setRationale(String value) {
           if (Utilities.noString(value))
             this.rationale = null;
           else {
@@ -541,7 +541,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #subject} (The patient or group the risk assessment applies to.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.subject");
@@ -550,14 +550,14 @@ public class RiskAssessment extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The patient or group the risk assessment applies to.)
      */
-    public RiskAssessment setSubject(Reference value) { 
+    public RiskAssessment setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -565,14 +565,14 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient or group the risk assessment applies to.)
      */
-    public Resource getSubjectTarget() { 
+    public Resource getSubjectTarget() {
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient or group the risk assessment applies to.)
      */
-    public RiskAssessment setSubjectTarget(Resource value) { 
+    public RiskAssessment setSubjectTarget(Resource value) {
       this.subjectTarget = value;
       return this;
     }
@@ -580,7 +580,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #date} (The date (and possibly time) the risk assessment was performed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() { 
+    public DateTimeType getDateElement() {
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.date");
@@ -589,18 +589,18 @@ public class RiskAssessment extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() { 
+    public boolean hasDateElement() {
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() { 
+    public boolean hasDate() {
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date (and possibly time) the risk assessment was performed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public RiskAssessment setDateElement(DateTimeType value) { 
+    public RiskAssessment setDateElement(DateTimeType value) {
       this.date = value;
       return this;
     }
@@ -608,14 +608,14 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return The date (and possibly time) the risk assessment was performed.
      */
-    public Date getDate() { 
+    public Date getDate() {
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date (and possibly time) the risk assessment was performed.
      */
-    public RiskAssessment setDate(Date value) { 
+    public RiskAssessment setDate(Date value) {
       if (value == null)
         this.date = null;
       else {
@@ -629,7 +629,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #condition} (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
      */
-    public Reference getCondition() { 
+    public Reference getCondition() {
       if (this.condition == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.condition");
@@ -638,14 +638,14 @@ public class RiskAssessment extends DomainResource {
       return this.condition;
     }
 
-    public boolean hasCondition() { 
+    public boolean hasCondition() {
       return this.condition != null && !this.condition.isEmpty();
     }
 
     /**
      * @param value {@link #condition} (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
      */
-    public RiskAssessment setCondition(Reference value) { 
+    public RiskAssessment setCondition(Reference value) {
       this.condition = value;
       return this;
     }
@@ -653,7 +653,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #condition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
      */
-    public Condition getConditionTarget() { 
+    public Condition getConditionTarget() {
       if (this.conditionTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.condition");
@@ -665,7 +665,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @param value {@link #condition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (For assessments or prognosis specific to a particular condition, indicates the condition being assessed.)
      */
-    public RiskAssessment setConditionTarget(Condition value) { 
+    public RiskAssessment setConditionTarget(Condition value) {
       this.conditionTarget = value;
       return this;
     }
@@ -673,7 +673,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #encounter} (The encounter where the assessment was performed.)
      */
-    public Reference getEncounter() { 
+    public Reference getEncounter() {
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.encounter");
@@ -682,14 +682,14 @@ public class RiskAssessment extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() { 
+    public boolean hasEncounter() {
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (The encounter where the assessment was performed.)
      */
-    public RiskAssessment setEncounter(Reference value) { 
+    public RiskAssessment setEncounter(Reference value) {
       this.encounter = value;
       return this;
     }
@@ -697,7 +697,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter where the assessment was performed.)
      */
-    public Encounter getEncounterTarget() { 
+    public Encounter getEncounterTarget() {
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.encounter");
@@ -709,7 +709,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter where the assessment was performed.)
      */
-    public RiskAssessment setEncounterTarget(Encounter value) { 
+    public RiskAssessment setEncounterTarget(Encounter value) {
       this.encounterTarget = value;
       return this;
     }
@@ -717,7 +717,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #performer} (The provider or software application that performed the assessment.)
      */
-    public Reference getPerformer() { 
+    public Reference getPerformer() {
       if (this.performer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.performer");
@@ -726,14 +726,14 @@ public class RiskAssessment extends DomainResource {
       return this.performer;
     }
 
-    public boolean hasPerformer() { 
+    public boolean hasPerformer() {
       return this.performer != null && !this.performer.isEmpty();
     }
 
     /**
      * @param value {@link #performer} (The provider or software application that performed the assessment.)
      */
-    public RiskAssessment setPerformer(Reference value) { 
+    public RiskAssessment setPerformer(Reference value) {
       this.performer = value;
       return this;
     }
@@ -741,14 +741,14 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The provider or software application that performed the assessment.)
      */
-    public Resource getPerformerTarget() { 
+    public Resource getPerformerTarget() {
       return this.performerTarget;
     }
 
     /**
      * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The provider or software application that performed the assessment.)
      */
-    public RiskAssessment setPerformerTarget(Resource value) { 
+    public RiskAssessment setPerformerTarget(Resource value) {
       this.performerTarget = value;
       return this;
     }
@@ -756,7 +756,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #identifier} (Business identifier assigned to the risk assessment.)
      */
-    public Identifier getIdentifier() { 
+    public Identifier getIdentifier() {
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.identifier");
@@ -765,14 +765,14 @@ public class RiskAssessment extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Business identifier assigned to the risk assessment.)
      */
-    public RiskAssessment setIdentifier(Identifier value) { 
+    public RiskAssessment setIdentifier(Identifier value) {
       this.identifier = value;
       return this;
     }
@@ -780,7 +780,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #method} (The algorithm, process or mechanism used to evaluate the risk.)
      */
-    public CodeableConcept getMethod() { 
+    public CodeableConcept getMethod() {
       if (this.method == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.method");
@@ -789,14 +789,14 @@ public class RiskAssessment extends DomainResource {
       return this.method;
     }
 
-    public boolean hasMethod() { 
+    public boolean hasMethod() {
       return this.method != null && !this.method.isEmpty();
     }
 
     /**
      * @param value {@link #method} (The algorithm, process or mechanism used to evaluate the risk.)
      */
-    public RiskAssessment setMethod(CodeableConcept value) { 
+    public RiskAssessment setMethod(CodeableConcept value) {
       this.method = value;
       return this;
     }
@@ -804,13 +804,13 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #basis} (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
-    public List<Reference> getBasis() { 
+    public List<Reference> getBasis() {
       if (this.basis == null)
         this.basis = new ArrayList<Reference>();
       return this.basis;
     }
 
-    public boolean hasBasis() { 
+    public boolean hasBasis() {
       if (this.basis == null)
         return false;
       for (Reference item : this.basis)
@@ -844,7 +844,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #basis} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
-    public List<Resource> getBasisTarget() { 
+    public List<Resource> getBasisTarget() {
       if (this.basisTarget == null)
         this.basisTarget = new ArrayList<Resource>();
       return this.basisTarget;
@@ -853,13 +853,13 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #prediction} (Describes the expected outcome for the subject.)
      */
-    public List<RiskAssessmentPredictionComponent> getPrediction() { 
+    public List<RiskAssessmentPredictionComponent> getPrediction() {
       if (this.prediction == null)
         this.prediction = new ArrayList<RiskAssessmentPredictionComponent>();
       return this.prediction;
     }
 
-    public boolean hasPrediction() { 
+    public boolean hasPrediction() {
       if (this.prediction == null)
         return false;
       for (RiskAssessmentPredictionComponent item : this.prediction)
@@ -893,7 +893,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).). This is the underlying object with id, value and extensions. The accessor "getMitigation" gives direct access to the value
      */
-    public StringType getMitigationElement() { 
+    public StringType getMitigationElement() {
       if (this.mitigation == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.mitigation");
@@ -902,18 +902,18 @@ public class RiskAssessment extends DomainResource {
       return this.mitigation;
     }
 
-    public boolean hasMitigationElement() { 
+    public boolean hasMitigationElement() {
       return this.mitigation != null && !this.mitigation.isEmpty();
     }
 
-    public boolean hasMitigation() { 
+    public boolean hasMitigation() {
       return this.mitigation != null && !this.mitigation.isEmpty();
     }
 
     /**
      * @param value {@link #mitigation} (A description of the steps that might be taken to reduce the identified risk(s).). This is the underlying object with id, value and extensions. The accessor "getMitigation" gives direct access to the value
      */
-    public RiskAssessment setMitigationElement(StringType value) { 
+    public RiskAssessment setMitigationElement(StringType value) {
       this.mitigation = value;
       return this;
     }
@@ -921,14 +921,14 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return A description of the steps that might be taken to reduce the identified risk(s).
      */
-    public String getMitigation() { 
+    public String getMitigation() {
       return this.mitigation == null ? null : this.mitigation.getValue();
     }
 
     /**
      * @param value A description of the steps that might be taken to reduce the identified risk(s).
      */
-    public RiskAssessment setMitigation(String value) { 
+    public RiskAssessment setMitigation(String value) {
       if (Utilities.noString(value))
         this.mitigation = null;
       else {

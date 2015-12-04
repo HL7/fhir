@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -119,7 +119,7 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return {@link #origin} (The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.)
      */
-    public SimpleQuantity getOrigin() { 
+    public SimpleQuantity getOrigin() {
       if (this.origin == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.origin");
@@ -128,14 +128,14 @@ public class SampledData extends Type implements ICompositeType {
       return this.origin;
     }
 
-    public boolean hasOrigin() { 
+    public boolean hasOrigin() {
       return this.origin != null && !this.origin.isEmpty();
     }
 
     /**
      * @param value {@link #origin} (The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.)
      */
-    public SampledData setOrigin(SimpleQuantity value) { 
+    public SampledData setOrigin(SimpleQuantity value) {
       this.origin = value;
       return this;
     }
@@ -143,7 +143,7 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return {@link #period} (The length of time between sampling times, measured in milliseconds.). This is the underlying object with id, value and extensions. The accessor "getPeriod" gives direct access to the value
      */
-    public DecimalType getPeriodElement() { 
+    public DecimalType getPeriodElement() {
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.period");
@@ -152,18 +152,18 @@ public class SampledData extends Type implements ICompositeType {
       return this.period;
     }
 
-    public boolean hasPeriodElement() { 
+    public boolean hasPeriodElement() {
       return this.period != null && !this.period.isEmpty();
     }
 
-    public boolean hasPeriod() { 
+    public boolean hasPeriod() {
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (The length of time between sampling times, measured in milliseconds.). This is the underlying object with id, value and extensions. The accessor "getPeriod" gives direct access to the value
      */
-    public SampledData setPeriodElement(DecimalType value) { 
+    public SampledData setPeriodElement(DecimalType value) {
       this.period = value;
       return this;
     }
@@ -171,14 +171,14 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return The length of time between sampling times, measured in milliseconds.
      */
-    public BigDecimal getPeriod() { 
+    public BigDecimal getPeriod() {
       return this.period == null ? null : this.period.getValue();
     }
 
     /**
      * @param value The length of time between sampling times, measured in milliseconds.
      */
-    public SampledData setPeriod(BigDecimal value) { 
+    public SampledData setPeriod(BigDecimal value) {
         if (this.period == null)
           this.period = new DecimalType();
         this.period.setValue(value);
@@ -188,7 +188,7 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
      */
-    public DecimalType getFactorElement() { 
+    public DecimalType getFactorElement() {
       if (this.factor == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.factor");
@@ -197,18 +197,18 @@ public class SampledData extends Type implements ICompositeType {
       return this.factor;
     }
 
-    public boolean hasFactorElement() { 
+    public boolean hasFactorElement() {
       return this.factor != null && !this.factor.isEmpty();
     }
 
-    public boolean hasFactor() { 
+    public boolean hasFactor() {
       return this.factor != null && !this.factor.isEmpty();
     }
 
     /**
      * @param value {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
      */
-    public SampledData setFactorElement(DecimalType value) { 
+    public SampledData setFactorElement(DecimalType value) {
       this.factor = value;
       return this;
     }
@@ -216,14 +216,14 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return A correction factor that is applied to the sampled data points before they are added to the origin.
      */
-    public BigDecimal getFactor() { 
+    public BigDecimal getFactor() {
       return this.factor == null ? null : this.factor.getValue();
     }
 
     /**
      * @param value A correction factor that is applied to the sampled data points before they are added to the origin.
      */
-    public SampledData setFactor(BigDecimal value) { 
+    public SampledData setFactor(BigDecimal value) {
       if (value == null)
         this.factor = null;
       else {
@@ -237,7 +237,7 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return {@link #lowerLimit} (The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).). This is the underlying object with id, value and extensions. The accessor "getLowerLimit" gives direct access to the value
      */
-    public DecimalType getLowerLimitElement() { 
+    public DecimalType getLowerLimitElement() {
       if (this.lowerLimit == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.lowerLimit");
@@ -246,18 +246,18 @@ public class SampledData extends Type implements ICompositeType {
       return this.lowerLimit;
     }
 
-    public boolean hasLowerLimitElement() { 
+    public boolean hasLowerLimitElement() {
       return this.lowerLimit != null && !this.lowerLimit.isEmpty();
     }
 
-    public boolean hasLowerLimit() { 
+    public boolean hasLowerLimit() {
       return this.lowerLimit != null && !this.lowerLimit.isEmpty();
     }
 
     /**
      * @param value {@link #lowerLimit} (The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).). This is the underlying object with id, value and extensions. The accessor "getLowerLimit" gives direct access to the value
      */
-    public SampledData setLowerLimitElement(DecimalType value) { 
+    public SampledData setLowerLimitElement(DecimalType value) {
       this.lowerLimit = value;
       return this;
     }
@@ -265,14 +265,14 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
      */
-    public BigDecimal getLowerLimit() { 
+    public BigDecimal getLowerLimit() {
       return this.lowerLimit == null ? null : this.lowerLimit.getValue();
     }
 
     /**
      * @param value The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
      */
-    public SampledData setLowerLimit(BigDecimal value) { 
+    public SampledData setLowerLimit(BigDecimal value) {
       if (value == null)
         this.lowerLimit = null;
       else {
@@ -286,7 +286,7 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).). This is the underlying object with id, value and extensions. The accessor "getUpperLimit" gives direct access to the value
      */
-    public DecimalType getUpperLimitElement() { 
+    public DecimalType getUpperLimitElement() {
       if (this.upperLimit == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.upperLimit");
@@ -295,18 +295,18 @@ public class SampledData extends Type implements ICompositeType {
       return this.upperLimit;
     }
 
-    public boolean hasUpperLimitElement() { 
+    public boolean hasUpperLimitElement() {
       return this.upperLimit != null && !this.upperLimit.isEmpty();
     }
 
-    public boolean hasUpperLimit() { 
+    public boolean hasUpperLimit() {
       return this.upperLimit != null && !this.upperLimit.isEmpty();
     }
 
     /**
      * @param value {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).). This is the underlying object with id, value and extensions. The accessor "getUpperLimit" gives direct access to the value
      */
-    public SampledData setUpperLimitElement(DecimalType value) { 
+    public SampledData setUpperLimitElement(DecimalType value) {
       this.upperLimit = value;
       return this;
     }
@@ -314,14 +314,14 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
      */
-    public BigDecimal getUpperLimit() { 
+    public BigDecimal getUpperLimit() {
       return this.upperLimit == null ? null : this.upperLimit.getValue();
     }
 
     /**
      * @param value The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
      */
-    public SampledData setUpperLimit(BigDecimal value) { 
+    public SampledData setUpperLimit(BigDecimal value) {
       if (value == null)
         this.upperLimit = null;
       else {
@@ -335,7 +335,7 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return {@link #dimensions} (The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.). This is the underlying object with id, value and extensions. The accessor "getDimensions" gives direct access to the value
      */
-    public PositiveIntType getDimensionsElement() { 
+    public PositiveIntType getDimensionsElement() {
       if (this.dimensions == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.dimensions");
@@ -344,18 +344,18 @@ public class SampledData extends Type implements ICompositeType {
       return this.dimensions;
     }
 
-    public boolean hasDimensionsElement() { 
+    public boolean hasDimensionsElement() {
       return this.dimensions != null && !this.dimensions.isEmpty();
     }
 
-    public boolean hasDimensions() { 
+    public boolean hasDimensions() {
       return this.dimensions != null && !this.dimensions.isEmpty();
     }
 
     /**
      * @param value {@link #dimensions} (The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.). This is the underlying object with id, value and extensions. The accessor "getDimensions" gives direct access to the value
      */
-    public SampledData setDimensionsElement(PositiveIntType value) { 
+    public SampledData setDimensionsElement(PositiveIntType value) {
       this.dimensions = value;
       return this;
     }
@@ -363,14 +363,14 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
      */
-    public int getDimensions() { 
+    public int getDimensions() {
       return this.dimensions == null || this.dimensions.isEmpty() ? 0 : this.dimensions.getValue();
     }
 
     /**
      * @param value The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
      */
-    public SampledData setDimensions(int value) { 
+    public SampledData setDimensions(int value) {
         if (this.dimensions == null)
           this.dimensions = new PositiveIntType();
         this.dimensions.setValue(value);
@@ -380,7 +380,7 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return {@link #data} (A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public StringType getDataElement() { 
+    public StringType getDataElement() {
       if (this.data == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.data");
@@ -389,18 +389,18 @@ public class SampledData extends Type implements ICompositeType {
       return this.data;
     }
 
-    public boolean hasDataElement() { 
+    public boolean hasDataElement() {
       return this.data != null && !this.data.isEmpty();
     }
 
-    public boolean hasData() { 
+    public boolean hasData() {
       return this.data != null && !this.data.isEmpty();
     }
 
     /**
      * @param value {@link #data} (A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public SampledData setDataElement(StringType value) { 
+    public SampledData setDataElement(StringType value) {
       this.data = value;
       return this;
     }
@@ -408,14 +408,14 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * @return A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
      */
-    public String getData() { 
+    public String getData() {
       return this.data == null ? null : this.data.getValue();
     }
 
     /**
      * @param value A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
      */
-    public SampledData setData(String value) { 
+    public SampledData setData(String value) {
         if (this.data == null)
           this.data = new StringType();
         this.data.setValue(value);

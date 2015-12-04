@@ -50,6 +50,22 @@
   Description = The response code to expect in the response.
   Conformance = required
 
+ -- Row 7 -----------------------------------
+  Binding Name = ProfileOriginType
+  Binding = code list
+  Reference = #profile-origin-types
+  Definition = The type of origin profile the server supports.
+  Description = The type of origin profile the server supports.
+  Conformance = required
+
+ -- Row 8 -----------------------------------
+  Binding Name = ProfileDestinationType
+  Binding = code list
+  Reference = #profile-destination-types
+  Definition = The type of destination profile the server supports.
+  Description = The type of destination profile the server supports.
+  Conformance = required
+
 === Sheet content-type =====================================
 
  -- Row 1 -----------------------------------
@@ -213,6 +229,46 @@
   Code = unprocessable
   Display = unprocessable
   Definition = Response code is 422.
+
+=== Sheet profile-origin-types =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = FHIR-DSTU2-Client
+  Display = FHIR-DSTU2-Client
+  Definition = General DSTU2 client initiating against a DSTU2 Server.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = FHIR-DSTU2-SDC-FormFiller
+  Display = FHIR-DSTU2-SDC-FormFiller
+  Definition = DSTU2 client that serves as an SDC-FormFiller.
+
+=== Sheet profile-destination-types =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = FHIR-DSTU2-Server
+  Display = FHIR-DSTU2-Server
+  Definition = General DSTU2 server.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = FHIR-DSTU2-SDC-FormManager
+  Display = FHIR-DSTU2-SDC-FormManager
+  Definition = DSTU2 server that serves as an SDC-FormManager.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = FHIR-DSTU2-SDC-FormReceiver
+  Display = FHIR-DSTU2-SDC-FormReceiver
+  Definition = DSTU2 server that serves as an SDC-FormReceiver.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = FHIR-DSTU2-SDC-FormProcessor
+  Display = FHIR-DSTU2-SDC-FormProcessor
+  Definition = DSTU2 server that serves as an SDC-FormProcessor.
 
 === Sheet Invariants =====================================
 
@@ -527,20 +583,27 @@
   Definition = Description of the capabilities that this test script is requiring the server to support.
 
  -- Row 25 -----------------------------------
+  Element = TestScript.metadata.capability.origin
+  Card. = 0..*
+  Type = integer
+  Short Label = Which origin server these requirements apply to
+  Definition = Which origin server these requirements apply to
+
+ -- Row 26 -----------------------------------
   Element = TestScript.metadata.capability.destination
   Card. = 0..1
   Type = integer
   Short Label = Which server these requirements apply to
   Definition = Which server these requirements apply to.
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = TestScript.metadata.capability.link
   Card. = 0..*
   Type = uri
   Short Label = Links to the FHIR specification
   Definition = Links to the FHIR specification that describes this interaction and the resources involved in more detail.
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = TestScript.metadata.capability.conformance
   Card. = 1..1
   Type = Reference(Conformance)
@@ -548,7 +611,57 @@
   Definition = Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.
   Comments = The conformance statement of the server has to contain at a minimum the contents of the reference pointed to by this element.
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
+  Element = TestScript.origin
+  Card. = 0..*
+  Short Label = An abstract server representing a client or sender in a message exchange
+  Definition = An abstract server used in operations within this test script in the origin element.
+  Comments = The purpose of this element is to define the profile of an origin element used elsewhere in the script.  Test engines could then use the origin-profile mapping to offer a filtered list of test systems that can serve as the sender for the interaction.
+
+ -- Row 30 -----------------------------------
+  Element = TestScript.origin.index
+  Card. = 1..1
+  Type = integer
+  Short Label = The index of the abstract origin server starting at 1
+  Definition = Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.
+  Comments = A given origin index (e.g. 1) can appear only once in the list (e.g. Origin 1 cannot be specified twice ... once as FormFiller and and again as FormProcessor within the same script as that could get confusing during test configuration). \n\nDifferent origin indices could play the same actor in the same test script (e.g. You could have two different test systems acting as Form-Filler).\n\nThe origin indices provided elsewhere in the test script must be one of these origin indices.
+
+ -- Row 31 -----------------------------------
+  Element = TestScript.origin.profile
+  Card. = 1..1
+  Type = code
+  Binding = ProfileOriginType
+  Short Label = FHIR-DSTU2-Client | FHIR-DSTU2-SDC-FormFiller
+  Definition = The type of profile the server supports.
+  Comments = Must be a \"sender\"/\"client\" profile.
+  Missing Meaning = FHIR-DSTU2-Client
+
+ -- Row 32 -----------------------------------
+  Element = TestScript.destination
+  Card. = 0..*
+  Short Label = An abstract server representing a destination or receiver in a message exchange
+  Definition = An abstract server used in operations within this test script in the destination element.
+  Comments = The purpose of this element is to define the profile of an destination element used elsewhere in the script.  Test engines could then use the destination-profile mapping to offer a filtered list of test systems that can serve as the receiver for the interaction.
+
+ -- Row 33 -----------------------------------
+  Element = TestScript.destination.index
+  Card. = 1..1
+  Type = integer
+  Short Label = The index of the abstract destination server starting at 1
+  Definition = Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
+  Comments = A given destination index (e.g. 1) can appear only once in the list (e.g. Destination 1 cannot be specified twice ... once as Form-Manager and and again as Form-Processor within the same script as that could get confusing during test configuration). \n\nDifferent destination indices could play the same actor in the same test script (e.g. You could have two different test systems acting as Form-Manager).\n\nThe destination indices provided elsewhere in the test script must be one of these destination indices.
+
+ -- Row 34 -----------------------------------
+  Element = TestScript.destination.profile
+  Card. = 1..1
+  Type = code
+  Binding = ProfileDestinationType
+  Short Label = FHIR-DSTU2-Server | FHIR-DSTU2-SDC-FormManager | FHIR-DSTU2-SDC-FormReceiver | FHIR-DSTU2-SDC-FormProcessor
+  Definition = The type of profile the server supports.
+  Comments = Must be a \"receiver\"/\"server\" profile.
+  Missing Meaning = FHIR-DSTU2-Server
+
+ -- Row 35 -----------------------------------
   Element = TestScript.multiserver
   Card. = 0..1
   Type = boolean
@@ -556,14 +669,14 @@
   Definition = If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.
   Missing Meaning = False
 
- -- Row 29 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = TestScript.fixture
   Card. = 0..*
   UML = 550;150
   Short Label = Fixture in the test script - by reference (uri)
   Definition = Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.
 
- -- Row 30 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = TestScript.fixture.autocreate
   Card. = 0..1
   Type = boolean
@@ -571,7 +684,7 @@
   Definition = Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section.
   Missing Meaning = False
 
- -- Row 31 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = TestScript.fixture.autodelete
   Card. = 0..1
   Type = boolean
@@ -579,7 +692,7 @@
   Definition = Whether or not to implicitly delete the fixture during teardown If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.
   Missing Meaning = False
 
- -- Row 32 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = TestScript.fixture.resource
   Card. = 0..1
   Type = Reference(Any)
@@ -587,7 +700,7 @@
   Definition = Reference to the resource (containing the contents of the resource needed for operations)
   Comments = See http://hl7-fhir.github.io/resourcelist.html for complete list of resource types.
 
- -- Row 33 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = TestScript.profile
   Card. = 0..*
   Type = Reference(Any)
@@ -595,7 +708,7 @@
   Definition = Reference to the profile to be used for validation.
   Comments = See http://hl7-fhir.github.io/resourcelist.html for complete list of resource types.
 
- -- Row 34 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = TestScript.variable
   Card. = 0..*
   UML = 560;410
@@ -603,7 +716,7 @@
   Definition = Variable is set based either on element value in response body or on header field value in the response headers.
   Comments = Variables would be set based either on XPath/JsonPath expressions against fixtures (static and response), or headerField evaluations against response headers. If variable evaluates to nodelist or anything other than a primitive value, then test engine would report error.  Variables would be used to perform clean replacements in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations. This limits the places that test engines would need to look for placeholders \"${}\".  Variables are scoped to the whole script. They are NOT evaluated at declaration. They are evaluated by test engine when used for substitutions in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations.  See example testscript-search.xml.
 
- -- Row 35 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = TestScript.variable.name
   Card. = 1..1
   Type = string
@@ -611,7 +724,7 @@
   Definition = Descriptive name for this variable
   Comments = Placeholders would contain the variable name wrapped in ${} in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" elements.  These placeholders would need to be replaced by the variable value before the operation is executed.
 
- -- Row 36 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = TestScript.variable.headerField
   Card. = 0..1
   Type = string
@@ -619,7 +732,7 @@
   Definition = Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.
   Comments = If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define both headerField and path.
 
- -- Row 37 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = TestScript.variable.path
   Card. = 0..1
   Type = string
@@ -627,7 +740,7 @@
   Definition = XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.
   Comments = If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define both headerField and path.
 
- -- Row 38 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = TestScript.variable.sourceId
   Card. = 0..1
   Type = id
@@ -635,21 +748,21 @@
   Definition = Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.
   Comments = This can be a statically defined fixture (at the top of the testscript) or a dynamically set fixture created by responseId of the action.operation element.
 
- -- Row 39 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = TestScript.setup
   Card. = 0..1
   UML = 30;240
   Short Label = A series of required setup operations before tests are executed
   Definition = A series of required setup operations before tests are executed.
 
- -- Row 40 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = TestScript.setup.metadata
   Card. = 0..1
   Type = @TestScript.metadata
   Short Label = Capabilities  that are assumed to function correctly on the FHIR server being tested
   Definition = Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
 
- -- Row 41 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = TestScript.setup.action
   Card. = 1..*
   UML = 50;380
@@ -657,14 +770,14 @@
   Definition = Action would contain either an operation or an assertion.
   Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 
- -- Row 42 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = TestScript.setup.action.operation
   Card. = 0..1
   UML = 280;480
   Short Label = The setup operation to perform
   Definition = The operation to perform
 
- -- Row 43 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = TestScript.setup.action.operation.type
   Card. = 0..1
   Type = Coding
@@ -673,7 +786,7 @@
   Definition = Server interaction or operation type
   Comments = See http://hl7-fhir.github.io/http.html for list of server interactions
 
- -- Row 44 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = TestScript.setup.action.operation.resource
   Card. = 0..1
   Type = code
@@ -682,7 +795,7 @@
   Definition = The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
   Comments = If \"url\" element is specified, then \"targetId\", \"params\", and \"resource\" elements will be ignored as \"url\" element will have everything needed for constructing the request url.  If \"params\" element is specified, then \"targetId\" element is ignored. For FHIR operations that require a resource (e.g. \"read\" and \"vread\" operations), the \"resource\" element must be specified when \"params\" element is specified.  If \"url\" and \"params\" elements are absent, then the request url will be constructed from \"targetId\" fixture if present. For \"read\" operation, the resource and id values will be extracted from \"targetId\" fixture and used to construct the url. For \"vread\" and \"history\" operations, the versionId value will also be used.
 
- -- Row 45 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = TestScript.setup.action.operation.label
   Card. = 0..1
   Type = string
@@ -690,7 +803,7 @@
   Definition = The label would be used for tracking/logging purposes by test engines.
   Comments = This has no impact on the verification itself.
 
- -- Row 46 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = TestScript.setup.action.operation.description
   Card. = 0..1
   Type = string
@@ -698,7 +811,7 @@
   Definition = The description would be used by test engines for tracking and reporting purposes.
   Comments = This has no impact on the verification itself.
 
- -- Row 47 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = TestScript.setup.action.operation.accept
   Card. = 0..1
   Type = code
@@ -708,7 +821,7 @@
   Comments = If this is specified, then test engine shall set the \'Accept\' header to the corresponding value.    If \'xml\' is specified, then \'Accept\' header of \'application/xml+fhir\' will be set.  If \'json\' is specified, then \'application/json+fhir\' will be used.    If you\'d like to explicitly set the \'Accept\' to some other value then use the \'requestHeader\' element.
   Missing Meaning = xml
 
- -- Row 48 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = TestScript.setup.action.operation.contentType
   Card. = 0..1
   Type = code
@@ -718,15 +831,15 @@
   Comments = If this is specified, then test engine shall set the \'Content-Type\' header to the corresponding value.    If \'xml\' is specified, then \'Content-Type\' header of \'application/xml+fhir\' will be set.    If \'json\' is specified, then \'application/json+fhir\' will be used.    If you\'d like to explicitly set the \'Content-Type\' to some other value then use the \'requestHeader\' element.
   Missing Meaning = xml
 
- -- Row 49 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = TestScript.setup.action.operation.destination
   Card. = 0..1
   Type = integer
-  Short Label = Which server to perform the operation on
-  Definition = Which server to perform the operation on.
-  Default Value = 0
+  Short Label = Server responding to the request
+  Definition = The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.
+  Comments = If multiple TestScript.destination elements are defined and operation.destination is undefined, test engine will error as it cannot determine what destination to use for the exchange.
 
- -- Row 50 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = TestScript.setup.action.operation.encodeRequestUrl
   Card. = 0..1
   Type = boolean
@@ -734,7 +847,15 @@
   Definition = Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
   Default Value = True
 
- -- Row 51 -----------------------------------
+ -- Row 58 -----------------------------------
+  Element = TestScript.setup.action.operation.origin
+  Card. = 0..1
+  Type = integer
+  Short Label = Server initiating the request
+  Definition = The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.
+  Comments = If absent, test engine will send the message.  When present, test engine will not send the request message but will wait for the request message to be sent from this origin server.
+
+ -- Row 59 -----------------------------------
   Element = TestScript.setup.action.operation.params
   Card. = 0..1
   Type = string
@@ -742,7 +863,7 @@
   Definition = Path plus parameters after [type].  Used to set parts of the request URL explicitly.
   Comments = If \"url\" element is specified, then \"targetId\", \"params\", and \"resource\" elements will be ignored as \"url\" element will have everything needed for constructing the request url.  If \"params\" element is specified, then \"targetId\" element is ignored.  For FHIR operations that require a resource (e.g. \"read\" and \"vread\" operations), the \"resource\" element must be specified when \"params\" element is specified.  If \"url\" and \"params\" elements are absent, then the request url will be constructed from \"targetId\" fixture if present.  For \"read\" operation, the resource and id values will be extracted from \"targetId\" fixture and used to construct the url.  For \"vread\" and \"history\" operations, the versionId value will also be used.   Test engines would append whatever is specified for \"params\" to the URL after the resource type without tampering with the string (beyond encoding the URL for HTTP).  The \"params\" element does not correspond exactly to \"search parameters\".  Nor is it the \"path\".  It corresponds to the part of the URL that comes after the [type] (when \"resource\" element is specified); e.g. It corresponds to \"/[id]/_history/[vid] {?_format=[mime-type]}\" in the following operation: GET [base]/[type]/[id]/_history/[vid] {?_format=[mime-type]}  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
 
- -- Row 52 -----------------------------------
+ -- Row 60 -----------------------------------
   Element = TestScript.setup.action.operation.requestHeader
   Card. = 0..*
   UML = 560;500
@@ -750,7 +871,7 @@
   Definition = Header elements would be used to set HTTP headers.
   Comments = This gives control to test-script writers to set headers explicitly based on test requirements.  It will allow for testing using:  - \"If-Modified-Since\" and \"If-None-Match\" headers.  See http://hl7-fhir.github.io/http.html#2.1.0.5.1 - \"If-Match\" header.  See http://hl7-fhir.github.io/http.html#2.1.0.11 - Conditional Create using \"If-None-Exist\".  See http://hl7-fhir.github.io/http.html#2.1.0.13.1 - Invalid \"Content-Type\" header for negative testing. - etc.
 
- -- Row 53 -----------------------------------
+ -- Row 61 -----------------------------------
   Element = TestScript.setup.action.operation.requestHeader.field
   Card. = 1..1
   Type = string
@@ -758,7 +879,7 @@
   Definition = The HTTP header field e.g. \"Accept\"
   Comments = If header element is specified, then field is required.
 
- -- Row 54 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = TestScript.setup.action.operation.requestHeader.value
   Card. = 1..1
   Type = string
@@ -766,7 +887,7 @@
   Definition = The value of the header e.g. \"application/xml\"
   Comments = If header element is specified, then value is required.  No conversions will be done by Test Engine e.g. \"xml\" to \"application/xml+fhir\".  The values will be set in HTTP headers \"as-is\".  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
 
- -- Row 55 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = TestScript.setup.action.operation.responseId
   Card. = 0..1
   Type = id
@@ -774,14 +895,14 @@
   Definition = The fixture id (maybe new) to map to the response.
   Comments = If a responseId is supplied, and the server responds, then the resulting response (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by \"responseId\".  If responseId is not specified, it is the Test Engine\'s responsibility to store the response and use it as sourceId in subsequent assertions when assertion path and/or headerField is specified and sourceId is not specified.
 
- -- Row 56 -----------------------------------
+ -- Row 64 -----------------------------------
   Element = TestScript.setup.action.operation.sourceId
   Card. = 0..1
   Type = id
   Short Label = Fixture Id of body for PUT and POST requests
   Definition = The id of the fixture used as the body of a PUT or POST request.
 
- -- Row 57 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = TestScript.setup.action.operation.targetId
   Card. = 0..1
   Type = id
@@ -789,7 +910,7 @@
   Definition = Id of fixture used for extracting the [id],  [type], and [vid] for GET requests
   Comments = If \"url\" element is specified, then \"targetId\", \"params\", and \"resource\" elements will be ignored as \"url\" element will have everything needed for constructing the request url.  If \"params\" element is specified, then \"targetId\" element is ignored.  For FHIR operations that require a resource (e.g. \"read\" and \"vread\" operations), the \"resource\" element must be specified when \"params\" element is specified.  If \"url\" and \"params\" elements are absent, then the request url will be constructed from \"targetId\" fixture if present.  For \"read\" operation, the resource and id values will be extracted from \"targetId\" fixture and used to construct the url.  For \"vread\" and \"history\" operations, the versionId value will also be used.
 
- -- Row 58 -----------------------------------
+ -- Row 66 -----------------------------------
   Element = TestScript.setup.action.operation.url
   Card. = 0..1
   Type = string
@@ -797,7 +918,7 @@
   Definition = Complete request URL.
   Comments = Used to set the request URL explicitly.  If \"url\" element is defined, then \"targetId\", \"resource\", and \"params\" elements will be ignored.  Test engines would use whatever is specified in \"url\" without tampering with the string (beyond encoding the URL for HTTP).  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
 
- -- Row 59 -----------------------------------
+ -- Row 67 -----------------------------------
   Element = TestScript.setup.action.assert
   Card. = 0..1
   UML = 0;480
@@ -805,7 +926,7 @@
   Definition = Evaluates the results of previous operations to determine if the server under test behaves appropriately.
   Comments = In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
 
- -- Row 60 -----------------------------------
+ -- Row 68 -----------------------------------
   Element = TestScript.setup.action.assert.label
   Card. = 0..1
   Type = string
@@ -813,7 +934,7 @@
   Definition = The label would be used for tracking/logging purposes by test engines.
   Comments = This has no impact on the verification itself.
 
- -- Row 61 -----------------------------------
+ -- Row 69 -----------------------------------
   Element = TestScript.setup.action.assert.description
   Card. = 0..1
   Type = string
@@ -821,7 +942,7 @@
   Definition = The description would be used by test engines for tracking and reporting purposes.
   Comments = This has no impact on the verification itself.
 
- -- Row 62 -----------------------------------
+ -- Row 70 -----------------------------------
   Element = TestScript.setup.action.assert.direction
   Card. = 0..1
   Type = code
@@ -829,7 +950,7 @@
   Short Label = response | request
   Definition = The direction to use for the assertion.
 
- -- Row 63 -----------------------------------
+ -- Row 71 -----------------------------------
   Element = TestScript.setup.action.assert.compareToSourceId
   Card. = 0..1
   Type = string
@@ -837,7 +958,7 @@
   Definition = Id of fixture used to compare the \"sourceId/path\" evaluations to.
   Comments = The id of the fixture used to make comparisons to
 
- -- Row 64 -----------------------------------
+ -- Row 72 -----------------------------------
   Element = TestScript.setup.action.assert.compareToSourcePath
   Card. = 0..1
   Type = string
@@ -845,7 +966,7 @@
   Definition = XPath or JSONPath expression against fixture used to compare the \"sourceId/path\" evaluations to.
   Comments = The XPath or JSONPath expression to be evaluated against the expected fixture to compare to. Ignored if \"assert.value\" is used. The evaluation will be done before the assertion is evaluated.
 
- -- Row 65 -----------------------------------
+ -- Row 73 -----------------------------------
   Element = TestScript.setup.action.assert.contentType
   Card. = 0..1
   Type = code
@@ -855,7 +976,7 @@
   Comments = If this is specified, then test engine shall confirm that the content-type of the last operation\'s headers is set to this value.  If \"assert.sourceId\" element is specified, then the evaluation will be done against the headers mapped to that sourceId (and not the last operation\'s headers).    If \'xml\' is specified, then \'Content-Type\' header of \'application/xml+fhir\' will be confirmed. If \'json\' is specified, then \'application/json+fhir\' will be used. If you\'d like to have more control over the string, then use \'assert.headerField\' instead.
   Missing Meaning = xml
 
- -- Row 66 -----------------------------------
+ -- Row 74 -----------------------------------
   Element = TestScript.setup.action.assert.headerField
   Card. = 0..1
   Type = string
@@ -863,7 +984,7 @@
   Definition = The HTTP header field name e.g. \'Location\'
   Comments = If \"headerField\" is specified then \"value\" must be specified.  If \"sourceId\" is not specified, then \"headerField\" will be evaluated against the last operation\'s response headers.  Test engines are to keep track of the last operation\'s response body and response headers.
 
- -- Row 67 -----------------------------------
+ -- Row 75 -----------------------------------
   Element = TestScript.setup.action.assert.minimumId
   Card. = 0..1
   Type = string
@@ -871,7 +992,7 @@
   Definition = The ID of a fixture.  Asserts that the response contains at a minimumId the fixture specified by minimumId.
   Comments = Asserts that the response contains all the element/content in another fixture pointed to by minimumId.  This can be a statically defined fixture or one that is dynamically set via responseId.
 
- -- Row 68 -----------------------------------
+ -- Row 76 -----------------------------------
   Element = TestScript.setup.action.assert.navigationLinks
   Card. = 0..1
   Type = boolean
@@ -879,7 +1000,7 @@
   Definition = Whether or not the test execution performs validation on the bundle navigation links
   Comments = Asserts that the Bundle contains first, last, and next links.
 
- -- Row 69 -----------------------------------
+ -- Row 77 -----------------------------------
   Element = TestScript.setup.action.assert.operator
   Card. = 0..1
   Type = code
@@ -888,7 +1009,7 @@
   Definition = The operator type
   Comments = Operators come handy especially for negative testing.  If operator is not specified, then the \"equals\" operator is assumed; e.g. <code>   <assert>  <operator value=\"in\" />  <responseCode value=\"200,201,204\" />    </assert>    <assert>  <operator value=\"notEquals\" />  <response value=\"okay\"/>   </assert>    <assert>  <operator value=\"greaterThan\" />    <responseHeader>     <field value=\"Content-Length\" />     <value value=\"0\" />    <responseHeader>   </assert> </code>
 
- -- Row 70 -----------------------------------
+ -- Row 78 -----------------------------------
   Element = TestScript.setup.action.assert.path
   Card. = 0..1
   Type = string
@@ -896,7 +1017,7 @@
   Definition = The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.
   Comments = If both \"path\" and \"fixtureId\" are specified, then the path will be evaluated against the responseBody mapped to the fixtureId.  If \"path\" is specified and \"fixtureId\" is not, then the path will be evaluated against the responseBody of the last operation.  Test engines are to store the response body and headers of the last operation at all times for subsequent assertions.
 
- -- Row 71 -----------------------------------
+ -- Row 79 -----------------------------------
   Element = TestScript.setup.action.assert.resource
   Card. = 0..1
   Type = code
@@ -905,7 +1026,7 @@
   Definition = The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
   Comments = This will be expected resource type in response body e.g. in read, vread, search, etc.  See http://hl7-fhir.github.io/resourcelist.html for complete list of resource types; e.g. <assert > <resourceType value=\"Patient\" </assert>
 
- -- Row 72 -----------------------------------
+ -- Row 80 -----------------------------------
   Element = TestScript.setup.action.assert.response
   Card. = 0..1
   Type = code
@@ -914,7 +1035,7 @@
   Definition = okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable
   Comments = This is a shorter way of achieving similar verifications via \"assert.responseCode\".  If you need more control, then use \"assert.responseCode\"  e.g. <assert>  <contentType value=\"json\" />  <response value=\"okay\"/> </assert>
 
- -- Row 73 -----------------------------------
+ -- Row 81 -----------------------------------
   Element = TestScript.setup.action.assert.responseCode
   Card. = 0..1
   Type = string
@@ -922,7 +1043,7 @@
   Definition = The value of the HTTP response code to be tested
   Comments = To be used with \"operator\" attribute value. Asserts that the response code equals this value if \"operator\" is not specified.   If the operator is \"in\" or \"notIn\" then the responseCode would be a comma-separated list of values e.g. \"200,201\". Otherwise, it\'s expected to be a numeric value.   If \"fixture\" is not specified, then the \"responseBodyId\" value of the last operation is assumed.
 
- -- Row 74 -----------------------------------
+ -- Row 82 -----------------------------------
   Element = TestScript.setup.action.assert.sourceId
   Card. = 0..1
   Type = id
@@ -930,7 +1051,7 @@
   Definition = Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
   Comments = This can be a statically defined fixture (at the top of the testscript) or a dynamically set fixture created by responseId of the action.operation element.
 
- -- Row 75 -----------------------------------
+ -- Row 83 -----------------------------------
   Element = TestScript.setup.action.assert.validateProfileId
   Card. = 0..1
   Type = id
@@ -938,7 +1059,7 @@
   Definition = The ID of the Profile to validate against.
   Comments = The ID of a Profile fixture. Asserts that the response is valid according to the Profile specified by validateProfileId.
 
- -- Row 76 -----------------------------------
+ -- Row 84 -----------------------------------
   Element = TestScript.setup.action.assert.value
   Card. = 0..1
   Type = string
@@ -946,7 +1067,7 @@
   Definition = The value to compare to
   Comments = The string-representation of a number, string, or boolean that is expected.  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before comparing this value to the actual value.
 
- -- Row 77 -----------------------------------
+ -- Row 85 -----------------------------------
   Element = TestScript.setup.action.assert.warningOnly
   Card. = 0..1
   Type = boolean
@@ -955,35 +1076,35 @@
   Comments = If this element is specified and it is true, then assertion failures can be logged by test engine but should not stop the test script execution from proceeding.  There are likely cases where the spec is not clear on what should happen. If the spec says something is optional (maybe a response header for example), but a server doesn’t do it, we could choose to issue a warning.
   Default Value = False
 
- -- Row 78 -----------------------------------
+ -- Row 86 -----------------------------------
   Element = TestScript.test
   Card. = 0..*
   UML = 580;270
   Short Label = A test in this script
   Definition = A test in this script.
 
- -- Row 79 -----------------------------------
+ -- Row 87 -----------------------------------
   Element = TestScript.test.name
   Card. = 0..1
   Type = string
   Short Label = Tracking/logging name of this test
   Definition = The name of this test used for tracking/logging purposes by test engines.
 
- -- Row 80 -----------------------------------
+ -- Row 88 -----------------------------------
   Element = TestScript.test.description
   Card. = 0..1
   Type = string
   Short Label = Tracking/reporting short description of the test
   Definition = A short description of the test used by test engines for tracking and reporting purposes.
 
- -- Row 81 -----------------------------------
+ -- Row 89 -----------------------------------
   Element = TestScript.test.metadata
   Card. = 0..1
   Type = @TestScript.metadata
   Short Label = Capabilities  that are expected to function correctly on the FHIR server being tested
   Definition = Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
 
- -- Row 82 -----------------------------------
+ -- Row 90 -----------------------------------
   Element = TestScript.test.action
   Card. = 1..*
   UML = 450;380
@@ -991,14 +1112,14 @@
   Definition = Action would contain either an operation or an assertion.
   Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 
- -- Row 83 -----------------------------------
+ -- Row 91 -----------------------------------
   Element = TestScript.test.action.operation
   Card. = 0..1
   Type = @TestScript.setup.action.operation
   Short Label = The setup operation to perform
   Definition = An operation would involve a REST request to a server.
 
- -- Row 84 -----------------------------------
+ -- Row 92 -----------------------------------
   Element = TestScript.test.action.assert
   Card. = 0..1
   Type = @TestScript.setup.action.assert
@@ -1006,14 +1127,14 @@
   Definition = Evaluates the results of previous operations to determine if the server under test behaves appropriately.
   Comments = In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
 
- -- Row 85 -----------------------------------
+ -- Row 93 -----------------------------------
   Element = TestScript.teardown
   Card. = 0..1
   UML = 70;290
   Short Label = A series of required clean up steps
   Definition = A series of operations required to clean up after the all the tests are executed (successfully or otherwise).
 
- -- Row 86 -----------------------------------
+ -- Row 94 -----------------------------------
   Element = TestScript.teardown.action
   Card. = 1..*
   UML = 200;380
@@ -1021,7 +1142,7 @@
   Definition = The teardown action will only contain an operation.
   Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 
- -- Row 87 -----------------------------------
+ -- Row 95 -----------------------------------
   Element = TestScript.teardown.action.operation
   Card. = 0..1
   Type = @TestScript.setup.action.operation

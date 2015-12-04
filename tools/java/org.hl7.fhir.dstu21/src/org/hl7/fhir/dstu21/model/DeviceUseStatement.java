@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -141,44 +141,44 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #bodySite} (Indicates the site on the subject's body where the device was used ( i.e. the target site).)
      */
-    public Type getBodySite() { 
+    public Type getBodySite() {
       return this.bodySite;
     }
 
     /**
      * @return {@link #bodySite} (Indicates the site on the subject's body where the device was used ( i.e. the target site).)
      */
-    public CodeableConcept getBodySiteCodeableConcept() throws FHIRException { 
+    public CodeableConcept getBodySiteCodeableConcept() throws FHIRException {
       if (!(this.bodySite instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.bodySite.getClass().getName()+" was encountered");
       return (CodeableConcept) this.bodySite;
     }
 
-    public boolean hasBodySiteCodeableConcept() { 
+    public boolean hasBodySiteCodeableConcept() {
       return this.bodySite instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #bodySite} (Indicates the site on the subject's body where the device was used ( i.e. the target site).)
      */
-    public Reference getBodySiteReference() throws FHIRException { 
+    public Reference getBodySiteReference() throws FHIRException {
       if (!(this.bodySite instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.bodySite.getClass().getName()+" was encountered");
       return (Reference) this.bodySite;
     }
 
-    public boolean hasBodySiteReference() { 
+    public boolean hasBodySiteReference() {
       return this.bodySite instanceof Reference;
     }
 
-    public boolean hasBodySite() { 
+    public boolean hasBodySite() {
       return this.bodySite != null && !this.bodySite.isEmpty();
     }
 
     /**
      * @param value {@link #bodySite} (Indicates the site on the subject's body where the device was used ( i.e. the target site).)
      */
-    public DeviceUseStatement setBodySite(Type value) { 
+    public DeviceUseStatement setBodySite(Type value) {
       this.bodySite = value;
       return this;
     }
@@ -186,7 +186,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #whenUsed} (The time period over which the device was used.)
      */
-    public Period getWhenUsed() { 
+    public Period getWhenUsed() {
       if (this.whenUsed == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.whenUsed");
@@ -195,14 +195,14 @@ public class DeviceUseStatement extends DomainResource {
       return this.whenUsed;
     }
 
-    public boolean hasWhenUsed() { 
+    public boolean hasWhenUsed() {
       return this.whenUsed != null && !this.whenUsed.isEmpty();
     }
 
     /**
      * @param value {@link #whenUsed} (The time period over which the device was used.)
      */
-    public DeviceUseStatement setWhenUsed(Period value) { 
+    public DeviceUseStatement setWhenUsed(Period value) {
       this.whenUsed = value;
       return this;
     }
@@ -210,7 +210,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #device} (The details of the device used.)
      */
-    public Reference getDevice() { 
+    public Reference getDevice() {
       if (this.device == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.device");
@@ -219,14 +219,14 @@ public class DeviceUseStatement extends DomainResource {
       return this.device;
     }
 
-    public boolean hasDevice() { 
+    public boolean hasDevice() {
       return this.device != null && !this.device.isEmpty();
     }
 
     /**
      * @param value {@link #device} (The details of the device used.)
      */
-    public DeviceUseStatement setDevice(Reference value) { 
+    public DeviceUseStatement setDevice(Reference value) {
       this.device = value;
       return this;
     }
@@ -234,7 +234,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #device} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The details of the device used.)
      */
-    public Device getDeviceTarget() { 
+    public Device getDeviceTarget() {
       if (this.deviceTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.device");
@@ -246,7 +246,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @param value {@link #device} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The details of the device used.)
      */
-    public DeviceUseStatement setDeviceTarget(Device value) { 
+    public DeviceUseStatement setDeviceTarget(Device value) {
       this.deviceTarget = value;
       return this;
     }
@@ -254,13 +254,13 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #identifier} (An external identifier for this statement such as an IRI.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -294,13 +294,13 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #indication} (Reason or justification for the use of the device.)
      */
-    public List<CodeableConcept> getIndication() { 
+    public List<CodeableConcept> getIndication() {
       if (this.indication == null)
         this.indication = new ArrayList<CodeableConcept>();
       return this.indication;
     }
 
-    public boolean hasIndication() { 
+    public boolean hasIndication() {
       if (this.indication == null)
         return false;
       for (CodeableConcept item : this.indication)
@@ -334,13 +334,13 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #notes} (Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.)
      */
-    public List<StringType> getNotes() { 
+    public List<StringType> getNotes() {
       if (this.notes == null)
         this.notes = new ArrayList<StringType>();
       return this.notes;
     }
 
-    public boolean hasNotes() { 
+    public boolean hasNotes() {
       if (this.notes == null)
         return false;
       for (StringType item : this.notes)
@@ -353,7 +353,7 @@ public class DeviceUseStatement extends DomainResource {
      * @return {@link #notes} (Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.)
      */
     // syntactic sugar
-    public StringType addNotesElement() {//2 
+    public StringType addNotesElement() {//2
       StringType t = new StringType();
       if (this.notes == null)
         this.notes = new ArrayList<StringType>();
@@ -376,7 +376,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @param value {@link #notes} (Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.)
      */
-    public boolean hasNotes(String value) { 
+    public boolean hasNotes(String value) {
       if (this.notes == null)
         return false;
       for (StringType v : this.notes)
@@ -388,7 +388,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #recordedOn} (The time at which the statement was made/recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedOn" gives direct access to the value
      */
-    public DateTimeType getRecordedOnElement() { 
+    public DateTimeType getRecordedOnElement() {
       if (this.recordedOn == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.recordedOn");
@@ -397,18 +397,18 @@ public class DeviceUseStatement extends DomainResource {
       return this.recordedOn;
     }
 
-    public boolean hasRecordedOnElement() { 
+    public boolean hasRecordedOnElement() {
       return this.recordedOn != null && !this.recordedOn.isEmpty();
     }
 
-    public boolean hasRecordedOn() { 
+    public boolean hasRecordedOn() {
       return this.recordedOn != null && !this.recordedOn.isEmpty();
     }
 
     /**
      * @param value {@link #recordedOn} (The time at which the statement was made/recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedOn" gives direct access to the value
      */
-    public DeviceUseStatement setRecordedOnElement(DateTimeType value) { 
+    public DeviceUseStatement setRecordedOnElement(DateTimeType value) {
       this.recordedOn = value;
       return this;
     }
@@ -416,14 +416,14 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return The time at which the statement was made/recorded.
      */
-    public Date getRecordedOn() { 
+    public Date getRecordedOn() {
       return this.recordedOn == null ? null : this.recordedOn.getValue();
     }
 
     /**
      * @param value The time at which the statement was made/recorded.
      */
-    public DeviceUseStatement setRecordedOn(Date value) { 
+    public DeviceUseStatement setRecordedOn(Date value) {
       if (value == null)
         this.recordedOn = null;
       else {
@@ -437,7 +437,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #subject} (The patient who used the device.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.subject");
@@ -446,14 +446,14 @@ public class DeviceUseStatement extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The patient who used the device.)
      */
-    public DeviceUseStatement setSubject(Reference value) { 
+    public DeviceUseStatement setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -461,7 +461,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who used the device.)
      */
-    public Patient getSubjectTarget() { 
+    public Patient getSubjectTarget() {
       if (this.subjectTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.subject");
@@ -473,7 +473,7 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who used the device.)
      */
-    public DeviceUseStatement setSubjectTarget(Patient value) { 
+    public DeviceUseStatement setSubjectTarget(Patient value) {
       this.subjectTarget = value;
       return this;
     }
@@ -481,57 +481,57 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return {@link #timing} (How often the device was used.)
      */
-    public Type getTiming() { 
+    public Type getTiming() {
       return this.timing;
     }
 
     /**
      * @return {@link #timing} (How often the device was used.)
      */
-    public Timing getTimingTiming() throws FHIRException { 
+    public Timing getTimingTiming() throws FHIRException {
       if (!(this.timing instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (Timing) this.timing;
     }
 
-    public boolean hasTimingTiming() { 
+    public boolean hasTimingTiming() {
       return this.timing instanceof Timing;
     }
 
     /**
      * @return {@link #timing} (How often the device was used.)
      */
-    public Period getTimingPeriod() throws FHIRException { 
+    public Period getTimingPeriod() throws FHIRException {
       if (!(this.timing instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (Period) this.timing;
     }
 
-    public boolean hasTimingPeriod() { 
+    public boolean hasTimingPeriod() {
       return this.timing instanceof Period;
     }
 
     /**
      * @return {@link #timing} (How often the device was used.)
      */
-    public DateTimeType getTimingDateTimeType() throws FHIRException { 
+    public DateTimeType getTimingDateTimeType() throws FHIRException {
       if (!(this.timing instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (DateTimeType) this.timing;
     }
 
-    public boolean hasTimingDateTimeType() { 
+    public boolean hasTimingDateTimeType() {
       return this.timing instanceof DateTimeType;
     }
 
-    public boolean hasTiming() { 
+    public boolean hasTiming() {
       return this.timing != null && !this.timing.isEmpty();
     }
 
     /**
      * @param value {@link #timing} (How often the device was used.)
      */
-    public DeviceUseStatement setTiming(Type value) { 
+    public DeviceUseStatement setTiming(Type value) {
       this.timing = value;
       return this;
     }

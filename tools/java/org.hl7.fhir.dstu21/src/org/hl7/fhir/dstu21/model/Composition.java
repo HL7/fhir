@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class Composition extends DomainResource {
         /**
          * This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.
          */
-        PRELIMINARY, 
+        PRELIMINARY,
         /**
          * This version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition.
          */
-        FINAL, 
+        FINAL,
         /**
          * The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as "final" and the composition is complete and verified by an authorized person.
          */
-        AMENDED, 
+        AMENDED,
         /**
          * The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.
          */
-        ENTEREDINERROR, 
+        ENTEREDINERROR,
         /**
          * added to help the parsers
          */
@@ -167,19 +167,19 @@ public class Composition extends DomainResource {
         /**
          * The person authenticated the content in their personal capacity.
          */
-        PERSONAL, 
+        PERSONAL,
         /**
          * The person authenticated the content in their professional capacity.
          */
-        PROFESSIONAL, 
+        PROFESSIONAL,
         /**
          * The person authenticated the content and accepted legal responsibility for its content.
          */
-        LEGAL, 
+        LEGAL,
         /**
          * The organization authenticated the content as consistent with their policies and procedures.
          */
-        OFFICIAL, 
+        OFFICIAL,
         /**
          * added to help the parsers
          */
@@ -319,13 +319,13 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #mode} (The type of attestation the authenticator offers.)
          */
-        public List<Enumeration<CompositionAttestationMode>> getMode() { 
+        public List<Enumeration<CompositionAttestationMode>> getMode() {
           if (this.mode == null)
             this.mode = new ArrayList<Enumeration<CompositionAttestationMode>>();
           return this.mode;
         }
 
-        public boolean hasMode() { 
+        public boolean hasMode() {
           if (this.mode == null)
             return false;
           for (Enumeration<CompositionAttestationMode> item : this.mode)
@@ -338,7 +338,7 @@ public class Composition extends DomainResource {
          * @return {@link #mode} (The type of attestation the authenticator offers.)
          */
     // syntactic sugar
-        public Enumeration<CompositionAttestationMode> addModeElement() {//2 
+        public Enumeration<CompositionAttestationMode> addModeElement() {//2
           Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>(new CompositionAttestationModeEnumFactory());
           if (this.mode == null)
             this.mode = new ArrayList<Enumeration<CompositionAttestationMode>>();
@@ -361,7 +361,7 @@ public class Composition extends DomainResource {
         /**
          * @param value {@link #mode} (The type of attestation the authenticator offers.)
          */
-        public boolean hasMode(CompositionAttestationMode value) { 
+        public boolean hasMode(CompositionAttestationMode value) {
           if (this.mode == null)
             return false;
           for (Enumeration<CompositionAttestationMode> v : this.mode)
@@ -373,7 +373,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #time} (When composition was attested by the party.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
          */
-        public DateTimeType getTimeElement() { 
+        public DateTimeType getTimeElement() {
           if (this.time == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CompositionAttesterComponent.time");
@@ -382,18 +382,18 @@ public class Composition extends DomainResource {
           return this.time;
         }
 
-        public boolean hasTimeElement() { 
+        public boolean hasTimeElement() {
           return this.time != null && !this.time.isEmpty();
         }
 
-        public boolean hasTime() { 
+        public boolean hasTime() {
           return this.time != null && !this.time.isEmpty();
         }
 
         /**
          * @param value {@link #time} (When composition was attested by the party.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
          */
-        public CompositionAttesterComponent setTimeElement(DateTimeType value) { 
+        public CompositionAttesterComponent setTimeElement(DateTimeType value) {
           this.time = value;
           return this;
         }
@@ -401,14 +401,14 @@ public class Composition extends DomainResource {
         /**
          * @return When composition was attested by the party.
          */
-        public Date getTime() { 
+        public Date getTime() {
           return this.time == null ? null : this.time.getValue();
         }
 
         /**
          * @param value When composition was attested by the party.
          */
-        public CompositionAttesterComponent setTime(Date value) { 
+        public CompositionAttesterComponent setTime(Date value) {
           if (value == null)
             this.time = null;
           else {
@@ -422,7 +422,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #party} (Who attested the composition in the specified way.)
          */
-        public Reference getParty() { 
+        public Reference getParty() {
           if (this.party == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CompositionAttesterComponent.party");
@@ -431,14 +431,14 @@ public class Composition extends DomainResource {
           return this.party;
         }
 
-        public boolean hasParty() { 
+        public boolean hasParty() {
           return this.party != null && !this.party.isEmpty();
         }
 
         /**
          * @param value {@link #party} (Who attested the composition in the specified way.)
          */
-        public CompositionAttesterComponent setParty(Reference value) { 
+        public CompositionAttesterComponent setParty(Reference value) {
           this.party = value;
           return this;
         }
@@ -446,14 +446,14 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #party} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who attested the composition in the specified way.)
          */
-        public Resource getPartyTarget() { 
+        public Resource getPartyTarget() {
           return this.partyTarget;
         }
 
         /**
          * @param value {@link #party} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who attested the composition in the specified way.)
          */
-        public CompositionAttesterComponent setPartyTarget(Resource value) { 
+        public CompositionAttesterComponent setPartyTarget(Resource value) {
           this.partyTarget = value;
           return this;
         }
@@ -579,13 +579,13 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #code} (This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.)
          */
-        public List<CodeableConcept> getCode() { 
+        public List<CodeableConcept> getCode() {
           if (this.code == null)
             this.code = new ArrayList<CodeableConcept>();
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           if (this.code == null)
             return false;
           for (CodeableConcept item : this.code)
@@ -619,7 +619,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #period} (The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time.)
          */
-        public Period getPeriod() { 
+        public Period getPeriod() {
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CompositionEventComponent.period");
@@ -628,14 +628,14 @@ public class Composition extends DomainResource {
           return this.period;
         }
 
-        public boolean hasPeriod() { 
+        public boolean hasPeriod() {
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time.)
          */
-        public CompositionEventComponent setPeriod(Period value) { 
+        public CompositionEventComponent setPeriod(Period value) {
           this.period = value;
           return this;
         }
@@ -643,13 +643,13 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #detail} (The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy.)
          */
-        public List<Reference> getDetail() { 
+        public List<Reference> getDetail() {
           if (this.detail == null)
             this.detail = new ArrayList<Reference>();
           return this.detail;
         }
 
-        public boolean hasDetail() { 
+        public boolean hasDetail() {
           if (this.detail == null)
             return false;
           for (Reference item : this.detail)
@@ -683,7 +683,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy.)
          */
-        public List<Resource> getDetailTarget() { 
+        public List<Resource> getDetailTarget() {
           if (this.detailTarget == null)
             this.detailTarget = new ArrayList<Resource>();
           return this.detailTarget;
@@ -849,7 +849,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #title} (The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitleElement() { 
+        public StringType getTitleElement() {
           if (this.title == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SectionComponent.title");
@@ -858,18 +858,18 @@ public class Composition extends DomainResource {
           return this.title;
         }
 
-        public boolean hasTitleElement() { 
+        public boolean hasTitleElement() {
           return this.title != null && !this.title.isEmpty();
         }
 
-        public boolean hasTitle() { 
+        public boolean hasTitle() {
           return this.title != null && !this.title.isEmpty();
         }
 
         /**
          * @param value {@link #title} (The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public SectionComponent setTitleElement(StringType value) { 
+        public SectionComponent setTitleElement(StringType value) {
           this.title = value;
           return this;
         }
@@ -877,14 +877,14 @@ public class Composition extends DomainResource {
         /**
          * @return The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.
          */
-        public String getTitle() { 
+        public String getTitle() {
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
          * @param value The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.
          */
-        public SectionComponent setTitle(String value) { 
+        public SectionComponent setTitle(String value) {
           if (Utilities.noString(value))
             this.title = null;
           else {
@@ -898,7 +898,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #code} (A code identifying the kind of content contained within the section. This must be consistent with the section title.)
          */
-        public CodeableConcept getCode() { 
+        public CodeableConcept getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SectionComponent.code");
@@ -907,14 +907,14 @@ public class Composition extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (A code identifying the kind of content contained within the section. This must be consistent with the section title.)
          */
-        public SectionComponent setCode(CodeableConcept value) { 
+        public SectionComponent setCode(CodeableConcept value) {
           this.code = value;
           return this;
         }
@@ -922,7 +922,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #text} (A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
          */
-        public Narrative getText() { 
+        public Narrative getText() {
           if (this.text == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SectionComponent.text");
@@ -931,14 +931,14 @@ public class Composition extends DomainResource {
           return this.text;
         }
 
-        public boolean hasText() { 
+        public boolean hasText() {
           return this.text != null && !this.text.isEmpty();
         }
 
         /**
          * @param value {@link #text} (A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative.)
          */
-        public SectionComponent setText(Narrative value) { 
+        public SectionComponent setText(Narrative value) {
           this.text = value;
           return this;
         }
@@ -946,7 +946,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #mode} (How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public CodeType getModeElement() { 
+        public CodeType getModeElement() {
           if (this.mode == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SectionComponent.mode");
@@ -955,18 +955,18 @@ public class Composition extends DomainResource {
           return this.mode;
         }
 
-        public boolean hasModeElement() { 
+        public boolean hasModeElement() {
           return this.mode != null && !this.mode.isEmpty();
         }
 
-        public boolean hasMode() { 
+        public boolean hasMode() {
           return this.mode != null && !this.mode.isEmpty();
         }
 
         /**
          * @param value {@link #mode} (How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
-        public SectionComponent setModeElement(CodeType value) { 
+        public SectionComponent setModeElement(CodeType value) {
           this.mode = value;
           return this;
         }
@@ -974,14 +974,14 @@ public class Composition extends DomainResource {
         /**
          * @return How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
          */
-        public String getMode() { 
+        public String getMode() {
           return this.mode == null ? null : this.mode.getValue();
         }
 
         /**
          * @param value How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
          */
-        public SectionComponent setMode(String value) { 
+        public SectionComponent setMode(String value) {
           if (Utilities.noString(value))
             this.mode = null;
           else {
@@ -995,7 +995,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #orderedBy} (Specifies the order applied to the items in the section entries.)
          */
-        public CodeableConcept getOrderedBy() { 
+        public CodeableConcept getOrderedBy() {
           if (this.orderedBy == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SectionComponent.orderedBy");
@@ -1004,14 +1004,14 @@ public class Composition extends DomainResource {
           return this.orderedBy;
         }
 
-        public boolean hasOrderedBy() { 
+        public boolean hasOrderedBy() {
           return this.orderedBy != null && !this.orderedBy.isEmpty();
         }
 
         /**
          * @param value {@link #orderedBy} (Specifies the order applied to the items in the section entries.)
          */
-        public SectionComponent setOrderedBy(CodeableConcept value) { 
+        public SectionComponent setOrderedBy(CodeableConcept value) {
           this.orderedBy = value;
           return this;
         }
@@ -1019,13 +1019,13 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #entry} (A reference to the actual resource from which the narrative in the section is derived.)
          */
-        public List<Reference> getEntry() { 
+        public List<Reference> getEntry() {
           if (this.entry == null)
             this.entry = new ArrayList<Reference>();
           return this.entry;
         }
 
-        public boolean hasEntry() { 
+        public boolean hasEntry() {
           if (this.entry == null)
             return false;
           for (Reference item : this.entry)
@@ -1059,7 +1059,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #entry} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A reference to the actual resource from which the narrative in the section is derived.)
          */
-        public List<Resource> getEntryTarget() { 
+        public List<Resource> getEntryTarget() {
           if (this.entryTarget == null)
             this.entryTarget = new ArrayList<Resource>();
           return this.entryTarget;
@@ -1068,7 +1068,7 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #emptyReason} (If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason.)
          */
-        public CodeableConcept getEmptyReason() { 
+        public CodeableConcept getEmptyReason() {
           if (this.emptyReason == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SectionComponent.emptyReason");
@@ -1077,14 +1077,14 @@ public class Composition extends DomainResource {
           return this.emptyReason;
         }
 
-        public boolean hasEmptyReason() { 
+        public boolean hasEmptyReason() {
           return this.emptyReason != null && !this.emptyReason.isEmpty();
         }
 
         /**
          * @param value {@link #emptyReason} (If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason.)
          */
-        public SectionComponent setEmptyReason(CodeableConcept value) { 
+        public SectionComponent setEmptyReason(CodeableConcept value) {
           this.emptyReason = value;
           return this;
         }
@@ -1092,13 +1092,13 @@ public class Composition extends DomainResource {
         /**
          * @return {@link #section} (A nested sub-section within this section.)
          */
-        public List<SectionComponent> getSection() { 
+        public List<SectionComponent> getSection() {
           if (this.section == null)
             this.section = new ArrayList<SectionComponent>();
           return this.section;
         }
 
-        public boolean hasSection() { 
+        public boolean hasSection() {
           if (this.section == null)
             return false;
           for (SectionComponent item : this.section)
@@ -1397,7 +1397,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #identifier} (Logical identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time.)
      */
-    public Identifier getIdentifier() { 
+    public Identifier getIdentifier() {
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.identifier");
@@ -1406,14 +1406,14 @@ public class Composition extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Logical identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time.)
      */
-    public Composition setIdentifier(Identifier value) { 
+    public Composition setIdentifier(Identifier value) {
       this.identifier = value;
       return this;
     }
@@ -1421,7 +1421,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() { 
+    public DateTimeType getDateElement() {
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.date");
@@ -1430,18 +1430,18 @@ public class Composition extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() { 
+    public boolean hasDateElement() {
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() { 
+    public boolean hasDate() {
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Composition setDateElement(DateTimeType value) { 
+    public Composition setDateElement(DateTimeType value) {
       this.date = value;
       return this;
     }
@@ -1449,14 +1449,14 @@ public class Composition extends DomainResource {
     /**
      * @return The composition editing time, when the composition was last logically changed by the author.
      */
-    public Date getDate() { 
+    public Date getDate() {
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The composition editing time, when the composition was last logically changed by the author.
      */
-    public Composition setDate(Date value) { 
+    public Composition setDate(Date value) {
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
@@ -1466,7 +1466,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #type} (Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition.)
      */
-    public CodeableConcept getType() { 
+    public CodeableConcept getType() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.type");
@@ -1475,14 +1475,14 @@ public class Composition extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition.)
      */
-    public Composition setType(CodeableConcept value) { 
+    public Composition setType(CodeableConcept value) {
       this.type = value;
       return this;
     }
@@ -1490,7 +1490,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #class_} (A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type.)
      */
-    public CodeableConcept getClass_() { 
+    public CodeableConcept getClass_() {
       if (this.class_ == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.class_");
@@ -1499,14 +1499,14 @@ public class Composition extends DomainResource {
       return this.class_;
     }
 
-    public boolean hasClass_() { 
+    public boolean hasClass_() {
       return this.class_ != null && !this.class_.isEmpty();
     }
 
     /**
      * @param value {@link #class_} (A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type.)
      */
-    public Composition setClass_(CodeableConcept value) { 
+    public Composition setClass_(CodeableConcept value) {
       this.class_ = value;
       return this;
     }
@@ -1514,7 +1514,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitleElement() { 
+    public StringType getTitleElement() {
       if (this.title == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.title");
@@ -1523,18 +1523,18 @@ public class Composition extends DomainResource {
       return this.title;
     }
 
-    public boolean hasTitleElement() { 
+    public boolean hasTitleElement() {
       return this.title != null && !this.title.isEmpty();
     }
 
-    public boolean hasTitle() { 
+    public boolean hasTitle() {
       return this.title != null && !this.title.isEmpty();
     }
 
     /**
      * @param value {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public Composition setTitleElement(StringType value) { 
+    public Composition setTitleElement(StringType value) {
       this.title = value;
       return this;
     }
@@ -1542,14 +1542,14 @@ public class Composition extends DomainResource {
     /**
      * @return Official human-readable label for the composition.
      */
-    public String getTitle() { 
+    public String getTitle() {
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
      * @param value Official human-readable label for the composition.
      */
-    public Composition setTitle(String value) { 
+    public Composition setTitle(String value) {
         if (this.title == null)
           this.title = new StringType();
         this.title.setValue(value);
@@ -1559,7 +1559,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<CompositionStatus> getStatusElement() { 
+    public Enumeration<CompositionStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.status");
@@ -1568,18 +1568,18 @@ public class Composition extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Composition setStatusElement(Enumeration<CompositionStatus> value) { 
+    public Composition setStatusElement(Enumeration<CompositionStatus> value) {
       this.status = value;
       return this;
     }
@@ -1587,14 +1587,14 @@ public class Composition extends DomainResource {
     /**
      * @return The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
      */
-    public CompositionStatus getStatus() { 
+    public CompositionStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
      */
-    public Composition setStatus(CompositionStatus value) { 
+    public Composition setStatus(CompositionStatus value) {
         if (this.status == null)
           this.status = new Enumeration<CompositionStatus>(new CompositionStatusEnumFactory());
         this.status.setValue(value);
@@ -1604,7 +1604,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #confidentiality} (The code specifying the level of confidentiality of the Composition.). This is the underlying object with id, value and extensions. The accessor "getConfidentiality" gives direct access to the value
      */
-    public CodeType getConfidentialityElement() { 
+    public CodeType getConfidentialityElement() {
       if (this.confidentiality == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.confidentiality");
@@ -1613,18 +1613,18 @@ public class Composition extends DomainResource {
       return this.confidentiality;
     }
 
-    public boolean hasConfidentialityElement() { 
+    public boolean hasConfidentialityElement() {
       return this.confidentiality != null && !this.confidentiality.isEmpty();
     }
 
-    public boolean hasConfidentiality() { 
+    public boolean hasConfidentiality() {
       return this.confidentiality != null && !this.confidentiality.isEmpty();
     }
 
     /**
      * @param value {@link #confidentiality} (The code specifying the level of confidentiality of the Composition.). This is the underlying object with id, value and extensions. The accessor "getConfidentiality" gives direct access to the value
      */
-    public Composition setConfidentialityElement(CodeType value) { 
+    public Composition setConfidentialityElement(CodeType value) {
       this.confidentiality = value;
       return this;
     }
@@ -1632,14 +1632,14 @@ public class Composition extends DomainResource {
     /**
      * @return The code specifying the level of confidentiality of the Composition.
      */
-    public String getConfidentiality() { 
+    public String getConfidentiality() {
       return this.confidentiality == null ? null : this.confidentiality.getValue();
     }
 
     /**
      * @param value The code specifying the level of confidentiality of the Composition.
      */
-    public Composition setConfidentiality(String value) { 
+    public Composition setConfidentiality(String value) {
       if (Utilities.noString(value))
         this.confidentiality = null;
       else {
@@ -1653,7 +1653,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #subject} (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.subject");
@@ -1662,14 +1662,14 @@ public class Composition extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
-    public Composition setSubject(Reference value) { 
+    public Composition setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -1677,14 +1677,14 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
-    public Resource getSubjectTarget() { 
+    public Resource getSubjectTarget() {
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
-    public Composition setSubjectTarget(Resource value) { 
+    public Composition setSubjectTarget(Resource value) {
       this.subjectTarget = value;
       return this;
     }
@@ -1692,13 +1692,13 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #author} (Identifies who is responsible for the information in the composition, not necessarily who typed it in.)
      */
-    public List<Reference> getAuthor() { 
+    public List<Reference> getAuthor() {
       if (this.author == null)
         this.author = new ArrayList<Reference>();
       return this.author;
     }
 
-    public boolean hasAuthor() { 
+    public boolean hasAuthor() {
       if (this.author == null)
         return false;
       for (Reference item : this.author)
@@ -1732,7 +1732,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #author} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who is responsible for the information in the composition, not necessarily who typed it in.)
      */
-    public List<Resource> getAuthorTarget() { 
+    public List<Resource> getAuthorTarget() {
       if (this.authorTarget == null)
         this.authorTarget = new ArrayList<Resource>();
       return this.authorTarget;
@@ -1741,13 +1741,13 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #attester} (A participant who has attested to the accuracy of the composition/document.)
      */
-    public List<CompositionAttesterComponent> getAttester() { 
+    public List<CompositionAttesterComponent> getAttester() {
       if (this.attester == null)
         this.attester = new ArrayList<CompositionAttesterComponent>();
       return this.attester;
     }
 
-    public boolean hasAttester() { 
+    public boolean hasAttester() {
       if (this.attester == null)
         return false;
       for (CompositionAttesterComponent item : this.attester)
@@ -1781,7 +1781,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
      */
-    public Reference getCustodian() { 
+    public Reference getCustodian() {
       if (this.custodian == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.custodian");
@@ -1790,14 +1790,14 @@ public class Composition extends DomainResource {
       return this.custodian;
     }
 
-    public boolean hasCustodian() { 
+    public boolean hasCustodian() {
       return this.custodian != null && !this.custodian.isEmpty();
     }
 
     /**
      * @param value {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
      */
-    public Composition setCustodian(Reference value) { 
+    public Composition setCustodian(Reference value) {
       this.custodian = value;
       return this;
     }
@@ -1805,7 +1805,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #custodian} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
      */
-    public Organization getCustodianTarget() { 
+    public Organization getCustodianTarget() {
       if (this.custodianTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.custodian");
@@ -1817,7 +1817,7 @@ public class Composition extends DomainResource {
     /**
      * @param value {@link #custodian} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.)
      */
-    public Composition setCustodianTarget(Organization value) { 
+    public Composition setCustodianTarget(Organization value) {
       this.custodianTarget = value;
       return this;
     }
@@ -1825,13 +1825,13 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #event} (The clinical service, such as a colonoscopy or an appendectomy, being documented.)
      */
-    public List<CompositionEventComponent> getEvent() { 
+    public List<CompositionEventComponent> getEvent() {
       if (this.event == null)
         this.event = new ArrayList<CompositionEventComponent>();
       return this.event;
     }
 
-    public boolean hasEvent() { 
+    public boolean hasEvent() {
       if (this.event == null)
         return false;
       for (CompositionEventComponent item : this.event)
@@ -1865,7 +1865,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #encounter} (Describes the clinical encounter or type of care this documentation is associated with.)
      */
-    public Reference getEncounter() { 
+    public Reference getEncounter() {
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.encounter");
@@ -1874,14 +1874,14 @@ public class Composition extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() { 
+    public boolean hasEncounter() {
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (Describes the clinical encounter or type of care this documentation is associated with.)
      */
-    public Composition setEncounter(Reference value) { 
+    public Composition setEncounter(Reference value) {
       this.encounter = value;
       return this;
     }
@@ -1889,7 +1889,7 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the clinical encounter or type of care this documentation is associated with.)
      */
-    public Encounter getEncounterTarget() { 
+    public Encounter getEncounterTarget() {
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.encounter");
@@ -1901,7 +1901,7 @@ public class Composition extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the clinical encounter or type of care this documentation is associated with.)
      */
-    public Composition setEncounterTarget(Encounter value) { 
+    public Composition setEncounterTarget(Encounter value) {
       this.encounterTarget = value;
       return this;
     }
@@ -1909,13 +1909,13 @@ public class Composition extends DomainResource {
     /**
      * @return {@link #section} (The root of the sections that make up the composition.)
      */
-    public List<SectionComponent> getSection() { 
+    public List<SectionComponent> getSection() {
       if (this.section == null)
         this.section = new ArrayList<SectionComponent>();
       return this.section;
     }
 
-    public boolean hasSection() { 
+    public boolean hasSection() {
       if (this.section == null)
         return false;
       for (SectionComponent item : this.section)

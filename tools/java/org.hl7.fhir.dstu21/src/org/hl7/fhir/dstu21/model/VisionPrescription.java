@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,11 +52,11 @@ public class VisionPrescription extends DomainResource {
         /**
          * Right Eye
          */
-        RIGHT, 
+        RIGHT,
         /**
          * Left Eye
          */
-        LEFT, 
+        LEFT,
         /**
          * added to help the parsers
          */
@@ -136,19 +136,19 @@ public class VisionPrescription extends DomainResource {
         /**
          * top
          */
-        UP, 
+        UP,
         /**
          * bottom
          */
-        DOWN, 
+        DOWN,
         /**
          * inner edge
          */
-        IN, 
+        IN,
         /**
          * outer edge
          */
-        OUT, 
+        OUT,
         /**
          * added to help the parsers
          */
@@ -375,7 +375,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #product} (Identifies the type of vision correction product which is required for the patient.)
          */
-        public Coding getProduct() { 
+        public Coding getProduct() {
           if (this.product == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.product");
@@ -384,14 +384,14 @@ public class VisionPrescription extends DomainResource {
           return this.product;
         }
 
-        public boolean hasProduct() { 
+        public boolean hasProduct() {
           return this.product != null && !this.product.isEmpty();
         }
 
         /**
          * @param value {@link #product} (Identifies the type of vision correction product which is required for the patient.)
          */
-        public VisionPrescriptionDispenseComponent setProduct(Coding value) { 
+        public VisionPrescriptionDispenseComponent setProduct(Coding value) {
           this.product = value;
           return this;
         }
@@ -399,7 +399,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #eye} (The eye for which the lens applies.). This is the underlying object with id, value and extensions. The accessor "getEye" gives direct access to the value
          */
-        public Enumeration<VisionEyes> getEyeElement() { 
+        public Enumeration<VisionEyes> getEyeElement() {
           if (this.eye == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.eye");
@@ -408,18 +408,18 @@ public class VisionPrescription extends DomainResource {
           return this.eye;
         }
 
-        public boolean hasEyeElement() { 
+        public boolean hasEyeElement() {
           return this.eye != null && !this.eye.isEmpty();
         }
 
-        public boolean hasEye() { 
+        public boolean hasEye() {
           return this.eye != null && !this.eye.isEmpty();
         }
 
         /**
          * @param value {@link #eye} (The eye for which the lens applies.). This is the underlying object with id, value and extensions. The accessor "getEye" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setEyeElement(Enumeration<VisionEyes> value) { 
+        public VisionPrescriptionDispenseComponent setEyeElement(Enumeration<VisionEyes> value) {
           this.eye = value;
           return this;
         }
@@ -427,14 +427,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return The eye for which the lens applies.
          */
-        public VisionEyes getEye() { 
+        public VisionEyes getEye() {
           return this.eye == null ? null : this.eye.getValue();
         }
 
         /**
          * @param value The eye for which the lens applies.
          */
-        public VisionPrescriptionDispenseComponent setEye(VisionEyes value) { 
+        public VisionPrescriptionDispenseComponent setEye(VisionEyes value) {
           if (value == null)
             this.eye = null;
           else {
@@ -448,7 +448,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #sphere} (Lens power measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getSphere" gives direct access to the value
          */
-        public DecimalType getSphereElement() { 
+        public DecimalType getSphereElement() {
           if (this.sphere == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.sphere");
@@ -457,18 +457,18 @@ public class VisionPrescription extends DomainResource {
           return this.sphere;
         }
 
-        public boolean hasSphereElement() { 
+        public boolean hasSphereElement() {
           return this.sphere != null && !this.sphere.isEmpty();
         }
 
-        public boolean hasSphere() { 
+        public boolean hasSphere() {
           return this.sphere != null && !this.sphere.isEmpty();
         }
 
         /**
          * @param value {@link #sphere} (Lens power measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getSphere" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setSphereElement(DecimalType value) { 
+        public VisionPrescriptionDispenseComponent setSphereElement(DecimalType value) {
           this.sphere = value;
           return this;
         }
@@ -476,14 +476,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Lens power measured in diopters (0.25 units).
          */
-        public BigDecimal getSphere() { 
+        public BigDecimal getSphere() {
           return this.sphere == null ? null : this.sphere.getValue();
         }
 
         /**
          * @param value Lens power measured in diopters (0.25 units).
          */
-        public VisionPrescriptionDispenseComponent setSphere(BigDecimal value) { 
+        public VisionPrescriptionDispenseComponent setSphere(BigDecimal value) {
           if (value == null)
             this.sphere = null;
           else {
@@ -497,7 +497,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #cylinder} (Power adjustment for astigmatism measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getCylinder" gives direct access to the value
          */
-        public DecimalType getCylinderElement() { 
+        public DecimalType getCylinderElement() {
           if (this.cylinder == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.cylinder");
@@ -506,18 +506,18 @@ public class VisionPrescription extends DomainResource {
           return this.cylinder;
         }
 
-        public boolean hasCylinderElement() { 
+        public boolean hasCylinderElement() {
           return this.cylinder != null && !this.cylinder.isEmpty();
         }
 
-        public boolean hasCylinder() { 
+        public boolean hasCylinder() {
           return this.cylinder != null && !this.cylinder.isEmpty();
         }
 
         /**
          * @param value {@link #cylinder} (Power adjustment for astigmatism measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getCylinder" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setCylinderElement(DecimalType value) { 
+        public VisionPrescriptionDispenseComponent setCylinderElement(DecimalType value) {
           this.cylinder = value;
           return this;
         }
@@ -525,14 +525,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Power adjustment for astigmatism measured in diopters (0.25 units).
          */
-        public BigDecimal getCylinder() { 
+        public BigDecimal getCylinder() {
           return this.cylinder == null ? null : this.cylinder.getValue();
         }
 
         /**
          * @param value Power adjustment for astigmatism measured in diopters (0.25 units).
          */
-        public VisionPrescriptionDispenseComponent setCylinder(BigDecimal value) { 
+        public VisionPrescriptionDispenseComponent setCylinder(BigDecimal value) {
           if (value == null)
             this.cylinder = null;
           else {
@@ -546,7 +546,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #axis} (Adjustment for astigmatism measured in integer degrees.). This is the underlying object with id, value and extensions. The accessor "getAxis" gives direct access to the value
          */
-        public IntegerType getAxisElement() { 
+        public IntegerType getAxisElement() {
           if (this.axis == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.axis");
@@ -555,18 +555,18 @@ public class VisionPrescription extends DomainResource {
           return this.axis;
         }
 
-        public boolean hasAxisElement() { 
+        public boolean hasAxisElement() {
           return this.axis != null && !this.axis.isEmpty();
         }
 
-        public boolean hasAxis() { 
+        public boolean hasAxis() {
           return this.axis != null && !this.axis.isEmpty();
         }
 
         /**
          * @param value {@link #axis} (Adjustment for astigmatism measured in integer degrees.). This is the underlying object with id, value and extensions. The accessor "getAxis" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setAxisElement(IntegerType value) { 
+        public VisionPrescriptionDispenseComponent setAxisElement(IntegerType value) {
           this.axis = value;
           return this;
         }
@@ -574,14 +574,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Adjustment for astigmatism measured in integer degrees.
          */
-        public int getAxis() { 
+        public int getAxis() {
           return this.axis == null || this.axis.isEmpty() ? 0 : this.axis.getValue();
         }
 
         /**
          * @param value Adjustment for astigmatism measured in integer degrees.
          */
-        public VisionPrescriptionDispenseComponent setAxis(int value) { 
+        public VisionPrescriptionDispenseComponent setAxis(int value) {
             if (this.axis == null)
               this.axis = new IntegerType();
             this.axis.setValue(value);
@@ -591,7 +591,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #prism} (Amount of prism to compensate for eye alignment in fractional units.). This is the underlying object with id, value and extensions. The accessor "getPrism" gives direct access to the value
          */
-        public DecimalType getPrismElement() { 
+        public DecimalType getPrismElement() {
           if (this.prism == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.prism");
@@ -600,18 +600,18 @@ public class VisionPrescription extends DomainResource {
           return this.prism;
         }
 
-        public boolean hasPrismElement() { 
+        public boolean hasPrismElement() {
           return this.prism != null && !this.prism.isEmpty();
         }
 
-        public boolean hasPrism() { 
+        public boolean hasPrism() {
           return this.prism != null && !this.prism.isEmpty();
         }
 
         /**
          * @param value {@link #prism} (Amount of prism to compensate for eye alignment in fractional units.). This is the underlying object with id, value and extensions. The accessor "getPrism" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setPrismElement(DecimalType value) { 
+        public VisionPrescriptionDispenseComponent setPrismElement(DecimalType value) {
           this.prism = value;
           return this;
         }
@@ -619,14 +619,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Amount of prism to compensate for eye alignment in fractional units.
          */
-        public BigDecimal getPrism() { 
+        public BigDecimal getPrism() {
           return this.prism == null ? null : this.prism.getValue();
         }
 
         /**
          * @param value Amount of prism to compensate for eye alignment in fractional units.
          */
-        public VisionPrescriptionDispenseComponent setPrism(BigDecimal value) { 
+        public VisionPrescriptionDispenseComponent setPrism(BigDecimal value) {
           if (value == null)
             this.prism = null;
           else {
@@ -640,7 +640,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #base} (The relative base, or reference lens edge, for the prism.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
          */
-        public Enumeration<VisionBase> getBaseElement() { 
+        public Enumeration<VisionBase> getBaseElement() {
           if (this.base == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.base");
@@ -649,18 +649,18 @@ public class VisionPrescription extends DomainResource {
           return this.base;
         }
 
-        public boolean hasBaseElement() { 
+        public boolean hasBaseElement() {
           return this.base != null && !this.base.isEmpty();
         }
 
-        public boolean hasBase() { 
+        public boolean hasBase() {
           return this.base != null && !this.base.isEmpty();
         }
 
         /**
          * @param value {@link #base} (The relative base, or reference lens edge, for the prism.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setBaseElement(Enumeration<VisionBase> value) { 
+        public VisionPrescriptionDispenseComponent setBaseElement(Enumeration<VisionBase> value) {
           this.base = value;
           return this;
         }
@@ -668,14 +668,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return The relative base, or reference lens edge, for the prism.
          */
-        public VisionBase getBase() { 
+        public VisionBase getBase() {
           return this.base == null ? null : this.base.getValue();
         }
 
         /**
          * @param value The relative base, or reference lens edge, for the prism.
          */
-        public VisionPrescriptionDispenseComponent setBase(VisionBase value) { 
+        public VisionPrescriptionDispenseComponent setBase(VisionBase value) {
           if (value == null)
             this.base = null;
           else {
@@ -689,7 +689,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #add} (Power adjustment for multifocal lenses measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getAdd" gives direct access to the value
          */
-        public DecimalType getAddElement() { 
+        public DecimalType getAddElement() {
           if (this.add == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.add");
@@ -698,18 +698,18 @@ public class VisionPrescription extends DomainResource {
           return this.add;
         }
 
-        public boolean hasAddElement() { 
+        public boolean hasAddElement() {
           return this.add != null && !this.add.isEmpty();
         }
 
-        public boolean hasAdd() { 
+        public boolean hasAdd() {
           return this.add != null && !this.add.isEmpty();
         }
 
         /**
          * @param value {@link #add} (Power adjustment for multifocal lenses measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getAdd" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setAddElement(DecimalType value) { 
+        public VisionPrescriptionDispenseComponent setAddElement(DecimalType value) {
           this.add = value;
           return this;
         }
@@ -717,14 +717,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Power adjustment for multifocal lenses measured in diopters (0.25 units).
          */
-        public BigDecimal getAdd() { 
+        public BigDecimal getAdd() {
           return this.add == null ? null : this.add.getValue();
         }
 
         /**
          * @param value Power adjustment for multifocal lenses measured in diopters (0.25 units).
          */
-        public VisionPrescriptionDispenseComponent setAdd(BigDecimal value) { 
+        public VisionPrescriptionDispenseComponent setAdd(BigDecimal value) {
           if (value == null)
             this.add = null;
           else {
@@ -738,7 +738,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #power} (Contact lens power measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getPower" gives direct access to the value
          */
-        public DecimalType getPowerElement() { 
+        public DecimalType getPowerElement() {
           if (this.power == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.power");
@@ -747,18 +747,18 @@ public class VisionPrescription extends DomainResource {
           return this.power;
         }
 
-        public boolean hasPowerElement() { 
+        public boolean hasPowerElement() {
           return this.power != null && !this.power.isEmpty();
         }
 
-        public boolean hasPower() { 
+        public boolean hasPower() {
           return this.power != null && !this.power.isEmpty();
         }
 
         /**
          * @param value {@link #power} (Contact lens power measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getPower" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setPowerElement(DecimalType value) { 
+        public VisionPrescriptionDispenseComponent setPowerElement(DecimalType value) {
           this.power = value;
           return this;
         }
@@ -766,14 +766,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Contact lens power measured in diopters (0.25 units).
          */
-        public BigDecimal getPower() { 
+        public BigDecimal getPower() {
           return this.power == null ? null : this.power.getValue();
         }
 
         /**
          * @param value Contact lens power measured in diopters (0.25 units).
          */
-        public VisionPrescriptionDispenseComponent setPower(BigDecimal value) { 
+        public VisionPrescriptionDispenseComponent setPower(BigDecimal value) {
           if (value == null)
             this.power = null;
           else {
@@ -787,7 +787,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #backCurve} (Back curvature measured in millimeters.). This is the underlying object with id, value and extensions. The accessor "getBackCurve" gives direct access to the value
          */
-        public DecimalType getBackCurveElement() { 
+        public DecimalType getBackCurveElement() {
           if (this.backCurve == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.backCurve");
@@ -796,18 +796,18 @@ public class VisionPrescription extends DomainResource {
           return this.backCurve;
         }
 
-        public boolean hasBackCurveElement() { 
+        public boolean hasBackCurveElement() {
           return this.backCurve != null && !this.backCurve.isEmpty();
         }
 
-        public boolean hasBackCurve() { 
+        public boolean hasBackCurve() {
           return this.backCurve != null && !this.backCurve.isEmpty();
         }
 
         /**
          * @param value {@link #backCurve} (Back curvature measured in millimeters.). This is the underlying object with id, value and extensions. The accessor "getBackCurve" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setBackCurveElement(DecimalType value) { 
+        public VisionPrescriptionDispenseComponent setBackCurveElement(DecimalType value) {
           this.backCurve = value;
           return this;
         }
@@ -815,14 +815,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Back curvature measured in millimeters.
          */
-        public BigDecimal getBackCurve() { 
+        public BigDecimal getBackCurve() {
           return this.backCurve == null ? null : this.backCurve.getValue();
         }
 
         /**
          * @param value Back curvature measured in millimeters.
          */
-        public VisionPrescriptionDispenseComponent setBackCurve(BigDecimal value) { 
+        public VisionPrescriptionDispenseComponent setBackCurve(BigDecimal value) {
           if (value == null)
             this.backCurve = null;
           else {
@@ -836,7 +836,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #diameter} (Contact lens diameter measured in millimeters.). This is the underlying object with id, value and extensions. The accessor "getDiameter" gives direct access to the value
          */
-        public DecimalType getDiameterElement() { 
+        public DecimalType getDiameterElement() {
           if (this.diameter == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.diameter");
@@ -845,18 +845,18 @@ public class VisionPrescription extends DomainResource {
           return this.diameter;
         }
 
-        public boolean hasDiameterElement() { 
+        public boolean hasDiameterElement() {
           return this.diameter != null && !this.diameter.isEmpty();
         }
 
-        public boolean hasDiameter() { 
+        public boolean hasDiameter() {
           return this.diameter != null && !this.diameter.isEmpty();
         }
 
         /**
          * @param value {@link #diameter} (Contact lens diameter measured in millimeters.). This is the underlying object with id, value and extensions. The accessor "getDiameter" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setDiameterElement(DecimalType value) { 
+        public VisionPrescriptionDispenseComponent setDiameterElement(DecimalType value) {
           this.diameter = value;
           return this;
         }
@@ -864,14 +864,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Contact lens diameter measured in millimeters.
          */
-        public BigDecimal getDiameter() { 
+        public BigDecimal getDiameter() {
           return this.diameter == null ? null : this.diameter.getValue();
         }
 
         /**
          * @param value Contact lens diameter measured in millimeters.
          */
-        public VisionPrescriptionDispenseComponent setDiameter(BigDecimal value) { 
+        public VisionPrescriptionDispenseComponent setDiameter(BigDecimal value) {
           if (value == null)
             this.diameter = null;
           else {
@@ -885,7 +885,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #duration} (The recommended maximum wear period for the lens.)
          */
-        public SimpleQuantity getDuration() { 
+        public SimpleQuantity getDuration() {
           if (this.duration == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.duration");
@@ -894,14 +894,14 @@ public class VisionPrescription extends DomainResource {
           return this.duration;
         }
 
-        public boolean hasDuration() { 
+        public boolean hasDuration() {
           return this.duration != null && !this.duration.isEmpty();
         }
 
         /**
          * @param value {@link #duration} (The recommended maximum wear period for the lens.)
          */
-        public VisionPrescriptionDispenseComponent setDuration(SimpleQuantity value) { 
+        public VisionPrescriptionDispenseComponent setDuration(SimpleQuantity value) {
           this.duration = value;
           return this;
         }
@@ -909,7 +909,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #color} (Special color or pattern.). This is the underlying object with id, value and extensions. The accessor "getColor" gives direct access to the value
          */
-        public StringType getColorElement() { 
+        public StringType getColorElement() {
           if (this.color == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.color");
@@ -918,18 +918,18 @@ public class VisionPrescription extends DomainResource {
           return this.color;
         }
 
-        public boolean hasColorElement() { 
+        public boolean hasColorElement() {
           return this.color != null && !this.color.isEmpty();
         }
 
-        public boolean hasColor() { 
+        public boolean hasColor() {
           return this.color != null && !this.color.isEmpty();
         }
 
         /**
          * @param value {@link #color} (Special color or pattern.). This is the underlying object with id, value and extensions. The accessor "getColor" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setColorElement(StringType value) { 
+        public VisionPrescriptionDispenseComponent setColorElement(StringType value) {
           this.color = value;
           return this;
         }
@@ -937,14 +937,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Special color or pattern.
          */
-        public String getColor() { 
+        public String getColor() {
           return this.color == null ? null : this.color.getValue();
         }
 
         /**
          * @param value Special color or pattern.
          */
-        public VisionPrescriptionDispenseComponent setColor(String value) { 
+        public VisionPrescriptionDispenseComponent setColor(String value) {
           if (Utilities.noString(value))
             this.color = null;
           else {
@@ -958,7 +958,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #brand} (Brand recommendations or restrictions.). This is the underlying object with id, value and extensions. The accessor "getBrand" gives direct access to the value
          */
-        public StringType getBrandElement() { 
+        public StringType getBrandElement() {
           if (this.brand == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.brand");
@@ -967,18 +967,18 @@ public class VisionPrescription extends DomainResource {
           return this.brand;
         }
 
-        public boolean hasBrandElement() { 
+        public boolean hasBrandElement() {
           return this.brand != null && !this.brand.isEmpty();
         }
 
-        public boolean hasBrand() { 
+        public boolean hasBrand() {
           return this.brand != null && !this.brand.isEmpty();
         }
 
         /**
          * @param value {@link #brand} (Brand recommendations or restrictions.). This is the underlying object with id, value and extensions. The accessor "getBrand" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setBrandElement(StringType value) { 
+        public VisionPrescriptionDispenseComponent setBrandElement(StringType value) {
           this.brand = value;
           return this;
         }
@@ -986,14 +986,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Brand recommendations or restrictions.
          */
-        public String getBrand() { 
+        public String getBrand() {
           return this.brand == null ? null : this.brand.getValue();
         }
 
         /**
          * @param value Brand recommendations or restrictions.
          */
-        public VisionPrescriptionDispenseComponent setBrand(String value) { 
+        public VisionPrescriptionDispenseComponent setBrand(String value) {
           if (Utilities.noString(value))
             this.brand = null;
           else {
@@ -1007,7 +1007,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #notes} (Notes for special requirements such as coatings and lens materials.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
          */
-        public StringType getNotesElement() { 
+        public StringType getNotesElement() {
           if (this.notes == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.notes");
@@ -1016,18 +1016,18 @@ public class VisionPrescription extends DomainResource {
           return this.notes;
         }
 
-        public boolean hasNotesElement() { 
+        public boolean hasNotesElement() {
           return this.notes != null && !this.notes.isEmpty();
         }
 
-        public boolean hasNotes() { 
+        public boolean hasNotes() {
           return this.notes != null && !this.notes.isEmpty();
         }
 
         /**
          * @param value {@link #notes} (Notes for special requirements such as coatings and lens materials.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
          */
-        public VisionPrescriptionDispenseComponent setNotesElement(StringType value) { 
+        public VisionPrescriptionDispenseComponent setNotesElement(StringType value) {
           this.notes = value;
           return this;
         }
@@ -1035,14 +1035,14 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return Notes for special requirements such as coatings and lens materials.
          */
-        public String getNotes() { 
+        public String getNotes() {
           return this.notes == null ? null : this.notes.getValue();
         }
 
         /**
          * @param value Notes for special requirements such as coatings and lens materials.
          */
-        public VisionPrescriptionDispenseComponent setNotes(String value) { 
+        public VisionPrescriptionDispenseComponent setNotes(String value) {
           if (Utilities.noString(value))
             this.notes = null;
           else {
@@ -1303,13 +1303,13 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #identifier} (Business identifier which may be used by other parties to reference or identify the prescription.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1343,7 +1343,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #dateWritten} (The date (and perhaps time) when the prescription was written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
-    public DateTimeType getDateWrittenElement() { 
+    public DateTimeType getDateWrittenElement() {
       if (this.dateWritten == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.dateWritten");
@@ -1352,18 +1352,18 @@ public class VisionPrescription extends DomainResource {
       return this.dateWritten;
     }
 
-    public boolean hasDateWrittenElement() { 
+    public boolean hasDateWrittenElement() {
       return this.dateWritten != null && !this.dateWritten.isEmpty();
     }
 
-    public boolean hasDateWritten() { 
+    public boolean hasDateWritten() {
       return this.dateWritten != null && !this.dateWritten.isEmpty();
     }
 
     /**
      * @param value {@link #dateWritten} (The date (and perhaps time) when the prescription was written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
-    public VisionPrescription setDateWrittenElement(DateTimeType value) { 
+    public VisionPrescription setDateWrittenElement(DateTimeType value) {
       this.dateWritten = value;
       return this;
     }
@@ -1371,14 +1371,14 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return The date (and perhaps time) when the prescription was written.
      */
-    public Date getDateWritten() { 
+    public Date getDateWritten() {
       return this.dateWritten == null ? null : this.dateWritten.getValue();
     }
 
     /**
      * @param value The date (and perhaps time) when the prescription was written.
      */
-    public VisionPrescription setDateWritten(Date value) { 
+    public VisionPrescription setDateWritten(Date value) {
       if (value == null)
         this.dateWritten = null;
       else {
@@ -1392,7 +1392,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #patient} (A link to a resource representing the person to whom the vision products will be supplied.)
      */
-    public Reference getPatient() { 
+    public Reference getPatient() {
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.patient");
@@ -1401,14 +1401,14 @@ public class VisionPrescription extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() { 
+    public boolean hasPatient() {
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (A link to a resource representing the person to whom the vision products will be supplied.)
      */
-    public VisionPrescription setPatient(Reference value) { 
+    public VisionPrescription setPatient(Reference value) {
       this.patient = value;
       return this;
     }
@@ -1416,7 +1416,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person to whom the vision products will be supplied.)
      */
-    public Patient getPatientTarget() { 
+    public Patient getPatientTarget() {
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.patient");
@@ -1428,7 +1428,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person to whom the vision products will be supplied.)
      */
-    public VisionPrescription setPatientTarget(Patient value) { 
+    public VisionPrescription setPatientTarget(Patient value) {
       this.patientTarget = value;
       return this;
     }
@@ -1436,7 +1436,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #prescriber} (The healthcare professional responsible for authorizing the prescription.)
      */
-    public Reference getPrescriber() { 
+    public Reference getPrescriber() {
       if (this.prescriber == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.prescriber");
@@ -1445,14 +1445,14 @@ public class VisionPrescription extends DomainResource {
       return this.prescriber;
     }
 
-    public boolean hasPrescriber() { 
+    public boolean hasPrescriber() {
       return this.prescriber != null && !this.prescriber.isEmpty();
     }
 
     /**
      * @param value {@link #prescriber} (The healthcare professional responsible for authorizing the prescription.)
      */
-    public VisionPrescription setPrescriber(Reference value) { 
+    public VisionPrescription setPrescriber(Reference value) {
       this.prescriber = value;
       return this;
     }
@@ -1460,7 +1460,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #prescriber} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for authorizing the prescription.)
      */
-    public Practitioner getPrescriberTarget() { 
+    public Practitioner getPrescriberTarget() {
       if (this.prescriberTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.prescriber");
@@ -1472,7 +1472,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @param value {@link #prescriber} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for authorizing the prescription.)
      */
-    public VisionPrescription setPrescriberTarget(Practitioner value) { 
+    public VisionPrescription setPrescriberTarget(Practitioner value) {
       this.prescriberTarget = value;
       return this;
     }
@@ -1480,7 +1480,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #encounter} (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
      */
-    public Reference getEncounter() { 
+    public Reference getEncounter() {
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.encounter");
@@ -1489,14 +1489,14 @@ public class VisionPrescription extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() { 
+    public boolean hasEncounter() {
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
      */
-    public VisionPrescription setEncounter(Reference value) { 
+    public VisionPrescription setEncounter(Reference value) {
       this.encounter = value;
       return this;
     }
@@ -1504,7 +1504,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
      */
-    public Encounter getEncounterTarget() { 
+    public Encounter getEncounterTarget() {
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.encounter");
@@ -1516,7 +1516,7 @@ public class VisionPrescription extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
      */
-    public VisionPrescription setEncounterTarget(Encounter value) { 
+    public VisionPrescription setEncounterTarget(Encounter value) {
       this.encounterTarget = value;
       return this;
     }
@@ -1524,44 +1524,44 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #reason} (Can be the reason or the indication for writing the prescription.)
      */
-    public Type getReason() { 
+    public Type getReason() {
       return this.reason;
     }
 
     /**
      * @return {@link #reason} (Can be the reason or the indication for writing the prescription.)
      */
-    public CodeableConcept getReasonCodeableConcept() throws FHIRException { 
+    public CodeableConcept getReasonCodeableConcept() throws FHIRException {
       if (!(this.reason instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (CodeableConcept) this.reason;
     }
 
-    public boolean hasReasonCodeableConcept() { 
+    public boolean hasReasonCodeableConcept() {
       return this.reason instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #reason} (Can be the reason or the indication for writing the prescription.)
      */
-    public Reference getReasonReference() throws FHIRException { 
+    public Reference getReasonReference() throws FHIRException {
       if (!(this.reason instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (Reference) this.reason;
     }
 
-    public boolean hasReasonReference() { 
+    public boolean hasReasonReference() {
       return this.reason instanceof Reference;
     }
 
-    public boolean hasReason() { 
+    public boolean hasReason() {
       return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
      * @param value {@link #reason} (Can be the reason or the indication for writing the prescription.)
      */
-    public VisionPrescription setReason(Type value) { 
+    public VisionPrescription setReason(Type value) {
       this.reason = value;
       return this;
     }
@@ -1569,13 +1569,13 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return {@link #dispense} (Deals with details of the dispense part of the supply specification.)
      */
-    public List<VisionPrescriptionDispenseComponent> getDispense() { 
+    public List<VisionPrescriptionDispenseComponent> getDispense() {
       if (this.dispense == null)
         this.dispense = new ArrayList<VisionPrescriptionDispenseComponent>();
       return this.dispense;
     }
 
-    public boolean hasDispense() { 
+    public boolean hasDispense() {
       if (this.dispense == null)
         return false;
       for (VisionPrescriptionDispenseComponent item : this.dispense)

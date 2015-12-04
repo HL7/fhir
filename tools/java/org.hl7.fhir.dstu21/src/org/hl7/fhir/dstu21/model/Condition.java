@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,27 +51,27 @@ public class Condition extends DomainResource {
         /**
          * This is a tentative diagnosis - still a candidate that is under consideration.
          */
-        PROVISIONAL, 
+        PROVISIONAL,
         /**
          * One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment.
          */
-        DIFFERENTIAL, 
+        DIFFERENTIAL,
         /**
          * There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
          */
-        CONFIRMED, 
+        CONFIRMED,
         /**
          * This condition has been ruled out by diagnostic and clinical evidence.
          */
-        REFUTED, 
+        REFUTED,
         /**
          * The statement was entered in error and is not valid.
          */
-        ENTEREDINERROR, 
+        ENTEREDINERROR,
         /**
          * The condition status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
          */
-        UNKNOWN, 
+        UNKNOWN,
         /**
          * added to help the parsers
          */
@@ -228,7 +228,7 @@ public class Condition extends DomainResource {
         /**
          * @return {@link #summary} (A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific.)
          */
-        public CodeableConcept getSummary() { 
+        public CodeableConcept getSummary() {
           if (this.summary == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionStageComponent.summary");
@@ -237,14 +237,14 @@ public class Condition extends DomainResource {
           return this.summary;
         }
 
-        public boolean hasSummary() { 
+        public boolean hasSummary() {
           return this.summary != null && !this.summary.isEmpty();
         }
 
         /**
          * @param value {@link #summary} (A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific.)
          */
-        public ConditionStageComponent setSummary(CodeableConcept value) { 
+        public ConditionStageComponent setSummary(CodeableConcept value) {
           this.summary = value;
           return this;
         }
@@ -252,13 +252,13 @@ public class Condition extends DomainResource {
         /**
          * @return {@link #assessment} (Reference to a formal record of the evidence on which the staging assessment is based.)
          */
-        public List<Reference> getAssessment() { 
+        public List<Reference> getAssessment() {
           if (this.assessment == null)
             this.assessment = new ArrayList<Reference>();
           return this.assessment;
         }
 
-        public boolean hasAssessment() { 
+        public boolean hasAssessment() {
           if (this.assessment == null)
             return false;
           for (Reference item : this.assessment)
@@ -292,7 +292,7 @@ public class Condition extends DomainResource {
         /**
          * @return {@link #assessment} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reference to a formal record of the evidence on which the staging assessment is based.)
          */
-        public List<Resource> getAssessmentTarget() { 
+        public List<Resource> getAssessmentTarget() {
           if (this.assessmentTarget == null)
             this.assessmentTarget = new ArrayList<Resource>();
           return this.assessmentTarget;
@@ -404,7 +404,7 @@ public class Condition extends DomainResource {
         /**
          * @return {@link #code} (A manifestation or symptom that led to the recording of this condition.)
          */
-        public CodeableConcept getCode() { 
+        public CodeableConcept getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionEvidenceComponent.code");
@@ -413,14 +413,14 @@ public class Condition extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (A manifestation or symptom that led to the recording of this condition.)
          */
-        public ConditionEvidenceComponent setCode(CodeableConcept value) { 
+        public ConditionEvidenceComponent setCode(CodeableConcept value) {
           this.code = value;
           return this;
         }
@@ -428,13 +428,13 @@ public class Condition extends DomainResource {
         /**
          * @return {@link #detail} (Links to other relevant information, including pathology reports.)
          */
-        public List<Reference> getDetail() { 
+        public List<Reference> getDetail() {
           if (this.detail == null)
             this.detail = new ArrayList<Reference>();
           return this.detail;
         }
 
-        public boolean hasDetail() { 
+        public boolean hasDetail() {
           if (this.detail == null)
             return false;
           for (Reference item : this.detail)
@@ -468,7 +468,7 @@ public class Condition extends DomainResource {
         /**
          * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Links to other relevant information, including pathology reports.)
          */
-        public List<Resource> getDetailTarget() { 
+        public List<Resource> getDetailTarget() {
           if (this.detailTarget == null)
             this.detailTarget = new ArrayList<Resource>();
           return this.detailTarget;
@@ -696,13 +696,13 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -736,7 +736,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #patient} (Indicates the patient who the condition record is associated with.)
      */
-    public Reference getPatient() { 
+    public Reference getPatient() {
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.patient");
@@ -745,14 +745,14 @@ public class Condition extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() { 
+    public boolean hasPatient() {
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (Indicates the patient who the condition record is associated with.)
      */
-    public Condition setPatient(Reference value) { 
+    public Condition setPatient(Reference value) {
       this.patient = value;
       return this;
     }
@@ -760,7 +760,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the patient who the condition record is associated with.)
      */
-    public Patient getPatientTarget() { 
+    public Patient getPatientTarget() {
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.patient");
@@ -772,7 +772,7 @@ public class Condition extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates the patient who the condition record is associated with.)
      */
-    public Condition setPatientTarget(Patient value) { 
+    public Condition setPatientTarget(Patient value) {
       this.patientTarget = value;
       return this;
     }
@@ -780,7 +780,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #encounter} (Encounter during which the condition was first asserted.)
      */
-    public Reference getEncounter() { 
+    public Reference getEncounter() {
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.encounter");
@@ -789,14 +789,14 @@ public class Condition extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() { 
+    public boolean hasEncounter() {
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (Encounter during which the condition was first asserted.)
      */
-    public Condition setEncounter(Reference value) { 
+    public Condition setEncounter(Reference value) {
       this.encounter = value;
       return this;
     }
@@ -804,7 +804,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Encounter during which the condition was first asserted.)
      */
-    public Encounter getEncounterTarget() { 
+    public Encounter getEncounterTarget() {
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.encounter");
@@ -816,7 +816,7 @@ public class Condition extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Encounter during which the condition was first asserted.)
      */
-    public Condition setEncounterTarget(Encounter value) { 
+    public Condition setEncounterTarget(Encounter value) {
       this.encounterTarget = value;
       return this;
     }
@@ -824,7 +824,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #asserter} (Individual who is making the condition statement.)
      */
-    public Reference getAsserter() { 
+    public Reference getAsserter() {
       if (this.asserter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.asserter");
@@ -833,14 +833,14 @@ public class Condition extends DomainResource {
       return this.asserter;
     }
 
-    public boolean hasAsserter() { 
+    public boolean hasAsserter() {
       return this.asserter != null && !this.asserter.isEmpty();
     }
 
     /**
      * @param value {@link #asserter} (Individual who is making the condition statement.)
      */
-    public Condition setAsserter(Reference value) { 
+    public Condition setAsserter(Reference value) {
       this.asserter = value;
       return this;
     }
@@ -848,14 +848,14 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #asserter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Individual who is making the condition statement.)
      */
-    public Resource getAsserterTarget() { 
+    public Resource getAsserterTarget() {
       return this.asserterTarget;
     }
 
     /**
      * @param value {@link #asserter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Individual who is making the condition statement.)
      */
-    public Condition setAsserterTarget(Resource value) { 
+    public Condition setAsserterTarget(Resource value) {
       this.asserterTarget = value;
       return this;
     }
@@ -863,7 +863,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #dateRecorded} (A date, when  the Condition statement was documented.). This is the underlying object with id, value and extensions. The accessor "getDateRecorded" gives direct access to the value
      */
-    public DateType getDateRecordedElement() { 
+    public DateType getDateRecordedElement() {
       if (this.dateRecorded == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.dateRecorded");
@@ -872,18 +872,18 @@ public class Condition extends DomainResource {
       return this.dateRecorded;
     }
 
-    public boolean hasDateRecordedElement() { 
+    public boolean hasDateRecordedElement() {
       return this.dateRecorded != null && !this.dateRecorded.isEmpty();
     }
 
-    public boolean hasDateRecorded() { 
+    public boolean hasDateRecorded() {
       return this.dateRecorded != null && !this.dateRecorded.isEmpty();
     }
 
     /**
      * @param value {@link #dateRecorded} (A date, when  the Condition statement was documented.). This is the underlying object with id, value and extensions. The accessor "getDateRecorded" gives direct access to the value
      */
-    public Condition setDateRecordedElement(DateType value) { 
+    public Condition setDateRecordedElement(DateType value) {
       this.dateRecorded = value;
       return this;
     }
@@ -891,14 +891,14 @@ public class Condition extends DomainResource {
     /**
      * @return A date, when  the Condition statement was documented.
      */
-    public Date getDateRecorded() { 
+    public Date getDateRecorded() {
       return this.dateRecorded == null ? null : this.dateRecorded.getValue();
     }
 
     /**
      * @param value A date, when  the Condition statement was documented.
      */
-    public Condition setDateRecorded(Date value) { 
+    public Condition setDateRecorded(Date value) {
       if (value == null)
         this.dateRecorded = null;
       else {
@@ -912,7 +912,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #code} (Identification of the condition, problem or diagnosis.)
      */
-    public CodeableConcept getCode() { 
+    public CodeableConcept getCode() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.code");
@@ -921,14 +921,14 @@ public class Condition extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (Identification of the condition, problem or diagnosis.)
      */
-    public Condition setCode(CodeableConcept value) { 
+    public Condition setCode(CodeableConcept value) {
       this.code = value;
       return this;
     }
@@ -936,7 +936,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #category} (A category assigned to the condition.)
      */
-    public CodeableConcept getCategory() { 
+    public CodeableConcept getCategory() {
       if (this.category == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.category");
@@ -945,14 +945,14 @@ public class Condition extends DomainResource {
       return this.category;
     }
 
-    public boolean hasCategory() { 
+    public boolean hasCategory() {
       return this.category != null && !this.category.isEmpty();
     }
 
     /**
      * @param value {@link #category} (A category assigned to the condition.)
      */
-    public Condition setCategory(CodeableConcept value) { 
+    public Condition setCategory(CodeableConcept value) {
       this.category = value;
       return this;
     }
@@ -960,7 +960,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #clinicalStatus} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getClinicalStatus" gives direct access to the value
      */
-    public CodeType getClinicalStatusElement() { 
+    public CodeType getClinicalStatusElement() {
       if (this.clinicalStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.clinicalStatus");
@@ -969,18 +969,18 @@ public class Condition extends DomainResource {
       return this.clinicalStatus;
     }
 
-    public boolean hasClinicalStatusElement() { 
+    public boolean hasClinicalStatusElement() {
       return this.clinicalStatus != null && !this.clinicalStatus.isEmpty();
     }
 
-    public boolean hasClinicalStatus() { 
+    public boolean hasClinicalStatus() {
       return this.clinicalStatus != null && !this.clinicalStatus.isEmpty();
     }
 
     /**
      * @param value {@link #clinicalStatus} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getClinicalStatus" gives direct access to the value
      */
-    public Condition setClinicalStatusElement(CodeType value) { 
+    public Condition setClinicalStatusElement(CodeType value) {
       this.clinicalStatus = value;
       return this;
     }
@@ -988,14 +988,14 @@ public class Condition extends DomainResource {
     /**
      * @return The clinical status of the condition.
      */
-    public String getClinicalStatus() { 
+    public String getClinicalStatus() {
       return this.clinicalStatus == null ? null : this.clinicalStatus.getValue();
     }
 
     /**
      * @param value The clinical status of the condition.
      */
-    public Condition setClinicalStatus(String value) { 
+    public Condition setClinicalStatus(String value) {
       if (Utilities.noString(value))
         this.clinicalStatus = null;
       else {
@@ -1009,7 +1009,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #verificationStatus} (The verification status to support the clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getVerificationStatus" gives direct access to the value
      */
-    public Enumeration<ConditionVerificationStatus> getVerificationStatusElement() { 
+    public Enumeration<ConditionVerificationStatus> getVerificationStatusElement() {
       if (this.verificationStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.verificationStatus");
@@ -1018,18 +1018,18 @@ public class Condition extends DomainResource {
       return this.verificationStatus;
     }
 
-    public boolean hasVerificationStatusElement() { 
+    public boolean hasVerificationStatusElement() {
       return this.verificationStatus != null && !this.verificationStatus.isEmpty();
     }
 
-    public boolean hasVerificationStatus() { 
+    public boolean hasVerificationStatus() {
       return this.verificationStatus != null && !this.verificationStatus.isEmpty();
     }
 
     /**
      * @param value {@link #verificationStatus} (The verification status to support the clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getVerificationStatus" gives direct access to the value
      */
-    public Condition setVerificationStatusElement(Enumeration<ConditionVerificationStatus> value) { 
+    public Condition setVerificationStatusElement(Enumeration<ConditionVerificationStatus> value) {
       this.verificationStatus = value;
       return this;
     }
@@ -1037,14 +1037,14 @@ public class Condition extends DomainResource {
     /**
      * @return The verification status to support the clinical status of the condition.
      */
-    public ConditionVerificationStatus getVerificationStatus() { 
+    public ConditionVerificationStatus getVerificationStatus() {
       return this.verificationStatus == null ? null : this.verificationStatus.getValue();
     }
 
     /**
      * @param value The verification status to support the clinical status of the condition.
      */
-    public Condition setVerificationStatus(ConditionVerificationStatus value) { 
+    public Condition setVerificationStatus(ConditionVerificationStatus value) {
         if (this.verificationStatus == null)
           this.verificationStatus = new Enumeration<ConditionVerificationStatus>(new ConditionVerificationStatusEnumFactory());
         this.verificationStatus.setValue(value);
@@ -1054,7 +1054,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #severity} (A subjective assessment of the severity of the condition as evaluated by the clinician.)
      */
-    public CodeableConcept getSeverity() { 
+    public CodeableConcept getSeverity() {
       if (this.severity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.severity");
@@ -1063,14 +1063,14 @@ public class Condition extends DomainResource {
       return this.severity;
     }
 
-    public boolean hasSeverity() { 
+    public boolean hasSeverity() {
       return this.severity != null && !this.severity.isEmpty();
     }
 
     /**
      * @param value {@link #severity} (A subjective assessment of the severity of the condition as evaluated by the clinician.)
      */
-    public Condition setSeverity(CodeableConcept value) { 
+    public Condition setSeverity(CodeableConcept value) {
       this.severity = value;
       return this;
     }
@@ -1078,83 +1078,83 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
-    public Type getOnset() { 
+    public Type getOnset() {
       return this.onset;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
-    public DateTimeType getOnsetDateTimeType() throws FHIRException { 
+    public DateTimeType getOnsetDateTimeType() throws FHIRException {
       if (!(this.onset instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (DateTimeType) this.onset;
     }
 
-    public boolean hasOnsetDateTimeType() { 
+    public boolean hasOnsetDateTimeType() {
       return this.onset instanceof DateTimeType;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
-    public Age getOnsetAge() throws FHIRException { 
+    public Age getOnsetAge() throws FHIRException {
       if (!(this.onset instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Age) this.onset;
     }
 
-    public boolean hasOnsetAge() { 
+    public boolean hasOnsetAge() {
       return this.onset instanceof Age;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
-    public Period getOnsetPeriod() throws FHIRException { 
+    public Period getOnsetPeriod() throws FHIRException {
       if (!(this.onset instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Period) this.onset;
     }
 
-    public boolean hasOnsetPeriod() { 
+    public boolean hasOnsetPeriod() {
       return this.onset instanceof Period;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
-    public Range getOnsetRange() throws FHIRException { 
+    public Range getOnsetRange() throws FHIRException {
       if (!(this.onset instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Range) this.onset;
     }
 
-    public boolean hasOnsetRange() { 
+    public boolean hasOnsetRange() {
       return this.onset instanceof Range;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
-    public StringType getOnsetStringType() throws FHIRException { 
+    public StringType getOnsetStringType() throws FHIRException {
       if (!(this.onset instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (StringType) this.onset;
     }
 
-    public boolean hasOnsetStringType() { 
+    public boolean hasOnsetStringType() {
       return this.onset instanceof StringType;
     }
 
-    public boolean hasOnset() { 
+    public boolean hasOnset() {
       return this.onset != null && !this.onset.isEmpty();
     }
 
     /**
      * @param value {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
-    public Condition setOnset(Type value) { 
+    public Condition setOnset(Type value) {
       this.onset = value;
       return this;
     }
@@ -1162,96 +1162,96 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public Type getAbatement() { 
+    public Type getAbatement() {
       return this.abatement;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public DateTimeType getAbatementDateTimeType() throws FHIRException { 
+    public DateTimeType getAbatementDateTimeType() throws FHIRException {
       if (!(this.abatement instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (DateTimeType) this.abatement;
     }
 
-    public boolean hasAbatementDateTimeType() { 
+    public boolean hasAbatementDateTimeType() {
       return this.abatement instanceof DateTimeType;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public Age getAbatementAge() throws FHIRException { 
+    public Age getAbatementAge() throws FHIRException {
       if (!(this.abatement instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (Age) this.abatement;
     }
 
-    public boolean hasAbatementAge() { 
+    public boolean hasAbatementAge() {
       return this.abatement instanceof Age;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public BooleanType getAbatementBooleanType() throws FHIRException { 
+    public BooleanType getAbatementBooleanType() throws FHIRException {
       if (!(this.abatement instanceof BooleanType))
         throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (BooleanType) this.abatement;
     }
 
-    public boolean hasAbatementBooleanType() { 
+    public boolean hasAbatementBooleanType() {
       return this.abatement instanceof BooleanType;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public Period getAbatementPeriod() throws FHIRException { 
+    public Period getAbatementPeriod() throws FHIRException {
       if (!(this.abatement instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (Period) this.abatement;
     }
 
-    public boolean hasAbatementPeriod() { 
+    public boolean hasAbatementPeriod() {
       return this.abatement instanceof Period;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public Range getAbatementRange() throws FHIRException { 
+    public Range getAbatementRange() throws FHIRException {
       if (!(this.abatement instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (Range) this.abatement;
     }
 
-    public boolean hasAbatementRange() { 
+    public boolean hasAbatementRange() {
       return this.abatement instanceof Range;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public StringType getAbatementStringType() throws FHIRException { 
+    public StringType getAbatementStringType() throws FHIRException {
       if (!(this.abatement instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (StringType) this.abatement;
     }
 
-    public boolean hasAbatementStringType() { 
+    public boolean hasAbatementStringType() {
       return this.abatement instanceof StringType;
     }
 
-    public boolean hasAbatement() { 
+    public boolean hasAbatement() {
       return this.abatement != null && !this.abatement.isEmpty();
     }
 
     /**
      * @param value {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public Condition setAbatement(Type value) { 
+    public Condition setAbatement(Type value) {
       this.abatement = value;
       return this;
     }
@@ -1259,7 +1259,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #stage} (Clinical stage or grade of a condition. May include formal severity assessments.)
      */
-    public ConditionStageComponent getStage() { 
+    public ConditionStageComponent getStage() {
       if (this.stage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.stage");
@@ -1268,14 +1268,14 @@ public class Condition extends DomainResource {
       return this.stage;
     }
 
-    public boolean hasStage() { 
+    public boolean hasStage() {
       return this.stage != null && !this.stage.isEmpty();
     }
 
     /**
      * @param value {@link #stage} (Clinical stage or grade of a condition. May include formal severity assessments.)
      */
-    public Condition setStage(ConditionStageComponent value) { 
+    public Condition setStage(ConditionStageComponent value) {
       this.stage = value;
       return this;
     }
@@ -1283,13 +1283,13 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #evidence} (Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.)
      */
-    public List<ConditionEvidenceComponent> getEvidence() { 
+    public List<ConditionEvidenceComponent> getEvidence() {
       if (this.evidence == null)
         this.evidence = new ArrayList<ConditionEvidenceComponent>();
       return this.evidence;
     }
 
-    public boolean hasEvidence() { 
+    public boolean hasEvidence() {
       if (this.evidence == null)
         return false;
       for (ConditionEvidenceComponent item : this.evidence)
@@ -1323,13 +1323,13 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #bodySite} (The anatomical location where this condition manifests itself.)
      */
-    public List<CodeableConcept> getBodySite() { 
+    public List<CodeableConcept> getBodySite() {
       if (this.bodySite == null)
         this.bodySite = new ArrayList<CodeableConcept>();
       return this.bodySite;
     }
 
-    public boolean hasBodySite() { 
+    public boolean hasBodySite() {
       if (this.bodySite == null)
         return false;
       for (CodeableConcept item : this.bodySite)
@@ -1363,7 +1363,7 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public StringType getNotesElement() { 
+    public StringType getNotesElement() {
       if (this.notes == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.notes");
@@ -1372,18 +1372,18 @@ public class Condition extends DomainResource {
       return this.notes;
     }
 
-    public boolean hasNotesElement() { 
+    public boolean hasNotesElement() {
       return this.notes != null && !this.notes.isEmpty();
     }
 
-    public boolean hasNotes() { 
+    public boolean hasNotes() {
       return this.notes != null && !this.notes.isEmpty();
     }
 
     /**
      * @param value {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public Condition setNotesElement(StringType value) { 
+    public Condition setNotesElement(StringType value) {
       this.notes = value;
       return this;
     }
@@ -1391,14 +1391,14 @@ public class Condition extends DomainResource {
     /**
      * @return Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
-    public String getNotes() { 
+    public String getNotes() {
       return this.notes == null ? null : this.notes.getValue();
     }
 
     /**
      * @param value Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
-    public Condition setNotes(String value) { 
+    public Condition setNotes(String value) {
       if (Utilities.noString(value))
         this.notes = null;
       else {

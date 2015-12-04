@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,27 +51,27 @@ public class Group extends DomainResource {
         /**
          * Group contains "person" Patient resources
          */
-        PERSON, 
+        PERSON,
         /**
          * Group contains "animal" Patient resources
          */
-        ANIMAL, 
+        ANIMAL,
         /**
          * Group contains healthcare practitioner resources
          */
-        PRACTITIONER, 
+        PRACTITIONER,
         /**
          * Group contains Device resources
          */
-        DEVICE, 
+        DEVICE,
         /**
          * Group contains Medication resources
          */
-        MEDICATION, 
+        MEDICATION,
         /**
          * Group contains Substance resources
          */
-        SUBSTANCE, 
+        SUBSTANCE,
         /**
          * added to help the parsers
          */
@@ -247,7 +247,7 @@ public class Group extends DomainResource {
         /**
          * @return {@link #code} (A code that identifies the kind of trait being asserted.)
          */
-        public CodeableConcept getCode() { 
+        public CodeableConcept getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupCharacteristicComponent.code");
@@ -256,14 +256,14 @@ public class Group extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (A code that identifies the kind of trait being asserted.)
          */
-        public GroupCharacteristicComponent setCode(CodeableConcept value) { 
+        public GroupCharacteristicComponent setCode(CodeableConcept value) {
           this.code = value;
           return this;
         }
@@ -271,70 +271,70 @@ public class Group extends DomainResource {
         /**
          * @return {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
          */
-        public Type getValue() { 
+        public Type getValue() {
           return this.value;
         }
 
         /**
          * @return {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
          */
-        public CodeableConcept getValueCodeableConcept() throws FHIRException { 
+        public CodeableConcept getValueCodeableConcept() throws FHIRException {
           if (!(this.value instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.value.getClass().getName()+" was encountered");
           return (CodeableConcept) this.value;
         }
 
-        public boolean hasValueCodeableConcept() { 
+        public boolean hasValueCodeableConcept() {
           return this.value instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
          */
-        public BooleanType getValueBooleanType() throws FHIRException { 
+        public BooleanType getValueBooleanType() throws FHIRException {
           if (!(this.value instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
         }
 
-        public boolean hasValueBooleanType() { 
+        public boolean hasValueBooleanType() {
           return this.value instanceof BooleanType;
         }
 
         /**
          * @return {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
          */
-        public Quantity getValueQuantity() throws FHIRException { 
+        public Quantity getValueQuantity() throws FHIRException {
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Quantity) this.value;
         }
 
-        public boolean hasValueQuantity() { 
+        public boolean hasValueQuantity() {
           return this.value instanceof Quantity;
         }
 
         /**
          * @return {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
          */
-        public Range getValueRange() throws FHIRException { 
+        public Range getValueRange() throws FHIRException {
           if (!(this.value instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Range) this.value;
         }
 
-        public boolean hasValueRange() { 
+        public boolean hasValueRange() {
           return this.value instanceof Range;
         }
 
-        public boolean hasValue() { 
+        public boolean hasValue() {
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
          */
-        public GroupCharacteristicComponent setValue(Type value) { 
+        public GroupCharacteristicComponent setValue(Type value) {
           this.value = value;
           return this;
         }
@@ -342,7 +342,7 @@ public class Group extends DomainResource {
         /**
          * @return {@link #exclude} (If true, indicates the characteristic is one that is NOT held by members of the group.). This is the underlying object with id, value and extensions. The accessor "getExclude" gives direct access to the value
          */
-        public BooleanType getExcludeElement() { 
+        public BooleanType getExcludeElement() {
           if (this.exclude == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupCharacteristicComponent.exclude");
@@ -351,18 +351,18 @@ public class Group extends DomainResource {
           return this.exclude;
         }
 
-        public boolean hasExcludeElement() { 
+        public boolean hasExcludeElement() {
           return this.exclude != null && !this.exclude.isEmpty();
         }
 
-        public boolean hasExclude() { 
+        public boolean hasExclude() {
           return this.exclude != null && !this.exclude.isEmpty();
         }
 
         /**
          * @param value {@link #exclude} (If true, indicates the characteristic is one that is NOT held by members of the group.). This is the underlying object with id, value and extensions. The accessor "getExclude" gives direct access to the value
          */
-        public GroupCharacteristicComponent setExcludeElement(BooleanType value) { 
+        public GroupCharacteristicComponent setExcludeElement(BooleanType value) {
           this.exclude = value;
           return this;
         }
@@ -370,14 +370,14 @@ public class Group extends DomainResource {
         /**
          * @return If true, indicates the characteristic is one that is NOT held by members of the group.
          */
-        public boolean getExclude() { 
+        public boolean getExclude() {
           return this.exclude == null || this.exclude.isEmpty() ? false : this.exclude.getValue();
         }
 
         /**
          * @param value If true, indicates the characteristic is one that is NOT held by members of the group.
          */
-        public GroupCharacteristicComponent setExclude(boolean value) { 
+        public GroupCharacteristicComponent setExclude(boolean value) {
             if (this.exclude == null)
               this.exclude = new BooleanType();
             this.exclude.setValue(value);
@@ -387,7 +387,7 @@ public class Group extends DomainResource {
         /**
          * @return {@link #period} (The period over which the characteristic is tested; e.g. the patient had an operation during the month of June.)
          */
-        public Period getPeriod() { 
+        public Period getPeriod() {
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupCharacteristicComponent.period");
@@ -396,14 +396,14 @@ public class Group extends DomainResource {
           return this.period;
         }
 
-        public boolean hasPeriod() { 
+        public boolean hasPeriod() {
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (The period over which the characteristic is tested; e.g. the patient had an operation during the month of June.)
          */
-        public GroupCharacteristicComponent setPeriod(Period value) { 
+        public GroupCharacteristicComponent setPeriod(Period value) {
           this.period = value;
           return this;
         }
@@ -554,7 +554,7 @@ public class Group extends DomainResource {
         /**
          * @return {@link #entity} (A reference to the entity that is a member of the group. Must be consistent with Group.type.)
          */
-        public Reference getEntity() { 
+        public Reference getEntity() {
           if (this.entity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupMemberComponent.entity");
@@ -563,14 +563,14 @@ public class Group extends DomainResource {
           return this.entity;
         }
 
-        public boolean hasEntity() { 
+        public boolean hasEntity() {
           return this.entity != null && !this.entity.isEmpty();
         }
 
         /**
          * @param value {@link #entity} (A reference to the entity that is a member of the group. Must be consistent with Group.type.)
          */
-        public GroupMemberComponent setEntity(Reference value) { 
+        public GroupMemberComponent setEntity(Reference value) {
           this.entity = value;
           return this;
         }
@@ -578,14 +578,14 @@ public class Group extends DomainResource {
         /**
          * @return {@link #entity} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the entity that is a member of the group. Must be consistent with Group.type.)
          */
-        public Resource getEntityTarget() { 
+        public Resource getEntityTarget() {
           return this.entityTarget;
         }
 
         /**
          * @param value {@link #entity} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the entity that is a member of the group. Must be consistent with Group.type.)
          */
-        public GroupMemberComponent setEntityTarget(Resource value) { 
+        public GroupMemberComponent setEntityTarget(Resource value) {
           this.entityTarget = value;
           return this;
         }
@@ -593,7 +593,7 @@ public class Group extends DomainResource {
         /**
          * @return {@link #period} (The period that the member was in the group, if known.)
          */
-        public Period getPeriod() { 
+        public Period getPeriod() {
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupMemberComponent.period");
@@ -602,14 +602,14 @@ public class Group extends DomainResource {
           return this.period;
         }
 
-        public boolean hasPeriod() { 
+        public boolean hasPeriod() {
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (The period that the member was in the group, if known.)
          */
-        public GroupMemberComponent setPeriod(Period value) { 
+        public GroupMemberComponent setPeriod(Period value) {
           this.period = value;
           return this;
         }
@@ -617,7 +617,7 @@ public class Group extends DomainResource {
         /**
          * @return {@link #inactive} (A flag to indicate that the member is no longer in the group, but previously may have been a member.). This is the underlying object with id, value and extensions. The accessor "getInactive" gives direct access to the value
          */
-        public BooleanType getInactiveElement() { 
+        public BooleanType getInactiveElement() {
           if (this.inactive == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupMemberComponent.inactive");
@@ -626,18 +626,18 @@ public class Group extends DomainResource {
           return this.inactive;
         }
 
-        public boolean hasInactiveElement() { 
+        public boolean hasInactiveElement() {
           return this.inactive != null && !this.inactive.isEmpty();
         }
 
-        public boolean hasInactive() { 
+        public boolean hasInactive() {
           return this.inactive != null && !this.inactive.isEmpty();
         }
 
         /**
          * @param value {@link #inactive} (A flag to indicate that the member is no longer in the group, but previously may have been a member.). This is the underlying object with id, value and extensions. The accessor "getInactive" gives direct access to the value
          */
-        public GroupMemberComponent setInactiveElement(BooleanType value) { 
+        public GroupMemberComponent setInactiveElement(BooleanType value) {
           this.inactive = value;
           return this;
         }
@@ -645,14 +645,14 @@ public class Group extends DomainResource {
         /**
          * @return A flag to indicate that the member is no longer in the group, but previously may have been a member.
          */
-        public boolean getInactive() { 
+        public boolean getInactive() {
           return this.inactive == null || this.inactive.isEmpty() ? false : this.inactive.getValue();
         }
 
         /**
          * @param value A flag to indicate that the member is no longer in the group, but previously may have been a member.
          */
-        public GroupMemberComponent setInactive(boolean value) { 
+        public GroupMemberComponent setInactive(boolean value) {
             if (this.inactive == null)
               this.inactive = new BooleanType();
             this.inactive.setValue(value);
@@ -814,13 +814,13 @@ public class Group extends DomainResource {
     /**
      * @return {@link #identifier} (A unique business identifier for this group.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -854,7 +854,7 @@ public class Group extends DomainResource {
     /**
      * @return {@link #type} (Identifies the broad classification of the kind of resources the group includes.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<GroupType> getTypeElement() { 
+    public Enumeration<GroupType> getTypeElement() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.type");
@@ -863,18 +863,18 @@ public class Group extends DomainResource {
       return this.type;
     }
 
-    public boolean hasTypeElement() { 
+    public boolean hasTypeElement() {
       return this.type != null && !this.type.isEmpty();
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Identifies the broad classification of the kind of resources the group includes.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Group setTypeElement(Enumeration<GroupType> value) { 
+    public Group setTypeElement(Enumeration<GroupType> value) {
       this.type = value;
       return this;
     }
@@ -882,14 +882,14 @@ public class Group extends DomainResource {
     /**
      * @return Identifies the broad classification of the kind of resources the group includes.
      */
-    public GroupType getType() { 
+    public GroupType getType() {
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value Identifies the broad classification of the kind of resources the group includes.
      */
-    public Group setType(GroupType value) { 
+    public Group setType(GroupType value) {
         if (this.type == null)
           this.type = new Enumeration<GroupType>(new GroupTypeEnumFactory());
         this.type.setValue(value);
@@ -899,7 +899,7 @@ public class Group extends DomainResource {
     /**
      * @return {@link #actual} (If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.). This is the underlying object with id, value and extensions. The accessor "getActual" gives direct access to the value
      */
-    public BooleanType getActualElement() { 
+    public BooleanType getActualElement() {
       if (this.actual == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.actual");
@@ -908,18 +908,18 @@ public class Group extends DomainResource {
       return this.actual;
     }
 
-    public boolean hasActualElement() { 
+    public boolean hasActualElement() {
       return this.actual != null && !this.actual.isEmpty();
     }
 
-    public boolean hasActual() { 
+    public boolean hasActual() {
       return this.actual != null && !this.actual.isEmpty();
     }
 
     /**
      * @param value {@link #actual} (If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.). This is the underlying object with id, value and extensions. The accessor "getActual" gives direct access to the value
      */
-    public Group setActualElement(BooleanType value) { 
+    public Group setActualElement(BooleanType value) {
       this.actual = value;
       return this;
     }
@@ -927,14 +927,14 @@ public class Group extends DomainResource {
     /**
      * @return If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.
      */
-    public boolean getActual() { 
+    public boolean getActual() {
       return this.actual == null || this.actual.isEmpty() ? false : this.actual.getValue();
     }
 
     /**
      * @param value If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.
      */
-    public Group setActual(boolean value) { 
+    public Group setActual(boolean value) {
         if (this.actual == null)
           this.actual = new BooleanType();
         this.actual.setValue(value);
@@ -944,7 +944,7 @@ public class Group extends DomainResource {
     /**
      * @return {@link #code} (Provides a specific type of resource the group includes; e.g. "cow", "syringe", etc.)
      */
-    public CodeableConcept getCode() { 
+    public CodeableConcept getCode() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.code");
@@ -953,14 +953,14 @@ public class Group extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (Provides a specific type of resource the group includes; e.g. "cow", "syringe", etc.)
      */
-    public Group setCode(CodeableConcept value) { 
+    public Group setCode(CodeableConcept value) {
       this.code = value;
       return this;
     }
@@ -968,7 +968,7 @@ public class Group extends DomainResource {
     /**
      * @return {@link #name} (A label assigned to the group for human identification and communication.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() { 
+    public StringType getNameElement() {
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.name");
@@ -977,18 +977,18 @@ public class Group extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() { 
+    public boolean hasNameElement() {
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() { 
+    public boolean hasName() {
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A label assigned to the group for human identification and communication.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Group setNameElement(StringType value) { 
+    public Group setNameElement(StringType value) {
       this.name = value;
       return this;
     }
@@ -996,14 +996,14 @@ public class Group extends DomainResource {
     /**
      * @return A label assigned to the group for human identification and communication.
      */
-    public String getName() { 
+    public String getName() {
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A label assigned to the group for human identification and communication.
      */
-    public Group setName(String value) { 
+    public Group setName(String value) {
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -1017,7 +1017,7 @@ public class Group extends DomainResource {
     /**
      * @return {@link #quantity} (A count of the number of resource instances that are part of the group.). This is the underlying object with id, value and extensions. The accessor "getQuantity" gives direct access to the value
      */
-    public UnsignedIntType getQuantityElement() { 
+    public UnsignedIntType getQuantityElement() {
       if (this.quantity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.quantity");
@@ -1026,18 +1026,18 @@ public class Group extends DomainResource {
       return this.quantity;
     }
 
-    public boolean hasQuantityElement() { 
+    public boolean hasQuantityElement() {
       return this.quantity != null && !this.quantity.isEmpty();
     }
 
-    public boolean hasQuantity() { 
+    public boolean hasQuantity() {
       return this.quantity != null && !this.quantity.isEmpty();
     }
 
     /**
      * @param value {@link #quantity} (A count of the number of resource instances that are part of the group.). This is the underlying object with id, value and extensions. The accessor "getQuantity" gives direct access to the value
      */
-    public Group setQuantityElement(UnsignedIntType value) { 
+    public Group setQuantityElement(UnsignedIntType value) {
       this.quantity = value;
       return this;
     }
@@ -1045,14 +1045,14 @@ public class Group extends DomainResource {
     /**
      * @return A count of the number of resource instances that are part of the group.
      */
-    public int getQuantity() { 
+    public int getQuantity() {
       return this.quantity == null || this.quantity.isEmpty() ? 0 : this.quantity.getValue();
     }
 
     /**
      * @param value A count of the number of resource instances that are part of the group.
      */
-    public Group setQuantity(int value) { 
+    public Group setQuantity(int value) {
         if (this.quantity == null)
           this.quantity = new UnsignedIntType();
         this.quantity.setValue(value);
@@ -1062,13 +1062,13 @@ public class Group extends DomainResource {
     /**
      * @return {@link #characteristic} (Identifies the traits shared by members of the group.)
      */
-    public List<GroupCharacteristicComponent> getCharacteristic() { 
+    public List<GroupCharacteristicComponent> getCharacteristic() {
       if (this.characteristic == null)
         this.characteristic = new ArrayList<GroupCharacteristicComponent>();
       return this.characteristic;
     }
 
-    public boolean hasCharacteristic() { 
+    public boolean hasCharacteristic() {
       if (this.characteristic == null)
         return false;
       for (GroupCharacteristicComponent item : this.characteristic)
@@ -1102,13 +1102,13 @@ public class Group extends DomainResource {
     /**
      * @return {@link #member} (Identifies the resource instances that are members of the group.)
      */
-    public List<GroupMemberComponent> getMember() { 
+    public List<GroupMemberComponent> getMember() {
       if (this.member == null)
         this.member = new ArrayList<GroupMemberComponent>();
       return this.member;
     }
 
-    public boolean hasMember() { 
+    public boolean hasMember() {
       if (this.member == null)
         return false;
       for (GroupMemberComponent item : this.member)

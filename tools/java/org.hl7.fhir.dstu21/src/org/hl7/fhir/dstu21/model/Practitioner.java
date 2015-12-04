@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -119,7 +119,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #managingOrganization} (The organization where the Practitioner performs the roles associated.)
          */
-        public Reference getManagingOrganization() { 
+        public Reference getManagingOrganization() {
           if (this.managingOrganization == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PractitionerPractitionerRoleComponent.managingOrganization");
@@ -128,14 +128,14 @@ public class Practitioner extends DomainResource {
           return this.managingOrganization;
         }
 
-        public boolean hasManagingOrganization() { 
+        public boolean hasManagingOrganization() {
           return this.managingOrganization != null && !this.managingOrganization.isEmpty();
         }
 
         /**
          * @param value {@link #managingOrganization} (The organization where the Practitioner performs the roles associated.)
          */
-        public PractitionerPractitionerRoleComponent setManagingOrganization(Reference value) { 
+        public PractitionerPractitionerRoleComponent setManagingOrganization(Reference value) {
           this.managingOrganization = value;
           return this;
         }
@@ -143,7 +143,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization where the Practitioner performs the roles associated.)
          */
-        public Organization getManagingOrganizationTarget() { 
+        public Organization getManagingOrganizationTarget() {
           if (this.managingOrganizationTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PractitionerPractitionerRoleComponent.managingOrganization");
@@ -155,7 +155,7 @@ public class Practitioner extends DomainResource {
         /**
          * @param value {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization where the Practitioner performs the roles associated.)
          */
-        public PractitionerPractitionerRoleComponent setManagingOrganizationTarget(Organization value) { 
+        public PractitionerPractitionerRoleComponent setManagingOrganizationTarget(Organization value) {
           this.managingOrganizationTarget = value;
           return this;
         }
@@ -163,7 +163,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #role} (Roles which this practitioner is authorized to perform for the organization.)
          */
-        public CodeableConcept getRole() { 
+        public CodeableConcept getRole() {
           if (this.role == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PractitionerPractitionerRoleComponent.role");
@@ -172,14 +172,14 @@ public class Practitioner extends DomainResource {
           return this.role;
         }
 
-        public boolean hasRole() { 
+        public boolean hasRole() {
           return this.role != null && !this.role.isEmpty();
         }
 
         /**
          * @param value {@link #role} (Roles which this practitioner is authorized to perform for the organization.)
          */
-        public PractitionerPractitionerRoleComponent setRole(CodeableConcept value) { 
+        public PractitionerPractitionerRoleComponent setRole(CodeableConcept value) {
           this.role = value;
           return this;
         }
@@ -187,13 +187,13 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #specialty} (Specific specialty of the practitioner.)
          */
-        public List<CodeableConcept> getSpecialty() { 
+        public List<CodeableConcept> getSpecialty() {
           if (this.specialty == null)
             this.specialty = new ArrayList<CodeableConcept>();
           return this.specialty;
         }
 
-        public boolean hasSpecialty() { 
+        public boolean hasSpecialty() {
           if (this.specialty == null)
             return false;
           for (CodeableConcept item : this.specialty)
@@ -227,7 +227,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
          */
-        public Period getPeriod() { 
+        public Period getPeriod() {
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PractitionerPractitionerRoleComponent.period");
@@ -236,14 +236,14 @@ public class Practitioner extends DomainResource {
           return this.period;
         }
 
-        public boolean hasPeriod() { 
+        public boolean hasPeriod() {
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
          */
-        public PractitionerPractitionerRoleComponent setPeriod(Period value) { 
+        public PractitionerPractitionerRoleComponent setPeriod(Period value) {
           this.period = value;
           return this;
         }
@@ -251,13 +251,13 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #location} (The location(s) at which this practitioner provides care.)
          */
-        public List<Reference> getLocation() { 
+        public List<Reference> getLocation() {
           if (this.location == null)
             this.location = new ArrayList<Reference>();
           return this.location;
         }
 
-        public boolean hasLocation() { 
+        public boolean hasLocation() {
           if (this.location == null)
             return false;
           for (Reference item : this.location)
@@ -291,7 +291,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #location} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The location(s) at which this practitioner provides care.)
          */
-        public List<Location> getLocationTarget() { 
+        public List<Location> getLocationTarget() {
           if (this.locationTarget == null)
             this.locationTarget = new ArrayList<Location>();
           return this.locationTarget;
@@ -301,7 +301,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #location} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The location(s) at which this practitioner provides care.)
          */
-        public Location addLocationTarget() { 
+        public Location addLocationTarget() {
           Location r = new Location();
           if (this.locationTarget == null)
             this.locationTarget = new ArrayList<Location>();
@@ -312,13 +312,13 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #healthcareService} (The list of healthcare services that this worker provides for this role's Organization/Location(s).)
          */
-        public List<Reference> getHealthcareService() { 
+        public List<Reference> getHealthcareService() {
           if (this.healthcareService == null)
             this.healthcareService = new ArrayList<Reference>();
           return this.healthcareService;
         }
 
-        public boolean hasHealthcareService() { 
+        public boolean hasHealthcareService() {
           if (this.healthcareService == null)
             return false;
           for (Reference item : this.healthcareService)
@@ -352,7 +352,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #healthcareService} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The list of healthcare services that this worker provides for this role's Organization/Location(s).)
          */
-        public List<HealthcareService> getHealthcareServiceTarget() { 
+        public List<HealthcareService> getHealthcareServiceTarget() {
           if (this.healthcareServiceTarget == null)
             this.healthcareServiceTarget = new ArrayList<HealthcareService>();
           return this.healthcareServiceTarget;
@@ -362,7 +362,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #healthcareService} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The list of healthcare services that this worker provides for this role's Organization/Location(s).)
          */
-        public HealthcareService addHealthcareServiceTarget() { 
+        public HealthcareService addHealthcareServiceTarget() {
           HealthcareService r = new HealthcareService();
           if (this.healthcareServiceTarget == null)
             this.healthcareServiceTarget = new ArrayList<HealthcareService>();
@@ -539,13 +539,13 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #identifier} (An identifier that applies to this person's qualification in this role.)
          */
-        public List<Identifier> getIdentifier() { 
+        public List<Identifier> getIdentifier() {
           if (this.identifier == null)
             this.identifier = new ArrayList<Identifier>();
           return this.identifier;
         }
 
-        public boolean hasIdentifier() { 
+        public boolean hasIdentifier() {
           if (this.identifier == null)
             return false;
           for (Identifier item : this.identifier)
@@ -579,7 +579,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #code} (Coded representation of the qualification.)
          */
-        public CodeableConcept getCode() { 
+        public CodeableConcept getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PractitionerQualificationComponent.code");
@@ -588,14 +588,14 @@ public class Practitioner extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Coded representation of the qualification.)
          */
-        public PractitionerQualificationComponent setCode(CodeableConcept value) { 
+        public PractitionerQualificationComponent setCode(CodeableConcept value) {
           this.code = value;
           return this;
         }
@@ -603,7 +603,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #period} (Period during which the qualification is valid.)
          */
-        public Period getPeriod() { 
+        public Period getPeriod() {
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PractitionerQualificationComponent.period");
@@ -612,14 +612,14 @@ public class Practitioner extends DomainResource {
           return this.period;
         }
 
-        public boolean hasPeriod() { 
+        public boolean hasPeriod() {
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (Period during which the qualification is valid.)
          */
-        public PractitionerQualificationComponent setPeriod(Period value) { 
+        public PractitionerQualificationComponent setPeriod(Period value) {
           this.period = value;
           return this;
         }
@@ -627,7 +627,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #issuer} (Organization that regulates and issues the qualification.)
          */
-        public Reference getIssuer() { 
+        public Reference getIssuer() {
           if (this.issuer == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PractitionerQualificationComponent.issuer");
@@ -636,14 +636,14 @@ public class Practitioner extends DomainResource {
           return this.issuer;
         }
 
-        public boolean hasIssuer() { 
+        public boolean hasIssuer() {
           return this.issuer != null && !this.issuer.isEmpty();
         }
 
         /**
          * @param value {@link #issuer} (Organization that regulates and issues the qualification.)
          */
-        public PractitionerQualificationComponent setIssuer(Reference value) { 
+        public PractitionerQualificationComponent setIssuer(Reference value) {
           this.issuer = value;
           return this;
         }
@@ -651,7 +651,7 @@ public class Practitioner extends DomainResource {
         /**
          * @return {@link #issuer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization that regulates and issues the qualification.)
          */
-        public Organization getIssuerTarget() { 
+        public Organization getIssuerTarget() {
           if (this.issuerTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PractitionerQualificationComponent.issuer");
@@ -663,7 +663,7 @@ public class Practitioner extends DomainResource {
         /**
          * @param value {@link #issuer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization that regulates and issues the qualification.)
          */
-        public PractitionerQualificationComponent setIssuerTarget(Organization value) { 
+        public PractitionerQualificationComponent setIssuerTarget(Organization value) {
           this.issuerTarget = value;
           return this;
         }
@@ -847,13 +847,13 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #identifier} (An identifier that applies to this person in this role.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -887,7 +887,7 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #active} (Whether this practitioner's record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public BooleanType getActiveElement() { 
+    public BooleanType getActiveElement() {
       if (this.active == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Practitioner.active");
@@ -896,18 +896,18 @@ public class Practitioner extends DomainResource {
       return this.active;
     }
 
-    public boolean hasActiveElement() { 
+    public boolean hasActiveElement() {
       return this.active != null && !this.active.isEmpty();
     }
 
-    public boolean hasActive() { 
+    public boolean hasActive() {
       return this.active != null && !this.active.isEmpty();
     }
 
     /**
      * @param value {@link #active} (Whether this practitioner's record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public Practitioner setActiveElement(BooleanType value) { 
+    public Practitioner setActiveElement(BooleanType value) {
       this.active = value;
       return this;
     }
@@ -915,14 +915,14 @@ public class Practitioner extends DomainResource {
     /**
      * @return Whether this practitioner's record is in active use.
      */
-    public boolean getActive() { 
+    public boolean getActive() {
       return this.active == null || this.active.isEmpty() ? false : this.active.getValue();
     }
 
     /**
      * @param value Whether this practitioner's record is in active use.
      */
-    public Practitioner setActive(boolean value) { 
+    public Practitioner setActive(boolean value) {
         if (this.active == null)
           this.active = new BooleanType();
         this.active.setValue(value);
@@ -932,7 +932,7 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #name} (A name associated with the person.)
      */
-    public HumanName getName() { 
+    public HumanName getName() {
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Practitioner.name");
@@ -941,14 +941,14 @@ public class Practitioner extends DomainResource {
       return this.name;
     }
 
-    public boolean hasName() { 
+    public boolean hasName() {
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A name associated with the person.)
      */
-    public Practitioner setName(HumanName value) { 
+    public Practitioner setName(HumanName value) {
       this.name = value;
       return this;
     }
@@ -956,13 +956,13 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #telecom} (A contact detail for the practitioner, e.g. a telephone number or an email address.)
      */
-    public List<ContactPoint> getTelecom() { 
+    public List<ContactPoint> getTelecom() {
       if (this.telecom == null)
         this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
     }
 
-    public boolean hasTelecom() { 
+    public boolean hasTelecom() {
       if (this.telecom == null)
         return false;
       for (ContactPoint item : this.telecom)
@@ -996,13 +996,13 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #address} (The postal address where the practitioner can be found or visited or to which mail can be delivered.)
      */
-    public List<Address> getAddress() { 
+    public List<Address> getAddress() {
       if (this.address == null)
         this.address = new ArrayList<Address>();
       return this.address;
     }
 
-    public boolean hasAddress() { 
+    public boolean hasAddress() {
       if (this.address == null)
         return false;
       for (Address item : this.address)
@@ -1036,7 +1036,7 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Enumeration<AdministrativeGender> getGenderElement() { 
+    public Enumeration<AdministrativeGender> getGenderElement() {
       if (this.gender == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Practitioner.gender");
@@ -1045,18 +1045,18 @@ public class Practitioner extends DomainResource {
       return this.gender;
     }
 
-    public boolean hasGenderElement() { 
+    public boolean hasGenderElement() {
       return this.gender != null && !this.gender.isEmpty();
     }
 
-    public boolean hasGender() { 
+    public boolean hasGender() {
       return this.gender != null && !this.gender.isEmpty();
     }
 
     /**
      * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Practitioner setGenderElement(Enumeration<AdministrativeGender> value) { 
+    public Practitioner setGenderElement(Enumeration<AdministrativeGender> value) {
       this.gender = value;
       return this;
     }
@@ -1064,14 +1064,14 @@ public class Practitioner extends DomainResource {
     /**
      * @return Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
      */
-    public AdministrativeGender getGender() { 
+    public AdministrativeGender getGender() {
       return this.gender == null ? null : this.gender.getValue();
     }
 
     /**
      * @param value Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
      */
-    public Practitioner setGender(AdministrativeGender value) { 
+    public Practitioner setGender(AdministrativeGender value) {
       if (value == null)
         this.gender = null;
       else {
@@ -1085,7 +1085,7 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #birthDate} (The date of birth for the practitioner.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public DateType getBirthDateElement() { 
+    public DateType getBirthDateElement() {
       if (this.birthDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Practitioner.birthDate");
@@ -1094,18 +1094,18 @@ public class Practitioner extends DomainResource {
       return this.birthDate;
     }
 
-    public boolean hasBirthDateElement() { 
+    public boolean hasBirthDateElement() {
       return this.birthDate != null && !this.birthDate.isEmpty();
     }
 
-    public boolean hasBirthDate() { 
+    public boolean hasBirthDate() {
       return this.birthDate != null && !this.birthDate.isEmpty();
     }
 
     /**
      * @param value {@link #birthDate} (The date of birth for the practitioner.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public Practitioner setBirthDateElement(DateType value) { 
+    public Practitioner setBirthDateElement(DateType value) {
       this.birthDate = value;
       return this;
     }
@@ -1113,14 +1113,14 @@ public class Practitioner extends DomainResource {
     /**
      * @return The date of birth for the practitioner.
      */
-    public Date getBirthDate() { 
+    public Date getBirthDate() {
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
      * @param value The date of birth for the practitioner.
      */
-    public Practitioner setBirthDate(Date value) { 
+    public Practitioner setBirthDate(Date value) {
       if (value == null)
         this.birthDate = null;
       else {
@@ -1134,13 +1134,13 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #photo} (Image of the person.)
      */
-    public List<Attachment> getPhoto() { 
+    public List<Attachment> getPhoto() {
       if (this.photo == null)
         this.photo = new ArrayList<Attachment>();
       return this.photo;
     }
 
-    public boolean hasPhoto() { 
+    public boolean hasPhoto() {
       if (this.photo == null)
         return false;
       for (Attachment item : this.photo)
@@ -1174,13 +1174,13 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #practitionerRole} (The list of roles/organizations that the practitioner is associated with.)
      */
-    public List<PractitionerPractitionerRoleComponent> getPractitionerRole() { 
+    public List<PractitionerPractitionerRoleComponent> getPractitionerRole() {
       if (this.practitionerRole == null)
         this.practitionerRole = new ArrayList<PractitionerPractitionerRoleComponent>();
       return this.practitionerRole;
     }
 
-    public boolean hasPractitionerRole() { 
+    public boolean hasPractitionerRole() {
       if (this.practitionerRole == null)
         return false;
       for (PractitionerPractitionerRoleComponent item : this.practitionerRole)
@@ -1214,13 +1214,13 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #qualification} (Qualifications obtained by training and certification.)
      */
-    public List<PractitionerQualificationComponent> getQualification() { 
+    public List<PractitionerQualificationComponent> getQualification() {
       if (this.qualification == null)
         this.qualification = new ArrayList<PractitionerQualificationComponent>();
       return this.qualification;
     }
 
-    public boolean hasQualification() { 
+    public boolean hasQualification() {
       if (this.qualification == null)
         return false;
       for (PractitionerQualificationComponent item : this.qualification)
@@ -1254,13 +1254,13 @@ public class Practitioner extends DomainResource {
     /**
      * @return {@link #communication} (A language the practitioner is able to use in patient communication.)
      */
-    public List<CodeableConcept> getCommunication() { 
+    public List<CodeableConcept> getCommunication() {
       if (this.communication == null)
         this.communication = new ArrayList<CodeableConcept>();
       return this.communication;
     }
 
-    public boolean hasCommunication() { 
+    public boolean hasCommunication() {
       if (this.communication == null)
         return false;
       for (CodeableConcept item : this.communication)

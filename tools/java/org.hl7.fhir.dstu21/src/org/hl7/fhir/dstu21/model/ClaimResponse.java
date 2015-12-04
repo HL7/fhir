@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -99,7 +99,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public PositiveIntType getSequenceLinkIdElement() { 
+        public PositiveIntType getSequenceLinkIdElement() {
           if (this.sequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.sequenceLinkId");
@@ -108,18 +108,18 @@ public class ClaimResponse extends DomainResource {
           return this.sequenceLinkId;
         }
 
-        public boolean hasSequenceLinkIdElement() { 
+        public boolean hasSequenceLinkIdElement() {
           return this.sequenceLinkId != null && !this.sequenceLinkId.isEmpty();
         }
 
-        public boolean hasSequenceLinkId() { 
+        public boolean hasSequenceLinkId() {
           return this.sequenceLinkId != null && !this.sequenceLinkId.isEmpty();
         }
 
         /**
          * @param value {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public ItemsComponent setSequenceLinkIdElement(PositiveIntType value) { 
+        public ItemsComponent setSequenceLinkIdElement(PositiveIntType value) {
           this.sequenceLinkId = value;
           return this;
         }
@@ -127,14 +127,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return A service line number.
          */
-        public int getSequenceLinkId() { 
+        public int getSequenceLinkId() {
           return this.sequenceLinkId == null || this.sequenceLinkId.isEmpty() ? 0 : this.sequenceLinkId.getValue();
         }
 
         /**
          * @param value A service line number.
          */
-        public ItemsComponent setSequenceLinkId(int value) { 
+        public ItemsComponent setSequenceLinkId(int value) {
             if (this.sequenceLinkId == null)
               this.sequenceLinkId = new PositiveIntType();
             this.sequenceLinkId.setValue(value);
@@ -144,13 +144,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #noteNumber} (A list of note references to the notes provided below.)
          */
-        public List<PositiveIntType> getNoteNumber() { 
+        public List<PositiveIntType> getNoteNumber() {
           if (this.noteNumber == null)
             this.noteNumber = new ArrayList<PositiveIntType>();
           return this.noteNumber;
         }
 
-        public boolean hasNoteNumber() { 
+        public boolean hasNoteNumber() {
           if (this.noteNumber == null)
             return false;
           for (PositiveIntType item : this.noteNumber)
@@ -163,7 +163,7 @@ public class ClaimResponse extends DomainResource {
          * @return {@link #noteNumber} (A list of note references to the notes provided below.)
          */
     // syntactic sugar
-        public PositiveIntType addNoteNumberElement() {//2 
+        public PositiveIntType addNoteNumberElement() {//2
           PositiveIntType t = new PositiveIntType();
           if (this.noteNumber == null)
             this.noteNumber = new ArrayList<PositiveIntType>();
@@ -186,7 +186,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
          */
-        public boolean hasNoteNumber(int value) { 
+        public boolean hasNoteNumber(int value) {
           if (this.noteNumber == null)
             return false;
           for (PositiveIntType v : this.noteNumber)
@@ -198,13 +198,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #adjudication} (The adjudications results.)
          */
-        public List<ItemAdjudicationComponent> getAdjudication() { 
+        public List<ItemAdjudicationComponent> getAdjudication() {
           if (this.adjudication == null)
             this.adjudication = new ArrayList<ItemAdjudicationComponent>();
           return this.adjudication;
         }
 
-        public boolean hasAdjudication() { 
+        public boolean hasAdjudication() {
           if (this.adjudication == null)
             return false;
           for (ItemAdjudicationComponent item : this.adjudication)
@@ -238,13 +238,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #detail} (The second tier service adjudications for submitted services.)
          */
-        public List<ItemDetailComponent> getDetail() { 
+        public List<ItemDetailComponent> getDetail() {
           if (this.detail == null)
             this.detail = new ArrayList<ItemDetailComponent>();
           return this.detail;
         }
 
-        public boolean hasDetail() { 
+        public boolean hasDetail() {
           if (this.detail == null)
             return false;
           for (ItemDetailComponent item : this.detail)
@@ -415,7 +415,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
+        public Coding getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemAdjudicationComponent.code");
@@ -424,14 +424,14 @@ public class ClaimResponse extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public ItemAdjudicationComponent setCode(Coding value) { 
+        public ItemAdjudicationComponent setCode(Coding value) {
           this.code = value;
           return this;
         }
@@ -439,7 +439,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #amount} (Monetary amount associated with the code.)
          */
-        public Money getAmount() { 
+        public Money getAmount() {
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemAdjudicationComponent.amount");
@@ -448,14 +448,14 @@ public class ClaimResponse extends DomainResource {
           return this.amount;
         }
 
-        public boolean hasAmount() { 
+        public boolean hasAmount() {
           return this.amount != null && !this.amount.isEmpty();
         }
 
         /**
          * @param value {@link #amount} (Monetary amount associated with the code.)
          */
-        public ItemAdjudicationComponent setAmount(Money value) { 
+        public ItemAdjudicationComponent setAmount(Money value) {
           this.amount = value;
           return this;
         }
@@ -463,7 +463,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public DecimalType getValueElement() { 
+        public DecimalType getValueElement() {
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemAdjudicationComponent.value");
@@ -472,18 +472,18 @@ public class ClaimResponse extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValueElement() { 
+        public boolean hasValueElement() {
           return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasValue() { 
+        public boolean hasValue() {
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public ItemAdjudicationComponent setValueElement(DecimalType value) { 
+        public ItemAdjudicationComponent setValueElement(DecimalType value) {
           this.value = value;
           return this;
         }
@@ -491,14 +491,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public BigDecimal getValue() { 
+        public BigDecimal getValue() {
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public ItemAdjudicationComponent setValue(BigDecimal value) { 
+        public ItemAdjudicationComponent setValue(BigDecimal value) {
           if (value == null)
             this.value = null;
           else {
@@ -630,7 +630,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public PositiveIntType getSequenceLinkIdElement() { 
+        public PositiveIntType getSequenceLinkIdElement() {
           if (this.sequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemDetailComponent.sequenceLinkId");
@@ -639,18 +639,18 @@ public class ClaimResponse extends DomainResource {
           return this.sequenceLinkId;
         }
 
-        public boolean hasSequenceLinkIdElement() { 
+        public boolean hasSequenceLinkIdElement() {
           return this.sequenceLinkId != null && !this.sequenceLinkId.isEmpty();
         }
 
-        public boolean hasSequenceLinkId() { 
+        public boolean hasSequenceLinkId() {
           return this.sequenceLinkId != null && !this.sequenceLinkId.isEmpty();
         }
 
         /**
          * @param value {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public ItemDetailComponent setSequenceLinkIdElement(PositiveIntType value) { 
+        public ItemDetailComponent setSequenceLinkIdElement(PositiveIntType value) {
           this.sequenceLinkId = value;
           return this;
         }
@@ -658,14 +658,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return A service line number.
          */
-        public int getSequenceLinkId() { 
+        public int getSequenceLinkId() {
           return this.sequenceLinkId == null || this.sequenceLinkId.isEmpty() ? 0 : this.sequenceLinkId.getValue();
         }
 
         /**
          * @param value A service line number.
          */
-        public ItemDetailComponent setSequenceLinkId(int value) { 
+        public ItemDetailComponent setSequenceLinkId(int value) {
             if (this.sequenceLinkId == null)
               this.sequenceLinkId = new PositiveIntType();
             this.sequenceLinkId.setValue(value);
@@ -675,13 +675,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #adjudication} (The adjudications results.)
          */
-        public List<DetailAdjudicationComponent> getAdjudication() { 
+        public List<DetailAdjudicationComponent> getAdjudication() {
           if (this.adjudication == null)
             this.adjudication = new ArrayList<DetailAdjudicationComponent>();
           return this.adjudication;
         }
 
-        public boolean hasAdjudication() { 
+        public boolean hasAdjudication() {
           if (this.adjudication == null)
             return false;
           for (DetailAdjudicationComponent item : this.adjudication)
@@ -715,13 +715,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #subDetail} (The third tier service adjudications for submitted services.)
          */
-        public List<SubDetailComponent> getSubDetail() { 
+        public List<SubDetailComponent> getSubDetail() {
           if (this.subDetail == null)
             this.subDetail = new ArrayList<SubDetailComponent>();
           return this.subDetail;
         }
 
-        public boolean hasSubDetail() { 
+        public boolean hasSubDetail() {
           if (this.subDetail == null)
             return false;
           for (SubDetailComponent item : this.subDetail)
@@ -879,7 +879,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
+        public Coding getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailAdjudicationComponent.code");
@@ -888,14 +888,14 @@ public class ClaimResponse extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public DetailAdjudicationComponent setCode(Coding value) { 
+        public DetailAdjudicationComponent setCode(Coding value) {
           this.code = value;
           return this;
         }
@@ -903,7 +903,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #amount} (Monetary amount associated with the code.)
          */
-        public Money getAmount() { 
+        public Money getAmount() {
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailAdjudicationComponent.amount");
@@ -912,14 +912,14 @@ public class ClaimResponse extends DomainResource {
           return this.amount;
         }
 
-        public boolean hasAmount() { 
+        public boolean hasAmount() {
           return this.amount != null && !this.amount.isEmpty();
         }
 
         /**
          * @param value {@link #amount} (Monetary amount associated with the code.)
          */
-        public DetailAdjudicationComponent setAmount(Money value) { 
+        public DetailAdjudicationComponent setAmount(Money value) {
           this.amount = value;
           return this;
         }
@@ -927,7 +927,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public DecimalType getValueElement() { 
+        public DecimalType getValueElement() {
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailAdjudicationComponent.value");
@@ -936,18 +936,18 @@ public class ClaimResponse extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValueElement() { 
+        public boolean hasValueElement() {
           return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasValue() { 
+        public boolean hasValue() {
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public DetailAdjudicationComponent setValueElement(DecimalType value) { 
+        public DetailAdjudicationComponent setValueElement(DecimalType value) {
           this.value = value;
           return this;
         }
@@ -955,14 +955,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public BigDecimal getValue() { 
+        public BigDecimal getValue() {
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public DetailAdjudicationComponent setValue(BigDecimal value) { 
+        public DetailAdjudicationComponent setValue(BigDecimal value) {
           if (value == null)
             this.value = null;
           else {
@@ -1087,7 +1087,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public PositiveIntType getSequenceLinkIdElement() { 
+        public PositiveIntType getSequenceLinkIdElement() {
           if (this.sequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.sequenceLinkId");
@@ -1096,18 +1096,18 @@ public class ClaimResponse extends DomainResource {
           return this.sequenceLinkId;
         }
 
-        public boolean hasSequenceLinkIdElement() { 
+        public boolean hasSequenceLinkIdElement() {
           return this.sequenceLinkId != null && !this.sequenceLinkId.isEmpty();
         }
 
-        public boolean hasSequenceLinkId() { 
+        public boolean hasSequenceLinkId() {
           return this.sequenceLinkId != null && !this.sequenceLinkId.isEmpty();
         }
 
         /**
          * @param value {@link #sequenceLinkId} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public SubDetailComponent setSequenceLinkIdElement(PositiveIntType value) { 
+        public SubDetailComponent setSequenceLinkIdElement(PositiveIntType value) {
           this.sequenceLinkId = value;
           return this;
         }
@@ -1115,14 +1115,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return A service line number.
          */
-        public int getSequenceLinkId() { 
+        public int getSequenceLinkId() {
           return this.sequenceLinkId == null || this.sequenceLinkId.isEmpty() ? 0 : this.sequenceLinkId.getValue();
         }
 
         /**
          * @param value A service line number.
          */
-        public SubDetailComponent setSequenceLinkId(int value) { 
+        public SubDetailComponent setSequenceLinkId(int value) {
             if (this.sequenceLinkId == null)
               this.sequenceLinkId = new PositiveIntType();
             this.sequenceLinkId.setValue(value);
@@ -1132,13 +1132,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #adjudication} (The adjudications results.)
          */
-        public List<SubdetailAdjudicationComponent> getAdjudication() { 
+        public List<SubdetailAdjudicationComponent> getAdjudication() {
           if (this.adjudication == null)
             this.adjudication = new ArrayList<SubdetailAdjudicationComponent>();
           return this.adjudication;
         }
 
-        public boolean hasAdjudication() { 
+        public boolean hasAdjudication() {
           if (this.adjudication == null)
             return false;
           for (SubdetailAdjudicationComponent item : this.adjudication)
@@ -1285,7 +1285,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
+        public Coding getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubdetailAdjudicationComponent.code");
@@ -1294,14 +1294,14 @@ public class ClaimResponse extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public SubdetailAdjudicationComponent setCode(Coding value) { 
+        public SubdetailAdjudicationComponent setCode(Coding value) {
           this.code = value;
           return this;
         }
@@ -1309,7 +1309,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #amount} (Monetary amount associated with the code.)
          */
-        public Money getAmount() { 
+        public Money getAmount() {
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubdetailAdjudicationComponent.amount");
@@ -1318,14 +1318,14 @@ public class ClaimResponse extends DomainResource {
           return this.amount;
         }
 
-        public boolean hasAmount() { 
+        public boolean hasAmount() {
           return this.amount != null && !this.amount.isEmpty();
         }
 
         /**
          * @param value {@link #amount} (Monetary amount associated with the code.)
          */
-        public SubdetailAdjudicationComponent setAmount(Money value) { 
+        public SubdetailAdjudicationComponent setAmount(Money value) {
           this.amount = value;
           return this;
         }
@@ -1333,7 +1333,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public DecimalType getValueElement() { 
+        public DecimalType getValueElement() {
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubdetailAdjudicationComponent.value");
@@ -1342,18 +1342,18 @@ public class ClaimResponse extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValueElement() { 
+        public boolean hasValueElement() {
           return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasValue() { 
+        public boolean hasValue() {
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public SubdetailAdjudicationComponent setValueElement(DecimalType value) { 
+        public SubdetailAdjudicationComponent setValueElement(DecimalType value) {
           this.value = value;
           return this;
         }
@@ -1361,14 +1361,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public BigDecimal getValue() { 
+        public BigDecimal getValue() {
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public SubdetailAdjudicationComponent setValue(BigDecimal value) { 
+        public SubdetailAdjudicationComponent setValue(BigDecimal value) {
           if (value == null)
             this.value = null;
           else {
@@ -1521,13 +1521,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
-        public List<PositiveIntType> getSequenceLinkId() { 
+        public List<PositiveIntType> getSequenceLinkId() {
           if (this.sequenceLinkId == null)
             this.sequenceLinkId = new ArrayList<PositiveIntType>();
           return this.sequenceLinkId;
         }
 
-        public boolean hasSequenceLinkId() { 
+        public boolean hasSequenceLinkId() {
           if (this.sequenceLinkId == null)
             return false;
           for (PositiveIntType item : this.sequenceLinkId)
@@ -1540,7 +1540,7 @@ public class ClaimResponse extends DomainResource {
          * @return {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
     // syntactic sugar
-        public PositiveIntType addSequenceLinkIdElement() {//2 
+        public PositiveIntType addSequenceLinkIdElement() {//2
           PositiveIntType t = new PositiveIntType();
           if (this.sequenceLinkId == null)
             this.sequenceLinkId = new ArrayList<PositiveIntType>();
@@ -1563,7 +1563,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
-        public boolean hasSequenceLinkId(int value) { 
+        public boolean hasSequenceLinkId(int value) {
           if (this.sequenceLinkId == null)
             return false;
           for (PositiveIntType v : this.sequenceLinkId)
@@ -1575,7 +1575,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
          */
-        public Coding getService() { 
+        public Coding getService() {
           if (this.service == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemComponent.service");
@@ -1584,14 +1584,14 @@ public class ClaimResponse extends DomainResource {
           return this.service;
         }
 
-        public boolean hasService() { 
+        public boolean hasService() {
           return this.service != null && !this.service.isEmpty();
         }
 
         /**
          * @param value {@link #service} (A code to indicate the Professional Service or Product supplied.)
          */
-        public AddedItemComponent setService(Coding value) { 
+        public AddedItemComponent setService(Coding value) {
           this.service = value;
           return this;
         }
@@ -1599,7 +1599,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #fee} (The fee charged for the professional service or product..)
          */
-        public Money getFee() { 
+        public Money getFee() {
           if (this.fee == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemComponent.fee");
@@ -1608,14 +1608,14 @@ public class ClaimResponse extends DomainResource {
           return this.fee;
         }
 
-        public boolean hasFee() { 
+        public boolean hasFee() {
           return this.fee != null && !this.fee.isEmpty();
         }
 
         /**
          * @param value {@link #fee} (The fee charged for the professional service or product..)
          */
-        public AddedItemComponent setFee(Money value) { 
+        public AddedItemComponent setFee(Money value) {
           this.fee = value;
           return this;
         }
@@ -1623,13 +1623,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
-        public List<PositiveIntType> getNoteNumberLinkId() { 
+        public List<PositiveIntType> getNoteNumberLinkId() {
           if (this.noteNumberLinkId == null)
             this.noteNumberLinkId = new ArrayList<PositiveIntType>();
           return this.noteNumberLinkId;
         }
 
-        public boolean hasNoteNumberLinkId() { 
+        public boolean hasNoteNumberLinkId() {
           if (this.noteNumberLinkId == null)
             return false;
           for (PositiveIntType item : this.noteNumberLinkId)
@@ -1642,7 +1642,7 @@ public class ClaimResponse extends DomainResource {
          * @return {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
     // syntactic sugar
-        public PositiveIntType addNoteNumberLinkIdElement() {//2 
+        public PositiveIntType addNoteNumberLinkIdElement() {//2
           PositiveIntType t = new PositiveIntType();
           if (this.noteNumberLinkId == null)
             this.noteNumberLinkId = new ArrayList<PositiveIntType>();
@@ -1665,7 +1665,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
-        public boolean hasNoteNumberLinkId(int value) { 
+        public boolean hasNoteNumberLinkId(int value) {
           if (this.noteNumberLinkId == null)
             return false;
           for (PositiveIntType v : this.noteNumberLinkId)
@@ -1677,13 +1677,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #adjudication} (The adjudications results.)
          */
-        public List<AddedItemAdjudicationComponent> getAdjudication() { 
+        public List<AddedItemAdjudicationComponent> getAdjudication() {
           if (this.adjudication == null)
             this.adjudication = new ArrayList<AddedItemAdjudicationComponent>();
           return this.adjudication;
         }
 
-        public boolean hasAdjudication() { 
+        public boolean hasAdjudication() {
           if (this.adjudication == null)
             return false;
           for (AddedItemAdjudicationComponent item : this.adjudication)
@@ -1717,13 +1717,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #detail} (The second tier service adjudications for payor added services.)
          */
-        public List<AddedItemsDetailComponent> getDetail() { 
+        public List<AddedItemsDetailComponent> getDetail() {
           if (this.detail == null)
             this.detail = new ArrayList<AddedItemsDetailComponent>();
           return this.detail;
         }
 
-        public boolean hasDetail() { 
+        public boolean hasDetail() {
           if (this.detail == null)
             return false;
           for (AddedItemsDetailComponent item : this.detail)
@@ -1916,7 +1916,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
+        public Coding getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemAdjudicationComponent.code");
@@ -1925,14 +1925,14 @@ public class ClaimResponse extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public AddedItemAdjudicationComponent setCode(Coding value) { 
+        public AddedItemAdjudicationComponent setCode(Coding value) {
           this.code = value;
           return this;
         }
@@ -1940,7 +1940,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #amount} (Monetary amount associated with the code.)
          */
-        public Money getAmount() { 
+        public Money getAmount() {
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemAdjudicationComponent.amount");
@@ -1949,14 +1949,14 @@ public class ClaimResponse extends DomainResource {
           return this.amount;
         }
 
-        public boolean hasAmount() { 
+        public boolean hasAmount() {
           return this.amount != null && !this.amount.isEmpty();
         }
 
         /**
          * @param value {@link #amount} (Monetary amount associated with the code.)
          */
-        public AddedItemAdjudicationComponent setAmount(Money value) { 
+        public AddedItemAdjudicationComponent setAmount(Money value) {
           this.amount = value;
           return this;
         }
@@ -1964,7 +1964,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public DecimalType getValueElement() { 
+        public DecimalType getValueElement() {
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemAdjudicationComponent.value");
@@ -1973,18 +1973,18 @@ public class ClaimResponse extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValueElement() { 
+        public boolean hasValueElement() {
           return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasValue() { 
+        public boolean hasValue() {
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public AddedItemAdjudicationComponent setValueElement(DecimalType value) { 
+        public AddedItemAdjudicationComponent setValueElement(DecimalType value) {
           this.value = value;
           return this;
         }
@@ -1992,14 +1992,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public BigDecimal getValue() { 
+        public BigDecimal getValue() {
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public AddedItemAdjudicationComponent setValue(BigDecimal value) { 
+        public AddedItemAdjudicationComponent setValue(BigDecimal value) {
           if (value == null)
             this.value = null;
           else {
@@ -2131,7 +2131,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
          */
-        public Coding getService() { 
+        public Coding getService() {
           if (this.service == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemsDetailComponent.service");
@@ -2140,14 +2140,14 @@ public class ClaimResponse extends DomainResource {
           return this.service;
         }
 
-        public boolean hasService() { 
+        public boolean hasService() {
           return this.service != null && !this.service.isEmpty();
         }
 
         /**
          * @param value {@link #service} (A code to indicate the Professional Service or Product supplied.)
          */
-        public AddedItemsDetailComponent setService(Coding value) { 
+        public AddedItemsDetailComponent setService(Coding value) {
           this.service = value;
           return this;
         }
@@ -2155,7 +2155,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #fee} (The fee charged for the professional service or product..)
          */
-        public Money getFee() { 
+        public Money getFee() {
           if (this.fee == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemsDetailComponent.fee");
@@ -2164,14 +2164,14 @@ public class ClaimResponse extends DomainResource {
           return this.fee;
         }
 
-        public boolean hasFee() { 
+        public boolean hasFee() {
           return this.fee != null && !this.fee.isEmpty();
         }
 
         /**
          * @param value {@link #fee} (The fee charged for the professional service or product..)
          */
-        public AddedItemsDetailComponent setFee(Money value) { 
+        public AddedItemsDetailComponent setFee(Money value) {
           this.fee = value;
           return this;
         }
@@ -2179,13 +2179,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #adjudication} (The adjudications results.)
          */
-        public List<AddedItemDetailAdjudicationComponent> getAdjudication() { 
+        public List<AddedItemDetailAdjudicationComponent> getAdjudication() {
           if (this.adjudication == null)
             this.adjudication = new ArrayList<AddedItemDetailAdjudicationComponent>();
           return this.adjudication;
         }
 
-        public boolean hasAdjudication() { 
+        public boolean hasAdjudication() {
           if (this.adjudication == null)
             return false;
           for (AddedItemDetailAdjudicationComponent item : this.adjudication)
@@ -2341,7 +2341,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public Coding getCode() { 
+        public Coding getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemDetailAdjudicationComponent.code");
@@ -2350,14 +2350,14 @@ public class ClaimResponse extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.)
          */
-        public AddedItemDetailAdjudicationComponent setCode(Coding value) { 
+        public AddedItemDetailAdjudicationComponent setCode(Coding value) {
           this.code = value;
           return this;
         }
@@ -2365,7 +2365,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #amount} (Monetary amount associated with the code.)
          */
-        public Money getAmount() { 
+        public Money getAmount() {
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemDetailAdjudicationComponent.amount");
@@ -2374,14 +2374,14 @@ public class ClaimResponse extends DomainResource {
           return this.amount;
         }
 
-        public boolean hasAmount() { 
+        public boolean hasAmount() {
           return this.amount != null && !this.amount.isEmpty();
         }
 
         /**
          * @param value {@link #amount} (Monetary amount associated with the code.)
          */
-        public AddedItemDetailAdjudicationComponent setAmount(Money value) { 
+        public AddedItemDetailAdjudicationComponent setAmount(Money value) {
           this.amount = value;
           return this;
         }
@@ -2389,7 +2389,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public DecimalType getValueElement() { 
+        public DecimalType getValueElement() {
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemDetailAdjudicationComponent.value");
@@ -2398,18 +2398,18 @@ public class ClaimResponse extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValueElement() { 
+        public boolean hasValueElement() {
           return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasValue() { 
+        public boolean hasValue() {
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (A non-monetary value for example a percentage. Mutually exclusive to the amount element above.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public AddedItemDetailAdjudicationComponent setValueElement(DecimalType value) { 
+        public AddedItemDetailAdjudicationComponent setValueElement(DecimalType value) {
           this.value = value;
           return this;
         }
@@ -2417,14 +2417,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public BigDecimal getValue() { 
+        public BigDecimal getValue() {
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
          */
-        public AddedItemDetailAdjudicationComponent setValue(BigDecimal value) { 
+        public AddedItemDetailAdjudicationComponent setValue(BigDecimal value) {
           if (value == null)
             this.value = null;
           else {
@@ -2563,7 +2563,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequenceLinkId} (The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public PositiveIntType getSequenceLinkIdElement() { 
+        public PositiveIntType getSequenceLinkIdElement() {
           if (this.sequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.sequenceLinkId");
@@ -2572,18 +2572,18 @@ public class ClaimResponse extends DomainResource {
           return this.sequenceLinkId;
         }
 
-        public boolean hasSequenceLinkIdElement() { 
+        public boolean hasSequenceLinkIdElement() {
           return this.sequenceLinkId != null && !this.sequenceLinkId.isEmpty();
         }
 
-        public boolean hasSequenceLinkId() { 
+        public boolean hasSequenceLinkId() {
           return this.sequenceLinkId != null && !this.sequenceLinkId.isEmpty();
         }
 
         /**
          * @param value {@link #sequenceLinkId} (The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere.). This is the underlying object with id, value and extensions. The accessor "getSequenceLinkId" gives direct access to the value
          */
-        public ErrorsComponent setSequenceLinkIdElement(PositiveIntType value) { 
+        public ErrorsComponent setSequenceLinkIdElement(PositiveIntType value) {
           this.sequenceLinkId = value;
           return this;
         }
@@ -2591,14 +2591,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere.
          */
-        public int getSequenceLinkId() { 
+        public int getSequenceLinkId() {
           return this.sequenceLinkId == null || this.sequenceLinkId.isEmpty() ? 0 : this.sequenceLinkId.getValue();
         }
 
         /**
          * @param value The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere.
          */
-        public ErrorsComponent setSequenceLinkId(int value) { 
+        public ErrorsComponent setSequenceLinkId(int value) {
             if (this.sequenceLinkId == null)
               this.sequenceLinkId = new PositiveIntType();
             this.sequenceLinkId.setValue(value);
@@ -2608,7 +2608,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #detailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.). This is the underlying object with id, value and extensions. The accessor "getDetailSequenceLinkId" gives direct access to the value
          */
-        public PositiveIntType getDetailSequenceLinkIdElement() { 
+        public PositiveIntType getDetailSequenceLinkIdElement() {
           if (this.detailSequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.detailSequenceLinkId");
@@ -2617,18 +2617,18 @@ public class ClaimResponse extends DomainResource {
           return this.detailSequenceLinkId;
         }
 
-        public boolean hasDetailSequenceLinkIdElement() { 
+        public boolean hasDetailSequenceLinkIdElement() {
           return this.detailSequenceLinkId != null && !this.detailSequenceLinkId.isEmpty();
         }
 
-        public boolean hasDetailSequenceLinkId() { 
+        public boolean hasDetailSequenceLinkId() {
           return this.detailSequenceLinkId != null && !this.detailSequenceLinkId.isEmpty();
         }
 
         /**
          * @param value {@link #detailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.). This is the underlying object with id, value and extensions. The accessor "getDetailSequenceLinkId" gives direct access to the value
          */
-        public ErrorsComponent setDetailSequenceLinkIdElement(PositiveIntType value) { 
+        public ErrorsComponent setDetailSequenceLinkIdElement(PositiveIntType value) {
           this.detailSequenceLinkId = value;
           return this;
         }
@@ -2636,14 +2636,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
          */
-        public int getDetailSequenceLinkId() { 
+        public int getDetailSequenceLinkId() {
           return this.detailSequenceLinkId == null || this.detailSequenceLinkId.isEmpty() ? 0 : this.detailSequenceLinkId.getValue();
         }
 
         /**
          * @param value The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
          */
-        public ErrorsComponent setDetailSequenceLinkId(int value) { 
+        public ErrorsComponent setDetailSequenceLinkId(int value) {
             if (this.detailSequenceLinkId == null)
               this.detailSequenceLinkId = new PositiveIntType();
             this.detailSequenceLinkId.setValue(value);
@@ -2653,7 +2653,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #subdetailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.). This is the underlying object with id, value and extensions. The accessor "getSubdetailSequenceLinkId" gives direct access to the value
          */
-        public PositiveIntType getSubdetailSequenceLinkIdElement() { 
+        public PositiveIntType getSubdetailSequenceLinkIdElement() {
           if (this.subdetailSequenceLinkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.subdetailSequenceLinkId");
@@ -2662,18 +2662,18 @@ public class ClaimResponse extends DomainResource {
           return this.subdetailSequenceLinkId;
         }
 
-        public boolean hasSubdetailSequenceLinkIdElement() { 
+        public boolean hasSubdetailSequenceLinkIdElement() {
           return this.subdetailSequenceLinkId != null && !this.subdetailSequenceLinkId.isEmpty();
         }
 
-        public boolean hasSubdetailSequenceLinkId() { 
+        public boolean hasSubdetailSequenceLinkId() {
           return this.subdetailSequenceLinkId != null && !this.subdetailSequenceLinkId.isEmpty();
         }
 
         /**
          * @param value {@link #subdetailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.). This is the underlying object with id, value and extensions. The accessor "getSubdetailSequenceLinkId" gives direct access to the value
          */
-        public ErrorsComponent setSubdetailSequenceLinkIdElement(PositiveIntType value) { 
+        public ErrorsComponent setSubdetailSequenceLinkIdElement(PositiveIntType value) {
           this.subdetailSequenceLinkId = value;
           return this;
         }
@@ -2681,14 +2681,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
          */
-        public int getSubdetailSequenceLinkId() { 
+        public int getSubdetailSequenceLinkId() {
           return this.subdetailSequenceLinkId == null || this.subdetailSequenceLinkId.isEmpty() ? 0 : this.subdetailSequenceLinkId.getValue();
         }
 
         /**
          * @param value The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
          */
-        public ErrorsComponent setSubdetailSequenceLinkId(int value) { 
+        public ErrorsComponent setSubdetailSequenceLinkId(int value) {
             if (this.subdetailSequenceLinkId == null)
               this.subdetailSequenceLinkId = new PositiveIntType();
             this.subdetailSequenceLinkId.setValue(value);
@@ -2698,7 +2698,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #code} (An error code,froma specified code system, which details why the claim could not be adjudicated.)
          */
-        public Coding getCode() { 
+        public Coding getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.code");
@@ -2707,14 +2707,14 @@ public class ClaimResponse extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (An error code,froma specified code system, which details why the claim could not be adjudicated.)
          */
-        public ErrorsComponent setCode(Coding value) { 
+        public ErrorsComponent setCode(Coding value) {
           this.code = value;
           return this;
         }
@@ -2841,7 +2841,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #number} (An integer associated with each note which may be referred to from each service line item.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public PositiveIntType getNumberElement() { 
+        public PositiveIntType getNumberElement() {
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.number");
@@ -2850,18 +2850,18 @@ public class ClaimResponse extends DomainResource {
           return this.number;
         }
 
-        public boolean hasNumberElement() { 
+        public boolean hasNumberElement() {
           return this.number != null && !this.number.isEmpty();
         }
 
-        public boolean hasNumber() { 
+        public boolean hasNumber() {
           return this.number != null && !this.number.isEmpty();
         }
 
         /**
          * @param value {@link #number} (An integer associated with each note which may be referred to from each service line item.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public NotesComponent setNumberElement(PositiveIntType value) { 
+        public NotesComponent setNumberElement(PositiveIntType value) {
           this.number = value;
           return this;
         }
@@ -2869,14 +2869,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return An integer associated with each note which may be referred to from each service line item.
          */
-        public int getNumber() { 
+        public int getNumber() {
           return this.number == null || this.number.isEmpty() ? 0 : this.number.getValue();
         }
 
         /**
          * @param value An integer associated with each note which may be referred to from each service line item.
          */
-        public NotesComponent setNumber(int value) { 
+        public NotesComponent setNumber(int value) {
             if (this.number == null)
               this.number = new PositiveIntType();
             this.number.setValue(value);
@@ -2886,7 +2886,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #type} (The note purpose: Print/Display.)
          */
-        public Coding getType() { 
+        public Coding getType() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.type");
@@ -2895,14 +2895,14 @@ public class ClaimResponse extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The note purpose: Print/Display.)
          */
-        public NotesComponent setType(Coding value) { 
+        public NotesComponent setType(Coding value) {
           this.type = value;
           return this;
         }
@@ -2910,7 +2910,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #text} (The note text.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextElement() { 
+        public StringType getTextElement() {
           if (this.text == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.text");
@@ -2919,18 +2919,18 @@ public class ClaimResponse extends DomainResource {
           return this.text;
         }
 
-        public boolean hasTextElement() { 
+        public boolean hasTextElement() {
           return this.text != null && !this.text.isEmpty();
         }
 
-        public boolean hasText() { 
+        public boolean hasText() {
           return this.text != null && !this.text.isEmpty();
         }
 
         /**
          * @param value {@link #text} (The note text.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public NotesComponent setTextElement(StringType value) { 
+        public NotesComponent setTextElement(StringType value) {
           this.text = value;
           return this;
         }
@@ -2938,14 +2938,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return The note text.
          */
-        public String getText() { 
+        public String getText() {
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value The note text.
          */
-        public NotesComponent setText(String value) { 
+        public NotesComponent setText(String value) {
           if (Utilities.noString(value))
             this.text = null;
           else {
@@ -3124,7 +3124,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public PositiveIntType getSequenceElement() { 
+        public PositiveIntType getSequenceElement() {
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.sequence");
@@ -3133,18 +3133,18 @@ public class ClaimResponse extends DomainResource {
           return this.sequence;
         }
 
-        public boolean hasSequenceElement() { 
+        public boolean hasSequenceElement() {
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
-        public boolean hasSequence() { 
+        public boolean hasSequence() {
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
          * @param value {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public CoverageComponent setSequenceElement(PositiveIntType value) { 
+        public CoverageComponent setSequenceElement(PositiveIntType value) {
           this.sequence = value;
           return this;
         }
@@ -3152,14 +3152,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return A service line item.
          */
-        public int getSequence() { 
+        public int getSequence() {
           return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
         }
 
         /**
          * @param value A service line item.
          */
-        public CoverageComponent setSequence(int value) { 
+        public CoverageComponent setSequence(int value) {
             if (this.sequence == null)
               this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
@@ -3169,7 +3169,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
          */
-        public BooleanType getFocalElement() { 
+        public BooleanType getFocalElement() {
           if (this.focal == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.focal");
@@ -3178,18 +3178,18 @@ public class ClaimResponse extends DomainResource {
           return this.focal;
         }
 
-        public boolean hasFocalElement() { 
+        public boolean hasFocalElement() {
           return this.focal != null && !this.focal.isEmpty();
         }
 
-        public boolean hasFocal() { 
+        public boolean hasFocal() {
           return this.focal != null && !this.focal.isEmpty();
         }
 
         /**
          * @param value {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
          */
-        public CoverageComponent setFocalElement(BooleanType value) { 
+        public CoverageComponent setFocalElement(BooleanType value) {
           this.focal = value;
           return this;
         }
@@ -3197,14 +3197,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
-        public boolean getFocal() { 
+        public boolean getFocal() {
           return this.focal == null || this.focal.isEmpty() ? false : this.focal.getValue();
         }
 
         /**
          * @param value The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
-        public CoverageComponent setFocal(boolean value) { 
+        public CoverageComponent setFocal(boolean value) {
             if (this.focal == null)
               this.focal = new BooleanType();
             this.focal.setValue(value);
@@ -3214,7 +3214,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
          */
-        public Reference getCoverage() { 
+        public Reference getCoverage() {
           if (this.coverage == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.coverage");
@@ -3223,14 +3223,14 @@ public class ClaimResponse extends DomainResource {
           return this.coverage;
         }
 
-        public boolean hasCoverage() { 
+        public boolean hasCoverage() {
           return this.coverage != null && !this.coverage.isEmpty();
         }
 
         /**
          * @param value {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
          */
-        public CoverageComponent setCoverage(Reference value) { 
+        public CoverageComponent setCoverage(Reference value) {
           this.coverage = value;
           return this;
         }
@@ -3238,7 +3238,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #coverage} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
          */
-        public Coverage getCoverageTarget() { 
+        public Coverage getCoverageTarget() {
           if (this.coverageTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.coverage");
@@ -3250,7 +3250,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #coverage} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
          */
-        public CoverageComponent setCoverageTarget(Coverage value) { 
+        public CoverageComponent setCoverageTarget(Coverage value) {
           this.coverageTarget = value;
           return this;
         }
@@ -3258,7 +3258,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
          */
-        public StringType getBusinessArrangementElement() { 
+        public StringType getBusinessArrangementElement() {
           if (this.businessArrangement == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.businessArrangement");
@@ -3267,18 +3267,18 @@ public class ClaimResponse extends DomainResource {
           return this.businessArrangement;
         }
 
-        public boolean hasBusinessArrangementElement() { 
+        public boolean hasBusinessArrangementElement() {
           return this.businessArrangement != null && !this.businessArrangement.isEmpty();
         }
 
-        public boolean hasBusinessArrangement() { 
+        public boolean hasBusinessArrangement() {
           return this.businessArrangement != null && !this.businessArrangement.isEmpty();
         }
 
         /**
          * @param value {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
          */
-        public CoverageComponent setBusinessArrangementElement(StringType value) { 
+        public CoverageComponent setBusinessArrangementElement(StringType value) {
           this.businessArrangement = value;
           return this;
         }
@@ -3286,14 +3286,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return The contract number of a business agreement which describes the terms and conditions.
          */
-        public String getBusinessArrangement() { 
+        public String getBusinessArrangement() {
           return this.businessArrangement == null ? null : this.businessArrangement.getValue();
         }
 
         /**
          * @param value The contract number of a business agreement which describes the terms and conditions.
          */
-        public CoverageComponent setBusinessArrangement(String value) { 
+        public CoverageComponent setBusinessArrangement(String value) {
           if (Utilities.noString(value))
             this.businessArrangement = null;
           else {
@@ -3307,7 +3307,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #relationship} (The relationship of the patient to the subscriber.)
          */
-        public Coding getRelationship() { 
+        public Coding getRelationship() {
           if (this.relationship == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.relationship");
@@ -3316,14 +3316,14 @@ public class ClaimResponse extends DomainResource {
           return this.relationship;
         }
 
-        public boolean hasRelationship() { 
+        public boolean hasRelationship() {
           return this.relationship != null && !this.relationship.isEmpty();
         }
 
         /**
          * @param value {@link #relationship} (The relationship of the patient to the subscriber.)
          */
-        public CoverageComponent setRelationship(Coding value) { 
+        public CoverageComponent setRelationship(Coding value) {
           this.relationship = value;
           return this;
         }
@@ -3331,13 +3331,13 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
-        public List<StringType> getPreAuthRef() { 
+        public List<StringType> getPreAuthRef() {
           if (this.preAuthRef == null)
             this.preAuthRef = new ArrayList<StringType>();
           return this.preAuthRef;
         }
 
-        public boolean hasPreAuthRef() { 
+        public boolean hasPreAuthRef() {
           if (this.preAuthRef == null)
             return false;
           for (StringType item : this.preAuthRef)
@@ -3350,7 +3350,7 @@ public class ClaimResponse extends DomainResource {
          * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
     // syntactic sugar
-        public StringType addPreAuthRefElement() {//2 
+        public StringType addPreAuthRefElement() {//2
           StringType t = new StringType();
           if (this.preAuthRef == null)
             this.preAuthRef = new ArrayList<StringType>();
@@ -3373,7 +3373,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
-        public boolean hasPreAuthRef(String value) { 
+        public boolean hasPreAuthRef(String value) {
           if (this.preAuthRef == null)
             return false;
           for (StringType v : this.preAuthRef)
@@ -3385,7 +3385,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #claimResponse} (The Coverages adjudication details.)
          */
-        public Reference getClaimResponse() { 
+        public Reference getClaimResponse() {
           if (this.claimResponse == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
@@ -3394,14 +3394,14 @@ public class ClaimResponse extends DomainResource {
           return this.claimResponse;
         }
 
-        public boolean hasClaimResponse() { 
+        public boolean hasClaimResponse() {
           return this.claimResponse != null && !this.claimResponse.isEmpty();
         }
 
         /**
          * @param value {@link #claimResponse} (The Coverages adjudication details.)
          */
-        public CoverageComponent setClaimResponse(Reference value) { 
+        public CoverageComponent setClaimResponse(Reference value) {
           this.claimResponse = value;
           return this;
         }
@@ -3409,7 +3409,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #claimResponse} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Coverages adjudication details.)
          */
-        public ClaimResponse getClaimResponseTarget() { 
+        public ClaimResponse getClaimResponseTarget() {
           if (this.claimResponseTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
@@ -3421,7 +3421,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @param value {@link #claimResponse} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Coverages adjudication details.)
          */
-        public CoverageComponent setClaimResponseTarget(ClaimResponse value) { 
+        public CoverageComponent setClaimResponseTarget(ClaimResponse value) {
           this.claimResponseTarget = value;
           return this;
         }
@@ -3429,7 +3429,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
          */
-        public Coding getOriginalRuleset() { 
+        public Coding getOriginalRuleset() {
           if (this.originalRuleset == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.originalRuleset");
@@ -3438,14 +3438,14 @@ public class ClaimResponse extends DomainResource {
           return this.originalRuleset;
         }
 
-        public boolean hasOriginalRuleset() { 
+        public boolean hasOriginalRuleset() {
           return this.originalRuleset != null && !this.originalRuleset.isEmpty();
         }
 
         /**
          * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
          */
-        public CoverageComponent setOriginalRuleset(Coding value) { 
+        public CoverageComponent setOriginalRuleset(Coding value) {
           this.originalRuleset = value;
           return this;
         }
@@ -3789,13 +3789,13 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #identifier} (The Response business identifier.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -3829,7 +3829,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #request} (Original request resource referrence.)
      */
-    public Reference getRequest() { 
+    public Reference getRequest() {
       if (this.request == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.request");
@@ -3838,14 +3838,14 @@ public class ClaimResponse extends DomainResource {
       return this.request;
     }
 
-    public boolean hasRequest() { 
+    public boolean hasRequest() {
       return this.request != null && !this.request.isEmpty();
     }
 
     /**
      * @param value {@link #request} (Original request resource referrence.)
      */
-    public ClaimResponse setRequest(Reference value) { 
+    public ClaimResponse setRequest(Reference value) {
       this.request = value;
       return this;
     }
@@ -3853,7 +3853,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
      */
-    public Claim getRequestTarget() { 
+    public Claim getRequestTarget() {
       if (this.requestTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.request");
@@ -3865,7 +3865,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
      */
-    public ClaimResponse setRequestTarget(Claim value) { 
+    public ClaimResponse setRequestTarget(Claim value) {
       this.requestTarget = value;
       return this;
     }
@@ -3873,7 +3873,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public Coding getRuleset() { 
+    public Coding getRuleset() {
       if (this.ruleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.ruleset");
@@ -3882,14 +3882,14 @@ public class ClaimResponse extends DomainResource {
       return this.ruleset;
     }
 
-    public boolean hasRuleset() { 
+    public boolean hasRuleset() {
       return this.ruleset != null && !this.ruleset.isEmpty();
     }
 
     /**
      * @param value {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public ClaimResponse setRuleset(Coding value) { 
+    public ClaimResponse setRuleset(Coding value) {
       this.ruleset = value;
       return this;
     }
@@ -3897,7 +3897,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public Coding getOriginalRuleset() { 
+    public Coding getOriginalRuleset() {
       if (this.originalRuleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.originalRuleset");
@@ -3906,14 +3906,14 @@ public class ClaimResponse extends DomainResource {
       return this.originalRuleset;
     }
 
-    public boolean hasOriginalRuleset() { 
+    public boolean hasOriginalRuleset() {
       return this.originalRuleset != null && !this.originalRuleset.isEmpty();
     }
 
     /**
      * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public ClaimResponse setOriginalRuleset(Coding value) { 
+    public ClaimResponse setOriginalRuleset(Coding value) {
       this.originalRuleset = value;
       return this;
     }
@@ -3921,7 +3921,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getCreatedElement() { 
+    public DateTimeType getCreatedElement() {
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.created");
@@ -3930,18 +3930,18 @@ public class ClaimResponse extends DomainResource {
       return this.created;
     }
 
-    public boolean hasCreatedElement() { 
+    public boolean hasCreatedElement() {
       return this.created != null && !this.created.isEmpty();
     }
 
-    public boolean hasCreated() { 
+    public boolean hasCreated() {
       return this.created != null && !this.created.isEmpty();
     }
 
     /**
      * @param value {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public ClaimResponse setCreatedElement(DateTimeType value) { 
+    public ClaimResponse setCreatedElement(DateTimeType value) {
       this.created = value;
       return this;
     }
@@ -3949,14 +3949,14 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return The date when the enclosed suite of services were performed or completed.
      */
-    public Date getCreated() { 
+    public Date getCreated() {
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public ClaimResponse setCreated(Date value) { 
+    public ClaimResponse setCreated(Date value) {
       if (value == null)
         this.created = null;
       else {
@@ -3970,7 +3970,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #organization} (The Insurer who produced this adjudicated response.)
      */
-    public Reference getOrganization() { 
+    public Reference getOrganization() {
       if (this.organization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.organization");
@@ -3979,14 +3979,14 @@ public class ClaimResponse extends DomainResource {
       return this.organization;
     }
 
-    public boolean hasOrganization() { 
+    public boolean hasOrganization() {
       return this.organization != null && !this.organization.isEmpty();
     }
 
     /**
      * @param value {@link #organization} (The Insurer who produced this adjudicated response.)
      */
-    public ClaimResponse setOrganization(Reference value) { 
+    public ClaimResponse setOrganization(Reference value) {
       this.organization = value;
       return this;
     }
@@ -3994,7 +3994,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
      */
-    public Organization getOrganizationTarget() { 
+    public Organization getOrganizationTarget() {
       if (this.organizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.organization");
@@ -4006,7 +4006,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
      */
-    public ClaimResponse setOrganizationTarget(Organization value) { 
+    public ClaimResponse setOrganizationTarget(Organization value) {
       this.organizationTarget = value;
       return this;
     }
@@ -4014,7 +4014,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Reference getRequestProvider() { 
+    public Reference getRequestProvider() {
       if (this.requestProvider == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.requestProvider");
@@ -4023,14 +4023,14 @@ public class ClaimResponse extends DomainResource {
       return this.requestProvider;
     }
 
-    public boolean hasRequestProvider() { 
+    public boolean hasRequestProvider() {
       return this.requestProvider != null && !this.requestProvider.isEmpty();
     }
 
     /**
      * @param value {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public ClaimResponse setRequestProvider(Reference value) { 
+    public ClaimResponse setRequestProvider(Reference value) {
       this.requestProvider = value;
       return this;
     }
@@ -4038,7 +4038,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Practitioner getRequestProviderTarget() { 
+    public Practitioner getRequestProviderTarget() {
       if (this.requestProviderTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.requestProvider");
@@ -4050,7 +4050,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @param value {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public ClaimResponse setRequestProviderTarget(Practitioner value) { 
+    public ClaimResponse setRequestProviderTarget(Practitioner value) {
       this.requestProviderTarget = value;
       return this;
     }
@@ -4058,7 +4058,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public Reference getRequestOrganization() { 
+    public Reference getRequestOrganization() {
       if (this.requestOrganization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.requestOrganization");
@@ -4067,14 +4067,14 @@ public class ClaimResponse extends DomainResource {
       return this.requestOrganization;
     }
 
-    public boolean hasRequestOrganization() { 
+    public boolean hasRequestOrganization() {
       return this.requestOrganization != null && !this.requestOrganization.isEmpty();
     }
 
     /**
      * @param value {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public ClaimResponse setRequestOrganization(Reference value) { 
+    public ClaimResponse setRequestOrganization(Reference value) {
       this.requestOrganization = value;
       return this;
     }
@@ -4082,7 +4082,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #requestOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public Organization getRequestOrganizationTarget() { 
+    public Organization getRequestOrganizationTarget() {
       if (this.requestOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.requestOrganization");
@@ -4094,7 +4094,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @param value {@link #requestOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public ClaimResponse setRequestOrganizationTarget(Organization value) { 
+    public ClaimResponse setRequestOrganizationTarget(Organization value) {
       this.requestOrganizationTarget = value;
       return this;
     }
@@ -4102,7 +4102,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public Enumeration<RemittanceOutcome> getOutcomeElement() { 
+    public Enumeration<RemittanceOutcome> getOutcomeElement() {
       if (this.outcome == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.outcome");
@@ -4111,18 +4111,18 @@ public class ClaimResponse extends DomainResource {
       return this.outcome;
     }
 
-    public boolean hasOutcomeElement() { 
+    public boolean hasOutcomeElement() {
       return this.outcome != null && !this.outcome.isEmpty();
     }
 
-    public boolean hasOutcome() { 
+    public boolean hasOutcome() {
       return this.outcome != null && !this.outcome.isEmpty();
     }
 
     /**
      * @param value {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public ClaimResponse setOutcomeElement(Enumeration<RemittanceOutcome> value) { 
+    public ClaimResponse setOutcomeElement(Enumeration<RemittanceOutcome> value) {
       this.outcome = value;
       return this;
     }
@@ -4130,14 +4130,14 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return Transaction status: error, complete.
      */
-    public RemittanceOutcome getOutcome() { 
+    public RemittanceOutcome getOutcome() {
       return this.outcome == null ? null : this.outcome.getValue();
     }
 
     /**
      * @param value Transaction status: error, complete.
      */
-    public ClaimResponse setOutcome(RemittanceOutcome value) { 
+    public ClaimResponse setOutcome(RemittanceOutcome value) {
       if (value == null)
         this.outcome = null;
       else {
@@ -4151,7 +4151,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
      */
-    public StringType getDispositionElement() { 
+    public StringType getDispositionElement() {
       if (this.disposition == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.disposition");
@@ -4160,18 +4160,18 @@ public class ClaimResponse extends DomainResource {
       return this.disposition;
     }
 
-    public boolean hasDispositionElement() { 
+    public boolean hasDispositionElement() {
       return this.disposition != null && !this.disposition.isEmpty();
     }
 
-    public boolean hasDisposition() { 
+    public boolean hasDisposition() {
       return this.disposition != null && !this.disposition.isEmpty();
     }
 
     /**
      * @param value {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
      */
-    public ClaimResponse setDispositionElement(StringType value) { 
+    public ClaimResponse setDispositionElement(StringType value) {
       this.disposition = value;
       return this;
     }
@@ -4179,14 +4179,14 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return A description of the status of the adjudication.
      */
-    public String getDisposition() { 
+    public String getDisposition() {
       return this.disposition == null ? null : this.disposition.getValue();
     }
 
     /**
      * @param value A description of the status of the adjudication.
      */
-    public ClaimResponse setDisposition(String value) { 
+    public ClaimResponse setDisposition(String value) {
       if (Utilities.noString(value))
         this.disposition = null;
       else {
@@ -4200,7 +4200,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #payeeType} (Party to be reimbursed: Subscriber, provider, other.)
      */
-    public Coding getPayeeType() { 
+    public Coding getPayeeType() {
       if (this.payeeType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.payeeType");
@@ -4209,14 +4209,14 @@ public class ClaimResponse extends DomainResource {
       return this.payeeType;
     }
 
-    public boolean hasPayeeType() { 
+    public boolean hasPayeeType() {
       return this.payeeType != null && !this.payeeType.isEmpty();
     }
 
     /**
      * @param value {@link #payeeType} (Party to be reimbursed: Subscriber, provider, other.)
      */
-    public ClaimResponse setPayeeType(Coding value) { 
+    public ClaimResponse setPayeeType(Coding value) {
       this.payeeType = value;
       return this;
     }
@@ -4224,13 +4224,13 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #item} (The first tier service adjudications for submitted services.)
      */
-    public List<ItemsComponent> getItem() { 
+    public List<ItemsComponent> getItem() {
       if (this.item == null)
         this.item = new ArrayList<ItemsComponent>();
       return this.item;
     }
 
-    public boolean hasItem() { 
+    public boolean hasItem() {
       if (this.item == null)
         return false;
       for (ItemsComponent item : this.item)
@@ -4264,13 +4264,13 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #addItem} (The first tier service adjudications for payor added services.)
      */
-    public List<AddedItemComponent> getAddItem() { 
+    public List<AddedItemComponent> getAddItem() {
       if (this.addItem == null)
         this.addItem = new ArrayList<AddedItemComponent>();
       return this.addItem;
     }
 
-    public boolean hasAddItem() { 
+    public boolean hasAddItem() {
       if (this.addItem == null)
         return false;
       for (AddedItemComponent item : this.addItem)
@@ -4304,13 +4304,13 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #error} (Mutually exclusive with Services Provided (Item).)
      */
-    public List<ErrorsComponent> getError() { 
+    public List<ErrorsComponent> getError() {
       if (this.error == null)
         this.error = new ArrayList<ErrorsComponent>();
       return this.error;
     }
 
-    public boolean hasError() { 
+    public boolean hasError() {
       if (this.error == null)
         return false;
       for (ErrorsComponent item : this.error)
@@ -4344,7 +4344,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #totalCost} (The total cost of the services reported.)
      */
-    public Money getTotalCost() { 
+    public Money getTotalCost() {
       if (this.totalCost == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.totalCost");
@@ -4353,14 +4353,14 @@ public class ClaimResponse extends DomainResource {
       return this.totalCost;
     }
 
-    public boolean hasTotalCost() { 
+    public boolean hasTotalCost() {
       return this.totalCost != null && !this.totalCost.isEmpty();
     }
 
     /**
      * @param value {@link #totalCost} (The total cost of the services reported.)
      */
-    public ClaimResponse setTotalCost(Money value) { 
+    public ClaimResponse setTotalCost(Money value) {
       this.totalCost = value;
       return this;
     }
@@ -4368,7 +4368,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #unallocDeductable} (The amount of deductible applied which was not allocated to any particular service line.)
      */
-    public Money getUnallocDeductable() { 
+    public Money getUnallocDeductable() {
       if (this.unallocDeductable == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.unallocDeductable");
@@ -4377,14 +4377,14 @@ public class ClaimResponse extends DomainResource {
       return this.unallocDeductable;
     }
 
-    public boolean hasUnallocDeductable() { 
+    public boolean hasUnallocDeductable() {
       return this.unallocDeductable != null && !this.unallocDeductable.isEmpty();
     }
 
     /**
      * @param value {@link #unallocDeductable} (The amount of deductible applied which was not allocated to any particular service line.)
      */
-    public ClaimResponse setUnallocDeductable(Money value) { 
+    public ClaimResponse setUnallocDeductable(Money value) {
       this.unallocDeductable = value;
       return this;
     }
@@ -4392,7 +4392,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #totalBenefit} (Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible).)
      */
-    public Money getTotalBenefit() { 
+    public Money getTotalBenefit() {
       if (this.totalBenefit == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.totalBenefit");
@@ -4401,14 +4401,14 @@ public class ClaimResponse extends DomainResource {
       return this.totalBenefit;
     }
 
-    public boolean hasTotalBenefit() { 
+    public boolean hasTotalBenefit() {
       return this.totalBenefit != null && !this.totalBenefit.isEmpty();
     }
 
     /**
      * @param value {@link #totalBenefit} (Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible).)
      */
-    public ClaimResponse setTotalBenefit(Money value) { 
+    public ClaimResponse setTotalBenefit(Money value) {
       this.totalBenefit = value;
       return this;
     }
@@ -4416,7 +4416,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #paymentAdjustment} (Adjustment to the payment of this transaction which is not related to adjudication of this transaction.)
      */
-    public Money getPaymentAdjustment() { 
+    public Money getPaymentAdjustment() {
       if (this.paymentAdjustment == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentAdjustment");
@@ -4425,14 +4425,14 @@ public class ClaimResponse extends DomainResource {
       return this.paymentAdjustment;
     }
 
-    public boolean hasPaymentAdjustment() { 
+    public boolean hasPaymentAdjustment() {
       return this.paymentAdjustment != null && !this.paymentAdjustment.isEmpty();
     }
 
     /**
      * @param value {@link #paymentAdjustment} (Adjustment to the payment of this transaction which is not related to adjudication of this transaction.)
      */
-    public ClaimResponse setPaymentAdjustment(Money value) { 
+    public ClaimResponse setPaymentAdjustment(Money value) {
       this.paymentAdjustment = value;
       return this;
     }
@@ -4440,7 +4440,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #paymentAdjustmentReason} (Reason for the payment adjustment.)
      */
-    public Coding getPaymentAdjustmentReason() { 
+    public Coding getPaymentAdjustmentReason() {
       if (this.paymentAdjustmentReason == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentAdjustmentReason");
@@ -4449,14 +4449,14 @@ public class ClaimResponse extends DomainResource {
       return this.paymentAdjustmentReason;
     }
 
-    public boolean hasPaymentAdjustmentReason() { 
+    public boolean hasPaymentAdjustmentReason() {
       return this.paymentAdjustmentReason != null && !this.paymentAdjustmentReason.isEmpty();
     }
 
     /**
      * @param value {@link #paymentAdjustmentReason} (Reason for the payment adjustment.)
      */
-    public ClaimResponse setPaymentAdjustmentReason(Coding value) { 
+    public ClaimResponse setPaymentAdjustmentReason(Coding value) {
       this.paymentAdjustmentReason = value;
       return this;
     }
@@ -4464,7 +4464,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #paymentDate} (Estimated payment data.). This is the underlying object with id, value and extensions. The accessor "getPaymentDate" gives direct access to the value
      */
-    public DateType getPaymentDateElement() { 
+    public DateType getPaymentDateElement() {
       if (this.paymentDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentDate");
@@ -4473,18 +4473,18 @@ public class ClaimResponse extends DomainResource {
       return this.paymentDate;
     }
 
-    public boolean hasPaymentDateElement() { 
+    public boolean hasPaymentDateElement() {
       return this.paymentDate != null && !this.paymentDate.isEmpty();
     }
 
-    public boolean hasPaymentDate() { 
+    public boolean hasPaymentDate() {
       return this.paymentDate != null && !this.paymentDate.isEmpty();
     }
 
     /**
      * @param value {@link #paymentDate} (Estimated payment data.). This is the underlying object with id, value and extensions. The accessor "getPaymentDate" gives direct access to the value
      */
-    public ClaimResponse setPaymentDateElement(DateType value) { 
+    public ClaimResponse setPaymentDateElement(DateType value) {
       this.paymentDate = value;
       return this;
     }
@@ -4492,14 +4492,14 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return Estimated payment data.
      */
-    public Date getPaymentDate() { 
+    public Date getPaymentDate() {
       return this.paymentDate == null ? null : this.paymentDate.getValue();
     }
 
     /**
      * @param value Estimated payment data.
      */
-    public ClaimResponse setPaymentDate(Date value) { 
+    public ClaimResponse setPaymentDate(Date value) {
       if (value == null)
         this.paymentDate = null;
       else {
@@ -4513,7 +4513,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #paymentAmount} (Payable less any payment adjustment.)
      */
-    public Money getPaymentAmount() { 
+    public Money getPaymentAmount() {
       if (this.paymentAmount == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentAmount");
@@ -4522,14 +4522,14 @@ public class ClaimResponse extends DomainResource {
       return this.paymentAmount;
     }
 
-    public boolean hasPaymentAmount() { 
+    public boolean hasPaymentAmount() {
       return this.paymentAmount != null && !this.paymentAmount.isEmpty();
     }
 
     /**
      * @param value {@link #paymentAmount} (Payable less any payment adjustment.)
      */
-    public ClaimResponse setPaymentAmount(Money value) { 
+    public ClaimResponse setPaymentAmount(Money value) {
       this.paymentAmount = value;
       return this;
     }
@@ -4537,7 +4537,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #paymentRef} (Payment identifier.)
      */
-    public Identifier getPaymentRef() { 
+    public Identifier getPaymentRef() {
       if (this.paymentRef == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentRef");
@@ -4546,14 +4546,14 @@ public class ClaimResponse extends DomainResource {
       return this.paymentRef;
     }
 
-    public boolean hasPaymentRef() { 
+    public boolean hasPaymentRef() {
       return this.paymentRef != null && !this.paymentRef.isEmpty();
     }
 
     /**
      * @param value {@link #paymentRef} (Payment identifier.)
      */
-    public ClaimResponse setPaymentRef(Identifier value) { 
+    public ClaimResponse setPaymentRef(Identifier value) {
       this.paymentRef = value;
       return this;
     }
@@ -4561,7 +4561,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #reserved} (Status of funds reservation (For provider, for Patient, None).)
      */
-    public Coding getReserved() { 
+    public Coding getReserved() {
       if (this.reserved == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.reserved");
@@ -4570,14 +4570,14 @@ public class ClaimResponse extends DomainResource {
       return this.reserved;
     }
 
-    public boolean hasReserved() { 
+    public boolean hasReserved() {
       return this.reserved != null && !this.reserved.isEmpty();
     }
 
     /**
      * @param value {@link #reserved} (Status of funds reservation (For provider, for Patient, None).)
      */
-    public ClaimResponse setReserved(Coding value) { 
+    public ClaimResponse setReserved(Coding value) {
       this.reserved = value;
       return this;
     }
@@ -4585,7 +4585,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #form} (The form to be used for printing the content.)
      */
-    public Coding getForm() { 
+    public Coding getForm() {
       if (this.form == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.form");
@@ -4594,14 +4594,14 @@ public class ClaimResponse extends DomainResource {
       return this.form;
     }
 
-    public boolean hasForm() { 
+    public boolean hasForm() {
       return this.form != null && !this.form.isEmpty();
     }
 
     /**
      * @param value {@link #form} (The form to be used for printing the content.)
      */
-    public ClaimResponse setForm(Coding value) { 
+    public ClaimResponse setForm(Coding value) {
       this.form = value;
       return this;
     }
@@ -4609,13 +4609,13 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #note} (Note text.)
      */
-    public List<NotesComponent> getNote() { 
+    public List<NotesComponent> getNote() {
       if (this.note == null)
         this.note = new ArrayList<NotesComponent>();
       return this.note;
     }
 
-    public boolean hasNote() { 
+    public boolean hasNote() {
       if (this.note == null)
         return false;
       for (NotesComponent item : this.note)
@@ -4649,13 +4649,13 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return {@link #coverage} (Financial instrument by which payment information for health care.)
      */
-    public List<CoverageComponent> getCoverage() { 
+    public List<CoverageComponent> getCoverage() {
       if (this.coverage == null)
         this.coverage = new ArrayList<CoverageComponent>();
       return this.coverage;
     }
 
-    public boolean hasCoverage() { 
+    public boolean hasCoverage() {
       if (this.coverage == null)
         return false;
       for (CoverageComponent item : this.coverage)

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,15 +51,15 @@ public class Flag extends DomainResource {
         /**
          * A current flag that should be displayed to a user. A system may use the category to determine which roles should view the flag.
          */
-        ACTIVE, 
+        ACTIVE,
         /**
          * The flag does not need to be displayed any more.
          */
-        INACTIVE, 
+        INACTIVE,
         /**
          * The flag was added in error, and should no longer be displayed.
          */
-        ENTEREDINERROR, 
+        ENTEREDINERROR,
         /**
          * added to help the parsers
          */
@@ -240,13 +240,13 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier assigned to the flag for external use (outside the FHIR environment).)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -280,7 +280,7 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #category} (Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.)
      */
-    public CodeableConcept getCategory() { 
+    public CodeableConcept getCategory() {
       if (this.category == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Flag.category");
@@ -289,14 +289,14 @@ public class Flag extends DomainResource {
       return this.category;
     }
 
-    public boolean hasCategory() { 
+    public boolean hasCategory() {
       return this.category != null && !this.category.isEmpty();
     }
 
     /**
      * @param value {@link #category} (Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.)
      */
-    public Flag setCategory(CodeableConcept value) { 
+    public Flag setCategory(CodeableConcept value) {
       this.category = value;
       return this;
     }
@@ -304,7 +304,7 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #status} (Supports basic workflow.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<FlagStatus> getStatusElement() { 
+    public Enumeration<FlagStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Flag.status");
@@ -313,18 +313,18 @@ public class Flag extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (Supports basic workflow.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Flag setStatusElement(Enumeration<FlagStatus> value) { 
+    public Flag setStatusElement(Enumeration<FlagStatus> value) {
       this.status = value;
       return this;
     }
@@ -332,14 +332,14 @@ public class Flag extends DomainResource {
     /**
      * @return Supports basic workflow.
      */
-    public FlagStatus getStatus() { 
+    public FlagStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Supports basic workflow.
      */
-    public Flag setStatus(FlagStatus value) { 
+    public Flag setStatus(FlagStatus value) {
         if (this.status == null)
           this.status = new Enumeration<FlagStatus>(new FlagStatusEnumFactory());
         this.status.setValue(value);
@@ -349,7 +349,7 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #period} (The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.)
      */
-    public Period getPeriod() { 
+    public Period getPeriod() {
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Flag.period");
@@ -358,14 +358,14 @@ public class Flag extends DomainResource {
       return this.period;
     }
 
-    public boolean hasPeriod() { 
+    public boolean hasPeriod() {
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.)
      */
-    public Flag setPeriod(Period value) { 
+    public Flag setPeriod(Period value) {
       this.period = value;
       return this;
     }
@@ -373,7 +373,7 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #subject} (The patient, location, group , organization , or practitioner this is about record this flag is associated with.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Flag.subject");
@@ -382,14 +382,14 @@ public class Flag extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The patient, location, group , organization , or practitioner this is about record this flag is associated with.)
      */
-    public Flag setSubject(Reference value) { 
+    public Flag setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -397,14 +397,14 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient, location, group , organization , or practitioner this is about record this flag is associated with.)
      */
-    public Resource getSubjectTarget() { 
+    public Resource getSubjectTarget() {
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient, location, group , organization , or practitioner this is about record this flag is associated with.)
      */
-    public Flag setSubjectTarget(Resource value) { 
+    public Flag setSubjectTarget(Resource value) {
       this.subjectTarget = value;
       return this;
     }
@@ -412,7 +412,7 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #encounter} (This alert is only relevant during the encounter.)
      */
-    public Reference getEncounter() { 
+    public Reference getEncounter() {
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Flag.encounter");
@@ -421,14 +421,14 @@ public class Flag extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() { 
+    public boolean hasEncounter() {
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (This alert is only relevant during the encounter.)
      */
-    public Flag setEncounter(Reference value) { 
+    public Flag setEncounter(Reference value) {
       this.encounter = value;
       return this;
     }
@@ -436,7 +436,7 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (This alert is only relevant during the encounter.)
      */
-    public Encounter getEncounterTarget() { 
+    public Encounter getEncounterTarget() {
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Flag.encounter");
@@ -448,7 +448,7 @@ public class Flag extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (This alert is only relevant during the encounter.)
      */
-    public Flag setEncounterTarget(Encounter value) { 
+    public Flag setEncounterTarget(Encounter value) {
       this.encounterTarget = value;
       return this;
     }
@@ -456,7 +456,7 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #author} (The person, organization or device that created the flag.)
      */
-    public Reference getAuthor() { 
+    public Reference getAuthor() {
       if (this.author == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Flag.author");
@@ -465,14 +465,14 @@ public class Flag extends DomainResource {
       return this.author;
     }
 
-    public boolean hasAuthor() { 
+    public boolean hasAuthor() {
       return this.author != null && !this.author.isEmpty();
     }
 
     /**
      * @param value {@link #author} (The person, organization or device that created the flag.)
      */
-    public Flag setAuthor(Reference value) { 
+    public Flag setAuthor(Reference value) {
       this.author = value;
       return this;
     }
@@ -480,14 +480,14 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person, organization or device that created the flag.)
      */
-    public Resource getAuthorTarget() { 
+    public Resource getAuthorTarget() {
       return this.authorTarget;
     }
 
     /**
      * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person, organization or device that created the flag.)
      */
-    public Flag setAuthorTarget(Resource value) { 
+    public Flag setAuthorTarget(Resource value) {
       this.authorTarget = value;
       return this;
     }
@@ -495,7 +495,7 @@ public class Flag extends DomainResource {
     /**
      * @return {@link #code} (The coded value or textual component of the flag to display to the user.)
      */
-    public CodeableConcept getCode() { 
+    public CodeableConcept getCode() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Flag.code");
@@ -504,14 +504,14 @@ public class Flag extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (The coded value or textual component of the flag to display to the user.)
      */
-    public Flag setCode(CodeableConcept value) { 
+    public Flag setCode(CodeableConcept value) {
       this.code = value;
       return this;
     }

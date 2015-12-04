@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,15 +52,15 @@ public class Questionnaire extends DomainResource {
         /**
          * This Questionnaire is not ready for official use.
          */
-        DRAFT, 
+        DRAFT,
         /**
          * This Questionnaire is ready for use.
          */
-        PUBLISHED, 
+        PUBLISHED,
         /**
          * This Questionnaire should no longer be used to gather data.
          */
-        RETIRED, 
+        RETIRED,
         /**
          * added to help the parsers
          */
@@ -152,75 +152,75 @@ public class Questionnaire extends DomainResource {
         /**
          * An item with no direct answer but which has descendant items that are questions
          */
-        GROUP, 
+        GROUP,
         /**
          * Text for display that will not capture an answer or have descendants
          */
-        DISPLAY, 
+        DISPLAY,
         /**
          * An item that defines a specific answer to be captured (and may have descendant items)
          */
-        QUESTION, 
+        QUESTION,
         /**
          * Question with a yes/no answer
          */
-        BOOLEAN, 
+        BOOLEAN,
         /**
          * Question with is a real number answer
          */
-        DECIMAL, 
+        DECIMAL,
         /**
          * Question with an integer answer
          */
-        INTEGER, 
+        INTEGER,
         /**
          * Question with adate answer
          */
-        DATE, 
+        DATE,
         /**
          * Question with a date and time answer
          */
-        DATETIME, 
+        DATETIME,
         /**
          * Question with a system timestamp answer
          */
-        INSTANT, 
+        INSTANT,
         /**
          * Question with a time (hour/minute/second) answer independent of date.
          */
-        TIME, 
+        TIME,
         /**
          * Question with a short (few words to short sentence) free-text entry answer
          */
-        STRING, 
+        STRING,
         /**
          * Question with a long (potentially multi-paragraph) free-text entry (still captured as a string) answer
          */
-        TEXT, 
+        TEXT,
         /**
          * Question with a url (website, FTP site, etc.) answer
          */
-        URL, 
+        URL,
         /**
          * Question with a Coding drawn from a list of options as an answer
          */
-        CHOICE, 
+        CHOICE,
         /**
          * Answer is a Coding drawn from a list of options or a free-text entry captured as Coding.display
          */
-        OPENCHOICE, 
+        OPENCHOICE,
         /**
          * Question with binary content such as a image, PDF, etc. as an answer
          */
-        ATTACHMENT, 
+        ATTACHMENT,
         /**
          * Question with a reference to another resource (practitioner, organization, etc.) as an answer
          */
-        REFERENCE, 
+        REFERENCE,
         /**
          * Question with a combination of a numeric value and unit, potentially with a comparator (<, >, etc.) as an answer.
          */
-        QUANTITY, 
+        QUANTITY,
         /**
          * added to help the parsers
          */
@@ -578,7 +578,7 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #linkId} (An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public StringType getLinkIdElement() { 
+        public StringType getLinkIdElement() {
           if (this.linkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireItemComponent.linkId");
@@ -587,18 +587,18 @@ public class Questionnaire extends DomainResource {
           return this.linkId;
         }
 
-        public boolean hasLinkIdElement() { 
+        public boolean hasLinkIdElement() {
           return this.linkId != null && !this.linkId.isEmpty();
         }
 
-        public boolean hasLinkId() { 
+        public boolean hasLinkId() {
           return this.linkId != null && !this.linkId.isEmpty();
         }
 
         /**
          * @param value {@link #linkId} (An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
-        public QuestionnaireItemComponent setLinkIdElement(StringType value) { 
+        public QuestionnaireItemComponent setLinkIdElement(StringType value) {
           this.linkId = value;
           return this;
         }
@@ -606,14 +606,14 @@ public class Questionnaire extends DomainResource {
         /**
          * @return An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.
          */
-        public String getLinkId() { 
+        public String getLinkId() {
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
          * @param value An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.
          */
-        public QuestionnaireItemComponent setLinkId(String value) { 
+        public QuestionnaireItemComponent setLinkId(String value) {
           if (Utilities.noString(value))
             this.linkId = null;
           else {
@@ -627,13 +627,13 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #concept} (Identifies a how this group of questions is known in a particular terminology such as LOINC.)
          */
-        public List<Coding> getConcept() { 
+        public List<Coding> getConcept() {
           if (this.concept == null)
             this.concept = new ArrayList<Coding>();
           return this.concept;
         }
 
-        public boolean hasConcept() { 
+        public boolean hasConcept() {
           if (this.concept == null)
             return false;
           for (Coding item : this.concept)
@@ -667,7 +667,7 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #text} (The name of a section, the text of a question or text content for a text item.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextElement() { 
+        public StringType getTextElement() {
           if (this.text == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireItemComponent.text");
@@ -676,18 +676,18 @@ public class Questionnaire extends DomainResource {
           return this.text;
         }
 
-        public boolean hasTextElement() { 
+        public boolean hasTextElement() {
           return this.text != null && !this.text.isEmpty();
         }
 
-        public boolean hasText() { 
+        public boolean hasText() {
           return this.text != null && !this.text.isEmpty();
         }
 
         /**
          * @param value {@link #text} (The name of a section, the text of a question or text content for a text item.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public QuestionnaireItemComponent setTextElement(StringType value) { 
+        public QuestionnaireItemComponent setTextElement(StringType value) {
           this.text = value;
           return this;
         }
@@ -695,14 +695,14 @@ public class Questionnaire extends DomainResource {
         /**
          * @return The name of a section, the text of a question or text content for a text item.
          */
-        public String getText() { 
+        public String getText() {
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value The name of a section, the text of a question or text content for a text item.
          */
-        public QuestionnaireItemComponent setText(String value) { 
+        public QuestionnaireItemComponent setText(String value) {
           if (Utilities.noString(value))
             this.text = null;
           else {
@@ -716,7 +716,7 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #type} (Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<QuestionnaireItemType> getTypeElement() { 
+        public Enumeration<QuestionnaireItemType> getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireItemComponent.type");
@@ -725,18 +725,18 @@ public class Questionnaire extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public QuestionnaireItemComponent setTypeElement(Enumeration<QuestionnaireItemType> value) { 
+        public QuestionnaireItemComponent setTypeElement(Enumeration<QuestionnaireItemType> value) {
           this.type = value;
           return this;
         }
@@ -744,14 +744,14 @@ public class Questionnaire extends DomainResource {
         /**
          * @return Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
          */
-        public QuestionnaireItemType getType() { 
+        public QuestionnaireItemType getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
          */
-        public QuestionnaireItemComponent setType(QuestionnaireItemType value) { 
+        public QuestionnaireItemComponent setType(QuestionnaireItemType value) {
             if (this.type == null)
               this.type = new Enumeration<QuestionnaireItemType>(new QuestionnaireItemTypeEnumFactory());
             this.type.setValue(value);
@@ -761,7 +761,7 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #required} (If true, indicates that the item must be present in a "completed" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public BooleanType getRequiredElement() { 
+        public BooleanType getRequiredElement() {
           if (this.required == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireItemComponent.required");
@@ -770,18 +770,18 @@ public class Questionnaire extends DomainResource {
           return this.required;
         }
 
-        public boolean hasRequiredElement() { 
+        public boolean hasRequiredElement() {
           return this.required != null && !this.required.isEmpty();
         }
 
-        public boolean hasRequired() { 
+        public boolean hasRequired() {
           return this.required != null && !this.required.isEmpty();
         }
 
         /**
          * @param value {@link #required} (If true, indicates that the item must be present in a "completed" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public QuestionnaireItemComponent setRequiredElement(BooleanType value) { 
+        public QuestionnaireItemComponent setRequiredElement(BooleanType value) {
           this.required = value;
           return this;
         }
@@ -789,14 +789,14 @@ public class Questionnaire extends DomainResource {
         /**
          * @return If true, indicates that the item must be present in a "completed" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
          */
-        public boolean getRequired() { 
+        public boolean getRequired() {
           return this.required == null || this.required.isEmpty() ? false : this.required.getValue();
         }
 
         /**
          * @param value If true, indicates that the item must be present in a "completed" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
          */
-        public QuestionnaireItemComponent setRequired(boolean value) { 
+        public QuestionnaireItemComponent setRequired(boolean value) {
             if (this.required == null)
               this.required = new BooleanType();
             this.required.setValue(value);
@@ -806,7 +806,7 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #repeats} (Whether the item may occur multiple times in the instance, containing multiple sets of answers.). This is the underlying object with id, value and extensions. The accessor "getRepeats" gives direct access to the value
          */
-        public BooleanType getRepeatsElement() { 
+        public BooleanType getRepeatsElement() {
           if (this.repeats == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireItemComponent.repeats");
@@ -815,18 +815,18 @@ public class Questionnaire extends DomainResource {
           return this.repeats;
         }
 
-        public boolean hasRepeatsElement() { 
+        public boolean hasRepeatsElement() {
           return this.repeats != null && !this.repeats.isEmpty();
         }
 
-        public boolean hasRepeats() { 
+        public boolean hasRepeats() {
           return this.repeats != null && !this.repeats.isEmpty();
         }
 
         /**
          * @param value {@link #repeats} (Whether the item may occur multiple times in the instance, containing multiple sets of answers.). This is the underlying object with id, value and extensions. The accessor "getRepeats" gives direct access to the value
          */
-        public QuestionnaireItemComponent setRepeatsElement(BooleanType value) { 
+        public QuestionnaireItemComponent setRepeatsElement(BooleanType value) {
           this.repeats = value;
           return this;
         }
@@ -834,14 +834,14 @@ public class Questionnaire extends DomainResource {
         /**
          * @return Whether the item may occur multiple times in the instance, containing multiple sets of answers.
          */
-        public boolean getRepeats() { 
+        public boolean getRepeats() {
           return this.repeats == null || this.repeats.isEmpty() ? false : this.repeats.getValue();
         }
 
         /**
          * @param value Whether the item may occur multiple times in the instance, containing multiple sets of answers.
          */
-        public QuestionnaireItemComponent setRepeats(boolean value) { 
+        public QuestionnaireItemComponent setRepeats(boolean value) {
             if (this.repeats == null)
               this.repeats = new BooleanType();
             this.repeats.setValue(value);
@@ -851,7 +851,7 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #options} (Reference to a value set containing a list of codes representing permitted answers for the question.)
          */
-        public Reference getOptions() { 
+        public Reference getOptions() {
           if (this.options == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireItemComponent.options");
@@ -860,14 +860,14 @@ public class Questionnaire extends DomainResource {
           return this.options;
         }
 
-        public boolean hasOptions() { 
+        public boolean hasOptions() {
           return this.options != null && !this.options.isEmpty();
         }
 
         /**
          * @param value {@link #options} (Reference to a value set containing a list of codes representing permitted answers for the question.)
          */
-        public QuestionnaireItemComponent setOptions(Reference value) { 
+        public QuestionnaireItemComponent setOptions(Reference value) {
           this.options = value;
           return this;
         }
@@ -875,7 +875,7 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #options} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to a value set containing a list of codes representing permitted answers for the question.)
          */
-        public ValueSet getOptionsTarget() { 
+        public ValueSet getOptionsTarget() {
           if (this.optionsTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionnaireItemComponent.options");
@@ -887,7 +887,7 @@ public class Questionnaire extends DomainResource {
         /**
          * @param value {@link #options} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to a value set containing a list of codes representing permitted answers for the question.)
          */
-        public QuestionnaireItemComponent setOptionsTarget(ValueSet value) { 
+        public QuestionnaireItemComponent setOptionsTarget(ValueSet value) {
           this.optionsTarget = value;
           return this;
         }
@@ -895,13 +895,13 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #option} (For a "choice" question, identifies one of the permitted answers for the question.)
          */
-        public List<Coding> getOption() { 
+        public List<Coding> getOption() {
           if (this.option == null)
             this.option = new ArrayList<Coding>();
           return this.option;
         }
 
-        public boolean hasOption() { 
+        public boolean hasOption() {
           if (this.option == null)
             return false;
           for (Coding item : this.option)
@@ -935,13 +935,13 @@ public class Questionnaire extends DomainResource {
         /**
          * @return {@link #item} (Allows text, questions and other groups to be nested beneath a question or group.)
          */
-        public List<QuestionnaireItemComponent> getItem() { 
+        public List<QuestionnaireItemComponent> getItem() {
           if (this.item == null)
             this.item = new ArrayList<QuestionnaireItemComponent>();
           return this.item;
         }
 
-        public boolean hasItem() { 
+        public boolean hasItem() {
           if (this.item == null)
             return false;
           for (QuestionnaireItemComponent item : this.item)
@@ -1198,13 +1198,13 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #identifier} (This records identifiers associated with this question set that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1238,7 +1238,7 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #version} (The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() { 
+    public StringType getVersionElement() {
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.version");
@@ -1247,18 +1247,18 @@ public class Questionnaire extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() { 
+    public boolean hasVersionElement() {
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() { 
+    public boolean hasVersion() {
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Questionnaire setVersionElement(StringType value) { 
+    public Questionnaire setVersionElement(StringType value) {
       this.version = value;
       return this;
     }
@@ -1266,14 +1266,14 @@ public class Questionnaire extends DomainResource {
     /**
      * @return The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.
      */
-    public String getVersion() { 
+    public String getVersion() {
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.
      */
-    public Questionnaire setVersion(String value) { 
+    public Questionnaire setVersion(String value) {
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -1287,7 +1287,7 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #status} (The lifecycle status of the questionnaire as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<QuestionnaireStatus> getStatusElement() { 
+    public Enumeration<QuestionnaireStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.status");
@@ -1296,18 +1296,18 @@ public class Questionnaire extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The lifecycle status of the questionnaire as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Questionnaire setStatusElement(Enumeration<QuestionnaireStatus> value) { 
+    public Questionnaire setStatusElement(Enumeration<QuestionnaireStatus> value) {
       this.status = value;
       return this;
     }
@@ -1315,14 +1315,14 @@ public class Questionnaire extends DomainResource {
     /**
      * @return The lifecycle status of the questionnaire as a whole.
      */
-    public QuestionnaireStatus getStatus() { 
+    public QuestionnaireStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The lifecycle status of the questionnaire as a whole.
      */
-    public Questionnaire setStatus(QuestionnaireStatus value) { 
+    public Questionnaire setStatus(QuestionnaireStatus value) {
         if (this.status == null)
           this.status = new Enumeration<QuestionnaireStatus>(new QuestionnaireStatusEnumFactory());
         this.status.setValue(value);
@@ -1332,7 +1332,7 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #date} (The date that this questionnaire was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() { 
+    public DateTimeType getDateElement() {
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.date");
@@ -1341,18 +1341,18 @@ public class Questionnaire extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() { 
+    public boolean hasDateElement() {
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() { 
+    public boolean hasDate() {
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date that this questionnaire was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Questionnaire setDateElement(DateTimeType value) { 
+    public Questionnaire setDateElement(DateTimeType value) {
       this.date = value;
       return this;
     }
@@ -1360,14 +1360,14 @@ public class Questionnaire extends DomainResource {
     /**
      * @return The date that this questionnaire was last changed.
      */
-    public Date getDate() { 
+    public Date getDate() {
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that this questionnaire was last changed.
      */
-    public Questionnaire setDate(Date value) { 
+    public Questionnaire setDate(Date value) {
       if (value == null)
         this.date = null;
       else {
@@ -1381,7 +1381,7 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #publisher} (Organization or person responsible for developing and maintaining the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() { 
+    public StringType getPublisherElement() {
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.publisher");
@@ -1390,18 +1390,18 @@ public class Questionnaire extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() { 
+    public boolean hasPublisherElement() {
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() { 
+    public boolean hasPublisher() {
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (Organization or person responsible for developing and maintaining the questionnaire.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public Questionnaire setPublisherElement(StringType value) { 
+    public Questionnaire setPublisherElement(StringType value) {
       this.publisher = value;
       return this;
     }
@@ -1409,14 +1409,14 @@ public class Questionnaire extends DomainResource {
     /**
      * @return Organization or person responsible for developing and maintaining the questionnaire.
      */
-    public String getPublisher() { 
+    public String getPublisher() {
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value Organization or person responsible for developing and maintaining the questionnaire.
      */
-    public Questionnaire setPublisher(String value) { 
+    public Questionnaire setPublisher(String value) {
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -1430,13 +1430,13 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
-    public List<ContactPoint> getTelecom() { 
+    public List<ContactPoint> getTelecom() {
       if (this.telecom == null)
         this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
     }
 
-    public boolean hasTelecom() { 
+    public boolean hasTelecom() {
       if (this.telecom == null)
         return false;
       for (ContactPoint item : this.telecom)
@@ -1470,7 +1470,7 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #title} (The name or label associated with this questionnaire.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitleElement() { 
+    public StringType getTitleElement() {
       if (this.title == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.title");
@@ -1479,18 +1479,18 @@ public class Questionnaire extends DomainResource {
       return this.title;
     }
 
-    public boolean hasTitleElement() { 
+    public boolean hasTitleElement() {
       return this.title != null && !this.title.isEmpty();
     }
 
-    public boolean hasTitle() { 
+    public boolean hasTitle() {
       return this.title != null && !this.title.isEmpty();
     }
 
     /**
      * @param value {@link #title} (The name or label associated with this questionnaire.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public Questionnaire setTitleElement(StringType value) { 
+    public Questionnaire setTitleElement(StringType value) {
       this.title = value;
       return this;
     }
@@ -1498,14 +1498,14 @@ public class Questionnaire extends DomainResource {
     /**
      * @return The name or label associated with this questionnaire.
      */
-    public String getTitle() { 
+    public String getTitle() {
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
      * @param value The name or label associated with this questionnaire.
      */
-    public Questionnaire setTitle(String value) { 
+    public Questionnaire setTitle(String value) {
       if (Utilities.noString(value))
         this.title = null;
       else {
@@ -1519,13 +1519,13 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #concept} (Identifies a how this question or group of questions is known in a particular terminology such as LOINC.)
      */
-    public List<Coding> getConcept() { 
+    public List<Coding> getConcept() {
       if (this.concept == null)
         this.concept = new ArrayList<Coding>();
       return this.concept;
     }
 
-    public boolean hasConcept() { 
+    public boolean hasConcept() {
       if (this.concept == null)
         return false;
       for (Coding item : this.concept)
@@ -1559,13 +1559,13 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #subjectType} (Identifies the types of subjects that can be the subject of the questionnaire.)
      */
-    public List<CodeType> getSubjectType() { 
+    public List<CodeType> getSubjectType() {
       if (this.subjectType == null)
         this.subjectType = new ArrayList<CodeType>();
       return this.subjectType;
     }
 
-    public boolean hasSubjectType() { 
+    public boolean hasSubjectType() {
       if (this.subjectType == null)
         return false;
       for (CodeType item : this.subjectType)
@@ -1578,7 +1578,7 @@ public class Questionnaire extends DomainResource {
      * @return {@link #subjectType} (Identifies the types of subjects that can be the subject of the questionnaire.)
      */
     // syntactic sugar
-    public CodeType addSubjectTypeElement() {//2 
+    public CodeType addSubjectTypeElement() {//2
       CodeType t = new CodeType();
       if (this.subjectType == null)
         this.subjectType = new ArrayList<CodeType>();
@@ -1601,7 +1601,7 @@ public class Questionnaire extends DomainResource {
     /**
      * @param value {@link #subjectType} (Identifies the types of subjects that can be the subject of the questionnaire.)
      */
-    public boolean hasSubjectType(String value) { 
+    public boolean hasSubjectType(String value) {
       if (this.subjectType == null)
         return false;
       for (CodeType v : this.subjectType)
@@ -1613,13 +1613,13 @@ public class Questionnaire extends DomainResource {
     /**
      * @return {@link #item} (The questions and groupings of questions that make up the questionnaire.)
      */
-    public List<QuestionnaireItemComponent> getItem() { 
+    public List<QuestionnaireItemComponent> getItem() {
       if (this.item == null)
         this.item = new ArrayList<QuestionnaireItemComponent>();
       return this.item;
     }
 
-    public boolean hasItem() { 
+    public boolean hasItem() {
       if (this.item == null)
         return false;
       for (QuestionnaireItemComponent item : this.item)

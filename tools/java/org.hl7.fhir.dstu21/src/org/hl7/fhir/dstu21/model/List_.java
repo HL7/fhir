@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,15 +51,15 @@ public class List_ extends DomainResource {
         /**
          * The list is considered to be an active part of the patient's record.
          */
-        CURRENT, 
+        CURRENT,
         /**
          * The list is "old" and should no longer be considered accurate or relevant.
          */
-        RETIRED, 
+        RETIRED,
         /**
          * The list was never accurate.  It is retained for medico-legal purposes only.
          */
-        ENTEREDINERROR, 
+        ENTEREDINERROR,
         /**
          * added to help the parsers
          */
@@ -151,15 +151,15 @@ public class List_ extends DomainResource {
         /**
          * This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes
          */
-        WORKING, 
+        WORKING,
         /**
          * This list was prepared as a snapshot. It should not be assumed to be current
          */
-        SNAPSHOT, 
+        SNAPSHOT,
         /**
          * A list that indicates where changes have been made or recommended
          */
-        CHANGES, 
+        CHANGES,
         /**
          * added to help the parsers
          */
@@ -302,7 +302,7 @@ public class List_ extends DomainResource {
         /**
          * @return {@link #flag} (The flag allows the system constructing the list to indicate the role and significance of the item in the list.)
          */
-        public CodeableConcept getFlag() { 
+        public CodeableConcept getFlag() {
           if (this.flag == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ListEntryComponent.flag");
@@ -311,14 +311,14 @@ public class List_ extends DomainResource {
           return this.flag;
         }
 
-        public boolean hasFlag() { 
+        public boolean hasFlag() {
           return this.flag != null && !this.flag.isEmpty();
         }
 
         /**
          * @param value {@link #flag} (The flag allows the system constructing the list to indicate the role and significance of the item in the list.)
          */
-        public ListEntryComponent setFlag(CodeableConcept value) { 
+        public ListEntryComponent setFlag(CodeableConcept value) {
           this.flag = value;
           return this;
         }
@@ -326,7 +326,7 @@ public class List_ extends DomainResource {
         /**
          * @return {@link #deleted} (True if this item is marked as deleted in the list.). This is the underlying object with id, value and extensions. The accessor "getDeleted" gives direct access to the value
          */
-        public BooleanType getDeletedElement() { 
+        public BooleanType getDeletedElement() {
           if (this.deleted == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ListEntryComponent.deleted");
@@ -335,18 +335,18 @@ public class List_ extends DomainResource {
           return this.deleted;
         }
 
-        public boolean hasDeletedElement() { 
+        public boolean hasDeletedElement() {
           return this.deleted != null && !this.deleted.isEmpty();
         }
 
-        public boolean hasDeleted() { 
+        public boolean hasDeleted() {
           return this.deleted != null && !this.deleted.isEmpty();
         }
 
         /**
          * @param value {@link #deleted} (True if this item is marked as deleted in the list.). This is the underlying object with id, value and extensions. The accessor "getDeleted" gives direct access to the value
          */
-        public ListEntryComponent setDeletedElement(BooleanType value) { 
+        public ListEntryComponent setDeletedElement(BooleanType value) {
           this.deleted = value;
           return this;
         }
@@ -354,14 +354,14 @@ public class List_ extends DomainResource {
         /**
          * @return True if this item is marked as deleted in the list.
          */
-        public boolean getDeleted() { 
+        public boolean getDeleted() {
           return this.deleted == null || this.deleted.isEmpty() ? false : this.deleted.getValue();
         }
 
         /**
          * @param value True if this item is marked as deleted in the list.
          */
-        public ListEntryComponent setDeleted(boolean value) { 
+        public ListEntryComponent setDeleted(boolean value) {
             if (this.deleted == null)
               this.deleted = new BooleanType();
             this.deleted.setValue(value);
@@ -371,7 +371,7 @@ public class List_ extends DomainResource {
         /**
          * @return {@link #date} (When this item was added to the list.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDateElement() { 
+        public DateTimeType getDateElement() {
           if (this.date == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ListEntryComponent.date");
@@ -380,18 +380,18 @@ public class List_ extends DomainResource {
           return this.date;
         }
 
-        public boolean hasDateElement() { 
+        public boolean hasDateElement() {
           return this.date != null && !this.date.isEmpty();
         }
 
-        public boolean hasDate() { 
+        public boolean hasDate() {
           return this.date != null && !this.date.isEmpty();
         }
 
         /**
          * @param value {@link #date} (When this item was added to the list.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public ListEntryComponent setDateElement(DateTimeType value) { 
+        public ListEntryComponent setDateElement(DateTimeType value) {
           this.date = value;
           return this;
         }
@@ -399,14 +399,14 @@ public class List_ extends DomainResource {
         /**
          * @return When this item was added to the list.
          */
-        public Date getDate() { 
+        public Date getDate() {
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value When this item was added to the list.
          */
-        public ListEntryComponent setDate(Date value) { 
+        public ListEntryComponent setDate(Date value) {
           if (value == null)
             this.date = null;
           else {
@@ -420,7 +420,7 @@ public class List_ extends DomainResource {
         /**
          * @return {@link #item} (A reference to the actual resource from which data was derived.)
          */
-        public Reference getItem() { 
+        public Reference getItem() {
           if (this.item == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ListEntryComponent.item");
@@ -429,14 +429,14 @@ public class List_ extends DomainResource {
           return this.item;
         }
 
-        public boolean hasItem() { 
+        public boolean hasItem() {
           return this.item != null && !this.item.isEmpty();
         }
 
         /**
          * @param value {@link #item} (A reference to the actual resource from which data was derived.)
          */
-        public ListEntryComponent setItem(Reference value) { 
+        public ListEntryComponent setItem(Reference value) {
           this.item = value;
           return this;
         }
@@ -444,14 +444,14 @@ public class List_ extends DomainResource {
         /**
          * @return {@link #item} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the actual resource from which data was derived.)
          */
-        public Resource getItemTarget() { 
+        public Resource getItemTarget() {
           return this.itemTarget;
         }
 
         /**
          * @param value {@link #item} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the actual resource from which data was derived.)
          */
-        public ListEntryComponent setItemTarget(Resource value) { 
+        public ListEntryComponent setItemTarget(Resource value) {
           this.itemTarget = value;
           return this;
         }
@@ -668,13 +668,13 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier for the List assigned for business purposes outside the context of FHIR.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -708,7 +708,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #title} (A label for the list assigned by the author.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitleElement() { 
+    public StringType getTitleElement() {
       if (this.title == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.title");
@@ -717,18 +717,18 @@ public class List_ extends DomainResource {
       return this.title;
     }
 
-    public boolean hasTitleElement() { 
+    public boolean hasTitleElement() {
       return this.title != null && !this.title.isEmpty();
     }
 
-    public boolean hasTitle() { 
+    public boolean hasTitle() {
       return this.title != null && !this.title.isEmpty();
     }
 
     /**
      * @param value {@link #title} (A label for the list assigned by the author.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public List_ setTitleElement(StringType value) { 
+    public List_ setTitleElement(StringType value) {
       this.title = value;
       return this;
     }
@@ -736,14 +736,14 @@ public class List_ extends DomainResource {
     /**
      * @return A label for the list assigned by the author.
      */
-    public String getTitle() { 
+    public String getTitle() {
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
      * @param value A label for the list assigned by the author.
      */
-    public List_ setTitle(String value) { 
+    public List_ setTitle(String value) {
       if (Utilities.noString(value))
         this.title = null;
       else {
@@ -757,7 +757,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #code} (This code defines the purpose of the list - why it was created.)
      */
-    public CodeableConcept getCode() { 
+    public CodeableConcept getCode() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.code");
@@ -766,14 +766,14 @@ public class List_ extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (This code defines the purpose of the list - why it was created.)
      */
-    public List_ setCode(CodeableConcept value) { 
+    public List_ setCode(CodeableConcept value) {
       this.code = value;
       return this;
     }
@@ -781,7 +781,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #subject} (The common subject (or patient) of the resources that are in the list, if there is one.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.subject");
@@ -790,14 +790,14 @@ public class List_ extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The common subject (or patient) of the resources that are in the list, if there is one.)
      */
-    public List_ setSubject(Reference value) { 
+    public List_ setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -805,14 +805,14 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The common subject (or patient) of the resources that are in the list, if there is one.)
      */
-    public Resource getSubjectTarget() { 
+    public Resource getSubjectTarget() {
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The common subject (or patient) of the resources that are in the list, if there is one.)
      */
-    public List_ setSubjectTarget(Resource value) { 
+    public List_ setSubjectTarget(Resource value) {
       this.subjectTarget = value;
       return this;
     }
@@ -820,7 +820,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #source} (The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.)
      */
-    public Reference getSource() { 
+    public Reference getSource() {
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.source");
@@ -829,14 +829,14 @@ public class List_ extends DomainResource {
       return this.source;
     }
 
-    public boolean hasSource() { 
+    public boolean hasSource() {
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.)
      */
-    public List_ setSource(Reference value) { 
+    public List_ setSource(Reference value) {
       this.source = value;
       return this;
     }
@@ -844,14 +844,14 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.)
      */
-    public Resource getSourceTarget() { 
+    public Resource getSourceTarget() {
       return this.sourceTarget;
     }
 
     /**
      * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.)
      */
-    public List_ setSourceTarget(Resource value) { 
+    public List_ setSourceTarget(Resource value) {
       this.sourceTarget = value;
       return this;
     }
@@ -859,7 +859,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #encounter} (The encounter that is the context in which this list was created.)
      */
-    public Reference getEncounter() { 
+    public Reference getEncounter() {
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.encounter");
@@ -868,14 +868,14 @@ public class List_ extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() { 
+    public boolean hasEncounter() {
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (The encounter that is the context in which this list was created.)
      */
-    public List_ setEncounter(Reference value) { 
+    public List_ setEncounter(Reference value) {
       this.encounter = value;
       return this;
     }
@@ -883,7 +883,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter that is the context in which this list was created.)
      */
-    public Encounter getEncounterTarget() { 
+    public Encounter getEncounterTarget() {
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.encounter");
@@ -895,7 +895,7 @@ public class List_ extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter that is the context in which this list was created.)
      */
-    public List_ setEncounterTarget(Encounter value) { 
+    public List_ setEncounterTarget(Encounter value) {
       this.encounterTarget = value;
       return this;
     }
@@ -903,7 +903,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #status} (Indicates the current state of this list.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ListStatus> getStatusElement() { 
+    public Enumeration<ListStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.status");
@@ -912,18 +912,18 @@ public class List_ extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (Indicates the current state of this list.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public List_ setStatusElement(Enumeration<ListStatus> value) { 
+    public List_ setStatusElement(Enumeration<ListStatus> value) {
       this.status = value;
       return this;
     }
@@ -931,14 +931,14 @@ public class List_ extends DomainResource {
     /**
      * @return Indicates the current state of this list.
      */
-    public ListStatus getStatus() { 
+    public ListStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Indicates the current state of this list.
      */
-    public List_ setStatus(ListStatus value) { 
+    public List_ setStatus(ListStatus value) {
         if (this.status == null)
           this.status = new Enumeration<ListStatus>(new ListStatusEnumFactory());
         this.status.setValue(value);
@@ -948,7 +948,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #date} (The date that the list was prepared.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() { 
+    public DateTimeType getDateElement() {
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.date");
@@ -957,18 +957,18 @@ public class List_ extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() { 
+    public boolean hasDateElement() {
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() { 
+    public boolean hasDate() {
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date that the list was prepared.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public List_ setDateElement(DateTimeType value) { 
+    public List_ setDateElement(DateTimeType value) {
       this.date = value;
       return this;
     }
@@ -976,14 +976,14 @@ public class List_ extends DomainResource {
     /**
      * @return The date that the list was prepared.
      */
-    public Date getDate() { 
+    public Date getDate() {
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that the list was prepared.
      */
-    public List_ setDate(Date value) { 
+    public List_ setDate(Date value) {
       if (value == null)
         this.date = null;
       else {
@@ -997,7 +997,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #orderedBy} (What order applies to the items in the list.)
      */
-    public CodeableConcept getOrderedBy() { 
+    public CodeableConcept getOrderedBy() {
       if (this.orderedBy == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.orderedBy");
@@ -1006,14 +1006,14 @@ public class List_ extends DomainResource {
       return this.orderedBy;
     }
 
-    public boolean hasOrderedBy() { 
+    public boolean hasOrderedBy() {
       return this.orderedBy != null && !this.orderedBy.isEmpty();
     }
 
     /**
      * @param value {@link #orderedBy} (What order applies to the items in the list.)
      */
-    public List_ setOrderedBy(CodeableConcept value) { 
+    public List_ setOrderedBy(CodeableConcept value) {
       this.orderedBy = value;
       return this;
     }
@@ -1021,7 +1021,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public Enumeration<ListMode> getModeElement() { 
+    public Enumeration<ListMode> getModeElement() {
       if (this.mode == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.mode");
@@ -1030,18 +1030,18 @@ public class List_ extends DomainResource {
       return this.mode;
     }
 
-    public boolean hasModeElement() { 
+    public boolean hasModeElement() {
       return this.mode != null && !this.mode.isEmpty();
     }
 
-    public boolean hasMode() { 
+    public boolean hasMode() {
       return this.mode != null && !this.mode.isEmpty();
     }
 
     /**
      * @param value {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public List_ setModeElement(Enumeration<ListMode> value) { 
+    public List_ setModeElement(Enumeration<ListMode> value) {
       this.mode = value;
       return this;
     }
@@ -1049,14 +1049,14 @@ public class List_ extends DomainResource {
     /**
      * @return How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
      */
-    public ListMode getMode() { 
+    public ListMode getMode() {
       return this.mode == null ? null : this.mode.getValue();
     }
 
     /**
      * @param value How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
      */
-    public List_ setMode(ListMode value) { 
+    public List_ setMode(ListMode value) {
         if (this.mode == null)
           this.mode = new Enumeration<ListMode>(new ListModeEnumFactory());
         this.mode.setValue(value);
@@ -1066,7 +1066,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #note} (Comments that apply to the overall list.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public StringType getNoteElement() { 
+    public StringType getNoteElement() {
       if (this.note == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.note");
@@ -1075,18 +1075,18 @@ public class List_ extends DomainResource {
       return this.note;
     }
 
-    public boolean hasNoteElement() { 
+    public boolean hasNoteElement() {
       return this.note != null && !this.note.isEmpty();
     }
 
-    public boolean hasNote() { 
+    public boolean hasNote() {
       return this.note != null && !this.note.isEmpty();
     }
 
     /**
      * @param value {@link #note} (Comments that apply to the overall list.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public List_ setNoteElement(StringType value) { 
+    public List_ setNoteElement(StringType value) {
       this.note = value;
       return this;
     }
@@ -1094,14 +1094,14 @@ public class List_ extends DomainResource {
     /**
      * @return Comments that apply to the overall list.
      */
-    public String getNote() { 
+    public String getNote() {
       return this.note == null ? null : this.note.getValue();
     }
 
     /**
      * @param value Comments that apply to the overall list.
      */
-    public List_ setNote(String value) { 
+    public List_ setNote(String value) {
       if (Utilities.noString(value))
         this.note = null;
       else {
@@ -1115,13 +1115,13 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #entry} (Entries in this list.)
      */
-    public List<ListEntryComponent> getEntry() { 
+    public List<ListEntryComponent> getEntry() {
       if (this.entry == null)
         this.entry = new ArrayList<ListEntryComponent>();
       return this.entry;
     }
 
-    public boolean hasEntry() { 
+    public boolean hasEntry() {
       if (this.entry == null)
         return false;
       for (ListEntryComponent item : this.entry)
@@ -1155,7 +1155,7 @@ public class List_ extends DomainResource {
     /**
      * @return {@link #emptyReason} (If the list is empty, why the list is empty.)
      */
-    public CodeableConcept getEmptyReason() { 
+    public CodeableConcept getEmptyReason() {
       if (this.emptyReason == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.emptyReason");
@@ -1164,14 +1164,14 @@ public class List_ extends DomainResource {
       return this.emptyReason;
     }
 
-    public boolean hasEmptyReason() { 
+    public boolean hasEmptyReason() {
       return this.emptyReason != null && !this.emptyReason.isEmpty();
     }
 
     /**
      * @param value {@link #emptyReason} (If the list is empty, why the list is empty.)
      */
-    public List_ setEmptyReason(CodeableConcept value) { 
+    public List_ setEmptyReason(CodeableConcept value) {
       this.emptyReason = value;
       return this;
     }

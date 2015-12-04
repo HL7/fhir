@@ -2,14 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PTRES|Patient's Residence",
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|RNEU|Neuroradiology unit",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "PTRES",
+        "code": "RNEU",
         "definition": null,
-        "display": "Patient's Residence"
+        "display": "Neuroradiology unit"
       }
     },
     {
@@ -24,14 +24,14 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|RNEU|Neuroradiology unit",
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PHARM|Pharmacy",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "RNEU",
+        "code": "PHARM",
         "definition": null,
-        "display": "Neuroradiology unit"
+        "display": "Pharmacy"
       }
     },
     {
@@ -46,14 +46,14 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PHARM|Pharmacy",
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PTRES|Patient's Residence",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "PHARM",
+        "code": "PTRES",
         "definition": null,
-        "display": "Pharmacy"
+        "display": "Patient's Residence"
       }
     }
   ]

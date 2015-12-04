@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -83,7 +83,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
     /**
      * @return {@link #contentType} (MimeType of the binary content represented as a standard MimeType (BCP 13).). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
-    public CodeType getContentTypeElement() { 
+    public CodeType getContentTypeElement() {
       if (this.contentType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Binary.contentType");
@@ -92,18 +92,18 @@ public class Binary extends BaseBinary implements IBaseBinary {
       return this.contentType;
     }
 
-    public boolean hasContentTypeElement() { 
+    public boolean hasContentTypeElement() {
       return this.contentType != null && !this.contentType.isEmpty();
     }
 
-    public boolean hasContentType() { 
+    public boolean hasContentType() {
       return this.contentType != null && !this.contentType.isEmpty();
     }
 
     /**
      * @param value {@link #contentType} (MimeType of the binary content represented as a standard MimeType (BCP 13).). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
-    public Binary setContentTypeElement(CodeType value) { 
+    public Binary setContentTypeElement(CodeType value) {
       this.contentType = value;
       return this;
     }
@@ -111,14 +111,14 @@ public class Binary extends BaseBinary implements IBaseBinary {
     /**
      * @return MimeType of the binary content represented as a standard MimeType (BCP 13).
      */
-    public String getContentType() { 
+    public String getContentType() {
       return this.contentType == null ? null : this.contentType.getValue();
     }
 
     /**
      * @param value MimeType of the binary content represented as a standard MimeType (BCP 13).
      */
-    public Binary setContentType(String value) { 
+    public Binary setContentType(String value) {
         if (this.contentType == null)
           this.contentType = new CodeType();
         this.contentType.setValue(value);
@@ -128,7 +128,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
     /**
      * @return {@link #content} (The actual content, base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getContent" gives direct access to the value
      */
-    public Base64BinaryType getContentElement() { 
+    public Base64BinaryType getContentElement() {
       if (this.content == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Binary.content");
@@ -137,18 +137,18 @@ public class Binary extends BaseBinary implements IBaseBinary {
       return this.content;
     }
 
-    public boolean hasContentElement() { 
+    public boolean hasContentElement() {
       return this.content != null && !this.content.isEmpty();
     }
 
-    public boolean hasContent() { 
+    public boolean hasContent() {
       return this.content != null && !this.content.isEmpty();
     }
 
     /**
      * @param value {@link #content} (The actual content, base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getContent" gives direct access to the value
      */
-    public Binary setContentElement(Base64BinaryType value) { 
+    public Binary setContentElement(Base64BinaryType value) {
       this.content = value;
       return this;
     }
@@ -156,14 +156,14 @@ public class Binary extends BaseBinary implements IBaseBinary {
     /**
      * @return The actual content, base64 encoded.
      */
-    public byte[] getContent() { 
+    public byte[] getContent() {
       return this.content == null ? null : this.content.getValue();
     }
 
     /**
      * @param value The actual content, base64 encoded.
      */
-    public Binary setContent(byte[] value) { 
+    public Binary setContent(byte[] value) {
         if (this.content == null)
           this.content = new Base64BinaryType();
         this.content.setValue(value);

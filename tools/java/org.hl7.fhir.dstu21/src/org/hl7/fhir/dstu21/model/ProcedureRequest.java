@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,43 +51,43 @@ public class ProcedureRequest extends DomainResource {
         /**
          * The request has been proposed.
          */
-        PROPOSED, 
+        PROPOSED,
         /**
          * The request is in preliminary form, prior to being requested.
          */
-        DRAFT, 
+        DRAFT,
         /**
          * The request has been placed.
          */
-        REQUESTED, 
+        REQUESTED,
         /**
          * The receiving system has received the request but not yet decided whether it will be performed.
          */
-        RECEIVED, 
+        RECEIVED,
         /**
          * The receiving system has accepted the request, but work has not yet commenced.
          */
-        ACCEPTED, 
+        ACCEPTED,
         /**
          * The work to fulfill the request is happening.
          */
-        INPROGRESS, 
+        INPROGRESS,
         /**
          * The work has been completed, the report(s) released, and no further work is planned.
          */
-        COMPLETED, 
+        COMPLETED,
         /**
          * The request has been held by originating system/user request.
          */
-        SUSPENDED, 
+        SUSPENDED,
         /**
          * The receiving system has declined to fulfill the request.
          */
-        REJECTED, 
+        REJECTED,
         /**
          * The request was attempted, but due to some procedural error, it could not be completed.
          */
-        ABORTED, 
+        ABORTED,
         /**
          * added to help the parsers
          */
@@ -263,19 +263,19 @@ public class ProcedureRequest extends DomainResource {
         /**
          * The request has a normal priority.
          */
-        ROUTINE, 
+        ROUTINE,
         /**
          * The request should be done urgently.
          */
-        URGENT, 
+        URGENT,
         /**
          * The request is time-critical.
          */
-        STAT, 
+        STAT,
         /**
          * The request should be acted on as soon as possible.
          */
-        ASAP, 
+        ASAP,
         /**
          * added to help the parsers
          */
@@ -514,13 +514,13 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #identifier} (Identifiers assigned to this order by the order or by the receiver.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -554,7 +554,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #subject} (The person, animal or group that should receive the procedure.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.subject");
@@ -563,14 +563,14 @@ public class ProcedureRequest extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The person, animal or group that should receive the procedure.)
      */
-    public ProcedureRequest setSubject(Reference value) { 
+    public ProcedureRequest setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -578,14 +578,14 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person, animal or group that should receive the procedure.)
      */
-    public Resource getSubjectTarget() { 
+    public Resource getSubjectTarget() {
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person, animal or group that should receive the procedure.)
      */
-    public ProcedureRequest setSubjectTarget(Resource value) { 
+    public ProcedureRequest setSubjectTarget(Resource value) {
       this.subjectTarget = value;
       return this;
     }
@@ -593,7 +593,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #code} (The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.)
      */
-    public CodeableConcept getCode() { 
+    public CodeableConcept getCode() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.code");
@@ -602,14 +602,14 @@ public class ProcedureRequest extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.)
      */
-    public ProcedureRequest setCode(CodeableConcept value) { 
+    public ProcedureRequest setCode(CodeableConcept value) {
       this.code = value;
       return this;
     }
@@ -617,13 +617,13 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #bodySite} (Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).)
      */
-    public List<CodeableConcept> getBodySite() { 
+    public List<CodeableConcept> getBodySite() {
       if (this.bodySite == null)
         this.bodySite = new ArrayList<CodeableConcept>();
       return this.bodySite;
     }
 
-    public boolean hasBodySite() { 
+    public boolean hasBodySite() {
       if (this.bodySite == null)
         return false;
       for (CodeableConcept item : this.bodySite)
@@ -657,44 +657,44 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #reason} (The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.)
      */
-    public Type getReason() { 
+    public Type getReason() {
       return this.reason;
     }
 
     /**
      * @return {@link #reason} (The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.)
      */
-    public CodeableConcept getReasonCodeableConcept() throws FHIRException { 
+    public CodeableConcept getReasonCodeableConcept() throws FHIRException {
       if (!(this.reason instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (CodeableConcept) this.reason;
     }
 
-    public boolean hasReasonCodeableConcept() { 
+    public boolean hasReasonCodeableConcept() {
       return this.reason instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #reason} (The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.)
      */
-    public Reference getReasonReference() throws FHIRException { 
+    public Reference getReasonReference() throws FHIRException {
       if (!(this.reason instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (Reference) this.reason;
     }
 
-    public boolean hasReasonReference() { 
+    public boolean hasReasonReference() {
       return this.reason instanceof Reference;
     }
 
-    public boolean hasReason() { 
+    public boolean hasReason() {
       return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
      * @param value {@link #reason} (The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.)
      */
-    public ProcedureRequest setReason(Type value) { 
+    public ProcedureRequest setReason(Type value) {
       this.reason = value;
       return this;
     }
@@ -702,57 +702,57 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public Type getScheduled() { 
+    public Type getScheduled() {
       return this.scheduled;
     }
 
     /**
      * @return {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public DateTimeType getScheduledDateTimeType() throws FHIRException { 
+    public DateTimeType getScheduledDateTimeType() throws FHIRException {
       if (!(this.scheduled instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.scheduled.getClass().getName()+" was encountered");
       return (DateTimeType) this.scheduled;
     }
 
-    public boolean hasScheduledDateTimeType() { 
+    public boolean hasScheduledDateTimeType() {
       return this.scheduled instanceof DateTimeType;
     }
 
     /**
      * @return {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public Period getScheduledPeriod() throws FHIRException { 
+    public Period getScheduledPeriod() throws FHIRException {
       if (!(this.scheduled instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.scheduled.getClass().getName()+" was encountered");
       return (Period) this.scheduled;
     }
 
-    public boolean hasScheduledPeriod() { 
+    public boolean hasScheduledPeriod() {
       return this.scheduled instanceof Period;
     }
 
     /**
      * @return {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public Timing getScheduledTiming() throws FHIRException { 
+    public Timing getScheduledTiming() throws FHIRException {
       if (!(this.scheduled instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.scheduled.getClass().getName()+" was encountered");
       return (Timing) this.scheduled;
     }
 
-    public boolean hasScheduledTiming() { 
+    public boolean hasScheduledTiming() {
       return this.scheduled instanceof Timing;
     }
 
-    public boolean hasScheduled() { 
+    public boolean hasScheduled() {
       return this.scheduled != null && !this.scheduled.isEmpty();
     }
 
     /**
      * @param value {@link #scheduled} (The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public ProcedureRequest setScheduled(Type value) { 
+    public ProcedureRequest setScheduled(Type value) {
       this.scheduled = value;
       return this;
     }
@@ -760,7 +760,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #encounter} (The encounter within which the procedure proposal or request was created.)
      */
-    public Reference getEncounter() { 
+    public Reference getEncounter() {
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.encounter");
@@ -769,14 +769,14 @@ public class ProcedureRequest extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() { 
+    public boolean hasEncounter() {
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (The encounter within which the procedure proposal or request was created.)
      */
-    public ProcedureRequest setEncounter(Reference value) { 
+    public ProcedureRequest setEncounter(Reference value) {
       this.encounter = value;
       return this;
     }
@@ -784,7 +784,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter within which the procedure proposal or request was created.)
      */
-    public Encounter getEncounterTarget() { 
+    public Encounter getEncounterTarget() {
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.encounter");
@@ -796,7 +796,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter within which the procedure proposal or request was created.)
      */
-    public ProcedureRequest setEncounterTarget(Encounter value) { 
+    public ProcedureRequest setEncounterTarget(Encounter value) {
       this.encounterTarget = value;
       return this;
     }
@@ -804,7 +804,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #performer} (For example, the surgeon, anaethetist, endoscopist, etc.)
      */
-    public Reference getPerformer() { 
+    public Reference getPerformer() {
       if (this.performer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.performer");
@@ -813,14 +813,14 @@ public class ProcedureRequest extends DomainResource {
       return this.performer;
     }
 
-    public boolean hasPerformer() { 
+    public boolean hasPerformer() {
       return this.performer != null && !this.performer.isEmpty();
     }
 
     /**
      * @param value {@link #performer} (For example, the surgeon, anaethetist, endoscopist, etc.)
      */
-    public ProcedureRequest setPerformer(Reference value) { 
+    public ProcedureRequest setPerformer(Reference value) {
       this.performer = value;
       return this;
     }
@@ -828,14 +828,14 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (For example, the surgeon, anaethetist, endoscopist, etc.)
      */
-    public Resource getPerformerTarget() { 
+    public Resource getPerformerTarget() {
       return this.performerTarget;
     }
 
     /**
      * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (For example, the surgeon, anaethetist, endoscopist, etc.)
      */
-    public ProcedureRequest setPerformerTarget(Resource value) { 
+    public ProcedureRequest setPerformerTarget(Resource value) {
       this.performerTarget = value;
       return this;
     }
@@ -843,7 +843,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ProcedureRequestStatus> getStatusElement() { 
+    public Enumeration<ProcedureRequestStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.status");
@@ -852,18 +852,18 @@ public class ProcedureRequest extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ProcedureRequest setStatusElement(Enumeration<ProcedureRequestStatus> value) { 
+    public ProcedureRequest setStatusElement(Enumeration<ProcedureRequestStatus> value) {
       this.status = value;
       return this;
     }
@@ -871,14 +871,14 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return The status of the order.
      */
-    public ProcedureRequestStatus getStatus() { 
+    public ProcedureRequestStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the order.
      */
-    public ProcedureRequest setStatus(ProcedureRequestStatus value) { 
+    public ProcedureRequest setStatus(ProcedureRequestStatus value) {
       if (value == null)
         this.status = null;
       else {
@@ -892,13 +892,13 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #notes} (Any other notes associated with this proposal or order - e.g. provider instructions.)
      */
-    public List<Annotation> getNotes() { 
+    public List<Annotation> getNotes() {
       if (this.notes == null)
         this.notes = new ArrayList<Annotation>();
       return this.notes;
     }
 
-    public boolean hasNotes() { 
+    public boolean hasNotes() {
       if (this.notes == null)
         return false;
       for (Annotation item : this.notes)
@@ -932,44 +932,44 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.)
      */
-    public Type getAsNeeded() { 
+    public Type getAsNeeded() {
       return this.asNeeded;
     }
 
     /**
      * @return {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.)
      */
-    public BooleanType getAsNeededBooleanType() throws FHIRException { 
+    public BooleanType getAsNeededBooleanType() throws FHIRException {
       if (!(this.asNeeded instanceof BooleanType))
         throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.asNeeded.getClass().getName()+" was encountered");
       return (BooleanType) this.asNeeded;
     }
 
-    public boolean hasAsNeededBooleanType() { 
+    public boolean hasAsNeededBooleanType() {
       return this.asNeeded instanceof BooleanType;
     }
 
     /**
      * @return {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.)
      */
-    public CodeableConcept getAsNeededCodeableConcept() throws FHIRException { 
+    public CodeableConcept getAsNeededCodeableConcept() throws FHIRException {
       if (!(this.asNeeded instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.asNeeded.getClass().getName()+" was encountered");
       return (CodeableConcept) this.asNeeded;
     }
 
-    public boolean hasAsNeededCodeableConcept() { 
+    public boolean hasAsNeededCodeableConcept() {
       return this.asNeeded instanceof CodeableConcept;
     }
 
-    public boolean hasAsNeeded() { 
+    public boolean hasAsNeeded() {
       return this.asNeeded != null && !this.asNeeded.isEmpty();
     }
 
     /**
      * @param value {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.)
      */
-    public ProcedureRequest setAsNeeded(Type value) { 
+    public ProcedureRequest setAsNeeded(Type value) {
       this.asNeeded = value;
       return this;
     }
@@ -977,7 +977,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #orderedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getOrderedOn" gives direct access to the value
      */
-    public DateTimeType getOrderedOnElement() { 
+    public DateTimeType getOrderedOnElement() {
       if (this.orderedOn == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.orderedOn");
@@ -986,18 +986,18 @@ public class ProcedureRequest extends DomainResource {
       return this.orderedOn;
     }
 
-    public boolean hasOrderedOnElement() { 
+    public boolean hasOrderedOnElement() {
       return this.orderedOn != null && !this.orderedOn.isEmpty();
     }
 
-    public boolean hasOrderedOn() { 
+    public boolean hasOrderedOn() {
       return this.orderedOn != null && !this.orderedOn.isEmpty();
     }
 
     /**
      * @param value {@link #orderedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getOrderedOn" gives direct access to the value
      */
-    public ProcedureRequest setOrderedOnElement(DateTimeType value) { 
+    public ProcedureRequest setOrderedOnElement(DateTimeType value) {
       this.orderedOn = value;
       return this;
     }
@@ -1005,14 +1005,14 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return The time when the request was made.
      */
-    public Date getOrderedOn() { 
+    public Date getOrderedOn() {
       return this.orderedOn == null ? null : this.orderedOn.getValue();
     }
 
     /**
      * @param value The time when the request was made.
      */
-    public ProcedureRequest setOrderedOn(Date value) { 
+    public ProcedureRequest setOrderedOn(Date value) {
       if (value == null)
         this.orderedOn = null;
       else {
@@ -1026,7 +1026,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #orderer} (The healthcare professional responsible for proposing or ordering the procedure.)
      */
-    public Reference getOrderer() { 
+    public Reference getOrderer() {
       if (this.orderer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.orderer");
@@ -1035,14 +1035,14 @@ public class ProcedureRequest extends DomainResource {
       return this.orderer;
     }
 
-    public boolean hasOrderer() { 
+    public boolean hasOrderer() {
       return this.orderer != null && !this.orderer.isEmpty();
     }
 
     /**
      * @param value {@link #orderer} (The healthcare professional responsible for proposing or ordering the procedure.)
      */
-    public ProcedureRequest setOrderer(Reference value) { 
+    public ProcedureRequest setOrderer(Reference value) {
       this.orderer = value;
       return this;
     }
@@ -1050,14 +1050,14 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #orderer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for proposing or ordering the procedure.)
      */
-    public Resource getOrdererTarget() { 
+    public Resource getOrdererTarget() {
       return this.ordererTarget;
     }
 
     /**
      * @param value {@link #orderer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for proposing or ordering the procedure.)
      */
-    public ProcedureRequest setOrdererTarget(Resource value) { 
+    public ProcedureRequest setOrdererTarget(Resource value) {
       this.ordererTarget = value;
       return this;
     }
@@ -1065,7 +1065,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return {@link #priority} (The clinical priority associated with this order.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public Enumeration<ProcedureRequestPriority> getPriorityElement() { 
+    public Enumeration<ProcedureRequestPriority> getPriorityElement() {
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.priority");
@@ -1074,18 +1074,18 @@ public class ProcedureRequest extends DomainResource {
       return this.priority;
     }
 
-    public boolean hasPriorityElement() { 
+    public boolean hasPriorityElement() {
       return this.priority != null && !this.priority.isEmpty();
     }
 
-    public boolean hasPriority() { 
+    public boolean hasPriority() {
       return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
      * @param value {@link #priority} (The clinical priority associated with this order.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public ProcedureRequest setPriorityElement(Enumeration<ProcedureRequestPriority> value) { 
+    public ProcedureRequest setPriorityElement(Enumeration<ProcedureRequestPriority> value) {
       this.priority = value;
       return this;
     }
@@ -1093,14 +1093,14 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return The clinical priority associated with this order.
      */
-    public ProcedureRequestPriority getPriority() { 
+    public ProcedureRequestPriority getPriority() {
       return this.priority == null ? null : this.priority.getValue();
     }
 
     /**
      * @param value The clinical priority associated with this order.
      */
-    public ProcedureRequest setPriority(ProcedureRequestPriority value) { 
+    public ProcedureRequest setPriority(ProcedureRequestPriority value) {
       if (value == null)
         this.priority = null;
       else {

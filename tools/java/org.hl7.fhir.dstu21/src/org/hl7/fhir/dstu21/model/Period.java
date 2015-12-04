@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -71,7 +71,7 @@ public class Period extends Type implements ICompositeType {
     /**
      * @return {@link #start} (The start of the period. The boundary is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public DateTimeType getStartElement() { 
+    public DateTimeType getStartElement() {
       if (this.start == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Period.start");
@@ -80,18 +80,18 @@ public class Period extends Type implements ICompositeType {
       return this.start;
     }
 
-    public boolean hasStartElement() { 
+    public boolean hasStartElement() {
       return this.start != null && !this.start.isEmpty();
     }
 
-    public boolean hasStart() { 
+    public boolean hasStart() {
       return this.start != null && !this.start.isEmpty();
     }
 
     /**
      * @param value {@link #start} (The start of the period. The boundary is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public Period setStartElement(DateTimeType value) { 
+    public Period setStartElement(DateTimeType value) {
       this.start = value;
       return this;
     }
@@ -99,14 +99,14 @@ public class Period extends Type implements ICompositeType {
     /**
      * @return The start of the period. The boundary is inclusive.
      */
-    public Date getStart() { 
+    public Date getStart() {
       return this.start == null ? null : this.start.getValue();
     }
 
     /**
      * @param value The start of the period. The boundary is inclusive.
      */
-    public Period setStart(Date value) { 
+    public Period setStart(Date value) {
       if (value == null)
         this.start = null;
       else {
@@ -120,7 +120,7 @@ public class Period extends Type implements ICompositeType {
     /**
      * @return {@link #end} (The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public DateTimeType getEndElement() { 
+    public DateTimeType getEndElement() {
       if (this.end == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Period.end");
@@ -129,18 +129,18 @@ public class Period extends Type implements ICompositeType {
       return this.end;
     }
 
-    public boolean hasEndElement() { 
+    public boolean hasEndElement() {
       return this.end != null && !this.end.isEmpty();
     }
 
-    public boolean hasEnd() { 
+    public boolean hasEnd() {
       return this.end != null && !this.end.isEmpty();
     }
 
     /**
      * @param value {@link #end} (The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public Period setEndElement(DateTimeType value) { 
+    public Period setEndElement(DateTimeType value) {
       this.end = value;
       return this;
     }
@@ -148,14 +148,14 @@ public class Period extends Type implements ICompositeType {
     /**
      * @return The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.
      */
-    public Date getEnd() { 
+    public Date getEnd() {
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.
      */
-    public Period setEnd(Date value) { 
+    public Period setEnd(Date value) {
       if (value == null)
         this.end = null;
       else {

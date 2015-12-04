@@ -73,7 +73,7 @@
   Context = Patient.address.postalCode
   English = (Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.
   XPath = f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )
-  FHIRPath = postalCode:matches(\"[0-9]{5}(-[0-9]{4}){0,1}\")
+  Expression = postalCode:matches(\"[0-9]{5}(-[0-9]{4}){0,1}\")
   Severity = error
 
 === Sheet USLab-Patient =====================================
@@ -516,7 +516,7 @@
   Context = Patient.address.postalCode
   English = (Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.
   XPath = f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )
-  FHIRPath = postalCode:matches(\"[0-9]{5}(-[0-9]{4}){0,1}\")
+  Expression = postalCode:matches(\"[0-9]{5}(-[0-9]{4}){0,1}\")
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -524,7 +524,7 @@
   Context = Patient.contact.address.postalCode
   English = (Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes.
   XPath = f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )
-  FHIRPath = postalCode:matches(\"[0-9]{5}(-[0-9]{4}){0,1}\")
+  Expression = postalCode:matches(\"[0-9]{5}(-[0-9]{4}){0,1}\")
   Severity = error
 
 === Sheet USLab-PHPatient =====================================

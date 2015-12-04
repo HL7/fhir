@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -50,19 +50,19 @@ public class Address extends Type implements ICompositeType {
         /**
          * A communication address at a home.
          */
-        HOME, 
+        HOME,
         /**
          * An office address. First choice for business related contacts during business hours.
          */
-        WORK, 
+        WORK,
         /**
          * A temporary address. The period can provide more detailed information.
          */
-        TEMP, 
+        TEMP,
         /**
          * This address is no longer in use (or was never correct, but retained for records).
          */
-        OLD, 
+        OLD,
         /**
          * added to help the parsers
          */
@@ -166,15 +166,15 @@ public class Address extends Type implements ICompositeType {
         /**
          * Mailing addresses - PO Boxes and care-of addresses.
          */
-        POSTAL, 
+        POSTAL,
         /**
          * A physical address that can be visited.
          */
-        PHYSICAL, 
+        PHYSICAL,
         /**
          * An address that is both physical and postal.
          */
-        BOTH, 
+        BOTH,
         /**
          * added to help the parsers
          */
@@ -344,7 +344,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #use} (The purpose of this address.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<AddressUse> getUseElement() { 
+    public Enumeration<AddressUse> getUseElement() {
       if (this.use == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.use");
@@ -353,18 +353,18 @@ public class Address extends Type implements ICompositeType {
       return this.use;
     }
 
-    public boolean hasUseElement() { 
+    public boolean hasUseElement() {
       return this.use != null && !this.use.isEmpty();
     }
 
-    public boolean hasUse() { 
+    public boolean hasUse() {
       return this.use != null && !this.use.isEmpty();
     }
 
     /**
      * @param value {@link #use} (The purpose of this address.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Address setUseElement(Enumeration<AddressUse> value) { 
+    public Address setUseElement(Enumeration<AddressUse> value) {
       this.use = value;
       return this;
     }
@@ -372,14 +372,14 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return The purpose of this address.
      */
-    public AddressUse getUse() { 
+    public AddressUse getUse() {
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
      * @param value The purpose of this address.
      */
-    public Address setUse(AddressUse value) { 
+    public Address setUse(AddressUse value) {
       if (value == null)
         this.use = null;
       else {
@@ -393,7 +393,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #type} (Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<AddressType> getTypeElement() { 
+    public Enumeration<AddressType> getTypeElement() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.type");
@@ -402,18 +402,18 @@ public class Address extends Type implements ICompositeType {
       return this.type;
     }
 
-    public boolean hasTypeElement() { 
+    public boolean hasTypeElement() {
       return this.type != null && !this.type.isEmpty();
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Address setTypeElement(Enumeration<AddressType> value) { 
+    public Address setTypeElement(Enumeration<AddressType> value) {
       this.type = value;
       return this;
     }
@@ -421,14 +421,14 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
      */
-    public AddressType getType() { 
+    public AddressType getType() {
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
      */
-    public Address setType(AddressType value) { 
+    public Address setType(AddressType value) {
       if (value == null)
         this.type = null;
       else {
@@ -442,7 +442,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #text} (A full text representation of the address.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public StringType getTextElement() { 
+    public StringType getTextElement() {
       if (this.text == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.text");
@@ -451,18 +451,18 @@ public class Address extends Type implements ICompositeType {
       return this.text;
     }
 
-    public boolean hasTextElement() { 
+    public boolean hasTextElement() {
       return this.text != null && !this.text.isEmpty();
     }
 
-    public boolean hasText() { 
+    public boolean hasText() {
       return this.text != null && !this.text.isEmpty();
     }
 
     /**
      * @param value {@link #text} (A full text representation of the address.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public Address setTextElement(StringType value) { 
+    public Address setTextElement(StringType value) {
       this.text = value;
       return this;
     }
@@ -470,14 +470,14 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return A full text representation of the address.
      */
-    public String getText() { 
+    public String getText() {
       return this.text == null ? null : this.text.getValue();
     }
 
     /**
      * @param value A full text representation of the address.
      */
-    public Address setText(String value) { 
+    public Address setText(String value) {
       if (Utilities.noString(value))
         this.text = null;
       else {
@@ -491,13 +491,13 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #line} (This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.)
      */
-    public List<StringType> getLine() { 
+    public List<StringType> getLine() {
       if (this.line == null)
         this.line = new ArrayList<StringType>();
       return this.line;
     }
 
-    public boolean hasLine() { 
+    public boolean hasLine() {
       if (this.line == null)
         return false;
       for (StringType item : this.line)
@@ -510,7 +510,7 @@ public class Address extends Type implements ICompositeType {
      * @return {@link #line} (This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.)
      */
     // syntactic sugar
-    public StringType addLineElement() {//2 
+    public StringType addLineElement() {//2
       StringType t = new StringType();
       if (this.line == null)
         this.line = new ArrayList<StringType>();
@@ -533,7 +533,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @param value {@link #line} (This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.)
      */
-    public boolean hasLine(String value) { 
+    public boolean hasLine(String value) {
       if (this.line == null)
         return false;
       for (StringType v : this.line)
@@ -545,7 +545,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #city} (The name of the city, town, village or other community or delivery center.). This is the underlying object with id, value and extensions. The accessor "getCity" gives direct access to the value
      */
-    public StringType getCityElement() { 
+    public StringType getCityElement() {
       if (this.city == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.city");
@@ -554,18 +554,18 @@ public class Address extends Type implements ICompositeType {
       return this.city;
     }
 
-    public boolean hasCityElement() { 
+    public boolean hasCityElement() {
       return this.city != null && !this.city.isEmpty();
     }
 
-    public boolean hasCity() { 
+    public boolean hasCity() {
       return this.city != null && !this.city.isEmpty();
     }
 
     /**
      * @param value {@link #city} (The name of the city, town, village or other community or delivery center.). This is the underlying object with id, value and extensions. The accessor "getCity" gives direct access to the value
      */
-    public Address setCityElement(StringType value) { 
+    public Address setCityElement(StringType value) {
       this.city = value;
       return this;
     }
@@ -573,14 +573,14 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return The name of the city, town, village or other community or delivery center.
      */
-    public String getCity() { 
+    public String getCity() {
       return this.city == null ? null : this.city.getValue();
     }
 
     /**
      * @param value The name of the city, town, village or other community or delivery center.
      */
-    public Address setCity(String value) { 
+    public Address setCity(String value) {
       if (Utilities.noString(value))
         this.city = null;
       else {
@@ -594,7 +594,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #district} (The name of the administrative area (county).). This is the underlying object with id, value and extensions. The accessor "getDistrict" gives direct access to the value
      */
-    public StringType getDistrictElement() { 
+    public StringType getDistrictElement() {
       if (this.district == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.district");
@@ -603,18 +603,18 @@ public class Address extends Type implements ICompositeType {
       return this.district;
     }
 
-    public boolean hasDistrictElement() { 
+    public boolean hasDistrictElement() {
       return this.district != null && !this.district.isEmpty();
     }
 
-    public boolean hasDistrict() { 
+    public boolean hasDistrict() {
       return this.district != null && !this.district.isEmpty();
     }
 
     /**
      * @param value {@link #district} (The name of the administrative area (county).). This is the underlying object with id, value and extensions. The accessor "getDistrict" gives direct access to the value
      */
-    public Address setDistrictElement(StringType value) { 
+    public Address setDistrictElement(StringType value) {
       this.district = value;
       return this;
     }
@@ -622,14 +622,14 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return The name of the administrative area (county).
      */
-    public String getDistrict() { 
+    public String getDistrict() {
       return this.district == null ? null : this.district.getValue();
     }
 
     /**
      * @param value The name of the administrative area (county).
      */
-    public Address setDistrict(String value) { 
+    public Address setDistrict(String value) {
       if (Utilities.noString(value))
         this.district = null;
       else {
@@ -643,7 +643,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #state} (Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).). This is the underlying object with id, value and extensions. The accessor "getState" gives direct access to the value
      */
-    public StringType getStateElement() { 
+    public StringType getStateElement() {
       if (this.state == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.state");
@@ -652,18 +652,18 @@ public class Address extends Type implements ICompositeType {
       return this.state;
     }
 
-    public boolean hasStateElement() { 
+    public boolean hasStateElement() {
       return this.state != null && !this.state.isEmpty();
     }
 
-    public boolean hasState() { 
+    public boolean hasState() {
       return this.state != null && !this.state.isEmpty();
     }
 
     /**
      * @param value {@link #state} (Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).). This is the underlying object with id, value and extensions. The accessor "getState" gives direct access to the value
      */
-    public Address setStateElement(StringType value) { 
+    public Address setStateElement(StringType value) {
       this.state = value;
       return this;
     }
@@ -671,14 +671,14 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
      */
-    public String getState() { 
+    public String getState() {
       return this.state == null ? null : this.state.getValue();
     }
 
     /**
      * @param value Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).
      */
-    public Address setState(String value) { 
+    public Address setState(String value) {
       if (Utilities.noString(value))
         this.state = null;
       else {
@@ -692,7 +692,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #postalCode} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getPostalCode" gives direct access to the value
      */
-    public StringType getPostalCodeElement() { 
+    public StringType getPostalCodeElement() {
       if (this.postalCode == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.postalCode");
@@ -701,18 +701,18 @@ public class Address extends Type implements ICompositeType {
       return this.postalCode;
     }
 
-    public boolean hasPostalCodeElement() { 
+    public boolean hasPostalCodeElement() {
       return this.postalCode != null && !this.postalCode.isEmpty();
     }
 
-    public boolean hasPostalCode() { 
+    public boolean hasPostalCode() {
       return this.postalCode != null && !this.postalCode.isEmpty();
     }
 
     /**
      * @param value {@link #postalCode} (A postal code designating a region defined by the postal service.). This is the underlying object with id, value and extensions. The accessor "getPostalCode" gives direct access to the value
      */
-    public Address setPostalCodeElement(StringType value) { 
+    public Address setPostalCodeElement(StringType value) {
       this.postalCode = value;
       return this;
     }
@@ -720,14 +720,14 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return A postal code designating a region defined by the postal service.
      */
-    public String getPostalCode() { 
+    public String getPostalCode() {
       return this.postalCode == null ? null : this.postalCode.getValue();
     }
 
     /**
      * @param value A postal code designating a region defined by the postal service.
      */
-    public Address setPostalCode(String value) { 
+    public Address setPostalCode(String value) {
       if (Utilities.noString(value))
         this.postalCode = null;
       else {
@@ -741,7 +741,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #country} (Country - a nation as commonly understood or generally accepted.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public StringType getCountryElement() { 
+    public StringType getCountryElement() {
       if (this.country == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.country");
@@ -750,18 +750,18 @@ public class Address extends Type implements ICompositeType {
       return this.country;
     }
 
-    public boolean hasCountryElement() { 
+    public boolean hasCountryElement() {
       return this.country != null && !this.country.isEmpty();
     }
 
-    public boolean hasCountry() { 
+    public boolean hasCountry() {
       return this.country != null && !this.country.isEmpty();
     }
 
     /**
      * @param value {@link #country} (Country - a nation as commonly understood or generally accepted.). This is the underlying object with id, value and extensions. The accessor "getCountry" gives direct access to the value
      */
-    public Address setCountryElement(StringType value) { 
+    public Address setCountryElement(StringType value) {
       this.country = value;
       return this;
     }
@@ -769,14 +769,14 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return Country - a nation as commonly understood or generally accepted.
      */
-    public String getCountry() { 
+    public String getCountry() {
       return this.country == null ? null : this.country.getValue();
     }
 
     /**
      * @param value Country - a nation as commonly understood or generally accepted.
      */
-    public Address setCountry(String value) { 
+    public Address setCountry(String value) {
       if (Utilities.noString(value))
         this.country = null;
       else {
@@ -790,7 +790,7 @@ public class Address extends Type implements ICompositeType {
     /**
      * @return {@link #period} (Time period when address was/is in use.)
      */
-    public Period getPeriod() { 
+    public Period getPeriod() {
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.period");
@@ -799,14 +799,14 @@ public class Address extends Type implements ICompositeType {
       return this.period;
     }
 
-    public boolean hasPeriod() { 
+    public boolean hasPeriod() {
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (Time period when address was/is in use.)
      */
-    public Address setPeriod(Period value) { 
+    public Address setPeriod(Period value) {
       this.period = value;
       return this;
     }

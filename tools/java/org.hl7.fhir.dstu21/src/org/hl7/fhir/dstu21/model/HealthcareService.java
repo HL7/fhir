@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,31 +51,31 @@ public class HealthcareService extends DomainResource {
         /**
          * Monday
          */
-        MON, 
+        MON,
         /**
          * Tuesday
          */
-        TUE, 
+        TUE,
         /**
          * Wednesday
          */
-        WED, 
+        WED,
         /**
          * Thursday
          */
-        THU, 
+        THU,
         /**
          * Friday
          */
-        FRI, 
+        FRI,
         /**
          * Saturday
          */
-        SAT, 
+        SAT,
         /**
          * Sunday
          */
-        SUN, 
+        SUN,
         /**
          * added to help the parsers
          */
@@ -247,7 +247,7 @@ public class HealthcareService extends DomainResource {
         /**
          * @return {@link #type} (The specific type of service being delivered or performed.)
          */
-        public CodeableConcept getType() { 
+        public CodeableConcept getType() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ServiceTypeComponent.type");
@@ -256,14 +256,14 @@ public class HealthcareService extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The specific type of service being delivered or performed.)
          */
-        public ServiceTypeComponent setType(CodeableConcept value) { 
+        public ServiceTypeComponent setType(CodeableConcept value) {
           this.type = value;
           return this;
         }
@@ -271,13 +271,13 @@ public class HealthcareService extends DomainResource {
         /**
          * @return {@link #specialty} (Collection of specialties handled by the service site. This is more of a medical term.)
          */
-        public List<CodeableConcept> getSpecialty() { 
+        public List<CodeableConcept> getSpecialty() {
           if (this.specialty == null)
             this.specialty = new ArrayList<CodeableConcept>();
           return this.specialty;
         }
 
-        public boolean hasSpecialty() { 
+        public boolean hasSpecialty() {
           if (this.specialty == null)
             return false;
           for (CodeableConcept item : this.specialty)
@@ -423,13 +423,13 @@ public class HealthcareService extends DomainResource {
         /**
          * @return {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
          */
-        public List<Enumeration<DaysOfWeek>> getDaysOfWeek() { 
+        public List<Enumeration<DaysOfWeek>> getDaysOfWeek() {
           if (this.daysOfWeek == null)
             this.daysOfWeek = new ArrayList<Enumeration<DaysOfWeek>>();
           return this.daysOfWeek;
         }
 
-        public boolean hasDaysOfWeek() { 
+        public boolean hasDaysOfWeek() {
           if (this.daysOfWeek == null)
             return false;
           for (Enumeration<DaysOfWeek> item : this.daysOfWeek)
@@ -442,7 +442,7 @@ public class HealthcareService extends DomainResource {
          * @return {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
          */
     // syntactic sugar
-        public Enumeration<DaysOfWeek> addDaysOfWeekElement() {//2 
+        public Enumeration<DaysOfWeek> addDaysOfWeekElement() {//2
           Enumeration<DaysOfWeek> t = new Enumeration<DaysOfWeek>(new DaysOfWeekEnumFactory());
           if (this.daysOfWeek == null)
             this.daysOfWeek = new ArrayList<Enumeration<DaysOfWeek>>();
@@ -465,7 +465,7 @@ public class HealthcareService extends DomainResource {
         /**
          * @param value {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
          */
-        public boolean hasDaysOfWeek(DaysOfWeek value) { 
+        public boolean hasDaysOfWeek(DaysOfWeek value) {
           if (this.daysOfWeek == null)
             return false;
           for (Enumeration<DaysOfWeek> v : this.daysOfWeek)
@@ -477,7 +477,7 @@ public class HealthcareService extends DomainResource {
         /**
          * @return {@link #allDay} (Is this always available? (hence times are irrelevant) e.g. 24 hour service.). This is the underlying object with id, value and extensions. The accessor "getAllDay" gives direct access to the value
          */
-        public BooleanType getAllDayElement() { 
+        public BooleanType getAllDayElement() {
           if (this.allDay == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceAvailableTimeComponent.allDay");
@@ -486,18 +486,18 @@ public class HealthcareService extends DomainResource {
           return this.allDay;
         }
 
-        public boolean hasAllDayElement() { 
+        public boolean hasAllDayElement() {
           return this.allDay != null && !this.allDay.isEmpty();
         }
 
-        public boolean hasAllDay() { 
+        public boolean hasAllDay() {
           return this.allDay != null && !this.allDay.isEmpty();
         }
 
         /**
          * @param value {@link #allDay} (Is this always available? (hence times are irrelevant) e.g. 24 hour service.). This is the underlying object with id, value and extensions. The accessor "getAllDay" gives direct access to the value
          */
-        public HealthcareServiceAvailableTimeComponent setAllDayElement(BooleanType value) { 
+        public HealthcareServiceAvailableTimeComponent setAllDayElement(BooleanType value) {
           this.allDay = value;
           return this;
         }
@@ -505,14 +505,14 @@ public class HealthcareService extends DomainResource {
         /**
          * @return Is this always available? (hence times are irrelevant) e.g. 24 hour service.
          */
-        public boolean getAllDay() { 
+        public boolean getAllDay() {
           return this.allDay == null || this.allDay.isEmpty() ? false : this.allDay.getValue();
         }
 
         /**
          * @param value Is this always available? (hence times are irrelevant) e.g. 24 hour service.
          */
-        public HealthcareServiceAvailableTimeComponent setAllDay(boolean value) { 
+        public HealthcareServiceAvailableTimeComponent setAllDay(boolean value) {
             if (this.allDay == null)
               this.allDay = new BooleanType();
             this.allDay.setValue(value);
@@ -522,7 +522,7 @@ public class HealthcareService extends DomainResource {
         /**
          * @return {@link #availableStartTime} (The opening time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableStartTime" gives direct access to the value
          */
-        public TimeType getAvailableStartTimeElement() { 
+        public TimeType getAvailableStartTimeElement() {
           if (this.availableStartTime == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceAvailableTimeComponent.availableStartTime");
@@ -531,18 +531,18 @@ public class HealthcareService extends DomainResource {
           return this.availableStartTime;
         }
 
-        public boolean hasAvailableStartTimeElement() { 
+        public boolean hasAvailableStartTimeElement() {
           return this.availableStartTime != null && !this.availableStartTime.isEmpty();
         }
 
-        public boolean hasAvailableStartTime() { 
+        public boolean hasAvailableStartTime() {
           return this.availableStartTime != null && !this.availableStartTime.isEmpty();
         }
 
         /**
          * @param value {@link #availableStartTime} (The opening time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableStartTime" gives direct access to the value
          */
-        public HealthcareServiceAvailableTimeComponent setAvailableStartTimeElement(TimeType value) { 
+        public HealthcareServiceAvailableTimeComponent setAvailableStartTimeElement(TimeType value) {
           this.availableStartTime = value;
           return this;
         }
@@ -550,14 +550,14 @@ public class HealthcareService extends DomainResource {
         /**
          * @return The opening time of day. Note: If the AllDay flag is set, then this time is ignored.
          */
-        public String getAvailableStartTime() { 
+        public String getAvailableStartTime() {
           return this.availableStartTime == null ? null : this.availableStartTime.getValue();
         }
 
         /**
          * @param value The opening time of day. Note: If the AllDay flag is set, then this time is ignored.
          */
-        public HealthcareServiceAvailableTimeComponent setAvailableStartTime(String value) { 
+        public HealthcareServiceAvailableTimeComponent setAvailableStartTime(String value) {
           if (value == null)
             this.availableStartTime = null;
           else {
@@ -571,7 +571,7 @@ public class HealthcareService extends DomainResource {
         /**
          * @return {@link #availableEndTime} (The closing time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableEndTime" gives direct access to the value
          */
-        public TimeType getAvailableEndTimeElement() { 
+        public TimeType getAvailableEndTimeElement() {
           if (this.availableEndTime == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceAvailableTimeComponent.availableEndTime");
@@ -580,18 +580,18 @@ public class HealthcareService extends DomainResource {
           return this.availableEndTime;
         }
 
-        public boolean hasAvailableEndTimeElement() { 
+        public boolean hasAvailableEndTimeElement() {
           return this.availableEndTime != null && !this.availableEndTime.isEmpty();
         }
 
-        public boolean hasAvailableEndTime() { 
+        public boolean hasAvailableEndTime() {
           return this.availableEndTime != null && !this.availableEndTime.isEmpty();
         }
 
         /**
          * @param value {@link #availableEndTime} (The closing time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableEndTime" gives direct access to the value
          */
-        public HealthcareServiceAvailableTimeComponent setAvailableEndTimeElement(TimeType value) { 
+        public HealthcareServiceAvailableTimeComponent setAvailableEndTimeElement(TimeType value) {
           this.availableEndTime = value;
           return this;
         }
@@ -599,14 +599,14 @@ public class HealthcareService extends DomainResource {
         /**
          * @return The closing time of day. Note: If the AllDay flag is set, then this time is ignored.
          */
-        public String getAvailableEndTime() { 
+        public String getAvailableEndTime() {
           return this.availableEndTime == null ? null : this.availableEndTime.getValue();
         }
 
         /**
          * @param value The closing time of day. Note: If the AllDay flag is set, then this time is ignored.
          */
-        public HealthcareServiceAvailableTimeComponent setAvailableEndTime(String value) { 
+        public HealthcareServiceAvailableTimeComponent setAvailableEndTime(String value) {
           if (value == null)
             this.availableEndTime = null;
           else {
@@ -742,7 +742,7 @@ public class HealthcareService extends DomainResource {
         /**
          * @return {@link #description} (The reason that can be presented to the user as to why this time is not available.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceNotAvailableComponent.description");
@@ -751,18 +751,18 @@ public class HealthcareService extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (The reason that can be presented to the user as to why this time is not available.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public HealthcareServiceNotAvailableComponent setDescriptionElement(StringType value) { 
+        public HealthcareServiceNotAvailableComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -770,14 +770,14 @@ public class HealthcareService extends DomainResource {
         /**
          * @return The reason that can be presented to the user as to why this time is not available.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value The reason that can be presented to the user as to why this time is not available.
          */
-        public HealthcareServiceNotAvailableComponent setDescription(String value) { 
+        public HealthcareServiceNotAvailableComponent setDescription(String value) {
             if (this.description == null)
               this.description = new StringType();
             this.description.setValue(value);
@@ -787,7 +787,7 @@ public class HealthcareService extends DomainResource {
         /**
          * @return {@link #during} (Service is not available (seasonally or for a public holiday) from this date.)
          */
-        public Period getDuring() { 
+        public Period getDuring() {
           if (this.during == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceNotAvailableComponent.during");
@@ -796,14 +796,14 @@ public class HealthcareService extends DomainResource {
           return this.during;
         }
 
-        public boolean hasDuring() { 
+        public boolean hasDuring() {
           return this.during != null && !this.during.isEmpty();
         }
 
         /**
          * @param value {@link #during} (Service is not available (seasonally or for a public holiday) from this date.)
          */
-        public HealthcareServiceNotAvailableComponent setDuring(Period value) { 
+        public HealthcareServiceNotAvailableComponent setDuring(Period value) {
           this.during = value;
           return this;
         }
@@ -1066,13 +1066,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #identifier} (External identifiers for this item.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1106,7 +1106,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #providedBy} (The organization that provides this healthcare service.)
      */
-    public Reference getProvidedBy() { 
+    public Reference getProvidedBy() {
       if (this.providedBy == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.providedBy");
@@ -1115,14 +1115,14 @@ public class HealthcareService extends DomainResource {
       return this.providedBy;
     }
 
-    public boolean hasProvidedBy() { 
+    public boolean hasProvidedBy() {
       return this.providedBy != null && !this.providedBy.isEmpty();
     }
 
     /**
      * @param value {@link #providedBy} (The organization that provides this healthcare service.)
      */
-    public HealthcareService setProvidedBy(Reference value) { 
+    public HealthcareService setProvidedBy(Reference value) {
       this.providedBy = value;
       return this;
     }
@@ -1130,7 +1130,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #providedBy} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization that provides this healthcare service.)
      */
-    public Organization getProvidedByTarget() { 
+    public Organization getProvidedByTarget() {
       if (this.providedByTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.providedBy");
@@ -1142,7 +1142,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @param value {@link #providedBy} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization that provides this healthcare service.)
      */
-    public HealthcareService setProvidedByTarget(Organization value) { 
+    public HealthcareService setProvidedByTarget(Organization value) {
       this.providedByTarget = value;
       return this;
     }
@@ -1150,7 +1150,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #serviceCategory} (Identifies the broad category of service being performed or delivered.)
      */
-    public CodeableConcept getServiceCategory() { 
+    public CodeableConcept getServiceCategory() {
       if (this.serviceCategory == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.serviceCategory");
@@ -1159,14 +1159,14 @@ public class HealthcareService extends DomainResource {
       return this.serviceCategory;
     }
 
-    public boolean hasServiceCategory() { 
+    public boolean hasServiceCategory() {
       return this.serviceCategory != null && !this.serviceCategory.isEmpty();
     }
 
     /**
      * @param value {@link #serviceCategory} (Identifies the broad category of service being performed or delivered.)
      */
-    public HealthcareService setServiceCategory(CodeableConcept value) { 
+    public HealthcareService setServiceCategory(CodeableConcept value) {
       this.serviceCategory = value;
       return this;
     }
@@ -1174,13 +1174,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #serviceType} (A specific type of service that may be delivered or performed.)
      */
-    public List<ServiceTypeComponent> getServiceType() { 
+    public List<ServiceTypeComponent> getServiceType() {
       if (this.serviceType == null)
         this.serviceType = new ArrayList<ServiceTypeComponent>();
       return this.serviceType;
     }
 
-    public boolean hasServiceType() { 
+    public boolean hasServiceType() {
       if (this.serviceType == null)
         return false;
       for (ServiceTypeComponent item : this.serviceType)
@@ -1214,7 +1214,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #location} (The location where this healthcare service may be provided.)
      */
-    public Reference getLocation() { 
+    public Reference getLocation() {
       if (this.location == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.location");
@@ -1223,14 +1223,14 @@ public class HealthcareService extends DomainResource {
       return this.location;
     }
 
-    public boolean hasLocation() { 
+    public boolean hasLocation() {
       return this.location != null && !this.location.isEmpty();
     }
 
     /**
      * @param value {@link #location} (The location where this healthcare service may be provided.)
      */
-    public HealthcareService setLocation(Reference value) { 
+    public HealthcareService setLocation(Reference value) {
       this.location = value;
       return this;
     }
@@ -1238,7 +1238,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location where this healthcare service may be provided.)
      */
-    public Location getLocationTarget() { 
+    public Location getLocationTarget() {
       if (this.locationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.location");
@@ -1250,7 +1250,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The location where this healthcare service may be provided.)
      */
-    public HealthcareService setLocationTarget(Location value) { 
+    public HealthcareService setLocationTarget(Location value) {
       this.locationTarget = value;
       return this;
     }
@@ -1258,7 +1258,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #serviceName} (Further description of the service as it would be presented to a consumer while searching.). This is the underlying object with id, value and extensions. The accessor "getServiceName" gives direct access to the value
      */
-    public StringType getServiceNameElement() { 
+    public StringType getServiceNameElement() {
       if (this.serviceName == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.serviceName");
@@ -1267,18 +1267,18 @@ public class HealthcareService extends DomainResource {
       return this.serviceName;
     }
 
-    public boolean hasServiceNameElement() { 
+    public boolean hasServiceNameElement() {
       return this.serviceName != null && !this.serviceName.isEmpty();
     }
 
-    public boolean hasServiceName() { 
+    public boolean hasServiceName() {
       return this.serviceName != null && !this.serviceName.isEmpty();
     }
 
     /**
      * @param value {@link #serviceName} (Further description of the service as it would be presented to a consumer while searching.). This is the underlying object with id, value and extensions. The accessor "getServiceName" gives direct access to the value
      */
-    public HealthcareService setServiceNameElement(StringType value) { 
+    public HealthcareService setServiceNameElement(StringType value) {
       this.serviceName = value;
       return this;
     }
@@ -1286,14 +1286,14 @@ public class HealthcareService extends DomainResource {
     /**
      * @return Further description of the service as it would be presented to a consumer while searching.
      */
-    public String getServiceName() { 
+    public String getServiceName() {
       return this.serviceName == null ? null : this.serviceName.getValue();
     }
 
     /**
      * @param value Further description of the service as it would be presented to a consumer while searching.
      */
-    public HealthcareService setServiceName(String value) { 
+    public HealthcareService setServiceName(String value) {
       if (Utilities.noString(value))
         this.serviceName = null;
       else {
@@ -1307,7 +1307,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #comment} (Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getCommentElement() { 
+    public StringType getCommentElement() {
       if (this.comment == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.comment");
@@ -1316,18 +1316,18 @@ public class HealthcareService extends DomainResource {
       return this.comment;
     }
 
-    public boolean hasCommentElement() { 
+    public boolean hasCommentElement() {
       return this.comment != null && !this.comment.isEmpty();
     }
 
-    public boolean hasComment() { 
+    public boolean hasComment() {
       return this.comment != null && !this.comment.isEmpty();
     }
 
     /**
      * @param value {@link #comment} (Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public HealthcareService setCommentElement(StringType value) { 
+    public HealthcareService setCommentElement(StringType value) {
       this.comment = value;
       return this;
     }
@@ -1335,14 +1335,14 @@ public class HealthcareService extends DomainResource {
     /**
      * @return Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
      */
-    public String getComment() { 
+    public String getComment() {
       return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
      * @param value Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.
      */
-    public HealthcareService setComment(String value) { 
+    public HealthcareService setComment(String value) {
       if (Utilities.noString(value))
         this.comment = null;
       else {
@@ -1356,7 +1356,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #extraDetails} (Extra details about the service that can't be placed in the other fields.). This is the underlying object with id, value and extensions. The accessor "getExtraDetails" gives direct access to the value
      */
-    public StringType getExtraDetailsElement() { 
+    public StringType getExtraDetailsElement() {
       if (this.extraDetails == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.extraDetails");
@@ -1365,18 +1365,18 @@ public class HealthcareService extends DomainResource {
       return this.extraDetails;
     }
 
-    public boolean hasExtraDetailsElement() { 
+    public boolean hasExtraDetailsElement() {
       return this.extraDetails != null && !this.extraDetails.isEmpty();
     }
 
-    public boolean hasExtraDetails() { 
+    public boolean hasExtraDetails() {
       return this.extraDetails != null && !this.extraDetails.isEmpty();
     }
 
     /**
      * @param value {@link #extraDetails} (Extra details about the service that can't be placed in the other fields.). This is the underlying object with id, value and extensions. The accessor "getExtraDetails" gives direct access to the value
      */
-    public HealthcareService setExtraDetailsElement(StringType value) { 
+    public HealthcareService setExtraDetailsElement(StringType value) {
       this.extraDetails = value;
       return this;
     }
@@ -1384,14 +1384,14 @@ public class HealthcareService extends DomainResource {
     /**
      * @return Extra details about the service that can't be placed in the other fields.
      */
-    public String getExtraDetails() { 
+    public String getExtraDetails() {
       return this.extraDetails == null ? null : this.extraDetails.getValue();
     }
 
     /**
      * @param value Extra details about the service that can't be placed in the other fields.
      */
-    public HealthcareService setExtraDetails(String value) { 
+    public HealthcareService setExtraDetails(String value) {
       if (Utilities.noString(value))
         this.extraDetails = null;
       else {
@@ -1405,7 +1405,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #photo} (If there is a photo/symbol associated with this HealthcareService, it may be included here to facilitate quick identification of the service in a list.)
      */
-    public Attachment getPhoto() { 
+    public Attachment getPhoto() {
       if (this.photo == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.photo");
@@ -1414,14 +1414,14 @@ public class HealthcareService extends DomainResource {
       return this.photo;
     }
 
-    public boolean hasPhoto() { 
+    public boolean hasPhoto() {
       return this.photo != null && !this.photo.isEmpty();
     }
 
     /**
      * @param value {@link #photo} (If there is a photo/symbol associated with this HealthcareService, it may be included here to facilitate quick identification of the service in a list.)
      */
-    public HealthcareService setPhoto(Attachment value) { 
+    public HealthcareService setPhoto(Attachment value) {
       this.photo = value;
       return this;
     }
@@ -1429,13 +1429,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #telecom} (List of contacts related to this specific healthcare service.)
      */
-    public List<ContactPoint> getTelecom() { 
+    public List<ContactPoint> getTelecom() {
       if (this.telecom == null)
         this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
     }
 
-    public boolean hasTelecom() { 
+    public boolean hasTelecom() {
       if (this.telecom == null)
         return false;
       for (ContactPoint item : this.telecom)
@@ -1469,13 +1469,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #coverageArea} (The location(s) that this service is available to (not where the service is provided).)
      */
-    public List<Reference> getCoverageArea() { 
+    public List<Reference> getCoverageArea() {
       if (this.coverageArea == null)
         this.coverageArea = new ArrayList<Reference>();
       return this.coverageArea;
     }
 
-    public boolean hasCoverageArea() { 
+    public boolean hasCoverageArea() {
       if (this.coverageArea == null)
         return false;
       for (Reference item : this.coverageArea)
@@ -1509,7 +1509,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #coverageArea} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The location(s) that this service is available to (not where the service is provided).)
      */
-    public List<Location> getCoverageAreaTarget() { 
+    public List<Location> getCoverageAreaTarget() {
       if (this.coverageAreaTarget == null)
         this.coverageAreaTarget = new ArrayList<Location>();
       return this.coverageAreaTarget;
@@ -1519,7 +1519,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #coverageArea} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The location(s) that this service is available to (not where the service is provided).)
      */
-    public Location addCoverageAreaTarget() { 
+    public Location addCoverageAreaTarget() {
       Location r = new Location();
       if (this.coverageAreaTarget == null)
         this.coverageAreaTarget = new ArrayList<Location>();
@@ -1530,13 +1530,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #serviceProvisionCode} (The code(s) that detail the conditions under which the healthcare service is available/offered.)
      */
-    public List<CodeableConcept> getServiceProvisionCode() { 
+    public List<CodeableConcept> getServiceProvisionCode() {
       if (this.serviceProvisionCode == null)
         this.serviceProvisionCode = new ArrayList<CodeableConcept>();
       return this.serviceProvisionCode;
     }
 
-    public boolean hasServiceProvisionCode() { 
+    public boolean hasServiceProvisionCode() {
       if (this.serviceProvisionCode == null)
         return false;
       for (CodeableConcept item : this.serviceProvisionCode)
@@ -1570,7 +1570,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #eligibility} (Does this service have specific eligibility requirements that need to be met in order to use the service?)
      */
-    public CodeableConcept getEligibility() { 
+    public CodeableConcept getEligibility() {
       if (this.eligibility == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.eligibility");
@@ -1579,14 +1579,14 @@ public class HealthcareService extends DomainResource {
       return this.eligibility;
     }
 
-    public boolean hasEligibility() { 
+    public boolean hasEligibility() {
       return this.eligibility != null && !this.eligibility.isEmpty();
     }
 
     /**
      * @param value {@link #eligibility} (Does this service have specific eligibility requirements that need to be met in order to use the service?)
      */
-    public HealthcareService setEligibility(CodeableConcept value) { 
+    public HealthcareService setEligibility(CodeableConcept value) {
       this.eligibility = value;
       return this;
     }
@@ -1594,7 +1594,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #eligibilityNote} (Describes the eligibility conditions for the service.). This is the underlying object with id, value and extensions. The accessor "getEligibilityNote" gives direct access to the value
      */
-    public StringType getEligibilityNoteElement() { 
+    public StringType getEligibilityNoteElement() {
       if (this.eligibilityNote == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.eligibilityNote");
@@ -1603,18 +1603,18 @@ public class HealthcareService extends DomainResource {
       return this.eligibilityNote;
     }
 
-    public boolean hasEligibilityNoteElement() { 
+    public boolean hasEligibilityNoteElement() {
       return this.eligibilityNote != null && !this.eligibilityNote.isEmpty();
     }
 
-    public boolean hasEligibilityNote() { 
+    public boolean hasEligibilityNote() {
       return this.eligibilityNote != null && !this.eligibilityNote.isEmpty();
     }
 
     /**
      * @param value {@link #eligibilityNote} (Describes the eligibility conditions for the service.). This is the underlying object with id, value and extensions. The accessor "getEligibilityNote" gives direct access to the value
      */
-    public HealthcareService setEligibilityNoteElement(StringType value) { 
+    public HealthcareService setEligibilityNoteElement(StringType value) {
       this.eligibilityNote = value;
       return this;
     }
@@ -1622,14 +1622,14 @@ public class HealthcareService extends DomainResource {
     /**
      * @return Describes the eligibility conditions for the service.
      */
-    public String getEligibilityNote() { 
+    public String getEligibilityNote() {
       return this.eligibilityNote == null ? null : this.eligibilityNote.getValue();
     }
 
     /**
      * @param value Describes the eligibility conditions for the service.
      */
-    public HealthcareService setEligibilityNote(String value) { 
+    public HealthcareService setEligibilityNote(String value) {
       if (Utilities.noString(value))
         this.eligibilityNote = null;
       else {
@@ -1643,13 +1643,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #programName} (Program Names that can be used to categorize the service.)
      */
-    public List<StringType> getProgramName() { 
+    public List<StringType> getProgramName() {
       if (this.programName == null)
         this.programName = new ArrayList<StringType>();
       return this.programName;
     }
 
-    public boolean hasProgramName() { 
+    public boolean hasProgramName() {
       if (this.programName == null)
         return false;
       for (StringType item : this.programName)
@@ -1662,7 +1662,7 @@ public class HealthcareService extends DomainResource {
      * @return {@link #programName} (Program Names that can be used to categorize the service.)
      */
     // syntactic sugar
-    public StringType addProgramNameElement() {//2 
+    public StringType addProgramNameElement() {//2
       StringType t = new StringType();
       if (this.programName == null)
         this.programName = new ArrayList<StringType>();
@@ -1685,7 +1685,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @param value {@link #programName} (Program Names that can be used to categorize the service.)
      */
-    public boolean hasProgramName(String value) { 
+    public boolean hasProgramName(String value) {
       if (this.programName == null)
         return false;
       for (StringType v : this.programName)
@@ -1697,13 +1697,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #characteristic} (Collection of characteristics (attributes).)
      */
-    public List<CodeableConcept> getCharacteristic() { 
+    public List<CodeableConcept> getCharacteristic() {
       if (this.characteristic == null)
         this.characteristic = new ArrayList<CodeableConcept>();
       return this.characteristic;
     }
 
-    public boolean hasCharacteristic() { 
+    public boolean hasCharacteristic() {
       if (this.characteristic == null)
         return false;
       for (CodeableConcept item : this.characteristic)
@@ -1737,13 +1737,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #referralMethod} (Ways that the service accepts referrals, if this is not provided then it is implied that no referral is required.)
      */
-    public List<CodeableConcept> getReferralMethod() { 
+    public List<CodeableConcept> getReferralMethod() {
       if (this.referralMethod == null)
         this.referralMethod = new ArrayList<CodeableConcept>();
       return this.referralMethod;
     }
 
-    public boolean hasReferralMethod() { 
+    public boolean hasReferralMethod() {
       if (this.referralMethod == null)
         return false;
       for (CodeableConcept item : this.referralMethod)
@@ -1777,7 +1777,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #publicKey} (The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.). This is the underlying object with id, value and extensions. The accessor "getPublicKey" gives direct access to the value
      */
-    public StringType getPublicKeyElement() { 
+    public StringType getPublicKeyElement() {
       if (this.publicKey == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.publicKey");
@@ -1786,18 +1786,18 @@ public class HealthcareService extends DomainResource {
       return this.publicKey;
     }
 
-    public boolean hasPublicKeyElement() { 
+    public boolean hasPublicKeyElement() {
       return this.publicKey != null && !this.publicKey.isEmpty();
     }
 
-    public boolean hasPublicKey() { 
+    public boolean hasPublicKey() {
       return this.publicKey != null && !this.publicKey.isEmpty();
     }
 
     /**
      * @param value {@link #publicKey} (The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.). This is the underlying object with id, value and extensions. The accessor "getPublicKey" gives direct access to the value
      */
-    public HealthcareService setPublicKeyElement(StringType value) { 
+    public HealthcareService setPublicKeyElement(StringType value) {
       this.publicKey = value;
       return this;
     }
@@ -1805,14 +1805,14 @@ public class HealthcareService extends DomainResource {
     /**
      * @return The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.
      */
-    public String getPublicKey() { 
+    public String getPublicKey() {
       return this.publicKey == null ? null : this.publicKey.getValue();
     }
 
     /**
      * @param value The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.
      */
-    public HealthcareService setPublicKey(String value) { 
+    public HealthcareService setPublicKey(String value) {
       if (Utilities.noString(value))
         this.publicKey = null;
       else {
@@ -1826,7 +1826,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #appointmentRequired} (Indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the Organization. Indicates if an appointment is required for access to this service.). This is the underlying object with id, value and extensions. The accessor "getAppointmentRequired" gives direct access to the value
      */
-    public BooleanType getAppointmentRequiredElement() { 
+    public BooleanType getAppointmentRequiredElement() {
       if (this.appointmentRequired == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.appointmentRequired");
@@ -1835,18 +1835,18 @@ public class HealthcareService extends DomainResource {
       return this.appointmentRequired;
     }
 
-    public boolean hasAppointmentRequiredElement() { 
+    public boolean hasAppointmentRequiredElement() {
       return this.appointmentRequired != null && !this.appointmentRequired.isEmpty();
     }
 
-    public boolean hasAppointmentRequired() { 
+    public boolean hasAppointmentRequired() {
       return this.appointmentRequired != null && !this.appointmentRequired.isEmpty();
     }
 
     /**
      * @param value {@link #appointmentRequired} (Indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the Organization. Indicates if an appointment is required for access to this service.). This is the underlying object with id, value and extensions. The accessor "getAppointmentRequired" gives direct access to the value
      */
-    public HealthcareService setAppointmentRequiredElement(BooleanType value) { 
+    public HealthcareService setAppointmentRequiredElement(BooleanType value) {
       this.appointmentRequired = value;
       return this;
     }
@@ -1854,14 +1854,14 @@ public class HealthcareService extends DomainResource {
     /**
      * @return Indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the Organization. Indicates if an appointment is required for access to this service.
      */
-    public boolean getAppointmentRequired() { 
+    public boolean getAppointmentRequired() {
       return this.appointmentRequired == null || this.appointmentRequired.isEmpty() ? false : this.appointmentRequired.getValue();
     }
 
     /**
      * @param value Indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the Organization. Indicates if an appointment is required for access to this service.
      */
-    public HealthcareService setAppointmentRequired(boolean value) { 
+    public HealthcareService setAppointmentRequired(boolean value) {
         if (this.appointmentRequired == null)
           this.appointmentRequired = new BooleanType();
         this.appointmentRequired.setValue(value);
@@ -1871,13 +1871,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #availableTime} (A collection of times that the Service Site is available.)
      */
-    public List<HealthcareServiceAvailableTimeComponent> getAvailableTime() { 
+    public List<HealthcareServiceAvailableTimeComponent> getAvailableTime() {
       if (this.availableTime == null)
         this.availableTime = new ArrayList<HealthcareServiceAvailableTimeComponent>();
       return this.availableTime;
     }
 
-    public boolean hasAvailableTime() { 
+    public boolean hasAvailableTime() {
       if (this.availableTime == null)
         return false;
       for (HealthcareServiceAvailableTimeComponent item : this.availableTime)
@@ -1911,13 +1911,13 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #notAvailable} (The HealthcareService is not available during this period of time due to the provided reason.)
      */
-    public List<HealthcareServiceNotAvailableComponent> getNotAvailable() { 
+    public List<HealthcareServiceNotAvailableComponent> getNotAvailable() {
       if (this.notAvailable == null)
         this.notAvailable = new ArrayList<HealthcareServiceNotAvailableComponent>();
       return this.notAvailable;
     }
 
-    public boolean hasNotAvailable() { 
+    public boolean hasNotAvailable() {
       if (this.notAvailable == null)
         return false;
       for (HealthcareServiceNotAvailableComponent item : this.notAvailable)
@@ -1951,7 +1951,7 @@ public class HealthcareService extends DomainResource {
     /**
      * @return {@link #availabilityExceptions} (A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.). This is the underlying object with id, value and extensions. The accessor "getAvailabilityExceptions" gives direct access to the value
      */
-    public StringType getAvailabilityExceptionsElement() { 
+    public StringType getAvailabilityExceptionsElement() {
       if (this.availabilityExceptions == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.availabilityExceptions");
@@ -1960,18 +1960,18 @@ public class HealthcareService extends DomainResource {
       return this.availabilityExceptions;
     }
 
-    public boolean hasAvailabilityExceptionsElement() { 
+    public boolean hasAvailabilityExceptionsElement() {
       return this.availabilityExceptions != null && !this.availabilityExceptions.isEmpty();
     }
 
-    public boolean hasAvailabilityExceptions() { 
+    public boolean hasAvailabilityExceptions() {
       return this.availabilityExceptions != null && !this.availabilityExceptions.isEmpty();
     }
 
     /**
      * @param value {@link #availabilityExceptions} (A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.). This is the underlying object with id, value and extensions. The accessor "getAvailabilityExceptions" gives direct access to the value
      */
-    public HealthcareService setAvailabilityExceptionsElement(StringType value) { 
+    public HealthcareService setAvailabilityExceptionsElement(StringType value) {
       this.availabilityExceptions = value;
       return this;
     }
@@ -1979,14 +1979,14 @@ public class HealthcareService extends DomainResource {
     /**
      * @return A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.
      */
-    public String getAvailabilityExceptions() { 
+    public String getAvailabilityExceptions() {
       return this.availabilityExceptions == null ? null : this.availabilityExceptions.getValue();
     }
 
     /**
      * @param value A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.
      */
-    public HealthcareService setAvailabilityExceptions(String value) { 
+    public HealthcareService setAvailabilityExceptions(String value) {
       if (Utilities.noString(value))
         this.availabilityExceptions = null;
       else {

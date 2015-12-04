@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,23 +51,23 @@ public class ModuleMetadata extends DomainResource {
         /**
          * The resource is a description of a knowledge module
          */
-        MODULE, 
+        MODULE,
         /**
          * The resource is a shareable library of formalized knowledge
          */
-        LIBRARY, 
+        LIBRARY,
         /**
          * An Event-Condition-Action Rule Artifact
          */
-        DECISIONSUPPORTRULE, 
+        DECISIONSUPPORTRULE,
         /**
          * A Documentation Template Artifact
          */
-        DOCUMENTATIONTEMPLATE, 
+        DOCUMENTATIONTEMPLATE,
         /**
          * An Order Set Artifact
          */
-        ORDERSET, 
+        ORDERSET,
         /**
          * added to help the parsers
          */
@@ -183,19 +183,19 @@ public class ModuleMetadata extends DomainResource {
         /**
          * The module is in draft state
          */
-        DRAFT, 
+        DRAFT,
         /**
          * The module is in test state
          */
-        TEST, 
+        TEST,
         /**
          * The module is active
          */
-        ACTIVE, 
+        ACTIVE,
         /**
          * The module is inactive, either rejected before publication, or retired after publication
          */
-        INACTIVE, 
+        INACTIVE,
         /**
          * added to help the parsers
          */
@@ -299,31 +299,31 @@ public class ModuleMetadata extends DomainResource {
         /**
          * The gender of the patient. For this item type, use HL7 administrative gender codes (OID: 2.16.840.1.113883.1.11.1)
          */
-        PATIENTGENDER, 
+        PATIENTGENDER,
         /**
          * A patient demographic category for which this artifact is applicable. Allows specification of age groups using coded values originating from the MeSH Code system (OID: 2.16.840.1.113883.6.177). More specifically, only codes from the AgeGroupObservationValue value set are valid for this field  [2.16.840.1.113883.11.75]
          */
-        PATIENTAGEGROUP, 
+        PATIENTAGEGROUP,
         /**
          * The clinical concept(s) addressed by the artifact.  For example, disease, diagnostic test interpretation, medication ordering. Please refer to the implementation guide on which code system and codes to use
          */
-        CLINICALFOCUS, 
+        CLINICALFOCUS,
         /**
          * The user types to which an artifact is targeted.  For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomyCode system (OID: 2.16.840.1.113883.6.101)
          */
-        TARGETUSER, 
+        TARGETUSER,
         /**
          * The settings in which the artifact is intended for use.  For example, admission, pre-op, etc
          */
-        WORKFLOWSETTING, 
+        WORKFLOWSETTING,
         /**
          * The context for the clinical task(s) represented by this artifact. Can be any task context represented by the HL7 ActTaskCode value set (OID: 2.16.840.1.113883.1.11.19846). General categories include: order entry, patient documentation and patient information review
          */
-        WORKFLOWTASK, 
+        WORKFLOWTASK,
         /**
          * The venue in which an artifact could be used.  For example, Outpatient, Inpatient, Home, Nursing home. The code value may originate from either the HL7 ActEncounter (OID: 2.16.840.1.113883.1.11.13955) or NUCC non-individual provider codes OID: 2.16.840.1.113883.1.11.19465
          */
-        CLINICALVENUE, 
+        CLINICALVENUE,
         /**
          * added to help the parsers
          */
@@ -463,19 +463,19 @@ public class ModuleMetadata extends DomainResource {
         /**
          * An author of the content of the module
          */
-        AUTHOR, 
+        AUTHOR,
         /**
          * An editor of the content of the module
          */
-        EDITOR, 
+        EDITOR,
         /**
          * A reviewer of the content of the module
          */
-        REVIEWER, 
+        REVIEWER,
         /**
          * An endorser of the content of the module
          */
-        ENDORSER, 
+        ENDORSER,
         /**
          * added to help the parsers
          */
@@ -579,27 +579,27 @@ public class ModuleMetadata extends DomainResource {
         /**
          * Additional documentation for the module
          */
-        DOCUMENTATION, 
+        DOCUMENTATION,
         /**
          * Supporting evidence for the module
          */
-        EVIDENCE, 
+        EVIDENCE,
         /**
          * Bibliographic citation for the module
          */
-        CITATION, 
+        CITATION,
         /**
          * The previous version of the module
          */
-        PREDECESSOR, 
+        PREDECESSOR,
         /**
          * The next version of the module
          */
-        SUCCESSOR, 
+        SUCCESSOR,
         /**
          * The module is derived from the resource
          */
-        DERIVEDFROM, 
+        DERIVEDFROM,
         /**
          * added to help the parsers
          */
@@ -766,7 +766,7 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #focus} (Specifies the focus of the coverage attribute.). This is the underlying object with id, value and extensions. The accessor "getFocus" gives direct access to the value
          */
-        public Enumeration<ModuleMetadataFocusType> getFocusElement() { 
+        public Enumeration<ModuleMetadataFocusType> getFocusElement() {
           if (this.focus == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleMetadataCoverageComponent.focus");
@@ -775,18 +775,18 @@ public class ModuleMetadata extends DomainResource {
           return this.focus;
         }
 
-        public boolean hasFocusElement() { 
+        public boolean hasFocusElement() {
           return this.focus != null && !this.focus.isEmpty();
         }
 
-        public boolean hasFocus() { 
+        public boolean hasFocus() {
           return this.focus != null && !this.focus.isEmpty();
         }
 
         /**
          * @param value {@link #focus} (Specifies the focus of the coverage attribute.). This is the underlying object with id, value and extensions. The accessor "getFocus" gives direct access to the value
          */
-        public ModuleMetadataCoverageComponent setFocusElement(Enumeration<ModuleMetadataFocusType> value) { 
+        public ModuleMetadataCoverageComponent setFocusElement(Enumeration<ModuleMetadataFocusType> value) {
           this.focus = value;
           return this;
         }
@@ -794,14 +794,14 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return Specifies the focus of the coverage attribute.
          */
-        public ModuleMetadataFocusType getFocus() { 
+        public ModuleMetadataFocusType getFocus() {
           return this.focus == null ? null : this.focus.getValue();
         }
 
         /**
          * @param value Specifies the focus of the coverage attribute.
          */
-        public ModuleMetadataCoverageComponent setFocus(ModuleMetadataFocusType value) { 
+        public ModuleMetadataCoverageComponent setFocus(ModuleMetadataFocusType value) {
             if (this.focus == null)
               this.focus = new Enumeration<ModuleMetadataFocusType>(new ModuleMetadataFocusTypeEnumFactory());
             this.focus.setValue(value);
@@ -811,7 +811,7 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #description} (Provides an optional description of the coverage attribute.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleMetadataCoverageComponent.description");
@@ -820,18 +820,18 @@ public class ModuleMetadata extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (Provides an optional description of the coverage attribute.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ModuleMetadataCoverageComponent setDescriptionElement(StringType value) { 
+        public ModuleMetadataCoverageComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -839,14 +839,14 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return Provides an optional description of the coverage attribute.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Provides an optional description of the coverage attribute.
          */
-        public ModuleMetadataCoverageComponent setDescription(String value) { 
+        public ModuleMetadataCoverageComponent setDescription(String value) {
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -860,7 +860,7 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #value} (Provides a value for the coverage attribute. Different values are appropriate in different focus areas, as specified in the description of values for focus.)
          */
-        public CodeableConcept getValue() { 
+        public CodeableConcept getValue() {
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleMetadataCoverageComponent.value");
@@ -869,14 +869,14 @@ public class ModuleMetadata extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValue() { 
+        public boolean hasValue() {
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (Provides a value for the coverage attribute. Different values are appropriate in different focus areas, as specified in the description of values for focus.)
          */
-        public ModuleMetadataCoverageComponent setValue(CodeableConcept value) { 
+        public ModuleMetadataCoverageComponent setValue(CodeableConcept value) {
           this.value = value;
           return this;
         }
@@ -1000,7 +1000,7 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #type} (The type of contributor.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ModuleMetadataContributorType> getTypeElement() { 
+        public Enumeration<ModuleMetadataContributorType> getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleMetadataContributorComponent.type");
@@ -1009,18 +1009,18 @@ public class ModuleMetadata extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of contributor.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ModuleMetadataContributorComponent setTypeElement(Enumeration<ModuleMetadataContributorType> value) { 
+        public ModuleMetadataContributorComponent setTypeElement(Enumeration<ModuleMetadataContributorType> value) {
           this.type = value;
           return this;
         }
@@ -1028,14 +1028,14 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return The type of contributor.
          */
-        public ModuleMetadataContributorType getType() { 
+        public ModuleMetadataContributorType getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of contributor.
          */
-        public ModuleMetadataContributorComponent setType(ModuleMetadataContributorType value) { 
+        public ModuleMetadataContributorComponent setType(ModuleMetadataContributorType value) {
             if (this.type == null)
               this.type = new Enumeration<ModuleMetadataContributorType>(new ModuleMetadataContributorTypeEnumFactory());
             this.type.setValue(value);
@@ -1045,7 +1045,7 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #party} (The contributor.)
          */
-        public Reference getParty() { 
+        public Reference getParty() {
           if (this.party == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleMetadataContributorComponent.party");
@@ -1054,14 +1054,14 @@ public class ModuleMetadata extends DomainResource {
           return this.party;
         }
 
-        public boolean hasParty() { 
+        public boolean hasParty() {
           return this.party != null && !this.party.isEmpty();
         }
 
         /**
          * @param value {@link #party} (The contributor.)
          */
-        public ModuleMetadataContributorComponent setParty(Reference value) { 
+        public ModuleMetadataContributorComponent setParty(Reference value) {
           this.party = value;
           return this;
         }
@@ -1069,14 +1069,14 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #party} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The contributor.)
          */
-        public Resource getPartyTarget() { 
+        public Resource getPartyTarget() {
           return this.partyTarget;
         }
 
         /**
          * @param value {@link #party} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The contributor.)
          */
-        public ModuleMetadataContributorComponent setPartyTarget(Resource value) { 
+        public ModuleMetadataContributorComponent setPartyTarget(Resource value) {
           this.partyTarget = value;
           return this;
         }
@@ -1200,7 +1200,7 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #type} (The type of related resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ModuleMetadataResourceType> getTypeElement() { 
+        public Enumeration<ModuleMetadataResourceType> getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleMetadataRelatedResourceComponent.type");
@@ -1209,18 +1209,18 @@ public class ModuleMetadata extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of related resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ModuleMetadataRelatedResourceComponent setTypeElement(Enumeration<ModuleMetadataResourceType> value) { 
+        public ModuleMetadataRelatedResourceComponent setTypeElement(Enumeration<ModuleMetadataResourceType> value) {
           this.type = value;
           return this;
         }
@@ -1228,14 +1228,14 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return The type of related resource.
          */
-        public ModuleMetadataResourceType getType() { 
+        public ModuleMetadataResourceType getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of related resource.
          */
-        public ModuleMetadataRelatedResourceComponent setType(ModuleMetadataResourceType value) { 
+        public ModuleMetadataRelatedResourceComponent setType(ModuleMetadataResourceType value) {
             if (this.type == null)
               this.type = new Enumeration<ModuleMetadataResourceType>(new ModuleMetadataResourceTypeEnumFactory());
             this.type.setValue(value);
@@ -1245,7 +1245,7 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #uri} (The uri of the related resource.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public UriType getUriElement() { 
+        public UriType getUriElement() {
           if (this.uri == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleMetadataRelatedResourceComponent.uri");
@@ -1254,18 +1254,18 @@ public class ModuleMetadata extends DomainResource {
           return this.uri;
         }
 
-        public boolean hasUriElement() { 
+        public boolean hasUriElement() {
           return this.uri != null && !this.uri.isEmpty();
         }
 
-        public boolean hasUri() { 
+        public boolean hasUri() {
           return this.uri != null && !this.uri.isEmpty();
         }
 
         /**
          * @param value {@link #uri} (The uri of the related resource.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public ModuleMetadataRelatedResourceComponent setUriElement(UriType value) { 
+        public ModuleMetadataRelatedResourceComponent setUriElement(UriType value) {
           this.uri = value;
           return this;
         }
@@ -1273,14 +1273,14 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return The uri of the related resource.
          */
-        public String getUri() { 
+        public String getUri() {
           return this.uri == null ? null : this.uri.getValue();
         }
 
         /**
          * @param value The uri of the related resource.
          */
-        public ModuleMetadataRelatedResourceComponent setUri(String value) { 
+        public ModuleMetadataRelatedResourceComponent setUri(String value) {
           if (Utilities.noString(value))
             this.uri = null;
           else {
@@ -1294,7 +1294,7 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #description} (A brief description of the related resource.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleMetadataRelatedResourceComponent.description");
@@ -1303,18 +1303,18 @@ public class ModuleMetadata extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (A brief description of the related resource.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ModuleMetadataRelatedResourceComponent setDescriptionElement(StringType value) { 
+        public ModuleMetadataRelatedResourceComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -1322,14 +1322,14 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return A brief description of the related resource.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value A brief description of the related resource.
          */
-        public ModuleMetadataRelatedResourceComponent setDescription(String value) { 
+        public ModuleMetadataRelatedResourceComponent setDescription(String value) {
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -1343,7 +1343,7 @@ public class ModuleMetadata extends DomainResource {
         /**
          * @return {@link #document} (The document being referenced.)
          */
-        public Attachment getDocument() { 
+        public Attachment getDocument() {
           if (this.document == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleMetadataRelatedResourceComponent.document");
@@ -1352,14 +1352,14 @@ public class ModuleMetadata extends DomainResource {
           return this.document;
         }
 
-        public boolean hasDocument() { 
+        public boolean hasDocument() {
           return this.document != null && !this.document.isEmpty();
         }
 
         /**
          * @param value {@link #document} (The document being referenced.)
          */
-        public ModuleMetadataRelatedResourceComponent setDocument(Attachment value) { 
+        public ModuleMetadataRelatedResourceComponent setDocument(Attachment value) {
           this.document = value;
           return this;
         }
@@ -1614,13 +1614,13 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #identifier} (A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1654,7 +1654,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() { 
+    public StringType getVersionElement() {
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.version");
@@ -1663,18 +1663,18 @@ public class ModuleMetadata extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() { 
+    public boolean hasVersionElement() {
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() { 
+    public boolean hasVersion() {
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public ModuleMetadata setVersionElement(StringType value) { 
+    public ModuleMetadata setVersionElement(StringType value) {
       this.version = value;
       return this;
     }
@@ -1682,14 +1682,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public String getVersion() { 
+    public String getVersion() {
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public ModuleMetadata setVersion(String value) { 
+    public ModuleMetadata setVersion(String value) {
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -1703,7 +1703,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #title} (A short, descriptive title for the module.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitleElement() { 
+    public StringType getTitleElement() {
       if (this.title == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.title");
@@ -1712,18 +1712,18 @@ public class ModuleMetadata extends DomainResource {
       return this.title;
     }
 
-    public boolean hasTitleElement() { 
+    public boolean hasTitleElement() {
       return this.title != null && !this.title.isEmpty();
     }
 
-    public boolean hasTitle() { 
+    public boolean hasTitle() {
       return this.title != null && !this.title.isEmpty();
     }
 
     /**
      * @param value {@link #title} (A short, descriptive title for the module.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public ModuleMetadata setTitleElement(StringType value) { 
+    public ModuleMetadata setTitleElement(StringType value) {
       this.title = value;
       return this;
     }
@@ -1731,14 +1731,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return A short, descriptive title for the module.
      */
-    public String getTitle() { 
+    public String getTitle() {
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
      * @param value A short, descriptive title for the module.
      */
-    public ModuleMetadata setTitle(String value) { 
+    public ModuleMetadata setTitle(String value) {
       if (Utilities.noString(value))
         this.title = null;
       else {
@@ -1752,7 +1752,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #type} (Identifies the type of knowledge module, such as a rule, library, documentation template, or measure.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<ModuleMetadataType> getTypeElement() { 
+    public Enumeration<ModuleMetadataType> getTypeElement() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.type");
@@ -1761,18 +1761,18 @@ public class ModuleMetadata extends DomainResource {
       return this.type;
     }
 
-    public boolean hasTypeElement() { 
+    public boolean hasTypeElement() {
       return this.type != null && !this.type.isEmpty();
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Identifies the type of knowledge module, such as a rule, library, documentation template, or measure.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public ModuleMetadata setTypeElement(Enumeration<ModuleMetadataType> value) { 
+    public ModuleMetadata setTypeElement(Enumeration<ModuleMetadataType> value) {
       this.type = value;
       return this;
     }
@@ -1780,14 +1780,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return Identifies the type of knowledge module, such as a rule, library, documentation template, or measure.
      */
-    public ModuleMetadataType getType() { 
+    public ModuleMetadataType getType() {
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value Identifies the type of knowledge module, such as a rule, library, documentation template, or measure.
      */
-    public ModuleMetadata setType(ModuleMetadataType value) { 
+    public ModuleMetadata setType(ModuleMetadataType value) {
         if (this.type == null)
           this.type = new Enumeration<ModuleMetadataType>(new ModuleMetadataTypeEnumFactory());
         this.type.setValue(value);
@@ -1797,7 +1797,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #status} (The status of the module.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ModuleMetadataStatus> getStatusElement() { 
+    public Enumeration<ModuleMetadataStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.status");
@@ -1806,18 +1806,18 @@ public class ModuleMetadata extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the module.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ModuleMetadata setStatusElement(Enumeration<ModuleMetadataStatus> value) { 
+    public ModuleMetadata setStatusElement(Enumeration<ModuleMetadataStatus> value) {
       this.status = value;
       return this;
     }
@@ -1825,14 +1825,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return The status of the module.
      */
-    public ModuleMetadataStatus getStatus() { 
+    public ModuleMetadataStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the module.
      */
-    public ModuleMetadata setStatus(ModuleMetadataStatus value) { 
+    public ModuleMetadata setStatus(ModuleMetadataStatus value) {
         if (this.status == null)
           this.status = new Enumeration<ModuleMetadataStatus>(new ModuleMetadataStatusEnumFactory());
         this.status.setValue(value);
@@ -1842,7 +1842,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #description} (A description of the module from the consumer perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() { 
+    public StringType getDescriptionElement() {
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.description");
@@ -1851,18 +1851,18 @@ public class ModuleMetadata extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() { 
+    public boolean hasDescriptionElement() {
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() { 
+    public boolean hasDescription() {
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A description of the module from the consumer perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ModuleMetadata setDescriptionElement(StringType value) { 
+    public ModuleMetadata setDescriptionElement(StringType value) {
       this.description = value;
       return this;
     }
@@ -1870,14 +1870,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return A description of the module from the consumer perspective.
      */
-    public String getDescription() { 
+    public String getDescription() {
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A description of the module from the consumer perspective.
      */
-    public ModuleMetadata setDescription(String value) { 
+    public ModuleMetadata setDescription(String value) {
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -1891,7 +1891,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #purpose} (A brief description of the purpose of the module.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public StringType getPurposeElement() { 
+    public StringType getPurposeElement() {
       if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.purpose");
@@ -1900,18 +1900,18 @@ public class ModuleMetadata extends DomainResource {
       return this.purpose;
     }
 
-    public boolean hasPurposeElement() { 
+    public boolean hasPurposeElement() {
       return this.purpose != null && !this.purpose.isEmpty();
     }
 
-    public boolean hasPurpose() { 
+    public boolean hasPurpose() {
       return this.purpose != null && !this.purpose.isEmpty();
     }
 
     /**
      * @param value {@link #purpose} (A brief description of the purpose of the module.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public ModuleMetadata setPurposeElement(StringType value) { 
+    public ModuleMetadata setPurposeElement(StringType value) {
       this.purpose = value;
       return this;
     }
@@ -1919,14 +1919,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return A brief description of the purpose of the module.
      */
-    public String getPurpose() { 
+    public String getPurpose() {
       return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
      * @param value A brief description of the purpose of the module.
      */
-    public ModuleMetadata setPurpose(String value) { 
+    public ModuleMetadata setPurpose(String value) {
       if (Utilities.noString(value))
         this.purpose = null;
       else {
@@ -1940,7 +1940,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #usage} (Notes about usage of the module.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public StringType getUsageElement() { 
+    public StringType getUsageElement() {
       if (this.usage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.usage");
@@ -1949,18 +1949,18 @@ public class ModuleMetadata extends DomainResource {
       return this.usage;
     }
 
-    public boolean hasUsageElement() { 
+    public boolean hasUsageElement() {
       return this.usage != null && !this.usage.isEmpty();
     }
 
-    public boolean hasUsage() { 
+    public boolean hasUsage() {
       return this.usage != null && !this.usage.isEmpty();
     }
 
     /**
      * @param value {@link #usage} (Notes about usage of the module.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public ModuleMetadata setUsageElement(StringType value) { 
+    public ModuleMetadata setUsageElement(StringType value) {
       this.usage = value;
       return this;
     }
@@ -1968,14 +1968,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return Notes about usage of the module.
      */
-    public String getUsage() { 
+    public String getUsage() {
       return this.usage == null ? null : this.usage.getValue();
     }
 
     /**
      * @param value Notes about usage of the module.
      */
-    public ModuleMetadata setUsage(String value) { 
+    public ModuleMetadata setUsage(String value) {
       if (Utilities.noString(value))
         this.usage = null;
       else {
@@ -1989,7 +1989,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #publicationDate} (The date on which the module was published.). This is the underlying object with id, value and extensions. The accessor "getPublicationDate" gives direct access to the value
      */
-    public DateType getPublicationDateElement() { 
+    public DateType getPublicationDateElement() {
       if (this.publicationDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.publicationDate");
@@ -1998,18 +1998,18 @@ public class ModuleMetadata extends DomainResource {
       return this.publicationDate;
     }
 
-    public boolean hasPublicationDateElement() { 
+    public boolean hasPublicationDateElement() {
       return this.publicationDate != null && !this.publicationDate.isEmpty();
     }
 
-    public boolean hasPublicationDate() { 
+    public boolean hasPublicationDate() {
       return this.publicationDate != null && !this.publicationDate.isEmpty();
     }
 
     /**
      * @param value {@link #publicationDate} (The date on which the module was published.). This is the underlying object with id, value and extensions. The accessor "getPublicationDate" gives direct access to the value
      */
-    public ModuleMetadata setPublicationDateElement(DateType value) { 
+    public ModuleMetadata setPublicationDateElement(DateType value) {
       this.publicationDate = value;
       return this;
     }
@@ -2017,14 +2017,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return The date on which the module was published.
      */
-    public Date getPublicationDate() { 
+    public Date getPublicationDate() {
       return this.publicationDate == null ? null : this.publicationDate.getValue();
     }
 
     /**
      * @param value The date on which the module was published.
      */
-    public ModuleMetadata setPublicationDate(Date value) { 
+    public ModuleMetadata setPublicationDate(Date value) {
       if (value == null)
         this.publicationDate = null;
       else {
@@ -2038,7 +2038,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #lastReviewDate} (The date on which the module content was last reviewed.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
-    public DateType getLastReviewDateElement() { 
+    public DateType getLastReviewDateElement() {
       if (this.lastReviewDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.lastReviewDate");
@@ -2047,18 +2047,18 @@ public class ModuleMetadata extends DomainResource {
       return this.lastReviewDate;
     }
 
-    public boolean hasLastReviewDateElement() { 
+    public boolean hasLastReviewDateElement() {
       return this.lastReviewDate != null && !this.lastReviewDate.isEmpty();
     }
 
-    public boolean hasLastReviewDate() { 
+    public boolean hasLastReviewDate() {
       return this.lastReviewDate != null && !this.lastReviewDate.isEmpty();
     }
 
     /**
      * @param value {@link #lastReviewDate} (The date on which the module content was last reviewed.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
-    public ModuleMetadata setLastReviewDateElement(DateType value) { 
+    public ModuleMetadata setLastReviewDateElement(DateType value) {
       this.lastReviewDate = value;
       return this;
     }
@@ -2066,14 +2066,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return The date on which the module content was last reviewed.
      */
-    public Date getLastReviewDate() { 
+    public Date getLastReviewDate() {
       return this.lastReviewDate == null ? null : this.lastReviewDate.getValue();
     }
 
     /**
      * @param value The date on which the module content was last reviewed.
      */
-    public ModuleMetadata setLastReviewDate(Date value) { 
+    public ModuleMetadata setLastReviewDate(Date value) {
       if (value == null)
         this.lastReviewDate = null;
       else {
@@ -2087,7 +2087,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #effectivePeriod} (The period during which the module content is effective.)
      */
-    public Period getEffectivePeriod() { 
+    public Period getEffectivePeriod() {
       if (this.effectivePeriod == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.effectivePeriod");
@@ -2096,14 +2096,14 @@ public class ModuleMetadata extends DomainResource {
       return this.effectivePeriod;
     }
 
-    public boolean hasEffectivePeriod() { 
+    public boolean hasEffectivePeriod() {
       return this.effectivePeriod != null && !this.effectivePeriod.isEmpty();
     }
 
     /**
      * @param value {@link #effectivePeriod} (The period during which the module content is effective.)
      */
-    public ModuleMetadata setEffectivePeriod(Period value) { 
+    public ModuleMetadata setEffectivePeriod(Period value) {
       this.effectivePeriod = value;
       return this;
     }
@@ -2111,13 +2111,13 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #coverage} (Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable.)
      */
-    public List<ModuleMetadataCoverageComponent> getCoverage() { 
+    public List<ModuleMetadataCoverageComponent> getCoverage() {
       if (this.coverage == null)
         this.coverage = new ArrayList<ModuleMetadataCoverageComponent>();
       return this.coverage;
     }
 
-    public boolean hasCoverage() { 
+    public boolean hasCoverage() {
       if (this.coverage == null)
         return false;
       for (ModuleMetadataCoverageComponent item : this.coverage)
@@ -2151,13 +2151,13 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #topic} (Clinical topics related to the content of the module.)
      */
-    public List<CodeableConcept> getTopic() { 
+    public List<CodeableConcept> getTopic() {
       if (this.topic == null)
         this.topic = new ArrayList<CodeableConcept>();
       return this.topic;
     }
 
-    public boolean hasTopic() { 
+    public boolean hasTopic() {
       if (this.topic == null)
         return false;
       for (CodeableConcept item : this.topic)
@@ -2191,13 +2191,13 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #keyword} (Keywords associated with the module.)
      */
-    public List<StringType> getKeyword() { 
+    public List<StringType> getKeyword() {
       if (this.keyword == null)
         this.keyword = new ArrayList<StringType>();
       return this.keyword;
     }
 
-    public boolean hasKeyword() { 
+    public boolean hasKeyword() {
       if (this.keyword == null)
         return false;
       for (StringType item : this.keyword)
@@ -2210,7 +2210,7 @@ public class ModuleMetadata extends DomainResource {
      * @return {@link #keyword} (Keywords associated with the module.)
      */
     // syntactic sugar
-    public StringType addKeywordElement() {//2 
+    public StringType addKeywordElement() {//2
       StringType t = new StringType();
       if (this.keyword == null)
         this.keyword = new ArrayList<StringType>();
@@ -2233,7 +2233,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @param value {@link #keyword} (Keywords associated with the module.)
      */
-    public boolean hasKeyword(String value) { 
+    public boolean hasKeyword(String value) {
       if (this.keyword == null)
         return false;
       for (StringType v : this.keyword)
@@ -2245,13 +2245,13 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #contributor} (A contributor to the content of the module.)
      */
-    public List<ModuleMetadataContributorComponent> getContributor() { 
+    public List<ModuleMetadataContributorComponent> getContributor() {
       if (this.contributor == null)
         this.contributor = new ArrayList<ModuleMetadataContributorComponent>();
       return this.contributor;
     }
 
-    public boolean hasContributor() { 
+    public boolean hasContributor() {
       if (this.contributor == null)
         return false;
       for (ModuleMetadataContributorComponent item : this.contributor)
@@ -2285,7 +2285,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #publisher} (The organization responsible for publishing the module.)
      */
-    public Reference getPublisher() { 
+    public Reference getPublisher() {
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.publisher");
@@ -2294,14 +2294,14 @@ public class ModuleMetadata extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisher() { 
+    public boolean hasPublisher() {
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The organization responsible for publishing the module.)
      */
-    public ModuleMetadata setPublisher(Reference value) { 
+    public ModuleMetadata setPublisher(Reference value) {
       this.publisher = value;
       return this;
     }
@@ -2309,7 +2309,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #publisher} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization responsible for publishing the module.)
      */
-    public Organization getPublisherTarget() { 
+    public Organization getPublisherTarget() {
       if (this.publisherTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.publisher");
@@ -2321,7 +2321,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @param value {@link #publisher} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization responsible for publishing the module.)
      */
-    public ModuleMetadata setPublisherTarget(Organization value) { 
+    public ModuleMetadata setPublisherTarget(Organization value) {
       this.publisherTarget = value;
       return this;
     }
@@ -2329,7 +2329,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #steward} (The organization responsible for stewardship of the module content.)
      */
-    public Reference getSteward() { 
+    public Reference getSteward() {
       if (this.steward == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.steward");
@@ -2338,14 +2338,14 @@ public class ModuleMetadata extends DomainResource {
       return this.steward;
     }
 
-    public boolean hasSteward() { 
+    public boolean hasSteward() {
       return this.steward != null && !this.steward.isEmpty();
     }
 
     /**
      * @param value {@link #steward} (The organization responsible for stewardship of the module content.)
      */
-    public ModuleMetadata setSteward(Reference value) { 
+    public ModuleMetadata setSteward(Reference value) {
       this.steward = value;
       return this;
     }
@@ -2353,7 +2353,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #steward} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization responsible for stewardship of the module content.)
      */
-    public Organization getStewardTarget() { 
+    public Organization getStewardTarget() {
       if (this.stewardTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.steward");
@@ -2365,7 +2365,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @param value {@link #steward} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization responsible for stewardship of the module content.)
      */
-    public ModuleMetadata setStewardTarget(Organization value) { 
+    public ModuleMetadata setStewardTarget(Organization value) {
       this.stewardTarget = value;
       return this;
     }
@@ -2373,7 +2373,7 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #rightsDeclaration} (The legal rights declaration for the module.). This is the underlying object with id, value and extensions. The accessor "getRightsDeclaration" gives direct access to the value
      */
-    public StringType getRightsDeclarationElement() { 
+    public StringType getRightsDeclarationElement() {
       if (this.rightsDeclaration == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleMetadata.rightsDeclaration");
@@ -2382,18 +2382,18 @@ public class ModuleMetadata extends DomainResource {
       return this.rightsDeclaration;
     }
 
-    public boolean hasRightsDeclarationElement() { 
+    public boolean hasRightsDeclarationElement() {
       return this.rightsDeclaration != null && !this.rightsDeclaration.isEmpty();
     }
 
-    public boolean hasRightsDeclaration() { 
+    public boolean hasRightsDeclaration() {
       return this.rightsDeclaration != null && !this.rightsDeclaration.isEmpty();
     }
 
     /**
      * @param value {@link #rightsDeclaration} (The legal rights declaration for the module.). This is the underlying object with id, value and extensions. The accessor "getRightsDeclaration" gives direct access to the value
      */
-    public ModuleMetadata setRightsDeclarationElement(StringType value) { 
+    public ModuleMetadata setRightsDeclarationElement(StringType value) {
       this.rightsDeclaration = value;
       return this;
     }
@@ -2401,14 +2401,14 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return The legal rights declaration for the module.
      */
-    public String getRightsDeclaration() { 
+    public String getRightsDeclaration() {
       return this.rightsDeclaration == null ? null : this.rightsDeclaration.getValue();
     }
 
     /**
      * @param value The legal rights declaration for the module.
      */
-    public ModuleMetadata setRightsDeclaration(String value) { 
+    public ModuleMetadata setRightsDeclaration(String value) {
       if (Utilities.noString(value))
         this.rightsDeclaration = null;
       else {
@@ -2422,13 +2422,13 @@ public class ModuleMetadata extends DomainResource {
     /**
      * @return {@link #relatedResource} (Related resources such as additional documentation, supporting evidence, or bibliographic references.)
      */
-    public List<ModuleMetadataRelatedResourceComponent> getRelatedResource() { 
+    public List<ModuleMetadataRelatedResourceComponent> getRelatedResource() {
       if (this.relatedResource == null)
         this.relatedResource = new ArrayList<ModuleMetadataRelatedResourceComponent>();
       return this.relatedResource;
     }
 
-    public boolean hasRelatedResource() { 
+    public boolean hasRelatedResource() {
       if (this.relatedResource == null)
         return false;
       for (ModuleMetadataRelatedResourceComponent item : this.relatedResource)

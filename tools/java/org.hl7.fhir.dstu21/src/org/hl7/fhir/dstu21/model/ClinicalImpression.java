@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,15 +51,15 @@ public class ClinicalImpression extends DomainResource {
         /**
          * The assessment is still on-going and results are not yet final.
          */
-        INPROGRESS, 
+        INPROGRESS,
         /**
          * The assessment is done and the results are final.
          */
-        COMPLETED, 
+        COMPLETED,
         /**
          * This assessment was never actually done and the record is erroneous (e.g. Wrong patient).
          */
-        ENTEREDINERROR, 
+        ENTEREDINERROR,
         /**
          * added to help the parsers
          */
@@ -188,7 +188,7 @@ public class ClinicalImpression extends DomainResource {
         /**
          * @return {@link #code} (A name/code for the group ("set") of investigations. Typically, this will be something like "signs", "symptoms", "clinical", "diagnostic", but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used.)
          */
-        public CodeableConcept getCode() { 
+        public CodeableConcept getCode() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalImpressionInvestigationsComponent.code");
@@ -197,14 +197,14 @@ public class ClinicalImpression extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (A name/code for the group ("set") of investigations. Typically, this will be something like "signs", "symptoms", "clinical", "diagnostic", but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used.)
          */
-        public ClinicalImpressionInvestigationsComponent setCode(CodeableConcept value) { 
+        public ClinicalImpressionInvestigationsComponent setCode(CodeableConcept value) {
           this.code = value;
           return this;
         }
@@ -212,13 +212,13 @@ public class ClinicalImpression extends DomainResource {
         /**
          * @return {@link #item} (A record of a specific investigation that was undertaken.)
          */
-        public List<Reference> getItem() { 
+        public List<Reference> getItem() {
           if (this.item == null)
             this.item = new ArrayList<Reference>();
           return this.item;
         }
 
-        public boolean hasItem() { 
+        public boolean hasItem() {
           if (this.item == null)
             return false;
           for (Reference item : this.item)
@@ -252,7 +252,7 @@ public class ClinicalImpression extends DomainResource {
         /**
          * @return {@link #item} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A record of a specific investigation that was undertaken.)
          */
-        public List<Resource> getItemTarget() { 
+        public List<Resource> getItemTarget() {
           if (this.itemTarget == null)
             this.itemTarget = new ArrayList<Resource>();
           return this.itemTarget;
@@ -367,7 +367,7 @@ public class ClinicalImpression extends DomainResource {
         /**
          * @return {@link #item} (Specific text of code for finding or diagnosis.)
          */
-        public CodeableConcept getItem() { 
+        public CodeableConcept getItem() {
           if (this.item == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalImpressionFindingComponent.item");
@@ -376,14 +376,14 @@ public class ClinicalImpression extends DomainResource {
           return this.item;
         }
 
-        public boolean hasItem() { 
+        public boolean hasItem() {
           return this.item != null && !this.item.isEmpty();
         }
 
         /**
          * @param value {@link #item} (Specific text of code for finding or diagnosis.)
          */
-        public ClinicalImpressionFindingComponent setItem(CodeableConcept value) { 
+        public ClinicalImpressionFindingComponent setItem(CodeableConcept value) {
           this.item = value;
           return this;
         }
@@ -391,7 +391,7 @@ public class ClinicalImpression extends DomainResource {
         /**
          * @return {@link #cause} (Which investigations support finding or diagnosis.). This is the underlying object with id, value and extensions. The accessor "getCause" gives direct access to the value
          */
-        public StringType getCauseElement() { 
+        public StringType getCauseElement() {
           if (this.cause == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalImpressionFindingComponent.cause");
@@ -400,18 +400,18 @@ public class ClinicalImpression extends DomainResource {
           return this.cause;
         }
 
-        public boolean hasCauseElement() { 
+        public boolean hasCauseElement() {
           return this.cause != null && !this.cause.isEmpty();
         }
 
-        public boolean hasCause() { 
+        public boolean hasCause() {
           return this.cause != null && !this.cause.isEmpty();
         }
 
         /**
          * @param value {@link #cause} (Which investigations support finding or diagnosis.). This is the underlying object with id, value and extensions. The accessor "getCause" gives direct access to the value
          */
-        public ClinicalImpressionFindingComponent setCauseElement(StringType value) { 
+        public ClinicalImpressionFindingComponent setCauseElement(StringType value) {
           this.cause = value;
           return this;
         }
@@ -419,14 +419,14 @@ public class ClinicalImpression extends DomainResource {
         /**
          * @return Which investigations support finding or diagnosis.
          */
-        public String getCause() { 
+        public String getCause() {
           return this.cause == null ? null : this.cause.getValue();
         }
 
         /**
          * @param value Which investigations support finding or diagnosis.
          */
-        public ClinicalImpressionFindingComponent setCause(String value) { 
+        public ClinicalImpressionFindingComponent setCause(String value) {
           if (Utilities.noString(value))
             this.cause = null;
           else {
@@ -542,7 +542,7 @@ public class ClinicalImpression extends DomainResource {
         /**
          * @return {@link #item} (Specific text of code for diagnosis.)
          */
-        public CodeableConcept getItem() { 
+        public CodeableConcept getItem() {
           if (this.item == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalImpressionRuledOutComponent.item");
@@ -551,14 +551,14 @@ public class ClinicalImpression extends DomainResource {
           return this.item;
         }
 
-        public boolean hasItem() { 
+        public boolean hasItem() {
           return this.item != null && !this.item.isEmpty();
         }
 
         /**
          * @param value {@link #item} (Specific text of code for diagnosis.)
          */
-        public ClinicalImpressionRuledOutComponent setItem(CodeableConcept value) { 
+        public ClinicalImpressionRuledOutComponent setItem(CodeableConcept value) {
           this.item = value;
           return this;
         }
@@ -566,7 +566,7 @@ public class ClinicalImpression extends DomainResource {
         /**
          * @return {@link #reason} (Grounds for elimination.). This is the underlying object with id, value and extensions. The accessor "getReason" gives direct access to the value
          */
-        public StringType getReasonElement() { 
+        public StringType getReasonElement() {
           if (this.reason == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalImpressionRuledOutComponent.reason");
@@ -575,18 +575,18 @@ public class ClinicalImpression extends DomainResource {
           return this.reason;
         }
 
-        public boolean hasReasonElement() { 
+        public boolean hasReasonElement() {
           return this.reason != null && !this.reason.isEmpty();
         }
 
-        public boolean hasReason() { 
+        public boolean hasReason() {
           return this.reason != null && !this.reason.isEmpty();
         }
 
         /**
          * @param value {@link #reason} (Grounds for elimination.). This is the underlying object with id, value and extensions. The accessor "getReason" gives direct access to the value
          */
-        public ClinicalImpressionRuledOutComponent setReasonElement(StringType value) { 
+        public ClinicalImpressionRuledOutComponent setReasonElement(StringType value) {
           this.reason = value;
           return this;
         }
@@ -594,14 +594,14 @@ public class ClinicalImpression extends DomainResource {
         /**
          * @return Grounds for elimination.
          */
-        public String getReason() { 
+        public String getReason() {
           return this.reason == null ? null : this.reason.getValue();
         }
 
         /**
          * @param value Grounds for elimination.
          */
-        public ClinicalImpressionRuledOutComponent setReason(String value) { 
+        public ClinicalImpressionRuledOutComponent setReason(String value) {
           if (Utilities.noString(value))
             this.reason = null;
           else {
@@ -851,7 +851,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #patient} (The patient being assessed.)
      */
-    public Reference getPatient() { 
+    public Reference getPatient() {
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.patient");
@@ -860,14 +860,14 @@ public class ClinicalImpression extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() { 
+    public boolean hasPatient() {
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The patient being assessed.)
      */
-    public ClinicalImpression setPatient(Reference value) { 
+    public ClinicalImpression setPatient(Reference value) {
       this.patient = value;
       return this;
     }
@@ -875,7 +875,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient being assessed.)
      */
-    public Patient getPatientTarget() { 
+    public Patient getPatientTarget() {
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.patient");
@@ -887,7 +887,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient being assessed.)
      */
-    public ClinicalImpression setPatientTarget(Patient value) { 
+    public ClinicalImpression setPatientTarget(Patient value) {
       this.patientTarget = value;
       return this;
     }
@@ -895,7 +895,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #assessor} (The clinician performing the assessment.)
      */
-    public Reference getAssessor() { 
+    public Reference getAssessor() {
       if (this.assessor == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.assessor");
@@ -904,14 +904,14 @@ public class ClinicalImpression extends DomainResource {
       return this.assessor;
     }
 
-    public boolean hasAssessor() { 
+    public boolean hasAssessor() {
       return this.assessor != null && !this.assessor.isEmpty();
     }
 
     /**
      * @param value {@link #assessor} (The clinician performing the assessment.)
      */
-    public ClinicalImpression setAssessor(Reference value) { 
+    public ClinicalImpression setAssessor(Reference value) {
       this.assessor = value;
       return this;
     }
@@ -919,7 +919,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #assessor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
      */
-    public Practitioner getAssessorTarget() { 
+    public Practitioner getAssessorTarget() {
       if (this.assessorTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.assessor");
@@ -931,7 +931,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @param value {@link #assessor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
      */
-    public ClinicalImpression setAssessorTarget(Practitioner value) { 
+    public ClinicalImpression setAssessorTarget(Practitioner value) {
       this.assessorTarget = value;
       return this;
     }
@@ -939,7 +939,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #status} (Identifies the workflow status of the assessment.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ClinicalImpressionStatus> getStatusElement() { 
+    public Enumeration<ClinicalImpressionStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.status");
@@ -948,18 +948,18 @@ public class ClinicalImpression extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (Identifies the workflow status of the assessment.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ClinicalImpression setStatusElement(Enumeration<ClinicalImpressionStatus> value) { 
+    public ClinicalImpression setStatusElement(Enumeration<ClinicalImpressionStatus> value) {
       this.status = value;
       return this;
     }
@@ -967,14 +967,14 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return Identifies the workflow status of the assessment.
      */
-    public ClinicalImpressionStatus getStatus() { 
+    public ClinicalImpressionStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Identifies the workflow status of the assessment.
      */
-    public ClinicalImpression setStatus(ClinicalImpressionStatus value) { 
+    public ClinicalImpression setStatus(ClinicalImpressionStatus value) {
         if (this.status == null)
           this.status = new Enumeration<ClinicalImpressionStatus>(new ClinicalImpressionStatusEnumFactory());
         this.status.setValue(value);
@@ -984,7 +984,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #date} (The point in time at which the assessment was concluded (not when it was recorded).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() { 
+    public DateTimeType getDateElement() {
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.date");
@@ -993,18 +993,18 @@ public class ClinicalImpression extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() { 
+    public boolean hasDateElement() {
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() { 
+    public boolean hasDate() {
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The point in time at which the assessment was concluded (not when it was recorded).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public ClinicalImpression setDateElement(DateTimeType value) { 
+    public ClinicalImpression setDateElement(DateTimeType value) {
       this.date = value;
       return this;
     }
@@ -1012,14 +1012,14 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return The point in time at which the assessment was concluded (not when it was recorded).
      */
-    public Date getDate() { 
+    public Date getDate() {
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The point in time at which the assessment was concluded (not when it was recorded).
      */
-    public ClinicalImpression setDate(Date value) { 
+    public ClinicalImpression setDate(Date value) {
       if (value == null)
         this.date = null;
       else {
@@ -1033,7 +1033,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #description} (A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() { 
+    public StringType getDescriptionElement() {
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.description");
@@ -1042,18 +1042,18 @@ public class ClinicalImpression extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() { 
+    public boolean hasDescriptionElement() {
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() { 
+    public boolean hasDescription() {
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ClinicalImpression setDescriptionElement(StringType value) { 
+    public ClinicalImpression setDescriptionElement(StringType value) {
       this.description = value;
       return this;
     }
@@ -1061,14 +1061,14 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it.
      */
-    public String getDescription() { 
+    public String getDescription() {
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/sstatus prompted it.
      */
-    public ClinicalImpression setDescription(String value) { 
+    public ClinicalImpression setDescription(String value) {
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -1082,7 +1082,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #previous} (A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.)
      */
-    public Reference getPrevious() { 
+    public Reference getPrevious() {
       if (this.previous == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.previous");
@@ -1091,14 +1091,14 @@ public class ClinicalImpression extends DomainResource {
       return this.previous;
     }
 
-    public boolean hasPrevious() { 
+    public boolean hasPrevious() {
       return this.previous != null && !this.previous.isEmpty();
     }
 
     /**
      * @param value {@link #previous} (A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.)
      */
-    public ClinicalImpression setPrevious(Reference value) { 
+    public ClinicalImpression setPrevious(Reference value) {
       this.previous = value;
       return this;
     }
@@ -1106,7 +1106,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #previous} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.)
      */
-    public ClinicalImpression getPreviousTarget() { 
+    public ClinicalImpression getPreviousTarget() {
       if (this.previousTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.previous");
@@ -1118,7 +1118,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @param value {@link #previous} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.)
      */
-    public ClinicalImpression setPreviousTarget(ClinicalImpression value) { 
+    public ClinicalImpression setPreviousTarget(ClinicalImpression value) {
       this.previousTarget = value;
       return this;
     }
@@ -1126,13 +1126,13 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #problem} (This a list of the general problems/conditions for a patient.)
      */
-    public List<Reference> getProblem() { 
+    public List<Reference> getProblem() {
       if (this.problem == null)
         this.problem = new ArrayList<Reference>();
       return this.problem;
     }
 
-    public boolean hasProblem() { 
+    public boolean hasProblem() {
       if (this.problem == null)
         return false;
       for (Reference item : this.problem)
@@ -1166,7 +1166,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #problem} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. This a list of the general problems/conditions for a patient.)
      */
-    public List<Resource> getProblemTarget() { 
+    public List<Resource> getProblemTarget() {
       if (this.problemTarget == null)
         this.problemTarget = new ArrayList<Resource>();
       return this.problemTarget;
@@ -1175,44 +1175,44 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #trigger} (The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.)
      */
-    public Type getTrigger() { 
+    public Type getTrigger() {
       return this.trigger;
     }
 
     /**
      * @return {@link #trigger} (The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.)
      */
-    public CodeableConcept getTriggerCodeableConcept() throws FHIRException { 
+    public CodeableConcept getTriggerCodeableConcept() throws FHIRException {
       if (!(this.trigger instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.trigger.getClass().getName()+" was encountered");
       return (CodeableConcept) this.trigger;
     }
 
-    public boolean hasTriggerCodeableConcept() { 
+    public boolean hasTriggerCodeableConcept() {
       return this.trigger instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #trigger} (The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.)
      */
-    public Reference getTriggerReference() throws FHIRException { 
+    public Reference getTriggerReference() throws FHIRException {
       if (!(this.trigger instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.trigger.getClass().getName()+" was encountered");
       return (Reference) this.trigger;
     }
 
-    public boolean hasTriggerReference() { 
+    public boolean hasTriggerReference() {
       return this.trigger instanceof Reference;
     }
 
-    public boolean hasTrigger() { 
+    public boolean hasTrigger() {
       return this.trigger != null && !this.trigger.isEmpty();
     }
 
     /**
      * @param value {@link #trigger} (The request or event that necessitated this assessment. This may be a diagnosis, a Care Plan, a Request Referral, or some other resource.)
      */
-    public ClinicalImpression setTrigger(Type value) { 
+    public ClinicalImpression setTrigger(Type value) {
       this.trigger = value;
       return this;
     }
@@ -1220,13 +1220,13 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #investigations} (One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.)
      */
-    public List<ClinicalImpressionInvestigationsComponent> getInvestigations() { 
+    public List<ClinicalImpressionInvestigationsComponent> getInvestigations() {
       if (this.investigations == null)
         this.investigations = new ArrayList<ClinicalImpressionInvestigationsComponent>();
       return this.investigations;
     }
 
-    public boolean hasInvestigations() { 
+    public boolean hasInvestigations() {
       if (this.investigations == null)
         return false;
       for (ClinicalImpressionInvestigationsComponent item : this.investigations)
@@ -1260,7 +1260,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #protocol} (Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.). This is the underlying object with id, value and extensions. The accessor "getProtocol" gives direct access to the value
      */
-    public UriType getProtocolElement() { 
+    public UriType getProtocolElement() {
       if (this.protocol == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.protocol");
@@ -1269,18 +1269,18 @@ public class ClinicalImpression extends DomainResource {
       return this.protocol;
     }
 
-    public boolean hasProtocolElement() { 
+    public boolean hasProtocolElement() {
       return this.protocol != null && !this.protocol.isEmpty();
     }
 
-    public boolean hasProtocol() { 
+    public boolean hasProtocol() {
       return this.protocol != null && !this.protocol.isEmpty();
     }
 
     /**
      * @param value {@link #protocol} (Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.). This is the underlying object with id, value and extensions. The accessor "getProtocol" gives direct access to the value
      */
-    public ClinicalImpression setProtocolElement(UriType value) { 
+    public ClinicalImpression setProtocolElement(UriType value) {
       this.protocol = value;
       return this;
     }
@@ -1288,14 +1288,14 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.
      */
-    public String getProtocol() { 
+    public String getProtocol() {
       return this.protocol == null ? null : this.protocol.getValue();
     }
 
     /**
      * @param value Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.
      */
-    public ClinicalImpression setProtocol(String value) { 
+    public ClinicalImpression setProtocol(String value) {
       if (Utilities.noString(value))
         this.protocol = null;
       else {
@@ -1309,7 +1309,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #summary} (A text summary of the investigations and the diagnosis.). This is the underlying object with id, value and extensions. The accessor "getSummary" gives direct access to the value
      */
-    public StringType getSummaryElement() { 
+    public StringType getSummaryElement() {
       if (this.summary == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.summary");
@@ -1318,18 +1318,18 @@ public class ClinicalImpression extends DomainResource {
       return this.summary;
     }
 
-    public boolean hasSummaryElement() { 
+    public boolean hasSummaryElement() {
       return this.summary != null && !this.summary.isEmpty();
     }
 
-    public boolean hasSummary() { 
+    public boolean hasSummary() {
       return this.summary != null && !this.summary.isEmpty();
     }
 
     /**
      * @param value {@link #summary} (A text summary of the investigations and the diagnosis.). This is the underlying object with id, value and extensions. The accessor "getSummary" gives direct access to the value
      */
-    public ClinicalImpression setSummaryElement(StringType value) { 
+    public ClinicalImpression setSummaryElement(StringType value) {
       this.summary = value;
       return this;
     }
@@ -1337,14 +1337,14 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return A text summary of the investigations and the diagnosis.
      */
-    public String getSummary() { 
+    public String getSummary() {
       return this.summary == null ? null : this.summary.getValue();
     }
 
     /**
      * @param value A text summary of the investigations and the diagnosis.
      */
-    public ClinicalImpression setSummary(String value) { 
+    public ClinicalImpression setSummary(String value) {
       if (Utilities.noString(value))
         this.summary = null;
       else {
@@ -1358,13 +1358,13 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #finding} (Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.)
      */
-    public List<ClinicalImpressionFindingComponent> getFinding() { 
+    public List<ClinicalImpressionFindingComponent> getFinding() {
       if (this.finding == null)
         this.finding = new ArrayList<ClinicalImpressionFindingComponent>();
       return this.finding;
     }
 
-    public boolean hasFinding() { 
+    public boolean hasFinding() {
       if (this.finding == null)
         return false;
       for (ClinicalImpressionFindingComponent item : this.finding)
@@ -1398,13 +1398,13 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #resolved} (Diagnoses/conditions resolved since the last assessment.)
      */
-    public List<CodeableConcept> getResolved() { 
+    public List<CodeableConcept> getResolved() {
       if (this.resolved == null)
         this.resolved = new ArrayList<CodeableConcept>();
       return this.resolved;
     }
 
-    public boolean hasResolved() { 
+    public boolean hasResolved() {
       if (this.resolved == null)
         return false;
       for (CodeableConcept item : this.resolved)
@@ -1438,13 +1438,13 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #ruledOut} (Diagnosis considered not possible.)
      */
-    public List<ClinicalImpressionRuledOutComponent> getRuledOut() { 
+    public List<ClinicalImpressionRuledOutComponent> getRuledOut() {
       if (this.ruledOut == null)
         this.ruledOut = new ArrayList<ClinicalImpressionRuledOutComponent>();
       return this.ruledOut;
     }
 
-    public boolean hasRuledOut() { 
+    public boolean hasRuledOut() {
       if (this.ruledOut == null)
         return false;
       for (ClinicalImpressionRuledOutComponent item : this.ruledOut)
@@ -1478,7 +1478,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #prognosis} (Estimate of likely outcome.). This is the underlying object with id, value and extensions. The accessor "getPrognosis" gives direct access to the value
      */
-    public StringType getPrognosisElement() { 
+    public StringType getPrognosisElement() {
       if (this.prognosis == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalImpression.prognosis");
@@ -1487,18 +1487,18 @@ public class ClinicalImpression extends DomainResource {
       return this.prognosis;
     }
 
-    public boolean hasPrognosisElement() { 
+    public boolean hasPrognosisElement() {
       return this.prognosis != null && !this.prognosis.isEmpty();
     }
 
-    public boolean hasPrognosis() { 
+    public boolean hasPrognosis() {
       return this.prognosis != null && !this.prognosis.isEmpty();
     }
 
     /**
      * @param value {@link #prognosis} (Estimate of likely outcome.). This is the underlying object with id, value and extensions. The accessor "getPrognosis" gives direct access to the value
      */
-    public ClinicalImpression setPrognosisElement(StringType value) { 
+    public ClinicalImpression setPrognosisElement(StringType value) {
       this.prognosis = value;
       return this;
     }
@@ -1506,14 +1506,14 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return Estimate of likely outcome.
      */
-    public String getPrognosis() { 
+    public String getPrognosis() {
       return this.prognosis == null ? null : this.prognosis.getValue();
     }
 
     /**
      * @param value Estimate of likely outcome.
      */
-    public ClinicalImpression setPrognosis(String value) { 
+    public ClinicalImpression setPrognosis(String value) {
       if (Utilities.noString(value))
         this.prognosis = null;
       else {
@@ -1527,13 +1527,13 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #plan} (Plan of action after assessment.)
      */
-    public List<Reference> getPlan() { 
+    public List<Reference> getPlan() {
       if (this.plan == null)
         this.plan = new ArrayList<Reference>();
       return this.plan;
     }
 
-    public boolean hasPlan() { 
+    public boolean hasPlan() {
       if (this.plan == null)
         return false;
       for (Reference item : this.plan)
@@ -1567,7 +1567,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #plan} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Plan of action after assessment.)
      */
-    public List<Resource> getPlanTarget() { 
+    public List<Resource> getPlanTarget() {
       if (this.planTarget == null)
         this.planTarget = new ArrayList<Resource>();
       return this.planTarget;
@@ -1576,13 +1576,13 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #action} (Actions taken during assessment.)
      */
-    public List<Reference> getAction() { 
+    public List<Reference> getAction() {
       if (this.action == null)
         this.action = new ArrayList<Reference>();
       return this.action;
     }
 
-    public boolean hasAction() { 
+    public boolean hasAction() {
       if (this.action == null)
         return false;
       for (Reference item : this.action)
@@ -1616,7 +1616,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * @return {@link #action} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Actions taken during assessment.)
      */
-    public List<Resource> getActionTarget() { 
+    public List<Resource> getActionTarget() {
       if (this.actionTarget == null)
         this.actionTarget = new ArrayList<Resource>();
       return this.actionTarget;

@@ -168,7 +168,7 @@
   Context = CarePlan.activity
   English = Provide a reference or detail, not both
   XPath = not(exists(f:detail)) or not(exists(f:reference))
-  FHIRPath = detail.empty() or reference.empty()
+  Expression = detail.empty() or reference.empty()
 
 === Sheet Data Elements =====================================
 

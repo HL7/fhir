@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,15 +52,15 @@ public class Location extends DomainResource {
         /**
          * The location is operational.
          */
-        ACTIVE, 
+        ACTIVE,
         /**
          * The location is temporarily closed.
          */
-        SUSPENDED, 
+        SUSPENDED,
         /**
          * The location is no longer used.
          */
-        INACTIVE, 
+        INACTIVE,
         /**
          * added to help the parsers
          */
@@ -152,11 +152,11 @@ public class Location extends DomainResource {
         /**
          * The Location resource represents a specific instance of a location (e.g. Operating Theatre 1A).
          */
-        INSTANCE, 
+        INSTANCE,
         /**
          * The Location represents a class of locations (e.g. Any Operating Theatre) although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc.).
          */
-        KIND, 
+        KIND,
         /**
          * added to help the parsers
          */
@@ -276,7 +276,7 @@ public class Location extends DomainResource {
         /**
          * @return {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLongitude" gives direct access to the value
          */
-        public DecimalType getLongitudeElement() { 
+        public DecimalType getLongitudeElement() {
           if (this.longitude == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create LocationPositionComponent.longitude");
@@ -285,18 +285,18 @@ public class Location extends DomainResource {
           return this.longitude;
         }
 
-        public boolean hasLongitudeElement() { 
+        public boolean hasLongitudeElement() {
           return this.longitude != null && !this.longitude.isEmpty();
         }
 
-        public boolean hasLongitude() { 
+        public boolean hasLongitude() {
           return this.longitude != null && !this.longitude.isEmpty();
         }
 
         /**
          * @param value {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLongitude" gives direct access to the value
          */
-        public LocationPositionComponent setLongitudeElement(DecimalType value) { 
+        public LocationPositionComponent setLongitudeElement(DecimalType value) {
           this.longitude = value;
           return this;
         }
@@ -304,14 +304,14 @@ public class Location extends DomainResource {
         /**
          * @return Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
          */
-        public BigDecimal getLongitude() { 
+        public BigDecimal getLongitude() {
           return this.longitude == null ? null : this.longitude.getValue();
         }
 
         /**
          * @param value Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
          */
-        public LocationPositionComponent setLongitude(BigDecimal value) { 
+        public LocationPositionComponent setLongitude(BigDecimal value) {
             if (this.longitude == null)
               this.longitude = new DecimalType();
             this.longitude.setValue(value);
@@ -321,7 +321,7 @@ public class Location extends DomainResource {
         /**
          * @return {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLatitude" gives direct access to the value
          */
-        public DecimalType getLatitudeElement() { 
+        public DecimalType getLatitudeElement() {
           if (this.latitude == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create LocationPositionComponent.latitude");
@@ -330,18 +330,18 @@ public class Location extends DomainResource {
           return this.latitude;
         }
 
-        public boolean hasLatitudeElement() { 
+        public boolean hasLatitudeElement() {
           return this.latitude != null && !this.latitude.isEmpty();
         }
 
-        public boolean hasLatitude() { 
+        public boolean hasLatitude() {
           return this.latitude != null && !this.latitude.isEmpty();
         }
 
         /**
          * @param value {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLatitude" gives direct access to the value
          */
-        public LocationPositionComponent setLatitudeElement(DecimalType value) { 
+        public LocationPositionComponent setLatitudeElement(DecimalType value) {
           this.latitude = value;
           return this;
         }
@@ -349,14 +349,14 @@ public class Location extends DomainResource {
         /**
          * @return Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
          */
-        public BigDecimal getLatitude() { 
+        public BigDecimal getLatitude() {
           return this.latitude == null ? null : this.latitude.getValue();
         }
 
         /**
          * @param value Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
          */
-        public LocationPositionComponent setLatitude(BigDecimal value) { 
+        public LocationPositionComponent setLatitude(BigDecimal value) {
             if (this.latitude == null)
               this.latitude = new DecimalType();
             this.latitude.setValue(value);
@@ -366,7 +366,7 @@ public class Location extends DomainResource {
         /**
          * @return {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getAltitude" gives direct access to the value
          */
-        public DecimalType getAltitudeElement() { 
+        public DecimalType getAltitudeElement() {
           if (this.altitude == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create LocationPositionComponent.altitude");
@@ -375,18 +375,18 @@ public class Location extends DomainResource {
           return this.altitude;
         }
 
-        public boolean hasAltitudeElement() { 
+        public boolean hasAltitudeElement() {
           return this.altitude != null && !this.altitude.isEmpty();
         }
 
-        public boolean hasAltitude() { 
+        public boolean hasAltitude() {
           return this.altitude != null && !this.altitude.isEmpty();
         }
 
         /**
          * @param value {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getAltitude" gives direct access to the value
          */
-        public LocationPositionComponent setAltitudeElement(DecimalType value) { 
+        public LocationPositionComponent setAltitudeElement(DecimalType value) {
           this.altitude = value;
           return this;
         }
@@ -394,14 +394,14 @@ public class Location extends DomainResource {
         /**
          * @return Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
          */
-        public BigDecimal getAltitude() { 
+        public BigDecimal getAltitude() {
           return this.altitude == null ? null : this.altitude.getValue();
         }
 
         /**
          * @param value Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
          */
-        public LocationPositionComponent setAltitude(BigDecimal value) { 
+        public LocationPositionComponent setAltitude(BigDecimal value) {
           if (value == null)
             this.altitude = null;
           else {
@@ -595,13 +595,13 @@ public class Location extends DomainResource {
     /**
      * @return {@link #identifier} (Unique code or number identifying the location to its users.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -635,7 +635,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #status} (active | suspended | inactive.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<LocationStatus> getStatusElement() { 
+    public Enumeration<LocationStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.status");
@@ -644,18 +644,18 @@ public class Location extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (active | suspended | inactive.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Location setStatusElement(Enumeration<LocationStatus> value) { 
+    public Location setStatusElement(Enumeration<LocationStatus> value) {
       this.status = value;
       return this;
     }
@@ -663,14 +663,14 @@ public class Location extends DomainResource {
     /**
      * @return active | suspended | inactive.
      */
-    public LocationStatus getStatus() { 
+    public LocationStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value active | suspended | inactive.
      */
-    public Location setStatus(LocationStatus value) { 
+    public Location setStatus(LocationStatus value) {
       if (value == null)
         this.status = null;
       else {
@@ -684,7 +684,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #name} (Name of the location as used by humans. Does not need to be unique.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() { 
+    public StringType getNameElement() {
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.name");
@@ -693,18 +693,18 @@ public class Location extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() { 
+    public boolean hasNameElement() {
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() { 
+    public boolean hasName() {
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (Name of the location as used by humans. Does not need to be unique.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Location setNameElement(StringType value) { 
+    public Location setNameElement(StringType value) {
       this.name = value;
       return this;
     }
@@ -712,14 +712,14 @@ public class Location extends DomainResource {
     /**
      * @return Name of the location as used by humans. Does not need to be unique.
      */
-    public String getName() { 
+    public String getName() {
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value Name of the location as used by humans. Does not need to be unique.
      */
-    public Location setName(String value) { 
+    public Location setName(String value) {
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -733,7 +733,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #description} (Description of the Location, which helps in finding or referencing the place.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() { 
+    public StringType getDescriptionElement() {
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.description");
@@ -742,18 +742,18 @@ public class Location extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() { 
+    public boolean hasDescriptionElement() {
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() { 
+    public boolean hasDescription() {
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (Description of the Location, which helps in finding or referencing the place.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Location setDescriptionElement(StringType value) { 
+    public Location setDescriptionElement(StringType value) {
       this.description = value;
       return this;
     }
@@ -761,14 +761,14 @@ public class Location extends DomainResource {
     /**
      * @return Description of the Location, which helps in finding or referencing the place.
      */
-    public String getDescription() { 
+    public String getDescription() {
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Description of the Location, which helps in finding or referencing the place.
      */
-    public Location setDescription(String value) { 
+    public Location setDescription(String value) {
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -782,7 +782,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public Enumeration<LocationMode> getModeElement() { 
+    public Enumeration<LocationMode> getModeElement() {
       if (this.mode == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.mode");
@@ -791,18 +791,18 @@ public class Location extends DomainResource {
       return this.mode;
     }
 
-    public boolean hasModeElement() { 
+    public boolean hasModeElement() {
       return this.mode != null && !this.mode.isEmpty();
     }
 
-    public boolean hasMode() { 
+    public boolean hasMode() {
       return this.mode != null && !this.mode.isEmpty();
     }
 
     /**
      * @param value {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
-    public Location setModeElement(Enumeration<LocationMode> value) { 
+    public Location setModeElement(Enumeration<LocationMode> value) {
       this.mode = value;
       return this;
     }
@@ -810,14 +810,14 @@ public class Location extends DomainResource {
     /**
      * @return Indicates whether a resource instance represents a specific location or a class of locations.
      */
-    public LocationMode getMode() { 
+    public LocationMode getMode() {
       return this.mode == null ? null : this.mode.getValue();
     }
 
     /**
      * @param value Indicates whether a resource instance represents a specific location or a class of locations.
      */
-    public Location setMode(LocationMode value) { 
+    public Location setMode(LocationMode value) {
       if (value == null)
         this.mode = null;
       else {
@@ -831,7 +831,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #type} (Indicates the type of function performed at the location.)
      */
-    public CodeableConcept getType() { 
+    public CodeableConcept getType() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.type");
@@ -840,14 +840,14 @@ public class Location extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Indicates the type of function performed at the location.)
      */
-    public Location setType(CodeableConcept value) { 
+    public Location setType(CodeableConcept value) {
       this.type = value;
       return this;
     }
@@ -855,13 +855,13 @@ public class Location extends DomainResource {
     /**
      * @return {@link #telecom} (The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.)
      */
-    public List<ContactPoint> getTelecom() { 
+    public List<ContactPoint> getTelecom() {
       if (this.telecom == null)
         this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
     }
 
-    public boolean hasTelecom() { 
+    public boolean hasTelecom() {
       if (this.telecom == null)
         return false;
       for (ContactPoint item : this.telecom)
@@ -895,7 +895,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #address} (Physical location.)
      */
-    public Address getAddress() { 
+    public Address getAddress() {
       if (this.address == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.address");
@@ -904,14 +904,14 @@ public class Location extends DomainResource {
       return this.address;
     }
 
-    public boolean hasAddress() { 
+    public boolean hasAddress() {
       return this.address != null && !this.address.isEmpty();
     }
 
     /**
      * @param value {@link #address} (Physical location.)
      */
-    public Location setAddress(Address value) { 
+    public Location setAddress(Address value) {
       this.address = value;
       return this;
     }
@@ -919,7 +919,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #physicalType} (Physical form of the location, e.g. building, room, vehicle, road.)
      */
-    public CodeableConcept getPhysicalType() { 
+    public CodeableConcept getPhysicalType() {
       if (this.physicalType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.physicalType");
@@ -928,14 +928,14 @@ public class Location extends DomainResource {
       return this.physicalType;
     }
 
-    public boolean hasPhysicalType() { 
+    public boolean hasPhysicalType() {
       return this.physicalType != null && !this.physicalType.isEmpty();
     }
 
     /**
      * @param value {@link #physicalType} (Physical form of the location, e.g. building, room, vehicle, road.)
      */
-    public Location setPhysicalType(CodeableConcept value) { 
+    public Location setPhysicalType(CodeableConcept value) {
       this.physicalType = value;
       return this;
     }
@@ -943,7 +943,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #position} (The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML).)
      */
-    public LocationPositionComponent getPosition() { 
+    public LocationPositionComponent getPosition() {
       if (this.position == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.position");
@@ -952,14 +952,14 @@ public class Location extends DomainResource {
       return this.position;
     }
 
-    public boolean hasPosition() { 
+    public boolean hasPosition() {
       return this.position != null && !this.position.isEmpty();
     }
 
     /**
      * @param value {@link #position} (The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML).)
      */
-    public Location setPosition(LocationPositionComponent value) { 
+    public Location setPosition(LocationPositionComponent value) {
       this.position = value;
       return this;
     }
@@ -967,7 +967,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #managingOrganization} (The organization responsible for the provisioning and upkeep of the location.)
      */
-    public Reference getManagingOrganization() { 
+    public Reference getManagingOrganization() {
       if (this.managingOrganization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.managingOrganization");
@@ -976,14 +976,14 @@ public class Location extends DomainResource {
       return this.managingOrganization;
     }
 
-    public boolean hasManagingOrganization() { 
+    public boolean hasManagingOrganization() {
       return this.managingOrganization != null && !this.managingOrganization.isEmpty();
     }
 
     /**
      * @param value {@link #managingOrganization} (The organization responsible for the provisioning and upkeep of the location.)
      */
-    public Location setManagingOrganization(Reference value) { 
+    public Location setManagingOrganization(Reference value) {
       this.managingOrganization = value;
       return this;
     }
@@ -991,7 +991,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization responsible for the provisioning and upkeep of the location.)
      */
-    public Organization getManagingOrganizationTarget() { 
+    public Organization getManagingOrganizationTarget() {
       if (this.managingOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.managingOrganization");
@@ -1003,7 +1003,7 @@ public class Location extends DomainResource {
     /**
      * @param value {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization responsible for the provisioning and upkeep of the location.)
      */
-    public Location setManagingOrganizationTarget(Organization value) { 
+    public Location setManagingOrganizationTarget(Organization value) {
       this.managingOrganizationTarget = value;
       return this;
     }
@@ -1011,7 +1011,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #partOf} (Another Location which this Location is physically part of.)
      */
-    public Reference getPartOf() { 
+    public Reference getPartOf() {
       if (this.partOf == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.partOf");
@@ -1020,14 +1020,14 @@ public class Location extends DomainResource {
       return this.partOf;
     }
 
-    public boolean hasPartOf() { 
+    public boolean hasPartOf() {
       return this.partOf != null && !this.partOf.isEmpty();
     }
 
     /**
      * @param value {@link #partOf} (Another Location which this Location is physically part of.)
      */
-    public Location setPartOf(Reference value) { 
+    public Location setPartOf(Reference value) {
       this.partOf = value;
       return this;
     }
@@ -1035,7 +1035,7 @@ public class Location extends DomainResource {
     /**
      * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another Location which this Location is physically part of.)
      */
-    public Location getPartOfTarget() { 
+    public Location getPartOfTarget() {
       if (this.partOfTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.partOf");
@@ -1047,7 +1047,7 @@ public class Location extends DomainResource {
     /**
      * @param value {@link #partOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another Location which this Location is physically part of.)
      */
-    public Location setPartOfTarget(Location value) { 
+    public Location setPartOfTarget(Location value) {
       this.partOfTarget = value;
       return this;
     }

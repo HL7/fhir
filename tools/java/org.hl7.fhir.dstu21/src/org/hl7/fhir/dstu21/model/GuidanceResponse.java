@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,23 +51,23 @@ public class GuidanceResponse extends DomainResource {
         /**
          * The request was processed successfully
          */
-        SUCCESS, 
+        SUCCESS,
         /**
          * The request was processed successfully, but more data may result in a more complete evaluation
          */
-        DATAREQUESTED, 
+        DATAREQUESTED,
         /**
          * The request was processed, but more data is required to complete the evaluation
          */
-        DATAREQUIRED, 
+        DATAREQUIRED,
         /**
          * The request is currently being processed
          */
-        INPROGRESS, 
+        INPROGRESS,
         /**
          * The request was not processed successfully
          */
-        FAILURE, 
+        FAILURE,
         /**
          * added to help the parsers
          */
@@ -183,19 +183,19 @@ public class GuidanceResponse extends DomainResource {
         /**
          * The action is to create a new resource
          */
-        CREATE, 
+        CREATE,
         /**
          * The action is to update an existing resource
          */
-        UPDATE, 
+        UPDATE,
         /**
          * The action is to remove an existing resource
          */
-        REMOVE, 
+        REMOVE,
         /**
          * The action is to fire a specific event
          */
-        FIREEVENT, 
+        FIREEVENT,
         /**
          * added to help the parsers
          */
@@ -403,7 +403,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #actionIdentifier} (A unique identifier for the action.)
          */
-        public Identifier getActionIdentifier() { 
+        public Identifier getActionIdentifier() {
           if (this.actionIdentifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.actionIdentifier");
@@ -412,14 +412,14 @@ public class GuidanceResponse extends DomainResource {
           return this.actionIdentifier;
         }
 
-        public boolean hasActionIdentifier() { 
+        public boolean hasActionIdentifier() {
           return this.actionIdentifier != null && !this.actionIdentifier.isEmpty();
         }
 
         /**
          * @param value {@link #actionIdentifier} (A unique identifier for the action.)
          */
-        public GuidanceResponseActionComponent setActionIdentifier(Identifier value) { 
+        public GuidanceResponseActionComponent setActionIdentifier(Identifier value) {
           this.actionIdentifier = value;
           return this;
         }
@@ -427,7 +427,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #number} (A user-visible number for the action.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public StringType getNumberElement() { 
+        public StringType getNumberElement() {
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.number");
@@ -436,18 +436,18 @@ public class GuidanceResponse extends DomainResource {
           return this.number;
         }
 
-        public boolean hasNumberElement() { 
+        public boolean hasNumberElement() {
           return this.number != null && !this.number.isEmpty();
         }
 
-        public boolean hasNumber() { 
+        public boolean hasNumber() {
           return this.number != null && !this.number.isEmpty();
         }
 
         /**
          * @param value {@link #number} (A user-visible number for the action.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setNumberElement(StringType value) { 
+        public GuidanceResponseActionComponent setNumberElement(StringType value) {
           this.number = value;
           return this;
         }
@@ -455,14 +455,14 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return A user-visible number for the action.
          */
-        public String getNumber() { 
+        public String getNumber() {
           return this.number == null ? null : this.number.getValue();
         }
 
         /**
          * @param value A user-visible number for the action.
          */
-        public GuidanceResponseActionComponent setNumber(String value) { 
+        public GuidanceResponseActionComponent setNumber(String value) {
           if (Utilities.noString(value))
             this.number = null;
           else {
@@ -476,13 +476,13 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #supportingEvidence} (Supporting evidence for the action.)
          */
-        public List<Attachment> getSupportingEvidence() { 
+        public List<Attachment> getSupportingEvidence() {
           if (this.supportingEvidence == null)
             this.supportingEvidence = new ArrayList<Attachment>();
           return this.supportingEvidence;
         }
 
-        public boolean hasSupportingEvidence() { 
+        public boolean hasSupportingEvidence() {
           if (this.supportingEvidence == null)
             return false;
           for (Attachment item : this.supportingEvidence)
@@ -516,13 +516,13 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #documentation} (Supporting documentation for the action.)
          */
-        public List<Attachment> getDocumentation() { 
+        public List<Attachment> getDocumentation() {
           if (this.documentation == null)
             this.documentation = new ArrayList<Attachment>();
           return this.documentation;
         }
 
-        public boolean hasDocumentation() { 
+        public boolean hasDocumentation() {
           if (this.documentation == null)
             return false;
           for (Attachment item : this.documentation)
@@ -556,13 +556,13 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #participant} (The participant in the action.)
          */
-        public List<Reference> getParticipant() { 
+        public List<Reference> getParticipant() {
           if (this.participant == null)
             this.participant = new ArrayList<Reference>();
           return this.participant;
         }
 
-        public boolean hasParticipant() { 
+        public boolean hasParticipant() {
           if (this.participant == null)
             return false;
           for (Reference item : this.participant)
@@ -596,7 +596,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #participant} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The participant in the action.)
          */
-        public List<Resource> getParticipantTarget() { 
+        public List<Resource> getParticipantTarget() {
           if (this.participantTarget == null)
             this.participantTarget = new ArrayList<Resource>();
           return this.participantTarget;
@@ -605,7 +605,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #title} (The title of the action.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitleElement() { 
+        public StringType getTitleElement() {
           if (this.title == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.title");
@@ -614,18 +614,18 @@ public class GuidanceResponse extends DomainResource {
           return this.title;
         }
 
-        public boolean hasTitleElement() { 
+        public boolean hasTitleElement() {
           return this.title != null && !this.title.isEmpty();
         }
 
-        public boolean hasTitle() { 
+        public boolean hasTitle() {
           return this.title != null && !this.title.isEmpty();
         }
 
         /**
          * @param value {@link #title} (The title of the action.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setTitleElement(StringType value) { 
+        public GuidanceResponseActionComponent setTitleElement(StringType value) {
           this.title = value;
           return this;
         }
@@ -633,14 +633,14 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return The title of the action.
          */
-        public String getTitle() { 
+        public String getTitle() {
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
          * @param value The title of the action.
          */
-        public GuidanceResponseActionComponent setTitle(String value) { 
+        public GuidanceResponseActionComponent setTitle(String value) {
           if (Utilities.noString(value))
             this.title = null;
           else {
@@ -654,7 +654,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #description} (A short description of the action.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.description");
@@ -663,18 +663,18 @@ public class GuidanceResponse extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (A short description of the action.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setDescriptionElement(StringType value) { 
+        public GuidanceResponseActionComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -682,14 +682,14 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return A short description of the action.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value A short description of the action.
          */
-        public GuidanceResponseActionComponent setDescription(String value) { 
+        public GuidanceResponseActionComponent setDescription(String value) {
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -703,7 +703,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #textEquivalent} (A text equivalent of the action to be performed.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
          */
-        public StringType getTextEquivalentElement() { 
+        public StringType getTextEquivalentElement() {
           if (this.textEquivalent == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.textEquivalent");
@@ -712,18 +712,18 @@ public class GuidanceResponse extends DomainResource {
           return this.textEquivalent;
         }
 
-        public boolean hasTextEquivalentElement() { 
+        public boolean hasTextEquivalentElement() {
           return this.textEquivalent != null && !this.textEquivalent.isEmpty();
         }
 
-        public boolean hasTextEquivalent() { 
+        public boolean hasTextEquivalent() {
           return this.textEquivalent != null && !this.textEquivalent.isEmpty();
         }
 
         /**
          * @param value {@link #textEquivalent} (A text equivalent of the action to be performed.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setTextEquivalentElement(StringType value) { 
+        public GuidanceResponseActionComponent setTextEquivalentElement(StringType value) {
           this.textEquivalent = value;
           return this;
         }
@@ -731,14 +731,14 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return A text equivalent of the action to be performed.
          */
-        public String getTextEquivalent() { 
+        public String getTextEquivalent() {
           return this.textEquivalent == null ? null : this.textEquivalent.getValue();
         }
 
         /**
          * @param value A text equivalent of the action to be performed.
          */
-        public GuidanceResponseActionComponent setTextEquivalent(String value) { 
+        public GuidanceResponseActionComponent setTextEquivalent(String value) {
           if (Utilities.noString(value))
             this.textEquivalent = null;
           else {
@@ -752,13 +752,13 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #concept} (Concepts associated with the action.)
          */
-        public List<CodeableConcept> getConcept() { 
+        public List<CodeableConcept> getConcept() {
           if (this.concept == null)
             this.concept = new ArrayList<CodeableConcept>();
           return this.concept;
         }
 
-        public boolean hasConcept() { 
+        public boolean hasConcept() {
           if (this.concept == null)
             return false;
           for (CodeableConcept item : this.concept)
@@ -792,7 +792,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #type} (The type of action to perform (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<GuidanceResponseActionType> getTypeElement() { 
+        public Enumeration<GuidanceResponseActionType> getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.type");
@@ -801,18 +801,18 @@ public class GuidanceResponse extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of action to perform (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public GuidanceResponseActionComponent setTypeElement(Enumeration<GuidanceResponseActionType> value) { 
+        public GuidanceResponseActionComponent setTypeElement(Enumeration<GuidanceResponseActionType> value) {
           this.type = value;
           return this;
         }
@@ -820,14 +820,14 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return The type of action to perform (create, update, remove).
          */
-        public GuidanceResponseActionType getType() { 
+        public GuidanceResponseActionType getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of action to perform (create, update, remove).
          */
-        public GuidanceResponseActionComponent setType(GuidanceResponseActionType value) { 
+        public GuidanceResponseActionComponent setType(GuidanceResponseActionType value) {
           if (value == null)
             this.type = null;
           else {
@@ -841,7 +841,7 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #resource} (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public Reference getResource() { 
+        public Reference getResource() {
           if (this.resource == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GuidanceResponseActionComponent.resource");
@@ -850,14 +850,14 @@ public class GuidanceResponse extends DomainResource {
           return this.resource;
         }
 
-        public boolean hasResource() { 
+        public boolean hasResource() {
           return this.resource != null && !this.resource.isEmpty();
         }
 
         /**
          * @param value {@link #resource} (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public GuidanceResponseActionComponent setResource(Reference value) { 
+        public GuidanceResponseActionComponent setResource(Reference value) {
           this.resource = value;
           return this;
         }
@@ -865,14 +865,14 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public Resource getResourceTarget() { 
+        public Resource getResourceTarget() {
           return this.resourceTarget;
         }
 
         /**
          * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public GuidanceResponseActionComponent setResourceTarget(Resource value) { 
+        public GuidanceResponseActionComponent setResourceTarget(Resource value) {
           this.resourceTarget = value;
           return this;
         }
@@ -880,13 +880,13 @@ public class GuidanceResponse extends DomainResource {
         /**
          * @return {@link #actions} (Sub actions.)
          */
-        public List<GuidanceResponseActionComponent> getActions() { 
+        public List<GuidanceResponseActionComponent> getActions() {
           if (this.actions == null)
             this.actions = new ArrayList<GuidanceResponseActionComponent>();
           return this.actions;
         }
 
-        public boolean hasActions() { 
+        public boolean hasActions() {
           if (this.actions == null)
             return false;
           for (GuidanceResponseActionComponent item : this.actions)
@@ -1165,7 +1165,7 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #requestId} (The id of the request associated with this response. If an id was provided as part of the request, it will be provided here to enable the requester to more easily identify the response in a multi-request scenario.). This is the underlying object with id, value and extensions. The accessor "getRequestId" gives direct access to the value
      */
-    public StringType getRequestIdElement() { 
+    public StringType getRequestIdElement() {
       if (this.requestId == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceResponse.requestId");
@@ -1174,18 +1174,18 @@ public class GuidanceResponse extends DomainResource {
       return this.requestId;
     }
 
-    public boolean hasRequestIdElement() { 
+    public boolean hasRequestIdElement() {
       return this.requestId != null && !this.requestId.isEmpty();
     }
 
-    public boolean hasRequestId() { 
+    public boolean hasRequestId() {
       return this.requestId != null && !this.requestId.isEmpty();
     }
 
     /**
      * @param value {@link #requestId} (The id of the request associated with this response. If an id was provided as part of the request, it will be provided here to enable the requester to more easily identify the response in a multi-request scenario.). This is the underlying object with id, value and extensions. The accessor "getRequestId" gives direct access to the value
      */
-    public GuidanceResponse setRequestIdElement(StringType value) { 
+    public GuidanceResponse setRequestIdElement(StringType value) {
       this.requestId = value;
       return this;
     }
@@ -1193,14 +1193,14 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return The id of the request associated with this response. If an id was provided as part of the request, it will be provided here to enable the requester to more easily identify the response in a multi-request scenario.
      */
-    public String getRequestId() { 
+    public String getRequestId() {
       return this.requestId == null ? null : this.requestId.getValue();
     }
 
     /**
      * @param value The id of the request associated with this response. If an id was provided as part of the request, it will be provided here to enable the requester to more easily identify the response in a multi-request scenario.
      */
-    public GuidanceResponse setRequestId(String value) { 
+    public GuidanceResponse setRequestId(String value) {
       if (Utilities.noString(value))
         this.requestId = null;
       else {
@@ -1214,7 +1214,7 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #module} (A reference to a knowledge module involved in an interaction.)
      */
-    public Reference getModule() { 
+    public Reference getModule() {
       if (this.module == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceResponse.module");
@@ -1223,14 +1223,14 @@ public class GuidanceResponse extends DomainResource {
       return this.module;
     }
 
-    public boolean hasModule() { 
+    public boolean hasModule() {
       return this.module != null && !this.module.isEmpty();
     }
 
     /**
      * @param value {@link #module} (A reference to a knowledge module involved in an interaction.)
      */
-    public GuidanceResponse setModule(Reference value) { 
+    public GuidanceResponse setModule(Reference value) {
       this.module = value;
       return this;
     }
@@ -1238,14 +1238,14 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #module} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a knowledge module involved in an interaction.)
      */
-    public Resource getModuleTarget() { 
+    public Resource getModuleTarget() {
       return this.moduleTarget;
     }
 
     /**
      * @param value {@link #module} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a knowledge module involved in an interaction.)
      */
-    public GuidanceResponse setModuleTarget(Resource value) { 
+    public GuidanceResponse setModuleTarget(Resource value) {
       this.moduleTarget = value;
       return this;
     }
@@ -1253,7 +1253,7 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #status} (The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<GuidanceResponseStatus> getStatusElement() { 
+    public Enumeration<GuidanceResponseStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceResponse.status");
@@ -1262,18 +1262,18 @@ public class GuidanceResponse extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public GuidanceResponse setStatusElement(Enumeration<GuidanceResponseStatus> value) { 
+    public GuidanceResponse setStatusElement(Enumeration<GuidanceResponseStatus> value) {
       this.status = value;
       return this;
     }
@@ -1281,14 +1281,14 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.
      */
-    public GuidanceResponseStatus getStatus() { 
+    public GuidanceResponseStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.
      */
-    public GuidanceResponse setStatus(GuidanceResponseStatus value) { 
+    public GuidanceResponse setStatus(GuidanceResponseStatus value) {
         if (this.status == null)
           this.status = new Enumeration<GuidanceResponseStatus>(new GuidanceResponseStatusEnumFactory());
         this.status.setValue(value);
@@ -1298,13 +1298,13 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #evaluationMessage} (Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element.)
      */
-    public List<Reference> getEvaluationMessage() { 
+    public List<Reference> getEvaluationMessage() {
       if (this.evaluationMessage == null)
         this.evaluationMessage = new ArrayList<Reference>();
       return this.evaluationMessage;
     }
 
-    public boolean hasEvaluationMessage() { 
+    public boolean hasEvaluationMessage() {
       if (this.evaluationMessage == null)
         return false;
       for (Reference item : this.evaluationMessage)
@@ -1338,7 +1338,7 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #evaluationMessage} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element.)
      */
-    public List<OperationOutcome> getEvaluationMessageTarget() { 
+    public List<OperationOutcome> getEvaluationMessageTarget() {
       if (this.evaluationMessageTarget == null)
         this.evaluationMessageTarget = new ArrayList<OperationOutcome>();
       return this.evaluationMessageTarget;
@@ -1348,7 +1348,7 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #evaluationMessage} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element.)
      */
-    public OperationOutcome addEvaluationMessageTarget() { 
+    public OperationOutcome addEvaluationMessageTarget() {
       OperationOutcome r = new OperationOutcome();
       if (this.evaluationMessageTarget == null)
         this.evaluationMessageTarget = new ArrayList<OperationOutcome>();
@@ -1359,7 +1359,7 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #outputParameters} (The output parameters of the evaluation, if any. Many modules will result in the return of specific resources such as procedure or communication requests that are returned as part of the operation result. However, modules may define specific outputs that would be returned as the result of the evaluation, and these would be returned in this element.)
      */
-    public Reference getOutputParameters() { 
+    public Reference getOutputParameters() {
       if (this.outputParameters == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceResponse.outputParameters");
@@ -1368,14 +1368,14 @@ public class GuidanceResponse extends DomainResource {
       return this.outputParameters;
     }
 
-    public boolean hasOutputParameters() { 
+    public boolean hasOutputParameters() {
       return this.outputParameters != null && !this.outputParameters.isEmpty();
     }
 
     /**
      * @param value {@link #outputParameters} (The output parameters of the evaluation, if any. Many modules will result in the return of specific resources such as procedure or communication requests that are returned as part of the operation result. However, modules may define specific outputs that would be returned as the result of the evaluation, and these would be returned in this element.)
      */
-    public GuidanceResponse setOutputParameters(Reference value) { 
+    public GuidanceResponse setOutputParameters(Reference value) {
       this.outputParameters = value;
       return this;
     }
@@ -1383,7 +1383,7 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #outputParameters} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The output parameters of the evaluation, if any. Many modules will result in the return of specific resources such as procedure or communication requests that are returned as part of the operation result. However, modules may define specific outputs that would be returned as the result of the evaluation, and these would be returned in this element.)
      */
-    public Parameters getOutputParametersTarget() { 
+    public Parameters getOutputParametersTarget() {
       if (this.outputParametersTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceResponse.outputParameters");
@@ -1395,7 +1395,7 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @param value {@link #outputParameters} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The output parameters of the evaluation, if any. Many modules will result in the return of specific resources such as procedure or communication requests that are returned as part of the operation result. However, modules may define specific outputs that would be returned as the result of the evaluation, and these would be returned in this element.)
      */
-    public GuidanceResponse setOutputParametersTarget(Parameters value) { 
+    public GuidanceResponse setOutputParametersTarget(Parameters value) {
       this.outputParametersTarget = value;
       return this;
     }
@@ -1403,13 +1403,13 @@ public class GuidanceResponse extends DomainResource {
     /**
      * @return {@link #action} (The actions, if any, produced by the evaluation of the artifact.)
      */
-    public List<GuidanceResponseActionComponent> getAction() { 
+    public List<GuidanceResponseActionComponent> getAction() {
       if (this.action == null)
         this.action = new ArrayList<GuidanceResponseActionComponent>();
       return this.action;
     }
 
-    public boolean hasAction() { 
+    public boolean hasAction() {
       if (this.action == null)
         return false;
       for (GuidanceResponseActionComponent item : this.action)

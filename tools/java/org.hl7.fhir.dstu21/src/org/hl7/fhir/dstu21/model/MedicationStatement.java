@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -42,7 +42,7 @@ import org.hl7.fhir.dstu21.model.annotations.Block;
 import org.hl7.fhir.dstu21.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
+ * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintainsThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
  */
 @ResourceDef(name="MedicationStatement", profile="http://hl7.org/fhir/Profile/MedicationStatement")
 public class MedicationStatement extends DomainResource {
@@ -51,19 +51,19 @@ public class MedicationStatement extends DomainResource {
         /**
          * The medication is still being taken.
          */
-        ACTIVE, 
+        ACTIVE,
         /**
          * The medication is no longer being taken.
          */
-        COMPLETED, 
+        COMPLETED,
         /**
          * The statement was entered in error.
          */
-        ENTEREDINERROR, 
+        ENTEREDINERROR,
         /**
          * The medication may be taken at some time in the future.
          */
-        INTENDED, 
+        INTENDED,
         /**
          * added to help the parsers
          */
@@ -180,7 +180,7 @@ public class MedicationStatement extends DomainResource {
         protected Timing timing;
 
         /**
-         * Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  
+         * Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
 
 Specifically if 'boolean' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
          */
@@ -242,7 +242,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         /**
          * @return {@link #text} (Free text dosage information as reported about a patient's medication use. When coded dosage information is present, the free text may still be present for display to humans.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextElement() { 
+        public StringType getTextElement() {
           if (this.text == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.text");
@@ -251,18 +251,18 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return this.text;
         }
 
-        public boolean hasTextElement() { 
+        public boolean hasTextElement() {
           return this.text != null && !this.text.isEmpty();
         }
 
-        public boolean hasText() { 
+        public boolean hasText() {
           return this.text != null && !this.text.isEmpty();
         }
 
         /**
          * @param value {@link #text} (Free text dosage information as reported about a patient's medication use. When coded dosage information is present, the free text may still be present for display to humans.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public MedicationStatementDosageComponent setTextElement(StringType value) { 
+        public MedicationStatementDosageComponent setTextElement(StringType value) {
           this.text = value;
           return this;
         }
@@ -270,14 +270,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         /**
          * @return Free text dosage information as reported about a patient's medication use. When coded dosage information is present, the free text may still be present for display to humans.
          */
-        public String getText() { 
+        public String getText() {
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Free text dosage information as reported about a patient's medication use. When coded dosage information is present, the free text may still be present for display to humans.
          */
-        public MedicationStatementDosageComponent setText(String value) { 
+        public MedicationStatementDosageComponent setText(String value) {
           if (Utilities.noString(value))
             this.text = null;
           else {
@@ -291,7 +291,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         /**
          * @return {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
          */
-        public Timing getTiming() { 
+        public Timing getTiming() {
           if (this.timing == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.timing");
@@ -300,67 +300,67 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return this.timing;
         }
 
-        public boolean hasTiming() { 
+        public boolean hasTiming() {
           return this.timing != null && !this.timing.isEmpty();
         }
 
         /**
          * @param value {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
          */
-        public MedicationStatementDosageComponent setTiming(Timing value) { 
+        public MedicationStatementDosageComponent setTiming(Timing value) {
           this.timing = value;
           return this;
         }
 
         /**
-         * @return {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  
+         * @return {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
 
 Specifically if 'boolean' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.)
          */
-        public Type getAsNeeded() { 
+        public Type getAsNeeded() {
           return this.asNeeded;
         }
 
         /**
-         * @return {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  
+         * @return {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
 
 Specifically if 'boolean' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.)
          */
-        public BooleanType getAsNeededBooleanType() throws FHIRException { 
+        public BooleanType getAsNeededBooleanType() throws FHIRException {
           if (!(this.asNeeded instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.asNeeded.getClass().getName()+" was encountered");
           return (BooleanType) this.asNeeded;
         }
 
-        public boolean hasAsNeededBooleanType() { 
+        public boolean hasAsNeededBooleanType() {
           return this.asNeeded instanceof BooleanType;
         }
 
         /**
-         * @return {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  
+         * @return {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
 
 Specifically if 'boolean' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.)
          */
-        public CodeableConcept getAsNeededCodeableConcept() throws FHIRException { 
+        public CodeableConcept getAsNeededCodeableConcept() throws FHIRException {
           if (!(this.asNeeded instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.asNeeded.getClass().getName()+" was encountered");
           return (CodeableConcept) this.asNeeded;
         }
 
-        public boolean hasAsNeededCodeableConcept() { 
+        public boolean hasAsNeededCodeableConcept() {
           return this.asNeeded instanceof CodeableConcept;
         }
 
-        public boolean hasAsNeeded() { 
+        public boolean hasAsNeeded() {
           return this.asNeeded != null && !this.asNeeded.isEmpty();
         }
 
         /**
-         * @param value {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  
+         * @param value {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
 
 Specifically if 'boolean' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.)
          */
-        public MedicationStatementDosageComponent setAsNeeded(Type value) { 
+        public MedicationStatementDosageComponent setAsNeeded(Type value) {
           this.asNeeded = value;
           return this;
         }
@@ -368,44 +368,44 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         /**
          * @return {@link #site} (A coded specification of or a reference to the anatomic site where the medication first enters the body.)
          */
-        public Type getSite() { 
+        public Type getSite() {
           return this.site;
         }
 
         /**
          * @return {@link #site} (A coded specification of or a reference to the anatomic site where the medication first enters the body.)
          */
-        public CodeableConcept getSiteCodeableConcept() throws FHIRException { 
+        public CodeableConcept getSiteCodeableConcept() throws FHIRException {
           if (!(this.site instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.site.getClass().getName()+" was encountered");
           return (CodeableConcept) this.site;
         }
 
-        public boolean hasSiteCodeableConcept() { 
+        public boolean hasSiteCodeableConcept() {
           return this.site instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #site} (A coded specification of or a reference to the anatomic site where the medication first enters the body.)
          */
-        public Reference getSiteReference() throws FHIRException { 
+        public Reference getSiteReference() throws FHIRException {
           if (!(this.site instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.site.getClass().getName()+" was encountered");
           return (Reference) this.site;
         }
 
-        public boolean hasSiteReference() { 
+        public boolean hasSiteReference() {
           return this.site instanceof Reference;
         }
 
-        public boolean hasSite() { 
+        public boolean hasSite() {
           return this.site != null && !this.site.isEmpty();
         }
 
         /**
          * @param value {@link #site} (A coded specification of or a reference to the anatomic site where the medication first enters the body.)
          */
-        public MedicationStatementDosageComponent setSite(Type value) { 
+        public MedicationStatementDosageComponent setSite(Type value) {
           this.site = value;
           return this;
         }
@@ -413,7 +413,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         /**
          * @return {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.)
          */
-        public CodeableConcept getRoute() { 
+        public CodeableConcept getRoute() {
           if (this.route == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.route");
@@ -422,14 +422,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return this.route;
         }
 
-        public boolean hasRoute() { 
+        public boolean hasRoute() {
           return this.route != null && !this.route.isEmpty();
         }
 
         /**
          * @param value {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.)
          */
-        public MedicationStatementDosageComponent setRoute(CodeableConcept value) { 
+        public MedicationStatementDosageComponent setRoute(CodeableConcept value) {
           this.route = value;
           return this;
         }
@@ -437,7 +437,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         /**
          * @return {@link #method} (A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.)
          */
-        public CodeableConcept getMethod() { 
+        public CodeableConcept getMethod() {
           if (this.method == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.method");
@@ -446,14 +446,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return this.method;
         }
 
-        public boolean hasMethod() { 
+        public boolean hasMethod() {
           return this.method != null && !this.method.isEmpty();
         }
 
         /**
          * @param value {@link #method} (A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.)
          */
-        public MedicationStatementDosageComponent setMethod(CodeableConcept value) { 
+        public MedicationStatementDosageComponent setMethod(CodeableConcept value) {
           this.method = value;
           return this;
         }
@@ -461,44 +461,44 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         /**
          * @return {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
-        public Type getQuantity() { 
+        public Type getQuantity() {
           return this.quantity;
         }
 
         /**
          * @return {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
-        public SimpleQuantity getQuantitySimpleQuantity() throws FHIRException { 
+        public SimpleQuantity getQuantitySimpleQuantity() throws FHIRException {
           if (!(this.quantity instanceof SimpleQuantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.quantity.getClass().getName()+" was encountered");
           return (SimpleQuantity) this.quantity;
         }
 
-        public boolean hasQuantitySimpleQuantity() { 
+        public boolean hasQuantitySimpleQuantity() {
           return this.quantity instanceof SimpleQuantity;
         }
 
         /**
          * @return {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
-        public Range getQuantityRange() throws FHIRException { 
+        public Range getQuantityRange() throws FHIRException {
           if (!(this.quantity instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.quantity.getClass().getName()+" was encountered");
           return (Range) this.quantity;
         }
 
-        public boolean hasQuantityRange() { 
+        public boolean hasQuantityRange() {
           return this.quantity instanceof Range;
         }
 
-        public boolean hasQuantity() { 
+        public boolean hasQuantity() {
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
-        public MedicationStatementDosageComponent setQuantity(Type value) { 
+        public MedicationStatementDosageComponent setQuantity(Type value) {
           this.quantity = value;
           return this;
         }
@@ -506,44 +506,44 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         /**
          * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
-        public Type getRate() { 
+        public Type getRate() {
           return this.rate;
         }
 
         /**
          * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
-        public Ratio getRateRatio() throws FHIRException { 
+        public Ratio getRateRatio() throws FHIRException {
           if (!(this.rate instanceof Ratio))
             throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Ratio) this.rate;
         }
 
-        public boolean hasRateRatio() { 
+        public boolean hasRateRatio() {
           return this.rate instanceof Ratio;
         }
 
         /**
          * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
-        public Range getRateRange() throws FHIRException { 
+        public Range getRateRange() throws FHIRException {
           if (!(this.rate instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Range) this.rate;
         }
 
-        public boolean hasRateRange() { 
+        public boolean hasRateRange() {
           return this.rate instanceof Range;
         }
 
-        public boolean hasRate() { 
+        public boolean hasRate() {
           return this.rate != null && !this.rate.isEmpty();
         }
 
         /**
          * @param value {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Currently we do not specify a default of '1' in the denominator, but this is being discussed. Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
-        public MedicationStatementDosageComponent setRate(Type value) { 
+        public MedicationStatementDosageComponent setRate(Type value) {
           this.rate = value;
           return this;
         }
@@ -551,7 +551,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
         /**
          * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.)
          */
-        public Ratio getMaxDosePerPeriod() { 
+        public Ratio getMaxDosePerPeriod() {
           if (this.maxDosePerPeriod == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.maxDosePerPeriod");
@@ -560,14 +560,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
           return this.maxDosePerPeriod;
         }
 
-        public boolean hasMaxDosePerPeriod() { 
+        public boolean hasMaxDosePerPeriod() {
           return this.maxDosePerPeriod != null && !this.maxDosePerPeriod.isEmpty();
         }
 
         /**
          * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.)
          */
-        public MedicationStatementDosageComponent setMaxDosePerPeriod(Ratio value) { 
+        public MedicationStatementDosageComponent setMaxDosePerPeriod(Ratio value) {
           this.maxDosePerPeriod = value;
           return this;
         }
@@ -846,13 +846,13 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #identifier} (External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -886,7 +886,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #patient} (The person or animal who is/was taking the medication.)
      */
-    public Reference getPatient() { 
+    public Reference getPatient() {
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.patient");
@@ -895,14 +895,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.patient;
     }
 
-    public boolean hasPatient() { 
+    public boolean hasPatient() {
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The person or animal who is/was taking the medication.)
      */
-    public MedicationStatement setPatient(Reference value) { 
+    public MedicationStatement setPatient(Reference value) {
       this.patient = value;
       return this;
     }
@@ -910,7 +910,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or animal who is/was taking the medication.)
      */
-    public Patient getPatientTarget() { 
+    public Patient getPatientTarget() {
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.patient");
@@ -922,7 +922,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or animal who is/was taking the medication.)
      */
-    public MedicationStatement setPatientTarget(Patient value) { 
+    public MedicationStatement setPatientTarget(Patient value) {
       this.patientTarget = value;
       return this;
     }
@@ -930,7 +930,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #informationSource} (The person who provided the information about the taking of this medication.)
      */
-    public Reference getInformationSource() { 
+    public Reference getInformationSource() {
       if (this.informationSource == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.informationSource");
@@ -939,14 +939,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.informationSource;
     }
 
-    public boolean hasInformationSource() { 
+    public boolean hasInformationSource() {
       return this.informationSource != null && !this.informationSource.isEmpty();
     }
 
     /**
      * @param value {@link #informationSource} (The person who provided the information about the taking of this medication.)
      */
-    public MedicationStatement setInformationSource(Reference value) { 
+    public MedicationStatement setInformationSource(Reference value) {
       this.informationSource = value;
       return this;
     }
@@ -954,14 +954,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who provided the information about the taking of this medication.)
      */
-    public Resource getInformationSourceTarget() { 
+    public Resource getInformationSourceTarget() {
       return this.informationSourceTarget;
     }
 
     /**
      * @param value {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who provided the information about the taking of this medication.)
      */
-    public MedicationStatement setInformationSourceTarget(Resource value) { 
+    public MedicationStatement setInformationSourceTarget(Resource value) {
       this.informationSourceTarget = value;
       return this;
     }
@@ -969,7 +969,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #dateAsserted} (The date when the medication statement was asserted by the information source.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
      */
-    public DateTimeType getDateAssertedElement() { 
+    public DateTimeType getDateAssertedElement() {
       if (this.dateAsserted == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.dateAsserted");
@@ -978,18 +978,18 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.dateAsserted;
     }
 
-    public boolean hasDateAssertedElement() { 
+    public boolean hasDateAssertedElement() {
       return this.dateAsserted != null && !this.dateAsserted.isEmpty();
     }
 
-    public boolean hasDateAsserted() { 
+    public boolean hasDateAsserted() {
       return this.dateAsserted != null && !this.dateAsserted.isEmpty();
     }
 
     /**
      * @param value {@link #dateAsserted} (The date when the medication statement was asserted by the information source.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
      */
-    public MedicationStatement setDateAssertedElement(DateTimeType value) { 
+    public MedicationStatement setDateAssertedElement(DateTimeType value) {
       this.dateAsserted = value;
       return this;
     }
@@ -997,14 +997,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return The date when the medication statement was asserted by the information source.
      */
-    public Date getDateAsserted() { 
+    public Date getDateAsserted() {
       return this.dateAsserted == null ? null : this.dateAsserted.getValue();
     }
 
     /**
      * @param value The date when the medication statement was asserted by the information source.
      */
-    public MedicationStatement setDateAsserted(Date value) { 
+    public MedicationStatement setDateAsserted(Date value) {
       if (value == null)
         this.dateAsserted = null;
       else {
@@ -1018,7 +1018,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #status} (A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<MedicationStatementStatus> getStatusElement() { 
+    public Enumeration<MedicationStatementStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.status");
@@ -1027,18 +1027,18 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationStatement setStatusElement(Enumeration<MedicationStatementStatus> value) { 
+    public MedicationStatement setStatusElement(Enumeration<MedicationStatementStatus> value) {
       this.status = value;
       return this;
     }
@@ -1046,14 +1046,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
      */
-    public MedicationStatementStatus getStatus() { 
+    public MedicationStatementStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
      */
-    public MedicationStatement setStatus(MedicationStatementStatus value) { 
+    public MedicationStatement setStatus(MedicationStatementStatus value) {
         if (this.status == null)
           this.status = new Enumeration<MedicationStatementStatus>(new MedicationStatementStatusEnumFactory());
         this.status.setValue(value);
@@ -1063,7 +1063,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #wasNotTaken} (Set this to true if the record is saying that the medication was NOT taken.). This is the underlying object with id, value and extensions. The accessor "getWasNotTaken" gives direct access to the value
      */
-    public BooleanType getWasNotTakenElement() { 
+    public BooleanType getWasNotTakenElement() {
       if (this.wasNotTaken == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.wasNotTaken");
@@ -1072,18 +1072,18 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.wasNotTaken;
     }
 
-    public boolean hasWasNotTakenElement() { 
+    public boolean hasWasNotTakenElement() {
       return this.wasNotTaken != null && !this.wasNotTaken.isEmpty();
     }
 
-    public boolean hasWasNotTaken() { 
+    public boolean hasWasNotTaken() {
       return this.wasNotTaken != null && !this.wasNotTaken.isEmpty();
     }
 
     /**
      * @param value {@link #wasNotTaken} (Set this to true if the record is saying that the medication was NOT taken.). This is the underlying object with id, value and extensions. The accessor "getWasNotTaken" gives direct access to the value
      */
-    public MedicationStatement setWasNotTakenElement(BooleanType value) { 
+    public MedicationStatement setWasNotTakenElement(BooleanType value) {
       this.wasNotTaken = value;
       return this;
     }
@@ -1091,14 +1091,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return Set this to true if the record is saying that the medication was NOT taken.
      */
-    public boolean getWasNotTaken() { 
+    public boolean getWasNotTaken() {
       return this.wasNotTaken == null || this.wasNotTaken.isEmpty() ? false : this.wasNotTaken.getValue();
     }
 
     /**
      * @param value Set this to true if the record is saying that the medication was NOT taken.
      */
-    public MedicationStatement setWasNotTaken(boolean value) { 
+    public MedicationStatement setWasNotTaken(boolean value) {
         if (this.wasNotTaken == null)
           this.wasNotTaken = new BooleanType();
         this.wasNotTaken.setValue(value);
@@ -1108,13 +1108,13 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #reasonNotTaken} (A code indicating why the medication was not taken.)
      */
-    public List<CodeableConcept> getReasonNotTaken() { 
+    public List<CodeableConcept> getReasonNotTaken() {
       if (this.reasonNotTaken == null)
         this.reasonNotTaken = new ArrayList<CodeableConcept>();
       return this.reasonNotTaken;
     }
 
-    public boolean hasReasonNotTaken() { 
+    public boolean hasReasonNotTaken() {
       if (this.reasonNotTaken == null)
         return false;
       for (CodeableConcept item : this.reasonNotTaken)
@@ -1148,44 +1148,44 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #reasonForUse} (A reason for why the medication is being/was taken.)
      */
-    public Type getReasonForUse() { 
+    public Type getReasonForUse() {
       return this.reasonForUse;
     }
 
     /**
      * @return {@link #reasonForUse} (A reason for why the medication is being/was taken.)
      */
-    public CodeableConcept getReasonForUseCodeableConcept() throws FHIRException { 
+    public CodeableConcept getReasonForUseCodeableConcept() throws FHIRException {
       if (!(this.reasonForUse instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.reasonForUse.getClass().getName()+" was encountered");
       return (CodeableConcept) this.reasonForUse;
     }
 
-    public boolean hasReasonForUseCodeableConcept() { 
+    public boolean hasReasonForUseCodeableConcept() {
       return this.reasonForUse instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #reasonForUse} (A reason for why the medication is being/was taken.)
      */
-    public Reference getReasonForUseReference() throws FHIRException { 
+    public Reference getReasonForUseReference() throws FHIRException {
       if (!(this.reasonForUse instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.reasonForUse.getClass().getName()+" was encountered");
       return (Reference) this.reasonForUse;
     }
 
-    public boolean hasReasonForUseReference() { 
+    public boolean hasReasonForUseReference() {
       return this.reasonForUse instanceof Reference;
     }
 
-    public boolean hasReasonForUse() { 
+    public boolean hasReasonForUse() {
       return this.reasonForUse != null && !this.reasonForUse.isEmpty();
     }
 
     /**
      * @param value {@link #reasonForUse} (A reason for why the medication is being/was taken.)
      */
-    public MedicationStatement setReasonForUse(Type value) { 
+    public MedicationStatement setReasonForUse(Type value) {
       this.reasonForUse = value;
       return this;
     }
@@ -1193,44 +1193,44 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #effective} (The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).)
      */
-    public Type getEffective() { 
+    public Type getEffective() {
       return this.effective;
     }
 
     /**
      * @return {@link #effective} (The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).)
      */
-    public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
+    public DateTimeType getEffectiveDateTimeType() throws FHIRException {
       if (!(this.effective instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (DateTimeType) this.effective;
     }
 
-    public boolean hasEffectiveDateTimeType() { 
+    public boolean hasEffectiveDateTimeType() {
       return this.effective instanceof DateTimeType;
     }
 
     /**
      * @return {@link #effective} (The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).)
      */
-    public Period getEffectivePeriod() throws FHIRException { 
+    public Period getEffectivePeriod() throws FHIRException {
       if (!(this.effective instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (Period) this.effective;
     }
 
-    public boolean hasEffectivePeriod() { 
+    public boolean hasEffectivePeriod() {
       return this.effective instanceof Period;
     }
 
-    public boolean hasEffective() { 
+    public boolean hasEffective() {
       return this.effective != null && !this.effective.isEmpty();
     }
 
     /**
      * @param value {@link #effective} (The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).)
      */
-    public MedicationStatement setEffective(Type value) { 
+    public MedicationStatement setEffective(Type value) {
       this.effective = value;
       return this;
     }
@@ -1238,7 +1238,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #note} (Provides extra information about the medication statement that is not conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public StringType getNoteElement() { 
+    public StringType getNoteElement() {
       if (this.note == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.note");
@@ -1247,18 +1247,18 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
       return this.note;
     }
 
-    public boolean hasNoteElement() { 
+    public boolean hasNoteElement() {
       return this.note != null && !this.note.isEmpty();
     }
 
-    public boolean hasNote() { 
+    public boolean hasNote() {
       return this.note != null && !this.note.isEmpty();
     }
 
     /**
      * @param value {@link #note} (Provides extra information about the medication statement that is not conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public MedicationStatement setNoteElement(StringType value) { 
+    public MedicationStatement setNoteElement(StringType value) {
       this.note = value;
       return this;
     }
@@ -1266,14 +1266,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return Provides extra information about the medication statement that is not conveyed by the other attributes.
      */
-    public String getNote() { 
+    public String getNote() {
       return this.note == null ? null : this.note.getValue();
     }
 
     /**
      * @param value Provides extra information about the medication statement that is not conveyed by the other attributes.
      */
-    public MedicationStatement setNote(String value) { 
+    public MedicationStatement setNote(String value) {
       if (Utilities.noString(value))
         this.note = null;
       else {
@@ -1287,13 +1287,13 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #supportingInformation} (Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports the MedicationStatement.)
      */
-    public List<Reference> getSupportingInformation() { 
+    public List<Reference> getSupportingInformation() {
       if (this.supportingInformation == null)
         this.supportingInformation = new ArrayList<Reference>();
       return this.supportingInformation;
     }
 
-    public boolean hasSupportingInformation() { 
+    public boolean hasSupportingInformation() {
       if (this.supportingInformation == null)
         return false;
       for (Reference item : this.supportingInformation)
@@ -1327,7 +1327,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #supportingInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports the MedicationStatement.)
      */
-    public List<Resource> getSupportingInformationTarget() { 
+    public List<Resource> getSupportingInformationTarget() {
       if (this.supportingInformationTarget == null)
         this.supportingInformationTarget = new ArrayList<Resource>();
       return this.supportingInformationTarget;
@@ -1336,44 +1336,44 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public Type getMedication() { 
+    public Type getMedication() {
       return this.medication;
     }
 
     /**
      * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public CodeableConcept getMedicationCodeableConcept() throws FHIRException { 
+    public CodeableConcept getMedicationCodeableConcept() throws FHIRException {
       if (!(this.medication instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (CodeableConcept) this.medication;
     }
 
-    public boolean hasMedicationCodeableConcept() { 
+    public boolean hasMedicationCodeableConcept() {
       return this.medication instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public Reference getMedicationReference() throws FHIRException { 
+    public Reference getMedicationReference() throws FHIRException {
       if (!(this.medication instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (Reference) this.medication;
     }
 
-    public boolean hasMedicationReference() { 
+    public boolean hasMedicationReference() {
       return this.medication instanceof Reference;
     }
 
-    public boolean hasMedication() { 
+    public boolean hasMedication() {
       return this.medication != null && !this.medication.isEmpty();
     }
 
     /**
      * @param value {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public MedicationStatement setMedication(Type value) { 
+    public MedicationStatement setMedication(Type value) {
       this.medication = value;
       return this;
     }
@@ -1381,13 +1381,13 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
     /**
      * @return {@link #dosage} (Indicates how the medication is/was used by the patient.)
      */
-    public List<MedicationStatementDosageComponent> getDosage() { 
+    public List<MedicationStatementDosageComponent> getDosage() {
       if (this.dosage == null)
         this.dosage = new ArrayList<MedicationStatementDosageComponent>();
       return this.dosage;
     }
 
-    public boolean hasDosage() { 
+    public boolean hasDosage() {
       if (this.dosage == null)
         return false;
       for (MedicationStatementDosageComponent item : this.dosage)

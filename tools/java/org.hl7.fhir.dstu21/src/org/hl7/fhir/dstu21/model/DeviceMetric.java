@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,15 +51,15 @@ public class DeviceMetric extends DomainResource {
         /**
          * The DeviceMetric is operating and will generate DeviceObservations.
          */
-        ON, 
+        ON,
         /**
          * The DeviceMetric is not operating.
          */
-        OFF, 
+        OFF,
         /**
          * The DeviceMetric is operating, but will not generate any DeviceObservations.
          */
-        STANDBY, 
+        STANDBY,
         /**
          * added to help the parsers
          */
@@ -151,35 +151,35 @@ public class DeviceMetric extends DomainResource {
         /**
          * Color for representation - black.
          */
-        BLACK, 
+        BLACK,
         /**
          * Color for representation - red.
          */
-        RED, 
+        RED,
         /**
          * Color for representation - green.
          */
-        GREEN, 
+        GREEN,
         /**
          * Color for representation - yellow.
          */
-        YELLOW, 
+        YELLOW,
         /**
          * Color for representation - blue.
          */
-        BLUE, 
+        BLUE,
         /**
          * Color for representation - magenta.
          */
-        MAGENTA, 
+        MAGENTA,
         /**
          * Color for representation - cyan.
          */
-        CYAN, 
+        CYAN,
         /**
          * Color for representation - white.
          */
-        WHITE, 
+        WHITE,
         /**
          * added to help the parsers
          */
@@ -331,19 +331,19 @@ public class DeviceMetric extends DomainResource {
         /**
          * DeviceObservations generated for this DeviceMetric are measured.
          */
-        MEASUREMENT, 
+        MEASUREMENT,
         /**
          * DeviceObservations generated for this DeviceMetric is a setting that will influence the behavior of the Device.
          */
-        SETTING, 
+        SETTING,
         /**
          * DeviceObservations generated for this DeviceMetric are calculated.
          */
-        CALCULATION, 
+        CALCULATION,
         /**
          * The category of this DeviceMetric is unspecified.
          */
-        UNSPECIFIED, 
+        UNSPECIFIED,
         /**
          * added to help the parsers
          */
@@ -447,19 +447,19 @@ public class DeviceMetric extends DomainResource {
         /**
          * TODO
          */
-        UNSPECIFIED, 
+        UNSPECIFIED,
         /**
          * TODO
          */
-        OFFSET, 
+        OFFSET,
         /**
          * TODO
          */
-        GAIN, 
+        GAIN,
         /**
          * TODO
          */
-        TWOPOINT, 
+        TWOPOINT,
         /**
          * added to help the parsers
          */
@@ -563,19 +563,19 @@ public class DeviceMetric extends DomainResource {
         /**
          * The metric has not been calibrated.
          */
-        NOTCALIBRATED, 
+        NOTCALIBRATED,
         /**
          * The metric needs to be calibrated.
          */
-        CALIBRATIONREQUIRED, 
+        CALIBRATIONREQUIRED,
         /**
          * The metric has been calibrated.
          */
-        CALIBRATED, 
+        CALIBRATED,
         /**
          * The state of calibration of this metric is unspecified.
          */
-        UNSPECIFIED, 
+        UNSPECIFIED,
         /**
          * added to help the parsers
          */
@@ -710,7 +710,7 @@ public class DeviceMetric extends DomainResource {
         /**
          * @return {@link #type} (Describes the type of the calibration method.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<DeviceMetricCalibrationType> getTypeElement() { 
+        public Enumeration<DeviceMetricCalibrationType> getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceMetricCalibrationComponent.type");
@@ -719,18 +719,18 @@ public class DeviceMetric extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Describes the type of the calibration method.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public DeviceMetricCalibrationComponent setTypeElement(Enumeration<DeviceMetricCalibrationType> value) { 
+        public DeviceMetricCalibrationComponent setTypeElement(Enumeration<DeviceMetricCalibrationType> value) {
           this.type = value;
           return this;
         }
@@ -738,14 +738,14 @@ public class DeviceMetric extends DomainResource {
         /**
          * @return Describes the type of the calibration method.
          */
-        public DeviceMetricCalibrationType getType() { 
+        public DeviceMetricCalibrationType getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value Describes the type of the calibration method.
          */
-        public DeviceMetricCalibrationComponent setType(DeviceMetricCalibrationType value) { 
+        public DeviceMetricCalibrationComponent setType(DeviceMetricCalibrationType value) {
           if (value == null)
             this.type = null;
           else {
@@ -759,7 +759,7 @@ public class DeviceMetric extends DomainResource {
         /**
          * @return {@link #state} (Describes the state of the calibration.). This is the underlying object with id, value and extensions. The accessor "getState" gives direct access to the value
          */
-        public Enumeration<DeviceMetricCalibrationState> getStateElement() { 
+        public Enumeration<DeviceMetricCalibrationState> getStateElement() {
           if (this.state == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceMetricCalibrationComponent.state");
@@ -768,18 +768,18 @@ public class DeviceMetric extends DomainResource {
           return this.state;
         }
 
-        public boolean hasStateElement() { 
+        public boolean hasStateElement() {
           return this.state != null && !this.state.isEmpty();
         }
 
-        public boolean hasState() { 
+        public boolean hasState() {
           return this.state != null && !this.state.isEmpty();
         }
 
         /**
          * @param value {@link #state} (Describes the state of the calibration.). This is the underlying object with id, value and extensions. The accessor "getState" gives direct access to the value
          */
-        public DeviceMetricCalibrationComponent setStateElement(Enumeration<DeviceMetricCalibrationState> value) { 
+        public DeviceMetricCalibrationComponent setStateElement(Enumeration<DeviceMetricCalibrationState> value) {
           this.state = value;
           return this;
         }
@@ -787,14 +787,14 @@ public class DeviceMetric extends DomainResource {
         /**
          * @return Describes the state of the calibration.
          */
-        public DeviceMetricCalibrationState getState() { 
+        public DeviceMetricCalibrationState getState() {
           return this.state == null ? null : this.state.getValue();
         }
 
         /**
          * @param value Describes the state of the calibration.
          */
-        public DeviceMetricCalibrationComponent setState(DeviceMetricCalibrationState value) { 
+        public DeviceMetricCalibrationComponent setState(DeviceMetricCalibrationState value) {
           if (value == null)
             this.state = null;
           else {
@@ -808,7 +808,7 @@ public class DeviceMetric extends DomainResource {
         /**
          * @return {@link #time} (Describes the time last calibration has been performed.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
          */
-        public InstantType getTimeElement() { 
+        public InstantType getTimeElement() {
           if (this.time == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceMetricCalibrationComponent.time");
@@ -817,18 +817,18 @@ public class DeviceMetric extends DomainResource {
           return this.time;
         }
 
-        public boolean hasTimeElement() { 
+        public boolean hasTimeElement() {
           return this.time != null && !this.time.isEmpty();
         }
 
-        public boolean hasTime() { 
+        public boolean hasTime() {
           return this.time != null && !this.time.isEmpty();
         }
 
         /**
          * @param value {@link #time} (Describes the time last calibration has been performed.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
          */
-        public DeviceMetricCalibrationComponent setTimeElement(InstantType value) { 
+        public DeviceMetricCalibrationComponent setTimeElement(InstantType value) {
           this.time = value;
           return this;
         }
@@ -836,14 +836,14 @@ public class DeviceMetric extends DomainResource {
         /**
          * @return Describes the time last calibration has been performed.
          */
-        public Date getTime() { 
+        public Date getTime() {
           return this.time == null ? null : this.time.getValue();
         }
 
         /**
          * @param value Describes the time last calibration has been performed.
          */
-        public DeviceMetricCalibrationComponent setTime(Date value) { 
+        public DeviceMetricCalibrationComponent setTime(Date value) {
           if (value == null)
             this.time = null;
           else {
@@ -1033,7 +1033,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #type} (Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.)
      */
-    public CodeableConcept getType() { 
+    public CodeableConcept getType() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.type");
@@ -1042,14 +1042,14 @@ public class DeviceMetric extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.)
      */
-    public DeviceMetric setType(CodeableConcept value) { 
+    public DeviceMetric setType(CodeableConcept value) {
       this.type = value;
       return this;
     }
@@ -1057,7 +1057,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #identifier} (Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID.  It should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device.)
      */
-    public Identifier getIdentifier() { 
+    public Identifier getIdentifier() {
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.identifier");
@@ -1066,14 +1066,14 @@ public class DeviceMetric extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID.  It should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device.)
      */
-    public DeviceMetric setIdentifier(Identifier value) { 
+    public DeviceMetric setIdentifier(Identifier value) {
       this.identifier = value;
       return this;
     }
@@ -1081,7 +1081,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #unit} (Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc.)
      */
-    public CodeableConcept getUnit() { 
+    public CodeableConcept getUnit() {
       if (this.unit == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.unit");
@@ -1090,14 +1090,14 @@ public class DeviceMetric extends DomainResource {
       return this.unit;
     }
 
-    public boolean hasUnit() { 
+    public boolean hasUnit() {
       return this.unit != null && !this.unit.isEmpty();
     }
 
     /**
      * @param value {@link #unit} (Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc.)
      */
-    public DeviceMetric setUnit(CodeableConcept value) { 
+    public DeviceMetric setUnit(CodeableConcept value) {
       this.unit = value;
       return this;
     }
@@ -1105,7 +1105,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #source} (Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc.)
      */
-    public Reference getSource() { 
+    public Reference getSource() {
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.source");
@@ -1114,14 +1114,14 @@ public class DeviceMetric extends DomainResource {
       return this.source;
     }
 
-    public boolean hasSource() { 
+    public boolean hasSource() {
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc.)
      */
-    public DeviceMetric setSource(Reference value) { 
+    public DeviceMetric setSource(Reference value) {
       this.source = value;
       return this;
     }
@@ -1129,7 +1129,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc.)
      */
-    public Device getSourceTarget() { 
+    public Device getSourceTarget() {
       if (this.sourceTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.source");
@@ -1141,7 +1141,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc.)
      */
-    public DeviceMetric setSourceTarget(Device value) { 
+    public DeviceMetric setSourceTarget(Device value) {
       this.sourceTarget = value;
       return this;
     }
@@ -1149,7 +1149,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #parent} (Describes the link to the  DeviceComponent that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device. An example would be a DeviceComponent that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location.)
      */
-    public Reference getParent() { 
+    public Reference getParent() {
       if (this.parent == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.parent");
@@ -1158,14 +1158,14 @@ public class DeviceMetric extends DomainResource {
       return this.parent;
     }
 
-    public boolean hasParent() { 
+    public boolean hasParent() {
       return this.parent != null && !this.parent.isEmpty();
     }
 
     /**
      * @param value {@link #parent} (Describes the link to the  DeviceComponent that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device. An example would be a DeviceComponent that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location.)
      */
-    public DeviceMetric setParent(Reference value) { 
+    public DeviceMetric setParent(Reference value) {
       this.parent = value;
       return this;
     }
@@ -1173,7 +1173,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #parent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the link to the  DeviceComponent that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device. An example would be a DeviceComponent that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location.)
      */
-    public DeviceComponent getParentTarget() { 
+    public DeviceComponent getParentTarget() {
       if (this.parentTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.parent");
@@ -1185,7 +1185,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @param value {@link #parent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the link to the  DeviceComponent that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device. An example would be a DeviceComponent that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location.)
      */
-    public DeviceMetric setParentTarget(DeviceComponent value) { 
+    public DeviceMetric setParentTarget(DeviceComponent value) {
       this.parentTarget = value;
       return this;
     }
@@ -1193,7 +1193,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #operationalStatus} (Indicates current operational state of the device. For example: On, Off, Standby, etc.). This is the underlying object with id, value and extensions. The accessor "getOperationalStatus" gives direct access to the value
      */
-    public Enumeration<DeviceMetricOperationalStatus> getOperationalStatusElement() { 
+    public Enumeration<DeviceMetricOperationalStatus> getOperationalStatusElement() {
       if (this.operationalStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.operationalStatus");
@@ -1202,18 +1202,18 @@ public class DeviceMetric extends DomainResource {
       return this.operationalStatus;
     }
 
-    public boolean hasOperationalStatusElement() { 
+    public boolean hasOperationalStatusElement() {
       return this.operationalStatus != null && !this.operationalStatus.isEmpty();
     }
 
-    public boolean hasOperationalStatus() { 
+    public boolean hasOperationalStatus() {
       return this.operationalStatus != null && !this.operationalStatus.isEmpty();
     }
 
     /**
      * @param value {@link #operationalStatus} (Indicates current operational state of the device. For example: On, Off, Standby, etc.). This is the underlying object with id, value and extensions. The accessor "getOperationalStatus" gives direct access to the value
      */
-    public DeviceMetric setOperationalStatusElement(Enumeration<DeviceMetricOperationalStatus> value) { 
+    public DeviceMetric setOperationalStatusElement(Enumeration<DeviceMetricOperationalStatus> value) {
       this.operationalStatus = value;
       return this;
     }
@@ -1221,14 +1221,14 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return Indicates current operational state of the device. For example: On, Off, Standby, etc.
      */
-    public DeviceMetricOperationalStatus getOperationalStatus() { 
+    public DeviceMetricOperationalStatus getOperationalStatus() {
       return this.operationalStatus == null ? null : this.operationalStatus.getValue();
     }
 
     /**
      * @param value Indicates current operational state of the device. For example: On, Off, Standby, etc.
      */
-    public DeviceMetric setOperationalStatus(DeviceMetricOperationalStatus value) { 
+    public DeviceMetric setOperationalStatus(DeviceMetricOperationalStatus value) {
       if (value == null)
         this.operationalStatus = null;
       else {
@@ -1242,7 +1242,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #color} (Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.). This is the underlying object with id, value and extensions. The accessor "getColor" gives direct access to the value
      */
-    public Enumeration<DeviceMetricColor> getColorElement() { 
+    public Enumeration<DeviceMetricColor> getColorElement() {
       if (this.color == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.color");
@@ -1251,18 +1251,18 @@ public class DeviceMetric extends DomainResource {
       return this.color;
     }
 
-    public boolean hasColorElement() { 
+    public boolean hasColorElement() {
       return this.color != null && !this.color.isEmpty();
     }
 
-    public boolean hasColor() { 
+    public boolean hasColor() {
       return this.color != null && !this.color.isEmpty();
     }
 
     /**
      * @param value {@link #color} (Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.). This is the underlying object with id, value and extensions. The accessor "getColor" gives direct access to the value
      */
-    public DeviceMetric setColorElement(Enumeration<DeviceMetricColor> value) { 
+    public DeviceMetric setColorElement(Enumeration<DeviceMetricColor> value) {
       this.color = value;
       return this;
     }
@@ -1270,14 +1270,14 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.
      */
-    public DeviceMetricColor getColor() { 
+    public DeviceMetricColor getColor() {
       return this.color == null ? null : this.color.getValue();
     }
 
     /**
      * @param value Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.
      */
-    public DeviceMetric setColor(DeviceMetricColor value) { 
+    public DeviceMetric setColor(DeviceMetricColor value) {
       if (value == null)
         this.color = null;
       else {
@@ -1291,7 +1291,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #category} (Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
-    public Enumeration<DeviceMetricCategory> getCategoryElement() { 
+    public Enumeration<DeviceMetricCategory> getCategoryElement() {
       if (this.category == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.category");
@@ -1300,18 +1300,18 @@ public class DeviceMetric extends DomainResource {
       return this.category;
     }
 
-    public boolean hasCategoryElement() { 
+    public boolean hasCategoryElement() {
       return this.category != null && !this.category.isEmpty();
     }
 
-    public boolean hasCategory() { 
+    public boolean hasCategory() {
       return this.category != null && !this.category.isEmpty();
     }
 
     /**
      * @param value {@link #category} (Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
-    public DeviceMetric setCategoryElement(Enumeration<DeviceMetricCategory> value) { 
+    public DeviceMetric setCategoryElement(Enumeration<DeviceMetricCategory> value) {
       this.category = value;
       return this;
     }
@@ -1319,14 +1319,14 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.
      */
-    public DeviceMetricCategory getCategory() { 
+    public DeviceMetricCategory getCategory() {
       return this.category == null ? null : this.category.getValue();
     }
 
     /**
      * @param value Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.
      */
-    public DeviceMetric setCategory(DeviceMetricCategory value) { 
+    public DeviceMetric setCategory(DeviceMetricCategory value) {
         if (this.category == null)
           this.category = new Enumeration<DeviceMetricCategory>(new DeviceMetricCategoryEnumFactory());
         this.category.setValue(value);
@@ -1336,7 +1336,7 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #measurementPeriod} (Describes the measurement repetition time. This is not necessarily the same as the update period. The measurement repetition time can range from milliseconds up to hours. An example for a measurement repetition time in the range of milliseconds is the sampling rate of an ECG. An example for a measurement repetition time in the range of hours is a NIBP that is triggered automatically every hour. The update period may be different than the measurement repetition time, if the device does not update the published observed value with the same frequency as it was measured.)
      */
-    public Timing getMeasurementPeriod() { 
+    public Timing getMeasurementPeriod() {
       if (this.measurementPeriod == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.measurementPeriod");
@@ -1345,14 +1345,14 @@ public class DeviceMetric extends DomainResource {
       return this.measurementPeriod;
     }
 
-    public boolean hasMeasurementPeriod() { 
+    public boolean hasMeasurementPeriod() {
       return this.measurementPeriod != null && !this.measurementPeriod.isEmpty();
     }
 
     /**
      * @param value {@link #measurementPeriod} (Describes the measurement repetition time. This is not necessarily the same as the update period. The measurement repetition time can range from milliseconds up to hours. An example for a measurement repetition time in the range of milliseconds is the sampling rate of an ECG. An example for a measurement repetition time in the range of hours is a NIBP that is triggered automatically every hour. The update period may be different than the measurement repetition time, if the device does not update the published observed value with the same frequency as it was measured.)
      */
-    public DeviceMetric setMeasurementPeriod(Timing value) { 
+    public DeviceMetric setMeasurementPeriod(Timing value) {
       this.measurementPeriod = value;
       return this;
     }
@@ -1360,13 +1360,13 @@ public class DeviceMetric extends DomainResource {
     /**
      * @return {@link #calibration} (Describes the calibrations that have been performed or that are required to be performed.)
      */
-    public List<DeviceMetricCalibrationComponent> getCalibration() { 
+    public List<DeviceMetricCalibrationComponent> getCalibration() {
       if (this.calibration == null)
         this.calibration = new ArrayList<DeviceMetricCalibrationComponent>();
       return this.calibration;
     }
 
-    public boolean hasCalibration() { 
+    public boolean hasCalibration() {
       if (this.calibration == null)
         return false;
       for (DeviceMetricCalibrationComponent item : this.calibration)

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -172,7 +172,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #issuer} (The program or plan underwriter or payor.)
      */
-    public Reference getIssuer() { 
+    public Reference getIssuer() {
       if (this.issuer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.issuer");
@@ -181,14 +181,14 @@ public class Coverage extends DomainResource {
       return this.issuer;
     }
 
-    public boolean hasIssuer() { 
+    public boolean hasIssuer() {
       return this.issuer != null && !this.issuer.isEmpty();
     }
 
     /**
      * @param value {@link #issuer} (The program or plan underwriter or payor.)
      */
-    public Coverage setIssuer(Reference value) { 
+    public Coverage setIssuer(Reference value) {
       this.issuer = value;
       return this;
     }
@@ -196,7 +196,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #issuer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The program or plan underwriter or payor.)
      */
-    public Organization getIssuerTarget() { 
+    public Organization getIssuerTarget() {
       if (this.issuerTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.issuer");
@@ -208,7 +208,7 @@ public class Coverage extends DomainResource {
     /**
      * @param value {@link #issuer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The program or plan underwriter or payor.)
      */
-    public Coverage setIssuerTarget(Organization value) { 
+    public Coverage setIssuerTarget(Organization value) {
       this.issuerTarget = value;
       return this;
     }
@@ -216,7 +216,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #bin} (Business Identification Number (BIN number) used to identify the routing  of eclaims if the insurer themselves don't have a BIN number for all of their business.)
      */
-    public Identifier getBin() { 
+    public Identifier getBin() {
       if (this.bin == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.bin");
@@ -225,14 +225,14 @@ public class Coverage extends DomainResource {
       return this.bin;
     }
 
-    public boolean hasBin() { 
+    public boolean hasBin() {
       return this.bin != null && !this.bin.isEmpty();
     }
 
     /**
      * @param value {@link #bin} (Business Identification Number (BIN number) used to identify the routing  of eclaims if the insurer themselves don't have a BIN number for all of their business.)
      */
-    public Coverage setBin(Identifier value) { 
+    public Coverage setBin(Identifier value) {
       this.bin = value;
       return this;
     }
@@ -240,7 +240,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #period} (Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.)
      */
-    public Period getPeriod() { 
+    public Period getPeriod() {
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.period");
@@ -249,14 +249,14 @@ public class Coverage extends DomainResource {
       return this.period;
     }
 
-    public boolean hasPeriod() { 
+    public boolean hasPeriod() {
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.)
      */
-    public Coverage setPeriod(Period value) { 
+    public Coverage setPeriod(Period value) {
       this.period = value;
       return this;
     }
@@ -264,7 +264,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #type} (The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.)
      */
-    public Coding getType() { 
+    public Coding getType() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.type");
@@ -273,14 +273,14 @@ public class Coverage extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.)
      */
-    public Coverage setType(Coding value) { 
+    public Coverage setType(Coding value) {
       this.type = value;
       return this;
     }
@@ -288,7 +288,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #subscriberId} (The id issued to the subscriber.)
      */
-    public Identifier getSubscriberId() { 
+    public Identifier getSubscriberId() {
       if (this.subscriberId == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.subscriberId");
@@ -297,14 +297,14 @@ public class Coverage extends DomainResource {
       return this.subscriberId;
     }
 
-    public boolean hasSubscriberId() { 
+    public boolean hasSubscriberId() {
       return this.subscriberId != null && !this.subscriberId.isEmpty();
     }
 
     /**
      * @param value {@link #subscriberId} (The id issued to the subscriber.)
      */
-    public Coverage setSubscriberId(Identifier value) { 
+    public Coverage setSubscriberId(Identifier value) {
       this.subscriberId = value;
       return this;
     }
@@ -312,13 +312,13 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #identifier} (The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Subscriber Id, Certificate number or Personal Health Number or Case ID.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -352,7 +352,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #group} (Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.). This is the underlying object with id, value and extensions. The accessor "getGroup" gives direct access to the value
      */
-    public StringType getGroupElement() { 
+    public StringType getGroupElement() {
       if (this.group == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.group");
@@ -361,18 +361,18 @@ public class Coverage extends DomainResource {
       return this.group;
     }
 
-    public boolean hasGroupElement() { 
+    public boolean hasGroupElement() {
       return this.group != null && !this.group.isEmpty();
     }
 
-    public boolean hasGroup() { 
+    public boolean hasGroup() {
       return this.group != null && !this.group.isEmpty();
     }
 
     /**
      * @param value {@link #group} (Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.). This is the underlying object with id, value and extensions. The accessor "getGroup" gives direct access to the value
      */
-    public Coverage setGroupElement(StringType value) { 
+    public Coverage setGroupElement(StringType value) {
       this.group = value;
       return this;
     }
@@ -380,14 +380,14 @@ public class Coverage extends DomainResource {
     /**
      * @return Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
      */
-    public String getGroup() { 
+    public String getGroup() {
       return this.group == null ? null : this.group.getValue();
     }
 
     /**
      * @param value Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
      */
-    public Coverage setGroup(String value) { 
+    public Coverage setGroup(String value) {
       if (Utilities.noString(value))
         this.group = null;
       else {
@@ -401,7 +401,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #plan} (Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.). This is the underlying object with id, value and extensions. The accessor "getPlan" gives direct access to the value
      */
-    public StringType getPlanElement() { 
+    public StringType getPlanElement() {
       if (this.plan == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.plan");
@@ -410,18 +410,18 @@ public class Coverage extends DomainResource {
       return this.plan;
     }
 
-    public boolean hasPlanElement() { 
+    public boolean hasPlanElement() {
       return this.plan != null && !this.plan.isEmpty();
     }
 
-    public boolean hasPlan() { 
+    public boolean hasPlan() {
       return this.plan != null && !this.plan.isEmpty();
     }
 
     /**
      * @param value {@link #plan} (Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.). This is the underlying object with id, value and extensions. The accessor "getPlan" gives direct access to the value
      */
-    public Coverage setPlanElement(StringType value) { 
+    public Coverage setPlanElement(StringType value) {
       this.plan = value;
       return this;
     }
@@ -429,14 +429,14 @@ public class Coverage extends DomainResource {
     /**
      * @return Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
      */
-    public String getPlan() { 
+    public String getPlan() {
       return this.plan == null ? null : this.plan.getValue();
     }
 
     /**
      * @param value Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
      */
-    public Coverage setPlan(String value) { 
+    public Coverage setPlan(String value) {
       if (Utilities.noString(value))
         this.plan = null;
       else {
@@ -450,7 +450,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #subPlan} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.). This is the underlying object with id, value and extensions. The accessor "getSubPlan" gives direct access to the value
      */
-    public StringType getSubPlanElement() { 
+    public StringType getSubPlanElement() {
       if (this.subPlan == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.subPlan");
@@ -459,18 +459,18 @@ public class Coverage extends DomainResource {
       return this.subPlan;
     }
 
-    public boolean hasSubPlanElement() { 
+    public boolean hasSubPlanElement() {
       return this.subPlan != null && !this.subPlan.isEmpty();
     }
 
-    public boolean hasSubPlan() { 
+    public boolean hasSubPlan() {
       return this.subPlan != null && !this.subPlan.isEmpty();
     }
 
     /**
      * @param value {@link #subPlan} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.). This is the underlying object with id, value and extensions. The accessor "getSubPlan" gives direct access to the value
      */
-    public Coverage setSubPlanElement(StringType value) { 
+    public Coverage setSubPlanElement(StringType value) {
       this.subPlan = value;
       return this;
     }
@@ -478,14 +478,14 @@ public class Coverage extends DomainResource {
     /**
      * @return Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
      */
-    public String getSubPlan() { 
+    public String getSubPlan() {
       return this.subPlan == null ? null : this.subPlan.getValue();
     }
 
     /**
      * @param value Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
      */
-    public Coverage setSubPlan(String value) { 
+    public Coverage setSubPlan(String value) {
       if (Utilities.noString(value))
         this.subPlan = null;
       else {
@@ -499,7 +499,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #dependent} (A unique identifier for a dependent under the coverage.). This is the underlying object with id, value and extensions. The accessor "getDependent" gives direct access to the value
      */
-    public PositiveIntType getDependentElement() { 
+    public PositiveIntType getDependentElement() {
       if (this.dependent == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.dependent");
@@ -508,18 +508,18 @@ public class Coverage extends DomainResource {
       return this.dependent;
     }
 
-    public boolean hasDependentElement() { 
+    public boolean hasDependentElement() {
       return this.dependent != null && !this.dependent.isEmpty();
     }
 
-    public boolean hasDependent() { 
+    public boolean hasDependent() {
       return this.dependent != null && !this.dependent.isEmpty();
     }
 
     /**
      * @param value {@link #dependent} (A unique identifier for a dependent under the coverage.). This is the underlying object with id, value and extensions. The accessor "getDependent" gives direct access to the value
      */
-    public Coverage setDependentElement(PositiveIntType value) { 
+    public Coverage setDependentElement(PositiveIntType value) {
       this.dependent = value;
       return this;
     }
@@ -527,14 +527,14 @@ public class Coverage extends DomainResource {
     /**
      * @return A unique identifier for a dependent under the coverage.
      */
-    public int getDependent() { 
+    public int getDependent() {
       return this.dependent == null || this.dependent.isEmpty() ? 0 : this.dependent.getValue();
     }
 
     /**
      * @param value A unique identifier for a dependent under the coverage.
      */
-    public Coverage setDependent(int value) { 
+    public Coverage setDependent(int value) {
         if (this.dependent == null)
           this.dependent = new PositiveIntType();
         this.dependent.setValue(value);
@@ -544,7 +544,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #sequence} (An optional counter for a particular instance of the identified coverage which increments upon each renewal.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
      */
-    public PositiveIntType getSequenceElement() { 
+    public PositiveIntType getSequenceElement() {
       if (this.sequence == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.sequence");
@@ -553,18 +553,18 @@ public class Coverage extends DomainResource {
       return this.sequence;
     }
 
-    public boolean hasSequenceElement() { 
+    public boolean hasSequenceElement() {
       return this.sequence != null && !this.sequence.isEmpty();
     }
 
-    public boolean hasSequence() { 
+    public boolean hasSequence() {
       return this.sequence != null && !this.sequence.isEmpty();
     }
 
     /**
      * @param value {@link #sequence} (An optional counter for a particular instance of the identified coverage which increments upon each renewal.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
      */
-    public Coverage setSequenceElement(PositiveIntType value) { 
+    public Coverage setSequenceElement(PositiveIntType value) {
       this.sequence = value;
       return this;
     }
@@ -572,14 +572,14 @@ public class Coverage extends DomainResource {
     /**
      * @return An optional counter for a particular instance of the identified coverage which increments upon each renewal.
      */
-    public int getSequence() { 
+    public int getSequence() {
       return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
     }
 
     /**
      * @param value An optional counter for a particular instance of the identified coverage which increments upon each renewal.
      */
-    public Coverage setSequence(int value) { 
+    public Coverage setSequence(int value) {
         if (this.sequence == null)
           this.sequence = new PositiveIntType();
         this.sequence.setValue(value);
@@ -589,7 +589,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #subscriber} (The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.)
      */
-    public Reference getSubscriber() { 
+    public Reference getSubscriber() {
       if (this.subscriber == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.subscriber");
@@ -598,14 +598,14 @@ public class Coverage extends DomainResource {
       return this.subscriber;
     }
 
-    public boolean hasSubscriber() { 
+    public boolean hasSubscriber() {
       return this.subscriber != null && !this.subscriber.isEmpty();
     }
 
     /**
      * @param value {@link #subscriber} (The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.)
      */
-    public Coverage setSubscriber(Reference value) { 
+    public Coverage setSubscriber(Reference value) {
       this.subscriber = value;
       return this;
     }
@@ -613,7 +613,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #subscriber} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.)
      */
-    public Patient getSubscriberTarget() { 
+    public Patient getSubscriberTarget() {
       if (this.subscriberTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.subscriber");
@@ -625,7 +625,7 @@ public class Coverage extends DomainResource {
     /**
      * @param value {@link #subscriber} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.)
      */
-    public Coverage setSubscriberTarget(Patient value) { 
+    public Coverage setSubscriberTarget(Patient value) {
       this.subscriberTarget = value;
       return this;
     }
@@ -633,7 +633,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #network} (The identifier for a community of providers.)
      */
-    public Identifier getNetwork() { 
+    public Identifier getNetwork() {
       if (this.network == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.network");
@@ -642,14 +642,14 @@ public class Coverage extends DomainResource {
       return this.network;
     }
 
-    public boolean hasNetwork() { 
+    public boolean hasNetwork() {
       return this.network != null && !this.network.isEmpty();
     }
 
     /**
      * @param value {@link #network} (The identifier for a community of providers.)
      */
-    public Coverage setNetwork(Identifier value) { 
+    public Coverage setNetwork(Identifier value) {
       this.network = value;
       return this;
     }
@@ -657,13 +657,13 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #contract} (The policy(s) which constitute this insurance coverage.)
      */
-    public List<Reference> getContract() { 
+    public List<Reference> getContract() {
       if (this.contract == null)
         this.contract = new ArrayList<Reference>();
       return this.contract;
     }
 
-    public boolean hasContract() { 
+    public boolean hasContract() {
       if (this.contract == null)
         return false;
       for (Reference item : this.contract)
@@ -697,7 +697,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #contract} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The policy(s) which constitute this insurance coverage.)
      */
-    public List<Contract> getContractTarget() { 
+    public List<Contract> getContractTarget() {
       if (this.contractTarget == null)
         this.contractTarget = new ArrayList<Contract>();
       return this.contractTarget;
@@ -707,7 +707,7 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #contract} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The policy(s) which constitute this insurance coverage.)
      */
-    public Contract addContractTarget() { 
+    public Contract addContractTarget() {
       Contract r = new Contract();
       if (this.contractTarget == null)
         this.contractTarget = new ArrayList<Contract>();

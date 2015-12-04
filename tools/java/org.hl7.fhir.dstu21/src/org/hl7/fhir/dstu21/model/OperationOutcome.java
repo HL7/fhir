@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * The issue caused the action to fail, and no further checking could be performed.
          */
-        FATAL, 
+        FATAL,
         /**
          * The issue is sufficiently important to cause the action to fail.
          */
-        ERROR, 
+        ERROR,
         /**
          * The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired.
          */
-        WARNING, 
+        WARNING,
         /**
          * The issue has no relation to the degree of success of the action.
          */
-        INFORMATION, 
+        INFORMATION,
         /**
          * added to help the parsers
          */
@@ -167,119 +167,119 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * Content invalid against the specification or a profile.
          */
-        INVALID, 
+        INVALID,
         /**
          * A structural issue in the content such as wrong namespace, or unable to parse the content completely, or invalid json syntax.
          */
-        STRUCTURE, 
+        STRUCTURE,
         /**
          * A required element is missing.
          */
-        REQUIRED, 
+        REQUIRED,
         /**
          * An element value is invalid.
          */
-        VALUE, 
+        VALUE,
         /**
          * A content validation rule failed - e.g. a schematron rule.
          */
-        INVARIANT, 
+        INVARIANT,
         /**
          * An authentication/authorization/permissions issue of some kind.
          */
-        SECURITY, 
+        SECURITY,
         /**
          * The client needs to initiate an authentication process.
          */
-        LOGIN, 
+        LOGIN,
         /**
          * The user or system was not able to be authenticated (either there is no process, or the proferred token is unacceptable).
          */
-        UNKNOWN, 
+        UNKNOWN,
         /**
          * User session expired; a login may be required.
          */
-        EXPIRED, 
+        EXPIRED,
         /**
          * The user does not have the rights to perform this action.
          */
-        FORBIDDEN, 
+        FORBIDDEN,
         /**
          * Some information was not or may not have been returned due to business rules, consent or privacy rules, or access permission constraints.  This information may be accessible through alternate processes.
          */
-        SUPPRESSED, 
+        SUPPRESSED,
         /**
          * Processing issues. These are expected to be final e.g. there is no point resubmitting the same content unchanged.
          */
-        PROCESSING, 
+        PROCESSING,
         /**
          * The resource or profile is not supported.
          */
-        NOTSUPPORTED, 
+        NOTSUPPORTED,
         /**
          * An attempt was made to create a duplicate record.
          */
-        DUPLICATE, 
+        DUPLICATE,
         /**
          * The reference provided was not found. In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the content is not found further into the application architecture.
          */
-        NOTFOUND, 
+        NOTFOUND,
         /**
          * Provided content is too long (typically, this is a denial of service protection type of error).
          */
-        TOOLONG, 
+        TOOLONG,
         /**
          * The code or system could not be understood, or it was not valid in the context of a particular ValueSet.code.
          */
-        CODEINVALID, 
+        CODEINVALID,
         /**
          * An extension was found that was not acceptable, could not be resolved, or a modifierExtension was not recognized.
          */
-        EXTENSION, 
+        EXTENSION,
         /**
          * The operation was stopped to protect server resources; e.g. a request for a value set expansion on all of SNOMED CT.
          */
-        TOOCOSTLY, 
+        TOOCOSTLY,
         /**
          * The content/operation failed to pass some business rule, and so could not proceed.
          */
-        BUSINESSRULE, 
+        BUSINESSRULE,
         /**
          * Content could not be accepted because of an edit conflict (i.e. version aware updates) (In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the conflict is discovered further into the application architecture.)
          */
-        CONFLICT, 
+        CONFLICT,
         /**
          * Not all data sources typically accessed could be reached, or responded in time, so the returned information may not be complete.
          */
-        INCOMPLETE, 
+        INCOMPLETE,
         /**
          * Transient processing issues. The system receiving the error may be able to resubmit the same content once an underlying issue is resolved.
          */
-        TRANSIENT, 
+        TRANSIENT,
         /**
          * A resource/record locking failure (usually in an underlying database).
          */
-        LOCKERROR, 
+        LOCKERROR,
         /**
          * The persistent store is unavailable; e.g. the database is down for maintenance or similar action.
          */
-        NOSTORE, 
+        NOSTORE,
         /**
          * An unexpected internal error has occurred.
          */
-        EXCEPTION, 
+        EXCEPTION,
         /**
          * An internal timeout has occurred.
          */
-        TIMEOUT, 
+        TIMEOUT,
         /**
          * The system is not prepared to handle this request due to load management.
          */
-        THROTTLED, 
+        THROTTLED,
         /**
          * A message unrelated to the processing success of the completed operation (examples of the latter include things like reminders of password expiry, system maintenance times, etc.).
          */
-        INFORMATIONAL, 
+        INFORMATIONAL,
         /**
          * added to help the parsers
          */
@@ -737,7 +737,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return {@link #severity} (Indicates whether the issue indicates a variation from successful processing.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public Enumeration<IssueSeverity> getSeverityElement() { 
+        public Enumeration<IssueSeverity> getSeverityElement() {
           if (this.severity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.severity");
@@ -746,18 +746,18 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return this.severity;
         }
 
-        public boolean hasSeverityElement() { 
+        public boolean hasSeverityElement() {
           return this.severity != null && !this.severity.isEmpty();
         }
 
-        public boolean hasSeverity() { 
+        public boolean hasSeverity() {
           return this.severity != null && !this.severity.isEmpty();
         }
 
         /**
          * @param value {@link #severity} (Indicates whether the issue indicates a variation from successful processing.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public OperationOutcomeIssueComponent setSeverityElement(Enumeration<IssueSeverity> value) { 
+        public OperationOutcomeIssueComponent setSeverityElement(Enumeration<IssueSeverity> value) {
           this.severity = value;
           return this;
         }
@@ -765,14 +765,14 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return Indicates whether the issue indicates a variation from successful processing.
          */
-        public IssueSeverity getSeverity() { 
+        public IssueSeverity getSeverity() {
           return this.severity == null ? null : this.severity.getValue();
         }
 
         /**
          * @param value Indicates whether the issue indicates a variation from successful processing.
          */
-        public OperationOutcomeIssueComponent setSeverity(IssueSeverity value) { 
+        public OperationOutcomeIssueComponent setSeverity(IssueSeverity value) {
             if (this.severity == null)
               this.severity = new Enumeration<IssueSeverity>(new IssueSeverityEnumFactory());
             this.severity.setValue(value);
@@ -782,7 +782,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return {@link #code} (Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public Enumeration<IssueType> getCodeElement() { 
+        public Enumeration<IssueType> getCodeElement() {
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.code");
@@ -791,18 +791,18 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return this.code;
         }
 
-        public boolean hasCodeElement() { 
+        public boolean hasCodeElement() {
           return this.code != null && !this.code.isEmpty();
         }
 
-        public boolean hasCode() { 
+        public boolean hasCode() {
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public OperationOutcomeIssueComponent setCodeElement(Enumeration<IssueType> value) { 
+        public OperationOutcomeIssueComponent setCodeElement(Enumeration<IssueType> value) {
           this.code = value;
           return this;
         }
@@ -810,14 +810,14 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element.
          */
-        public IssueType getCode() { 
+        public IssueType getCode() {
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element.
          */
-        public OperationOutcomeIssueComponent setCode(IssueType value) { 
+        public OperationOutcomeIssueComponent setCode(IssueType value) {
             if (this.code == null)
               this.code = new Enumeration<IssueType>(new IssueTypeEnumFactory());
             this.code.setValue(value);
@@ -827,7 +827,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return {@link #details} (Additional details about the error. This may be a text description of the error, or a system code that identifies the error.)
          */
-        public CodeableConcept getDetails() { 
+        public CodeableConcept getDetails() {
           if (this.details == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.details");
@@ -836,14 +836,14 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return this.details;
         }
 
-        public boolean hasDetails() { 
+        public boolean hasDetails() {
           return this.details != null && !this.details.isEmpty();
         }
 
         /**
          * @param value {@link #details} (Additional details about the error. This may be a text description of the error, or a system code that identifies the error.)
          */
-        public OperationOutcomeIssueComponent setDetails(CodeableConcept value) { 
+        public OperationOutcomeIssueComponent setDetails(CodeableConcept value) {
           this.details = value;
           return this;
         }
@@ -851,7 +851,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return {@link #diagnostics} (Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stack dump to help trace the issue.). This is the underlying object with id, value and extensions. The accessor "getDiagnostics" gives direct access to the value
          */
-        public StringType getDiagnosticsElement() { 
+        public StringType getDiagnosticsElement() {
           if (this.diagnostics == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.diagnostics");
@@ -860,18 +860,18 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return this.diagnostics;
         }
 
-        public boolean hasDiagnosticsElement() { 
+        public boolean hasDiagnosticsElement() {
           return this.diagnostics != null && !this.diagnostics.isEmpty();
         }
 
-        public boolean hasDiagnostics() { 
+        public boolean hasDiagnostics() {
           return this.diagnostics != null && !this.diagnostics.isEmpty();
         }
 
         /**
          * @param value {@link #diagnostics} (Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stack dump to help trace the issue.). This is the underlying object with id, value and extensions. The accessor "getDiagnostics" gives direct access to the value
          */
-        public OperationOutcomeIssueComponent setDiagnosticsElement(StringType value) { 
+        public OperationOutcomeIssueComponent setDiagnosticsElement(StringType value) {
           this.diagnostics = value;
           return this;
         }
@@ -879,14 +879,14 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stack dump to help trace the issue.
          */
-        public String getDiagnostics() { 
+        public String getDiagnostics() {
           return this.diagnostics == null ? null : this.diagnostics.getValue();
         }
 
         /**
          * @param value Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stack dump to help trace the issue.
          */
-        public OperationOutcomeIssueComponent setDiagnostics(String value) { 
+        public OperationOutcomeIssueComponent setDiagnostics(String value) {
           if (Utilities.noString(value))
             this.diagnostics = null;
           else {
@@ -900,13 +900,13 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
-        public List<StringType> getLocation() { 
+        public List<StringType> getLocation() {
           if (this.location == null)
             this.location = new ArrayList<StringType>();
           return this.location;
         }
 
-        public boolean hasLocation() { 
+        public boolean hasLocation() {
           if (this.location == null)
             return false;
           for (StringType item : this.location)
@@ -919,7 +919,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
          * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
     // syntactic sugar
-        public StringType addLocationElement() {//2 
+        public StringType addLocationElement() {//2
           StringType t = new StringType();
           if (this.location == null)
             this.location = new ArrayList<StringType>();
@@ -942,7 +942,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         /**
          * @param value {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
-        public boolean hasLocation(String value) { 
+        public boolean hasLocation(String value) {
           if (this.location == null)
             return false;
           for (StringType v : this.location)
@@ -1067,13 +1067,13 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
     /**
      * @return {@link #issue} (An error, warning or information message that results from a system action.)
      */
-    public List<OperationOutcomeIssueComponent> getIssue() { 
+    public List<OperationOutcomeIssueComponent> getIssue() {
       if (this.issue == null)
         this.issue = new ArrayList<OperationOutcomeIssueComponent>();
       return this.issue;
     }
 
-    public boolean hasIssue() { 
+    public boolean hasIssue() {
       if (this.issue == null)
         return false;
       for (OperationOutcomeIssueComponent item : this.issue)

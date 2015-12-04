@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -164,13 +164,13 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #identifier} (The Response business identifier.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -204,7 +204,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public Coding getRuleset() { 
+    public Coding getRuleset() {
       if (this.ruleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.ruleset");
@@ -213,14 +213,14 @@ public class EnrollmentRequest extends DomainResource {
       return this.ruleset;
     }
 
-    public boolean hasRuleset() { 
+    public boolean hasRuleset() {
       return this.ruleset != null && !this.ruleset.isEmpty();
     }
 
     /**
      * @param value {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public EnrollmentRequest setRuleset(Coding value) { 
+    public EnrollmentRequest setRuleset(Coding value) {
       this.ruleset = value;
       return this;
     }
@@ -228,7 +228,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public Coding getOriginalRuleset() { 
+    public Coding getOriginalRuleset() {
       if (this.originalRuleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.originalRuleset");
@@ -237,14 +237,14 @@ public class EnrollmentRequest extends DomainResource {
       return this.originalRuleset;
     }
 
-    public boolean hasOriginalRuleset() { 
+    public boolean hasOriginalRuleset() {
       return this.originalRuleset != null && !this.originalRuleset.isEmpty();
     }
 
     /**
      * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public EnrollmentRequest setOriginalRuleset(Coding value) { 
+    public EnrollmentRequest setOriginalRuleset(Coding value) {
       this.originalRuleset = value;
       return this;
     }
@@ -252,7 +252,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #created} (The date when this resource was created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getCreatedElement() { 
+    public DateTimeType getCreatedElement() {
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.created");
@@ -261,18 +261,18 @@ public class EnrollmentRequest extends DomainResource {
       return this.created;
     }
 
-    public boolean hasCreatedElement() { 
+    public boolean hasCreatedElement() {
       return this.created != null && !this.created.isEmpty();
     }
 
-    public boolean hasCreated() { 
+    public boolean hasCreated() {
       return this.created != null && !this.created.isEmpty();
     }
 
     /**
      * @param value {@link #created} (The date when this resource was created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public EnrollmentRequest setCreatedElement(DateTimeType value) { 
+    public EnrollmentRequest setCreatedElement(DateTimeType value) {
       this.created = value;
       return this;
     }
@@ -280,14 +280,14 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return The date when this resource was created.
      */
-    public Date getCreated() { 
+    public Date getCreated() {
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when this resource was created.
      */
-    public EnrollmentRequest setCreated(Date value) { 
+    public EnrollmentRequest setCreated(Date value) {
       if (value == null)
         this.created = null;
       else {
@@ -301,7 +301,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #target} (The Insurer who is target  of the request.)
      */
-    public Reference getTarget() { 
+    public Reference getTarget() {
       if (this.target == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.target");
@@ -310,14 +310,14 @@ public class EnrollmentRequest extends DomainResource {
       return this.target;
     }
 
-    public boolean hasTarget() { 
+    public boolean hasTarget() {
       return this.target != null && !this.target.isEmpty();
     }
 
     /**
      * @param value {@link #target} (The Insurer who is target  of the request.)
      */
-    public EnrollmentRequest setTarget(Reference value) { 
+    public EnrollmentRequest setTarget(Reference value) {
       this.target = value;
       return this;
     }
@@ -325,7 +325,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
      */
-    public Organization getTargetTarget() { 
+    public Organization getTargetTarget() {
       if (this.targetTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.target");
@@ -337,7 +337,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
      */
-    public EnrollmentRequest setTargetTarget(Organization value) { 
+    public EnrollmentRequest setTargetTarget(Organization value) {
       this.targetTarget = value;
       return this;
     }
@@ -345,7 +345,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Reference getProvider() { 
+    public Reference getProvider() {
       if (this.provider == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.provider");
@@ -354,14 +354,14 @@ public class EnrollmentRequest extends DomainResource {
       return this.provider;
     }
 
-    public boolean hasProvider() { 
+    public boolean hasProvider() {
       return this.provider != null && !this.provider.isEmpty();
     }
 
     /**
      * @param value {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public EnrollmentRequest setProvider(Reference value) { 
+    public EnrollmentRequest setProvider(Reference value) {
       this.provider = value;
       return this;
     }
@@ -369,7 +369,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Practitioner getProviderTarget() { 
+    public Practitioner getProviderTarget() {
       if (this.providerTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.provider");
@@ -381,7 +381,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public EnrollmentRequest setProviderTarget(Practitioner value) { 
+    public EnrollmentRequest setProviderTarget(Practitioner value) {
       this.providerTarget = value;
       return this;
     }
@@ -389,7 +389,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #organization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public Reference getOrganization() { 
+    public Reference getOrganization() {
       if (this.organization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.organization");
@@ -398,14 +398,14 @@ public class EnrollmentRequest extends DomainResource {
       return this.organization;
     }
 
-    public boolean hasOrganization() { 
+    public boolean hasOrganization() {
       return this.organization != null && !this.organization.isEmpty();
     }
 
     /**
      * @param value {@link #organization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public EnrollmentRequest setOrganization(Reference value) { 
+    public EnrollmentRequest setOrganization(Reference value) {
       this.organization = value;
       return this;
     }
@@ -413,7 +413,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public Organization getOrganizationTarget() { 
+    public Organization getOrganizationTarget() {
       if (this.organizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.organization");
@@ -425,7 +425,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public EnrollmentRequest setOrganizationTarget(Organization value) { 
+    public EnrollmentRequest setOrganizationTarget(Organization value) {
       this.organizationTarget = value;
       return this;
     }
@@ -433,7 +433,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #subject} (Patient Resource.)
      */
-    public Reference getSubject() { 
+    public Reference getSubject() {
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.subject");
@@ -442,14 +442,14 @@ public class EnrollmentRequest extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Patient Resource.)
      */
-    public EnrollmentRequest setSubject(Reference value) { 
+    public EnrollmentRequest setSubject(Reference value) {
       this.subject = value;
       return this;
     }
@@ -457,7 +457,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient Resource.)
      */
-    public Patient getSubjectTarget() { 
+    public Patient getSubjectTarget() {
       if (this.subjectTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.subject");
@@ -469,7 +469,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient Resource.)
      */
-    public EnrollmentRequest setSubjectTarget(Patient value) { 
+    public EnrollmentRequest setSubjectTarget(Patient value) {
       this.subjectTarget = value;
       return this;
     }
@@ -477,7 +477,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
      */
-    public Reference getCoverage() { 
+    public Reference getCoverage() {
       if (this.coverage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.coverage");
@@ -486,14 +486,14 @@ public class EnrollmentRequest extends DomainResource {
       return this.coverage;
     }
 
-    public boolean hasCoverage() { 
+    public boolean hasCoverage() {
       return this.coverage != null && !this.coverage.isEmpty();
     }
 
     /**
      * @param value {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
      */
-    public EnrollmentRequest setCoverage(Reference value) { 
+    public EnrollmentRequest setCoverage(Reference value) {
       this.coverage = value;
       return this;
     }
@@ -501,7 +501,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #coverage} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
      */
-    public Coverage getCoverageTarget() { 
+    public Coverage getCoverageTarget() {
       if (this.coverageTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.coverage");
@@ -513,7 +513,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @param value {@link #coverage} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
      */
-    public EnrollmentRequest setCoverageTarget(Coverage value) { 
+    public EnrollmentRequest setCoverageTarget(Coverage value) {
       this.coverageTarget = value;
       return this;
     }
@@ -521,7 +521,7 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * @return {@link #relationship} (The relationship of the patient to the subscriber.)
      */
-    public Coding getRelationship() { 
+    public Coding getRelationship() {
       if (this.relationship == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EnrollmentRequest.relationship");
@@ -530,14 +530,14 @@ public class EnrollmentRequest extends DomainResource {
       return this.relationship;
     }
 
-    public boolean hasRelationship() { 
+    public boolean hasRelationship() {
       return this.relationship != null && !this.relationship.isEmpty();
     }
 
     /**
      * @param value {@link #relationship} (The relationship of the patient to the subscriber.)
      */
-    public EnrollmentRequest setRelationship(Coding value) { 
+    public EnrollmentRequest setRelationship(Coding value) {
       this.relationship = value;
       return this;
     }

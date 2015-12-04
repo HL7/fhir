@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class Quantity extends Type implements ICompositeType {
         /**
          * The actual value is less than the given value.
          */
-        LESS_THAN, 
+        LESS_THAN,
         /**
          * The actual value is less than or equal to the given value.
          */
-        LESS_OR_EQUAL, 
+        LESS_OR_EQUAL,
         /**
          * The actual value is greater than or equal to the given value.
          */
-        GREATER_OR_EQUAL, 
+        GREATER_OR_EQUAL,
         /**
          * The actual value is greater than the given value.
          */
-        GREATER_THAN, 
+        GREATER_THAN,
         /**
          * added to help the parsers
          */
@@ -210,7 +210,7 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public DecimalType getValueElement() { 
+    public DecimalType getValueElement() {
       if (this.value == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.value");
@@ -219,18 +219,18 @@ public class Quantity extends Type implements ICompositeType {
       return this.value;
     }
 
-    public boolean hasValueElement() { 
+    public boolean hasValueElement() {
       return this.value != null && !this.value.isEmpty();
     }
 
-    public boolean hasValue() { 
+    public boolean hasValue() {
       return this.value != null && !this.value.isEmpty();
     }
 
     /**
      * @param value {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public Quantity setValueElement(DecimalType value) { 
+    public Quantity setValueElement(DecimalType value) {
       this.value = value;
       return this;
     }
@@ -238,14 +238,14 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return The value of the measured amount. The value includes an implicit precision in the presentation of the value.
      */
-    public BigDecimal getValue() { 
+    public BigDecimal getValue() {
       return this.value == null ? null : this.value.getValue();
     }
 
     /**
      * @param value The value of the measured amount. The value includes an implicit precision in the presentation of the value.
      */
-    public Quantity setValue(BigDecimal value) { 
+    public Quantity setValue(BigDecimal value) {
       if (value == null)
         this.value = null;
       else {
@@ -259,7 +259,7 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.). This is the underlying object with id, value and extensions. The accessor "getComparator" gives direct access to the value
      */
-    public Enumeration<QuantityComparator> getComparatorElement() { 
+    public Enumeration<QuantityComparator> getComparatorElement() {
       if (this.comparator == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.comparator");
@@ -268,18 +268,18 @@ public class Quantity extends Type implements ICompositeType {
       return this.comparator;
     }
 
-    public boolean hasComparatorElement() { 
+    public boolean hasComparatorElement() {
       return this.comparator != null && !this.comparator.isEmpty();
     }
 
-    public boolean hasComparator() { 
+    public boolean hasComparator() {
       return this.comparator != null && !this.comparator.isEmpty();
     }
 
     /**
      * @param value {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.). This is the underlying object with id, value and extensions. The accessor "getComparator" gives direct access to the value
      */
-    public Quantity setComparatorElement(Enumeration<QuantityComparator> value) { 
+    public Quantity setComparatorElement(Enumeration<QuantityComparator> value) {
       this.comparator = value;
       return this;
     }
@@ -287,14 +287,14 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
      */
-    public QuantityComparator getComparator() { 
+    public QuantityComparator getComparator() {
       return this.comparator == null ? null : this.comparator.getValue();
     }
 
     /**
      * @param value How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
      */
-    public Quantity setComparator(QuantityComparator value) { 
+    public Quantity setComparator(QuantityComparator value) {
       if (value == null)
         this.comparator = null;
       else {
@@ -308,7 +308,7 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return {@link #unit} (A human-readable form of the unit.). This is the underlying object with id, value and extensions. The accessor "getUnit" gives direct access to the value
      */
-    public StringType getUnitElement() { 
+    public StringType getUnitElement() {
       if (this.unit == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.unit");
@@ -317,18 +317,18 @@ public class Quantity extends Type implements ICompositeType {
       return this.unit;
     }
 
-    public boolean hasUnitElement() { 
+    public boolean hasUnitElement() {
       return this.unit != null && !this.unit.isEmpty();
     }
 
-    public boolean hasUnit() { 
+    public boolean hasUnit() {
       return this.unit != null && !this.unit.isEmpty();
     }
 
     /**
      * @param value {@link #unit} (A human-readable form of the unit.). This is the underlying object with id, value and extensions. The accessor "getUnit" gives direct access to the value
      */
-    public Quantity setUnitElement(StringType value) { 
+    public Quantity setUnitElement(StringType value) {
       this.unit = value;
       return this;
     }
@@ -336,14 +336,14 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return A human-readable form of the unit.
      */
-    public String getUnit() { 
+    public String getUnit() {
       return this.unit == null ? null : this.unit.getValue();
     }
 
     /**
      * @param value A human-readable form of the unit.
      */
-    public Quantity setUnit(String value) { 
+    public Quantity setUnit(String value) {
       if (Utilities.noString(value))
         this.unit = null;
       else {
@@ -357,7 +357,7 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return {@link #system} (The identification of the system that provides the coded form of the unit.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public UriType getSystemElement() { 
+    public UriType getSystemElement() {
       if (this.system == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.system");
@@ -366,18 +366,18 @@ public class Quantity extends Type implements ICompositeType {
       return this.system;
     }
 
-    public boolean hasSystemElement() { 
+    public boolean hasSystemElement() {
       return this.system != null && !this.system.isEmpty();
     }
 
-    public boolean hasSystem() { 
+    public boolean hasSystem() {
       return this.system != null && !this.system.isEmpty();
     }
 
     /**
      * @param value {@link #system} (The identification of the system that provides the coded form of the unit.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Quantity setSystemElement(UriType value) { 
+    public Quantity setSystemElement(UriType value) {
       this.system = value;
       return this;
     }
@@ -385,14 +385,14 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return The identification of the system that provides the coded form of the unit.
      */
-    public String getSystem() { 
+    public String getSystem() {
       return this.system == null ? null : this.system.getValue();
     }
 
     /**
      * @param value The identification of the system that provides the coded form of the unit.
      */
-    public Quantity setSystem(String value) { 
+    public Quantity setSystem(String value) {
       if (Utilities.noString(value))
         this.system = null;
       else {
@@ -406,7 +406,7 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return {@link #code} (A computer processable form of the unit in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public CodeType getCodeElement() { 
+    public CodeType getCodeElement() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.code");
@@ -415,18 +415,18 @@ public class Quantity extends Type implements ICompositeType {
       return this.code;
     }
 
-    public boolean hasCodeElement() { 
+    public boolean hasCodeElement() {
       return this.code != null && !this.code.isEmpty();
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (A computer processable form of the unit in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public Quantity setCodeElement(CodeType value) { 
+    public Quantity setCodeElement(CodeType value) {
       this.code = value;
       return this;
     }
@@ -434,14 +434,14 @@ public class Quantity extends Type implements ICompositeType {
     /**
      * @return A computer processable form of the unit in some unit representation system.
      */
-    public String getCode() { 
+    public String getCode() {
       return this.code == null ? null : this.code.getValue();
     }
 
     /**
      * @param value A computer processable form of the unit in some unit representation system.
      */
-    public Quantity setCode(String value) { 
+    public Quantity setCode(String value) {
       if (Utilities.noString(value))
         this.code = null;
       else {
