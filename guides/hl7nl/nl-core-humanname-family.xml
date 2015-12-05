@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="nl-core-humanname-family"/>
+    <meta>
+    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
+  </meta>
+  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family" />
+  <name value="nl-core-humanname-family" />
+  <status value="draft" />
+  <contact>
+    <name value="HL7 Netherlands" />
+  </contact>
+  <date value="2015-09-22T20:02:49+10:00" />
+  <description value="Base StructureDefinition for Extension Type" />
+  <requirements value="The ability to add extensions in a structured way is what keeps FHIR resources simple." />
+  <fhirVersion value="1.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <kind value="datatype" />
+  <constrainedType value="Extension" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="HumanName.family" />
+  <base value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <differential>
+    <element>
+      <path value="Extension" />
+      <definition value="Family name without family name prefix" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Element" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="PN/family[@qualifier=('BR','SP')]" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator value="url" />
+        <rules value="openAtEnd" />
+      </slicing>
+    </element>
+    <element>
+      <path value="Extension.extension" />
+      <name value="qualifier" />
+      <short value="Qualifies this family name as BR (birth name) or SP (spouse/partner)" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+        <profile value="BR" />
+      </type>
+      <type>
+        <code value="code" />
+        <profile value="SP" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <valueSetUri value="http://hl7.org/fhir/v3/EntityNamePartQualifier" />
+      </binding>
+    </element>
+    <element>
+      <path value="Extension.extension" />
+      <name value="value" />
+      <short value="Family name value" />
+      <definition value="Family name value" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Haas" />
+    </element>
+    <element>
+      <path value="Extension.url" />
+      <representation value="xmlAttr" />
+      <short value="identifies the meaning of the extension" />
+      <definition value="Source of the definition for the extension code - a logical name or a URL." />
+      <comments value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family" />
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Extension.value[x]" />
+      <short value="Family name prefix" />
+      <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/patient.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/patient.xsd" xmlns="http://hl7.org/fhir">
+    <id value="patient-example-a"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+    </meta>
+    <identifier>
+        <use value="usual"/>
+        <type>
+            <coding>
+                <system value="http://hl7.org/fhir/v2/0203"/>
+                <code value="MR"/>
+            </coding>
+        </type>
+        <system value="urn:oid:0.1.2.3.4.5.6.7"/>
+        <value value="654321"/>
+    </identifier>
+    <active value="true"/>
+    <name>
+        <use value="official"/>
+        <family value="Jongeneel-de Haas">
+            <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family">
+                <extension url="qualifier">
+                    <valueCode value="SP"/>
+                </extension>
+                <extension url="value">
+                    <valueCode value="Jongeneel"/>
+                </extension>
+            </extension>
+            <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family-prefix">
+                <extension url="qualifier">
+                    <valueCode value="VV"/>
+                </extension>
+                <extension url="value">
+                    <valueCode value="de "/>
+                </extension>
+            </extension>
+            <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family">
+                <extension url="qualifier">
+                    <valueCode value="BR"/>
+                </extension>
+                <extension url="value">
+                    <valueCode value="Haas"/>
+                </extension>
+            </extension>
+        </family>
+        <given value="Irma"/>
+    </name>
+    <gender value="male"/>
+    <address>
+        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+            <valueBoolean value="true"/>
+        </extension>
+        <use value="home"/>
+        <type value="both"/>
+        <line value="Straatweg 12bII">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Straatweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="12"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+                <valueString value="bII"/>
+            </extension>
+        </line>
+        <city value="Woonplaats"/>
+        <district value="Amsterdam"/>
+        <postalCode value="1200 AA"/>
+        <country value="NLD"/>
+        <period>
+            <start value="2015-04"/>
+        </period>
+    </address>
+    <!--<photo>
+        <contentType value="image/gif"/>
+        <data
+            value="R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/n&#xD;&#xA;Uv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf//&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;////////////////////////////////////////////////////////////////////////////&#xD;&#xA;/////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEA&#xD;&#xA;AAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAG&#xD;&#xA;DS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1W&#xD;&#xA;XXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3&#xD;&#xA;KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7"
+        />
+    </photo>-->
+    <contact>
+        <relationship>
+            <coding>
+                <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+                <code value="owner"/>
+            </coding>
+        </relationship>
+        <organization>
+            <reference value="Organization/1"/>
+            <display value="Walt Disney Corporation"/>
+        </organization>
+    </contact>
+    <managingOrganization>
+        <reference value="Organization/1"/>
+        <display value="ACME Healthcare, Inc"/>
+    </managingOrganization>
+    <link>
+        <other>
+            <reference value="Patient/pat2"/>
+        </other>
+        <type value="seealso"/>
+    </link>
+</Patient>
