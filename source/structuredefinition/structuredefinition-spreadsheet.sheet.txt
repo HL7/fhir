@@ -148,7 +148,7 @@
   Context = StructureDefinition
   English = If there\'s a constrained type, its content must match the path name in the first element of a snapshot
   XPath = not(exists(f:constrainedType)) or not(exists(f:snapshot)) or (f:constrainedType/@value = f:snapshot/f:element[1]/f:path/@value)
-  Expression = constrainedType.empty() or snapshot.element.first().path = constrainedType
+  Expression = constrainedType.empty() or snapshot.empty() or snapshot.element.first().path = constrainedType
 
  -- Row 12 -----------------------------------
   Id = 12

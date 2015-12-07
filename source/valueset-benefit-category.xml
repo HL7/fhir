@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Benefit Category Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes a smattering of Benefit Category codes."/>
+  <copyright value="This is an example set."/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/ValueSet/benefit-category"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="oral"/>
+      <display value="Dental and Oral Health Coverage"/>
+      <definition value="Dental and Oral Health Coverage"/>
+    </concept>
+    <concept>
+      <code value="vision"/>
+      <display value="Vision Health Coverage"/>
+      <definition value="Vision Health Coverage"/>
+    </concept>
+    <concept>
+      <code value="medical"/>
+      <display value="Medical Health Coverage"/>
+      <definition value="Medical Health Coverage"/>
+    </concept>
+    <concept>
+      <code value="pharmacy"/>
+      <display value="Pharmacy Coverage"/>
+      <definition value="Pharmacy Coverage"/>
+    </concept>
+  </codeSystem>
+</ValueSet>

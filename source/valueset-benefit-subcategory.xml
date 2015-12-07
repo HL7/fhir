@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Benefit SubCategory Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes a smattering of Benefit SubCategory codes."/>
+  <copyright value="This is an example set."/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/ValueSet/benefit-subcategory"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="oral-basic"/>
+      <display value="Dental: Basic Coverage"/>
+      <definition value="Dental Basic Coverage - exams, fillings, xrays, cleaning, minor procedures"/>
+    </concept>
+    <concept>
+      <code value="oral-major"/>
+      <display value="Dental: Major Coverage"/>
+      <definition value="Dental Major Coverage - crowns, bridge, major procedures"/>
+    </concept>
+    <concept>
+      <code value="oral-ortho"/>
+      <display value="Dental: Orthodontic Coverage"/>
+      <definition value="Dental Orthodontic Coverage - braces, adjustments, ortho exams, related procedures"/>
+    </concept>
+    <concept>
+      <code value="vision-exam"/>
+      <display value="Vision Exam"/>
+      <definition value="Vision Exam"/>
+    </concept>
+    <concept>
+      <code value="vision-glasses"/>
+      <display value="Vision Glasses"/>
+      <definition value="Frames and lenses"/>
+    </concept>
+    <concept>
+      <code value="vision-contacts"/>
+      <display value="Vision Contacts Coverage"/>
+      <definition value="Contact Lenses"/>
+    </concept>
+    <concept>
+      <code value="medical-primarycare"/>
+      <display value="Medical Primary Health Coverage"/>
+      <definition value="Medical Primary Health Coverage"/>
+    </concept>
+    <concept>
+      <code value="pharmacy-dispense"/>
+      <display value="Pharmacy Dispense Coverage"/>
+      <definition value="Pharmacy Dispense Coverage"/>
+    </concept>
+  </codeSystem>
+</ValueSet>
