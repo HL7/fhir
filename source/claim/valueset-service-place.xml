@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Example Service Place Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes a smattering of Service Place codes."/>
+  <copyright value="This is an example set."/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/ValueSet/ex-serviceplace"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="emergency"/>
+      <display value="Emergency Department"/>
+      <definition value="Emergency Department"/>
+    </concept>
+    <concept>
+      <code value="clinic"/>
+      <display value="Clinic"/>
+      <definition value="Clinic"/>
+    </concept>
+  </codeSystem>
+</ValueSet>
