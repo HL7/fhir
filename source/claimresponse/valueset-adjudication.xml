@@ -13,7 +13,7 @@
   <description value="This value set includes a smattering of Adjudication codes."/>
   <copyright value="This is an example set."/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/ValueSet/adjudication"/>
+    <system value="http://hl7.org/fhir/adjudication"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="total"/>
