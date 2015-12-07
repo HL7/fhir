@@ -13,7 +13,7 @@
   <description value="This value set includes a smattering of FDI tooth surface codes."/>
   <copyright value="This is an example set."/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/ex-surface"/>
+    <system value="http://hl7.org/fhir/ex-tooth"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="0"/>

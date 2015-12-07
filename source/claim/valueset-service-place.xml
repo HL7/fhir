@@ -13,7 +13,7 @@
   <description value="This value set includes a smattering of Service Place codes."/>
   <copyright value="This is an example set."/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/ValueSet/ex-serviceplace"/>
+    <system value="http://hl7.org/fhir/ex-serviceplace"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="emergency"/>
