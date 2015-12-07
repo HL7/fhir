@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Payment Adjustment Reason Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes smattering of Payment Adjustment Reason codes."/>
+  <copyright value="This is an example set."/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/payment-adjustment-reason"/>
+    <caseSensitive value="true"/>
+  <!--   Prior Payment Reversal  -->
+    <concept>
+      <code value="a001"/>
+      <display value="Prior Payment Reversal"/>
+      <definition value="Prior Payment Reversal"/>
+    </concept>
+    <concept>
+      <code value="a002"/>
+      <display value="Prior Overpayment"/>
+      <definition value="Prior Overpayment"/>
+    </concept>
+  </codeSystem>
+</ValueSet>

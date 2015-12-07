@@ -7,21 +7,21 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-06-11T11:28:34Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2015-12-05T19:57:03Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8400</WindowHeight>
-  <WindowWidth>19170</WindowWidth>
+  <WindowHeight>7425</WindowHeight>
+  <WindowWidth>24480</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>9</ActiveSheet>
-  <RefModeR1C1/>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -2843,7 +2843,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Error code detailing processing issues</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">An error code,froma specified code system, which details why the claim could not be adjudicated.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An error code,from a specified code system, which details why the claim could not be adjudicated.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3020,7 +3020,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">AdjustmentReason</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">PaymentAdjustmentReason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4262,7 +4262,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>59</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4276,10 +4276,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>20</ActiveCol>
+     <ActiveRow>61</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6801,12 +6803,12 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="27" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s114" ss:Width="114.75"/>
+   <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="159"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s114" ss:Width="51" ss:Span="1"/>
-   <Column ss:Index="5" ss:StyleID="s114" ss:Width="146.25"/>
+   <Column ss:Index="5" ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="207.75"/>
    <Column ss:StyleID="s114" ss:Width="172.5"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="97.5"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="88.5"/>
@@ -6882,11 +6884,26 @@
     <Cell ss:StyleID="s121"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s149"><Data ss:Type="String">AdjustmentReason</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Adjustment reason codes.</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">AdjudicationReason</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The adjudication reason codes.</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">valueset-adjustment-reason</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">valueset-adjudication-reason</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s121"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s149"><Data ss:Type="String">PaymentAdjustmentReason</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Payment Adjustment reason codes.</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">valueset-payment-adjustment-reason</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
@@ -6912,11 +6929,11 @@
     <Cell ss:StyleID="s121"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">AdjudicationError</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The adjudication error codes.</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/adjudication-error</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
@@ -7275,7 +7292,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

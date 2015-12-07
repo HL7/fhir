@@ -9,18 +9,32 @@
   Conformance = extensible
 
  -- Row 2 -----------------------------------
-  Binding Name = AdjustmentReason
+  Binding Name = AdjudicationReason
   Binding = value set
-  Reference = valueset-adjustment-reason
-  Definition = Adjustment reason codes.
+  Reference = valueset-adjudication-reason
+  Definition = The adjudication reason codes.
   Conformance = extensible
 
  -- Row 3 -----------------------------------
+  Binding Name = PaymentAdjustmentReason
+  Binding = value set
+  Reference = valueset-payment-adjustment-reason
+  Definition = Payment Adjustment reason codes.
+  Conformance = extensible
+
+ -- Row 4 -----------------------------------
   Binding Name = ServiceProduct
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/service-uscls
   Definition = Allowable service and product codes.
   Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = AdjudicationError
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/adjudication-error
+  Definition = The adjudication error codes.
+  Conformance = extensible
 
 === Sheet Invariants =====================================
 
@@ -455,7 +469,7 @@
   Type = Coding
   Binding = AdjudicationError
   Short Label = Error code detailing processing issues
-  Definition = An error code,froma specified code system, which details why the claim could not be adjudicated.
+  Definition = An error code,from a specified code system, which details why the claim could not be adjudicated.
 
  -- Row 62 -----------------------------------
   Element = !Response Information
@@ -494,7 +508,7 @@
   Element = ClaimResponse.paymentAdjustmentReason
   Card. = 0..1
   Type = Coding
-  Binding = AdjustmentReason
+  Binding = PaymentAdjustmentReason
   Short Label = Reason for Payment adjustment
   Definition = Reason for the payment adjustment.
 

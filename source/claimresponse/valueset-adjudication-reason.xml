@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Adjustment Reason Codes"/>
+  <name value="Adjudication Reason Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
@@ -10,17 +10,20 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes smattering of a Adjustment Reason codes."/>
+  <description value="This value set includes smattering of Adjudication Reason codes."/>
   <copyright value="This is an example set."/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/adjustment-reason"/>
+    <system value="http://hl7.org/fhir/adjudication-reason"/>
     <caseSensitive value="true"/>
     <concept>
-      <code value="A001"/>
+      <code value="ar001"/>
+      <display value="Not covered"/>
+      <definition value="Not covered"/>
     </concept>
-  <!--   Prior Payment Reversal  -->
     <concept>
-      <code value="A002"/>
+      <code value="ar002"/>
+      <display value="Plan Limit Reached"/>
+      <definition value="Plan Limit Reached"/>
     </concept>
   </codeSystem>
 </ValueSet>

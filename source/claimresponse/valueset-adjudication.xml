@@ -13,28 +13,42 @@
   <description value="This value set includes a smattering of Adjudication codes."/>
   <copyright value="This is an example set."/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/adjudication"/>
+    <system value="http://hl7.org/fhir/ValueSet/adjudication"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="total"/>
+      <display value="Total"/>
+      <definition value="Total submitted"/>
     </concept>
     <concept>
       <code value="copay"/>
+      <display value="CoPay"/>
+      <definition value="Patient Co-Payment"/>
     </concept>
     <concept>
       <code value="eligible"/>
+      <display value="Eligible Amount"/>
+      <definition value="Amount of the change which is considered for adjudication"/>
     </concept>
     <concept>
       <code value="deductible"/>
+      <display value="Deductable"/>
+      <definition value="Amount deducted from the eligible amount prior to adjudication"/>
     </concept>
     <concept>
       <code value="eligpercent"/>
+      <display value="Eligible %"/>
+      <definition value="Eligible Percentage"/>
     </concept>
     <concept>
       <code value="tax"/>
+      <display value="Emergency Department"/>
+      <definition value="Emergency Department"/>
     </concept>
     <concept>
       <code value="benefit"/>
+      <display value="Benefit Amount"/>
+      <definition value="Amount payable under the coverage"/>
     </concept>
   </codeSystem>
 </ValueSet>
