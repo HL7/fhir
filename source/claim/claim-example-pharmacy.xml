@@ -66,10 +66,10 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <service>
+   <serviceCode>
      <system value="http://hl7.org/fhir/ex-pharmaservice"/>
      <code value="smokecess"/> <!-- smoking cessation consult -->
-   </service>
+   </serviceCode>
    <serviceDate value="2014-08-16"/>
    <unitPrice>
       <value value="60.00"/>

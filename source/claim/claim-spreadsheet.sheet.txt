@@ -656,7 +656,7 @@
   Definition = Diagnosis applicable for this service or product line.
 
  -- Row 63 -----------------------------------
-  Element = Claim.item.service
+  Element = Claim.item.serviceCode
   Card. = 1..1
   Type = Coding
   Binding = ServiceProduct
@@ -777,7 +777,7 @@
   Definition = The type of product or service.
 
  -- Row 79 -----------------------------------
-  Element = Claim.item.detail.service
+  Element = Claim.item.detail.serviceCode
   Card. = 1..1
   Type = Coding
   Binding = ServiceProduct
@@ -859,7 +859,7 @@
   Definition = The type of product or service.
 
  -- Row 90 -----------------------------------
-  Element = Claim.item.detail.subDetail.service
+  Element = Claim.item.detail.subDetail.serviceCode
   Card. = 1..1
   Type = Coding
   Binding = ServiceProduct

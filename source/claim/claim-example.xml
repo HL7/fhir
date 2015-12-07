@@ -67,9 +67,9 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <service>
+   <serviceCode>
      <code value="1200"/>
-   </service>
+   </serviceCode>
    <serviceDate value="2014-08-16"/>
    <unitPrice>
       <value value="135.57"/>

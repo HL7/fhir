@@ -66,10 +66,10 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <service>
+   <serviceCode>
      <system value="http://hl7.org/fhir/ex-visionservice"/>
      <code value="exam"/>
-   </service>
+   </serviceCode>
    <serviceDate value="2014-08-16"/>
    <unitPrice>
       <value value="80.00"/>

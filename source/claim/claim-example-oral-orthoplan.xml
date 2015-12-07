@@ -69,10 +69,10 @@
      <reference value="Practitioner/example"/>
    </provider>
    <diagnosisLinkId value="1"/>
-   <service>
+   <serviceCode>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="ORTHPLAN"/>
-   </service>
+   </serviceCode>
    <serviceDate value="2015-05-16"/>  <!-- Start Date -->
    <unitPrice>
      <value value="9000.00"/>
@@ -90,10 +90,10 @@
        <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
-     <service>
+     <serviceCode>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHOEXAM"/>
-     </service>
+     </serviceCode>
      <unitPrice>
        <value value="1000.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -111,10 +111,10 @@
        <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
-     <service>
+     <serviceCode>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHODIAG"/>
-     </service>
+     </serviceCode>
      <unitPrice>
        <value value="1500.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -132,10 +132,10 @@
        <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
-     <service>
+     <serviceCode>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHOINITIAL"/>
-     </service>
+     </serviceCode>
      <unitPrice>
        <value value="500.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -153,10 +153,10 @@
        <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
-     <service>
+     <serviceCode>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHOMONTHS"/>
-     </service>
+     </serviceCode>
      <quantity>
        <value value="24"/>
      </quantity>  
@@ -167,10 +167,10 @@
        <system value="http://hl7.org/fhir/v3/ActCode"/>
        <code value="CSINV"/> <!-- was service, changed by GG to be valid -->
      </type>
-     <service>
+     <serviceCode>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHOPERIODIC"/>
-     </service>
+     </serviceCode>
      <quantity>
        <value value="24"/>
      </quantity>  
@@ -195,10 +195,10 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <service>
+   <serviceCode>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="21211"/>
-   </service>
+   </serviceCode>
    <serviceDate value="2014-08-16"/>
    <unitPrice>
      <value value="105.00"/>
@@ -228,10 +228,10 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <service>
+   <serviceCode>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="27211"/>
-   </service>
+   </serviceCode>
    <serviceDate value="2014-08-16"/>
    <unitPrice>
      <value value="1100.00"/>
@@ -252,10 +252,10 @@
      <type>
        <code value="service"/>
      </type>
-     <service>
+     <serviceCode>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="27211"/>
-     </service>
+     </serviceCode>
      <unitPrice>
        <value value="750.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -272,10 +272,10 @@
      <type>
        <code value="service"/>
      </type>
-     <service>
+     <serviceCode>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="lab"/>
-     </service>
+     </serviceCode>
      <unitPrice>
        <value value="350.00"/>
        <system value="urn:iso:std:iso:4217"/>
