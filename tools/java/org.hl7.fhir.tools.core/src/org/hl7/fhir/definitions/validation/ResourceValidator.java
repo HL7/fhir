@@ -585,9 +585,15 @@ public class ResourceValidator extends BaseValidator {
 
     needsRimMapping = needsRimMapping && !"n/a".equalsIgnoreCase(s) && !Utilities.noString(s);
     
-		for (ElementDefn c : e.getElements()) {
-		  vsWarnings = vsWarnings + checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping, optionalParent, hasSummary, vsWarns);
-		}
+    Set<String> childNames = new HashSet<String>();
+    for (ElementDefn c : e.getElements()) {
+      String name = c.getName();
+      if (name.endsWith("[x]"))
+        name = name.substring(0, name.length()-3);
+      rule(errors, IssueType.STRUCTURE, path, !childNames.contains(name), "Duplicate Child Name "+name+" at "+path);
+      childNames.add(name);
+      vsWarnings = vsWarnings + checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping, optionalParent, hasSummary, vsWarns);
+    }
 		return vsWarnings;
 	}
 
