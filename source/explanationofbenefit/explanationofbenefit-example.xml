@@ -1,5 +1,5 @@
-<ExplanationOfBenefit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\remittance.xsd">
- <id value="R3500"/>
+<ExplanationOfBenefit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+ <id value="EB3500"/>
 
  <text>
     <status value="generated"/>
@@ -7,27 +7,100 @@
   </text>
 
   <identifier>
-    <system value="http://www.BenefitsInc.com/fhir/eob"/>
+    <system value="http://www.BenefitsInc.com/fhir/explanationofbenefit"/>
     <value value="987654321"/>
   </identifier>
 
-  <request>
-	<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
-  </request>
+  <claim>
+    <reference value="Claim/100150"/>
+  </claim>
   
-  <outcome value="complete"/>
+  <claimResponse>
+    <reference value="ClaimResponse/R3500"/>
+  </claimResponse>
   
-  <disposition value="Claim settled as per contract."/>
- 
   <created value="2014-08-16"/>
 
+  <disposition value="Claim settled as per contract."/>
+ 
   <organization>
     <reference value="Organization/2"/>
   </organization>
 
-  <requestOrganization>
-    <reference value="Organization/1"/>
-  </requestOrganization>
+  <patient>
+    <reference value="Patient/pat1"/>
+  </patient>
  
+  <coverage>
+    <coverage>
+      <reference value="Coverage/9876B1"/>
+    </coverage>
+    <relationship>
+      <code value="self"/>
+    </relationship>
+  </coverage>
+ 
+ <item>
+   <sequence value="1"/>
+   <type>
+     <code value="service"/>
+   </type>
+   <provider>
+     <reference value="Practitioner/example"/>
+   </provider>
+   <service>
+     <system value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+     <code value="1200"/>
+   </service>
+   <servicedDate value="2014-08-16"/>
+   <unitPrice>
+      <value value="135.57"/>
+      <system value="urn:iso:std:iso:4217"/>
+      <code value="USD"/> 
+   </unitPrice> 
+   <net>
+      <value value="135.57"/>
+      <system value="urn:iso:std:iso:4217"/>
+      <code value="USD"/> 
+   </net> 
+   <adjudication>
+	<category>
+	  <code value="eligible"/>
+	</category>
+	<amount>
+      <value value="120.00"/>
+      <system value="urn:iso:std:iso:4217"/>
+      <code value="USD"/> 
+	</amount> 
+   </adjudication>
+   <adjudication>
+	<category>
+	  <code value="eligpercent"/>
+	</category>
+	<value value="0.80"/>
+   </adjudication>
+   <adjudication>
+	<category>
+	  <code value="benefit"/>
+	</category>
+	<amount>
+      <value value="96.00"/>
+      <system value="urn:iso:std:iso:4217"/>
+      <code value="USD"/> 
+	</amount> 
+   </adjudication>
+  </item>
 
+  <claimTotal>
+    <value value="135.57"/>
+    <system value="urn:iso:std:iso:4217"/>
+    <code value="USD"/> 
+  </claimTotal>
+
+  <totalBenefit>
+    <value value="96.00"/>
+    <system value="urn:iso:std:iso:4217"/>
+    <code value="USD"/> 
+  </totalBenefit>
+  
 </ExplanationOfBenefit>
