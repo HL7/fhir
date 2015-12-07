@@ -33,12 +33,45 @@
     <status value="draft"/>
     <experimental value="false"/>
     <date value="2015-06-11T16:01:03+10:00"/>
-    <codeSystem>
+    
+    
+    <!-- The following block is for LOINC Code valueset -->
+    <copyright value="The LOINC® codes, LOINC® table (regardless of format), LOINC® Release Notes, LOINC® Changes File, and LOINC® Users' 
+        Guide are copyright © 1995-2015, Regenstrief Institute, Inc. and the 
+        Logical Observation Identifiers Names and Codes (LOINC) Committee. All rights reserved.
+        Refer to http://loinc.org/terms-of-use"/>
+    <!-- LOINC answer codes taken from LOINC code 21907-1 -->   
+    <status value="active"/>
+    <experimental value="true"/>
+    <date value="2015-06-11T16:01:03+10:00"/>
+    <compose>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="LA4629-7"/>
+                <display value="m0"/>
+            </concept>
+            <concept>
+                <code value="LA4628-9"/>
+                <display value="m1"/>
+            </concept>
+            <concept>
+                <code value="LA4627-1"/>
+                <display value="m1a"/>
+            </concept>
+            <concept>
+                <code value="LA4626-3"/>
+                <display value="m1b"/>
+            </concept>
+        </include>
+    </compose>
+    
+    <!--<codeSystem>   Commented out 3rd Dec 2015 and added LOINC answer codes  from 21907-1 (above)
         
-        <!-- DMc ?? SR says to make into a NEHTA oid -->
-        <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+        <!-\- DMc ?? SR says to make into a NEHTA oid -\->
+        <!-\-<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
             <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
-        </extension>-->
+        </extension>-\->
 
         <system value="http://hl7.org/fhir/nehta-crc-tumour-stage-m"/>
         <version value="20150626"/>
@@ -64,5 +97,5 @@
             <definition value="M1b Metastases in more than one organ/site or the peritoneum"/>
         </concept>
                 
-    </codeSystem>
+    </codeSystem>-->
 </ValueSet>

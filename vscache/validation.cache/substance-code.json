@@ -2,28 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/substance-code",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|3092008|Staphylococcus Aureus",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Staphylococcus aureus"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|333346007|Silver nitrate 20% solution (product)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Silver nitrate 20% solution (product)"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|372687004|Amoxicillin (substance)",
       "severity": null,
       "message": null,
@@ -35,9 +13,15 @@
       }
     },
     {
-      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|C3214954|cashew nut allergenic extract Injectable Product",
-      "severity": "error",
-      "message": "The code provided is not  valid"
+      "hash": "#|http://snomed.info/sct|null|406466009|House dust allergen",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "House dust allergen (substance)"
+      }
     },
     {
       "hash": "#|http://hl7.org/fhir/v3/EntityCode|null|HEPL|null",
@@ -62,9 +46,15 @@
       }
     },
     {
-      "hash": "#|null|null|2556|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
+      "hash": "#|http://snomed.info/sct|null|392259005|Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Co-amoxiclav 875mg/125mg tablet (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|88480006|Potassium",
@@ -78,25 +68,35 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|392259005|Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)",
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|C3214954|cashew nut allergenic extract Injectable Product",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|333346007|Silver nitrate 20% solution (product)",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Co-amoxiclav 875mg/125mg tablet (product)"
+        "display": "Silver nitrate 20% solution (product)"
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|406466009|House dust allergen",
+      "hash": "#|null|null|2556|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|3092008|Staphylococcus Aureus",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "House dust allergen (substance)"
+        "display": "Staphylococcus aureus"
       }
     }
   ]

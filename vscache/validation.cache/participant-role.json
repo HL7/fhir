@@ -2,12 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/participant-role",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|278110001|Radiographic imaging",
+      "hash": "#|http://example.org/local|null|nur|null",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|229774002|Carer",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://example.org/EpisodeOfCare/Role|null|AO|Assessment Worker",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -22,27 +27,22 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://example.org/local|null|doc|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://example.org/EpisodeOfCare/Role|null|AO|Assessment Worker",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
       "hash": "#|http://example.org/mysys|null|obs|null",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://example.org/local|null|nur|null",
+      "hash": "#|http://snomed.info/sct|null|278110001|Radiographic imaging",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://example.org/mysys|null|lmc|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://example.org/local|null|doc|null",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

@@ -2,14 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/system-restful-interaction",
   "outcomes": [
     {
-      "hash": "|null|null|history-system|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@62a677ff\" in system \"null\": null"
-    },
-    {
       "hash": "|null|null|search-system|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@575b2d17\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|history-system|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@62a677ff\" in system \"null\": null"
     },
     {
       "hash": "|null|null|transaction|null",

@@ -2,142 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/medication-codes",
   "outcomes": [
     {
-      "hash": "#|null|null|200371|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|3127006|Fluorouracil",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Fluorouracil (product)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|411106009|25ug Flutacisone + 250ug Salmeterol",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Fluticasone propionate+salmeterol xinafoate (product)"
-      }
-    },
-    {
-      "hash": "#|http://hc-sc.gc.ca|null|00628115|Apo-Amoxi Cap 250mg",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|387517004|Paracetamol",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Acetaminophen (substance)"
-      }
-    },
-    {
-      "hash": "#|http://hc-sc.gc.ca|null|02176017|Didrocal",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|323733007|Amoxcycillin 250mg/5ml oral suspension (product)#|http://hc-sc.gc.ca|null|0131314003|Amoxicillin (Amoxcillin Trihydrate) 250mg/5mL",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Amoxycillin 250mg/5mL oral suspension (product)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|320442002|Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler (product)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|57066004|Cisplatin",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Cisplatin (product)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|400352007|Paclitaxel 6mg/mL injection solution 5mL vial (product)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Paclitaxel 6mg/mL injection solution solution 5mL vial (product)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|325267004|Tolbutamide 500mg tablet",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Tolbutamide 500mg tablet (product)"
-      }
-    },
-    {
-      "hash": "#|http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm|null|54569-2931|Amoxicillin Powder, for Suspension 250mg/5ml",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|http://purl.bioontology.org/ontology/RXNORM/847265|null|847265|3 ML Insulin, Aspart, Human 100 UNT/ML Prefilled Syringe [NovoLog]",
       "severity": "error",
       "message": "The code provided is not  valid"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|318851002|Enalapril maleate 5mg tablet",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Enalapril maleate 5mg tablet (product)"
-      }
+      "hash": "#|http://hc-sc.gc.ca|null|00021695|Novo-Prednisone",
+      "severity": "error",
+      "message": "The code provided is not  valid"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|389245004|Gentamicin sulfate 80mg/100ml infusion (product)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Gentamicin sulfate 80mg/100mL infusion (product)"
-      }
-    },
-    {
-      "hash": "#|http://hc-sc.gc.ca|null|00885916|Amox S 250 Sus 250mg/5ml",
+      "hash": "#|null|null|200371|null",
       "severity": "error",
       "message": "The code provided is not  valid"
     },
@@ -153,6 +28,109 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|411106009|25ug Flutacisone + 250ug Salmeterol",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fluticasone propionate+salmeterol xinafoate (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|318475005|Metoprolol tartrate 50mg tablet",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Metoprolol tartrate 50mg tablet (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|400352007|Paclitaxel 6mg/mL injection solution 5mL vial (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Paclitaxel 6mg/mL injection solution solution 5mL vial (product)"
+      }
+    },
+    {
+      "hash": "#|http://hc-sc.gc.ca|null|00628115|Apo-Amoxi Cap 250mg",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|323733007|Amoxcycillin 250mg/5ml oral suspension (product)#|http://hc-sc.gc.ca|null|0131314003|Amoxicillin (Amoxcillin Trihydrate) 250mg/5mL",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Amoxycillin 250mg/5mL oral suspension (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|134623009|Capecitabine 150mg tablet (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Capecitabine 150mg tablet (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|3127006|Fluorouracil",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fluorouracil (product)"
+      }
+    },
+    {
+      "hash": "#|http://hc-sc.gc.ca|null|02176017|Didrocal",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|57066004|Cisplatin",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Cisplatin (product)"
+      }
+    },
+    {
+      "hash": "#|http://hc-sc.gc.ca|null|02181061|Tylenol No. 1 Caplets",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|96068000|Amoxicillin trihydrate",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Amoxicilline trihydrate"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|108806006|Docetaxel",
       "severity": null,
       "message": null,
@@ -164,12 +142,7 @@
       }
     },
     {
-      "hash": "#|http://hc-sc.gc.ca|null|02181061|Tylenol No. 1 Caplets",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://hc-sc.gc.ca|null|00021695|Novo-Prednisone",
+      "hash": "#|http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm|null|54569-2931|Amoxicillin Powder, for Suspension 250mg/5ml",
       "severity": "error",
       "message": "The code provided is not  valid"
     },
@@ -185,25 +158,41 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|96068000|Amoxicillin trihydrate",
+      "hash": "#|http://hc-sc.gc.ca|null|00885916|Amox S 250 Sus 250mg/5ml",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|325267004|Tolbutamide 500mg tablet",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Amoxicilline trihydrate"
+        "display": "Tolbutamide 500mg tablet (product)"
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|318475005|Metoprolol tartrate 50mg tablet",
+      "hash": "#|http://snomed.info/sct|null|387517004|Paracetamol",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Metoprolol tartrate 50mg tablet (product)"
+        "display": "Acetaminophen (substance)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|318851002|Enalapril maleate 5mg tablet",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Enalapril maleate 5mg tablet (product)"
       }
     },
     {
@@ -212,14 +201,25 @@
       "message": "The code provided is not  valid"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|134623009|Capecitabine 150mg tablet (product)",
+      "hash": "#|http://snomed.info/sct|null|320442002|Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Capecitabine 150mg tablet (product)"
+        "display": "Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|389245004|Gentamicin sulfate 80mg/100ml infusion (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Gentamicin sulfate 80mg/100mL infusion (product)"
       }
     }
   ]

@@ -33,12 +33,61 @@
     <status value="draft"/>
     <experimental value="false"/>
     <date value="2015-06-11T16:01:03+10:00"/>
-    <codeSystem>
+    
+    <!-- The following block is for LOINC Code valueset -->
+    <copyright value="The LOINC® codes, LOINC® table (regardless of format), LOINC® Release Notes, LOINC® Changes File, and LOINC® Users' 
+        Guide are copyright © 1995-2015, Regenstrief Institute, Inc. and the 
+        Logical Observation Identifiers Names and Codes (LOINC) Committee. All rights reserved.
+        Refer to http://loinc.org/terms-of-use"/>
+    
+    <!-- LOINC answer codes taken from LOINC code 21905-5 -->   
+    <status value="active"/>
+    <experimental value="true"/>
+    <date value="2015-06-11T16:01:03+10:00"/>
+    <compose>
+        <include>
+            <system value="http://loinc.org"/>
+            <concept>
+                <code value="LA3601-7"/>
+                <display value="tx"/>
+            </concept>
+            <concept>
+                <code value="LA3638-9"/>
+                <display value="t0"/>
+            </concept>
+            <concept>
+                <code value="LA3608-2"/>
+                <display value="tis"/>
+            </concept>
+            <concept>
+                <code value="LA3637-1"/>
+                <display value="t1"/>
+            </concept>
+            <concept>
+                <code value="LA3628-0"/>
+                <display value="t2"/>
+            </concept>
+            <concept>
+                <code value="LA3624-9"/>
+                <display value="t3"/>
+            </concept>
+            <concept>
+                <code value="LA3619-9"/>
+                <display value="t4a"/>
+            </concept>
+            <concept>
+                <code value="LA3618-1"/>
+                <display value="t4b"/>
+            </concept>
+        </include>
+    </compose>
+    
+    <!--<codeSystem>   commented out 3rd Dec 2015 and replaced with LOINC codes from 21905-5
         
-        <!-- DMc ?? SR says to make into a NEHTA oid -->
-        <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+        <!-\- DMc ?? SR says to make into a NEHTA oid -\->
+        <!-\-<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
             <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
-        </extension>-->
+        </extension>-\->
 
         <system value="http://hl7.org/fhir/nehta-crc-tumour-stage-t"/>
         <version value="20150625"/>
@@ -83,5 +132,5 @@
             <display value="T4b Tumour directly invades or is adherent to other organs or structures"/>
             <definition value="T4b Tumour directly invades or is adherent to other organs or structures"/>
         </concept>
-    </codeSystem>
+    </codeSystem>-->
 </ValueSet>
