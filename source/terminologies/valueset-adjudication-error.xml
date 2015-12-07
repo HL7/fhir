@@ -13,14 +13,17 @@
   <description value="This value set includes a smattering of adjudication codes."/>
   <copyright value="This is an example set."/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/adjudication-error"/>
+    <system value="http://hl7.org/fhir/ValueSet/adjudication-error"/>
     <caseSensitive value="true"/>
     <concept>
-      <code value="A001"/>
+      <code value="a001"/>
+      <display value="Missing Identifier"/>
+      <definition value="Missing Identifier"/>
     </concept>
-  <!--   missing identifier   -->
     <concept>
-      <code value="A002"/>
+      <code value="a002"/>
+      <display value="Missing Creation Date"/>
+      <definition value="Missing Creation Date"/>
     </concept>
   </codeSystem>
 </ValueSet>
