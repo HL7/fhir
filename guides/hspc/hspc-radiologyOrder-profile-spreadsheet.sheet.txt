@@ -4,7 +4,7 @@
  -- Row 1 -----------------------------------
   Binding Name = RadLexCodes
   Binding = value set
-  Reference = valueset-radlexplaybook
+  Reference = valueset-radlex
   Definition = RadLex is a lexicon of radiologic terms.  This value set contains all terms from the RadLex Playbook which is a subset of RadLex containing prodedure and ordareable radiological terms
   Conformance = preferred
 

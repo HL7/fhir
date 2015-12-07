@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <name value="Data Origination Mode value set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>

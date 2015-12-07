@@ -79,16 +79,16 @@
   Binding = Substance
 
  -- Row 5 -----------------------------------
-  Element = AllergyIntolerance.status
+  Element = !AllergyIntolerance.status
   Binding = AllergyIntoleranceStatus
 
  -- Row 6 -----------------------------------
-  Element = AllergyIntolerance.category
+  Element = !AllergyIntolerance.category
   Profile Name = SubstanceCategory
   Binding = SubstanceCategory
 
  -- Row 7 -----------------------------------
-  Element = AllergyIntolerance.type
+  Element = !AllergyIntolerance.type
   Binding = AllergyIntoleranceType
 
  -- Row 8 -----------------------------------
@@ -100,7 +100,7 @@
   Binding = ReactionToSubstance
 
  -- Row 10 -----------------------------------
-  Element = AllergyIntolerance.reaction.severity
+  Element = !AllergyIntolerance.reaction.severity
   Binding = Severity
 
  -- Row 11 -----------------------------------

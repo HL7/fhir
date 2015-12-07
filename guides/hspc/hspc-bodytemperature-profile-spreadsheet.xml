@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Nathan Davis</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-07-22T07:23:29Z</LastSaved>
+  <LastSaved>2015-11-19T16:22:37Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1180,7 +1180,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/qicore-observation}</Data><NamedCell
+    <Cell><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1607,7 +1607,8 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Observation.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3646,8 +3647,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>27</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -23624,6 +23625,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/qicore-observation}</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">{http://hl7.org/fhir/StructureDefinition/qicore-observation}</Data></Cell>
+   </Row>
    <Row ss:Index="4" ss:AutoFitHeight="0" ss:StyleID="s86">
     <Cell ss:StyleID="s106"><Data ss:Type="String">DataOriginationMode</Data></Cell>
     <Cell ss:StyleID="s107"/>
@@ -23712,8 +23716,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <RangeSelection>R9</RangeSelection>
+     <ActiveRow>1</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

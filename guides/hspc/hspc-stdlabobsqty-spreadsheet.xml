@@ -10,17 +10,17 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-05-26T22:26:06Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12975</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>3675</WindowHeight>
+  <WindowWidth>9600</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -729,6 +729,31 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s151">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s152">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -850,7 +875,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3940,12 +3964,12 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="hspc-stdqty-Inv">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="131.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="161.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="412.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
+   <Column ss:Index="8" ss:Width="140.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s89"><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Name</Data></Cell>
@@ -3953,7 +3977,8 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Context</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">English</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">OCL</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">XPath</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">XPath</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Expression</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s123"><Data ss:Type="Number">1</Data></Cell>
@@ -3963,6 +3988,7 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">Must have either a value or a dataAbsentReason but not both</Data></Cell>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s102"><Data ss:Type="String">(f:value or f:dataAbsentReason) and (not(f:value and f:dataAbsentReason))</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">value xor dataAbsentReason</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -3972,11 +3998,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

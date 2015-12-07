@@ -79,7 +79,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Body Temperature
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  Type = Resource
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -148,6 +148,7 @@
  -- Row 16 -----------------------------------
   Element = Observation.extension
   Profile Name = AssocitatedPrecondition
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}
   Binding = VitalSignAssociatedPrecondition
 

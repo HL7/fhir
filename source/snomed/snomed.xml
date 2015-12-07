@@ -468,6 +468,17 @@
     <display value="Puncture - action"/>
     <display value="Puncture - action (qualifier value)"/>
   </concept>
+  <concept id="130989002" display="Sleep deprivation (finding)">
+    <display value="Sleep deprivation (finding)"/>
+    <display value="Sleep deprivation"/>
+    <display value="Lack of adequate sleep"/>
+  </concept>
+  <concept id="131148009" display="Bleeding (finding)">
+    <display value="Bleeding (finding)"/>
+    <display value="Bleeding"/>
+    <display value="Haemorrhage"/>
+    <display value="Hemorrhage"/>
+  </concept>
   <concept id="13383001" display="Structure of apex of heart (body structure)">
     <display value="Apex of heart"/>
     <display value="Structure of apex of heart"/>
@@ -505,6 +516,14 @@
     <display value="Urethra, NOS"/>
     <display value="Urethral structure"/>
     <display value="Urethral structure (body structure)"/>
+  </concept>
+  <concept id="1402001" display="Fear (finding)">
+    <display value="Fear (finding)"/>
+    <display value="Fear"/>
+    <display value="Afraid"/>
+    <display value="Fright"/>
+    <display value="Frightened"/>
+    <display value="Scared"/>
   </concept>
   <concept id="14189004" display="Measles (disorder)">
     <display value="Measles"/>
@@ -630,6 +649,25 @@
   </concept>
   <concept id="16564004" display="Hartmann operation, rectal resection (procedure)">
     <display value="Hartmann&#39;s procedure"/>
+  </concept>
+  <concept id="166001" display="Behavioral therapy (regime/therapy)">
+    <display value="Behavioral therapy (regime/therapy)"/>
+    <display value="Behavior conditioning therapy"/>
+    <display value="Behavior modification"/>
+    <display value="Behavior modification psychotherapy"/>
+    <display value="Behavior modification technique"/>
+    <display value="Behavior modification treatments and procedures"/>
+    <display value="Behavior therapy"/>
+    <display value="Behavioral psychotherapy"/>
+    <display value="Behavioral therapy"/>
+    <display value="Behaviour conditioning therapy"/>
+    <display value="Behaviour modification"/>
+    <display value="Behaviour modification psychotherapy"/>
+    <display value="Behaviour modification technique"/>
+    <display value="Behaviour modification treatments and procedures"/>
+    <display value="Behaviour therapy"/>
+    <display value="Behavioural psychotherapy"/>
+    <display value="Behavioural therapy"/>
   </concept>
   <concept id="166643006" display="Liver enzymes abnormal (finding)">
     <display value="Liver enzymes abnormal"/>
@@ -782,6 +820,17 @@
     <display value="Upper limb"/>
     <display value="Entire upper limb (body structure)"/>
   </concept>
+  <concept id="182832007" display="Procedure related to management of drug administration (procedure)">
+    <display value="Procedure related to management of drug administration (procedure)"/>
+    <display value="Drug administration"/>
+    <display value="Manage medication administration"/>
+    <display value="Manage medication treatment"/>
+    <display value="Management of drug regimen"/>
+    <display value="Medication actions"/>
+    <display value="Medication administration case management"/>
+    <display value="Medication management"/>
+    <display value="Procedure related to management of drug administration"/>
+  </concept>
   <concept id="182836005" display="Review of medication (procedure)">
     <display value="Medication review"/>
     <display value="Review of medication"/>
@@ -790,6 +839,11 @@
   <concept id="183807002" display="Inpatient stay 9 days (finding)">
     <display value="Inpatient stay 9 days"/>
     <display value="Inpatient stay 9 days (finding)"/>
+  </concept>
+  <concept id="18512000" display="Individual psychotherapy (regime/therapy)">
+    <display value="Individual psychotherapy (regime/therapy)"/>
+    <display value="Dyadic therapy"/>
+    <display value="Individual psychotherapy"/>
   </concept>
   <concept id="1857005" display="Congenital rubella syndrome (disorder)"/>
   <concept id="188340000" display="Malignant tumor of craniopharyngeal duct (disorder)">
@@ -821,6 +875,11 @@
     <display value="Vestibulocochlear organ"/>
     <display value="Entire ear"/>
     <display value="Entire ear (body structure)"/>
+  </concept>
+  <concept id="193462001" display="Insomnia (disorder)">
+    <display value="Insomnia (disorder)"/>
+    <display value="Insomnia"/>
+    <display value="Sleeplessness"/>
   </concept>
   <concept id="194828000" display="Angina (disorder)">
     <display value="Angina"/>
@@ -896,17 +955,31 @@
     <display value="Left thigh"/>
     <display value="Entire left thigh (body structure)"/>
   </concept>
+  <concept id="21065008" display="Music therapy (regime/therapy)">
+    <display value="Music therapy (regime/therapy)"/>
+    <display value="Music therapy"/>
+  </concept>
   <concept id="21082005" display="Entire mouth region (body structure)">
     <display value="Mouth"/>
     <display value="Mouth, NOS"/>
     <display value="Entire mouth region"/>
     <display value="Entire mouth region (body structure)"/>
   </concept>
+  <concept id="21134002" display="Disability (finding)">
+    <display value="Disability (finding)"/>
+    <display value="Disability"/>
+  </concept>
   <concept id="21306003" display="Jejunal structure (body structure)">
     <display value="Jejunum"/>
     <display value="Jejunum, NOS"/>
     <display value="Jejunal structure"/>
     <display value="Jejunal structure (body structure)"/>
+  </concept>
+  <concept id="21762000" display="Decreased vascular flow (finding)">
+    <display value="Decreased vascular flow (finding)"/>
+    <display value="Decreased vascular flow"/>
+    <display value="Decreased blood flow"/>
+    <display value="Reduction in blood flow"/>
   </concept>
   <concept id="21840007" display="Date of last menstrual period (observable entity)">
     <display value="LMP - Last menstrual period"/>
@@ -1057,6 +1130,12 @@
     <display value="Vegetable"/>
     <display value="Vegetable (substance)"/>
   </concept>
+  <concept id="228563004" display="Simonton technique (regime/therapy)">
+    <display value="Simonton technique (regime/therapy)"/>
+    <display value="Simonton technique"/>
+    <display value="Visualisation technique"/>
+    <display value="Visualization technique"/>
+  </concept>
   <concept id="229506003" display="Scar tissue massage (regime/therapy)">
     <display value="Scar tissue massage (regime/therapy)"/>
     <display value="Scar tissue massage"/>
@@ -1065,6 +1144,12 @@
   <concept id="229774002" display="Carer (occupation)">
     <display value="Carer"/>
     <display value="Carer (occupation)"/>
+  </concept>
+  <concept id="230145002" display="Difficulty breathing (finding)">
+    <display value="Difficulty breathing (finding)"/>
+    <display value="DIB - Difficulty in breathing"/>
+    <display value="Difficulty beathing"/>
+    <display value="Respiration difficult"/>
   </concept>
   <concept id="23109009" display="Pseudosarcomatous carcinoma (morphologic abnormality)">
     <display value="Sarcomatoid carcinoma"/>
@@ -1089,6 +1174,14 @@
   <concept id="235326000" display="Right hemicolectomy (procedure)">
     <display value="Right hemicolectomy"/>
     <display value="Right hemicolectomy (procedure)"/>
+  </concept>
+  <concept id="23583003" display="Inflammation (morphologic abnormality)">
+    <display value="Inflammation (morphologic abnormality)"/>
+    <display value="Inflammation"/>
+    <display value="Inflammatory cell infiltration"/>
+    <display value="Inflammatory infiltration"/>
+    <display value="Inflammatory reaction"/>
+    <display value="Leukocytic infiltrate"/>
   </concept>
   <concept id="24028007" display="Right (qualifier value)">
     <display value="Right"/>
@@ -1134,6 +1227,10 @@
     <display value="Psychiatry procedure or service"/>
     <display value="Psychiatry procedure or service, NOS"/>
     <display value="Psychiatry procedure or service (procedure)"/>
+  </concept>
+  <concept id="247347003" display="Discomfort (finding)">
+    <display value="Discomfort (finding)"/>
+    <display value="Discomfort"/>
   </concept>
   <concept id="247472004" display="Weal (disorder)">
     <display value="Wheal"/>
@@ -1214,9 +1311,23 @@
     <display value="Following exercise"/>
     <display value="After exercise (qualifier value)"/>
   </concept>
+  <concept id="255227004" display="Recurrent (qualifier value)">
+    <display value="Recurrent (qualifier value)"/>
+    <display value="Recurrent"/>
+  </concept>
   <concept id="255235001" display="Pre-dose (qualifier value)">
     <display value="Pre-dose"/>
     <display value="Pre-dose (qualifier value)"/>
+  </concept>
+  <concept id="255238004" display="Continuous (qualifier value)">
+    <display value="Continuous (qualifier value)"/>
+    <display value="Continuous"/>
+  </concept>
+  <concept id="255365009" display="Tightness sensation quality (qualifier value)">
+    <display value="Tightness sensation quality (qualifier value)"/>
+    <display value="Tightness sensation quality"/>
+    <display value="Tight"/>
+    <display value="Tightness"/>
   </concept>
   <concept id="255410009" display="Postpartum (qualifier value)">
     <display value="Postpartum"/>
@@ -1276,6 +1387,14 @@
     <display value="Cream"/>
     <display value="Cream (substance)"/>
   </concept>
+  <concept id="255641001" display="Caffeine (substance)">
+    <display value="Caffeine (substance)"/>
+    <display value="Caffeine"/>
+  </concept>
+  <concept id="256235009" display="Exercise (observable entity)">
+    <display value="Exercise (observable entity)"/>
+    <display value="Exercise"/>
+  </concept>
   <concept id="256674009" display="Fat (substance)">
     <display value="Fat"/>
     <display value="Fat (substance)"/>
@@ -1292,6 +1411,10 @@
   <concept id="258104002" display="Measured (qualifier value)">
     <display value="Measured"/>
     <display value="Measured (qualifier value)"/>
+  </concept>
+  <concept id="258157001" display="Rest (observable entity)">
+    <display value="Rest (observable entity)"/>
+    <display value="Rest"/>
   </concept>
   <concept id="258219007" display="Stage 2 (qualifier value)">
     <display value="Stage 2"/>
@@ -1659,6 +1782,10 @@
     <display value="Absence of"/>
     <display value="Absent (qualifier value)"/>
   </concept>
+  <concept id="266707007" display="Drug addiction therapy (regime/therapy)">
+    <display value="Drug addiction therapy (regime/therapy)"/>
+    <display value="Drug addiction therapy"/>
+  </concept>
   <concept id="266919005" display="Never smoked tobacco (finding)">
     <display value="Never smoked tobacco (finding)"/>
     <display value="Never smoked"/>
@@ -1726,6 +1853,10 @@
     <display value="Examination / Signs"/>
     <display value="Examination / Signs (context-dependent category)"/>
   </concept>
+  <concept id="271587009" display="Stiffness (finding)">
+    <display value="Stiffness (finding)"/>
+    <display value="Stiffness"/>
+  </concept>
   <concept id="271649006" display="Systolic blood pressure (observable entity)">
     <display value="SAP - Systolic arterial pressure"/>
     <display value="Systolic blood pressure"/>
@@ -1764,6 +1895,10 @@
     <display value="Suction drainage"/>
     <display value="Suction drainage (procedure)"/>
   </concept>
+  <concept id="275520000" display="Claudication (finding)">
+    <display value="Claudication (finding)"/>
+    <display value="Claudication"/>
+  </concept>
   <concept id="275576008" display="Elderly assessment clinic (environment)">
     <display value="Geriatric clinic"/>
     <display value="Elderly assessment clinic"/>
@@ -1776,6 +1911,10 @@
     <display value="Hydration control"/>
     <display value="Fluid balance regulation"/>
     <display value="Fluid balance regulation (procedure)"/>
+  </concept>
+  <concept id="276049006" display="Self-help group support (finding)">
+    <display value="Self-help group support (finding)"/>
+    <display value="Self-help group support"/>
   </concept>
   <concept id="276986009" display="Antepartum (qualifier value)">
     <display value="Antepartum"/>
@@ -1819,6 +1958,15 @@
     <display value="Finger puncture"/>
     <display value="Finger-prick sampling"/>
     <display value="Finger-prick sampling (procedure)"/>
+  </concept>
+  <concept id="278499009" display="Episodic (qualifier value)">
+    <display value="Episodic (qualifier value)"/>
+    <display value="Episodic"/>
+  </concept>
+  <concept id="279046003" display="Pressure - physical agent (physical force)">
+    <display value="Pressure - physical agent (physical force)"/>
+    <display value="Pressure"/>
+    <display value="Pressure - physical agent"/>
   </concept>
   <concept id="279107003" display="Central nervous system space (body structure)">
     <display value="Central nervous system space"/>
@@ -1905,6 +2053,12 @@
   <concept id="298225002" display="Lamina propria mucosae (body structure)">
     <display value="Lamina propria mucosae"/>
   </concept>
+  <concept id="3006004" display="Disturbance of consciousness (finding)">
+    <display value="Disturbance of consciousness (finding)"/>
+    <display value="Altered consciousness"/>
+    <display value="Disturbance of consciousness"/>
+    <display value="Impaired consciousness"/>
+  </concept>
   <concept id="302794003" display="Nasogastric aspirate">
     <display value="Nasogastric aspirate"/>
     <display value="Nasogastric tube aspirate"/>
@@ -1929,6 +2083,16 @@
     <display value="Lumbar spinal cerebrospinal fluid pathway (body structure)"/>
   </concept>
   <concept id="304794009" display="Administrative form"/>
+  <concept id="304891004" display="Cognitive - behavior therapy (regime/therapy)">
+    <display value="Cognitive - behavior therapy (regime/therapy)"/>
+    <display value="Cognitive - behavior therapy"/>
+    <display value="CBT - Cognitive - behavior therapy"/>
+    <display value=" CBT - Cognitive - behaviour therapy"/>
+    <display value="Cognitive - behaviour therapy"/>
+    <display value="Cognitive-behavioral therapy approach"/>
+    <display value="Cognitive-behaviour therapy"/>
+    <display value="Cognitive-behavioural therapy approach"/>
+  </concept>
   <concept id="30549001" display="Removal of suture (procedure)">
     <display value="Removal of sutures"/>
     <display value="ROS - Removal of sutures"/>
@@ -1959,6 +2123,12 @@
     <display value="Discharge to home"/>
     <display value="Discharge home"/>
     <display value="Discharge home (procedure)"/>
+  </concept>
+  <concept id="307077003" display="Feeling hopeless (finding)">
+    <display value="Feeling hopeless (finding)"/>
+    <display value="Feeling hopeless"/>
+    <display value="Feeling of hopeless"/>
+    <display value="Hopelessness"/>
   </concept>
   <concept id="307159006" display="Pregnancy time period (qualifier value)">
     <display value="Pregnancy time period"/>
@@ -2342,6 +2512,15 @@
     <display value="Supra-"/>
     <display value="Supra- (qualifier value)"/>
   </concept>
+  <concept id="35489007" display="Depressive disorder (disorder)">
+    <display value="Depressive disorder (disorder)"/>
+    <display value="Depressive disorder"/>
+    <display value="Depressive episode"/>
+    <display value="Depressed"/>
+    <display value="Depression"/>
+    <display value="Depressive illness"/>
+    <display value="Mood disorder of depressed type"/>
+  </concept>
   <concept id="359615001" display="Partial lobectomy of lung (procedure)">
     <display value="Partial lobectomy of lung"/>
     <display value="Partial lobectomy of lung (procedure)"/>
@@ -2521,6 +2700,12 @@
     <display value="Moderate to severe (qualifier value)"/>
     <display value="Moderate to severe"/>
   </concept>
+  <concept id="3723001" display="Arthritis (disorder)">
+    <display value="Arthritis (disorder)"/>
+    <display value="Arthritis"/>
+    <display value="Inflammatory arthritis"/>
+    <display value="Joint inflammation"/>
+  </concept>
   <concept id="372306004" display="Extraprostatic extension of tumor present (finding)">
     <display value="Extraprostatic extension of tumor present"/>
   </concept>
@@ -2679,6 +2864,10 @@
     <display value="Medication administration: oral"/>
     <display value="Administration of drug or medicament via oral route (procedure)"/>
     <display value="Administration of drug or medicament via oral route"/>
+  </concept>
+  <concept id="386476006" display="Touch (regime/therapy)">
+    <display value="Touch (regime/therapy)"/>
+    <display value="Touch"/>
   </concept>
   <concept id="386619000" display="Low salt diet">
     <display value="Low sodium diet (finding)"/>
@@ -3140,6 +3329,11 @@
     <display value="Integument"/>
     <display value="Skin structure (body structure)"/>
   </concept>
+  <concept id="39953003" display="Tobacco (substance)">
+    <display value="Tobacco (substance)"/>
+    <display value="Tobacco - substance"/>
+    <display value="Tobacco"/>
+  </concept>
   <concept id="399713008" display="Specimen from uterine cervix obtained by cone biopsy (specimen)">
     <display value="Specimen from uterine cervix obtained by cone biopsy (specimen)"/>
     <display value="Specimen from uterine cervix obtained by cone biopsy"/>
@@ -3490,6 +3684,10 @@
   <concept id="414003" display="Gastric fundus structure (body structure)">
     <display value="Gastric fundus"/>
   </concept>
+  <concept id="414039005" display="Distraction (procedure)">
+    <display value="Distraction (procedure)"/>
+    <display value="Distraction"/>
+  </concept>
   <concept id="414135002" display="Estimated (qualifier value)">
     <display value="Estimated (qualifier value)"/>
     <display value="Estimated"/>
@@ -3637,6 +3835,10 @@
     <display value="Allergy to substance (disorder)"/>
     <display value="Allergy to substance"/>
   </concept>
+  <concept id="419284004" display="Altered mental status (finding)">
+    <display value="Altered mental status (finding)"/>
+    <display value="Altered mental status"/>
+  </concept>
   <concept id="419321007" display="Surgical oncology (qualifier value)">
     <display value="Surgical oncology (qualifier value)"/>
     <display value="Surgical oncology"/>
@@ -3744,6 +3946,10 @@
     <display value="Ischemic stroke (disorder)"/>
     <display value="Ischemic stroke"/>
     <display value="Ischaemic stroke"/>
+  </concept>
+  <concept id="424272000" display="Inadequate immune status (finding)">
+    <display value="Inadequate immune status (finding)"/>
+    <display value="Inadequate immune status"/>
   </concept>
   <concept id="424927000" display="Body weight with shoes (observable entity)">
     <display value="Body weight with shoes (observable entity)"/>
@@ -4394,6 +4600,11 @@
   <concept id="4797003" display="Papillary adenocarcinoma (morphologic abnormality)">
     <display value="Papillary adenocarcinoma"/>
   </concept>
+  <concept id="48079002" display="Disturbance in mood (finding)">
+    <display value="Disturbance in mood (finding)"/>
+    <display value="Disturbance in mood"/>
+    <display value="Mood alteration"/>
+  </concept>
   <concept id="48311003" display="Veteran&#39;s administration hospital (environment)">
     <display value="Veteran&#39;s administration hospital (environment)"/>
     <display value="Veteran&#39;s administration hospital"/>
@@ -4427,6 +4638,13 @@
     <display value="Caplet (qualifier value)"/>
     <display value="Caplet (substance)"/>
     <display value="Caplet"/>
+  </concept>
+  <concept id="48694002" display="Anxiety (finding)">
+    <display value="Anxiety (finding)"/>
+    <display value="Anxiety"/>
+    <display value="Anxiety reaction"/>
+    <display value="Anxiousness"/>
+    <display value="Feeling anxious"/>
   </concept>
   <concept id="49370004" display="Lateral (qualifier value)">
     <display value="Lateral (qualifier value)"/>
@@ -4476,6 +4694,10 @@
     <display value="Hospital-based birthing center"/>
     <display value="Hospital-based birthing center (environment)"/>
     <display value="Hospital-based birthing center"/>
+  </concept>
+  <concept id="53041004" display="Alcohol (substance)">
+    <display value="Alcohol (substance)"/>
+    <display value="Alcohol"/>
   </concept>
   <concept id="53120007" display="Upper limb structure (body structure)">
     <display value="Arm"/>
@@ -4533,6 +4755,12 @@
   <concept id="5584006" display="Hospital-based outpatient peripheral vascular clinic (environment)">
     <display value="Hospital-based outpatient peripheral vascular clinic"/>
     <display value="Hospital-based outpatient peripheral vascular clinic (environment)"/>
+  </concept>
+  <concept id="55929007" display="Feeling irritable (finding)">
+    <display value="Feeling irritable (finding)"/>
+    <display value="Feeling irritable"/>
+    <display value="Fussiness"/>
+    <display value="Irritability"/>
   </concept>
   <concept id="56189001" display="Hospital-based outpatient obstetrical clinic (environment)">
     <display value="Hospital-based outpatient obstetrical clinic (environment)"/>
@@ -4648,6 +4876,14 @@
     <display value="Kidney structure"/>
     <display value="Kidney structure (body structure)"/>
   </concept>
+  <concept id="64299003" display="Relaxation training therapy (regime/therapy)">
+    <display value="Relaxation training therapy (regime/therapy)"/>
+    <display value="RT - Relaxation training"/>
+    <display value="Relaxation training"/>
+    <display value="Relaxation therapy"/>
+    <display value="Relaxation training therapy"/>
+    <display value="Relaxation/breathing techniques treatments and procedures"/>
+  </concept>
   <concept id="64305001" display="Urticaria (morphologic abnormality)">
     <display value="Urticaria"/>
     <display value="Wheal"/>
@@ -4659,6 +4895,17 @@
   </concept>
   <concept id="64344009" display="Structure of neck of urinary bladder (body structure)">
     <display value="Structure of neck of urinary bladder"/>
+  </concept>
+  <concept id="64572001" display="Disease (disorder)">
+    <display value="Disease (disorder)"/>
+    <display value="Clinical disease AND/OR syndrome"/>
+    <display value="Clinical disease AND/OR syndrome present"/>
+    <display value="Disease"/>
+    <display value="Disesase AND/OR syndrome present"/>
+    <display value="Deseases"/>
+    <display value="Disorder"/>
+    <display value="Disorders"/>
+    <display value="Syndrome"/>
   </concept>
   <concept id="64766004" display="Ulcerative colitis (disorder)">
     <display value="Chronic ulcerative colitis"/>
@@ -4711,6 +4958,12 @@
     <display value="Vermiform appendix"/>
     <display value="Appendix structure"/>
     <display value="Appendix structure (body structure)"/>
+  </concept>
+  <concept id="66857006" display="">
+    <display value="Hemoptysis (disorder)"/>
+    <display value="Coughing up blood"/>
+    <display value="Hemoptysis"/>
+    <display value="Haemoptysis"/>
   </concept>
   <concept id="67101007" display="TX category (finding)">
     <display value="TX category"/>
@@ -4793,6 +5046,10 @@
     <display value="Referral for procedure"/>
     <display value="Referral for procedure (procedure)"/>
   </concept>
+  <concept id="7087005" display="Intermittent (qualifier value)">
+    <display value="Intermittent (qualifier value)"/>
+    <display value="Intermittent"/>
+  </concept>
   <concept id="70901006" display="Creatinine measurement (procedure)">
     <display value="Creatinine measurement"/>
     <display value="Creatinine measurement, NOS"/>
@@ -4811,6 +5068,11 @@
     <display value="Cervix uteri structure (body structure)"/>
   </concept>
   <concept id="71341001:272741003=7771000" display="Bone structure of femur (body structure) where Laterality (attribute) = Left (qualifier value)"/>
+  <concept id="71393004" display="Soreness (finding)">
+    <display value="Soreness (finding)"/>
+    <display value="Soreness"/>
+    <display value="Sore pain"/>
+  </concept>
   <concept id="71878006" display="Calcium measurement (procedure)">
     <display value="Calcium measurement"/>
     <display value="Calcium measurement, NOS"/>
@@ -4853,6 +5115,12 @@
     <display value="Inactive"/>
     <display value="Inactive (qualifier value)"/>
   </concept>
+  <concept id="73595000" display="Stress (finding)">
+    <display value="Stress (finding)"/>
+    <display value="Psychological stress"/>
+    <display value="State of stress"/>
+    <display value="Stress"/>
+  </concept>
   <concept id="73644007" display="Hospital-based outpatient endocrinology clinic (environment)">
     <display value="Hospital-based outpatient endocrinology clinic"/>
     <display value="Hospital-based outpatient endocrinology clinic (environment)"/>
@@ -4893,6 +5161,11 @@
     <display value="High"/>
     <display value="Elevated"/>
     <display value="High (qualifier value)"/>
+  </concept>
+  <concept id="76168009" display="Group psychotherapy (regime/therapy)">
+    <display value="Group psychotherapy (regime/therapy)"/>
+    <display value="Group psychotherapy"/>
+    <display value="Group therapy"/>
   </concept>
   <concept id="76902006" display="Tetanus (disorder)">
     <display value="Tetanus"/>
@@ -4993,6 +5266,11 @@
     <display value="Rehabilitation hospital"/>
     <display value="Rehabilitation hospital (environment)"/>
   </concept>
+  <concept id="80638004" display="Work-related activity, function (observable entity)">
+    <display value="Work-related activity, function (observable entity)"/>
+    <display value="Work-related activity"/>
+    <display value="Work-related activity, function"/>
+  </concept>
   <concept id="80657008" display="Bronchoscopy with brush biopsy (procedure)">
     <display value="Bronchoscopy with brush biopsy"/>
     <display value="Bronchoscopy with bronchial brushings"/>
@@ -5049,6 +5327,12 @@
     <display value="Doctor&#39;s office"/>
     <display value="Solo practice private office (environment)"/>
   </concept>
+  <concept id="84229001" display="Fatigue (finding)">
+    <display value=" Fatigue (finding)"/>
+    <display value="Fatigue"/>
+    <display value="Tiredness"/>
+    <display value="Weariness"/>
+  </concept>
   <concept id="8517006" display="Ex-smoker (finding)">
     <display value="Ex-smoker (finding)"/>
     <display value="Former smoker"/>
@@ -5068,6 +5352,11 @@
     <display value="Powdered drug preparation"/>
     <display value="Drug powder (qualifier value)"/>
     <display value="Drug powder (substance)"/>
+  </concept>
+  <concept id="85614001" display="Environmental intervention (regime/therapy)">
+    <display value="Environmental intervention (regime/therapy)"/>
+    <display value="Environmental intervention"/>
+    <display value="Milieu therapy"/>
   </concept>
   <concept id="86184003" display="Electrocardiographic monitor and recorder, device (physical object)">
     <display value="Electrocardiographic monitor and recorder"/>

@@ -230,7 +230,7 @@
   Binding = AddressType
 
  -- Row 11 -----------------------------------
-  Element = Patient.maritalStatus
+  Element = !Patient.maritalStatus
   Profile Name = AdministrativeMaritalStatus
   Binding = HSPCMaritalStatus
 
@@ -245,11 +245,18 @@
   Profile Name = emergencyContact
   Card. = 0..1
   Type = CodeableConcept
+  Value = <code><coding><system value=\"http://hl7.org/fhir/ValueSet/patient-contact-relationship\"/><code value=\"emergency\"/><display value=\"Emergency\"/></coding></code>
 
  -- Row 14 -----------------------------------
-  Element = Patient.communication
+  Element = Patient.contact.extension
+  Profile Name = contactPartyId
+  Card. = 0..1
+  Type = Extension{#ContactPartyId}
 
  -- Row 15 -----------------------------------
+  Element = Patient.communication
+
+ -- Row 16 -----------------------------------
   Element = Patient.communication.extension
   Profile Name = communication.mode
   Card. = 0..1
@@ -257,73 +264,73 @@
   Binding = CommunicationMode
   Comments = HL7 Comm. Mode. TBD
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Patient.militaryService
   Profile Name = militaryService
   Binding = VeteranMilitaryStatus
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Patient.extension
   Profile Name = birthDateVerificationMethod
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsbirthDateVerificationMethod}
   Binding = BirthDateVerifiedMethod
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Patient.extension
   Profile Name = patientImportance
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionspatientImportance}
   Binding = VIPLevel
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Patient.deceasedBoolean
   Profile Name = deceasedInd
   Card. = 0..1
   Type = boolean
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Patient.extension
   Profile Name = deceasedDate
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeceasedDateTime}
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Patient.multipleBirthBoolean
   Profile Name = multipleBirthInd
   Card. = 0..1
   Type = boolean
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Patient.extension
   Profile Name = multipleBirthOrderNumber
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsmultipleBirthOrderNumber}
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Patient.extension
   Profile Name = citezenship
   Card. = 0..*
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscitezenship}
   Binding = USCountry
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Patient.extension.extension
   Profile Name = citezenshipPeriod
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionscitezenshipPeriod}
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Patient.extension
   Profile Name = adoptionInfo
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsadoptionInfo}
   Binding = AdoptionInfo
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Patient.patient-clinicalTrial
   Card. = 0..0
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Patient.patient-birthTime
   Card. = 0..0

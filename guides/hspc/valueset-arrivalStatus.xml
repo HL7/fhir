@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="HSPC Patient Arrival Status"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <description value="The codes that describe whether or not the patient has arrived at the specified location for the encounter."/>
+  <copyright value="This value set includes content from and copyrighted by Intermountain Healthcare HDD"/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/hspc-arrivalStatus"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="2000000339"/>
+      <display value="Arrived"/>
+      <definition value="The patient is present at the service delivery location."/>
+    </concept>
+    <concept>
+      <code value="51084650"/>
+      <display value="In transit"/>
+      <definition value="The patient is currently travelling to the service delivery location."/>
+    </concept>
+  </codeSystem>
+</ValueSet>

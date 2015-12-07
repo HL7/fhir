@@ -154,9 +154,9 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-labOrder-profile-spreadsheet.xml"/>
     </extension>
-<!--    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-radiologyOrder-profile-spreadsheet.xml"/>
-    </extension>-->
+    </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-alteredmentalstatus-profile-spreadsheet.xml"/>
     </extension>

@@ -36,6 +36,7 @@
   Context = Observation
   English = Must have either a value or a dataAbsentReason but not both
   XPath = (f:value or f:dataAbsentReason) and (not(f:value and f:dataAbsentReason))
+  Expression = value xor dataAbsentReason
   Severity = error
 
 === Sheet hspc-stdreal =====================================

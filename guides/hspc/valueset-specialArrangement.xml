@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <version value="0.01"/>
-  <name value="ReportingPriority"/>
+  <name value="HSPC Special Arrangement"/>
   <status value="draft"/>
-  <publisher value="Intermountain Healthcare"/>
+  <publisher value="HSPC"/>
   <contact>
     <telecom>
       <system value="other"/>
-      <value value="http://www.clinicaleleement.com"/>
+      <value value="http://healthcaresoa.org"/>
     </telecom>
   </contact>
-  <date value="2014-06-25"/>
-  <description value="HL7 V3: ActPriority* HL7 V3: ActPriority (2.16.840.1.113883.5.7) code system values,  and CKS ECIDS."/>
-  <copyright value="IHC"/>
+  <date value="2014-12-03"/>
+  <description value="HL7 V3: Special Arrangement* HL7 V3: SpecialArrangement (2.16.840.1.113883.19.6.1) code system values."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/ActPriority"/>
+      <system value="http://hl7.org/fhir/v3/SpecialArrangement"/>
     </include>
   </compose>
 </ValueSet>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <version value="0.01"/>
+  <name value="HSPC Encounter Reason"/>
+  <status value="draft"/>
+  <publisher value="HSPC"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
+  </contact>
+  <date value="2014-12-03"/>
+  <description value="HL7 V3: ActReason* HL7 V3: ActREason (2.16.840.1.113883.5.8) code system values,  and CKS ECIDS."/>
+  <copyright value="IHC"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <concept>
+			<code value="MEDNEC"/>
+			<display value="Medical Necessity"/>
+		</concept>
+		<concept>
+			<code value="PAT"/>
+			<display value="Patient Request"/>
+		</concept>
+		<concept>
+			<code value="HLEGAL"/>
+			<display value="Legal"/>
+		</concept>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,29 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = DoseForm
+  Binding = value set
+  Reference = valueset-doseForm
+  Definition = A set of codes that describe the physical form a medication is in.
+  Conformance = preferred
+
+=== Sheet hspc-medstatement =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationStatement
+  Profile Name = HSPC MedicationStatement
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = MedicationStatement.medication
+
+ -- Row 3 -----------------------------------
+  Element = MedicationStatement.medication.product
+
+ -- Row 4 -----------------------------------
+  Element = MedicationStatement.medication.product.form
+  Profile Name = DoseForm
+  Binding = DoseForm
+
+=== Sheet Search =====================================
