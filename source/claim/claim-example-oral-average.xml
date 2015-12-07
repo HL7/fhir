@@ -95,7 +95,7 @@
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="21211"/>
    </serviceCode>
-   <serviceDateDate value="2014-08-16"/>
+   <serviceDate value="2014-08-16"/>
    <unitPrice>
      <value value="105.00"/>
      <system value="urn:iso:std:iso:4217"/>
@@ -128,7 +128,7 @@
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="27211"/>
    </serviceCode>
-   <serviceDateDate value="2014-08-16"/>
+   <serviceDate value="2014-08-16"/>
    <unitPrice>
      <value value="1100.00"/>
      <system value="urn:iso:std:iso:4217"/>
