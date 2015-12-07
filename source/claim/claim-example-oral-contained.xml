@@ -115,6 +115,7 @@
       <code value="self"/>
     </relationship>
   </coverage>
+  
   <item>
     <sequence value="1"/>
     <type>
@@ -123,10 +124,10 @@
     <provider>
       <reference value="#practitioner-1"/>
     </provider>
-    <serviceCode>
+    <service>
       <code value="1200"/>
-    </serviceCode>
-    <serviceDate value="2014-08-16"/>
+    </service>
+    <servicedDate value="2014-08-16"/>
     <unitPrice>
       <value value="135.57"/>
       <system value="urn:iso:std:iso:4217"/>

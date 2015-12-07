@@ -67,10 +67,10 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <serviceCode>
+   <service>
      <code value="1200"/>
-   </serviceCode>
-   <serviceDate value="2014-08-16"/>
+   </service>
+   <servicedDate value="2014-08-16"/>
    <unitPrice>
       <value value="135.57"/>
       <system value="urn:iso:std:iso:4217"/>

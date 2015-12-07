@@ -66,11 +66,11 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <serviceCode>
+   <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="1200"/>
-   </serviceCode>
-   <serviceDate value="2014-08-16"/>
+   </service>
+   <servicedDate value="2014-08-16"/>
    <unitPrice>
      <value value="135.57"/>
      <system value="urn:iso:std:iso:4217"/>
@@ -91,11 +91,11 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <serviceCode>
+   <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="21211"/>
-   </serviceCode>
-   <serviceDate value="2014-08-16"/>
+   </service>
+   <servicedDate value="2014-08-16"/>
    <unitPrice>
      <value value="105.00"/>
      <system value="urn:iso:std:iso:4217"/>
@@ -124,11 +124,11 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <serviceCode>
+   <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="27211"/>
-   </serviceCode>
-   <serviceDate value="2014-08-16"/>
+   </service>
+   <servicedDate value="2014-08-16"/>
    <unitPrice>
      <value value="1100.00"/>
      <system value="urn:iso:std:iso:4217"/>
@@ -148,10 +148,10 @@
      <type>
        <code value="service"/>
      </type>
-     <serviceCode>
+     <service>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="27211"/>
-     </serviceCode>
+     </service>
      <unitPrice>
        <value value="750.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -168,10 +168,10 @@
      <type>
        <code value="service"/>
      </type>
-     <serviceCode>
+     <service>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="lab"/>
-     </serviceCode>
+     </service>
      <unitPrice>
        <value value="350.00"/>
        <system value="urn:iso:std:iso:4217"/>

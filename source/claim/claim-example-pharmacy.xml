@@ -66,11 +66,11 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <serviceCode>
+   <service>
      <system value="http://hl7.org/fhir/ex-pharmaservice"/>
      <code value="smokecess"/> <!-- smoking cessation consult -->
-   </serviceCode>
-   <serviceDate value="2014-08-16"/>
+   </service>
+   <servicedDate value="2014-08-16"/>
    <unitPrice>
       <value value="60.00"/>
 	  <system value="urn:iso:std:iso:4217"/>

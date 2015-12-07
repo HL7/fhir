@@ -656,7 +656,7 @@
   Definition = Diagnosis applicable for this service or product line.
 
  -- Row 63 -----------------------------------
-  Element = Claim.item.serviceCode
+  Element = Claim.item.service
   Card. = 1..1
   Type = Coding
   Binding = ServiceProduct
@@ -664,7 +664,7 @@
   Definition = If a grouping item then \'GROUP\' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
 
  -- Row 64 -----------------------------------
-  Element = Claim.item.service[x]
+  Element = Claim.item.serviced[x]
   Card. = 0..1
   Type = date|Period
   Short Label = Date or dates of Service
@@ -777,7 +777,7 @@
   Definition = The type of product or service.
 
  -- Row 79 -----------------------------------
-  Element = Claim.item.detail.serviceCode
+  Element = Claim.item.detail.service
   Card. = 1..1
   Type = Coding
   Binding = ServiceProduct
@@ -859,7 +859,7 @@
   Definition = The type of product or service.
 
  -- Row 90 -----------------------------------
-  Element = Claim.item.detail.subDetail.serviceCode
+  Element = Claim.item.detail.subDetail.service
   Card. = 1..1
   Type = Coding
   Binding = ServiceProduct

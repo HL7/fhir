@@ -3073,7 +3073,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.serviceCode</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3108,7 +3108,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Claim.item.service[x]</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Claim.item.serviced[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3609,7 +3609,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.detail.serviceCode</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.detail.service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3972,7 +3972,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.detail.subDetail.serviceCode</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.detail.subDetail.service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4478,7 +4478,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>97</TopRowBottomPane>
+   <TopRowBottomPane>87</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4495,8 +4495,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>93</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>92</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

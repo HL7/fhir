@@ -70,11 +70,11 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <serviceCode>
+   <service>
      <system value="http://hl7.org/fhir/ex-visionservice"/>
      <code value="glasses"/>
-   </serviceCode>
-   <serviceDate value="2014-08-16"/>
+   </service>
+   <servicedDate value="2014-08-16"/>
    <unitPrice>
       <value value="214.00"/>
 	  <system value="urn:iso:std:iso:4217"/>
@@ -90,10 +90,10 @@
      <type>
        <code value="product"/>
      </type>
-     <serviceCode>
+     <service>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="frame"/>
-     </serviceCode>
+     </service>
      <unitPrice>
        <value value="100.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -110,10 +110,10 @@
      <type>
        <code value="product"/>
      </type>
-     <serviceCode>
+     <service>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="lens"/>
-     </serviceCode>
+     </service>
      <quantity>
        <value value="2"/>
      </quantity>
@@ -133,10 +133,10 @@
      <type>
        <code value="tax"/>
      </type>
-     <serviceCode>
+     <service>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="fst"/>
-     </serviceCode>
+     </service>
      <unitPrice>
        <value value="200.00"/>
        <system value="urn:iso:std:iso:4217"/>

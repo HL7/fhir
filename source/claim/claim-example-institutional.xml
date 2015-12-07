@@ -66,11 +66,11 @@
    <provider>
      <reference value="Practitioner/example"/>
    </provider>
-   <serviceCode>
+   <service>
      <system value="http://hl7.org/fhir/ex-serviceproduct"/>
      <code value="exam"/> 
-   </serviceCode>
-   <serviceDate value="2014-08-16"/>
+   </service>
+   <servicedDate value="2014-08-16"/>
    <unitPrice>
       <value value="125.00"/>
 	  <system value="urn:iso:std:iso:4217"/>
