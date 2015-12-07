@@ -1,0 +1,2921 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="argonaut-provider" />
+  <meta>
+    <lastUpdated value="2015-09-22T20:02:49.724+10:00" />
+  </meta>
+  <language value="en" />
+  <url value="http://hl7.org/fhir/StructureDefinition/argonaut-provider" />
+  <name value="Argonaut Provider Directory Practitioner Profile" />
+  <display value="Provider Directory Practitioner Profile" />
+  <status value="draft" />
+  <experimental value="false" />
+  <publisher value="Argonaut Project" />
+  <contact>
+    <name value="Grahame Grieve" />
+    <telecom>
+      <system value="email" />
+      <value value="grahame@healthintersections.com.au" />
+    </telecom>
+  </contact>
+  <date value="2015-09-22T20:02:49+10:00" />
+  <description value="Argonaut Profile on Practitioner Resource to support the Provider Directory Project" />
+  <useContext>
+    <coding>
+      <system value="urn:iso:std:iso:3166" />
+      <code value="US" />
+      <display value="United States of America (the)" />
+      <userSelected value="true" />
+    </coding>
+  </useContext>
+  <requirements value="As agree by Argonaut project " />
+  <copyright value="Licensed under Create Commons 0 (Public Domain)" />
+  <fhirVersion value="1.0.1" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM" />
+  </mapping>
+  <mapping>
+    <identity value="servd" />
+    <uri value="http://www.omg.org/spec/ServD/1.0/" />
+    <name value="ServD" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/w5" />
+    <name value="W5 Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <constrainedType value="Practitioner" />
+  <abstract value="false" />
+  <base value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+  <differential>
+    <element>
+      <path value="Practitioner" />
+      <short value="A person with a  formal responsibility in the provisioning of healthcare or related services" />
+      <definition value="A person who is directly or indirectly involved in the provisioning of healthcare." />
+      <comments value="Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Practitioner" />
+      </type>
+      <mustSupport value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD (as one example)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="Provider" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="administrative.individual" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier" />
+      <slicing>
+        <discriminator value="system" />
+        <rules value="openAtEnd" />
+      </slicing>
+      <short value="A identifier for the person as this agent" />
+      <definition value="An identifier that applies to this person in this role." />
+      <requirements value="Often, specific identities are assigned for the agent." />
+      <min value="0" />
+      <max value="*" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Practitioner.identifier.type" />
+      <short value="Description of identifier" />
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
+      <comments value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type." />
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <mustSupport value="false" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="extensible" />
+        <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier" />
+      <name value="DEA Number" />
+      <short value="A identifier for the person as this agent" />
+      <definition value="An identifier that applies to this person in this role." />
+      <requirements value="Often, specific identities are assigned for the agent." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD-7 (or XCN.1)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./id" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Identifiers" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="id" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.use" />
+      <short value="usual | official | temp | secondary (If known)" />
+      <definition value="The purpose of this identifier." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary." />
+      <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Identifies the purpose for this identifier, if known ." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.type" />
+      <short value="Description of identifier" />
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
+      <comments value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type." />
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="extensible" />
+        <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.system" />
+      <short value="The namespace for the identifier" />
+      <definition value="Establishes the namespace in which set of possible id values is unique." />
+      <requirements value="There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://www.dea.gov/" />
+      <exampleUri value="http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the Identifier.value itself is a full uri" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / EI-2-4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.root or Role.id.root" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.value" />
+      <short value="The value that is unique" />
+      <definition value="The portion of the identifier typically displayed to the user and which is unique within the context of the system." />
+      <comments value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="AB2345690" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.1 / EI.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.assigner" />
+      <short value="Organization that issued id (may be just text)" />
+      <definition value="Organization that issued/manages the identifier." />
+      <comments value="The reference may be just a text description of the assigner." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / (CX.4,CX.9,CX.10)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierIssuingAuthority" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier" />
+      <name value="Dentist License Number" />
+      <short value="A identifier for the person as this agent" />
+      <definition value="An identifier that applies to this person in this role." />
+      <requirements value="Often, specific identities are assigned for the agent." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD-7 (or XCN.1)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./id" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Identifiers" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="id" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.use" />
+      <short value="usual | official | temp | secondary (If known)" />
+      <definition value="The purpose of this identifier." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary." />
+      <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Identifies the purpose for this identifier, if known ." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.type" />
+      <short value="Description of identifier" />
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
+      <comments value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type." />
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="extensible" />
+        <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.system" />
+      <short value="The namespace for the identifier" />
+      <definition value="Establishes the namespace in which set of possible id values is unique." />
+      <requirements value="There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://example.org/DentistLicenseNumber" />
+      <exampleUri value="http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the Identifier.value itself is a full uri" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / EI-2-4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.root or Role.id.root" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.value" />
+      <short value="The value that is unique" />
+      <definition value="The portion of the identifier typically displayed to the user and which is unique within the context of the system." />
+      <comments value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="123" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.1 / EI.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.assigner" />
+      <short value="Organization that issued id (may be just text)" />
+      <definition value="Organization that issued/manages the identifier." />
+      <comments value="The reference may be just a text description of the assigner." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / (CX.4,CX.9,CX.10)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierIssuingAuthority" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier" />
+      <name value="Medicaid Number" />
+      <short value="A identifier for the person as this agent" />
+      <definition value="An identifier that applies to this person in this role." />
+      <requirements value="Often, specific identities are assigned for the agent." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD-7 (or XCN.1)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./id" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Identifiers" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="id" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.use" />
+      <short value="usual | official | temp | secondary (If known)" />
+      <definition value="The purpose of this identifier." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary." />
+      <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Identifies the purpose for this identifier, if known ." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.type" />
+      <short value="Description of identifier" />
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
+      <comments value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type." />
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="extensible" />
+        <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.system" />
+      <short value="The namespace for the identifier" />
+      <definition value="Establishes the namespace in which set of possible id values is unique." />
+      <requirements value="There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://www.medicaid.gov" />
+      <exampleUri value="http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the Identifier.value itself is a full uri" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / EI-2-4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.root or Role.id.root" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.value" />
+      <short value="The value that is unique" />
+      <definition value="The portion of the identifier typically displayed to the user and which is unique within the context of the system." />
+      <comments value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="21123" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.1 / EI.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.assigner" />
+      <short value="Organization that issued id (may be just text)" />
+      <definition value="Organization that issued/manages the identifier." />
+      <comments value="The reference may be just a text description of the assigner." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / (CX.4,CX.9,CX.10)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierIssuingAuthority" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier" />
+      <name value="Medicare Number" />
+      <short value="A identifier for the person as this agent" />
+      <definition value="An identifier that applies to this person in this role." />
+      <requirements value="Often, specific identities are assigned for the agent." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD-7 (or XCN.1)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./id" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Identifiers" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="id" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.use" />
+      <short value="usual | official | temp | secondary (If known)" />
+      <definition value="The purpose of this identifier." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary." />
+      <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Identifies the purpose for this identifier, if known ." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.type" />
+      <short value="Description of identifier" />
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
+      <comments value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type." />
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="extensible" />
+        <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.system" />
+      <short value="The namespace for the identifier" />
+      <definition value="Establishes the namespace in which set of possible id values is unique." />
+      <requirements value="There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://www.medicare.gov" />
+      <exampleUri value="http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the Identifier.value itself is a full uri" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / EI-2-4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.root or Role.id.root" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.value" />
+      <short value="The value that is unique" />
+      <definition value="The portion of the identifier typically displayed to the user and which is unique within the context of the system." />
+      <comments value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="23432" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.1 / EI.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.assigner" />
+      <short value="Organization that issued id (may be just text)" />
+      <definition value="Organization that issued/manages the identifier." />
+      <comments value="The reference may be just a text description of the assigner." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / (CX.4,CX.9,CX.10)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierIssuingAuthority" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier" />
+      <name value="NPI" />
+      <short value="A identifier for the person as this agent" />
+      <definition value="An identifier that applies to this person in this role." />
+      <requirements value="Often, specific identities are assigned for the agent." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD-7 (or XCN.1)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./id" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Identifiers" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="id" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.use" />
+      <short value="usual | official | temp | secondary (If known)" />
+      <definition value="The purpose of this identifier." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary." />
+      <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Identifies the purpose for this identifier, if known ." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.type" />
+      <short value="Description of identifier" />
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
+      <comments value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type." />
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="extensible" />
+        <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.system" />
+      <short value="The namespace for the identifier" />
+      <definition value="Establishes the namespace in which set of possible id values is unique." />
+      <requirements value="There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://hl7.org/fhir/sid/us-npi" />
+      <exampleUri value="http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the Identifier.value itself is a full uri" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / EI-2-4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.root or Role.id.root" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.value" />
+      <short value="The value that is unique" />
+      <definition value="The portion of the identifier typically displayed to the user and which is unique within the context of the system." />
+      <comments value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="1369569128" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.1 / EI.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.assigner" />
+      <short value="Organization that issued id (may be just text)" />
+      <definition value="Organization that issued/manages the identifier." />
+      <comments value="The reference may be just a text description of the assigner." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / (CX.4,CX.9,CX.10)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierIssuingAuthority" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier" />
+      <name value="SSN" />
+      <short value="A identifier for the person as this agent" />
+      <definition value="An identifier that applies to this person in this role." />
+      <requirements value="Often, specific identities are assigned for the agent." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Identifier" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD-7 (or XCN.1)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./id" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Identifiers" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="id" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.use" />
+      <short value="usual | official | temp | secondary (If known)" />
+      <definition value="The purpose of this identifier." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary." />
+      <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Identifies the purpose for this identifier, if known ." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.type" />
+      <short value="Description of identifier" />
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose." />
+      <comments value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type." />
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <isSummary value="true" />
+      <binding>
+        <strength value="extensible" />
+        <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="Role.code or implied by context" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.system" />
+      <short value="The namespace for the identifier" />
+      <definition value="Establishes the namespace in which set of possible id values is unique." />
+      <requirements value="There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://hl7.org/fhir/sid/us-ssn" />
+      <exampleUri value="http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the Identifier.value itself is a full uri" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / EI-2-4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.root or Role.id.root" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.value" />
+      <short value="The value that is unique" />
+      <definition value="The portion of the identifier typically displayed to the user and which is unique within the context of the system." />
+      <comments value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="983232323" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.1 / EI.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.identifier.assigner" />
+      <short value="Organization that issued id (may be just text)" />
+      <definition value="Organization that issued/manages the identifier." />
+      <comments value="The reference may be just a text description of the assigner." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="CX.4 / (CX.4,CX.9,CX.10)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./IdentifierIssuingAuthority" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.active" />
+      <short value="Whether this practitioner's record is in active use" />
+      <definition value="Whether this practitioner's record is in active use." />
+      <comments value="Default is true" />
+      <requirements value="Only active records to be exposed&#xD;&#xA;" />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <defaultValueBoolean value="true" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="rim" />
+        <map value="./StatusCode" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="status" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.name" />
+      <short value="A name associated with the person" />
+      <definition value="A name associated with the person." />
+      <requirements value="Contact persons need to be identified by name, but it is uncommon to need details about multiple other names for that person." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="HumanName" />
+      </type>
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XCN Components" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./name" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./PreferredName (GivenNames, FamilyName, TitleCode)" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.name.use" />
+      <short value="usual | official | temp | nickname | anonymous | old | maiden" />
+      <definition value="Identifies the purpose for this name." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old name etc.for a current/permanent one. Applications can assume that a name is current unless it explicitly says that it is temporary or old." />
+      <requirements value="Allows the appropriate name for a particular context of use to be selected from among a set of names." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="The use of a human name" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/name-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XPN.7, but often indicated by which field contains the name" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="unique(./use)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./NamePurpose" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.name.text" />
+      <short value="Text representation of the full name" />
+      <definition value="A full text representation of the name." />
+      <comments value="Structured names only" />
+      <requirements value="A renderable, unencoded form." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="string" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="implied by XPN.11" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./formatted" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.name.family" />
+      <name value="Last Name" />
+      <short value="Last Name" />
+      <definition value="The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father." />
+      <comments value="Only one family name in US usage" />
+      <alias value="surname" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Jones" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XPN.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./part[partType = FAM]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./FamilyName" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.name.given" />
+      <slicing>
+        <description value="sliced by position" />
+        <rules value="openAtEnd" />
+      </slicing>
+      <short value="Given names (not always 'first'). Includes middle names" />
+      <definition value="Given name." />
+      <comments value="If only initials are recorded, they may be used in place of the full name.  Not called &quot;first name&quot; since given names do not always come first." />
+      <min value="1" />
+      <max value="2" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Practitioner.name.given" />
+      <name value="first name" />
+      <short value="First Name" />
+      <definition value="Given name." />
+      <comments value="If only initials are recorded, they may be used in place of the full name.  Not called &quot;first name&quot; since given names do not always come first." />
+      <alias value="first name" />
+      <alias value="middle name" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Bob" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XPN.2 + XPN.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./part[partType = GIV]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./GivenNames" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.name.given" />
+      <name value="middle name" />
+      <short value="Middle Name" />
+      <definition value="Given name." />
+      <comments value="Is often just an initial&#xD;&#xA;" />
+      <alias value="first name" />
+      <alias value="middle name" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="M" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XPN.2 + XPN.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./part[partType = GIV]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./GivenNames" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.name.prefix" />
+      <short value="Name Prefix" />
+      <definition value="Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Dr" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XPN.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./part[partType = PFX]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./TitleCode" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.name.suffix" />
+      <short value="Name Suffix" />
+      <definition value="Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="MD" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XPN/4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./part[partType = SFX]" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.name.period" />
+      <short value="Time period when name was/is in use" />
+      <definition value="Indicates the period of time when this name was valid for the named person." />
+      <requirements value="Allows names to be placed in historical context." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Period" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XPN.13 + XPN.14" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StartDate and ./EndDate" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom" />
+      <slicing>
+        <discriminator value="system" />
+        <discriminator value="use" />
+        <rules value="openAtEnd" />
+      </slicing>
+      <short value="A contact detail for the practitioner" />
+      <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
+      <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
+      <requirements value="Need to know how to reach a practitioner." />
+      <min value="0" />
+      <max value="*" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Practitioner.telecom" />
+      <name value="email" />
+      <short value="A contact detail for the practitioner" />
+      <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
+      <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
+      <requirements value="Need to know how to reach a practitioner." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRT-15, STF-10, ROL-12" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./telecom" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPoints" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.extension" />
+      <slicing>
+        <discriminator value="url" />
+        <rules value="openAtEnd" />
+      </slicing>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.extension" />
+      <name value="MyExtension" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/us-core-direct" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element>
+      <path value="Practitioner.telecom.system" />
+      <short value="phone | fax | email | pager | other" />
+      <definition value="Telecommunications form for contact point - what communications system is required to make use of the contact." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="email" />
+      <condition value="cpt-2" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Telecommunications form for contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-system" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./scheme" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.value" />
+      <short value="The actual contact point details" />
+      <definition value="The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)." />
+      <comments value="Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value." />
+      <requirements value="Need to support legacy numbers that are not in a tightly controlled format." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="example@surescripts.com" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.1 (or XTN.12)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./url" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.use" />
+      <short value="home | work | temp | old | mobile - purpose of this contact point" />
+      <definition value="Identifies the purpose for the contact point." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc.for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old." />
+      <requirements value="Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Use of contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.2 - but often indicated by field" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="unique(./use)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointPurpose" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.period" />
+      <short value="Time period when the contact point was/is in use" />
+      <definition value="Time period when the contact point was/is in use." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Period" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./useablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StartDate and ./EndDate" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom" />
+      <name value="fax" />
+      <short value="A contact detail for the practitioner" />
+      <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
+      <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
+      <requirements value="Need to know how to reach a practitioner." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRT-15, STF-10, ROL-12" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./telecom" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPoints" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.system" />
+      <short value="phone | fax | email | pager | other" />
+      <definition value="Telecommunications form for contact point - what communications system is required to make use of the contact." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="fax" />
+      <condition value="cpt-2" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Telecommunications form for contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-system" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./scheme" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.value" />
+      <short value="The actual contact point details" />
+      <definition value="The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)." />
+      <comments value="Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value." />
+      <requirements value="Need to support legacy numbers that are not in a tightly controlled format." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="6518553001" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.1 (or XTN.12)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./url" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.use" />
+      <short value="home | work | temp | old | mobile - purpose of this contact point" />
+      <definition value="Identifies the purpose for the contact point." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc.for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old." />
+      <requirements value="Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Use of contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.2 - but often indicated by field" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="unique(./use)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointPurpose" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.period" />
+      <short value="Time period when the contact point was/is in use" />
+      <definition value="Time period when the contact point was/is in use." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Period" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./useablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StartDate and ./EndDate" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom" />
+      <name value="home phone" />
+      <short value="A contact detail for the practitioner" />
+      <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
+      <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
+      <requirements value="Need to know how to reach a practitioner." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRT-15, STF-10, ROL-12" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./telecom" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPoints" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.system" />
+      <short value="phone | fax | email | pager | other" />
+      <definition value="Telecommunications form for contact point - what communications system is required to make use of the contact." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="phone" />
+      <condition value="cpt-2" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Telecommunications form for contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-system" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./scheme" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.value" />
+      <short value="The actual contact point details" />
+      <definition value="The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)." />
+      <comments value="Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value." />
+      <requirements value="Need to support legacy numbers that are not in a tightly controlled format." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="6122765459" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.1 (or XTN.12)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./url" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.use" />
+      <short value="home | work | temp | old | mobile - purpose of this contact point" />
+      <definition value="Identifies the purpose for the contact point." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc.for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old." />
+      <requirements value="Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="home" />
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Use of contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.2 - but often indicated by field" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="unique(./use)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointPurpose" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.period" />
+      <short value="Time period when the contact point was/is in use" />
+      <definition value="Time period when the contact point was/is in use." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Period" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./useablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StartDate and ./EndDate" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom" />
+      <name value="mobile phone" />
+      <short value="A contact detail for the practitioner" />
+      <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
+      <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
+      <requirements value="Need to know how to reach a practitioner." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRT-15, STF-10, ROL-12" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./telecom" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPoints" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.system" />
+      <short value="phone | fax | email | pager | other" />
+      <definition value="Telecommunications form for contact point - what communications system is required to make use of the contact." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="phone" />
+      <condition value="cpt-2" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Telecommunications form for contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-system" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./scheme" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.value" />
+      <short value="The actual contact point details" />
+      <definition value="The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)." />
+      <comments value="Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value." />
+      <requirements value="Need to support legacy numbers that are not in a tightly controlled format." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="6122765459" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.1 (or XTN.12)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./url" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.use" />
+      <short value="home | work | temp | old | mobile - purpose of this contact point" />
+      <definition value="Identifies the purpose for the contact point." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc.for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old." />
+      <requirements value="Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="mobile" />
+      <mustSupport value="true" />
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Use of contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.2 - but often indicated by field" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="unique(./use)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointPurpose" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.period" />
+      <short value="Time period when the contact point was/is in use" />
+      <definition value="Time period when the contact point was/is in use." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Period" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./useablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StartDate and ./EndDate" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom" />
+      <name value="work phone" />
+      <short value="A contact detail for the practitioner" />
+      <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
+      <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
+      <requirements value="Need to know how to reach a practitioner." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRT-15, STF-10, ROL-12" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./telecom" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPoints" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.system" />
+      <short value="phone | fax | email | pager | other" />
+      <definition value="Telecommunications form for contact point - what communications system is required to make use of the contact." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="phone" />
+      <condition value="cpt-2" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Telecommunications form for contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-system" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./scheme" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.value" />
+      <short value="The actual contact point details" />
+      <definition value="The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)." />
+      <comments value="Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value." />
+      <requirements value="Need to support legacy numbers that are not in a tightly controlled format." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="6122765459" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.1 (or XTN.12)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./url" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.use" />
+      <short value="home | work | temp | old | mobile - purpose of this contact point" />
+      <definition value="Identifies the purpose for the contact point." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc.for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old." />
+      <requirements value="Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="work" />
+      <mustSupport value="true" />
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Use of contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.2 - but often indicated by field" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="unique(./use)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointPurpose" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.period" />
+      <short value="Time period when the contact point was/is in use" />
+      <definition value="Time period when the contact point was/is in use." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Period" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./useablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StartDate and ./EndDate" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom" />
+      <name value="pager" />
+      <short value="A contact detail for the practitioner" />
+      <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address." />
+      <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification." />
+      <requirements value="Need to know how to reach a practitioner." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRT-15, STF-10, ROL-12" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./telecom" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPoints" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.system" />
+      <short value="phone | fax | email | pager | other" />
+      <definition value="Telecommunications form for contact point - what communications system is required to make use of the contact." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="pager" />
+      <condition value="cpt-2" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Telecommunications form for contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-system" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./scheme" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointType" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.value" />
+      <short value="The actual contact point details" />
+      <definition value="The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)." />
+      <comments value="Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value." />
+      <requirements value="Need to support legacy numbers that are not in a tightly controlled format." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="6122765459" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.1 (or XTN.12)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./url" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Value" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.use" />
+      <short value="home | work | temp | old | mobile - purpose of this contact point" />
+      <definition value="Identifies the purpose for the contact point." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc.for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old." />
+      <requirements value="Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="code" />
+      </type>
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Use of contact point" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/contact-point-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XTN.2 - but often indicated by field" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="unique(./use)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ContactPointPurpose" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.telecom.period" />
+      <short value="Time period when the contact point was/is in use" />
+      <definition value="Time period when the contact point was/is in use." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Period" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="N/A" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./useablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StartDate and ./EndDate" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address" />
+      <short value="Where practitioner can be found/visited" />
+      <definition value="The postal address where the practitioner can be found or visited or to which mail can be delivered." />
+      <requirements value="Need to keep track where the practitioner can found during work or for directing mail." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Address" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="ORC-24, STF-11, ROL-11, PRT-14" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./addr" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Addresses" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.use" />
+      <short value="home | work | temp | old - purpose of this address" />
+      <definition value="The purpose of this address." />
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old address etc.for a current/permanent one. Applications can assume that an address is current unless it explicitly says that it is temporary or old." />
+      <requirements value="Allows an appropriate address to be chosen from a list of many." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="work" />
+      <exampleCode value="work" />
+      <isModifier value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="The use of an address" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/address-use" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.7" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="unique(./use)" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./AddressPurpose" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.type" />
+      <short value="postal | physical | both" />
+      <definition value="Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="code" />
+      </type>
+      <fixedCode value="physical" />
+      <exampleCode value="physical" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="The type of an address (physical / postal)" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/address-type" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.18" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="unique(./use)" />
+      </mapping>
+      <mapping>
+        <identity value="vcard" />
+        <map value="address type parameter" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.text" />
+      <short value="Text representation of the address" />
+      <definition value="A full text representation of the address." />
+      <comments value="Structured Address values only" />
+      <requirements value="A renderable, unencoded form." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="137 Nowhere Street, Erewhon 9132" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.1 + XAD.2 + XAD.3 + XAD.4 + XAD.5 + XAD.6" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./formatted" />
+      </mapping>
+      <mapping>
+        <identity value="vcard" />
+        <map value="address label parameter" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.line" />
+      <slicing>
+        <description value="Sliced by position - 1 and 2" />
+        <ordered value="true" />
+        <rules value="closed" />
+      </slicing>
+      <short value="Street name, number, direction &amp; P.O. Box etc." />
+      <definition value="This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information." />
+      <requirements value="home | work | temp | old - purpose of this address." />
+      <min value="0" />
+      <max value="2" />
+      <isSummary value="true" />
+    </element>
+    <element>
+      <path value="Practitioner.address.line" />
+      <name value="no name" />
+      <label value="Address Line 1" />
+      <short value="Street name, number, direction &amp; P.O. Box etc." />
+      <definition value="This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information." />
+      <requirements value="home | work | temp | old - purpose of this address." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="920 Second Ave S" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="AD.part[parttype = AL]" />
+      </mapping>
+      <mapping>
+        <identity value="vcard" />
+        <map value="street" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StreetAddress (newline delimitted)" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.line" />
+      <name value="no name" />
+      <label value="Address line 2" />
+      <short value="Street name, number, direction &amp; P.O. Box etc." />
+      <definition value="This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information." />
+      <requirements value="home | work | temp | old - purpose of this address." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Suite 400" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="AD.part[parttype = AL]" />
+      </mapping>
+      <mapping>
+        <identity value="vcard" />
+        <map value="street" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StreetAddress (newline delimitted)" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.city" />
+      <label value="City" />
+      <short value="Name of city, town etc." />
+      <definition value="The name of the city, town, village or other community or delivery center." />
+      <alias value="Municpality" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Minneapolis" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.3" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="AD.part[parttype = CTY]" />
+      </mapping>
+      <mapping>
+        <identity value="vcard" />
+        <map value="locality" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Jurisdiction" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.district" />
+      <short value="District name (aka county)" />
+      <definition value="The name of the administrative area (county)." />
+      <comments value="District is sometimes known as county, but in some regions 'county' in used in place of city (municipality), so county name should be conveyed in city instead." />
+      <alias value="County" />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Madison" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.9" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="AD.part[parttype = CNT | CPA]" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.state" />
+      <label value="State" />
+      <short value="Sub-unit of country (abbreviations ok)" />
+      <definition value="Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes)." />
+      <alias value="Province" />
+      <alias value="Territory" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="MN" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="AD.part[parttype = STA]" />
+      </mapping>
+      <mapping>
+        <identity value="vcard" />
+        <map value="region" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Region" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.postalCode" />
+      <label value="ZIP code" />
+      <short value="Postal code for area" />
+      <definition value="A postal code designating a region defined by the postal service." />
+      <alias value="Zip" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="55402" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="AD.part[parttype = ZIP]" />
+      </mapping>
+      <mapping>
+        <identity value="vcard" />
+        <map value="code" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./PostalIdentificationCode" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.country" />
+      <short value="Country (can be ISO 3166 3 letter code)" />
+      <definition value="Country - a nation as commonly understood or generally accepted." />
+      <comments value="Assumed to be USA&#xD;&#xA;" />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="string" />
+      </type>
+      <defaultValueString value="US" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.6" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="AD.part[parttype = CNT]" />
+      </mapping>
+      <mapping>
+        <identity value="vcard" />
+        <map value="country" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Country" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.address.period" />
+      <short value="Time period when address was/is in use" />
+      <definition value="Time period when address was/is in use." />
+      <requirements value="Allows addresses to be placed in historical context." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Period" />
+      </type>
+      <examplePeriod>
+        <start value="2010-03-23" />
+        <end value="2010-07-01" />
+      </examplePeriod>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="XAD.12 / XAD.13 + XAD.14" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./StartDate and ./EndDate" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.photo" />
+      <short value="Image of the person" />
+      <definition value="Image of the person." />
+      <comments value="Not supported in provider registries&#xD;&#xA;" />
+      <requirements value="Many EHR systems have the capability to capture an image of patients and personnel. Fits with newer social media usage too." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Attachment" />
+      </type>
+      <mapping>
+        <identity value="rim" />
+        <map value="./subjectOf/ObservationEvent[code=&quot;photo&quot;]/value" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./ImageURI (only supports the URI reference)" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.practitionerRole" />
+      <short value="Roles/organizations the practitioner is associated with" />
+      <definition value="The list of roles/organizations that the practitioner is associated with." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="BackboneElement" />
+      </type>
+      <mustSupport value="true" />
+      <mapping>
+        <identity value="rim" />
+        <map value=".(Role)" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.practitionerRole.managingOrganization" />
+      <short value="Organization where the roles are performed" />
+      <definition value="The organization where the Practitioner performs the roles associated." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <mustSupport value="true" />
+      <mapping>
+        <identity value="rim" />
+        <map value="scopingOrganization" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.practitionerRole.managingOrganization.reference" />
+      <name value="Organization ID" />
+      <short value="Relative, internal or absolute URL reference" />
+      <definition value="A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources." />
+      <comments value="Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure &quot;/[type]/[id]&quot; then it should be assumed that the reference is to a FHIR RESTful server." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Organization/32029" />
+      <condition value="ref-1" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.practitionerRole.managingOrganization.display" />
+      <name value="Clinic name" />
+      <short value="Common Name of Organization" />
+      <definition value="Plain text narrative that identifies the resource in addition to the resource reference." />
+      <comments value="This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Directory46 Clinic" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.practitionerRole.specialty" />
+      <short value="Specific specialty of the practitioner" />
+      <definition value="Specific specialty of the practitioner." />
+      <comments value="Specialty can be coded using AMA codes, or other codes as desired&#xD;&#xA;" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <binding>
+        <strength value="example" />
+        <description value="Specific specialty associated with the agency" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/practitioner-specialty" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="PRA-5" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="indirectAuthority/QualifiedEntity[code &lt; Speciality]/code" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Specialty" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.practitionerRole.specialty.text" />
+      <short value="Plain text representation of the concept" />
+      <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user." />
+      <comments value="Very often the text is the same as a displayName of one of the codings." />
+      <requirements value="The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="string" />
+      </type>
+      <exampleString value="Doctor" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="C*E.9. But note many systems use C*E.2 for this" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./originalText[mediaType/code=&quot;text/plain&quot;]/data" />
+      </mapping>
+      <mapping>
+        <identity value="orim" />
+        <map value="fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.practitionerRole.period" />
+      <short value="The period during which the practitioner is authorized to perform in these role(s)" />
+      <definition value="The period during which the person is authorized to act as a practitioner in these role(s) for the organization." />
+      <requirements value="Even after the agencies is revoked, the fact that it existed must still be recorded." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="Period" />
+      </type>
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="PRD-8/9 / PRA-5.4" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./effectiveTime" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="(ServD maps Practitioners and Organizations via another entity, so this concept is not available)" />
+      </mapping>
+      <mapping>
+        <identity value="w5" />
+        <map value="when.done" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.practitionerRole.period.start" />
+      <label value="Active Start Time" />
+      <short value="Starting time with inclusive boundary" />
+      <definition value="The start of the period. The boundary is inclusive." />
+      <comments value="If the low element is missing, the meaning is that the low boundary is not known." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <exampleDateTime value="2099-12-31T11:00:00+11:00" />
+      <condition value="per-1" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="DR.1" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./low" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.practitionerRole.period.end" />
+      <label value="Active End Time" />
+      <short value="End time with inclusive boundary, if not ongoing" />
+      <definition value="The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />
+      <comments value="The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has a end value of 2012-02-03." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <meaningWhenMissing value="If the end of the period is missing, it means that the period is ongoing" />
+      <exampleDateTime value="2013-02-22T04:25:00+11:00" />
+      <condition value="per-1" />
+      <mustSupport value="true" />
+      <isSummary value="true" />
+      <mapping>
+        <identity value="v2" />
+        <map value="DR.2" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./high" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.qualification" />
+      <short value="Qualifications obtained by training and certification" />
+      <definition value="Qualifications obtained by training and certification." />
+      <comments value="not supported for Provider Registry&#xD;&#xA;" />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="BackboneElement" />
+      </type>
+      <mapping>
+        <identity value="v2" />
+        <map value="CER?" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./indirectAuthority/QualifiedEntity[code &lt; qualifiedEntity]" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Qualifications" />
+      </mapping>
+    </element>
+    <element>
+      <path value="Practitioner.communication" />
+      <short value="A language the practitioner is able to use in patient communication" />
+      <definition value="A language the practitioner is able to use in patient communication." />
+      <comments value="The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type." />
+      <requirements value="Knowing which language a practitioner speaks can help in facilitating communication with patients." />
+      <min value="0" />
+      <max value="0" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="A human language." />
+        <valueSetUri value="http://tools.ietf.org/html/bcp47" />
+      </binding>
+      <mapping>
+        <identity value="v2" />
+        <map value="PID-15, NK1-20, LAN-2" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value="./languageCode" />
+      </mapping>
+      <mapping>
+        <identity value="servd" />
+        <map value="./Languages.LanguageSpokenCode" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

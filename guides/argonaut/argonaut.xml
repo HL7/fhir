@@ -22,6 +22,12 @@
       <valueUri value="careplan-argonaut-profile-spreadsheet.xml"/>
     </extension>
     <name value="base"/>
+    <resource>
+      <purpose value="profile"/>
+      <name value="Provider Directory Practitioner Profile"/>
+      <acronym value="argo-pd"/>
+      <sourceUri value="argonaut-provider.xml"/>
+    </resource>    
   </package>
   <page>
     <source value="argonaut.html"/>
